@@ -128,17 +128,18 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 @media(max-width:1120px){.v22Home{grid-template-columns:1fr}.v22SidePanels{grid-template-columns:1fr 1fr}.v22ExerciseGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.v20Grid{grid-template-columns:1fr}.v20Aside{grid-template-columns:1fr 1fr}.v20Hero{height:260px}}
 @media(max-width:720px){main{max-width:100%;padding:10px 10px 96px}.v22Home{gap:12px}.v22HeroPanel,.v22DayExercises,.v22InfoCard{border-radius:22px;padding:14px}.v22HeroPanel .helloRow h2{font-size:26px}.v22TodayCompact{grid-template-columns:76px 1fr}.v22TodayCompact .ring{width:72px;height:72px}.v22TodayCompact .ring span{width:54px;height:54px}.v22SidePanels{grid-template-columns:1fr}.v22Areas{display:none}.v22ExerciseGrid{grid-template-columns:1fr}.v22PhotoWrap{height:150px}.v20Hero{height:220px}.v20Aside{grid-template-columns:1fr}.v20TitleRow h2{font-size:34px}.v20Content{padding:12px}.v20Flow{grid-template-columns:1fr}.v20Arrow{transform:rotate(90deg)}}
 
-/* v23: cviky na počet bez časovače + série */
+/* v25: cviky na počet opravdu bez časovače + série */
 .setPill{
   display:inline-flex;align-items:center;justify-content:center;
   margin:8px auto 10px;padding:8px 16px;border-radius:999px;
   background:#e8fbf8;border:1px solid var(--line);font-weight:900;color:var(--p);
 }
 .repBox{
-  margin:14px auto;padding:18px 22px;max-width:280px;border-radius:24px;
-  background:linear-gradient(135deg,#ecfffb,#ffffff);border:1px solid var(--line);
-  text-align:center;box-shadow:var(--shadow);
+  margin:16px auto 12px; padding:16px 22px; max-width:420px; border-radius:20px;
+  background:#f2fffc; border:1px solid var(--line); text-align:center; box-shadow:none;
 }
-.repBox b{display:block;font-size:34px;color:var(--p);line-height:1;margin-bottom:6px}
-.repBox span{display:block;color:var(--muted);font-weight:800}
+.repBox b{display:block;font-size:44px;color:var(--p);line-height:1;margin:4px 0 4px}
+.repBox span{display:block;color:var(--muted);font-weight:900;text-transform:uppercase;letter-spacing:.04em;font-size:12px}
+.repBox small{display:block;color:var(--muted);font-weight:700;font-size:13px}
+.noTimerBox{border-left:6px solid var(--p)}
 .trainDose{font-weight:900}

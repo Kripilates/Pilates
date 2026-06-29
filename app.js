@@ -361,7 +361,11 @@ function timerCircleStyle(){
   const deg=360-(Math.max(0,workoutLeft)/Math.max(1,total))*360;
   return `conic-gradient(var(--p) ${deg}deg, var(--p2) ${deg}deg)`;
 }
-function phaseLabel(){return workoutPhase==='prep'?'Připrav se':workoutPhase==='rest'?'Pauza':'Cvič';}
+function phaseLabel(){
+  const dose=data.days[currentDay].items[currentExercise]?.[1]||'';
+  if(workoutPhase==='work' && !isTimedDose(dose)) return 'Cvič bez časovače';
+  return workoutPhase==='prep'?'Připrav se':workoutPhase==='rest'?'Pauza':'Cvič';
+}
 function showAutoTrain(){
   const dayObj=data.days[currentDay];
   if(!dayObj.items.length){day(currentDay);return;}
@@ -374,9 +378,9 @@ function showAutoTrain(){
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${doseLabel(dose||ex.dose)}</div>${setPill(dose||ex.dose)}
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
-    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="timerCircle" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div>`:`<div class="repBox"><b>${dose||ex.dose}</b><span>proveď pomalu bez časovače</span></div>`}
+    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="timerCircle" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div>`:`<div class="repBox noTimerBox"><span>Opakování v této sérii</span><b>${dose||ex.dose}</b><small>Po odcvičení klikni na Hotovo série. Žádný odpočet tu neběží.</small></div>`}
     <div class="detailMini"><b>Teď:</b> ${ex.how[0]}</div>
-    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary" data-action="set-complete-auto">Hotovo série</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">Přeskočit</button><button data-action="info" data-ex="${k}">Popis</button></div>
+    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary" data-action="set-complete-auto">Hotovo série ${workoutCurrentSet}/${workoutTotalSets}</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">Přeskočit</button><button data-action="info" data-ex="${k}">Popis</button></div>
   </section>`;
 }
 function tickAuto(){

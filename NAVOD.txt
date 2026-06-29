@@ -1,2 +1,1 @@
-v24 – oprava: cviky na opakování jsou bez časovače, mají 3 série.
-Po nahrání dej Ctrl+F5, případně v mobilu obnovit stránku / vymazat data webu.
+v25: Cviky na opakování jsou bez kruhového časovače. Zobrazuje se opakování, série a tlačítko Hotovo série.
