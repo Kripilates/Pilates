@@ -184,17 +184,19 @@ function daySummary(di){
 }
 
 function exCard(k,dose,d,i){
-  const ex=data.exercises[k],ok=d!==undefined&&done(d,i);
+  const ex=data.exercises[k],ok=d!==undefined&&done(d,i),meta=exMeta(k);
   const rep=dose||ex.dose||'';
-  return `<article class="exercise v9exercise ${ok?'done':''}" data-day="${d??''}" data-index="${i??''}" data-ex="${k}">
+  return `<article class="exercise v18exercise ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
     <div class="thumbWrap">${img(k,'thumb')}<span class="doneMark">${ok?'✓':''}</span></div>
     <div class="exBody">
       <div class="exTop"><h3>${ex.name}</h3><span class="repBadge">${rep}${ok?' ✓':''}</span></div>
       <p class="muted">${ex.how[0]}</p>
-      <div class="metaLine"><span>${exMeta(k).area}</span><span>${exMeta(k).diff}</span><span>${exMeta(k).knee}</span></div>
+      <div class="metaLine"><span>${meta.area}</span><span>${meta.diff}</span><span>${meta.knee}</span></div>
+      <button class="detailBtn" data-action="info" data-ex="${k}">Otevřít detail</button>
     </div>
   </article>`;
 }
+
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
@@ -426,60 +428,66 @@ function doneNext(mark=true){
 }
 function info(k){
   const ex=data.exercises[k], meta=exMeta(k);
-  const steps=(ex.how&&ex.how.length?ex.how:[]).slice(0,3);
-  while(steps.length<3)steps.push(steps[steps.length-1]||'Drž plynulý, kontrolovaný pohyb bez bolesti.');
+  const steps=(ex.how&&ex.how.length?ex.how:[]).slice(0,4);
+  while(steps.length<4)steps.push(steps[steps.length-1]||'Drž plynulý, kontrolovaný pohyb bez bolesti.');
   const dose=(ex.dose||'');
-  app.innerHTML=`<section class="exerciseDetailPage">
-    <div class="detailNav"><button data-action="train-current">← Zpět k tréninku</button><button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
-    <section class="detailHero">
-      <div class="heroImageWrap">${img(k,'heroExerciseImg')}</div>
-      <div class="heroText">
+  const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
+  app.innerHTML=`<section class="exerciseDetailPage v18Detail">
+    <div class="detailNav">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
+
+    <section class="studioDetailHero">
+      <div class="studioPhoto">${img(k,'studioHeroImg')}</div>
+      <div class="studioInfo">
         <p class="eyebrow">Detail cviku</p>
         <h2>${ex.name}</h2>
-        <p class="muted heroLead">${ex.how[0]||'Cvič pomalu, čistě a bez bolesti.'}</p>
-        <div class="detailBadges"><span>${dose||'dle plánu'}</span><span>${meta.diff}</span><span>${meta.area}</span></div>
+        <p class="studioLead">${ex.focus||ex.how[0]||'Cvič pomalu, čistě a bez bolesti.'}</p>
+        <div class="studioBadges"><span>${dose||'dle plánu'}</span><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
+        <button class="primary studioStartBtn" data-action="train-current">▶ Zpět a cvičit</button>
       </div>
     </section>
 
-    <section class="detailGrid">
-      <div class="detailMain">
-        <div class="proCard">
-          <div class="sectionHead"><h3>Průběh cviku</h3><span>3 kroky</span></div>
-          <div class="flowSteps">
-            ${steps.map((x,i)=>`<article><b>${i+1}</b><p>${x}</p></article>`).join('')}
+    <section class="studioLayout">
+      <div class="studioMain">
+        <div class="studioCard flowCard">
+          <div class="sectionHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
+          <div class="miniFlow">
+            ${steps.slice(0,3).map((x,i)=>`<article><div class="miniPic">${img(k,'miniFlowImg')}</div><b>${i+1}</b><p>${x}</p></article>`).join('')}
           </div>
         </div>
-        <div class="proCard">
-          <div class="sectionHead"><h3>Tipy pro správné provedení</h3><span>technika</span></div>
-          <ul class="checkList">
-            <li>Drž pohyb pomalý a kontrolovaný, bez švihu.</li>
-            <li>Dýchej plynule, nezadržuj dech.</li>
-            <li>Jakmile se zhorší technika, zmenši rozsah.</li>
-          </ul>
-        </div>
-        <div class="proCard dangerPro">
-          <div class="sectionHead"><h3>Časté chyby</h3><span>hlídej si</span></div>
-          <ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}</ul>
+
+        <div class="studioSplit">
+          <div class="studioCard goodCard">
+            <div class="sectionHead"><h3>Tipy pro správné provedení</h3></div>
+            <ul class="checkList">
+              <li>Pohyb veď pomalu, bez švihu a bez honění opakování.</li>
+              <li>Drž žebra stažená a břicho aktivní, hlavně u core cviků.</li>
+              <li>U hýždí tlač přes paty a nahoře krátce stáhni hýždě.</li>
+              <li>Když se ozve koleno nebo kyčel, zmenši rozsah.</li>
+            </ul>
+          </div>
+          <div class="studioCard dangerPro">
+            <div class="sectionHead"><h3>Časté chyby</h3></div>
+            <ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Snaha udělat větší rozsah za cenu prohnutých beder.</li></ul>
+          </div>
         </div>
       </div>
 
-      <aside class="detailSide">
-        <div class="proCard muscleCard">
+      <aside class="studioSide">
+        <div class="studioCard muscleCardReal">
           <div class="sectionHead"><h3>Zapojené svaly</h3></div>
-          <div class="muscleFigure"><span></span><span></span></div>
+          <div class="bodyMap"><div class="bodySilhouette"><i></i><i></i><i></i></div></div>
           <ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul>
         </div>
-        <div class="proCard">
+        <div class="studioCard breathCard">
           <div class="sectionHead"><h3>Dech a tempo</h3></div>
           <div class="breathRows"><p><b>Tempo</b><span>${meta.tempo}</span></p><p><b>Dech</b><span>${meta.breath}</span></p></div>
         </div>
-        <div class="proCard coachPro">
+        <div class="studioCard coachPro">
           <div class="sectionHead"><h3>Tip trenéra</h3></div>
           <p>Pomalý, menší rozsah je lepší než rychlé švihání. Když cvik cítíš hlavně v kyčlích nebo bedrech, uber rozsah a víc zpevni břicho.</p>
         </div>
       </aside>
     </section>
-    <button class="primary stickyDone" data-action="train-current">Zpět a cvičit</button>
   </section>`;
 }
 function library(){
@@ -578,6 +586,7 @@ app.addEventListener('click',e=>{
   if(a==='mark-today'){markToday();return calendar();}
   if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar();}
   if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');return calendar();}
+  if(a==='info'||t.dataset.ex)return info(t.dataset.ex);
   if(a==='day'||(t.classList.contains('exercise')&&t.dataset.day!==''))return day(Number(t.dataset.day));
   if(a==='start')return startTraining(Number(t.dataset.day),false);
   if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
@@ -591,7 +600,6 @@ app.addEventListener('click',e=>{
   if(a==='rest')return restScreen();
   if(a==='train-current')return workoutAuto?showAutoTrain():showTrain();
   if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex);}
-  if(a==='info'||t.dataset.ex)return info(t.dataset.ex);
 });
 app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});
 $('nav-home').onclick=home;
