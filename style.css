@@ -143,3 +143,15 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 .repBox small{display:block;color:var(--muted);font-weight:700;font-size:13px}
 .noTimerBox{border-left:6px solid var(--p)}
 .trainDose{font-weight:900}
+
+
+/* v26: opakování bez časovače, odpočinek až po dokončení kola */
+.roundPill{font-weight:800;background:rgba(30,150,138,.12);color:var(--p);border:1px solid rgba(30,150,138,.18)}
+.noTimerBox{border:1px solid rgba(30,150,138,.18);background:linear-gradient(180deg,#f8fffd,#ffffff);border-radius:24px;padding:18px 16px;text-align:center;box-shadow:0 10px 26px rgba(20,60,55,.08);max-width:360px;margin:18px auto}
+.noTimerBox span{display:block;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;margin-bottom:6px}
+.noTimerBox b{display:block;font-size:2rem;color:var(--ink);line-height:1.15}
+.noTimerBox small{display:block;color:var(--muted);max-width:290px;margin:8px auto 0;line-height:1.35}
+.restBlock{display:grid;place-items:center;gap:8px;margin:18px auto;padding:16px;border-radius:24px;background:linear-gradient(180deg,#f1fbf8,#fff);border:1px solid rgba(30,150,138,.16);max-width:360px;text-align:center}
+.restLabel{font-weight:900;color:var(--ink)}
+.timerCircle.restOnly{width:132px;height:132px;margin:8px auto}
+.autoTrain .row .primary{min-width:170px}

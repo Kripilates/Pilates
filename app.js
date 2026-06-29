@@ -147,7 +147,7 @@ function doseLabel(dose){
 }
 function setPill(dose){
   if(isTimedDose(dose))return '';
-  return `<div class="setPill">Série ${workoutCurrentSet}/${workoutTotalSets}</div>`;
+  return `<div class="setPill roundPill">Kolo ${workoutCurrentSet} z ${workoutTotalSets}</div>`;
 }
 function beep(freq=660,dur=90){
   try{
@@ -356,7 +356,7 @@ function startTraining(di,auto=false){
 
 function timerCircleStyle(){
   const [k,dose]=data.days[currentDay].items[currentExercise]||[];
-  const total=workoutPhase==='prep'?5:workoutPhase==='rest'?restSeconds(k,dose):workSeconds(dose);
+  const total=workoutPhase==='prep'?5:(workoutPhase==='rest'||workoutPhase==='roundRest')?restSeconds(k,dose):workSeconds(dose);
   if(total<=0)return 'var(--p2)';
   const deg=360-(Math.max(0,workoutLeft)/Math.max(1,total))*360;
   return `conic-gradient(var(--p) ${deg}deg, var(--p2) ${deg}deg)`;
@@ -364,7 +364,8 @@ function timerCircleStyle(){
 function phaseLabel(){
   const dose=data.days[currentDay].items[currentExercise]?.[1]||'';
   if(workoutPhase==='work' && !isTimedDose(dose)) return 'Cvič bez časovače';
-  return workoutPhase==='prep'?'Připrav se':workoutPhase==='rest'?'Pauza':'Cvič';
+  if(workoutPhase==='roundRest') return 'Odpočinek mezi koly';
+  return workoutPhase==='prep'?'Připrav se':workoutPhase==='rest'?'Pauza před dalším cvikem':'Cvič';
 }
 function showAutoTrain(){
   const dayObj=data.days[currentDay];
@@ -378,9 +379,9 @@ function showAutoTrain(){
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${doseLabel(dose||ex.dose)}</div>${setPill(dose||ex.dose)}
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
-    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="timerCircle" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div>`:`<div class="repBox noTimerBox"><span>Opakování v této sérii</span><b>${dose||ex.dose}</b><small>Po odcvičení klikni na Hotovo série. Žádný odpočet tu neběží.</small></div>`}
-    <div class="detailMini"><b>Teď:</b> ${ex.how[0]}</div>
-    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary" data-action="set-complete-auto">Hotovo série ${workoutCurrentSet}/${workoutTotalSets}</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">Přeskočit</button><button data-action="info" data-ex="${k}">Popis</button></div>
+    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="restBlock"><div class="restLabel">${workoutPhase==='roundRest'?'Odpočinek před dalším kolem':workoutPhase==='rest'?'Odpočinek před dalším cvikem':'Připrav se'}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='roundRest'?'Za chvíli pokračuje další kolo.':'Můžeš pauzu přeskočit.'}</small></div>`:`<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${dose||ex.dose}</b><small>Odcvič pomalu a potom klikni na Dokončeno. Časovač se spustí až při odpočinku.</small></div>`}
+    <div class="detailMini"><b>Teď:</b> ${workoutPhase==='roundRest'||workoutPhase==='rest'?'Odpočiň si, uvolni ramena a připrav se na pokračování.':ex.how[0]}</div>
+    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">${workoutPhase==='roundRest'||workoutPhase==='rest'?'Přeskočit pauzu':'Přeskočit'}</button><button data-action="info" data-ex="${k}">Popis</button></div>
   </section>`;
 }
 function tickAuto(){
@@ -406,12 +407,26 @@ function advanceAutoPhase(){
     return;
   }
   if(workoutPhase==='work'){
-    if(!isTimedDose(dose) && workoutCurrentSet<workoutTotalSets){workoutCurrentSet++; showAutoTrain(); return;}
+    if(!isTimedDose(dose) && workoutCurrentSet<workoutTotalSets){
+      workoutPhase='roundRest';
+      workoutLeft=restSeconds(k,dose);
+      showAutoTrain();
+      startWorkoutTimer();
+      return;
+    }
     setDone(currentDay,currentExercise);
     workoutCurrentSet=1;
     const max=data.days[currentDay].items.length-1;
     if(currentExercise>=max){clearInterval(timer);doneNext(false);return;}
     workoutPhase='rest';workoutLeft=restSeconds(k,dose);showAutoTrain();startWorkoutTimer();return;
+  }
+  if(workoutPhase==='roundRest'){
+    workoutCurrentSet++;
+    workoutPhase='work';
+    workoutLeft=workSeconds(dose);
+    showAutoTrain();
+    if(isTimedDose(dose))startWorkoutTimer();
+    return;
   }
   if(workoutPhase==='rest'){
     currentExercise++;workoutPhase='work';workoutCurrentSet=1;
@@ -422,10 +437,24 @@ function advanceAutoPhase(){
   }
 }
 function skipAuto(){
+  if(workoutPhase==='roundRest'){
+    const dose=data.days[currentDay].items[currentExercise][1];
+    workoutCurrentSet++;
+    workoutPhase='work';
+    workoutLeft=workSeconds(dose);
+    showAutoTrain();
+    if(isTimedDose(dose))startWorkoutTimer();
+    return;
+  }
   if(workoutPhase==='work')advanceAutoPhase();
-  else if(workoutPhase==='rest'){currentExercise++;workoutPhase='work';workoutCurrentSet=1;const dose=data.days[currentDay].items[currentExercise][1];workoutLeft=workSeconds(dose);showAutoTrain();if(isTimedDose(dose))startWorkoutTimer();}
+  else if(workoutPhase==='rest'){
+    currentExercise++;workoutPhase='work';workoutCurrentSet=1;
+    const dose=data.days[currentDay].items[currentExercise][1];
+    workoutLeft=workSeconds(dose);showAutoTrain();if(isTimedDose(dose))startWorkoutTimer();
+  }
   else {workoutPhase='work';workoutCurrentSet=1;const dose=data.days[currentDay].items[currentExercise][1];workoutLeft=workSeconds(dose);showAutoTrain();if(isTimedDose(dose))startWorkoutTimer();}
 }
+
 
 function showTrain(){
   clearInterval(timer);
@@ -441,7 +470,7 @@ function showTrain(){
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
     <div class="trainHint">Klepni na obrázek pro podrobný popis.</div>
     <div class="detailMini"><b>Rychle:</b> ${ex.how[0]}</div>
-    <button class="primary doneBtn" data-action="set-complete-manual">${isTimedDose(dose||ex.dose)?'Hotovo + další':'Hotovo série'}</button>
+    <button class="primary doneBtn" data-action="set-complete-manual">${isTimedDose(dose||ex.dose)?'Hotovo + další':'✓ Dokončeno'}</button>
     <div class="row"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Popis</button></div>
   </section>`;
 }
