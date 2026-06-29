@@ -1,0 +1,650 @@
+(function(){
+const app=document.getElementById('app'),data=window.PB40_DATA;
+let currentDay=0,currentExercise=0,timer=null,lastMode='home';
+let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false;
+let workoutSet=0, workoutTotalSets=3;
+if(!data||!data.days||!data.exercises){
+  app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
+}
+const $=id=>document.getElementById(id);
+const key=(d,i)=>`pb40-d${d}-e${i}`; // SAME KEYS as V3_full: progress stays
+const done=(d,i)=>localStorage.getItem(key(d,i))==='1';
+const setDone=(d,i)=>{localStorage.setItem(key(d,i),'1');markToday();};
+const favKey=k=>`pb40-fav-${k}`;
+const isFav=k=>localStorage.getItem(favKey(k))==='1';
+const toggleFav=k=>localStorage.setItem(favKey(k),isFav(k)?'0':'1');
+const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const logKey=d=>`pb40-log-${d}`;
+const todayKey=()=>dateKey(new Date());
+function markToday(){localStorage.setItem(logKey(todayKey()),'1');}
+function hasLog(d){return localStorage.getItem(logKey(d))==='1';}
+function loggedDates(){
+  const out=[];
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&k.startsWith('pb40-log-')&&localStorage.getItem(k)==='1')out.push(k.replace('pb40-log-',''));
+  }
+  return out.sort();
+}
+function streak(){
+  const set=new Set(loggedDates());
+  let n=0,d=new Date();
+  while(set.has(dateKey(d))){n++;d.setDate(d.getDate()-1);} 
+  return n;
+}
+function monthName(d){return d.toLocaleDateString('cs-CZ',{month:'long',year:'numeric'});}
+const measureKey='pb40-measurements';
+function measurements(){try{return JSON.parse(localStorage.getItem(measureKey)||'[]')}catch(e){return []}}
+function saveMeasurements(arr){localStorage.setItem(measureKey,JSON.stringify(arr));}
+function fmtNum(v){return (v===undefined||v===null||v==='')?'—':String(v).replace('.',',')}
+function latestMeasurement(){const arr=measurements();return arr.length?arr[arr.length-1]:null}
+function firstMeasurement(){const arr=measurements();return arr.length?arr[0]:null}
+function deltaText(a,b,unit='cm'){if(!a||!b)return '—';const d=(Number(b)-Number(a));if(!Number.isFinite(d))return '—';return (d>0?'+':'')+d.toFixed(1).replace('.',',')+' '+unit;}
+
+function num(v){const n=Number(String(v??'').replace(',','.'));return Number.isFinite(n)?n:null;}
+function trendClass(start,end,lowerBetter=true){const a=num(start),b=num(end);if(a===null||b===null||a===b)return 'trendNeutral';const good=lowerBetter?b<a:b>a;return good?'trendGood':'trendBad';}
+function sparkChart(arr,field,label,unit=''){
+  const pts=arr.map(m=>({date:m.date,value:num(m[field])})).filter(x=>x.value!==null);
+  if(pts.length<2)return `<div class="chartBox"><div class="chartTitle"><span>${label}</span><span>aspoň 2 záznamy</span></div><p class="muted">Graf se zobrazí, jakmile uložíš minimálně dvě měření.</p></div>`;
+  const w=320,h=150,pad=28;
+  const vals=pts.map(p=>p.value),min=Math.min(...vals),max=Math.max(...vals),range=(max-min)||1;
+  const xy=pts.map((p,i)=>{
+    const x=pad+(i/(pts.length-1))*(w-pad*2);
+    const y=pad+(1-(p.value-min)/range)*(h-pad*2);
+    return {...p,x,y};
+  });
+  const path=xy.map((p,i)=>`${i?'L':'M'}${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+  const first=pts[0].value,last=pts[pts.length-1].value,d=last-first;
+  const delta=(d>0?'+':'')+d.toFixed(1).replace('.',',')+(unit?' '+unit:'');
+  const cls=trendClass(first,last,true);
+  return `<div class="chartBox"><div class="chartTitle"><span>${label}</span><span class="${cls}">${delta}</span></div>
+    <svg class="chartSvg" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Graf ${label}">
+      <line class="chartGrid" x1="${pad}" y1="${pad}" x2="${w-pad}" y2="${pad}"></line>
+      <line class="chartGrid" x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}"></line>
+      <text class="chartLabel" x="4" y="${pad+4}">${fmtNum(max.toFixed(1))}</text>
+      <text class="chartLabel" x="4" y="${h-pad+4}">${fmtNum(min.toFixed(1))}</text>
+      <path class="chartLine" d="${path}"></path>
+      ${xy.map(p=>`<circle class="chartPoint" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4"><title>${p.date}: ${fmtNum(p.value)} ${unit}</title></circle>`).join('')}
+    </svg>
+    <p class="muted">${pts[0].date} → ${pts[pts.length-1].date}</p>
+  </div>`;
+}
+
+const noteKey='pb40-workout-notes';
+function workoutNotes(){try{return JSON.parse(localStorage.getItem(noteKey)||'[]')}catch(e){return []}}
+function saveWorkoutNotes(arr){localStorage.setItem(noteKey,JSON.stringify(arr));}
+function latestNote(){const arr=workoutNotes();return arr.length?arr[arr.length-1]:null}
+function saveWorkoutNote(){
+  const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';
+  const text=document.getElementById('finish-note')?.value?.trim()||'';
+  const arr=workoutNotes();
+  arr.push({date:todayKey(),day:currentDay,title:data.days[currentDay].title,mood,text});
+  saveWorkoutNotes(arr.slice(-60));
+  home();
+}
+function coachHint(){
+  const n=latestNote();
+  if(n&&n.mood==='tough')return 'Včera to bylo těžší. Dnes zmenši rozsah, ale nevynechávej úplně.';
+  if(n&&n.mood==='good')return 'Minule ses cítila dobře. Drž techniku a klidně přidej o trochu větší soustředění.';
+  if(streak()>=3)return 'Máš pěknou sérii. Teď hlavně nepřepálit tempo.';
+  return 'Dnes stačí odcvičit poctivě. Nemusí to být dokonalé.';
+}
+
+function weeklyHint(arr){
+  if(arr.length<2)return 'Ulož první dvě měření a aplikace začne ukazovat trend.';
+  const f=arr[0],l=arr[arr.length-1];
+  const w1=num(f.weight),w2=num(l.weight),p1=num(f.waist),p2=num(l.waist);
+  if(p1!==null&&p2!==null&&p2<p1)return 'Pas jde dolů. To je u zpevnění často lepší ukazatel než samotná váha.';
+  if(w1!==null&&w2!==null&&Math.abs(w2-w1)<=0.5)return 'Váha je stabilní. Sleduj hlavně pas, fotky a pocit v oblečení.';
+  return 'Trend sleduj týdně, ne denně. Jedno měření samo o sobě nic nerozhoduje.';
+}
+
+
+function setNav(a){
+  ['home','days','train','calendar','library','stats','progress'].forEach(n=>{
+    const el=$(`nav-${n}`); if(el) el.classList.toggle('active',n===a);
+  });
+}
+function pct(di){
+  const items=data.days[di].items;
+  if(!items.length)return 100;
+  let n=0;items.forEach((_,i)=>{if(done(di,i))n++});
+  return Math.round(n/items.length*100);
+}
+function countDone(di){let n=0;data.days[di].items.forEach((_,i)=>{if(done(di,i))n++});return n}
+function statsData(){
+  let total=0,complete=0,daysComplete=0;
+  data.days.forEach((d,di)=>{
+    if(d.items.length&&pct(di)===100)daysComplete++;
+    d.items.forEach((_,i)=>{total++;if(done(di,i))complete++});
+  });
+  return{total,complete,daysComplete,percent:total?Math.round(complete/total*100):0};
+}
+function nextDayIndex(){
+  let n=data.days.findIndex((d,i)=>d.items.length&&pct(i)<100);
+  return n<0?0:n;
+}
+function restSeconds(k,dose){
+  const ex=data.exercises[k];
+  if((ex.icon||'')==='🧘') return 8;
+  if((dose||'').includes('/')) return 10;
+  if((dose||'').includes('s')) return 15;
+  return 15;
+}
+function isTimedDose(dose){
+  return /\d+\s*s/.test(String(dose||''));
+}
+function workSeconds(dose){
+  const txt=String(dose||'');
+  const m=txt.match(/(\d+)\s*s/);
+  if(m)return Number(m[1]);
+  return 0;
+}
+function beep(freq=660,dur=90){
+  try{
+    const C=window.AudioContext||window.webkitAudioContext; if(!C)return;
+    const ctx=new C(), o=ctx.createOscillator(), g=ctx.createGain();
+    o.frequency.value=freq;o.connect(g);g.connect(ctx.destination);g.gain.value=.04;o.start();
+    setTimeout(()=>{o.stop();ctx.close();},dur);
+  }catch(e){}
+}
+function img(k,c='thumb',extra=''){
+  const ex=data.exercises[k];
+  return `<img loading="lazy" class="${c}" ${extra} src="${ex.image}?v=20" alt="${ex.name}">`;
+}
+
+function exMeta(k){
+  const ex=data.exercises[k], f=(ex.focus||'').toLowerCase(), icon=ex.icon||'';
+  let area='Technika', diff='Lehké', knee='Šetrné ke kolenům';
+  if(icon==='🍑')area='Hýždě / nohy';
+  if(icon==='🔥')area='Core';
+  if(icon==='💪')area='Záda / ramena';
+  if(icon==='🧘')area='Mobilita';
+  if(['plank','sideplank','hollow','tap','plie','wall'].includes(k))diff='Střední';
+  if(['wall','plie'].includes(k))knee='Pozor na kolena';
+  const tempo = icon==='🧘' ? 'plynule s dechem' : (icon==='🔥' ? '2 s tam / 2 s zpět' : 'pomalu bez švihu');
+  const breath = icon==='🔥' ? 'Vydechni při záběru břicha.' : (icon==='🍑' ? 'Vydechni při zvednutí / zatlačení.' : 'Dýchej klidně do žeber.');
+  const mistakes = [];
+  if(ex.watch) mistakes.push(ex.watch);
+  if(icon==='🔥') mistakes.push('Zadržování dechu a odlepování beder.');
+  else if(icon==='🍑') mistakes.push('Švih místo pomalé kontroly pohybu.');
+  else if(icon==='💪') mistakes.push('Ramena vytažená k uším.');
+  else mistakes.push('Tlačení do bolesti místo jemného rozsahu.');
+  return {area,diff,knee,tempo,breath,mistakes};
+}
+function daySummary(di){
+  const items=data.days[di].items;
+  if(!items.length)return '';
+  const counts={};
+  items.forEach(([k])=>{const a=exMeta(k).area;counts[a]=(counts[a]||0)+1;});
+  const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
+  const minutes=Math.max(18, Math.round(items.length*4.5));
+  const hard=items.some(([k])=>exMeta(k).diff==='Střední');
+  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>${hard?'🔥 Střední':'🟢 Lehké'}</span><span>🎯 ${main}</span></div>`;
+}
+
+function exCard(k,dose,d,i){
+  const ex=data.exercises[k],ok=d!==undefined&&done(d,i);
+  const rep=dose||ex.dose||'';
+  return `<article class="exercise v9exercise ${ok?'done':''}" data-day="${d??''}" data-index="${i??''}" data-ex="${k}">
+    <div class="thumbWrap">${img(k,'thumb')}<span class="doneMark">${ok?'✓':''}</span></div>
+    <div class="exBody">
+      <div class="exTop"><h3>${ex.name}</h3><span class="repBadge">${rep}${ok?' ✓':''}</span></div>
+      <p class="muted">${ex.how[0]}</p>
+      <div class="metaLine"><span>${exMeta(k).area}</span><span>${exMeta(k).diff}</span><span>${exMeta(k).knee}</span></div>
+    </div>
+  </article>`;
+}
+const introKey='pb40-intro-seen-v11';
+
+function exportProgress(){
+  const payload={version:'PB40-v21-github',exportedAt:new Date().toISOString(),items:{}};
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
+  }
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='pilates-body-40-zaloha-pokroku.json';
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),500);
+}
+function importProgressFile(file){
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const payload=JSON.parse(reader.result);
+      const items=payload.items||{};
+      Object.keys(items).forEach(k=>{if(k.startsWith('pb40-'))localStorage.setItem(k,String(items[k]));});
+      alert('Pokrok je načtený.');
+      home();
+    }catch(e){alert('Soubor se nepodařilo načíst.');}
+  };
+  reader.readAsText(file);
+}
+function backupPanel(){
+  return `<section class="card"><h2>Záloha pokroku</h2><p class="muted">Netlify nahrání ti pokrok obvykle nesmaže, pokud zůstane stejná adresa. Jistější je ale občas stáhnout zálohu.</p><div class="moreGrid"><button data-action="export-progress">⬇ Stáhnout zálohu</button><label class="fileImport">⬆ Načíst zálohu<input id="backup-file" type="file" accept="application/json"></label></div></section>`;
+}
+
+function markIntroSeen(){localStorage.setItem(introKey,'1');}
+function intro(){
+  lastMode='intro';setNav('library');
+  app.innerHTML=`<section class="introHero">
+    <div class="introBadge">30 dní</div>
+    <h2>Vítej v Pilates Body 40+</h2>
+    <p>Jemný, ale poctivý plán pro zpevnění břicha, hýždí, stehen a lepší držení těla. Cvičíš doma, většinou 20–30 minut denně.</p>
+    <button class="primary cta" data-action="intro-start">Začít program</button>
+    <button data-action="home">Přeskočit na domů</button>
+  </section>
+  <section class="card programCard"><h2>Jak funguje 30denní plán</h2>
+    <div class="programSteps">
+      <div><b>1</b><h3>6 dní + volno</h3><p class="muted">Každý týden máš 6 tréninků a jeden odpočinkový den.</p></div>
+      <div><b>2</b><h3>Krátce a pravidelně</h3><p class="muted">Nejde o dokonalost. Důležitá je technika, dech a návrat k plánu.</p></div>
+      <div><b>3</b><h3>Sleduj pokrok</h3><p class="muted">Můžeš si ukládat měření pasu, váhy a poznámku po cvičení.</p></div>
+    </div>
+  </section>
+  <section class="card"><h2>Co budeš potřebovat</h2>
+    <div class="needGrid"><span>🧘 Podložku</span><span>💧 Vodu</span><span>⭕ Miniband volitelně</span><span>🏋️ Lehké činky volitelně</span></div>
+    <p class="inlineTip"><b>Pravidlo:</b> necvič přes ostrou bolest. U kolen drž menší rozsah a u hýždí tlač hlavně přes paty.</p>
+  </section>`;
+}
+function programInfo(){
+  lastMode='library';setNav('library');
+  app.innerHTML=`<section class="introHero compactIntro">
+    <div class="introBadge">Pilates Body 40+</div>
+    <h2>O programu</h2>
+    <p>30denní domácí plán pro zpevnění středu těla, hýždí, zadních stehen a držení těla. Je stavěný tak, aby šel cvičit reálně i v běžném dni.</p>
+    <button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button>
+  </section>
+  <section class="card programCard"><h2>Co tě čeká</h2>
+    <div class="programSteps">
+      <div><b>01</b><h3>Hýždě + zadní stehna</h3><p class="muted">Tlak přes paty, pomalejší tempo, žádné švihání.</p></div>
+      <div><b>02</b><h3>Břicho + pas</h3><p class="muted">Core cviky bez tahání krkem a bez prohýbání beder.</p></div>
+      <div><b>03</b><h3>Mobilita a celé tělo</h3><p class="muted">Odlehčené dny, záda, ramena a plynulost pohybu.</p></div>
+    </div>
+  </section>
+  <section class="card"><h2>Jak cvičit správně</h2>
+    <ul class="cleanList"><li>Raději menší rozsah a čistý pohyb než rychlé opakování.</li><li>U hýžďových cviků si hlídej, že necítíš hlavně kyčle.</li><li>U břicha dýchej a drž bedra stabilní.</li><li>Bolest kolen znamená zmenšit rozsah nebo cvik přeskočit.</li></ul>
+  </section>`;
+}
+
+function home(){
+  lastMode='home';setNav('home');
+  const s=statsData(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),lm=latestMeasurement(),ln=latestNote();
+  app.innerHTML=`<section class="programMini"><div><b>30denní program</b><span>Jak cvičit, co čekat a co budeš potřebovat.</span></div><button data-action="program-info">O programu</button></section><section class="dashboardHero">
+    <div class="helloRow"><div><p class="eyebrow">Dnes</p><h2>Pokračuj v tréninku</h2></div><div class="streakBadge">🔥 ${streak()} dní</div></div>
+    <div class="todayCompact">
+      <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
+      <div><h3>${day.title}</h3><p class="muted">${day.note}</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků • ${lm?`pas ${fmtNum(lm.waist)} cm`:'měření zatím není'}</div></div>
+    </div>
+    <button class="primary cta" data-action="start-auto" data-day="${n}">▶ Cvič se mnou</button>
+    <div class="compactActions"><button data-action="day" data-day="${n}">Ruční režim</button><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div>
+  </section>
+  <section class="card coachStrip"><b>Tip pro dnešek</b><p>${coachHint()}</p>${ln?.text?`<small>Poslední poznámka: ${ln.text}</small>`:''}</section>
+  <section class="card"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid">${day.items.slice(0,5).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>`;
+}
+
+function days(){
+  lastMode='days';setNav('days');
+  const groups=[];
+  data.days.forEach((d,di)=>{const wi=Math.floor(di/7);if(!groups[wi])groups[wi]=[];groups[wi].push({d,di});});
+  app.innerHTML=`<section class="card planIntro"><h2>Plán na 30 dní</h2><p class="muted">Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.</p><button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button></section>
+  ${groups.map((g,wi)=>`<section class="card weekBlock"><div class="topLine"><h2>Týden ${wi+1}</h2><span class="pill">${g.filter(x=>x.d.items.length&&pct(x.di)===100).length}/6 hotovo</span></div><div class="dayGrid">${g.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`).join('')}`;
+}
+
+function day(di){
+  lastMode='day';setNav('days');currentDay=di;
+  const day=data.days[di];
+  app.innerHTML=`<section class="dashboardHero dayHero">
+    <div class="topLine"><button data-action="home">← Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
+    <h2>${day.title}</h2><p class="muted">${day.note}</p>
+    ${daySummary(di)}
+    <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
+    ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
+  </section>
+  <section class="card"><h2>Cviky dne</h2><div class="libraryGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`;
+}
+function startTraining(di,auto=false){
+  clearInterval(timer);workoutAuto=auto;workoutRunning=false;workoutPaused=false;workoutPhase='work';
+  workoutSet=0; workoutTotalSets=3;
+  lastMode='train';setNav('train');currentDay=di;
+  const items=data.days[di].items;
+  currentExercise=0;
+  if(auto){workoutLeft=5;workoutPhase='prep';showAutoTrain();startWorkoutTimer();}
+  else showTrain();
+}
+
+function timerCircleStyle(){
+  const [k,dose]=data.days[currentDay].items[currentExercise]||[];
+  const total=workoutPhase==='prep'?5:workoutPhase==='setRest'?setRestSeconds():workoutPhase==='rest'?restSeconds(k,dose):workSeconds(dose);
+  const deg=360-(Math.max(0,workoutLeft)/Math.max(1,total))*360;
+  return `conic-gradient(var(--p) ${deg}deg, var(--p2) ${deg}deg)`;
+}
+function phaseLabel(){
+  if(workoutPhase==='prep')return 'Připrav se';
+  if(workoutPhase==='rest')return 'Pauza';
+  if(workoutPhase==='setRest')return `Série ${workoutSet}/${workoutTotalSets} hotová`;
+  return 'Cvič';
+}
+function setRestSeconds(){return 45;}
+function workoutProgress(dayObj){return Math.round(((workoutSet*dayObj.items.length+currentExercise+1)/(dayObj.items.length*workoutTotalSets))*100);}
+function showAutoTrain(){
+  const dayObj=data.days[currentDay];
+  if(!dayObj.items.length){day(currentDay);return;}
+  const [k,dose]=dayObj.items[currentExercise]||dayObj.items[0],ex=data.exercises[k];
+  const timed=isTimedDose(dose);
+  const progress=workoutProgress(dayObj);
+  const isRepWork=workoutPhase==='work'&&!timed;
+  const timerHtml = isRepWork
+    ? `<div class="repCircle"><span>${dose||ex.dose}</span><small>odcvič svým tempem</small></div>`
+    : `<div class="timerCircle" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div>`;
+  const primary = isRepWork
+    ? `<button class="primary" data-action="rep-done-auto">Hotovo</button>`
+    : `<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`;
+  app.innerHTML=`<section class="card fullTrain autoTrain">
+    <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">${workoutPhase==='setRest'?`Hotovo ${workoutSet}/${workoutTotalSets}`:`Série ${workoutSet+1}/${workoutTotalSets} • cvik ${currentExercise+1}/${dayObj.items.length}`}</span></div>
+    <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
+    <div class="phasePill">${phaseLabel()}</div>
+    <h2 class="trainName">${workoutPhase==='setRest'?'Pauza mezi sériemi':ex.name}</h2>
+    <div class="trainDose">${workoutPhase==='setRest'?'Další série začne za chvíli':(dose||ex.dose)}</div>
+    ${workoutPhase==='setRest'?'<div class="setRestBox">Napij se, uvolni ramena a připrav se znovu od prvního cviku.</div>':img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
+    ${timerHtml}
+    <div class="detailMini"><b>${isRepWork?'Úkol':'Teď'}:</b> ${isRepWork?'Počet opakování se neodpočítává. Až docvičíš, klepni na Hotovo.':(workoutPhase==='setRest'?'Krátká pauza před další sérií.':ex.how[0])}</div>
+    <div class="row">${primary}<button data-action="skip-auto">Přeskočit</button>${workoutPhase==='setRest'?'':`<button data-action="info" data-ex="${k}">Popis</button>`}</div>
+  </section>`;
+}
+function tickAuto(){
+  if(workoutPaused)return;
+  const [k,dose]=data.days[currentDay].items[currentExercise]||[];
+  if(workoutPhase==='work'&&!isTimedDose(dose))return;
+  workoutLeft--;
+  if(workoutLeft<=3&&workoutLeft>0)beep(760,80);
+  if(workoutLeft<=0){beep(workoutPhase==='work'?980:620,150);advanceAutoPhase();return;}
+  const el=document.getElementById('autoTimer'); if(el)el.textContent=workoutLeft;
+  const circle=document.querySelector('.timerCircle'); if(circle)circle.style.background=timerCircleStyle();
+}
+function startWorkoutTimer(){
+  clearInterval(timer);
+  timer=setInterval(tickAuto,1000);
+  showAutoTrain();
+}
+function advanceAutoPhase(){
+  const [k,dose]=data.days[currentDay].items[currentExercise];
+  if(workoutPhase==='prep'){
+    workoutPhase='work';workoutLeft=workSeconds(dose);showAutoTrain();return;
+  }
+  if(workoutPhase==='work'){
+    if(workoutSet===workoutTotalSets-1)setDone(currentDay,currentExercise);
+    const max=data.days[currentDay].items.length-1;
+    if(currentExercise>=max){
+      if(workoutSet>=workoutTotalSets-1){clearInterval(timer);doneNext(false);return;}
+      workoutSet++; currentExercise=0; workoutPhase='setRest'; workoutLeft=setRestSeconds(); showAutoTrain(); return;
+    }
+    workoutPhase='rest';workoutLeft=restSeconds(k,dose);showAutoTrain();return;
+  }
+  if(workoutPhase==='rest'){
+    currentExercise++;workoutPhase='work';
+    const nextDose=data.days[currentDay].items[currentExercise][1];
+    workoutLeft=workSeconds(nextDose);showAutoTrain();return;
+  }
+  if(workoutPhase==='setRest'){
+    workoutPhase='work';
+    const nextDose=data.days[currentDay].items[currentExercise][1];
+    workoutLeft=workSeconds(nextDose);showAutoTrain();return;
+  }
+}
+function skipAuto(){
+  if(workoutPhase==='work')advanceAutoPhase();
+  else if(workoutPhase==='rest'){
+    currentExercise++;
+    if(currentExercise>=data.days[currentDay].items.length){
+      if(workoutSet>=workoutTotalSets-1){clearInterval(timer);doneNext(false);return;}
+      workoutSet++; currentExercise=0; workoutPhase='setRest'; workoutLeft=setRestSeconds(); showAutoTrain(); return;
+    }
+    workoutPhase='work';const dose=data.days[currentDay].items[currentExercise][1];workoutLeft=workSeconds(dose);showAutoTrain();
+  }
+  else if(workoutPhase==='setRest'){
+    workoutPhase='work';const dose=data.days[currentDay].items[currentExercise][1];workoutLeft=workSeconds(dose);showAutoTrain();
+  }
+  else {workoutPhase='work';const dose=data.days[currentDay].items[currentExercise][1];workoutLeft=workSeconds(dose);showAutoTrain();}
+}
+
+
+function showTrain(){
+  clearInterval(timer);
+  const dayObj=data.days[currentDay];
+  if(!dayObj.items.length){day(currentDay);return;}
+  const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k];
+  const progress=Math.round(((currentExercise+1)/dayObj.items.length)*100);
+  app.innerHTML=`<section class="card fullTrain">
+    <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">${currentExercise+1}/${dayObj.items.length}</span></div>
+    <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
+    <h2 class="trainName">${ex.name}</h2>
+    <div class="trainDose">${dose||ex.dose}</div>
+    ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
+    <div class="trainHint">Klepni na obrázek pro podrobný popis.</div>
+    <div class="detailMini"><b>Rychle:</b> ${ex.how[0]}</div>
+    <button class="primary doneBtn" data-action="done-next">Hotovo + další</button>
+    <div class="row"><button data-action="prev">← Zpět</button><button data-action="rest">Pauza ${restSeconds(k,dose)} s</button><button data-action="info" data-ex="${k}">Popis</button></div>
+  </section>`;
+}
+function restScreen(){
+  const [k,dose]=data.days[currentDay].items[currentExercise];
+  let left=restSeconds(k,dose);
+  app.innerHTML=`<section class="card restScreen">
+    <button data-action="train-current">← Cvik</button>
+    <h2>Pauza</h2>
+    <div class="restNumber" id="timer">${left}</div>
+    <p class="muted">Další cvik se otevře automaticky.</p>
+    <button class="primary bigbtn" data-action="done-next-nomark">Další cvik hned</button>
+  </section>`;
+  timer=setInterval(()=>{left--;const el=document.getElementById('timer');if(el)el.textContent=left;if(left<=0){beep(620,130);clearInterval(timer);doneNext(false)}},1000);
+}
+function doneNext(mark=true){
+  if(mark)setDone(currentDay,currentExercise);
+  const max=data.days[currentDay].items.length-1;
+  if(currentExercise<max){currentExercise++;showTrain();return;}
+  const next=currentDay+1<data.days.length?currentDay+1:0;
+  app.innerHTML=`<section class="card finishCard">
+    <div class="finishEmoji">🎉</div>
+    <h2>Den hotový</h2>
+    <p class="muted">${data.days[currentDay].title}</p>
+    <div class="finishForm">
+      <b>Jaké to dnes bylo?</b>
+      <div class="moodRow"><button data-action="select-mood" data-mood="good">😊 dobré</button><button data-action="select-mood" data-mood="tough">😅 těžší</button><button data-action="select-mood" data-mood="pain">⚠ něco bolelo</button></div>
+      <textarea id="finish-note" placeholder="Krátká poznámka: co šlo dobře, co bolelo, co upravit příště…"></textarea>
+    </div>
+    <button class="primary bigbtn" data-action="save-workout-note">Uložit a domů</button>
+    <div class="row"><button data-action="home">Přeskočit poznámku</button><button data-action="day" data-day="${next}">Další den</button></div>
+  </section>`;
+}
+function detailTips(k){
+  const ex=data.exercises[k], icon=ex.icon||'';
+  const beginner = icon==='🔥'
+    ? 'Zmenši rozsah a drž bedra stabilní. Jakmile cítíš bedra nebo krk, vrať se do lehčí varianty.'
+    : icon==='🍑'
+      ? 'Začni menším rozsahem a hlídej tlak přes paty. Když pracují hlavně kyčle, zpomal a nastav pánev neutrálně.'
+      : icon==='💪'
+        ? 'Použij lehké činky nebo jen ruce. Ramena drž nízko a pohyb veď pomalu.'
+        : 'Pohyb dělej jen do příjemného tahu, ne do bolesti. Dýchej pomalu a plynule.';
+  const advanced = icon==='🔥'
+    ? 'Přidej krátkou výdrž v nejtěžší části a pořád dýchej do žeber.'
+    : icon==='🍑'
+      ? 'Nahoře přidej 2sekundové stažení hýždí bez prohnutí v bedrech.'
+      : icon==='💪'
+        ? 'Zpomal návrat pohybu na 3 sekundy a drž lopatky pod kontrolou.'
+        : 'Prodluž výdech a zkus pohyb vést ještě plynuleji bez spěchu.';
+  return {beginner, advanced};
+}
+function detailMuscles(k){
+  const icon=(data.exercises[k].icon||'');
+  if(icon==='🍑')return ['Hýždě','Zadní stehna','Střed těla','Stabilita pánve'];
+  if(icon==='🔥')return ['Hluboké břišní svaly','Šikmé břišní svaly','Stabilita beder','Pánevní dno'];
+  if(icon==='💪')return ['Horní záda','Lopatky','Ramena','Střed těla'];
+  return ['Páteř','Hrudník','Bok trupu','Dechové svaly'];
+}
+function info(k){
+  const ex=data.exercises[k], meta=exMeta(k), tips=detailTips(k);
+  const ctxDay = Number.isInteger(currentDay) && data.days[currentDay];
+  const item = ctxDay ? data.days[currentDay].items[currentExercise] : null;
+  const dose = item && item[0]===k ? item[1] : (ex.dose||'dle plánu');
+  const prevOk = ctxDay && currentExercise>0;
+  const nextOk = ctxDay && currentExercise < data.days[currentDay].items.length-1;
+  const titleNo = ctxDay ? `${currentExercise+1}. ` : '';
+  app.innerHTML=`<section class="exerciseDetailApproved">
+    <div class="detailHeader">
+      <button class="linkBtn" data-action="back-to-training">← Zpět k tréninku</button>
+      <button class="savePill" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button>
+    </div>
+    <h1>${titleNo}${ex.name}</h1>
+    <div class="detailChips"><span>⏱ ${dose}</span><span>▥ ${meta.diff}</span><span>◎ ${meta.area}</span></div>
+    <div class="heroPhoto">${img(k,'bigimg')}</div>
+    <div class="detailGridTop">
+      <article class="focusCard"><div class="cardIcon">◎</div><div><h3>Co procvičuje</h3><p>${ex.focus||ex.feel}</p></div></article>
+      <article class="muscleCard"><h3>Zapojené svaly</h3><ul>${detailMuscles(k).map(x=>`<li>${x}</li>`).join('')}</ul></article>
+    </div>
+    <article class="approvedCard stepsCard"><h3>Krok za krokem</h3><ol>${ex.how.map(x=>`<li>${x}</li>`).join('')}</ol></article>
+    <article class="approvedCard errorCard"><h3>Nejčastější chyby</h3><ul>${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}</ul></article>
+    <div class="tipGrid">
+      <article class="approvedCard cyanCard"><h3>Tip pro začátečníky</h3><p>${tips.beginner}</p></article>
+      <article class="approvedCard pinkCard"><h3>Tip pro pokročilé</h3><p>${tips.advanced}</p></article>
+      <article class="approvedCard cyanCard"><h3>Dýchání</h3><p>${meta.breath}</p><small>${meta.tempo}</small></article>
+      <article class="approvedCard pinkCard"><h3>Opakování / čas</h3><p>${dose}</p><small>Cvič klidně a technicky čistě.</small></article>
+    </div>
+    <div class="detailNav">
+      <button ${prevOk?'':'disabled'} data-action="detail-prev">← Předchozí</button>
+      <button class="primary" ${nextOk?'':'disabled'} data-action="detail-next">Další →</button>
+    </div>
+    <button class="backWide" data-action="back-to-training">← Zpět na trénink</button>
+  </section>`;
+}
+function library(){
+  lastMode='library';setNav('library');
+  app.innerHTML=`<section class="card"><h2>Program</h2><div class="moreGrid"><button data-action="program-info">✦ O programu</button><button data-action="progress">◎ Měření</button><button data-action="stats">↗ Statistiky</button><button data-action="library-list">◈ Knihovna cviků</button><button data-action="export-progress">⬇ Záloha</button><button onclick="document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')">🌙 Tmavý režim</button></div></section>
+  <section class="card"><h2>Knihovna cviků</h2><p class="muted">Klepni na cvik pro detail techniky.</p><div class="libraryGrid">${Object.keys(data.exercises).map(k=>exCard(k,data.exercises[k].dose)).join('')}</div></section>`;
+}
+function favs(){
+  lastMode='library';setNav('library');
+  const keys=Object.keys(data.exercises).filter(k=>isFav(k));
+  app.innerHTML=`<section class="card"><h2>Oblíbené cviky</h2>${keys.length?'<div class="libraryGrid">'+keys.map(k=>exCard(k,data.exercises[k].dose)).join('')+'</div>':'<p class="muted">Zatím žádné oblíbené.</p>'}</section>`;
+}
+function calendar(){
+  lastMode='calendar';setNav('calendar');
+  const now=new Date(), y=now.getFullYear(), m=now.getMonth();
+  const first=new Date(y,m,1), last=new Date(y,m+1,0);
+  const start=(first.getDay()+6)%7;
+  const cells=[];
+  for(let i=0;i<start;i++)cells.push('<div class="calCell empty"></div>');
+  for(let d=1;d<=last.getDate();d++){
+    const dt=new Date(y,m,d), dk=dateKey(dt), isToday=dk===todayKey(), ok=hasLog(dk);
+    cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''}" data-action="calendar-day" data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
+  }
+  const logs=loggedDates();
+  app.innerHTML=`<section class="card"><h2>Kalendář cvičení</h2>
+    <p class="muted">${monthName(now)} • odcvičené dny se označí automaticky, jakmile dokončíš aspoň jeden cvik.</p>
+    <div class="statGrid"><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div><div class="statBox"><b>${logs.length}</b><span class="muted">dní celkem</span></div><div class="statBox"><b>${hasLog(todayKey())?'ano':'ne'}</b><span class="muted">dnes</span></div></div>
+    <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
+    <div class="calendarGrid">${cells.join('')}</div>
+    <div class="row"><button data-action="mark-today">Označit dnešek ručně</button><button data-action="unmark-today">Odebrat dnešek</button></div>
+  </section>`;
+}
+
+function progressTracker(){
+  lastMode='progress';setNav('progress');
+  const arr=measurements(), first=firstMeasurement(), last=latestMeasurement();
+  const today=todayKey();
+  const rows=arr.slice().reverse().map((m,ri)=>`<tr><td>${m.date}</td><td>${fmtNum(m.weight)}</td><td>${fmtNum(m.waist)}</td><td>${fmtNum(m.hips)}</td><td>${fmtNum(m.thigh)}</td><td><button class="smallBtn" data-action="delete-measure" data-index="${arr.length-1-ri}">Smazat</button></td></tr>`).join('');
+  app.innerHTML=`<section class="card"><h2>Měření pokroku</h2>
+    <p class="muted">Stačí jednou týdně. Neřeš denní výkyvy — u těla je důležitý trend, ne jedno číslo.</p>
+    <div class="statGrid"><div class="statBox"><b>${last?fmtNum(last.weight):'—'}</b><span class="muted">poslední váha kg</span></div><div class="statBox"><b>${first&&last?deltaText(first.waist,last.waist):'—'}</b><span class="muted">pas od začátku</span></div><div class="statBox"><b>${arr.length}</b><span class="muted">záznamů</span></div></div>
+    <div class="inlineTip"><b>Vyhodnocení:</b><br>${weeklyHint(arr)}</div>
+  </section>
+  ${backupPanel()}
+  <section class="card"><h2>Grafy</h2>
+    ${sparkChart(arr,'weight','Váha','kg')}
+    ${sparkChart(arr,'waist','Pas','cm')}
+    ${sparkChart(arr,'hips','Boky','cm')}
+    ${sparkChart(arr,'thigh','Stehno','cm')}
+  </section>
+  <section class="card"><h2>Nový záznam</h2>
+    <div class="measureForm">
+      <label>Datum<input id="m-date" type="date" value="${today}"></label>
+      <label>Váha kg<input id="m-weight" type="number" step="0.1" inputmode="decimal" placeholder="např. 66.0"></label>
+      <label>Pas cm<input id="m-waist" type="number" step="0.1" inputmode="decimal" placeholder="pas"></label>
+      <label>Boky cm<input id="m-hips" type="number" step="0.1" inputmode="decimal" placeholder="boky"></label>
+      <label>Stehno cm<input id="m-thigh" type="number" step="0.1" inputmode="decimal" placeholder="stehno"></label>
+      <label>Poznámka<input id="m-note" type="text" placeholder="např. po ránu / po cvičení"></label>
+    </div>
+    <button class="primary bigbtn" data-action="save-measure">Uložit měření</button>
+  </section>
+  <section class="card"><h2>Historie</h2>
+    ${arr.length?`<div class="tableWrap"><table><thead><tr><th>Datum</th><th>kg</th><th>Pas</th><th>Boky</th><th>Stehno</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="muted">Zatím nemáš uložené žádné měření.</p>'}
+    ${last&&last.note?`<div class="inlineTip"><b>Poslední poznámka:</b><br>${last.note}</div>`:''}
+  </section>`;
+}
+function saveMeasureFromForm(){
+  const val=id=>document.getElementById(id)?.value?.trim()||'';
+  const rec={date:val('m-date')||todayKey(),weight:val('m-weight'),waist:val('m-waist'),hips:val('m-hips'),thigh:val('m-thigh'),note:val('m-note')};
+  const arr=measurements().filter(x=>x.date!==rec.date);
+  arr.push(rec);arr.sort((a,b)=>a.date.localeCompare(b.date));saveMeasurements(arr);progressTracker();
+}
+
+function showStats(){
+  lastMode='stats';setNav('stats');const s=statsData();
+  app.innerHTML=`<section class="card"><h2>Statistiky</h2><p class="muted">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
+  <div class="statGrid"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div></div><div class="row"><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div></section>`;
+}
+app.addEventListener('click',e=>{
+  const t=e.target.closest('[data-action],.exercise[data-day],.exercise[data-ex]');
+  if(!t)return;
+  const a=t.dataset.action;
+  if(a==='home')return home();
+  if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}
+  if(a==='program-info')return programInfo();
+  if(a==='days')return days();
+  if(a==='stats')return showStats();
+  if(a==='calendar')return calendar();
+  if(a==='progress')return progressTracker();
+  if(a==='save-measure')return saveMeasureFromForm();
+  if(a==='export-progress')return exportProgress();
+  if(a==='save-workout-note')return saveWorkoutNote();
+  if(a==='select-mood'){document.querySelectorAll('.moodRow button').forEach(b=>b.classList.remove('selected'));t.classList.add('selected');return;}
+  if(a==='library'||a==='library-list')return library();
+  if(a==='delete-measure'){const arr=measurements();arr.splice(Number(t.dataset.index),1);saveMeasurements(arr);return progressTracker();}
+  if(a==='mark-today'){markToday();return calendar();}
+  if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar();}
+  if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');return calendar();}
+  if(a==='day')return day(Number(t.dataset.day));
+  if(t.classList.contains('exercise')&&t.dataset.ex){ if(t.dataset.day!==''){currentDay=Number(t.dataset.day); currentExercise=Number(t.dataset.index)||0;} return info(t.dataset.ex); }
+  if(a==='start')return startTraining(Number(t.dataset.day),false);
+  if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
+  if(a==='done-next')return doneNext(true);
+  if(a==='done-next-nomark')return doneNext(false);
+  if(a==='toggle-auto'){workoutPaused=!workoutPaused;return showAutoTrain();}
+  if(a==='rep-done-auto')return advanceAutoPhase();
+  if(a==='skip-auto')return skipAuto();
+  if(a==='stop-auto'){clearInterval(timer);workoutAuto=false;return day(currentDay);}
+  if(a==='reset-day'){data.days[Number(t.dataset.day)].items.forEach((_,i)=>localStorage.removeItem(key(Number(t.dataset.day),i)));return day(Number(t.dataset.day));}
+  if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
+  if(a==='rest')return restScreen();
+  if(a==='train-current'||a==='back-to-training')return workoutAuto?showAutoTrain():showTrain();
+  if(a==='detail-prev'){ if(currentExercise>0)currentExercise--; const kk=data.days[currentDay].items[currentExercise][0]; return info(kk);}
+  if(a==='detail-next'){ if(currentExercise<data.days[currentDay].items.length-1)currentExercise++; const kk=data.days[currentDay].items[currentExercise][0]; return info(kk);}
+  if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex);}
+  if(a==='info'||t.dataset.ex)return info(t.dataset.ex);
+});
+app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});
+$('nav-home').onclick=home;
+$('nav-days').onclick=days;
+$('nav-train').onclick=()=>startTraining(nextDayIndex(),true);
+$('nav-calendar').onclick=calendar;
+$('nav-library').onclick=library;
+$('nav-stats').onclick=showStats;
+const progressNav=document.getElementById('nav-progress'); if(progressNav) progressNav.onclick=progressTracker;
+const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
+$('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
+if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{})}
+if(localStorage.getItem(introKey)!=='1') intro(); else home();
+})();

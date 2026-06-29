@@ -1,0 +1,13 @@
+PILATES BODY 40+ – GitHub Pages verze
+
+Jak nahrát:
+1) Na GitHubu otevři repozitář.
+2) Add file → Upload files.
+3) Nahraj OBSAH této složky/ZIPu, ne ZIP jako jeden soubor.
+4) Musí být vidět index.html přímo v hlavním adresáři.
+5) Commit changes.
+6) Settings → Pages → Deploy from branch → main → /root → Save.
+
+Poznámka:
+Tahle verze má vypnutý Service Worker, aby se nedržela stará cache.
+Na úvodní stránce musí být text: v21 • GitHub Pages.

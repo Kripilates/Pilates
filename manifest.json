@@ -1,0 +1,11 @@
+{
+  "name": "Pilates Body 40+",
+  "short_name": "Pilates 40+",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fff7fa",
+  "theme_color": "#d94f88",
+  "orientation": "portrait",
+  "icons": []
+}
