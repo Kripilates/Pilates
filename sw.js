@@ -1,5 +1,14 @@
-const CACHE='PB40-v23-den1-design';
-const ASSETS=['./', 'data.js', 'style.css', 'app.js', 'index.html', 'manifest.json', 'assets/exercises/hip.jpg', 'assets/exercises/rdl.jpg', 'assets/exercises/hydrant.jpg', 'assets/exercises/clam.jpg', 'assets/exercises/deadbug.jpg', 'assets/exercises/toetap.jpg', 'assets/exercises/revcrunch.jpg', 'assets/exercises/sideplank.jpg', 'assets/exercises/hollow.jpg', 'assets/exercises/row.jpg', 'assets/exercises/press.jpg', 'assets/exercises/raise.jpg', 'assets/exercises/bird.jpg', 'assets/exercises/mermaid.jpg', 'assets/exercises/rollup.jpg', 'assets/exercises/sidekick.jpg', 'assets/exercises/swan.jpg', 'assets/exercises/spine.jpg', 'assets/exercises/frog.jpg', 'assets/exercises/donkey.jpg', 'assets/exercises/abduction.jpg', 'assets/exercises/sideleg.jpg', 'assets/exercises/plie.jpg', 'assets/exercises/plank.jpg', 'assets/exercises/catcow.jpg', 'assets/exercises/wall.jpg', 'assets/exercises/tap.jpg', 'assets/exercises/thread.jpg', 'assets/exercises/hip_march.jpg', 'assets/exercises/rdl_slow.jpg', 'assets/exercises/clam_pulse.jpg', 'assets/exercises/deadbug_hold.jpg', 'assets/exercises/toetap_slow.jpg', 'assets/exercises/sideplank_reach.jpg', 'assets/exercises/row_pause.jpg', 'assets/exercises/press_slow.jpg', 'assets/exercises/bird_hold.jpg', 'assets/exercises/sidekick_pulse.jpg', 'assets/exercises/swan_hold.jpg', 'assets/exercises/frog_hold.jpg', 'assets/exercises/plank_breath.jpg', 'assets/exercises/hip_real_hero.jpg', 'assets/exercises/hip_real_step1.jpg', 'assets/exercises/hip_real_step2.jpg', 'assets/exercises/hip_real_step3.jpg', 'assets/exercises/hip_real_muscles.jpg', 'assets/exercises/hip_real_card.jpg', 'assets/exercises/rdl_real_card.jpg', 'assets/exercises/hydrant_real_card.jpg', 'assets/exercises/clam_real_card.jpg', 'assets/exercises/sideleg_real_card.jpg', 'assets/exercises/deadbug_real_card.jpg', 'assets/exercises/day1_muscles.jpg'];
+const CACHE='PB40-v24-no-timer-reps';
+const ASSETS=['./','index.html','manifest.json'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
-self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{const copy=res.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return res;}).catch(()=>caches.match('index.html'))));});
+self.addEventListener('fetch',e=>{
+  const req=e.request;
+  const url=new URL(req.url);
+  if(req.method!=='GET') return;
+  if(['document','script','style'].includes(req.destination) || url.searchParams.has('v')){
+    e.respondWith(fetch(req,{cache:'no-store'}).then(res=>{const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));return res;}).catch(()=>caches.match(req).then(r=>r||caches.match('index.html'))));
+    return;
+  }
+  e.respondWith(caches.match(req).then(r=>r||fetch(req).then(res=>{const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));return res;})));
+});

@@ -1,6 +1,2 @@
-v22 – Den 1 realistický design
-
-1) Rozbal ZIP.
-2) Zkopíruj obsah do složky GitHub repozitáře Pilates.
-3) V GitHub Desktop dej Commit + Push.
-4) Počkej na GitHub Pages a obnov stránku Ctrl+F5.
+v24 – oprava: cviky na opakování jsou bez časovače, mají 3 série.
+Po nahrání dej Ctrl+F5, případně v mobilu obnovit stránku / vymazat data webu.
