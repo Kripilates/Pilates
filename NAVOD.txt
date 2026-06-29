@@ -1,10 +1,5 @@
-Pilates Body 40+ v20
+Pilates Body 40+ v15
 
-Opravy:
-- automatický trénink má 3 série,
-- cviky na opakování nemají časový odpočet, potvrzují se tlačítkem Hotovo,
-- časové cviky mají zvukový signál na poslední 3 sekundy a na konci,
-- vibrace nejsou zapnuté,
-- obrázky už nejsou jeden stejný přejmenovaný soubor.
-
-Netlify: nahraj obsah ZIPu jako nový deploy.
+Verze s přepracovanými profesionálnějšími ilustracemi cviků.
+Nahraj celý obsah ZIPu na Netlify jako předchozí verze.
+Před nahráním nové verze doporučuji v aplikaci stáhnout zálohu pokroku.
