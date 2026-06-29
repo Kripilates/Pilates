@@ -150,7 +150,9 @@ function beep(freq=660,dur=90){
 }
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
-  return `<img loading="lazy" class="${c}" ${extra} src="${ex.image}" alt="${ex.name}">`;
+  const src=(k==='hip' && c==='thumb') ? 'assets/exercises/hip_real_hero.jpg' : ex.image;
+  const real=(k==='hip' && c==='thumb') ? ' realThumb' : '';
+  return `<img loading="lazy" class="${c}${real}" ${extra} src="${src}" alt="${ex.name}">`;
 }
 
 

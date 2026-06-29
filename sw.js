@@ -1,5 +1,10 @@
-const CACHE='PB40-v20-realistic-detail';
+const CACHE='PB40-v21-real-photo-fix';
 const ASSETS=['./','index.html','style.css','app.js','data.js','manifest.json',
+  'assets/exercises/hip_real_hero.jpg',
+  'assets/exercises/hip_real_step1.jpg',
+  'assets/exercises/hip_real_step2.jpg',
+  'assets/exercises/hip_real_step3.jpg',
+  'assets/exercises/hip_real_muscles.jpg',
   'assets/exercises/hip_march.jpg'
 ,
   'assets/exercises/rdl_slow.jpg'
