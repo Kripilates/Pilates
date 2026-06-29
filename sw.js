@@ -1,4 +1,4 @@
-const CACHE='PB40-v18-detail-redesign';
+const CACHE='PB40-v20-realistic-detail';
 const ASSETS=['./','index.html','style.css','app.js','data.js','manifest.json',
   'assets/exercises/hip_march.jpg'
 ,

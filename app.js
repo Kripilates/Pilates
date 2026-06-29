@@ -153,6 +153,20 @@ function img(k,c='thumb',extra=''){
   return `<img loading="lazy" class="${c}" ${extra} src="${ex.image}" alt="${ex.name}">`;
 }
 
+
+function detailHeroImage(k){
+  const src = k==='hip' ? 'assets/exercises/hip_real_hero.jpg' : (data.exercises[k]?.image||'');
+  return `<img loading="lazy" class="v20HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
+}
+function detailStepImage(k,n){
+  const src = k==='hip' ? `assets/exercises/hip_real_step${n}.jpg` : (data.exercises[k]?.image||'');
+  return `<img loading="lazy" class="v20StepPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'} krok ${n}">`;
+}
+function detailMuscleImage(k){
+  if(k==='hip') return `<img loading="lazy" class="v20MuscleImg" src="assets/exercises/hip_real_muscles.jpg" alt="Zapojené svaly">`;
+  return '';
+}
+
 function exMeta(k){
   const ex=data.exercises[k], f=(ex.focus||'').toLowerCase(), icon=ex.icon||'';
   let area='Technika', diff='Lehké', knee='Šetrné ke kolenům';
@@ -428,66 +442,59 @@ function doneNext(mark=true){
 }
 function info(k){
   const ex=data.exercises[k], meta=exMeta(k);
-  const steps=(ex.how&&ex.how.length?ex.how:[]).slice(0,4);
-  while(steps.length<4)steps.push(steps[steps.length-1]||'Drž plynulý, kontrolovaný pohyb bez bolesti.');
-  const dose=(ex.dose||'');
+  const steps=(ex.how&&ex.how.length?ex.how:[]).slice(0,3);
+  while(steps.length<3)steps.push(steps[steps.length-1]||'Drž plynulý, kontrolovaný pohyb bez bolesti.');
+  const dose=(ex.dose||'15×');
+  const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
-  app.innerHTML=`<section class="exerciseDetailPage v18Detail">
-    <div class="detailNav">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
-
-    <section class="studioDetailHero">
-      <div class="studioPhoto">${img(k,'studioHeroImg')}</div>
-      <div class="studioInfo">
-        <p class="eyebrow">Detail cviku</p>
-        <h2>${ex.name}</h2>
-        <p class="studioLead">${ex.focus||ex.how[0]||'Cvič pomalu, čistě a bez bolesti.'}</p>
-        <div class="studioBadges"><span>${dose||'dle plánu'}</span><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
-        <button class="primary studioStartBtn" data-action="train-current">▶ Zpět a cvičit</button>
-      </div>
-    </section>
-
-    <section class="studioLayout">
-      <div class="studioMain">
-        <div class="studioCard flowCard">
-          <div class="sectionHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
-          <div class="miniFlow">
-            ${steps.slice(0,3).map((x,i)=>`<article><div class="miniPic">${img(k,'miniFlowImg')}</div><b>${i+1}</b><p>${x}</p></article>`).join('')}
-          </div>
-        </div>
-
-        <div class="studioSplit">
-          <div class="studioCard goodCard">
-            <div class="sectionHead"><h3>Tipy pro správné provedení</h3></div>
-            <ul class="checkList">
-              <li>Pohyb veď pomalu, bez švihu a bez honění opakování.</li>
-              <li>Drž žebra stažená a břicho aktivní, hlavně u core cviků.</li>
-              <li>U hýždí tlač přes paty a nahoře krátce stáhni hýždě.</li>
-              <li>Když se ozve koleno nebo kyčel, zmenši rozsah.</li>
-            </ul>
-          </div>
-          <div class="studioCard dangerPro">
-            <div class="sectionHead"><h3>Časté chyby</h3></div>
-            <ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Snaha udělat větší rozsah za cenu prohnutých beder.</li></ul>
-          </div>
-        </div>
-      </div>
-
-      <aside class="studioSide">
-        <div class="studioCard muscleCardReal">
-          <div class="sectionHead"><h3>Zapojené svaly</h3></div>
-          <div class="bodyMap"><div class="bodySilhouette"><i></i><i></i><i></i></div></div>
-          <ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul>
-        </div>
-        <div class="studioCard breathCard">
-          <div class="sectionHead"><h3>Dech a tempo</h3></div>
-          <div class="breathRows"><p><b>Tempo</b><span>${meta.tempo}</span></p><p><b>Dech</b><span>${meta.breath}</span></p></div>
-        </div>
-        <div class="studioCard coachPro">
-          <div class="sectionHead"><h3>Tip trenéra</h3></div>
-          <p>Pomalý, menší rozsah je lepší než rychlé švihání. Když cvik cítíš hlavně v kyčlích nebo bedrech, uber rozsah a víc zpevni břicho.</p>
-        </div>
+  const muscleImg=detailMuscleImage(k);
+  app.innerHTML=`<section class="exerciseDetailPage v20Detail">
+    <div class="v20Shell">
+      <aside class="v20SideNav" aria-label="Navigace">
+        <h2>Pilates Body 40+</h2>
+        <button data-action="home"><span>⌂</span>Domů</button>
+        <button data-action="days"><span>☑</span>Plán</button>
+        <button class="active" data-action="train-current"><span>▶</span>Cvičit</button>
+        <button data-action="calendar"><span>▦</span>Kalendář</button>
+        <button data-action="program-info"><span>☰</span>Program</button>
       </aside>
-    </section>
+      <div class="v20Content">
+        <div class="v20TopBar">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
+        <section class="v20Grid">
+          <main class="v20Main">
+            <div class="v20Hero">${detailHeroImage(k)}</div>
+            <div class="v20TitleRow">
+              <div>
+                <p class="eyebrow">Detail cviku</p>
+                <h2>${ex.name}</h2>
+                <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
+                <div class="v20Badges"><span>dle plánu</span><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
+              </div>
+              <div class="v20Dose"><b>${dose}</b><span>opakování</span></div>
+            </div>
+
+            <section class="v20Card v20FlowCard">
+              <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
+              <div class="v20Flow">
+                ${steps.map((x,i)=>`<article><div class="v20StepTitle"><b>${i+1}</b><strong>${i===0?'Výchozí pozice':i===1?'Pohyb nahoru':'Horní pozice'}</strong></div>${detailStepImage(k,i+1)}<p>${x}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
+              </div>
+            </section>
+
+            <div class="v20BottomGrid">
+              <section class="v20Card"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
+              <section class="v20Card"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>
+            </div>
+          </main>
+
+          <aside class="v20Aside">
+            <section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg||`<div class="bodyMap v19BodyMap"><div class="bodySilhouetteV2 ${muscleClass}"><span class="head"></span><span class="torso"></span><span class="arms"></span><span class="leftLeg"></span><span class="rightLeg"></span><span class="highlight h1"></span><span class="highlight h2"></span></div></div>`}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>
+            <section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>
+            <section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
+          </aside>
+        </section>
+        <div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět a cvičit</button></div>
+      </div>
+    </div>
   </section>`;
 }
 function library(){
