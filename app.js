@@ -231,7 +231,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v28',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v29',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -349,7 +349,15 @@ function startTraining(di,auto=false){
   lastMode='train';setNav('train');currentDay=di;
   const items=data.days[di].items;
   currentExercise=0; // kruhový trénink začíná vždy prvním cvikem v kole
-  if(auto){workoutLeft=5;workoutPhase='prep';showAutoTrain();startWorkoutTimer();}
+  if(auto){
+    // U cviků na opakování se nic nesmí spustit samo.
+    // Žádný úvodní odpočet, žádný automatický posun. Čekáme na kliknutí „Dokončeno“.
+    workoutPhase='work';
+    const dose=items[currentExercise]?.[1]||'';
+    workoutLeft=workSeconds(dose);
+    showAutoTrain();
+    if(isTimedDose(dose)) startWorkoutTimer();
+  }
   else showTrain();
 }
 
@@ -362,7 +370,7 @@ function timerCircleStyle(){
 }
 function phaseLabel(){
   const dose=data.days[currentDay].items[currentExercise]?.[1]||'';
-  if(workoutPhase==='work' && !isTimedDose(dose)) return 'Cvič bez časovače';
+  if(workoutPhase==='work' && !isTimedDose(dose)) return 'Čekám na tvoje potvrzení';
   if(workoutPhase==='roundRest') return 'Odpočinek mezi koly';
   return workoutPhase==='prep'?'Připrav se':workoutPhase==='rest'?'Pauza':'Cvič';
 }
@@ -378,9 +386,9 @@ function showAutoTrain(){
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${isTimedDose(dose||ex.dose)?(dose||ex.dose):'15 opakování'.replace('15', String(dose||ex.dose).replace('×',''))}</div>
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
-    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="restBlock"><div class="restLabel">${workoutPhase==='roundRest'?'Odpočinek před dalším kolem':workoutPhase==='rest'?'Pauza':'Připrav se'}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='roundRest'?'Až pauza doběhne, začne další kolo.':'Můžeš pauzu přeskočit.'}</small></div>`:`<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${dose||ex.dose}</b><small>Teď necvičíš na čas. Po dokončení tohoto cviku klepni na Dokončeno.</small></div>`}
+    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="restBlock"><div class="restLabel">${workoutPhase==='roundRest'?'Odpočinek před dalším kolem':workoutPhase==='rest'?'Pauza':'Připrav se'}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='roundRest'?'Až pauza doběhne, začne další kolo.':'Můžeš pauzu přeskočit.'}</small></div>`:`<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${dose||ex.dose}</b><small>Až cvik opravdu odcvičíš, klepni na Dokončeno. Bez kliknutí se aplikace neposune dál.</small></div>`}
     <div class="detailMini"><b>Teď:</b> ${workoutPhase==='roundRest'||workoutPhase==='rest'?'Odpočiň si, uvolni ramena a připrav se na pokračování.':ex.how[0]}</div>
-    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">${workoutPhase==='roundRest'||workoutPhase==='rest'?'Přeskočit pauzu':(!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?'Přeskočit cvik':'Přeskočit')}</button><button data-action="info" data-ex="${k}">Jak provést</button></div>
+    <div class="row trainControls">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button><button data-action="skip-auto">${workoutPhase==='roundRest'||workoutPhase==='rest'?'Přeskočit pauzu':'Přeskočit'}</button>`}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
 }
 function tickAuto(){
