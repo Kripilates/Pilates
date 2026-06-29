@@ -224,14 +224,14 @@ function exCard(k,dose,d,i){
     <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}${ok?' ✓':''}</span></div>
     <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}<span class="doneMark">${ok?'✓':''}</span></div>
     <div class="v22CardLabels">${labels.map((x,j)=>`<span class="${j===0?'mainLabel':''}">${x}</span>`).join('')}</div>
-    <div class="v22Open"><span>Otevřít detail</span><b>›</b></div>
+    <div class="v22Open"><span>Jak provést</span><b>›</b></div>
   </article>`;
 }
 
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v24',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v27',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -377,11 +377,11 @@ function showAutoTrain(){
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="phasePill">${phaseLabel()}</div>
     <h2 class="trainName">${ex.name}</h2>
-    <div class="trainDose">${doseLabel(dose||ex.dose)}</div>${setPill(dose||ex.dose)}
+    <div class="trainDose">${isTimedDose(dose||ex.dose)?(dose||ex.dose):'15 opakování'.replace('15', String(dose||ex.dose).replace('×',''))}</div>${(!isTimedDose(dose||ex.dose)&&workoutPhase==='work')?setPill(dose||ex.dose):''}
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
-    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="restBlock"><div class="restLabel">${workoutPhase==='roundRest'?'Odpočinek před dalším kolem':workoutPhase==='rest'?'Odpočinek před dalším cvikem':'Připrav se'}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='roundRest'?'Za chvíli pokračuje další kolo.':'Můžeš pauzu přeskočit.'}</small></div>`:`<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${dose||ex.dose}</b><small>Odcvič pomalu a potom klikni na Dokončeno. Časovač se spustí až při odpočinku.</small></div>`}
+    ${isTimedDose(dose||ex.dose)||workoutPhase!=='work'?`<div class="restBlock"><div class="restLabel">${workoutPhase==='roundRest'?'Odpočinek před dalším kolem':workoutPhase==='rest'?'Cvik dokončen • odpočinek před dalším cvikem':'Připrav se'}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='roundRest'?'Až pauza doběhne, začne další kolo.':'Můžeš pauzu přeskočit.'}</small></div>`:`<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${dose||ex.dose}</b><small>Teď necvičíš na čas. Až dokončíš celé kolo, klepni na Dokončeno.</small></div>`}
     <div class="detailMini"><b>Teď:</b> ${workoutPhase==='roundRest'||workoutPhase==='rest'?'Odpočiň si, uvolni ramena a připrav se na pokračování.':ex.how[0]}</div>
-    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">${workoutPhase==='roundRest'||workoutPhase==='rest'?'Přeskočit pauzu':'Přeskočit'}</button><button data-action="info" data-ex="${k}">Popis</button></div>
+    <div class="row">${!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>`}<button data-action="skip-auto">${workoutPhase==='roundRest'||workoutPhase==='rest'?'Přeskočit pauzu':(!isTimedDose(dose||ex.dose)&&workoutPhase==='work'?'Přeskočit cvik':'Přeskočit')}</button><button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
 }
 function tickAuto(){
@@ -466,12 +466,12 @@ function showTrain(){
     <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">${currentExercise+1}/${dayObj.items.length}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <h2 class="trainName">${ex.name}</h2>
-    <div class="trainDose">${doseLabel(dose||ex.dose)}</div>${setPill(dose||ex.dose)}
+    <div class="trainDose">${doseLabel(dose||ex.dose)}</div>${!isTimedDose(dose||ex.dose)?setPill(dose||ex.dose):''}
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
     <div class="trainHint">Klepni na obrázek pro podrobný popis.</div>
     <div class="detailMini"><b>Rychle:</b> ${ex.how[0]}</div>
     <button class="primary doneBtn" data-action="set-complete-manual">${isTimedDose(dose||ex.dose)?'Hotovo + další':'✓ Dokončeno'}</button>
-    <div class="row"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Popis</button></div>
+    <div class="row"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
 }
 function restScreen(){
@@ -495,6 +495,7 @@ function doneNext(mark=true){
     <div class="finishEmoji">🎉</div>
     <h2>Den hotový</h2>
     <p class="muted">${data.days[currentDay].title}</p>
+    <div class="finishSummary"><div><b>${data.days[currentDay].items.length}</b><span>cviků</span></div><div><b>${data.days[currentDay].items.filter(x=>!isTimedDose(x[1])).length*workoutTotalSets}</b><span>kol</span></div><div><b>${data.days[currentDay].items.filter(x=>isTimedDose(x[1])).length}</b><span>časové cviky</span></div></div>
     <div class="finishForm">
       <b>Jaké to dnes bylo?</b>
       <div class="moodRow"><button data-action="select-mood" data-mood="good">😊 dobré</button><button data-action="select-mood" data-mood="tough">😅 těžší</button><button data-action="select-mood" data-mood="pain">⚠ něco bolelo</button></div>
@@ -556,7 +557,7 @@ function info(k){
             <section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
           </aside>
         </section>
-        <div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět a cvičit</button></div>
+        <div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>
       </div>
     </div>
   </section>`;

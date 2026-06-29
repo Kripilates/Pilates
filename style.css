@@ -155,3 +155,12 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 .restLabel{font-weight:900;color:var(--ink)}
 .timerCircle.restOnly{width:132px;height:132px;margin:8px auto}
 .autoTrain .row .primary{min-width:170px}
+
+
+/* v27 QA – jasná kola, odpočinek až po dokončení, lepší kontrola */
+.doneRoundBtn{font-size:1.05rem;padding:15px 24px;min-width:220px}
+.finishSummary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.finishSummary div{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center}
+.finishSummary b{display:block;font-size:28px;color:var(--p)}
+.finishSummary span{color:var(--muted);font-weight:800;font-size:.85rem}
+@media(max-width:720px){.finishSummary{grid-template-columns:1fr 1fr}.finishSummary div:last-child{grid-column:1/-1}.doneRoundBtn{width:100%}}
