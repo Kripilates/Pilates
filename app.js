@@ -148,24 +148,25 @@ function beep(freq=660,dur=90){
     setTimeout(()=>{o.stop();ctx.close();},dur);
   }catch(e){}
 }
+const day1RealImages={hip:'assets/exercises/hip_real_card.jpg',rdl:'assets/exercises/rdl_real_card.jpg',hydrant:'assets/exercises/hydrant_real_card.jpg',clam:'assets/exercises/clam_real_card.jpg',sideleg:'assets/exercises/sideleg_real_card.jpg',deadbug:'assets/exercises/deadbug_real_card.jpg'};
+function v22ImageSrc(k){return day1RealImages[k] || data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
-  const src=(k==='hip' && c==='thumb') ? 'assets/exercises/hip_real_hero.jpg' : ex.image;
-  const real=(k==='hip' && c==='thumb') ? ' realThumb' : '';
+  const src=v22ImageSrc(k);
+  const real=day1RealImages[k] ? ' realThumb v22RealThumb' : '';
   return `<img loading="lazy" class="${c}${real}" ${extra} src="${src}" alt="${ex.name}">`;
 }
 
-
 function detailHeroImage(k){
-  const src = k==='hip' ? 'assets/exercises/hip_real_hero.jpg' : (data.exercises[k]?.image||'');
-  return `<img loading="lazy" class="v20HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
+  const src = k==='hip' ? 'assets/exercises/hip_real_hero.jpg' : v22ImageSrc(k);
+  return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
 function detailStepImage(k,n){
-  const src = k==='hip' ? `assets/exercises/hip_real_step${n}.jpg` : (data.exercises[k]?.image||'');
-  return `<img loading="lazy" class="v20StepPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'} krok ${n}">`;
+  const src = k==='hip' ? `assets/exercises/hip_real_step${n}.jpg` : v22ImageSrc(k);
+  return `<img loading="lazy" class="v20StepPhoto v22StepPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'} krok ${n}">`;
 }
 function detailMuscleImage(k){
-  if(k==='hip') return `<img loading="lazy" class="v20MuscleImg" src="assets/exercises/hip_real_muscles.jpg" alt="Zapojené svaly">`;
+  if(day1RealImages[k]) return `<img loading="lazy" class="v20MuscleImg" src="assets/exercises/day1_muscles.jpg" alt="Zapojené svaly">`;
   return '';
 }
 
@@ -202,21 +203,26 @@ function daySummary(di){
 function exCard(k,dose,d,i){
   const ex=data.exercises[k],ok=d!==undefined&&done(d,i),meta=exMeta(k);
   const rep=dose||ex.dose||'';
-  return `<article class="exercise v18exercise ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
-    <div class="thumbWrap">${img(k,'thumb')}<span class="doneMark">${ok?'✓':''}</span></div>
-    <div class="exBody">
-      <div class="exTop"><h3>${ex.name}</h3><span class="repBadge">${rep}${ok?' ✓':''}</span></div>
-      <p class="muted">${ex.how[0]}</p>
-      <div class="metaLine"><span>${meta.area}</span><span>${meta.diff}</span><span>${meta.knee}</span></div>
-      <button class="detailBtn" data-action="info" data-ex="${k}">Otevřít detail</button>
-    </div>
+  const num=(i!==undefined?i+1:'');
+  const isReal=!!day1RealImages[k];
+  const labels = k==='hip' ? ['Hýždě (hlavně)','Zadní stehna','Spodní záda'] :
+    k==='rdl' ? ['Zadní stehna (hlavně)','Hýždě','Spodní záda'] :
+    k==='hydrant' ? ['Hýždě (střední sval)','Hýždě','Core'] :
+    k==='clam' ? ['Hýždě (střední sval)','Hýždě','Kyčle'] :
+    k==='sideleg' ? ['Hýždě (střední sval)','Kyčle','Stehno'] :
+    k==='deadbug' ? ['Břicho (hlavně)','Core','Stabilizace'] : [meta.area,meta.diff,meta.knee];
+  return `<article class="exercise v18exercise v22exercise ${isReal?'v22RealCard':''} ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
+    <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}${ok?' ✓':''}</span></div>
+    <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}<span class="doneMark">${ok?'✓':''}</span></div>
+    <div class="v22CardLabels">${labels.map((x,j)=>`<span class="${j===0?'mainLabel':''}">${x}</span>`).join('')}</div>
+    <div class="v22Open"><span>Otevřít detail</span><b>›</b></div>
   </article>`;
 }
 
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v15',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v22',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -291,17 +297,22 @@ function programInfo(){
 function home(){
   lastMode='home';setNav('home');
   const s=statsData(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),lm=latestMeasurement(),ln=latestNote();
-  app.innerHTML=`<section class="programMini"><div><b>30denní program</b><span>Jak cvičit, co čekat a co budeš potřebovat.</span></div><button data-action="program-info">O programu</button></section><section class="dashboardHero">
-    <div class="helloRow"><div><p class="eyebrow">Dnes</p><h2>Pokračuj v tréninku</h2></div><div class="streakBadge">🔥 ${streak()} dní</div></div>
-    <div class="todayCompact">
-      <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-      <div><h3>${day.title}</h3><p class="muted">${day.note}</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků • ${lm?`pas ${fmtNum(lm.waist)} cm`:'měření zatím není'}</div></div>
-    </div>
-    <button class="primary cta" data-action="start-auto" data-day="${n}">▶ Cvič se mnou</button>
-    <div class="compactActions"><button data-action="day" data-day="${n}">Ruční režim</button><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div>
-  </section>
-  <section class="card coachStrip"><b>Tip pro dnešek</b><p>${coachHint()}</p>${ln?.text?`<small>Poslední poznámka: ${ln.text}</small>`:''}</section>
-  <section class="card"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid">${day.items.slice(0,5).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>`;
+  app.innerHTML=`<div class="v22Home">
+    <section class="v22HeroPanel">
+      <div class="helloRow"><div><p class="eyebrow">Dnes</p><h2>Pokračuj v tréninku</h2></div><div class="streakBadge">🔥 ${streak()} dní</div></div>
+      <div class="todayCompact v22TodayCompact">
+        <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
+        <div><h3>${day.title}</h3><p class="muted">První týden se zaměřujeme na aktivaci hýždí a zadních stehen. Tlak přes paty, pomalé tempo a kontrola pohybu.</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků • ${lm?`pas ${fmtNum(lm.waist)} cm`:'měření zatím není'}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
+      </div>
+      <button class="primary cta" data-action="start-auto" data-day="${n}">▶ Cvič se mnou</button>
+      <div class="compactActions v22Actions"><button data-action="day" data-day="${n}">♙ Ruční režim</button><button data-action="calendar">▣ Kalendář</button><button data-action="progress">▥ Měření</button></div>
+    </section>
+    <aside class="v22SidePanels">
+      <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${ln.text}</small>`:''}</section>
+      <section class="v22InfoCard v22Areas"><h3>Zaměřené oblasti</h3><img src="assets/exercises/day1_muscles.jpg" alt="Zaměřené oblasti"><div><span><i></i>Hlavní svaly</span><span><i class="secondary"></i>Vedlejší svaly</span></div></section>
+    </aside>
+    <section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>
+  </div>`;
 }
 
 function days(){
@@ -322,7 +333,7 @@ function day(di){
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
-  <section class="card"><h2>Cviky dne</h2><div class="libraryGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`;
+  <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`;
 }
 function startTraining(di,auto=false){
   clearInterval(timer);workoutAuto=auto;workoutRunning=false;workoutPaused=false;workoutPhase='work';
