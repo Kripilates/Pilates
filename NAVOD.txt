@@ -1,1 +1,1 @@
-v25: Cviky na opakování jsou bez kruhového časovače. Zobrazuje se opakování, série a tlačítko Hotovo série.
+Nahraj obsah složky do GitHub repozitáře, commitni a pushni. V hlavičce aplikace musí být v28 • kola bez pauz mezi cviky.

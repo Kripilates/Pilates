@@ -164,3 +164,5 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 .finishSummary b{display:block;font-size:28px;color:var(--p)}
 .finishSummary span{color:var(--muted);font-weight:800;font-size:.85rem}
 @media(max-width:720px){.finishSummary{grid-template-columns:1fr 1fr}.finishSummary div:last-child{grid-column:1/-1}.doneRoundBtn{width:100%}}
+
+/* v28: kruhový trénink – žádná pauza mezi cviky, odpočinek jen po celém kole */
