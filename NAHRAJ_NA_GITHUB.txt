@@ -1,0 +1,9 @@
+PilatesBody40 v40 clean final
+
+Postup nahrání:
+1. Rozbal ZIP.
+2. Zkopíruj celý obsah složky do lokální složky repozitáře Pilates.
+3. V GitHub Desktop zkontroluj změny.
+4. Commit: v40 clean final
+5. Push origin.
+6. Otevři: https://kripilates.github.io/Pilates/
