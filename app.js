@@ -294,7 +294,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v51',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v52',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -423,6 +423,9 @@ function phaseSideText(){
   return '';
 }
 function beginCurrentExercise(){
+  // Důležité: při vstupu do dalšího cviku vždy zastavit starý odpočet.
+  // Jinak po pauze/kole běžel timer dál a cviky na počet se ve 2./3. kole samy potvrzovaly.
+  clearInterval(timer);
   const [k,dose]=data.days[currentDay].items[currentExercise]||[];
   const info=sideInfo(dose);
   workoutPaused=false;
@@ -475,7 +478,7 @@ function currentInstruction(ex,dose){
   if(workoutPhase==='prep')return 'Nastav se do správné pozice. Čas začne až po odpočtu.';
   if(workoutPhase==='switch')return 'V klidu vyměň stranu. Nespěchej, technika je důležitější než čas.';
   if(workoutPhase==='roundRest'||workoutPhase==='rest')return 'Krátce se vydýchej a připrav se na další kolo.';
-  if(workoutPhase==='confirm')return 'Cvik je odčasovaný. Až ho opravdu dokončíš a jsi připravená pokračovat, klepni na Dokončeno.';
+  if(workoutPhase==='confirm')return 'Hotovo. Až budeš připravená, klepni na Dokončeno.';
   const info=sideInfo(dose);
   if(info.side && workoutPhase==='left')return 'Levá strana. Odcvič uvedený počet / čas čistě a bez švihu.';
   if(info.side && workoutPhase==='right')return 'Pravá strana. Odcvič stejný počet / čas stejně pomalu a čistě.';
@@ -488,7 +491,7 @@ function showAutoTrain(){
   const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k],info=sideInfo(dose);
   const progress=Math.min(100, Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise)/(dayObj.items.length*workoutTotalSets))*100));
   const isTimedActive = info.timed && ['prep','switch','left','right','work','roundRest'].includes(workoutPhase);
-  const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="restLabel">${phaseLabel()}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='prep'?'Připrav pozici.':workoutPhase==='switch'?'Přejdi na druhou stranu.':workoutPhase==='roundRest'?'Za chvíli další kolo.':'Cvič, aplikace jen měří čas.'}</small></div>` : `<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b><small>${workoutPhase==='confirm'?'Klepni na Dokončeno, až chceš pokračovat.':info.side?'Odcvič levou i pravou stranu. Pak klepni na Dokončeno.':'Až sérii dokončíš, klepni na Dokončeno.'}</small></div>`;
+  const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="restLabel">${phaseLabel()}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div><small>${workoutPhase==='prep'?'Připrav pozici.':workoutPhase==='switch'?'Přejdi na druhou stranu.':workoutPhase==='roundRest'?'Za chvíli další kolo.':'Cvič, aplikace jen měří čas.'}</small></div>` : `<div class="repBox noTimerBox"><span>Kolo ${workoutCurrentSet} z ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b><small>${workoutPhase==='confirm'?'Klepni na Dokončeno.':info.side?'Odcvič obě strany a potvrď.':'Odcvič a potvrď.'}</small></div>`;
   app.innerHTML=`<section class="card fullTrain autoTrain v50Train">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">${setProgressText()}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
