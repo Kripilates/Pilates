@@ -1,5 +1,5 @@
-const CACHE='PB40-v42-final-cache';
-const ASSETS=['./','index.html','manifest.json','style.css?v=42','app.js?v=42','data.js?v=42'];
+const CACHE='PB40-v43-final-cache';
+const ASSETS=['./','index.html','manifest.json','style.css?v=43','app.js?v=43','data.js?v=43'];
 
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -38,7 +38,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Obrázky mohou zůstat v cache, ale změna ?v=42 v data.js je donutí načíst novou variantu.
+  // Obrázky mohou zůstat v cache, ale změna ?v=43 v data.js je donutí načíst novou variantu.
   event.respondWith(
     caches.match(req).then(cached => cached || fetch(req).then(res => {
       const copy = res.clone();
