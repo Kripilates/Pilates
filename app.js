@@ -180,11 +180,12 @@ function detailMuscleImage(k){
 }
 
 
-// v30: systematická kontrola Dne 1.
+// v31: skutečná kontrola Dne 1 - bez falešných placeholderů u kroků.
 // U cviků, kde nemáme 3 ověřené odlišné fotky, už nezobrazujeme stejné obrázky 3×.
 // Místo toho zobrazujeme přesné kroky pohybu textově. Jakmile budou k dispozici
 // 3 skutečné fotky pro konkrétní cvik, stačí přidat soubory a povolit je zde.
 const verifiedStepPhotos={hip:true};
+const day1RealPhotoFallback={rdl:true,hydrant:true,clam:true,sideleg:true,deadbug:true};
 const day1StepMap={
   hip:[
     {title:'Výchozí pozice',text:'Chodidla pod koleny, lopatky opřené, pánev připravená dole.'},
@@ -225,7 +226,11 @@ function detailSteps(k,ex){
 }
 function detailStepMedia(k,n){
   if(verifiedStepPhotos[k]) return detailStepImage(k,n);
-  return `<div class="v30StepNoPhoto"><span>${n}</span><b>${n===1?'Start':n===2?'Pohyb':'Návrat'}</b></div>`;
+  if(day1RealPhotoFallback[k] && n===1){
+    const ex=data.exercises[k];
+    return `<figure class="v31StepRealFallback"><img src="${ex.image}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Reálná ukázka cviku</figcaption></figure>`;
+  }
+  return '';
 }
 
 function exMeta(k){
@@ -616,7 +621,7 @@ function info(k){
             <section class="v20Card v20FlowCard">
               <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
               <div class="v20Flow">
-                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v30TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
+                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v31TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
               </div>
             </section>
 
