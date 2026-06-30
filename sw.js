@@ -1,17 +1,15 @@
-// v46 self-destruct service worker. Keeps updates from being trapped in old PWA cache.
-const CACHE = 'PB40-v46-no-sw-cache';
-self.addEventListener('install', event => {
-  self.skipWaiting();
-});
+// v47: service worker není v index.html registrován.
+// Soubor ponechán jen kvůli bezpečnému přepsání starých verzí na GitHubu.
+self.addEventListener('install', event => { self.skipWaiting(); });
 self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.map(key => caches.delete(key))))
-      .then(() => self.registration.unregister())
-      .then(() => self.clients.matchAll())
-      .then(clients => clients.forEach(client => client.navigate(client.url)))
-  );
+  event.waitUntil((async () => {
+    if (self.caches) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+    await self.clients.claim();
+  })());
 });
 self.addEventListener('fetch', event => {
-  // no cache; always let the browser/network handle requests
+  event.respondWith(fetch(event.request, { cache: 'no-store' }).catch(() => fetch(event.request)));
 });

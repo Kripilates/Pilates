@@ -157,13 +157,14 @@ function beep(freq=660,dur=90){
     setTimeout(()=>{o.stop();ctx.close();},dur);
   }catch(e){}
 }
-const day1RealImages={hip:'assets/exercises/glute_bridge_main.jpg',rdl:'assets/exercises/rdl_main.jpg',hydrant:'assets/exercises/hydrant_main.jpg',clam:'assets/exercises/clam_main.jpg',sideleg:'assets/exercises/sideleg_main.jpg',deadbug:'assets/exercises/deadbug_main.jpg'};
-function v22ImageSrc(k){return day1RealImages[k] || data.exercises[k]?.image || '';}
+// v47: vypnuté staré ruční přesměrování obrázků.
+// Dříve prvních 6 cviků používalo *_main.jpg a karta se proto lišila od data.js.
+const day1RealImages={};
+function v22ImageSrc(k){return data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
   const src=v22ImageSrc(k);
-  const real=day1RealImages[k] ? ' realThumb v22RealThumb' : '';
-  return `<img loading="lazy" class="${c}${real}" ${extra} src="${src}" alt="${ex.name}">`;
+  return `<img loading="lazy" class="${c}" ${extra} src="${src}" alt="${ex.name}">`;
 }
 
 function detailHeroImage(k){
@@ -275,7 +276,7 @@ function exCard(k,dose,d,i){
   const ex=data.exercises[k],ok=d!==undefined&&done(d,i),meta=exMeta(k);
   const rep=dose||ex.dose||'';
   const num=(i!==undefined?i+1:'');
-  const isReal=!!day1RealImages[k];
+  const isReal=false;
   const labels = k==='hip' ? ['Hýždě (hlavně)','Zadní stehna','Spodní záda'] :
     k==='rdl' ? ['Zadní stehna (hlavně)','Hýždě','Spodní záda'] :
     k==='hydrant' ? ['Hýždě (střední sval)','Hýždě','Core'] :
@@ -293,7 +294,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v46',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v47',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -773,6 +774,6 @@ $('nav-stats').onclick=showStats;
 const progressNav=document.getElementById('nav-progress'); if(progressNav) progressNav.onclick=progressTracker;
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
-/* v46: service worker registration removed to prevent stale PWA cache. */
+/* v47: service worker registration removed to prevent stale PWA cache. */
 if(localStorage.getItem(introKey)!=='1') intro(); else home();
 })();
