@@ -1,0 +1,1 @@
+Rozbal ZIP do složky repozitáře Pilates tak, aby se přepsaly stávající soubory. Pak v GitHub Desktop dej Commit to main a Push origin. Po nahrání otevři https://kripilates.github.io/Pilates/?v=41 a dej Ctrl+F5.
