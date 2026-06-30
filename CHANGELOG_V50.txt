@@ -1,0 +1,14 @@
+Pilates Body 40+ v50
+
+Zaměření: funkčnost cvičení a mobilní použitelnost.
+
+Změny:
+- 3 kola/série se teď cvičí správně přes celý den: nejdřív všech 6 cviků, potom další kolo.
+- Časové cviky na strany: příprava → levá strana → výměna → pravá strana → další cvik.
+- Tlačítko Přeskočit u přípravy/výměny/pauzy už znamená přeskočit odpočet, ne celý cvik.
+- Texty ve cvičebním režimu jsou jasnější: Kolo 1/3, Cvik 4/6.
+- Detail časových cviků už nepíše automaticky 15× opakování, ale ukazuje skutečné trvání podle plánu.
+- Zmenšené a zpřehledněné mobilní rozložení cvičební obrazovky.
+
+Poznámka:
+Obrázky nejsou finálně sjednocené, ty budeme řešit v další verzi.

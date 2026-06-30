@@ -1,0 +1,5 @@
+Nahraj celý obsah této složky do repozitáře Pilates na GitHubu.
+Po nahrání otevři:
+https://kripilates.github.io/Pilates/?v=50
+
+Pokud by se stránka nechovala nově, použij tvrdé obnovení nebo otevři v anonymním okně.
