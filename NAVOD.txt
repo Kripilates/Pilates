@@ -1,1 +1,4 @@
-Nahraj obsah složky do GitHub repozitáře, commitni a pushni. V hlavičce aplikace musí být v28 • kola bez pauz mezi cviky.
+Pilates Body 40+ v33
+
+Den 1: Hip Thrust je nahrazený cvikem Glute Bridge. Fotky kroků jsou doplněné pro všech 6 cviků dne 1.
+Nahrání: zkopíruj obsah ZIPu do GitHub složky Pilates, Commit, Push.

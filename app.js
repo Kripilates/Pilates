@@ -143,7 +143,7 @@ function workSeconds(dose){
 function doseLabel(dose){
   const txt=String(dose||'');
   if(isTimedDose(txt))return txt;
-  return `${workoutTotalSets} série × ${txt}`;
+  return `${workoutTotalSets} kola × ${txt}`;
 }
 function setPill(dose){
   if(isTimedDose(dose))return '';
@@ -167,7 +167,7 @@ function img(k,c='thumb',extra=''){
 }
 
 function detailHeroImage(k){
-  const heroMap={hip:'assets/exercises/glute_bridge_hero.jpg',deadbug:'assets/exercises/deadbug_step1.jpg'};
+  const heroMap={hip:'assets/exercises/glute_bridge_hero.jpg',deadbug:'assets/exercises/deadbug_real_card.jpg'};
   const src = heroMap[k] || v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
@@ -189,7 +189,7 @@ function detailMuscleImage(k){
 }
 
 
-// v32: Den 1 finální revize - Glute Bridge + správné krokové obrázky.
+// v33: Den 1 finální oprava fotografií a názvů - Glute Bridge + kroky cviků.
 // U cviků, kde nemáme 3 ověřené odlišné fotky, už nezobrazujeme stejné obrázky 3×.
 // Místo toho zobrazujeme přesné kroky pohybu textově. Jakmile budou k dispozici
 // 3 skutečné fotky pro konkrétní cvik, stačí přidat soubory a povolit je zde.
