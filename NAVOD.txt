@@ -1,4 +1,2 @@
-Pilates Body 40+ v33
-
-Den 1: Hip Thrust je nahrazený cvikem Glute Bridge. Fotky kroků jsou doplněné pro všech 6 cviků dne 1.
-Nahrání: zkopíruj obsah ZIPu do GitHub složky Pilates, Commit, Push.
+Pilates Body 40+ v34
+Oprava Dne 1: hlavní fotky jsou samostatné snímky a krokové fotky se zobrazují celé bez ořezu.

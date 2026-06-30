@@ -157,7 +157,7 @@ function beep(freq=660,dur=90){
     setTimeout(()=>{o.stop();ctx.close();},dur);
   }catch(e){}
 }
-const day1RealImages={hip:'assets/exercises/glute_bridge_card.jpg',rdl:'assets/exercises/rdl_real_card.jpg',hydrant:'assets/exercises/hydrant_real_card.jpg',clam:'assets/exercises/clam_real_card.jpg',sideleg:'assets/exercises/sideleg_real_card.jpg',deadbug:'assets/exercises/deadbug_step1.jpg'};
+const day1RealImages={hip:'assets/exercises/glute_bridge_main.jpg',rdl:'assets/exercises/rdl_main.jpg',hydrant:'assets/exercises/hydrant_main.jpg',clam:'assets/exercises/clam_main.jpg',sideleg:'assets/exercises/sideleg_main.jpg',deadbug:'assets/exercises/deadbug_main.jpg'};
 function v22ImageSrc(k){return day1RealImages[k] || data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
@@ -167,8 +167,7 @@ function img(k,c='thumb',extra=''){
 }
 
 function detailHeroImage(k){
-  const heroMap={hip:'assets/exercises/glute_bridge_hero.jpg',deadbug:'assets/exercises/deadbug_real_card.jpg'};
-  const src = heroMap[k] || v22ImageSrc(k);
+  const src = v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
 const day1StepFiles={
@@ -189,7 +188,7 @@ function detailMuscleImage(k){
 }
 
 
-// v33: Den 1 finální oprava fotografií a názvů - Glute Bridge + kroky cviků.
+// v34: hlavní fotky jsou samostatné snímky, krokové fotky se nezalamují ani neořezávají.
 // U cviků, kde nemáme 3 ověřené odlišné fotky, už nezobrazujeme stejné obrázky 3×.
 // Místo toho zobrazujeme přesné kroky pohybu textově. Jakmile budou k dispozici
 // 3 skutečné fotky pro konkrétní cvik, stačí přidat soubory a povolit je zde.

@@ -238,3 +238,28 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   flex-direction:column;
   justify-content:center;
 }
+
+
+/* v34: hlavní fotky jsou jednotlivé snímky, ne koláže; krokové fotky se zobrazují celé */
+.v22PhotoWrap .thumb,
+.v22PhotoWrap .thumb.realThumb,
+.v22PhotoWrap .thumb.v22RealThumb{
+  object-fit:contain!important;
+  object-position:center!important;
+  background:#fff!important;
+}
+.v20HeroPhoto,
+.v20HeroPhoto.v22HeroPhoto{
+  object-fit:contain!important;
+  object-position:center!important;
+  background:#fff!important;
+}
+.v20StepPhoto,
+.v20StepPhoto.v22StepPhoto{
+  object-fit:contain!important;
+  object-position:center!important;
+  height:148px!important;
+  background:#fff!important;
+}
+.v20Flow article{overflow:visible;}
+@media(max-width:720px){.v20StepPhoto,.v20StepPhoto.v22StepPhoto{height:165px!important}.v22PhotoWrap{height:170px!important}}
