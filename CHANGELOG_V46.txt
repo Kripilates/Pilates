@@ -1,0 +1,6 @@
+PilatesBody40 v46
+- vypnutá registrace service workeru v app.js
+- index.html při načtení zruší staré service workery a smaže Cache Storage
+- sw.js je self-destruct/no-cache
+- všechny hlavní soubory mají cache-busting ?v=46
+- data.js obrázky přepnuté na ?v=46

@@ -1,1 +1,33 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pilates Body 40+ v44</title><link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css?v=44"><meta name="theme-color" content="#20b6b2"></head><body><header><div><h1>Pilates Body 40+</h1><p>v44 • sjednocené obrázky</p></div><strong class="brandBadge">40+</strong></header><nav><button id="nav-home" class="active"><span>⌂</span>Domů</button><button id="nav-days"><span>☑</span>Plán</button><button id="nav-train"><span>▶</span>Cvičit</button><button id="nav-calendar"><span>▦</span>Kalendář</button><button id="nav-library"><span>☰</span>Program</button><button id="nav-favs">♡ Oblíbené</button><button id="nav-stats">↗ Statistiky</button><button id="nav-progress">◎ Měření</button><button id="nav-dark">🌙</button></nav><main id="app"><section class="card"><h2>Načítám aplikaci…</h2><p class="muted">Pokud tu zůstaneš, nenačetl se data.js nebo app.js.</p></section></main><script src="data.js?v=44"></script><script src="app.js?v=44"></script></body></html>
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pilates Body 40+ v46</title>
+  <link rel="manifest" href="manifest.json?v=46">
+  <link rel="stylesheet" href="style.css?v=46">
+  <meta name="theme-color" content="#20b6b2">
+</head>
+<body>
+<header><div><h1>Pilates Body 40+</h1><p>v46 • bez staré PWA cache</p></div><strong class="brandBadge">40+</strong></header>
+<nav><button id="nav-home" class="active"><span>⌂</span>Domů</button><button id="nav-days"><span>☑</span>Plán</button><button id="nav-train"><span>▶</span>Cvičit</button><button id="nav-calendar"><span>▦</span>Kalendář</button><button id="nav-library"><span>☰</span>Program</button><button id="nav-favs">♡ Oblíbené</button><button id="nav-stats">↗ Statistiky</button><button id="nav-progress">◎ Měření</button><button id="nav-dark">🌙</button></nav>
+<main id="app"><section class="card"><h2>Načítám aplikaci…</h2><p class="muted">Pokud tu zůstaneš, nenačetl se data.js nebo app.js.</p></section></main>
+<script>
+// v46: tvrdé vypnutí starých service workerů a vymazání PWA cache.
+(function(){
+  try {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(regs){
+        regs.forEach(function(reg){ reg.unregister(); });
+      }).catch(function(){});
+    }
+    if ('caches' in window) {
+      caches.keys().then(function(keys){ keys.forEach(function(key){ caches.delete(key); }); }).catch(function(){});
+    }
+  } catch(e) {}
+})();
+</script>
+<script src="data.js?v=46"></script>
+<script src="app.js?v=46"></script>
+</body>
+</html>

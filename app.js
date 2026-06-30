@@ -293,7 +293,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v44',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v46',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -773,6 +773,6 @@ $('nav-stats').onclick=showStats;
 const progressNav=document.getElementById('nav-progress'); if(progressNav) progressNav.onclick=progressTracker;
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
-if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js?v=43').then(reg=>{reg.update&&reg.update();}).catch(()=>{})}
+/* v46: service worker registration removed to prevent stale PWA cache. */
 if(localStorage.getItem(introKey)!=='1') intro(); else home();
 })();

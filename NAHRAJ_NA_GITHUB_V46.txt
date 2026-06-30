@@ -1,0 +1,3 @@
+Nahraj celý obsah ZIPu do kořene repozitáře Pilates a přepiš existující soubory.
+Po commitu otevři: https://kripilates.github.io/Pilates/?v=46
+Pak ve Firefoxu zkontroluj F12 → Aplikace → Service Workery. Po načtení v46 by registrace měla zmizet nebo se přestat používat.
