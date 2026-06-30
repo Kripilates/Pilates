@@ -143,7 +143,7 @@ function workSeconds(dose){
 function doseLabel(dose){
   const txt=String(dose||'');
   if(isTimedDose(txt))return txt;
-  return `${workoutTotalSets} série × ${txt}`;
+  return `${workoutTotalSets} kola × ${txt}`;
 }
 function setPill(dose){
   if(isTimedDose(dose))return '';
@@ -157,7 +157,7 @@ function beep(freq=660,dur=90){
     setTimeout(()=>{o.stop();ctx.close();},dur);
   }catch(e){}
 }
-const day1RealImages={hip:'assets/exercises/hip_real_card.jpg',rdl:'assets/exercises/rdl_real_card.jpg',hydrant:'assets/exercises/hydrant_real_card.jpg',clam:'assets/exercises/clam_real_card.jpg',sideleg:'assets/exercises/sideleg_real_card.jpg',deadbug:'assets/exercises/deadbug_real_card.jpg'};
+const day1RealImages={hip:'assets/exercises/glute_bridge_main.jpg',rdl:'assets/exercises/rdl_main.jpg',hydrant:'assets/exercises/hydrant_main.jpg',clam:'assets/exercises/clam_main.jpg',sideleg:'assets/exercises/sideleg_main.jpg',deadbug:'assets/exercises/deadbug_main.jpg'};
 function v22ImageSrc(k){return day1RealImages[k] || data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
@@ -167,15 +167,77 @@ function img(k,c='thumb',extra=''){
 }
 
 function detailHeroImage(k){
-  const src = k==='hip' ? 'assets/exercises/hip_real_hero.jpg' : v22ImageSrc(k);
+  const src = v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
+const day1StepFiles={
+  hip:['assets/exercises/glute_bridge_step1.jpg','assets/exercises/glute_bridge_step2.jpg','assets/exercises/glute_bridge_step3.jpg'],
+  rdl:['assets/exercises/rdl_step1.jpg','assets/exercises/rdl_step2.jpg','assets/exercises/rdl_step3.jpg'],
+  hydrant:['assets/exercises/hydrant_step1.jpg','assets/exercises/hydrant_step2.jpg','assets/exercises/hydrant_step3.jpg'],
+  clam:['assets/exercises/clam_step1.jpg','assets/exercises/clam_step2.jpg','assets/exercises/clam_step3.jpg'],
+  sideleg:['assets/exercises/sideleg_step1.jpg','assets/exercises/sideleg_step2.jpg','assets/exercises/sideleg_step3.jpg'],
+  deadbug:['assets/exercises/deadbug_step1.jpg','assets/exercises/deadbug_step2.jpg','assets/exercises/deadbug_step3.jpg']
+};
 function detailStepImage(k,n){
-  const src = k==='hip' ? `assets/exercises/hip_real_step${n}.jpg` : v22ImageSrc(k);
+  const src = (day1StepFiles[k]||[])[n-1] || v22ImageSrc(k);
   return `<img loading="lazy" class="v20StepPhoto v22StepPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'} krok ${n}">`;
 }
 function detailMuscleImage(k){
   if(day1RealImages[k]) return `<img loading="lazy" class="v20MuscleImg" src="assets/exercises/day1_muscles.jpg" alt="Zapojené svaly">`;
+  return '';
+}
+
+
+// v34: hlavní fotky jsou samostatné snímky, krokové fotky se nezalamují ani neořezávají.
+// U cviků, kde nemáme 3 ověřené odlišné fotky, už nezobrazujeme stejné obrázky 3×.
+// Místo toho zobrazujeme přesné kroky pohybu textově. Jakmile budou k dispozici
+// 3 skutečné fotky pro konkrétní cvik, stačí přidat soubory a povolit je zde.
+const verifiedStepPhotos={hip:true,rdl:true,hydrant:true,clam:true,sideleg:true,deadbug:true};
+const day1RealPhotoFallback={};
+const day1StepMap={
+  hip:[
+    {title:'Výchozí pozice',text:'Lehni si na záda na podložku, chodidla dej pod kolena a ruce podél těla.'},
+    {title:'Zvednutí pánve',text:'Zatlač přes paty a zvedni pánev nahoru, aby tělo tvořilo přímku od ramen ke kolenům.'},
+    {title:'Návrat dolů',text:'Pomalu spusť pánev zpět dolů těsně nad podložku a udrž napětí v hýždích.'}
+  ],
+  rdl:[
+    {title:'Výchozí stoj',text:'Postav se na šířku boků, kolena jen lehce pokrčená, ruce nebo činky u stehen.'},
+    {title:'Boky dozadu',text:'Posuň boky dozadu, záda drž dlouhá a ruce nech klouzat po stehnech směrem ke kolenům.'},
+    {title:'Návrat nahoru',text:'Zatlač přes paty, stáhni hýždě a vrať se do vzpřímeného stoje bez záklonu.'}
+  ],
+  hydrant:[
+    {title:'Na všech čtyřech',text:'Dlaně pod rameny, kolena pod kyčlemi, břicho lehce aktivní.'},
+    {title:'Koleno do strany',text:'Zvedni pokrčené koleno do strany jen tak vysoko, aby se nepřeklápěla pánev.'},
+    {title:'Kontrolovaný návrat',text:'Vrať koleno zpět pod kyčel pomalu, bez švihu a bez zhoupnutí v bedrech.'}
+  ],
+  clam:[
+    {title:'Výchozí pozice',text:'Lehni na bok, paty u sebe, kolena pokrčená. Neotáčej pánev.'},
+    {title:'Zvednutí kolena',text:'Pomalu zvedni horní koleno vzhůru. Paty zůstávají u sebe.'},
+    {title:'Návrat',text:'Pomalu vrať horní koleno zpět. Pohyb prováděj bez otáčení pánve.'}
+  ],
+  sideleg:[
+    {title:'Lehni na bok',text:'Spodní noha může být pokrčená, horní noha je dlouhá a pánev stabilní.'},
+    {title:'Zvednutí nohy',text:'Zvedni horní nohu bez švihu. Špičku lehce přitáhni k sobě.'},
+    {title:'Spuštění dolů',text:'Spouštěj nohu kontrolovaně zpět, nepovol břicho ani pánev.'}
+  ],
+  deadbug:[
+    {title:'Výchozí pozice',text:'Leh na zádech, kolena nad kyčlemi v 90° a obě ruce směřují ke stropu.'},
+    {title:'Pravá ruka + levá noha',text:'Natáhni pravou ruku dozadu za hlavu a levou nohu dopředu. Druhá ruka i noha zůstávají nahoře.'},
+    {title:'Návrat',text:'Vrať ruku a nohu zpět do výchozí pozice, pak opakuj na druhou stranu.'}
+  ]
+};
+function detailSteps(k,ex){
+  if(day1StepMap[k]) return day1StepMap[k];
+  const arr=(ex.how&&ex.how.length?ex.how:[]).slice(0,3).map((text,i)=>({title:i===0?'Výchozí pozice':i===1?'Hlavní pohyb':'Návrat',text}));
+  while(arr.length<3)arr.push({title:arr.length===1?'Hlavní pohyb':'Návrat',text:'Drž plynulý, kontrolovaný pohyb bez bolesti.'});
+  return arr;
+}
+function detailStepMedia(k,n){
+  if(verifiedStepPhotos[k]) return detailStepImage(k,n);
+  if(day1RealPhotoFallback[k] && n===1){
+    const ex=data.exercises[k];
+    return `<figure class="v32StepRealFallback"><img src="${ex.image}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Reálná ukázka cviku</figcaption></figure>`;
+  }
   return '';
 }
 
@@ -231,7 +293,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v29',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v35',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -534,8 +596,7 @@ function doneNext(mark=true){
 }
 function info(k){
   const ex=data.exercises[k], meta=exMeta(k);
-  const steps=(ex.how&&ex.how.length?ex.how:[]).slice(0,3);
-  while(steps.length<3)steps.push(steps[steps.length-1]||'Drž plynulý, kontrolovaný pohyb bez bolesti.');
+  const steps=detailSteps(k,ex);
   const dose=(ex.dose||'15×');
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
@@ -568,7 +629,7 @@ function info(k){
             <section class="v20Card v20FlowCard">
               <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
               <div class="v20Flow">
-                ${steps.map((x,i)=>`<article><div class="v20StepTitle"><b>${i+1}</b><strong>${i===0?'Výchozí pozice':i===1?'Pohyb nahoru':'Horní pozice'}</strong></div>${detailStepImage(k,i+1)}<p>${x}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
+                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
               </div>
             </section>
 

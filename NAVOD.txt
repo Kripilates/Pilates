@@ -1,1 +1,4 @@
-Nahraj obsah složky do GitHub repozitáře, commitni a pushni. V hlavičce aplikace musí být v28 • kola bez pauz mezi cviky.
+Pilates Body 40+ v34
+Oprava Dne 1: hlavní fotky jsou samostatné snímky a krokové fotky se zobrazují celé bez ořezu.
+
+Verze v39: doplněné nové hero obrázky, přidaný Rainbow Leg Raise a sjednocené varianty cviků na stejné fotografie.
