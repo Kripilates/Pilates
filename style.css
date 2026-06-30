@@ -317,3 +317,13 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   .v50Train .trainControls{bottom:76px!important;padding:8px!important}.v50Train .trainControls button{padding:12px 8px!important}
   .v50StepFallback img{height:140px}
 }
+
+/* v53: čistší cvičební obrazovka */
+.v53Mini{font-size:.95rem!important;text-align:center;background:transparent!important;border:0!important;padding:4px 8px!important;color:var(--muted)!important}
+.v50Train .restBlock.compactTimer{max-width:360px!important}
+.v50Train .restBlock.compactTimer .restLabel{font-size:1.05rem;font-weight:800;color:var(--text)}
+.v50Train .repBox.noTimerBox small{font-size:.85rem!important;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+@media(max-width:640px){
+  .v53Mini{display:none!important}
+  .v50Train .restBlock.compactTimer{grid-template-columns:1fr auto!important;padding:10px 12px!important}
+}

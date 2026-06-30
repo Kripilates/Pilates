@@ -1,0 +1,8 @@
+v53 - stabilizace cvičebního režimu
+
+- Cvičit z detailu cviku už zůstává v právě otevřeném dni.
+- Zkrácené texty na cvičební obrazovce.
+- Sjednocené tlačítko Dokončeno.
+- Zvukové signály jsou řízené z jednoho místa a odemykají se po klepnutí.
+- Přidána vibrace tam, kde ji telefon podporuje.
+- Starý service worker zůstává vypnutý.

@@ -1,1 +1,1 @@
-// v52: service worker deliberately disabled; app unregisters old workers in index.html.
+// v53: service worker deliberately disabled; app unregisters old workers in index.html.
