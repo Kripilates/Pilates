@@ -157,7 +157,7 @@ function beep(freq=660,dur=90){
     setTimeout(()=>{o.stop();ctx.close();},dur);
   }catch(e){}
 }
-const day1RealImages={hip:'assets/exercises/hip_real_card.jpg',rdl:'assets/exercises/rdl_real_card.jpg',hydrant:'assets/exercises/hydrant_real_card.jpg',clam:'assets/exercises/clam_real_card.jpg',sideleg:'assets/exercises/sideleg_real_card.jpg',deadbug:'assets/exercises/deadbug_real_card.jpg'};
+const day1RealImages={hip:'assets/exercises/glute_bridge_card.jpg',rdl:'assets/exercises/rdl_real_card.jpg',hydrant:'assets/exercises/hydrant_real_card.jpg',clam:'assets/exercises/clam_real_card.jpg',sideleg:'assets/exercises/sideleg_real_card.jpg',deadbug:'assets/exercises/deadbug_step1.jpg'};
 function v22ImageSrc(k){return day1RealImages[k] || data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
@@ -167,11 +167,20 @@ function img(k,c='thumb',extra=''){
 }
 
 function detailHeroImage(k){
-  const src = k==='hip' ? 'assets/exercises/hip_real_hero.jpg' : v22ImageSrc(k);
+  const heroMap={hip:'assets/exercises/glute_bridge_hero.jpg',deadbug:'assets/exercises/deadbug_step1.jpg'};
+  const src = heroMap[k] || v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
+const day1StepFiles={
+  hip:['assets/exercises/glute_bridge_step1.jpg','assets/exercises/glute_bridge_step2.jpg','assets/exercises/glute_bridge_step3.jpg'],
+  rdl:['assets/exercises/rdl_step1.jpg','assets/exercises/rdl_step2.jpg','assets/exercises/rdl_step3.jpg'],
+  hydrant:['assets/exercises/hydrant_step1.jpg','assets/exercises/hydrant_step2.jpg','assets/exercises/hydrant_step3.jpg'],
+  clam:['assets/exercises/clam_step1.jpg','assets/exercises/clam_step2.jpg','assets/exercises/clam_step3.jpg'],
+  sideleg:['assets/exercises/sideleg_step1.jpg','assets/exercises/sideleg_step2.jpg','assets/exercises/sideleg_step3.jpg'],
+  deadbug:['assets/exercises/deadbug_step1.jpg','assets/exercises/deadbug_step2.jpg','assets/exercises/deadbug_step3.jpg']
+};
 function detailStepImage(k,n){
-  const src = k==='hip' ? `assets/exercises/hip_real_step${n}.jpg` : v22ImageSrc(k);
+  const src = (day1StepFiles[k]||[])[n-1] || v22ImageSrc(k);
   return `<img loading="lazy" class="v20StepPhoto v22StepPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'} krok ${n}">`;
 }
 function detailMuscleImage(k){
@@ -180,17 +189,17 @@ function detailMuscleImage(k){
 }
 
 
-// v31: skutečná kontrola Dne 1 - bez falešných placeholderů u kroků.
+// v32: Den 1 finální revize - Glute Bridge + správné krokové obrázky.
 // U cviků, kde nemáme 3 ověřené odlišné fotky, už nezobrazujeme stejné obrázky 3×.
 // Místo toho zobrazujeme přesné kroky pohybu textově. Jakmile budou k dispozici
 // 3 skutečné fotky pro konkrétní cvik, stačí přidat soubory a povolit je zde.
-const verifiedStepPhotos={hip:true};
-const day1RealPhotoFallback={rdl:true,hydrant:true,clam:true,sideleg:true,deadbug:true};
+const verifiedStepPhotos={hip:true,rdl:true,hydrant:true,clam:true,sideleg:true,deadbug:true};
+const day1RealPhotoFallback={};
 const day1StepMap={
   hip:[
-    {title:'Výchozí pozice',text:'Chodidla pod koleny, lopatky opřené, pánev připravená dole.'},
-    {title:'Zvednutí pánve',text:'Zatlač přes paty a zvedni pánev nahoru bez prohýbání v bedrech.'},
-    {title:'Horní pozice',text:'Kolena, pánev a ramena jsou v jedné linii. Krátce stáhni hýždě.'}
+    {title:'Výchozí pozice',text:'Lehni si na záda na podložku, chodidla dej pod kolena a ruce podél těla.'},
+    {title:'Zvednutí pánve',text:'Zatlač přes paty a zvedni pánev nahoru, aby tělo tvořilo přímku od ramen ke kolenům.'},
+    {title:'Návrat dolů',text:'Pomalu spusť pánev zpět dolů těsně nad podložku a udrž napětí v hýždích.'}
   ],
   rdl:[
     {title:'Výchozí stoj',text:'Postav se na šířku boků, kolena jen lehce pokrčená, ruce nebo činky u stehen.'},
@@ -213,9 +222,9 @@ const day1StepMap={
     {title:'Spuštění dolů',text:'Spouštěj nohu kontrolovaně zpět, nepovol břicho ani pánev.'}
   ],
   deadbug:[
-    {title:'Stabilní střed',text:'Leh na zádech, nohy v 90° a ruce ke stropu. Bedra drž klidně u podložky.'},
-    {title:'Opačná ruka a noha',text:'Pomalu natáhni jednu nohu a opačnou ruku jen do rozsahu, kde udržíš bedra.'},
-    {title:'Návrat a výměna',text:'Vrať se zpět do středu a vystřídej strany. Pohyb je pomalý, ne švihový.'}
+    {title:'Výchozí pozice',text:'Leh na zádech, kolena nad kyčlemi v 90° a obě ruce směřují ke stropu.'},
+    {title:'Pravá ruka + levá noha',text:'Natáhni pravou ruku dozadu za hlavu a levou nohu dopředu. Druhá ruka i noha zůstávají nahoře.'},
+    {title:'Návrat',text:'Vrať ruku a nohu zpět do výchozí pozice, pak opakuj na druhou stranu.'}
   ]
 };
 function detailSteps(k,ex){
@@ -228,7 +237,7 @@ function detailStepMedia(k,n){
   if(verifiedStepPhotos[k]) return detailStepImage(k,n);
   if(day1RealPhotoFallback[k] && n===1){
     const ex=data.exercises[k];
-    return `<figure class="v31StepRealFallback"><img src="${ex.image}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Reálná ukázka cviku</figcaption></figure>`;
+    return `<figure class="v32StepRealFallback"><img src="${ex.image}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Reálná ukázka cviku</figcaption></figure>`;
   }
   return '';
 }
@@ -621,7 +630,7 @@ function info(k){
             <section class="v20Card v20FlowCard">
               <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
               <div class="v20Flow">
-                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v31TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
+                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
               </div>
             </section>
 
