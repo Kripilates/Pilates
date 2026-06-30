@@ -1,0 +1,1 @@
+Nahraj obsah této složky do kořene repozitáře GitHub Pages. Přepiš index.html, app.js, data.js, style.css, manifest.json, sw.js a celou složku assets/exercises. Po nahrání otevři stránku s ?v=42 nebo tvrdě obnov prohlížeč.

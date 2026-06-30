@@ -1,16 +1,49 @@
-const CACHE='PB40-v35-day1-texts-deadbug';
-const ASSETS=['./','index.html','manifest.json','style.css','app.js','data.js'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
-self.addEventListener('fetch',e=>{
-  const req=e.request;
-  const url=new URL(req.url);
-  if(req.method!=='GET') return;
-  if(['document','script','style'].includes(req.destination) || url.searchParams.has('v')){
-    e.respondWith(fetch(req,{cache:'no-store'}).then(res=>{const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));return res;}).catch(()=>caches.match(req).then(r=>r||caches.match('index.html'))));
-    return;
-  }
-  e.respondWith(caches.match(req).then(r=>r||fetch(req).then(res=>{const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));return res;})));
+const CACHE='PB40-v42-final-cache';
+const ASSETS=['./','index.html','manifest.json','style.css?v=42','app.js?v=42','data.js?v=42'];
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then(cache => cache.addAll(ASSETS))
+      .then(() => self.skipWaiting())
+  );
 });
 
-// v35: jazyková revize Dne 1 + oprava posledního kroku Dead Bug
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+
+  const url = new URL(req.url);
+  const isAppShell = req.destination === 'document' || req.destination === 'script' || req.destination === 'style' || url.pathname.endsWith('/manifest.json');
+
+  // HTML, JS a CSS vždy nejdřív z internetu, aby GitHub Pages ukázal novou verzi hned po nahrání.
+  if (isAppShell || url.searchParams.has('v')) {
+    event.respondWith(
+      fetch(req, { cache: 'no-store' })
+        .then(res => {
+          const copy = res.clone();
+          caches.open(CACHE).then(cache => cache.put(req, copy));
+          return res;
+        })
+        .catch(() => caches.match(req).then(cached => cached || caches.match('index.html')))
+    );
+    return;
+  }
+
+  // Obrázky mohou zůstat v cache, ale změna ?v=42 v data.js je donutí načíst novou variantu.
+  event.respondWith(
+    caches.match(req).then(cached => cached || fetch(req).then(res => {
+      const copy = res.clone();
+      caches.open(CACHE).then(cache => cache.put(req, copy));
+      return res;
+    }))
+  );
+});
