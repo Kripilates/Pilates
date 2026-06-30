@@ -202,7 +202,7 @@ const day1StepMap={
   ],
   rdl:[
     {title:'Výchozí stoj',text:'Postav se na šířku boků, kolena jen lehce pokrčená, ruce nebo činky u stehen.'},
-    {title:'Pánev dozadu',text:'Posílej pánev dozadu, záda drž dlouhá a ruce nech klouzat po stehnech směrem ke kolenům.'},
+    {title:'Boky dozadu',text:'Posuň boky dozadu, záda drž dlouhá a ruce nech klouzat po stehnech směrem ke kolenům.'},
     {title:'Návrat nahoru',text:'Zatlač přes paty, stáhni hýždě a vrať se do vzpřímeného stoje bez záklonu.'}
   ],
   hydrant:[
@@ -211,12 +211,12 @@ const day1StepMap={
     {title:'Kontrolovaný návrat',text:'Vrať koleno zpět pod kyčel pomalu, bez švihu a bez zhoupnutí v bedrech.'}
   ],
   clam:[
-    {title:'Zavřená pozice',text:'Leh na boku, paty u sebe, kolena pokrčená a boky položené přesně nad sebou.'},
-    {title:'Otevření kolena',text:'Horní koleno otevři nahoru jako mušličku, paty zůstávají u sebe.'},
-    {title:'Pomalý návrat',text:'Koleno zavírej pomalu, pánev se nesmí přetočit dozadu.'}
+    {title:'Výchozí pozice',text:'Lehni na bok, paty u sebe, kolena pokrčená. Neotáčej pánev.'},
+    {title:'Zvednutí kolena',text:'Pomalu zvedni horní koleno vzhůru. Paty zůstávají u sebe.'},
+    {title:'Návrat',text:'Pomalu vrať horní koleno zpět. Pohyb prováděj bez otáčení pánve.'}
   ],
   sideleg:[
-    {title:'Leh na boku',text:'Spodní noha může být pokrčená, horní noha je dlouhá a pánev stabilní.'},
+    {title:'Lehni na bok',text:'Spodní noha může být pokrčená, horní noha je dlouhá a pánev stabilní.'},
     {title:'Zvednutí nohy',text:'Zvedni horní nohu bez švihu. Špičku lehce přitáhni k sobě.'},
     {title:'Spuštění dolů',text:'Spouštěj nohu kontrolovaně zpět, nepovol břicho ani pánev.'}
   ],
@@ -293,7 +293,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v30',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v35',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
