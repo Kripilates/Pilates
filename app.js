@@ -202,7 +202,7 @@ const day1StepMap={
   ],
   rdl:[
     {title:'Výchozí stoj',text:'Postav se na šířku boků, kolena jen lehce pokrčená, ruce nebo činky u stehen.'},
-    {title:'Boky dozadu',text:'Posuň boky dozadu, záda drž rovná a ruce nech klouzat po stehnech směrem ke kolenům.'},
+    {title:'Boky dozadu',text:'Posuň boky dozadu, záda drž dlouhá a ruce nech klouzat po stehnech směrem ke kolenům.'},
     {title:'Návrat nahoru',text:'Zatlač přes paty, stáhni hýždě a vrať se do vzpřímeného stoje bez záklonu.'}
   ],
   hydrant:[
@@ -293,7 +293,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v36',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v35',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);

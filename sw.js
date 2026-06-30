@@ -1,4 +1,4 @@
-const CACHE='PB40-v36-hero-photos';
+const CACHE='PB40-v35-day1-texts-deadbug';
 const ASSETS=['./','index.html','manifest.json','style.css','app.js','data.js'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
@@ -13,4 +13,4 @@ self.addEventListener('fetch',e=>{
   e.respondWith(caches.match(req).then(r=>r||fetch(req).then(res=>{const copy=res.clone();caches.open(CACHE).then(c=>c.put(req,copy));return res;})));
 });
 
-// v36: nové hero fotografie v jednotném stylu
+// v35: jazyková revize Dne 1 + oprava posledního kroku Dead Bug
