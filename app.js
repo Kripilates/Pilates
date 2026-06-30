@@ -179,55 +179,6 @@ function detailMuscleImage(k){
   return '';
 }
 
-
-// v30: systematická kontrola Dne 1.
-// U cviků, kde nemáme 3 ověřené odlišné fotky, už nezobrazujeme stejné obrázky 3×.
-// Místo toho zobrazujeme přesné kroky pohybu textově. Jakmile budou k dispozici
-// 3 skutečné fotky pro konkrétní cvik, stačí přidat soubory a povolit je zde.
-const verifiedStepPhotos={hip:true};
-const day1StepMap={
-  hip:[
-    {title:'Výchozí pozice',text:'Chodidla pod koleny, lopatky opřené, pánev připravená dole.'},
-    {title:'Zvednutí pánve',text:'Zatlač přes paty a zvedni pánev nahoru bez prohýbání v bedrech.'},
-    {title:'Horní pozice',text:'Kolena, pánev a ramena jsou v jedné linii. Krátce stáhni hýždě.'}
-  ],
-  rdl:[
-    {title:'Výchozí stoj',text:'Postav se na šířku boků, kolena jen lehce pokrčená, ruce nebo činky u stehen.'},
-    {title:'Pánev dozadu',text:'Posílej pánev dozadu, záda drž dlouhá a ruce nech klouzat po stehnech směrem ke kolenům.'},
-    {title:'Návrat nahoru',text:'Zatlač přes paty, stáhni hýždě a vrať se do vzpřímeného stoje bez záklonu.'}
-  ],
-  hydrant:[
-    {title:'Na všech čtyřech',text:'Dlaně pod rameny, kolena pod kyčlemi, břicho lehce aktivní.'},
-    {title:'Koleno do strany',text:'Zvedni pokrčené koleno do strany jen tak vysoko, aby se nepřeklápěla pánev.'},
-    {title:'Kontrolovaný návrat',text:'Vrať koleno zpět pod kyčel pomalu, bez švihu a bez zhoupnutí v bedrech.'}
-  ],
-  clam:[
-    {title:'Zavřená pozice',text:'Leh na boku, paty u sebe, kolena pokrčená a boky položené přesně nad sebou.'},
-    {title:'Otevření kolena',text:'Horní koleno otevři nahoru jako mušličku, paty zůstávají u sebe.'},
-    {title:'Pomalý návrat',text:'Koleno zavírej pomalu, pánev se nesmí přetočit dozadu.'}
-  ],
-  sideleg:[
-    {title:'Leh na boku',text:'Spodní noha může být pokrčená, horní noha je dlouhá a pánev stabilní.'},
-    {title:'Zvednutí nohy',text:'Zvedni horní nohu bez švihu. Špičku lehce přitáhni k sobě.'},
-    {title:'Spuštění dolů',text:'Spouštěj nohu kontrolovaně zpět, nepovol břicho ani pánev.'}
-  ],
-  deadbug:[
-    {title:'Stabilní střed',text:'Leh na zádech, nohy v 90° a ruce ke stropu. Bedra drž klidně u podložky.'},
-    {title:'Opačná ruka a noha',text:'Pomalu natáhni jednu nohu a opačnou ruku jen do rozsahu, kde udržíš bedra.'},
-    {title:'Návrat a výměna',text:'Vrať se zpět do středu a vystřídej strany. Pohyb je pomalý, ne švihový.'}
-  ]
-};
-function detailSteps(k,ex){
-  if(day1StepMap[k]) return day1StepMap[k];
-  const arr=(ex.how&&ex.how.length?ex.how:[]).slice(0,3).map((text,i)=>({title:i===0?'Výchozí pozice':i===1?'Hlavní pohyb':'Návrat',text}));
-  while(arr.length<3)arr.push({title:arr.length===1?'Hlavní pohyb':'Návrat',text:'Drž plynulý, kontrolovaný pohyb bez bolesti.'});
-  return arr;
-}
-function detailStepMedia(k,n){
-  if(verifiedStepPhotos[k]) return detailStepImage(k,n);
-  return `<div class="v30StepNoPhoto"><span>${n}</span><b>${n===1?'Start':n===2?'Pohyb':'Návrat'}</b></div>`;
-}
-
 function exMeta(k){
   const ex=data.exercises[k], f=(ex.focus||'').toLowerCase(), icon=ex.icon||'';
   let area='Technika', diff='Lehké', knee='Šetrné ke kolenům';
@@ -280,7 +231,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v30',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v29',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -583,7 +534,8 @@ function doneNext(mark=true){
 }
 function info(k){
   const ex=data.exercises[k], meta=exMeta(k);
-  const steps=detailSteps(k,ex);
+  const steps=(ex.how&&ex.how.length?ex.how:[]).slice(0,3);
+  while(steps.length<3)steps.push(steps[steps.length-1]||'Drž plynulý, kontrolovaný pohyb bez bolesti.');
   const dose=(ex.dose||'15×');
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
@@ -616,7 +568,7 @@ function info(k){
             <section class="v20Card v20FlowCard">
               <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
               <div class="v20Flow">
-                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v30TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
+                ${steps.map((x,i)=>`<article><div class="v20StepTitle"><b>${i+1}</b><strong>${i===0?'Výchozí pozice':i===1?'Pohyb nahoru':'Horní pozice'}</strong></div>${detailStepImage(k,i+1)}<p>${x}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
               </div>
             </section>
 

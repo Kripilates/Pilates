@@ -192,14 +192,3 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   .autoTrain .bigimg,.fullTrain .bigimg{height:220px!important;}
   .doneRoundBtn{width:100%;min-width:0;}
 }
-
-
-/* v30 – systematická kontrola Dne 1: žádné falešné duplicitní fotky v krocích */
-.v30TextStep{display:flex;flex-direction:column;justify-content:flex-start;min-height:190px}
-.v30StepNoPhoto{height:96px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,#f7fffd,#ffffff);display:flex;align-items:center;justify-content:center;gap:8px;color:var(--p);font-weight:900;margin-bottom:8px}
-.v30StepNoPhoto span{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--p);color:#fff;font-size:18px}
-.v30StepNoPhoto b{font-size:15px;color:var(--text)}
-.v20Flow article p{min-height:58px}
-.fullTrain.autoTrain{max-width:940px}
-.autoTrain .bigimg,.fullTrain .bigimg{height:clamp(180px,24vw,290px)!important;object-fit:contain!important;object-position:center!important;background:#fff!important}
-@media(max-width:720px){.v30TextStep{min-height:0}.v30StepNoPhoto{height:76px}.autoTrain .bigimg,.fullTrain .bigimg{height:200px!important}}
