@@ -1,0 +1,7 @@
+Nahraj obsah této složky do kořene repozitáře Pilates a přepiš stávající soubory.
+
+Důležité:
+- Nahraj app.js, index.html, manifest.json, data.js a složku assets/icons.
+- style.css nemusíš měnit.
+- Po nahrání otevři: https://kripilates.github.io/Pilates/?v=54security1
+- Když se něco tváří staré, dej Ctrl+F5 nebo otevři anonymní okno.

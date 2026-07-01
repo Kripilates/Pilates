@@ -34,9 +34,44 @@ function streak(){
 }
 function monthName(d){return d.toLocaleDateString('cs-CZ',{month:'long',year:'numeric'});}
 const measureKey='pb40-measurements';
-function measurements(){try{return JSON.parse(localStorage.getItem(measureKey)||'[]')}catch(e){return []}}
-function saveMeasurements(arr){localStorage.setItem(measureKey,JSON.stringify(arr));}
+function esc(v){
+  return String(v??'').replace(/[&<>\"']/g,ch=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'
+  }[ch]));
+}
+function cleanText(v,max=240){return String(v??'').replace(/[\u0000-\u001f\u007f]/g,'').trim().slice(0,max);}
+function cleanDate(v){
+  const s=String(v??'').trim();
+  return /^\d{4}-\d{2}-\d{2}$/.test(s)?s:todayKey();
+}
+function cleanNumberText(v){
+  const s=String(v??'').replace(',','.').trim();
+  if(s==='')return '';
+  const n=Number(s);
+  return Number.isFinite(n)?String(Math.round(n*10)/10):'';
+}
+function normalizeMeasurement(m){
+  if(!m||typeof m!=='object')return null;
+  return {
+    date:cleanDate(m.date),
+    weight:cleanNumberText(m.weight),
+    waist:cleanNumberText(m.waist),
+    hips:cleanNumberText(m.hips),
+    thigh:cleanNumberText(m.thigh),
+    note:cleanText(m.note,240)
+  };
+}
+function normalizeMeasurements(arr){
+  if(!Array.isArray(arr))return [];
+  return arr.map(normalizeMeasurement).filter(Boolean).slice(-120).sort((a,b)=>a.date.localeCompare(b.date));
+}
+function measurements(){
+  try{return normalizeMeasurements(JSON.parse(localStorage.getItem(measureKey)||'[]'))}
+  catch(e){return []}
+}
+function saveMeasurements(arr){localStorage.setItem(measureKey,JSON.stringify(normalizeMeasurements(arr)));}
 function fmtNum(v){return (v===undefined||v===null||v==='')?'—':String(v).replace('.',',')}
+function safeFmtNum(v){return esc(fmtNum(v));}
 function latestMeasurement(){const arr=measurements();return arr.length?arr[arr.length-1]:null}
 function firstMeasurement(){const arr=measurements();return arr.length?arr[0]:null}
 function deltaText(a,b,unit='cm'){if(!a||!b)return '—';const d=(Number(b)-Number(a));if(!Number.isFinite(d))return '—';return (d>0?'+':'')+d.toFixed(1).replace('.',',')+' '+unit;}
@@ -71,8 +106,24 @@ function sparkChart(arr,field,label,unit=''){
 }
 
 const noteKey='pb40-workout-notes';
-function workoutNotes(){try{return JSON.parse(localStorage.getItem(noteKey)||'[]')}catch(e){return []}}
-function saveWorkoutNotes(arr){localStorage.setItem(noteKey,JSON.stringify(arr));}
+function normalizeWorkoutNote(n){
+  if(!n||typeof n!=='object')return null;
+  const moods=new Set(['good','tough','pain','']);
+  const mood=cleanText(n.mood,20);
+  return {
+    date:cleanDate(n.date),
+    day:Number.isFinite(Number(n.day))?Number(n.day):0,
+    title:cleanText(n.title,120),
+    mood:moods.has(mood)?mood:'',
+    text:cleanText(n.text,500)
+  };
+}
+function normalizeWorkoutNotes(arr){
+  if(!Array.isArray(arr))return [];
+  return arr.map(normalizeWorkoutNote).filter(Boolean).slice(-60);
+}
+function workoutNotes(){try{return normalizeWorkoutNotes(JSON.parse(localStorage.getItem(noteKey)||'[]'))}catch(e){return []}}
+function saveWorkoutNotes(arr){localStorage.setItem(noteKey,JSON.stringify(normalizeWorkoutNotes(arr)));}
 function latestNote(){const arr=workoutNotes();return arr.length?arr[arr.length-1]:null}
 function saveWorkoutNote(){
   const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';
@@ -180,19 +231,20 @@ function cue(kind){
 // v50: vypnuté staré ruční přesměrování obrázků.
 // Dříve prvních 6 cviků používalo *_main.jpg a karta se proto lišila od data.js.
 const day1RealImages={};
+
 const masterCards={
-  hip:'assets/exercises/mastercards/glute-bridge-master.webp?v=53cards1',
-  toetap:'assets/exercises/mastercards/toe-taps-master.webp?v=53cards1',
-  clam:'assets/exercises/mastercards/clamshell-master.webp?v=53cards1',
-  hydrant:'assets/exercises/mastercards/fire-hydrant-master.webp?v=53cards1',
-  sideleg:'assets/exercises/mastercards/side-leg-lift-master.webp?v=53cards1',
-  bird:'assets/exercises/mastercards/bird-dog-master.webp?v=53cards1'
+  hip:'assets/exercises/mastercards/glute-bridge-master.webp?v=55cards',
+  toetap:'assets/exercises/mastercards/toe-taps-master.webp?v=55cards',
+  clam:'assets/exercises/mastercards/clamshell-master.webp?v=55cards',
+  hydrant:'assets/exercises/mastercards/fire-hydrant-master.webp?v=55cards',
+  sideleg:'assets/exercises/mastercards/side-leg-lift-master.webp?v=55cards',
+  bird:'assets/exercises/mastercards/bird-dog-master.webp?v=55cards'
 };
 function detailMasterCard(k){
   const src=masterCards[k];
   if(!src) return '';
   const ex=data.exercises[k]||{};
-  return `<section class="v20Card masterCardSection"><div class="v20CardHead"><h3>Kompletní karta cviku</h3><span>hero + postup</span></div><img loading="lazy" class="masterCardImg" src="${src}" alt="${ex.name||'cvik'} kompletní karta"></section>`;
+  return `<section class="v20Card masterCardSection"><div class="v20CardHead"><h3>Kompletní karta cviku</h3><span>návod v jednom obrázku</span></div><img loading="lazy" class="masterCardImg" src="${src}" alt="${ex.name||'cvik'} kompletní karta"></section>`;
 }
 function v22ImageSrc(k){return data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
@@ -340,17 +392,45 @@ function exportProgress(){
   a.click();
   setTimeout(()=>URL.revokeObjectURL(a.href),500);
 }
+function allowedBackupKey(k){
+  return /^pb40-d\d+-e\d+$/.test(k) ||
+    /^pb40-log-\d{4}-\d{2}-\d{2}$/.test(k) ||
+    /^pb40-fav-[a-z0-9_-]+$/i.test(k) ||
+    k===measureKey || k===noteKey || k===introKey;
+}
+function cleanBackupValue(k,v){
+  if(k===measureKey){
+    try{return JSON.stringify(normalizeMeasurements(typeof v==='string'?JSON.parse(v):v));}
+    catch(e){return JSON.stringify([]);}
+  }
+  if(k===noteKey){
+    try{return JSON.stringify(normalizeWorkoutNotes(typeof v==='string'?JSON.parse(v):v));}
+    catch(e){return JSON.stringify([]);}
+  }
+  if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-log-/.test(k) || /^pb40-fav-/.test(k) || k===introKey){
+    return String(v)==='1'?'1':'0';
+  }
+  return null;
+}
 function importProgressFile(file){
   if(!file)return;
   const reader=new FileReader();
   reader.onload=()=>{
     try{
       const payload=JSON.parse(reader.result);
-      const items=payload.items||{};
-      Object.keys(items).forEach(k=>{if(k.startsWith('pb40-'))localStorage.setItem(k,String(items[k]));});
+      if(!payload || typeof payload!=='object' || !payload.items || typeof payload.items!=='object' || Array.isArray(payload.items)){
+        throw new Error('bad backup');
+      }
+      let imported=0;
+      Object.keys(payload.items).forEach(k=>{
+        if(!allowedBackupKey(k))return;
+        const clean=cleanBackupValue(k,payload.items[k]);
+        if(clean!==null){localStorage.setItem(k,clean);imported++;}
+      });
+      if(!imported)throw new Error('empty backup');
       alert('Pokrok je načtený.');
       home();
-    }catch(e){alert('Soubor se nepodařilo načíst.');}
+    }catch(e){alert('Soubor se nepodařilo načíst nebo nemá správný formát zálohy.');}
   };
   reader.readAsText(file);
 }
@@ -414,7 +494,7 @@ function home(){
       <div class="compactActions v22Actions"><button data-action="day" data-day="${n}">♙ Ruční režim</button><button data-action="calendar">▣ Kalendář</button><button data-action="progress">▥ Měření</button></div>
     </section>
     <aside class="v22SidePanels">
-      <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${ln.text}</small>`:''}</section>
+      <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
       <section class="v22InfoCard v22Areas"><h3>Zaměřené oblasti</h3><img src="assets/exercises/day1_muscles.jpg" alt="Zaměřené oblasti"><div><span><i></i>Hlavní svaly</span><span><i class="secondary"></i>Vedlejší svaly</span></div></section>
     </aside>
     <section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>
@@ -668,6 +748,7 @@ function showTrain(){
   if(!dayObj.items.length){day(currentDay);return;}
   const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k];
   const progress=Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise)/(workoutTotalSets*dayObj.items.length))*100);
+  const imgClass='bigimg';
   app.innerHTML=`<section class="card fullTrain v53CleanTrain">
     <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
@@ -744,14 +825,7 @@ function info(k){
               <div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>
             </div>
 
-            ${detailMasterCard(k)}
-
-            <section class="v20Card v20FlowCard">
-              <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>
-              <div class="v20Flow">
-                ${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}
-              </div>
-            </section>
+            ${detailMasterCard(k) || `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
 
             <div class="v20BottomGrid">
               <section class="v20Card"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
@@ -805,7 +879,7 @@ function progressTracker(){
   lastMode='progress';setNav('progress');
   const arr=measurements(), first=firstMeasurement(), last=latestMeasurement();
   const today=todayKey();
-  const rows=arr.slice().reverse().map((m,ri)=>`<tr><td>${m.date}</td><td>${fmtNum(m.weight)}</td><td>${fmtNum(m.waist)}</td><td>${fmtNum(m.hips)}</td><td>${fmtNum(m.thigh)}</td><td><button class="smallBtn" data-action="delete-measure" data-index="${arr.length-1-ri}">Smazat</button></td></tr>`).join('');
+  const rows=arr.slice().reverse().map((m,ri)=>`<tr><td>${esc(m.date)}</td><td>${safeFmtNum(m.weight)}</td><td>${safeFmtNum(m.waist)}</td><td>${safeFmtNum(m.hips)}</td><td>${safeFmtNum(m.thigh)}</td><td><button class="smallBtn" data-action="delete-measure" data-index="${arr.length-1-ri}">Smazat</button></td></tr>`).join('');
   app.innerHTML=`<section class="card"><h2>Měření pokroku</h2>
     <p class="muted">Stačí jednou týdně. Neřeš denní výkyvy — u těla je důležitý trend, ne jedno číslo.</p>
     <div class="statGrid"><div class="statBox"><b>${last?fmtNum(last.weight):'—'}</b><span class="muted">poslední váha kg</span></div><div class="statBox"><b>${first&&last?deltaText(first.waist,last.waist):'—'}</b><span class="muted">pas od začátku</span></div><div class="statBox"><b>${arr.length}</b><span class="muted">záznamů</span></div></div>
@@ -831,7 +905,7 @@ function progressTracker(){
   </section>
   <section class="card"><h2>Historie</h2>
     ${arr.length?`<div class="tableWrap"><table><thead><tr><th>Datum</th><th>kg</th><th>Pas</th><th>Boky</th><th>Stehno</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="muted">Zatím nemáš uložené žádné měření.</p>'}
-    ${last&&last.note?`<div class="inlineTip"><b>Poslední poznámka:</b><br>${last.note}</div>`:''}
+    ${last&&last.note?`<div class="inlineTip"><b>Poslední poznámka:</b><br>${esc(last.note)}</div>`:''}
   </section>`;
 }
 function saveMeasureFromForm(){

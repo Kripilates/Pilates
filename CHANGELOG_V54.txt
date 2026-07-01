@@ -1,0 +1,10 @@
+Pilates Body 40+ v54 security1
+
+Opravy:
+- showTrain() už nemůže spadnout na chybějícím imgClass.
+- Měření a poznámky se normalizují a escapují před vykreslením.
+- Import zálohy přijímá jen povolené pb40-* klíče.
+- Importované měření a poznámky se čistí na očekávaný formát.
+- Tabulka měření a poslední poznámka jsou bezpečně escapované.
+- index.html maže jen service workery/cache patřící Pilates aplikaci, ne celý origin.
+- manifest má sjednocenou theme_color a doplněné ikony 192/512.
