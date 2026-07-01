@@ -454,18 +454,23 @@ function beginCurrentExercise(){
     workoutLeft=5;
     startWorkoutTimer();
   }else{
-    workoutPhase='work';
+    workoutPhase=info.side?'left':'work';
     workoutLeft=0;
     showAutoTrain();
   }
 }
-function startTraining(di,auto=false){
-  clearInterval(timer);workoutAuto=auto;workoutRunning=!!auto;workoutPaused=false;workoutCurrentSet=1;
-  lastMode='train';setNav('train');currentDay=di;
-  const items=data.days[di].items;
+function startTraining(di,auto=true){
+  // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
+  clearInterval(timer);
+  workoutAuto=true;
+  workoutRunning=true;
+  workoutPaused=false;
+  workoutCurrentSet=1;
+  lastMode='train';
+  setNav('train');
+  currentDay=di;
   currentExercise=0;
-  if(auto) beginCurrentExercise();
-  else showTrain();
+  beginCurrentExercise();
 }
 
 function timerCircleStyle(){
@@ -512,18 +517,19 @@ function showAutoTrain(){
   const totalItems=dayObj.items.length*workoutTotalSets;
   const doneItems=(workoutCurrentSet-1)*dayObj.items.length + currentExercise;
   const progress=Math.min(100, Math.round((doneItems/Math.max(1,totalItems))*100));
-  const isTimedActive = info.timed && ['prep','switch','left','right','work','roundRest'].includes(workoutPhase);
+  const isTimedActive = ['prep','switch','roundRest'].includes(workoutPhase) || (info.timed && ['left','right','work'].includes(workoutPhase));
   const isConfirm = workoutPhase==='confirm';
-  const isRepWork = !info.timed && workoutPhase==='work';
+  const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
   const showPhase = !((workoutPhase==='work' && !info.timed) || workoutPhase==='confirm');
   const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
+  const imgClass='bigimg '+(workoutPhase==='right'?'mirrorSide':'');
   app.innerHTML=`<section class="card fullTrain autoTrain v50Train v53CleanTrain">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
-    ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
+    ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     ${timerBlock}
     <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
@@ -581,7 +587,10 @@ function advanceAutoPhase(){
     workoutPhase='switch'; workoutLeft=5; startWorkoutTimer(); return;
   }
   if(workoutPhase==='switch'){
-    workoutPhase='right'; workoutLeft=info.seconds||workSeconds(dose); startWorkoutTimer(); return;
+    workoutPhase='right';
+    workoutLeft=info.seconds||workSeconds(dose);
+    if(info.timed) startWorkoutTimer(); else showAutoTrain();
+    return;
   }
   if(workoutPhase==='right' || workoutPhase==='work'){
     if(info.timed){
@@ -635,7 +644,7 @@ function showTrain(){
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
-    ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
+    ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     <button class="primary doneBtn" data-action="set-complete-manual">✓ Dokončeno</button>
     <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
@@ -828,12 +837,17 @@ app.addEventListener('click',e=>{
   if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar();}
   if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');return calendar();}
   if(a==='info'||t.dataset.ex){
+    // Když otevřeš detail během tréninku, časovač se zastaví a nic tě samo nevrátí zpět.
+    if(workoutRunning){
+      clearInterval(timer);
+      workoutPaused=true;
+    }
     if(t.dataset.day!==undefined && t.dataset.day!=='') currentDay=Number(t.dataset.day);
     if(t.dataset.index!==undefined && t.dataset.index!=='') currentExercise=Number(t.dataset.index);
     return info(t.dataset.ex);
   }
   if(a==='day'||(t.classList.contains('exercise')&&t.dataset.day!==''))return day(Number(t.dataset.day));
-  if(a==='start')return startTraining(Number(t.dataset.day),false);
+  if(a==='start')return startTraining(Number(t.dataset.day),true);
   if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
   if(a==='set-complete-manual'){setDone(currentDay,currentExercise); const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i)); workoutCurrentSet=1; return doneNext(false);}
   if(a==='set-complete-auto')return advanceAutoPhase();
@@ -845,7 +859,7 @@ app.addEventListener('click',e=>{
   if(a==='reset-day'){data.days[Number(t.dataset.day)].items.forEach((_,i)=>localStorage.removeItem(key(Number(t.dataset.day),i)));return day(Number(t.dataset.day));}
   if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
   if(a==='rest')return restScreen();
-  if(a==='train-current'){ if(workoutAuto||workoutRunning)return showAutoTrain(); return startTraining(currentDay,true); }
+  if(a==='train-current'){ if(workoutRunning)return showAutoTrain(); return startTraining(currentDay,true); }
   if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex);}
 });
 app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});

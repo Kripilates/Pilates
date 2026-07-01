@@ -408,3 +408,6 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
     padding:13px!important;
   }
 }
+
+/* v53 texty8: zrcadlení obrázku pro pravou stranu jednostranných cviků */
+.mirrorSide{transform:scaleX(-1);}
