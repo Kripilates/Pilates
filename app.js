@@ -588,8 +588,15 @@ function advanceAutoPhase(){
   }
   if(workoutPhase==='switch'){
     workoutPhase='right';
-    workoutLeft=info.seconds||workSeconds(dose);
-    if(info.timed) startWorkoutTimer(); else showAutoTrain();
+    workoutLeft=info.timed ? (info.seconds||workSeconds(dose)) : 0;
+    // U cviků na počet (např. 15/15) po změně strany NESMÍ dál běžet odpočet ze switch fáze.
+    // Jinak se pravá strana po pár sekundách sama označí jako dokončená.
+    if(info.timed){
+      startWorkoutTimer();
+    }else{
+      clearInterval(timer);
+      showAutoTrain();
+    }
     return;
   }
   if(workoutPhase==='right' || workoutPhase==='work'){
@@ -620,7 +627,15 @@ function skipAuto(){
   }
   if(workoutPhase==='switch'){
     const dose=data.days[currentDay].items[currentExercise][1],info=sideInfo(dose);
-    workoutPhase='right'; workoutLeft=info.seconds||workSeconds(dose); startWorkoutTimer(); return;
+    workoutPhase='right';
+    workoutLeft=info.timed ? (info.seconds||workSeconds(dose)) : 0;
+    if(info.timed){
+      startWorkoutTimer();
+    }else{
+      clearInterval(timer);
+      showAutoTrain();
+    }
+    return;
   }
   if(workoutPhase==='roundRest'){
     beginCurrentExercise();
