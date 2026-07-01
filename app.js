@@ -180,6 +180,20 @@ function cue(kind){
 // v50: vypnuté staré ruční přesměrování obrázků.
 // Dříve prvních 6 cviků používalo *_main.jpg a karta se proto lišila od data.js.
 const day1RealImages={};
+const masterCards={
+  hip:'assets/exercises/mastercards/glute-bridge-master.webp?v=53cards1',
+  toetap:'assets/exercises/mastercards/toe-taps-master.webp?v=53cards1',
+  clam:'assets/exercises/mastercards/clamshell-master.webp?v=53cards1',
+  hydrant:'assets/exercises/mastercards/fire-hydrant-master.webp?v=53cards1',
+  sideleg:'assets/exercises/mastercards/side-leg-lift-master.webp?v=53cards1',
+  bird:'assets/exercises/mastercards/bird-dog-master.webp?v=53cards1'
+};
+function detailMasterCard(k){
+  const src=masterCards[k];
+  if(!src) return '';
+  const ex=data.exercises[k]||{};
+  return `<section class="v20Card masterCardSection"><div class="v20CardHead"><h3>Kompletní karta cviku</h3><span>hero + postup</span></div><img loading="lazy" class="masterCardImg" src="${src}" alt="${ex.name||'cvik'} kompletní karta"></section>`;
+}
 function v22ImageSrc(k){return data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
@@ -729,6 +743,8 @@ function info(k){
               </div>
               <div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>
             </div>
+
+            ${detailMasterCard(k)}
 
             <section class="v20Card v20FlowCard">
               <div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div>

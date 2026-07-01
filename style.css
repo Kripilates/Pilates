@@ -411,3 +411,8 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 
 /* v53 texty8: zrcadlení obrázku pro pravou stranu jednostranných cviků */
 .mirrorSide{transform:scaleX(-1);}
+
+/* v53 cards1: kompletni master karty cviku v detailu */
+.masterCardSection{margin-top:14px;overflow:hidden}
+.masterCardImg{display:block;width:100%;height:auto;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(20,76,82,.10)}
+@media(max-width:720px){.masterCardSection{margin-top:10px}.masterCardImg{border-radius:14px}}

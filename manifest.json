@@ -1,7 +1,7 @@
 {
-  "name": "Pilates Body 40+ v53 texty9",
-  "short_name": "PB40 v53 texty9",
-  "start_url": "./index.html?v=53texty9",
+  "name": "Pilates Body 40+ v53 karty1",
+  "short_name": "PB40 v53 karty1",
+  "start_url": "./index.html?v=53cards1",
   "scope": "./",
   "display": "standalone",
   "background_color": "#fff7fa",
