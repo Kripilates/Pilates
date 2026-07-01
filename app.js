@@ -502,27 +502,30 @@ function currentInstruction(ex,dose){
   const info=sideInfo(dose);
   if(info.side && workoutPhase==='left')return 'Levá strana.';
   if(info.side && workoutPhase==='right')return 'Pravá strana.';
-  return 'Odcvič a potvrď.';
+  return '';
 }
 function setProgressText(){return `Série ${workoutCurrentSet} ze ${workoutTotalSets} • Cvik ${currentExercise+1}/${data.days[currentDay].items.length}`;}
 function showAutoTrain(){
   const dayObj=data.days[currentDay];
   if(!dayObj.items.length){day(currentDay);return;}
   const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k],info=sideInfo(dose);
-  const progress=Math.min(100, Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise)/(dayObj.items.length*workoutTotalSets))*100));
+  const totalItems=dayObj.items.length*workoutTotalSets;
+  const doneItems=(workoutCurrentSet-1)*dayObj.items.length + currentExercise;
+  const progress=Math.min(100, Math.round((doneItems/Math.max(1,totalItems))*100));
   const isTimedActive = info.timed && ['prep','switch','left','right','work','roundRest'].includes(workoutPhase);
-  const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="restLabel">${phaseLabel()}</div><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b><small>${workoutPhase==='confirm'?'Dokončeno':info.side?'Obě strany':'Na počet'}</small></div>`;
-  const miniBlock='';
-  app.innerHTML=`<section class="card fullTrain autoTrain v50Train">
-    <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">${setProgressText()}</span></div>
+  const isConfirm = workoutPhase==='confirm';
+  const isRepWork = !info.timed && workoutPhase==='work';
+  const showPhase = !((workoutPhase==='work' && !info.timed) || workoutPhase==='confirm');
+  const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
+  app.innerHTML=`<section class="card fullTrain autoTrain v50Train v53CleanTrain">
+    <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
-    <div class="phasePill">${phaseLabel()}</div>
+    ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
     ${timerBlock}
-    ${miniBlock}
-    <div class="row trainControls">${(!info.timed&&workoutPhase==='work')||workoutPhase==='confirm'?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Jak provést</button></div>
+    <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
 }
 function tickAuto(){
@@ -626,17 +629,15 @@ function showTrain(){
   const dayObj=data.days[currentDay];
   if(!dayObj.items.length){day(currentDay);return;}
   const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k];
-  const progress=Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise+1)/(workoutTotalSets*dayObj.items.length))*100);
-  app.innerHTML=`<section class="card fullTrain">
-    <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">Kolo ${workoutCurrentSet}/${workoutTotalSets} • Cvik ${currentExercise+1}/${dayObj.items.length}</span></div>
+  const progress=Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise)/(workoutTotalSets*dayObj.items.length))*100);
+  app.innerHTML=`<section class="card fullTrain v53CleanTrain">
+    <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <h2 class="trainName">${ex.name}</h2>
-    <div class="trainDose">${isTimedDose(dose||ex.dose)?(dose||ex.dose):(dose||ex.dose)}</div>${!isTimedDose(dose||ex.dose)?setPill(dose||ex.dose):''}
+    <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,'bigimg','data-action="info" data-ex="'+k+'"')}
-    <div class="trainHint">Klepni na obrázek pro podrobnosti.</div>
-    <div class="detailMini"><b>Rychle:</b> ${ex.how[0]}</div>
     <button class="primary doneBtn" data-action="set-complete-manual">✓ Dokončeno</button>
-    <div class="row"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Jak provést</button></div>
+    <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
 }
 function restScreen(){
