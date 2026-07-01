@@ -1,0 +1,4 @@
+v51 - oprava potvrzení po časovaných cvicích
+- Druhé a třetí kolo už nepřeskakuje samo na další cvik po odpočtu.
+- Po každém časovaném cviku se zobrazí Dokončeno a aplikace čeká na potvrzení.
+- Tlačítko Přeskočit je jen u přípravy, výměny strany a pauzy mezi koly.

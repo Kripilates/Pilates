@@ -1,0 +1,1 @@
+Nahraj celý obsah ZIPu do repozitáře Pilates a otevři https://kripilates.github.io/Pilates/?v=52

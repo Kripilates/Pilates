@@ -1,0 +1,5 @@
+v46 - cache reset
+- opravena registrace service workeru na sw.js?v=45
+- manifest start_url aktualizován na index.html?v=45
+- sw.js maže všechny staré cache při aktivaci
+- obrázky, data.js, app.js a style.css používají ?v=45

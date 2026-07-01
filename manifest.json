@@ -1,7 +1,7 @@
 {
-  "name": "Pilates Body 40+",
-  "short_name": "Pilates 40+",
-  "start_url": "./index.html",
+  "name": "Pilates Body 40+ v53 texty4",
+  "short_name": "PB40 v53 texty4",
+  "start_url": "./index.html?v=53texty4",
   "scope": "./",
   "display": "standalone",
   "background_color": "#fff7fa",

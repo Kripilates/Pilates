@@ -1,0 +1,9 @@
+Pilates Body 40+ v47
+
+Oprava skutečné příčiny starých náhledů cviků:
+- app.js už nepřepisuje obrázky prvních cviků přes staré *_main.jpg soubory.
+- karty i detail cviku používají stejný zdroj z data.js.
+- všechny odkazy v data.js mají cache verzi ?v=47.
+- service worker zůstává vypnutý a staré PWA cache se při otevření mažou.
+
+Po nahrání otevřít: https://kripilates.github.io/Pilates/?v=47

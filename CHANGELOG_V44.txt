@@ -1,0 +1,5 @@
+Pilates Body 40+ v46
+- Přepojení aplikace na novou sjednocenou sérii obrázků.
+- Aktualizace cache bustingu na v46.
+- Oprava service worker cache na PB40-v46-image-cache.
+- Odstraněny auditní soubory z produkčního ZIPu.

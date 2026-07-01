@@ -1,0 +1,5 @@
+V52
+- Oprava: cviky na počet se ve 2. a 3. kole už samy nepřeskakují.
+- Při každém novém cviku se zastaví starý timer.
+- Zkrácené texty po časovaném cviku.
+- Verze zvýšena na v52.

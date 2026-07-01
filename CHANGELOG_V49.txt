@@ -1,0 +1,5 @@
+Pilates Body 40+ v49
+- nový Toe Taps obrázek
+- detail cviku má náhradní obrázek u cviků bez krokových fotek
+- jemně upravené mobilní rozložení cvičebního režimu
+- verze souborů zvýšena na v49

@@ -1,0 +1,1 @@
+Nahraj celý obsah ZIPu do kořene repozitáře Pilates a přepiš stávající soubory. Otevři https://kripilates.github.io/Pilates/?v=49

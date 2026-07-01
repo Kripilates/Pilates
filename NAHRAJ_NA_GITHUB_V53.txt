@@ -1,0 +1,10 @@
+Nahraj celý obsah ZIPu do repozitáře Pilates a přepiš stávající soubory.
+
+Po commitu otevři:
+https://kripilates.github.io/Pilates/?v=53
+
+Otestuj hlavně:
+1) Den 2 -> rozklik cvik -> Cvičit, nesmí skočit do dalšího dne.
+2) 2. a 3. kolo cviků na počet, nesmí se samo potvrzovat.
+3) Zvuky při posledních 3 sekundách, GO, konec cviku, výměna strany.
+4) Zda jsou texty na cvičební obrazovce kratší.
