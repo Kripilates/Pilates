@@ -3,6 +3,7 @@ const app=document.getElementById('app'),data=window.PB40_DATA;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
+let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
 if(!data||!data.days||!data.exercises){
   app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
 }
@@ -552,7 +553,7 @@ function days(){
   scrollTop();
 }
 
-function day(di){
+function day(di,opts={}){
   clearDetailRoute();
   lastMode='day';setNav('days');currentDay=di;
   const day=data.days[di];
@@ -564,7 +565,13 @@ function day(di){
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
   <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`;
-  scrollTop();
+  if(opts.restoreScroll){
+    requestAnimationFrame(()=>{
+      const card=document.querySelector(`.exercise[data-day="${di}"][data-index="${detailReturnExercise}"]`);
+      if(card)card.scrollIntoView({block:'center'});
+      else window.scrollTo({top:detailReturnScroll||0,behavior:'auto'});
+    });
+  }else scrollTop();
 }
 
 function sideInfo(dose){
@@ -868,7 +875,7 @@ function info(k,opts={}){
   const doseInfo=sideInfo(dose);
   const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (!doseInfo.side && String(dose).match(/\d/) && !/opakování/i.test(String(dose)) ? 'opakování' : '');
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
-  const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
+  const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : (currentDay!==undefined ? `<button data-action="day-return" data-day="${currentDay}">← Zpět na seznam cviků</button>` : `<button data-action="home">← Domů</button>`);
   const muscleImg=detailMuscleImage(k);
   const hasMasterCard=Boolean(masterCards[k]);
   app.innerHTML=`<section class="exerciseDetailPage v20Detail ${hasMasterCard?'v20MasterDetail':''}">
@@ -891,7 +898,6 @@ function info(k,opts={}){
                 <p class="eyebrow">Detail cviku</p>
                 <h2>${ex.name}</h2>
                 <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
-                <div class="v20Badges"><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
               </div>
               ${dose?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
@@ -899,6 +905,7 @@ function info(k,opts={}){
           </main>
 
           <aside class="v20Aside">
+            <section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>
             <section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg||`<div class="bodyMap v19BodyMap"><div class="bodySilhouetteV2 ${muscleClass}"><span class="head"></span><span class="torso"></span><span class="arms"></span><span class="leftLeg"></span><span class="rightLeg"></span><span class="highlight h1"></span><span class="highlight h2"></span></div></div>`}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>
             <section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>
             <section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
@@ -1021,7 +1028,12 @@ app.addEventListener('click',e=>{
   if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar();}
   if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');return calendar();}
   if(a==='info'||t.dataset.ex){
-    // Když otevřeš detail během tréninku, časovač se zastaví a nic tě samo nevrátí zpět.
+    if(t.dataset.day!==undefined && t.dataset.day!==''){
+      detailReturnDay=Number(t.dataset.day);
+      detailReturnExercise=t.dataset.index!==undefined && t.dataset.index!=='' ? Number(t.dataset.index) : null;
+      detailReturnScroll=window.scrollY||0;
+    }
+// Když otevřeš detail během tréninku, časovač se zastaví a nic tě samo nevrátí zpět.
     if(workoutRunning){
       clearInterval(timer);
       workoutPausedByDetail=!workoutPaused;
@@ -1031,6 +1043,7 @@ app.addEventListener('click',e=>{
     if(t.dataset.index!==undefined && t.dataset.index!=='') currentExercise=Number(t.dataset.index);
     return info(t.dataset.ex);
   }
+  if(a==='day-return')return day(Number(t.dataset.day),{restoreScroll:true});
   if(a==='day'||(t.classList.contains('exercise')&&t.dataset.day!==''))return day(Number(t.dataset.day));
   if(a==='start')return startTraining(Number(t.dataset.day),true);
   if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
