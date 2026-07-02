@@ -275,7 +275,7 @@ function detailMasterCard(k){
   const src=masterCards[k];
   if(!src) return '';
   const ex=data.exercises[k]||{};
-  const alt=`${ex.name||'cvik'} kompletní karta`;
+  const alt=ex.name||'cvik';
   return `<section class="v20Card masterCardSection"><button class="masterCardOpen" type="button" data-action="open-master-card" data-src="${esc(src)}" data-alt="${esc(alt)}"><img loading="lazy" class="masterCardImg" src="${esc(src)}" alt="${esc(alt)}"></button></section>`;
 }
 function openMasterCard(src,alt){
