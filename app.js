@@ -244,7 +244,13 @@ function detailMasterCard(k){
   const src=masterCards[k];
   if(!src) return '';
   const ex=data.exercises[k]||{};
-  return `<section class="v20Card masterCardSection"><div class="v20CardHead"><h3>Kompletní karta cviku</h3><span>návod v jednom obrázku</span></div><img loading="lazy" class="masterCardImg" src="${src}" alt="${ex.name||'cvik'} kompletní karta"></section>`;
+  const alt=`${ex.name||'cvik'} kompletní karta`;
+  return `<section class="v20Card masterCardSection"><div class="v20CardHead"><h3>Kompletní karta cviku</h3><span>návod v jednom obrázku</span></div><button class="masterCardOpen" type="button" data-action="open-master-card" data-src="${esc(src)}" data-alt="${esc(alt)}"><img loading="lazy" class="masterCardImg" src="${esc(src)}" alt="${esc(alt)}"></button></section>`;
+}
+function openMasterCard(src,alt){
+  if(!src)return;
+  document.querySelector('.masterLightbox')?.remove();
+  app.insertAdjacentHTML('beforeend',`<div class="masterLightbox" data-action="close-master-card" role="dialog" aria-modal="true" aria-label="${esc(alt||'Kompletní karta cviku')}"><button class="masterLightboxClose" type="button" data-action="close-master-card" aria-label="Zavřít">×</button><img src="${esc(src)}" alt="${esc(alt||'Kompletní karta cviku')}"></div>`);
 }
 function v22ImageSrc(k){return data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
@@ -800,6 +806,7 @@ function info(k){
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
   const muscleImg=detailMuscleImage(k);
+  const hasMasterCard=Boolean(masterCards[k]);
   app.innerHTML=`<section class="exerciseDetailPage v20Detail">
     <div class="v20Shell">
       <aside class="v20SideNav" aria-label="Navigace">
@@ -814,7 +821,7 @@ function info(k){
         <div class="v20TopBar">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
         <section class="v20Grid">
           <main class="v20Main">
-            <div class="v20Hero">${detailHeroImage(k)}</div>
+            ${hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
             <div class="v20TitleRow">
               <div>
                 <p class="eyebrow">Detail cviku</p>
@@ -824,19 +831,15 @@ function info(k){
               </div>
               <div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>
             </div>
-
-            ${detailMasterCard(k) || `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
-
-            <div class="v20BottomGrid">
-              <section class="v20Card"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
-              <section class="v20Card"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>
-            </div>
+            ${hasMasterCard ? '' : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
           <aside class="v20Aside">
             <section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg||`<div class="bodyMap v19BodyMap"><div class="bodySilhouetteV2 ${muscleClass}"><span class="head"></span><span class="torso"></span><span class="arms"></span><span class="leftLeg"></span><span class="rightLeg"></span><span class="highlight h1"></span><span class="highlight h2"></span></div></div>`}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>
             <section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>
             <section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
+            <section class="v20Card v20Watch"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
+            <section class="v20Card v20Mistakes"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>
           </aside>
         </section>
         <div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>
@@ -925,6 +928,8 @@ app.addEventListener('click',e=>{
   const t=e.target.closest('[data-action],.exercise[data-day],.exercise[data-ex]');
   if(!t)return;
   const a=t.dataset.action;
+  if(a==='open-master-card')return openMasterCard(t.dataset.src,t.dataset.alt);
+  if(a==='close-master-card'){t.closest('.masterLightbox')?.remove();return;}
   if(a==='home')return home();
   if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}
   if(a==='program-info')return programInfo();

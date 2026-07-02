@@ -416,3 +416,43 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 .masterCardSection{margin-top:14px;overflow:hidden}
 .masterCardImg{display:block;width:100%;height:auto;border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(20,76,82,.10)}
 @media(max-width:720px){.masterCardSection{margin-top:10px}.masterCardImg{border-radius:14px}}
+
+
+
+/* v56: detail cviku - master karta a pravý informační panel */
+.v20Grid{grid-template-columns:minmax(0,1fr) minmax(340px,390px)!important;align-items:start}
+.v20Aside{position:sticky;top:88px;max-height:calc(100vh - 108px);overflow:auto;padding-right:4px;scrollbar-width:thin}
+.masterCardSection{margin-top:14px;overflow:hidden}
+.masterCardOpen{display:block;width:100%;padding:0;border:0;border-radius:22px;background:#fff;box-shadow:none;cursor:zoom-in}
+.masterCardOpen:focus-visible{outline:3px solid var(--p);outline-offset:3px}
+.masterCardImg{display:block;width:100%;max-height:min(72vh,980px);height:auto;object-fit:contain;border-radius:20px;background:#fff;box-shadow:0 12px 34px rgba(20,76,82,.13)}
+.masterLightbox{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:22px;background:rgba(5,18,24,.86);cursor:zoom-out}
+.masterLightbox img{display:block;max-width:96vw;max-height:94vh;object-fit:contain;border-radius:18px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+.masterLightboxClose{position:fixed;right:18px;top:18px;z-index:1001;width:46px;height:46px;border-radius:50%;padding:0;background:#fff;color:#102a43;border:1px solid rgba(255,255,255,.35);font-size:30px;line-height:1;cursor:pointer}
+@media(max-width:1120px){.v20Grid{grid-template-columns:1fr!important}.v20Aside{position:static;max-height:none;overflow:visible;padding-right:0;grid-template-columns:1fr 1fr}.v20Watch,.v20Mistakes{grid-column:auto}}
+@media(max-width:720px){.masterCardSection{margin-top:10px}.masterCardImg{max-height:none;border-radius:14px}.masterCardOpen{border-radius:16px}.v20Aside{grid-template-columns:1fr!important}.masterLightbox{padding:10px}.masterLightbox img{max-width:100%;max-height:92vh;border-radius:12px}.masterLightboxClose{right:10px;top:10px}}
+
+/* v57: desktop detail info panel without inner scrolling */
+@media(min-width:1121px){
+  .v20Grid{grid-template-columns:minmax(0,1fr) minmax(320px,370px)!important;gap:18px!important}
+  .v20Aside{position:sticky;top:82px;display:grid;gap:10px;max-height:none!important;overflow:visible!important;padding-right:0!important;align-content:start}
+  .v20Aside .v20Card{padding:12px 14px;border-radius:16px;box-shadow:0 8px 22px rgba(16,42,67,.045)}
+  .v20Aside .v20Card h3{font-size:13px;margin:0 0 7px;letter-spacing:.02em}
+  .v20Aside .checkList li,.v20Aside .xList li,.v20Aside .dotList li{margin:5px 0;line-height:1.22;font-size:13px;padding-left:20px}
+  .v20Aside .v19BodyMap{height:132px;margin:0 0 8px}
+  .v20Aside .bodySilhouetteV2{transform:scale(.72);transform-origin:center top;height:132px}
+  .v20MuscleImg{max-height:126px;margin:2px 0 8px!important;object-fit:contain}
+  .v20BreathRow{grid-template-columns:32px 1fr;gap:8px;margin:8px 0}
+  .v20BreathRow span{width:32px;height:32px;font-size:18px}
+  .v20BreathRow p{font-size:13px;line-height:1.18}
+  .v20BreathRow b{font-size:14px;margin-bottom:1px}
+  .v20Feel p{font-size:13px;line-height:1.28;margin:0}
+}
+@media(max-width:720px){
+  .v20Aside{position:static!important;max-height:none!important;overflow:visible!important;padding-right:0!important;display:grid!important;grid-template-columns:1fr!important;gap:12px!important}
+}
+
+/* v58: master card as detail hero */
+.masterCardHero{margin-top:0}
+.masterCardHero .masterCardImg{max-height:min(78vh,1040px)}
+@media(max-width:720px){.masterCardHero .masterCardHead{gap:8px}.masterCardHero .masterCardImg{max-height:none}}
