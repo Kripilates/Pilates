@@ -598,6 +598,10 @@ function beginCurrentExercise(){
     showAutoTrain();
   }
 }
+function openCurrentTraining(){
+  if(workoutRunning)return showAutoTrain();
+  return startTraining(nextDayIndex(),true);
+}
 function startTraining(di,auto=true){
   clearDetailRoute();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
@@ -872,7 +876,7 @@ function info(k,opts={}){
                 <p class="eyebrow">Detail cviku</p>
                 <h2>${ex.name}</h2>
                 <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
-                <div class="v20Badges"><span>dle plánu</span><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
+                <div class="v20Badges"><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
               </div>
               <div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>
             </div>
@@ -1024,13 +1028,13 @@ app.addEventListener('click',e=>{
   if(a==='reset-day'){data.days[Number(t.dataset.day)].items.forEach((_,i)=>localStorage.removeItem(key(Number(t.dataset.day),i)));return day(Number(t.dataset.day));}
   if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
   if(a==='rest')return restScreen();
-  if(a==='train-current'){ if(workoutRunning)return showAutoTrain(); return startTraining(currentDay,true); }
+  if(a==='train-current')return openCurrentTraining();
   if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex,{replaceRoute:true});}
 });
 app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});
 $('nav-home').onclick=home;
 $('nav-days').onclick=days;
-$('nav-train').onclick=()=>startTraining(nextDayIndex(),true);
+$('nav-train').onclick=openCurrentTraining;
 $('nav-calendar').onclick=calendar;
 $('nav-library').onclick=library;
 $('nav-stats').onclick=showStats;
