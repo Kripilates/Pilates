@@ -520,3 +520,139 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 .v20MasterDetail .masterCardHero{grid-area:card!important;order:2!important;margin-top:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
 .v20MasterDetail .masterCardHero .v20CardHead{display:none!important}
 .v20MasterDetail .masterCardOpen{display:block!important;width:100%!important;margin:0!important}
+
+/* v58.1 stabilization: compact mobile workout and plan */
+@media(max-width:720px){
+  .v53CleanTrain.fullTrain,
+  .v50Train{
+    padding:8px 10px 112px!important;
+  }
+
+  .v53CleanTrain .trainTop2,
+  .v50Train .trainTop2{
+    top:54px!important;
+    min-height:0!important;
+    margin-bottom:5px!important;
+    padding:6px 8px!important;
+    border-radius:16px!important;
+    gap:6px!important;
+  }
+
+  .v53CleanTrain .trainTop2 button,
+  .v50Train .trainTop2 button{
+    padding:8px 11px!important;
+    font-size:13px!important;
+    border-radius:15px!important;
+  }
+
+  .v53CleanTrain .trainTop2 .dose,
+  .v50Train .trainTop2 .dose{
+    font-size:13px!important;
+    line-height:1.15!important;
+  }
+
+  .v53CleanTrain .progress,
+  .v50Train .progress{
+    height:9px!important;
+    margin:5px 0 6px!important;
+  }
+
+  .v53CleanTrain .trainName,
+  .v50Train .trainName{
+    font-size:1.42rem!important;
+    line-height:1.08!important;
+    margin:3px 0 1px!important;
+  }
+
+  .v53CleanTrain .trainDose,
+  .v50Train .trainDose{
+    font-size:1.08rem!important;
+    line-height:1.1!important;
+    margin:0 0 3px!important;
+  }
+
+  .v53CleanTrain .bigimg,
+  .v50Train .bigimg{
+    height:190px!important;
+    max-height:32vh!important;
+    margin:4px 0!important;
+    border-radius:16px!important;
+  }
+
+  .v53CleanTrain .noTimerBox,
+  .v53CleanTrain .repBox,
+  .v50Train .noTimerBox,
+  .v50Train .repBox{
+    margin:6px auto 7px!important;
+    padding:9px 12px!important;
+    border-radius:16px!important;
+  }
+
+  .v53CleanTrain .noTimerBox span,
+  .v50Train .noTimerBox span{
+    font-size:.72rem!important;
+    margin-bottom:3px!important;
+  }
+
+  .v53CleanTrain .noTimerBox b,
+  .v53CleanTrain .repBox b,
+  .v50Train .noTimerBox b,
+  .v50Train .repBox b{
+    font-size:1.65rem!important;
+    line-height:1.05!important;
+  }
+
+  .v53CleanTrain .doneBtn,
+  .v53CleanTrain .doneRoundBtn,
+  .v50Train .doneBtn,
+  .v50Train .doneRoundBtn{
+    min-height:52px!important;
+    padding:13px 14px!important;
+    font-size:1.08rem!important;
+  }
+
+  .v53CleanTrain .trainControls,
+  .v50Train .trainControls{
+    padding:8px!important;
+    gap:7px!important;
+  }
+
+  .dayGrid{
+    gap:8px!important;
+  }
+
+  .dayCard{
+    grid-template-columns:58px 1fr 28px!important;
+    gap:8px!important;
+    padding:8px!important;
+    border-radius:18px!important;
+  }
+
+  .dayNum{
+    width:52px!important;
+    height:52px!important;
+    border-radius:15px!important;
+    font-size:23px!important;
+  }
+
+  .dayInfo h3{
+    font-size:16px!important;
+    line-height:1.12!important;
+    margin:0 0 3px!important;
+  }
+
+  .dayInfo p{
+    font-size:13px!important;
+    line-height:1.15!important;
+  }
+
+  .dayInfo .progress{
+    height:8px!important;
+    margin:6px 0 0!important;
+  }
+
+  .dayState{
+    font-size:21px!important;
+  }
+}
+

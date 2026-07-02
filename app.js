@@ -675,7 +675,7 @@ function showAutoTrain(){
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     ${timerBlock}
-    <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Jak provést</button></div>
+    <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
   </section>`;
   scrollTop();
 }
@@ -807,7 +807,7 @@ function showTrain(){
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     <button class="primary doneBtn" data-action="set-complete-manual">✓ Dokončeno</button>
-    <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Jak provést</button></div>
+    <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
   </section>`;
   scrollTop();
 }
@@ -849,7 +849,7 @@ function info(k,opts={}){
   const ex=data.exercises[k], meta=exMeta(k);
   const steps=detailSteps(k,ex);
   const planned=(data.days[currentDay]?.items||[]).find(x=>x[0]===k);
-  const dose=(planned&&planned[1]) || ex.dose || 'dle plánu';
+  const dose=(planned&&planned[1]) || ex.dose || '';
   const doseInfo=sideInfo(dose);
   const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (String(dose).match(/\d/) ? 'opakování' : '');
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
@@ -878,7 +878,7 @@ function info(k,opts={}){
                 <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
                 <div class="v20Badges"><span>${meta.diff}</span><span>${meta.area}</span><span>${meta.knee}</span></div>
               </div>
-              <div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>
+              ${dose?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
             ${hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
