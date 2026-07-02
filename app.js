@@ -276,7 +276,7 @@ function detailMasterCard(k){
   if(!src) return '';
   const ex=data.exercises[k]||{};
   const alt=`${ex.name||'cvik'} kompletní karta`;
-  return `<section class="v20Card masterCardSection"><div class="v20CardHead"><h3>Kompletní karta cviku</h3><span>návod v jednom obrázku</span></div><button class="masterCardOpen" type="button" data-action="open-master-card" data-src="${esc(src)}" data-alt="${esc(alt)}"><img loading="lazy" class="masterCardImg" src="${esc(src)}" alt="${esc(alt)}"></button></section>`;
+  return `<section class="v20Card masterCardSection"><button class="masterCardOpen" type="button" data-action="open-master-card" data-src="${esc(src)}" data-alt="${esc(alt)}"><img loading="lazy" class="masterCardImg" src="${esc(src)}" alt="${esc(alt)}"></button></section>`;
 }
 function openMasterCard(src,alt){
   if(!src)return;
@@ -852,7 +852,7 @@ function info(k,opts={}){
   const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
   const muscleImg=detailMuscleImage(k);
   const hasMasterCard=Boolean(masterCards[k]);
-  app.innerHTML=`<section class="exerciseDetailPage v20Detail">
+  app.innerHTML=`<section class="exerciseDetailPage v20Detail ${hasMasterCard?'v20MasterDetail':''}">
     <div class="v20Shell">
       <aside class="v20SideNav" aria-label="Navigace">
         <h2>Pilates Body 40+</h2>

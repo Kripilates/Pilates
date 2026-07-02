@@ -513,3 +513,11 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 
 /* v62: prevent muscle card clipping */
 @media(min-width:1121px){.v20Muscle{min-height:134px!important}}
+
+/* v56 detail final: master card detail order */
+.v20MasterDetail .v20Main{display:grid!important;grid-template-areas:"title" "card"!important;gap:14px!important}
+.v20MasterDetail .v20TitleRow{grid-area:title!important;order:1!important;margin-bottom:0!important}
+.v20MasterDetail .masterCardHero{grid-area:card!important;order:2!important;margin-top:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
+.v20MasterDetail .masterCardHero .v20CardHead{display:none!important}
+.v20MasterDetail .masterCardOpen{display:block!important;width:100%!important;margin:0!important}
+
