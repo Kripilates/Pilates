@@ -7,6 +7,37 @@ if(!data||!data.days||!data.exercises){
   app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
 }
 const $=id=>document.getElementById(id);
+function scrollTop(){
+  requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
+}
+function detailHash(k,d=currentDay,i=currentExercise){
+  const params=new URLSearchParams({ex:k});
+  if(Number.isFinite(Number(d)))params.set('day',String(Number(d)));
+  if(Number.isFinite(Number(i)))params.set('i',String(Number(i)));
+  return `#detail?${params.toString()}`;
+}
+function setDetailRoute(k,replace=false){
+  const hash=detailHash(k);
+  if(location.hash===hash)return;
+  (replace?history.replaceState:history.pushState).call(history,null,'',hash);
+}
+function clearDetailRoute(replace=false){
+  if(!location.hash.startsWith('#detail'))return;
+  const target=location.pathname+location.search;
+  (replace?history.replaceState:history.pushState).call(history,null,'',target);
+}
+function restoreDetailRoute(){
+  if(!location.hash.startsWith('#detail'))return false;
+  const params=new URLSearchParams(location.hash.replace(/^#detail\??/,''));
+  const k=params.get('ex');
+  if(!k||!data.exercises[k])return false;
+  const d=Number(params.get('day'));
+  const i=Number(params.get('i'));
+  if(Number.isInteger(d)&&data.days[d])currentDay=d;
+  if(Number.isInteger(i))currentExercise=i;
+  info(k,{replaceRoute:true});
+  return true;
+}
 const key=(d,i)=>`pb40-d${d}-e${i}`; // SAME KEYS as V3_full: progress stays
 const done=(d,i)=>localStorage.getItem(key(d,i))==='1';
 const setDone=(d,i)=>{localStorage.setItem(key(d,i),'1');markToday();};
@@ -467,6 +498,7 @@ function intro(){
   </section>`;
 }
 function programInfo(){
+  clearDetailRoute();
   lastMode='library';setNav('library');
   app.innerHTML=`<section class="introHero compactIntro">
     <div class="introBadge">Pilates Body 40+</div>
@@ -484,9 +516,11 @@ function programInfo(){
   <section class="card"><h2>Jak cvičit správně</h2>
     <ul class="cleanList"><li>Raději menší rozsah a čistý pohyb než rychlé opakování.</li><li>U hýžďových cviků si hlídej, že necítíš hlavně kyčle.</li><li>U břicha dýchej a drž bedra stabilní.</li><li>Bolest kolen znamená zmenšit rozsah nebo cvik přeskočit.</li></ul>
   </section>`;
+  scrollTop();
 }
 
 function home(){
+  clearDetailRoute();
   lastMode='home';setNav('home');
   const s=statsData(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),lm=latestMeasurement(),ln=latestNote();
   app.innerHTML=`<div class="v22Home">
@@ -505,17 +539,21 @@ function home(){
     </aside>
     <section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>
   </div>`;
+  scrollTop();
 }
 
 function days(){
+  clearDetailRoute();
   lastMode='days';setNav('days');
   const groups=[];
   data.days.forEach((d,di)=>{const wi=Math.floor(di/7);if(!groups[wi])groups[wi]=[];groups[wi].push({d,di});});
   app.innerHTML=`<section class="card planIntro"><h2>Plán na 30 dní</h2><p class="muted">Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.</p><button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button></section>
   ${groups.map((g,wi)=>`<section class="card weekBlock"><div class="topLine"><h2>Týden ${wi+1}</h2><span class="pill">${g.filter(x=>x.d.items.length&&pct(x.di)===100).length}/6 hotovo</span></div><div class="dayGrid">${g.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`).join('')}`;
+  scrollTop();
 }
 
 function day(di){
+  clearDetailRoute();
   lastMode='day';setNav('days');currentDay=di;
   const day=data.days[di];
   app.innerHTML=`<section class="dashboardHero dayHero">
@@ -526,6 +564,7 @@ function day(di){
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
   <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`;
+  scrollTop();
 }
 
 function sideInfo(dose){
@@ -560,6 +599,7 @@ function beginCurrentExercise(){
   }
 }
 function startTraining(di,auto=true){
+  clearDetailRoute();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
   clearInterval(timer);
   workoutAuto=true;
@@ -633,6 +673,7 @@ function showAutoTrain(){
     ${timerBlock}
     <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
+  scrollTop();
 }
 function tickAuto(){
   if(workoutPaused)return;
@@ -764,6 +805,7 @@ function showTrain(){
     <button class="primary doneBtn" data-action="set-complete-manual">✓ Dokončeno</button>
     <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Jak provést</button></div>
   </section>`;
+  scrollTop();
 }
 function restScreen(){
   const [k,dose]=data.days[currentDay].items[currentExercise];
@@ -775,6 +817,7 @@ function restScreen(){
     <p class="muted">Další cvik se otevře automaticky.</p>
     <button class="primary bigbtn" data-action="done-next-nomark">Další cvik hned</button>
   </section>`;
+  scrollTop();
   timer=setInterval(()=>{left--;const el=document.getElementById('timer');if(el)el.textContent=left;if(left<=0){clearInterval(timer);doneNext(false)}},1000);
 }
 function doneNext(mark=true){
@@ -795,8 +838,10 @@ function doneNext(mark=true){
     <button class="primary bigbtn" data-action="save-workout-note">Uložit a domů</button>
     <div class="row"><button data-action="home">Přeskočit poznámku</button><button data-action="day" data-day="${next}">Další den</button></div>
   </section>`;
+  scrollTop();
 }
-function info(k){
+function info(k,opts={}){
+  if(!opts.skipRoute)setDetailRoute(k,Boolean(opts.replaceRoute));
   const ex=data.exercises[k], meta=exMeta(k);
   const steps=detailSteps(k,ex);
   const planned=(data.days[currentDay]?.items||[]).find(x=>x[0]===k);
@@ -821,7 +866,7 @@ function info(k){
         <div class="v20TopBar">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
         <section class="v20Grid">
           <main class="v20Main">
-            ${hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
+            ${hasMasterCard ? '' : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
             <div class="v20TitleRow">
               <div>
                 <p class="eyebrow">Detail cviku</p>
@@ -831,7 +876,7 @@ function info(k){
               </div>
               <div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>
             </div>
-            ${hasMasterCard ? '' : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
+            ${hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
           <aside class="v20Aside">
@@ -846,18 +891,24 @@ function info(k){
       </div>
     </div>
   </section>`;
+  scrollTop();
 }
 function library(){
+  clearDetailRoute();
   lastMode='library';setNav('library');
   app.innerHTML=`<section class="card"><h2>Program</h2><div class="moreGrid"><button data-action="program-info">✦ O programu</button><button data-action="progress">◎ Měření</button><button data-action="stats">↗ Statistiky</button><button data-action="library-list">◈ Knihovna cviků</button><button data-action="export-progress">⬇ Záloha</button><button onclick="document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')">🌙 Tmavý režim</button></div></section>
   <section class="card"><h2>Knihovna cviků</h2><p class="muted">Klepni na cvik pro detail techniky.</p><div class="libraryGrid">${Object.keys(data.exercises).map(k=>exCard(k,data.exercises[k].dose)).join('')}</div></section>`;
+  scrollTop();
 }
 function favs(){
+  clearDetailRoute();
   lastMode='library';setNav('library');
   const keys=Object.keys(data.exercises).filter(k=>isFav(k));
   app.innerHTML=`<section class="card"><h2>Oblíbené cviky</h2>${keys.length?'<div class="libraryGrid">'+keys.map(k=>exCard(k,data.exercises[k].dose)).join('')+'</div>':'<p class="muted">Zatím žádné oblíbené.</p>'}</section>`;
+  scrollTop();
 }
 function calendar(){
+  clearDetailRoute();
   lastMode='calendar';setNav('calendar');
   const now=new Date(), y=now.getFullYear(), m=now.getMonth();
   const first=new Date(y,m,1), last=new Date(y,m+1,0);
@@ -876,9 +927,11 @@ function calendar(){
     <div class="calendarGrid">${cells.join('')}</div>
     <div class="row"><button data-action="mark-today">Označit dnešek ručně</button><button data-action="unmark-today">Odebrat dnešek</button></div>
   </section>`;
+  scrollTop();
 }
 
 function progressTracker(){
+  clearDetailRoute();
   lastMode='progress';setNav('progress');
   const arr=measurements(), first=firstMeasurement(), last=latestMeasurement();
   const today=todayKey();
@@ -910,6 +963,7 @@ function progressTracker(){
     ${arr.length?`<div class="tableWrap"><table><thead><tr><th>Datum</th><th>kg</th><th>Pas</th><th>Boky</th><th>Stehno</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="muted">Zatím nemáš uložené žádné měření.</p>'}
     ${last&&last.note?`<div class="inlineTip"><b>Poslední poznámka:</b><br>${esc(last.note)}</div>`:''}
   </section>`;
+  scrollTop();
 }
 function saveMeasureFromForm(){
   const val=id=>document.getElementById(id)?.value?.trim()||'';
@@ -919,6 +973,7 @@ function saveMeasureFromForm(){
 }
 
 function showStats(){
+  clearDetailRoute();
   lastMode='stats';setNav('stats');const s=statsData();
   app.innerHTML=`<section class="card"><h2>Statistiky</h2><p class="muted">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
   <div class="statGrid"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div></div><div class="row"><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div></section>`;
@@ -970,7 +1025,7 @@ app.addEventListener('click',e=>{
   if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
   if(a==='rest')return restScreen();
   if(a==='train-current'){ if(workoutRunning)return showAutoTrain(); return startTraining(currentDay,true); }
-  if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex);}
+  if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex,{replaceRoute:true});}
 });
 app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});
 $('nav-home').onclick=home;
@@ -983,5 +1038,8 @@ const progressNav=document.getElementById('nav-progress'); if(progressNav) progr
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
 /* v50: service worker registration removed to prevent stale PWA cache. */
-if(localStorage.getItem(introKey)!=='1') intro(); else home();
+window.addEventListener('popstate',()=>{if(!restoreDetailRoute())home();});
+if(!restoreDetailRoute()){
+  if(localStorage.getItem(introKey)!=='1') intro(); else home();
+}
 })();
