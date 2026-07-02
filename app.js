@@ -2,7 +2,7 @@
 const app=document.getElementById('app'),data=window.PB40_DATA;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
-let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false;
+let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
 if(!data||!data.days||!data.exercises){
   app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
 }
@@ -598,8 +598,23 @@ function beginCurrentExercise(){
     showAutoTrain();
   }
 }
+function shouldRunWorkoutTimer(){
+  const dose=data.days[currentDay]?.items?.[currentExercise]?.[1]||'';
+  const info=sideInfo(dose);
+  return ['prep','switch','roundRest'].includes(workoutPhase) || (info.timed && ['left','right','work'].includes(workoutPhase));
+}
 function openCurrentTraining(){
-  if(workoutRunning)return showAutoTrain();
+  if(workoutRunning){
+    const resumeTimer=workoutPausedByDetail;
+    workoutPausedByDetail=false;
+    if(resumeTimer)workoutPaused=false;
+    showAutoTrain();
+    if(resumeTimer&&shouldRunWorkoutTimer()){
+      clearInterval(timer);
+      timer=setInterval(tickAuto,1000);
+    }
+    return;
+  }
   return startTraining(nextDayIndex(),true);
 }
 function startTraining(di,auto=true){
@@ -851,7 +866,7 @@ function info(k,opts={}){
   const planned=(data.days[currentDay]?.items||[]).find(x=>x[0]===k);
   const dose=(planned&&planned[1]) || ex.dose || '';
   const doseInfo=sideInfo(dose);
-  const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (String(dose).match(/\d/) ? 'opakování' : '');
+  const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (!doseInfo.side && String(dose).match(/\d/) && !/opakování/i.test(String(dose)) ? 'opakování' : '');
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=currentDay!==undefined ? `<button data-action="day" data-day="${currentDay}">← Zpět na den</button>` : `<button data-action="home">← Domů</button>`;
   const muscleImg=detailMuscleImage(k);
@@ -1009,6 +1024,7 @@ app.addEventListener('click',e=>{
     // Když otevřeš detail během tréninku, časovač se zastaví a nic tě samo nevrátí zpět.
     if(workoutRunning){
       clearInterval(timer);
+      workoutPausedByDetail=!workoutPaused;
       workoutPaused=true;
     }
     if(t.dataset.day!==undefined && t.dataset.day!=='') currentDay=Number(t.dataset.day);

@@ -656,3 +656,71 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   }
 }
 
+/* v58.2 UX polish */
+main button:not(.primary):not(.active),
+.compactActions button,
+.trainControls button:not(.primary),
+.moreGrid button,
+.smallBtn{
+  padding:9px 11px!important;
+  font-size:13px!important;
+}
+
+.trainControls button:not(.primary){
+  min-height:40px!important;
+}
+
+.compactActions{
+  gap:6px!important;
+}
+
+.libraryGrid,
+.v22ExerciseGrid{
+  gap:8px!important;
+}
+
+.v22exercise{
+  padding:10px!important;
+}
+
+.v22CardHead{
+  margin-bottom:7px!important;
+}
+
+.v22PhotoWrap{
+  margin-bottom:7px!important;
+}
+
+.v22CardLabels{
+  gap:5px!important;
+  padding-bottom:7px!important;
+}
+
+.v22Open{
+  margin-top:7px!important;
+}
+
+@media(max-width:720px){
+  main button:not(.primary):not(.active),
+  .compactActions button,
+  .trainControls button:not(.primary),
+  .moreGrid button,
+  .smallBtn{
+    padding:8px 9px!important;
+    font-size:12px!important;
+  }
+
+  .trainControls button:not(.primary){
+    min-height:38px!important;
+  }
+
+  .v22ExerciseGrid,
+  .libraryGrid{
+    gap:7px!important;
+  }
+
+  .v22exercise{
+    padding:9px!important;
+  }
+}
+
