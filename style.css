@@ -724,3 +724,57 @@ main button:not(.primary):not(.active),
   }
 }
 
+/* Mobile badge and dose polish */
+@media(max-width:720px){
+  .v20Badges,
+  .v22CardLabels,
+  .metaLine{
+    gap:5px!important;
+  }
+
+  .v20Badges span,
+  .v22CardLabels span,
+  .metaLine span,
+  .detailBadges span,
+  .pill{
+    min-height:30px!important;
+    padding:5px 8px!important;
+    border-radius:12px!important;
+    font-size:13px!important;
+    line-height:1.15!important;
+    display:inline-flex!important;
+    align-items:center!important;
+  }
+
+  .repBadge{
+    min-height:30px!important;
+    padding:5px 8px!important;
+    border-radius:12px!important;
+    font-size:13px!important;
+    line-height:1.15!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+
+  .v20Dose{
+    min-width:104px!important;
+    max-width:168px!important;
+    min-height:64px!important;
+    padding:9px 11px!important;
+    border-radius:18px!important;
+    gap:5px!important;
+  }
+
+  .v20Dose b{
+    font-size:22px!important;
+    line-height:1!important;
+  }
+
+  .v20Dose span{
+    font-size:12px!important;
+    line-height:1.1!important;
+    margin-top:0!important;
+  }
+}
+
