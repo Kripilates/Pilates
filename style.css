@@ -521,3 +521,129 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 .v20MasterDetail .masterCardHero .v20CardHead{display:none!important}
 .v20MasterDetail .masterCardOpen{display:block!important;width:100%!important;margin:0!important}
 
+@media (orientation: landscape) and (max-height: 520px) {
+  header {
+    position: static;
+    min-height: 44px;
+    padding: 6px 14px;
+  }
+
+  header h1 {
+    font-size: 22px;
+    line-height: 1.05;
+  }
+
+  header p {
+    font-size: 12px;
+  }
+
+  .brandBadge {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  main {
+    padding: 8px 8px 86px;
+  }
+
+  nav {
+    padding: 5px 8px calc(5px + env(safe-area-inset-bottom));
+    gap: 6px;
+  }
+
+  nav button {
+    min-height: 56px;
+    padding: 5px 4px;
+    font-size: 13px;
+    border-radius: 18px;
+  }
+
+  nav button span {
+    font-size: 18px;
+  }
+
+  .v20Detail {
+    margin: 0;
+    padding-bottom: 90px;
+  }
+
+  .v20Content {
+    padding: 8px 12px 96px;
+  }
+
+  .v20TopBar {
+    position: static;
+    margin-bottom: 8px;
+  }
+
+  .v20Grid {
+    display: block;
+  }
+
+  .v20Main {
+    gap: 8px;
+  }
+
+  .v20TitleRow {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .v20TitleRow h2 {
+    font-size: 42px;
+    margin: 0 0 4px;
+  }
+
+  .v20Sub {
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+
+  .v20Badges {
+    gap: 6px;
+    max-height: 44px;
+    overflow: hidden;
+  }
+
+  .v20Badges span {
+    padding: 7px 11px;
+    font-size: 15px;
+  }
+
+  .v20Dose {
+    width: 250px;
+    height: 86px;
+  }
+
+  .v20Dose b {
+    font-size: 34px;
+  }
+
+  .v20Hero {
+    height: calc(100vh - 205px);
+    min-height: 150px;
+    max-height: 250px;
+  }
+
+  .v20HeroPhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+
+  .v20Aside {
+    display: none;
+  }
+
+  .v20Footer {
+    margin-bottom: 90px;
+  }
+}
+
