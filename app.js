@@ -693,7 +693,7 @@ function showAutoTrain(){
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
   const showPhase = !((workoutPhase==='work' && !info.timed) || workoutPhase==='confirm');
   const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
-  const imgClass='bigimg '+(workoutPhase==='right'?'mirrorSide':'');
+  const imgClass='bigimg';
   app.innerHTML=`<section class="card fullTrain autoTrain v50Train v53CleanTrain">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
