@@ -568,7 +568,12 @@ function day(di,opts={}){
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
       const card=document.querySelector(`.exercise[data-day="${di}"][data-index="${detailReturnExercise}"]`);
-      if(card)card.scrollIntoView({block:'center'});
+      if(card){
+        if(detailReturnScroll)window.scrollTo({top:detailReturnScroll,behavior:'auto'});
+        else card.scrollIntoView({block:'center'});
+        card.classList.add('returnFocus');
+        setTimeout(()=>card.classList.remove('returnFocus'),1100);
+      }
       else window.scrollTo({top:detailReturnScroll||0,behavior:'auto'});
     });
   }else scrollTop();
