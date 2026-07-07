@@ -774,7 +774,7 @@ function advanceAutoPhase(){
   if(workoutPhase==='left'){
     sideNoticeUntil=Date.now()+1100;
     workoutPhase='switch'; workoutLeft=5; startWorkoutTimer();
-    setTimeout(()=>{if(workoutRunning&&workoutPhase==='switch')showAutoTrain();},1100);
+    setTimeout(()=>{if(workoutRunning&&workoutPhase==='switch'&&document.querySelector('.autoTrain'))showAutoTrain();},1100);
     return;
   }
   if(workoutPhase==='switch'){
