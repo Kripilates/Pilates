@@ -977,3 +977,59 @@ main button:not(.primary):not(.active),
   }
 }
 
+/* v58.5 side exercise UX */
+.sidePhaseBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:center;
+  width:max-content;
+  max-width:100%;
+  margin:0 auto 6px;
+  padding:6px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--p2);
+  color:var(--p);
+  font-size:13px;
+  font-weight:900;
+  line-height:1.1;
+}
+.detailSideBadge{
+  margin:0 0 7px;
+}
+.sideSwitchNotice{
+  display:grid;
+  gap:3px;
+  margin:2px auto 6px;
+  padding:9px 12px;
+  width:min(100%,360px);
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  color:var(--text);
+  text-align:center;
+  box-shadow:0 10px 24px var(--shadow);
+}
+.sideSwitchNotice b{
+  color:var(--p);
+  font-size:14px;
+}
+.sideSwitchNotice span{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:800;
+}
+@media(max-width:720px){
+  .sidePhaseBadge{
+    margin-bottom:5px;
+    padding:5px 10px;
+    font-size:12.5px;
+  }
+  .sideSwitchNotice{
+    margin-top:0;
+    padding:8px 10px;
+    border-radius:14px;
+  }
+}
+
