@@ -1185,7 +1185,12 @@ main button:not(.primary):not(.active),
 .referenceInfo strong{font-size:10px;line-height:1.1;font-weight:900}
 .referenceInfo p{margin:0;color:var(--muted);font-size:8.5px;line-height:1.25}
 .referenceStepByStep{padding:17px;margin-top:14px}
-.referenceStepByStep>p{margin:-8px 0 14px;color:var(--muted);font-size:12px}
+.referenceStepByStep summary{display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;list-style:none;color:var(--text);font-weight:900;font-size:17px}
+.referenceStepByStep summary::-webkit-details-marker{display:none}
+.referenceStepByStep summary b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--p2);color:var(--p);font-size:16px;line-height:1;transition:transform .2s ease}
+.referenceStepByStep[open] summary b{transform:rotate(180deg)}
+.referenceStepByStepContent{margin-top:14px}
+.referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{display:none!important;margin-top:0}
 .referenceStepByStep article{margin:0}
 .referenceSbsPhoto{position:relative;height:203px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
 .referenceSbsPhoto img{object-fit:cover}
@@ -1270,12 +1275,19 @@ main button:not(.primary):not(.active),
     line-height:1.18;
   }
   .referenceStepByStep{
-    padding:12px;
-    margin-top:8px;
+    padding:10px 12px;
+    margin-top:6px;
   }
-  .referenceStepByStep>p{
-    margin:-4px 0 9px;
-    font-size:11px;
+  .referenceStepByStep summary{
+    font-size:14px;
+  }
+  .referenceStepByStep summary b{
+    width:20px;
+    height:20px;
+    font-size:13px;
+  }
+  .referenceStepByStepContent{
+    margin-top:8px;
   }
   .referenceSbsPhoto{
     height:146px;
@@ -1289,17 +1301,17 @@ main button:not(.primary):not(.active),
     font-size:10px;
   }
   .referenceStepByStep article strong{
-    margin-top:8px;
+    margin-top:6px;
     font-size:13px;
   }
   .referenceStepByStep article span{
-    margin-top:5px;
+    margin-top:3px;
     font-size:11px;
-    line-height:1.25;
+    line-height:1.2;
   }
   .referenceDownArrow{
-    font-size:18px;
-    margin:8px 0;
+    font-size:16px;
+    margin:4px 0;
   }
 }
 
