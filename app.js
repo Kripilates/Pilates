@@ -329,7 +329,7 @@ function referenceGuideCard(k){
     {n:3,title:'START',caption:'Polož pánev',photo:ref.start}
   ];
   return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
-    <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b><span>${s.caption}</span>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
+    <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
   </section>`;
 }
 function referenceStepByStep(k){
