@@ -1,0 +1,6 @@
+Nahraj obsah tohoto ZIPu do repozitáře Pilates.
+
+Po nahrání otevři:
+https://kripilates.github.io/Pilates/?v=55mastercards
+
+Otestuj detail cviků: Glute Bridge, Toe Taps, Clamshell, Fire Hydrant, Side Leg Lift, Bird Dog.

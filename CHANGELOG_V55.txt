@@ -1,0 +1,8 @@
+V55 – master karty cviků
+
+- Zachovány opravy z dodaného V54 fixed ZIPu.
+- Přidány schválené kompletní master karty pro cviky:
+  Glute Bridge, Toe Taps, Clamshell, Fire Hydrant, Side Leg Lift, Bird Dog.
+- V detailu těchto cviků se místo starého bloku „Průběh cviku“ zobrazuje celá kompletní karta.
+- Starý krokový průběh zůstává jen jako fallback pro cviky, které ještě master kartu nemají.
+- Doplněn style.css a cache verze v index.html změněna na v55mastercards.

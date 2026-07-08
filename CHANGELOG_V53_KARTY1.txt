@@ -1,0 +1,3 @@
+v53 karty1
+- Přidány schválené master karty do assets/exercises/mastercards.
+- Detail cviku u Glute Bridge, Toe Taps, Clamshell, Fire Hydrant, Side Leg Lift a Bird Dog zobrazuje celou kartu cviku.
