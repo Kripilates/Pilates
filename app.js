@@ -274,6 +274,22 @@ const masterCards={
   sideleg:'assets/exercises/mastercards/side-leg-lift-master.webp?v=55cards',
   bird:'assets/exercises/mastercards/bird-dog-master.webp?v=55cards'
 };
+const referenceExerciseAssets={
+  hip:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v1.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v1.png',
+    guide:{
+      breath:['Výdech při zvedání.','Nádech při návratu.'],
+      focus:['Aktivuj hýždě a střed těla.','Neprohýbej bedra.'],
+      reps:['12 opakování','2–3 série']
+    },
+    steps:[
+      {title:'START',caption:'Výchozí',text:'Lehni si na záda, pokrč kolena a chodidla polož na šířku boků.',photo:'start'},
+      {title:'HLAVNÍ POHYB',caption:'Zvedni',text:'S výdechem zvedni pánev. Aktivuj hýždě a drž střed těla pevný.',photo:'hero'},
+      {title:'NÁVRAT',caption:'Pomalu zpět',text:'Pomalu a kontrolovaně polož pánev zpět do výchozí polohy.',photo:'start'}
+    ]
+  }
+};
 function detailMasterCard(k){
   const src=masterCards[k];
   if(!src) return '';
@@ -286,7 +302,7 @@ function openMasterCard(src,alt){
   document.querySelector('.masterLightbox')?.remove();
   app.insertAdjacentHTML('beforeend',`<div class="masterLightbox" data-action="close-master-card" role="dialog" aria-modal="true" aria-label="${esc(alt||'Kompletní karta cviku')}"><button class="masterLightboxClose" type="button" data-action="close-master-card" aria-label="Zavřít">×</button><img src="${esc(src)}" alt="${esc(alt||'Kompletní karta cviku')}"></div>`);
 }
-function v22ImageSrc(k){return data.exercises[k]?.image || '';}
+function v22ImageSrc(k){return referenceExerciseAssets[k]?.hero || data.exercises[k]?.image || '';}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
   const src=v22ImageSrc(k);
@@ -296,6 +312,41 @@ function img(k,c='thumb',extra=''){
 function detailHeroImage(k){
   const src = v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
+}
+function referenceGuideCard(k){
+  const ref=referenceExerciseAssets[k];
+  if(!ref)return '';
+  const ex=data.exercises[k]||{};
+  const stepData=[
+    {n:1,title:'START',caption:'Výchozí',photo:ref.start},
+    {n:2,title:'HERO',caption:'Zvedni',photo:ref.hero},
+    {n:3,title:'START',caption:'Pomalu zpět',photo:ref.start}
+  ];
+  return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} Guide Card">
+    <div class="referenceAccent"></div>
+    <h3>${esc(ex.name||'Cvik')}</h3>
+    <div class="referenceHero"><img loading="lazy" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>
+    <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b><strong>${s.title}</strong><span>${s.caption}</span>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
+    <div class="referenceInfo">
+      <article><div><em>💨</em><strong>Dech</strong></div><p>${ref.guide.breath.map(esc).join('<br>')}</p></article>
+      <article><div><em>🎯</em><strong>Zaměř se</strong></div><p>${ref.guide.focus.map(esc).join('<br>')}</p></article>
+      <article><div><em>🔁</em><strong>Opakování</strong></div><p>${ref.guide.reps.map(esc).join('<br>')}</p></article>
+    </div>
+  </section>`;
+}
+function referenceStepByStep(k){
+  const ref=referenceExerciseAssets[k];
+  if(!ref)return '';
+  const ex=data.exercises[k]||{};
+  return `<section class="referenceStepByStep" aria-label="${esc(ex.name||'Cvik')} krok za krokem">
+    <div class="referenceAccent"></div>
+    <h3>${esc(ex.name||'Cvik')}</h3>
+    <p>Krok za krokem</p>
+    ${ref.steps.map((s,i)=>{
+      const src=ref[s.photo]||ref.hero;
+      return `<article><div class="referenceSbsPhoto"><img loading="lazy" src="${src}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"><b>${i+1}</b></div><strong>${esc(s.title)}</strong><span>${esc(s.text)}</span></article>${i<ref.steps.length-1?'<div class="referenceDownArrow" aria-hidden="true">↓</div>':''}`;
+    }).join('')}
+  </section>`;
 }
 const day1StepFiles={
   hip:['assets/exercises/glute_bridge_step1.jpg','assets/exercises/glute_bridge_step2.jpg','assets/exercises/glute_bridge_step3.jpg'],
@@ -905,8 +956,9 @@ function info(k,opts={}){
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : (currentDay!==undefined ? `<button data-action="day-return" data-day="${currentDay}">← Zpět na seznam cviků</button>` : `<button data-action="home">← Domů</button>`);
   const muscleImg=detailMuscleImage(k);
-  const hasMasterCard=Boolean(masterCards[k]);
-  app.innerHTML=`<section class="exerciseDetailPage v20Detail ${hasMasterCard?'v20MasterDetail':''}">
+  const hasReference=Boolean(referenceExerciseAssets[k]);
+  const hasMasterCard=Boolean(masterCards[k])&&!hasReference;
+  app.innerHTML=`<section class="exerciseDetailPage v20Detail ${hasMasterCard?'v20MasterDetail':''} ${hasReference?'referenceExerciseDetail':''}">
     <div class="v20Shell">
       <aside class="v20SideNav" aria-label="Navigace">
         <h2>Pilates Body 40+</h2>
@@ -930,7 +982,7 @@ function info(k,opts={}){
               </div>
               ${dose?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
-            ${hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
+            ${hasReference ? `${referenceGuideCard(k)}${referenceStepByStep(k)}` : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
           <aside class="v20Aside">
