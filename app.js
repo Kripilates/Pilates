@@ -324,9 +324,9 @@ function referenceGuideCard(k){
   if(!ref)return '';
   const ex=data.exercises[k]||{};
   const stepData=[
-    {n:1,title:'START',caption:'Výchozí',photo:ref.start},
-    {n:2,title:'HERO',caption:'Zvedni',photo:ref.hero},
-    {n:3,title:'START',caption:'Návrat',photo:ref.start}
+    {n:1,title:'START',caption:'Lehni si',photo:ref.start},
+    {n:2,title:'HERO',caption:'Zvedni pánev',photo:ref.hero},
+    {n:3,title:'START',caption:'Polož pánev',photo:ref.start}
   ];
   return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
     <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b><span>${s.caption}</span>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
