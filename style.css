@@ -1370,6 +1370,11 @@ main button:not(.primary):not(.active),
 }
 .referenceExerciseDetail details.referenceStepByStep:not([open]){
   margin-bottom:0!important;
+  padding-top:10px!important;
+  padding-bottom:10px!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open]) summary{
+  min-height:0!important;
 }
 .referenceExerciseDetail .referenceFooter{
   margin-top:8px!important;
