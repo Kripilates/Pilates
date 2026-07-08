@@ -327,3 +327,27 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   .v53Mini{display:none!important}
   .v50Train .restBlock.compactTimer{grid-template-columns:1fr auto!important;padding:10px 12px!important}
 }
+
+/* v59.3: odpočet musí být celý viditelný nad spodním panelem */
+@media(max-width:720px){
+  .v50Train .phasePill{margin:5px auto 2px!important}
+  .v50Train .trainName{margin-top:3px!important}
+  .v50Train .trainDose{margin-bottom:2px!important}
+  .v50Train .bigimg{margin:4px 0!important}
+  .v50Train .restBlock.compactTimer{
+    margin:4px auto 22px!important;
+    transform:translateY(-4px);
+  }
+  .v50Train .timerCircle.restOnly{
+    margin:0 auto!important;
+  }
+}
+
+@media(max-width:640px){
+  .v50Train .restBlock.compactTimer{
+    grid-template-columns:1fr auto!important;
+    gap:10px!important;
+    margin:2px auto 24px!important;
+    padding:8px 12px!important;
+  }
+}
