@@ -978,41 +978,17 @@ main button:not(.primary):not(.active),
 }
 
 /* v58.6 side exercise UX */
-.trainNameRow,
-.detailTitleLine{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:9px;
-  flex-wrap:wrap;
-}
-.trainNameRow .trainName,
-.detailTitleLine h2{
-  margin-bottom:0;
-}
-.detailTitleLine{
-  justify-content:flex-start;
-  margin:0 0 6px;
-}
-.sidePhaseBadge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:max-content;
-  max-width:100%;
-  margin:0;
-  padding:4px 8px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:var(--p2);
+.sidePlainText{
+  margin:-3px 0 5px;
   color:var(--p);
-  font-size:12px;
+  font-size:14px;
   font-weight:900;
-  line-height:1.1;
-  white-space:nowrap;
+  line-height:1.15;
+  text-align:center;
 }
-.detailSideBadge{
-  margin:2px 0 0;
+.detailSideText{
+  margin:-4px 0 7px;
+  text-align:left;
 }
 .sideSwitchNotice{
   display:grid;
@@ -1037,9 +1013,9 @@ main button:not(.primary):not(.active),
   font-weight:800;
 }
 @media(max-width:720px){
-  .sidePhaseBadge{
-    padding:4px 7px;
-    font-size:12px;
+  .sidePlainText{
+    margin:-2px 0 4px;
+    font-size:13px;
   }
   .sideSwitchNotice{
     margin-top:0;

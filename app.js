@@ -4,6 +4,7 @@ let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
 let sideNoticeUntil=0;
+let sideNoticeDone='', sideNoticeNext='';
 let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
 if(!data||!data.days||!data.exercises){
   app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
@@ -594,6 +595,12 @@ function currentSideLabel(info){
   if(workoutPhase==='right'||workoutPhase==='switch')return 'Levá strana';
   return '';
 }
+function oppositeSideLabel(label){
+  return label.includes('Levá') ? 'Pravá strana' : 'Levá strana';
+}
+function sideContinueText(label){
+  return label.includes('Pravá') ? 'pravou stranou' : 'levou stranou';
+}
 function phaseSideText(){
   const dose=data.days[currentDay]?.items?.[currentExercise]?.[1]||'';
   const label=currentSideLabel(sideInfo(dose));
@@ -699,15 +706,16 @@ function showAutoTrain(){
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
   const showPhase = ['prep','switch','roundRest'].includes(workoutPhase);
   const sideLabel=currentSideLabel(info);
-  const sideBadge=sideLabel&&['left','right'].includes(workoutPhase) ? `<div class="sidePhaseBadge">${sideLabel}</div>` : '';
-  const sideNotice=(workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ Pravá strana hotová</b><span>Pokračujeme levou stranou.</span></div>` : '';
+  const sideText=sideLabel&&['left','right'].includes(workoutPhase) ? `<div class="sidePlainText">${sideLabel}</div>` : '';
+  const sideNotice=(workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ ${sideNoticeDone||'Strana'} hotová</b><span>Pokračujeme ${sideContinueText(sideNoticeNext)}.</span></div>` : '';
   const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
   const imgClass='bigimg';
   app.innerHTML=`<section class="card fullTrain autoTrain v50Train v53CleanTrain">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
-    <div class="trainNameRow"><h2 class="trainName">${ex.name}</h2>${sideBadge}</div>
+    <h2 class="trainName">${ex.name}</h2>
+    ${sideText}
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     ${sideNotice}
@@ -766,6 +774,8 @@ function advanceAutoPhase(){
     return;
   }
   if(workoutPhase==='left'){
+    sideNoticeDone=currentSideLabel(info);
+    sideNoticeNext=oppositeSideLabel(sideNoticeDone);
     sideNoticeUntil=Date.now()+1100;
     workoutPhase='switch'; workoutLeft=5; startWorkoutTimer();
     setTimeout(()=>{if(workoutRunning&&workoutPhase==='switch'&&document.querySelector('.autoTrain'))showAutoTrain();},1100);
@@ -892,7 +902,7 @@ function info(k,opts={}){
   const dose=(planned&&planned[1]) || ex.dose || '';
   const doseInfo=sideInfo(dose);
   const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (!doseInfo.side && String(dose).match(/\d/) && !/opakování/i.test(String(dose)) ? 'opakování' : '');
-  const detailSideLabel=workoutRunning&&currentSideLabel(doseInfo) ? `<div class="sidePhaseBadge detailSideBadge">${currentSideLabel(doseInfo)}</div>` : '';
+  const detailSideLabel=workoutRunning&&currentSideLabel(doseInfo) ? `<div class="sidePlainText detailSideText">${currentSideLabel(doseInfo)}</div>` : '';
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : (currentDay!==undefined ? `<button data-action="day-return" data-day="${currentDay}">← Zpět na seznam cviků</button>` : `<button data-action="home">← Domů</button>`);
   const muscleImg=detailMuscleImage(k);
@@ -915,7 +925,8 @@ function info(k,opts={}){
             <div class="v20TitleRow">
               <div>
                 <p class="eyebrow">Detail cviku</p>
-                <div class="detailTitleLine"><h2>${ex.name}</h2>${detailSideLabel}</div>
+                <h2>${ex.name}</h2>
+                ${detailSideLabel}
                 <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
               </div>
               ${dose?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
