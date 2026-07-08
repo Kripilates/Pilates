@@ -716,7 +716,6 @@ function showAutoTrain(){
     ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
     <h2 class="trainName">${ex.name}</h2>
     ${sideText}
-    <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     ${sideNotice}
     ${timerBlock}
