@@ -972,7 +972,7 @@ function info(k,opts={}){
         <div class="v20TopBar">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
         <section class="v20Grid">
           <main class="v20Main">
-            ${hasMasterCard ? '' : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
+            ${hasMasterCard || hasReference ? '' : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
             <div class="v20TitleRow">
               <div>
                 <p class="eyebrow">Detail cviku</p>

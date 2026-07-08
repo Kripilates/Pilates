@@ -1196,4 +1196,110 @@ main button:not(.primary):not(.active),
 @media(min-width:900px){
   .referenceGuideCard,.referenceStepByStep{width:min(100%,430px)}
 }
+@media(max-width:720px){
+  .referenceExerciseDetail .v20Main{
+    gap:7px!important;
+  }
+  .referenceGuideCard{
+    padding:12px;
+    min-height:auto;
+  }
+  .referenceAccent{
+    margin-bottom:11px;
+  }
+  .referenceGuideCard h3,.referenceStepByStep h3{
+    font-size:21px;
+    margin-bottom:10px;
+  }
+  .referenceHero{
+    height:242px;
+  }
+  .referenceFlow{
+    gap:4px;
+    margin-top:18px;
+  }
+  .referenceFlowStep{
+    border-radius:8px;
+    padding-bottom:6px;
+  }
+  .referenceStepPhoto{
+    height:58px;
+  }
+  .referenceFlowStep b{
+    width:14px;
+    height:14px;
+    font-size:9px;
+  }
+  .referenceFlowStep strong{
+    font-size:11px;
+    padding:7px 5px 0;
+  }
+  .referenceFlowStep span{
+    margin-top:4px;
+    font-size:8px;
+    padding:0 5px;
+  }
+  .referenceFlowStep i{
+    right:-8px;
+    top:27px;
+    font-size:14px;
+  }
+  .referenceInfo{
+    gap:4px;
+    margin-top:15px;
+  }
+  .referenceInfo article{
+    min-height:88px;
+    padding:6px;
+    border-radius:8px;
+  }
+  .referenceInfo div{
+    gap:5px;
+    margin-bottom:8px;
+  }
+  .referenceInfo em{
+    width:14px;
+    height:14px;
+    font-size:8px;
+  }
+  .referenceInfo strong{
+    font-size:8.5px;
+  }
+  .referenceInfo p{
+    font-size:7.8px;
+    line-height:1.18;
+  }
+  .referenceStepByStep{
+    padding:12px;
+    margin-top:8px;
+  }
+  .referenceStepByStep>p{
+    margin:-4px 0 9px;
+    font-size:11px;
+  }
+  .referenceSbsPhoto{
+    height:146px;
+    border-radius:10px;
+  }
+  .referenceSbsPhoto b{
+    top:7px;
+    left:7px;
+    width:18px;
+    height:18px;
+    font-size:10px;
+  }
+  .referenceStepByStep article strong{
+    margin-top:8px;
+    font-size:13px;
+  }
+  .referenceStepByStep article span{
+    margin-top:5px;
+    font-size:11px;
+    line-height:1.25;
+  }
+  .referenceDownArrow{
+    font-size:18px;
+    margin:8px 0;
+  }
+}
 
