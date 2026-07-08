@@ -977,26 +977,42 @@ main button:not(.primary):not(.active),
   }
 }
 
-/* v58.5 side exercise UX */
+/* v58.6 side exercise UX */
+.trainNameRow,
+.detailTitleLine{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  flex-wrap:wrap;
+}
+.trainNameRow .trainName,
+.detailTitleLine h2{
+  margin-bottom:0;
+}
+.detailTitleLine{
+  justify-content:flex-start;
+  margin:0 0 6px;
+}
 .sidePhaseBadge{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  align-self:center;
   width:max-content;
   max-width:100%;
-  margin:0 auto 6px;
-  padding:6px 11px;
+  margin:0;
+  padding:4px 8px;
   border:1px solid var(--line);
   border-radius:999px;
   background:var(--p2);
   color:var(--p);
-  font-size:13px;
+  font-size:12px;
   font-weight:900;
   line-height:1.1;
+  white-space:nowrap;
 }
 .detailSideBadge{
-  margin:0 0 7px;
+  margin:2px 0 0;
 }
 .sideSwitchNotice{
   display:grid;
@@ -1022,9 +1038,8 @@ main button:not(.primary):not(.active),
 }
 @media(max-width:720px){
   .sidePhaseBadge{
-    margin-bottom:5px;
-    padding:5px 10px;
-    font-size:12.5px;
+    padding:4px 7px;
+    font-size:12px;
   }
   .sideSwitchNotice{
     margin-top:0;

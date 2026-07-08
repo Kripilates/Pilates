@@ -594,10 +594,6 @@ function currentSideLabel(info){
   if(workoutPhase==='right'||workoutPhase==='switch')return 'Levá strana';
   return '';
 }
-function currentSideDoneText(info){
-  const label=currentSideLabel(info).toLowerCase();
-  return label ? `Dokončit ${label.replace('á strana','ou stranu')}` : 'Dokončeno';
-}
 function phaseSideText(){
   const dose=data.days[currentDay]?.items?.[currentExercise]?.[1]||'';
   const label=currentSideLabel(sideInfo(dose));
@@ -701,24 +697,22 @@ function showAutoTrain(){
   const isTimedActive = ['prep','switch','roundRest'].includes(workoutPhase) || (info.timed && ['left','right','work'].includes(workoutPhase));
   const isConfirm = workoutPhase==='confirm';
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
-  const showPhase = !((workoutPhase==='work' && !info.timed) || workoutPhase==='confirm');
+  const showPhase = ['prep','switch','roundRest'].includes(workoutPhase);
   const sideLabel=currentSideLabel(info);
   const sideBadge=sideLabel&&['left','right'].includes(workoutPhase) ? `<div class="sidePhaseBadge">${sideLabel}</div>` : '';
   const sideNotice=(workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ Pravá strana hotová</b><span>Pokračujeme levou stranou.</span></div>` : '';
-  const mainDoneText=info.side ? currentSideDoneText(info) : 'Dokončeno';
   const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
   const imgClass='bigimg';
   app.innerHTML=`<section class="card fullTrain autoTrain v50Train v53CleanTrain">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
-    <h2 class="trainName">${ex.name}</h2>
-    ${sideBadge}
+    <div class="trainNameRow"><h2 class="trainName">${ex.name}</h2>${sideBadge}</div>
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
     ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
     ${sideNotice}
     ${timerBlock}
-    <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ ${mainDoneText}</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
+    <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
   </section>`;
   scrollTop();
 }
@@ -921,8 +915,7 @@ function info(k,opts={}){
             <div class="v20TitleRow">
               <div>
                 <p class="eyebrow">Detail cviku</p>
-                <h2>${ex.name}</h2>
-                ${detailSideLabel}
+                <div class="detailTitleLine"><h2>${ex.name}</h2>${detailSideLabel}</div>
                 <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
               </div>
               ${dose?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
