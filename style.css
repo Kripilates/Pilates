@@ -1331,7 +1331,7 @@ main button:not(.primary):not(.active),
   align-self:start!important;
 }
 .referenceExerciseDetail .v20Grid{
-  gap:4px!important;
+  gap:0!important;
 }
 .referenceExerciseDetail .v20Aside{
   gap:6px!important;
@@ -1340,42 +1340,51 @@ main button:not(.primary):not(.active),
   box-shadow:0 7px 18px rgba(16,42,67,.035)!important;
 }
 .referenceExerciseDetail .v20InfoCard{
-  padding-top:8px!important;
-  padding-bottom:8px!important;
-}
-.referenceExerciseDetail .v20InfoCard h3{
-  margin-bottom:5px!important;
-}
-.referenceExerciseDetail .v20Breath{
   padding-top:6px!important;
   padding-bottom:6px!important;
 }
-.referenceExerciseDetail .v20Breath h3{
+.referenceExerciseDetail .v20InfoCard h3{
   margin-bottom:4px!important;
 }
-.referenceExerciseDetail .v20BreathRow{
-  grid-template-columns:21px 1fr!important;
-  gap:5px!important;
-  margin:2px 0!important;
+.referenceExerciseDetail .v20InfoList div{
+  align-items:center!important;
+  padding:3px 0!important;
 }
-.referenceExerciseDetail .v20BreathRow span{
-  width:21px!important;
-  height:21px!important;
+.referenceExerciseDetail .v20InfoList dt,
+.referenceExerciseDetail .v20InfoList dd{
+  line-height:1.1!important;
   font-size:12px!important;
 }
+.referenceExerciseDetail .v20Breath{
+  padding-top:5px!important;
+  padding-bottom:5px!important;
+}
+.referenceExerciseDetail .v20Breath h3{
+  margin-bottom:3px!important;
+}
+.referenceExerciseDetail .v20BreathRow{
+  grid-template-columns:19px 1fr!important;
+  gap:5px!important;
+  margin:1px 0!important;
+}
+.referenceExerciseDetail .v20BreathRow span{
+  width:19px!important;
+  height:19px!important;
+  font-size:11px!important;
+}
 .referenceExerciseDetail .v20BreathRow p{
-  font-size:11.5px!important;
-  line-height:1.08!important;
+  font-size:11px!important;
+  line-height:1.06!important;
 }
 .referenceExerciseDetail .v20BreathRow b{
-  font-size:11.5px!important;
+  font-size:11px!important;
   margin-bottom:0!important;
 }
 .referenceExerciseDetail details.referenceStepByStep:not([open]){
   margin-bottom:0!important;
   min-height:0!important;
-  padding-top:8px!important;
-  padding-bottom:8px!important;
+  padding-top:7px!important;
+  padding-bottom:7px!important;
 }
 .referenceExerciseDetail details.referenceStepByStep:not([open]) summary{
   min-height:0!important;
@@ -1392,11 +1401,13 @@ main button:not(.primary):not(.active),
   padding:0;
 }
 .referenceRecommendations h3{
-  margin:0 0 7px;
-  font-size:13px;
+  margin:0 0 5px;
+  font-size:11.5px;
   line-height:1.15;
   text-transform:uppercase;
   letter-spacing:.02em;
+  font-weight:700;
+  color:var(--muted);
 }
 .referenceAdviceGrid{
   display:grid;
@@ -1443,15 +1454,15 @@ main button:not(.primary):not(.active),
   margin:3px 0!important;
   padding-left:18px!important;
 }
-.referenceAdviceFeel{background:#F1FBFB}
-.referenceAdviceWatch{background:#F3FBF5}
-.referenceAdviceMistakes{background:#FFF4F4}
+.referenceAdviceFeel{background:#F7FCFD}
+.referenceAdviceWatch{background:#F8FCF9}
+.referenceAdviceMistakes{background:#FFF8F8}
 @media(max-width:720px){
   .referenceExerciseDetail .v20Aside{
-    margin-top:-76px!important;
+    margin-top:-92px!important;
   }
   .referenceExerciseDetail .v20Content{
-    padding-bottom:calc(82px + env(safe-area-inset-bottom))!important;
+    padding-bottom:calc(70px + env(safe-area-inset-bottom))!important;
   }
   .referenceAdviceGrid{
     gap:6px;
@@ -1461,6 +1472,7 @@ main button:not(.primary):not(.active),
   }
   .referenceExerciseDetail .v20Footer.referenceFooter{
     margin-bottom:0!important;
+    padding-bottom:0!important;
   }
 }
 
