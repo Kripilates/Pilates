@@ -1334,7 +1334,7 @@ main button:not(.primary):not(.active),
   gap:10px!important;
 }
 .referenceExerciseDetail .v20Aside{
-  gap:6px!important;
+  gap:7px!important;
 }
 .referenceExerciseDetail .v20InfoCard{
   padding-top:8px!important;
@@ -1377,11 +1377,80 @@ main button:not(.primary):not(.active),
   min-height:0!important;
 }
 .referenceExerciseDetail .referenceFooter{
-  margin-top:8px!important;
+  margin-top:7px!important;
 }
+.referenceRecommendations{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  padding:0;
+}
+.referenceRecommendations h3{
+  margin:0 0 7px;
+  font-size:13px;
+  line-height:1.15;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.referenceAdviceGrid{
+  display:grid;
+  gap:7px;
+}
+.referenceAdviceGrid article{
+  border:0;
+  border-radius:14px;
+  padding:9px 10px;
+}
+.referenceAdviceGrid h4{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin:0 0 6px;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.15;
+}
+.referenceAdviceGrid h4 span{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(39,150,156,.1);
+  color:var(--p);
+  font-size:11px;
+  font-weight:900;
+}
+.referenceAdviceGrid p{
+  margin:0;
+  color:var(--text);
+  font-size:12px;
+  line-height:1.28;
+}
+.referenceAdviceGrid ul{
+  margin:0;
+}
+.referenceAdviceGrid li{
+  font-size:12px!important;
+  line-height:1.22!important;
+  margin:3px 0!important;
+  padding-left:18px!important;
+}
+.referenceAdviceFeel{background:#F1FBFB}
+.referenceAdviceWatch{background:#F3FBF5}
+.referenceAdviceMistakes{background:#FFF4F4}
 @media(max-width:720px){
   .referenceExerciseDetail .v20Aside{
     margin-top:-50px!important;
+  }
+  .referenceExerciseDetail .v20Content{
+    padding-bottom:calc(126px + env(safe-area-inset-bottom))!important;
+  }
+  .referenceAdviceGrid{
+    gap:6px;
+  }
+  .referenceAdviceGrid article{
+    padding:8px 9px;
   }
 }
 
