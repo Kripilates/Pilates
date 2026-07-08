@@ -313,6 +313,12 @@ function detailHeroImage(k){
   const src = v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
+function referenceHeroBlock(k){
+  const ref=referenceExerciseAssets[k];
+  if(!ref)return '';
+  const ex=data.exercises[k]||{};
+  return `<div class="referenceTopHero"><img loading="lazy" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>`;
+}
 function referenceGuideCard(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
@@ -322,16 +328,8 @@ function referenceGuideCard(k){
     {n:2,title:'HERO',caption:'Zvedni',photo:ref.hero},
     {n:3,title:'START',caption:'Pomalu zpět',photo:ref.start}
   ];
-  return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} Guide Card">
-    <div class="referenceAccent"></div>
-    <h3>${esc(ex.name||'Cvik')}</h3>
-    <div class="referenceHero"><img loading="lazy" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>
+  return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
     <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b><strong>${s.title}</strong><span>${s.caption}</span>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
-    <div class="referenceInfo">
-      <article><div><em>💨</em><strong>Dech</strong></div><p>${ref.guide.breath.map(esc).join('<br>')}</p></article>
-      <article><div><em>🎯</em><strong>Zaměř se</strong></div><p>${ref.guide.focus.map(esc).join('<br>')}</p></article>
-      <article><div><em>🔁</em><strong>Opakování</strong></div><p>${ref.guide.reps.map(esc).join('<br>')}</p></article>
-    </div>
   </section>`;
 }
 function referenceStepByStep(k){
@@ -972,7 +970,8 @@ function info(k,opts={}){
         <div class="v20TopBar">${back}<button class="favBtn" data-action="fav" data-ex="${k}">${isFav(k)?'♥ Uloženo':'♡ Uložit cvik'}</button></div>
         <section class="v20Grid">
           <main class="v20Main">
-            ${hasMasterCard || hasReference ? '' : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
+            ${hasReference ? referenceHeroBlock(k) : hasMasterCard ? '' : `<div class="v20Hero">${detailHeroImage(k)}</div>`}
+            ${hasReference ? referenceGuideCard(k) : ''}
             <div class="v20TitleRow">
               <div>
                 <p class="eyebrow">Detail cviku</p>
@@ -982,7 +981,7 @@ function info(k,opts={}){
               </div>
               ${dose&&!hasReference?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
-            ${hasReference ? `${referenceGuideCard(k)}${referenceStepByStep(k)}` : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
+            ${hasReference ? '' : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
           <aside class="v20Aside">
@@ -994,7 +993,8 @@ function info(k,opts={}){
             <section class="v20Card v20Mistakes"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>
           </aside>
         </section>
-        <div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>
+        ${hasReference ? referenceStepByStep(k) : ''}
+        ${hasReference ? `<div class="v20Footer referenceFooter"><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>` : `<div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>`}
       </div>
     </div>
   </section>`;

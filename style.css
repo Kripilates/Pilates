@@ -1156,7 +1156,7 @@ main button:not(.primary):not(.active),
 
 /* Reference Exercise 001: Glute Bridge HTML Guide Card + Step by Step */
 .referenceExerciseDetail .v20HeroPhoto{object-fit:cover!important}
-.referenceGuideCard,.referenceStepByStep{
+.referenceTopHero,.referenceGuideCard,.referenceStepByStep{
   width:min(100%,390px);
   margin:0 auto;
   border:1px solid var(--line);
@@ -1164,13 +1164,15 @@ main button:not(.primary):not(.active),
   background:#fff;
   color:var(--text);
 }
-.referenceGuideCard{padding:17px;min-height:844px}
+.referenceTopHero{height:242px;overflow:hidden}
+.referenceTopHero img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;background:#fff}
+.referenceGuideCard{padding:10px}
 .referenceAccent{width:29px;height:3px;border-radius:999px;background:var(--p);margin-bottom:18px}
 .referenceGuideCard h3,.referenceStepByStep h3{font-size:24px;line-height:1;margin:0 0 14px;font-weight:900;letter-spacing:0;color:var(--text)}
 .referenceHero{height:302px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff}
 .referenceHero img,.referenceStepPhoto img,.referenceSbsPhoto img{width:100%;height:100%;object-position:center;display:block;background:#fff}
 .referenceHero img{object-fit:cover}
-.referenceFlow{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:32px}
+.referenceFlow{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
 .referenceFlowStep{position:relative;min-width:0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;padding-bottom:9px}
 .referenceStepPhoto{height:72px;background:#fff}
 .referenceStepPhoto img{object-fit:contain}
@@ -1199,14 +1201,17 @@ main button:not(.primary):not(.active),
 .referenceStepByStep article span{display:block;margin-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
 .referenceDownArrow{text-align:center;color:var(--p);font-size:24px;font-weight:900;line-height:1;margin:16px 0}
 @media(min-width:900px){
-  .referenceGuideCard,.referenceStepByStep{width:min(100%,430px)}
+  .referenceTopHero,.referenceGuideCard,.referenceStepByStep{width:min(100%,430px)}
 }
 @media(max-width:720px){
   .referenceExerciseDetail .v20Main{
     gap:7px!important;
   }
+  .referenceTopHero{
+    height:224px;
+  }
   .referenceGuideCard{
-    padding:12px;
+    padding:8px;
     min-height:auto;
   }
   .referenceAccent{
@@ -1221,7 +1226,6 @@ main button:not(.primary):not(.active),
   }
   .referenceFlow{
     gap:4px;
-    margin-top:18px;
   }
   .referenceFlowStep{
     border-radius:8px;
@@ -1276,7 +1280,7 @@ main button:not(.primary):not(.active),
   }
   .referenceStepByStep{
     padding:10px 12px;
-    margin-top:6px;
+    margin-top:9px;
   }
   .referenceStepByStep summary{
     font-size:14px;
@@ -1312,6 +1316,12 @@ main button:not(.primary):not(.active),
   .referenceDownArrow{
     font-size:16px;
     margin:4px 0;
+  }
+  .referenceFooter{
+    justify-content:center!important;
+  }
+  .referenceFooter .primary{
+    width:100%;
   }
 }
 
