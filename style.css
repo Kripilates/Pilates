@@ -1482,7 +1482,7 @@ main button:not(.primary):not(.active),
   padding:8px 9px;
   border:1px solid var(--line);
   border-radius:13px;
-  background:#fff;
+  background:linear-gradient(180deg,rgba(250,254,254,.96),rgba(246,252,252,.86));
   box-shadow:0 5px 14px rgba(16,42,67,.025);
 }
 .referenceExerciseDetail .referenceCompactInfoPanel h3{
@@ -1624,7 +1624,7 @@ main button:not(.primary):not(.active),
   box-shadow:none;
 }
 .referenceExerciseDetail .referenceAdviceGrid article + article{
-  border-top:1px solid rgba(202,224,224,.68);
+  border-top:1px solid rgba(202,224,224,.48);
   padding-top:14px;
 }
 .referenceExerciseDetail .referenceAdviceGrid h4{
@@ -1686,7 +1686,7 @@ main button:not(.primary):not(.active),
   background:transparent;
 }
 .referenceExerciseDetail .referenceStepByStep summary{
-  background:linear-gradient(180deg,#F1FCFB,#EAFBFA)!important;
+  background:linear-gradient(180deg,#F8FEFD,#F0FCFB)!important;
   border-color:rgba(32,182,178,.18)!important;
   border-radius:16px!important;
   color:#102a43!important;
@@ -1696,7 +1696,7 @@ main button:not(.primary):not(.active),
 .referenceExerciseDetail .referenceStepByStep summary b{
   background:rgba(32,182,178,.12)!important;
   color:var(--p)!important;
-  font-size:14px!important;
+  font-size:13px!important;
 }
 @media(max-width:720px){
   .referenceExerciseDetail .referenceCompactInfoPanel{
@@ -1760,16 +1760,16 @@ main button:not(.primary):not(.active),
   align-items:center!important;
   gap:11px!important;
   font-size:22px!important;
-  font-weight:700!important;
-  letter-spacing:.4px!important;
+  font-weight:650!important;
+  letter-spacing:.45px!important;
   line-height:.98!important;
   margin:0!important;
 }
 .referenceExerciseDetail .v20TitleRow h2::before{
   content:'';
   display:inline-block;
-  width:5px;
-  height:1.05em;
+  width:4px;
+  height:.84em;
   border-radius:3px;
   background:rgba(32,182,178,.72);
   flex:0 0 auto;
@@ -1779,7 +1779,7 @@ main button:not(.primary):not(.active),
   display:none!important;
 }
 .referenceExerciseDetail .v20Sub{
-  margin:6px 0 0!important;
+  margin:9px 0 0!important;
   color:#53646b!important;
   font-size:13px!important;
   font-weight:600!important;
