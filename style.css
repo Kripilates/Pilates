@@ -1988,6 +1988,12 @@ main button:not(.primary):not(.active),
 }
 
 /* Reference Glute Bridge: final step-by-step and page-end polish */
+.referenceExerciseDetail{
+  margin-left:0!important;
+  margin-right:0!important;
+  max-width:100%;
+  overflow-x:hidden;
+}
 .referenceExerciseDetail .v20Content{
   padding-bottom:36px!important;
 }
