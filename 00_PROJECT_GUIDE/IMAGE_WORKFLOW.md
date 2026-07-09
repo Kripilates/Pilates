@@ -292,6 +292,56 @@ obrázek není hotový.
 
 ---
 
+# Hodnocení kvality obrázků
+
+Při hodnocení nových obrázků ChatGPT nesmí automaticky schvalovat návrhy.
+
+Každý obrázek musí být kriticky zhodnocen jako celek.
+
+Hodnotí se zejména:
+
+- anatomická správnost cviku,
+- konzistence s MODEL MASTER,
+- shoda modelky,
+- prostředí,
+- kamera,
+- světlo,
+- barevnost,
+- kompozice,
+- profesionální dojem.
+
+## Hodnoticí stupnice
+
+10,0
+Referenční kvalita (MODEL MASTER)
+
+9,8–9,9
+Výjimečná kvalita
+
+9,5–9,7
+Produkční kvalita.
+Lze schválit.
+
+9,0–9,4
+Dobrý návrh.
+Neschvaluje se.
+Navrhují se další úpravy.
+
+Pod 9,0
+Obrázek se přepracuje.
+
+## Pravidlo projektu
+
+Žádný obrázek nesmí být označen jako SCHVÁLENO, pokud nedosáhne minimálně hodnocení 9,5/10.
+
+ChatGPT má aktivně hledat nedostatky a navrhovat jejich odstranění.
+
+Pokud existují objektivní důvody pro zlepšení, ChatGPT nesmí obrázek schválit jen proto, aby se práce urychlila.
+
+Konzistence celé série má přednost před rychlostí dokončení projektu.
+
+---
+
 # Nejvyšší pravidlo projektu
 
 Konzistence celé série je důležitější než kvalita jednotlivého obrázku.
