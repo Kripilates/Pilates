@@ -1746,20 +1746,34 @@ main button:not(.primary):not(.active),
   order:2!important;
 }
 .referenceExerciseDetail .v20TitleRow .eyebrow{
-  font-size:9px!important;
+  font-size:8px!important;
   font-weight:600!important;
-  letter-spacing:.04em!important;
-  margin-bottom:0!important;
-  color:var(--muted)!important;
+  letter-spacing:.11em!important;
+  margin-bottom:1px!important;
+  color:#9aa8ad!important;
 }
 .referenceExerciseDetail .v20TitleRow h2{
-  font-size:25px!important;
+  display:inline-block!important;
+  font-size:22px!important;
+  font-weight:700!important;
+  letter-spacing:.4px!important;
   line-height:.98!important;
   margin:0!important;
 }
+.referenceExerciseDetail .v20TitleRow h2::after{
+  content:'';
+  display:block;
+  width:100%;
+  height:1px;
+  margin-top:5px;
+  background:rgba(32,182,178,.42);
+  border-radius:999px;
+}
 .referenceExerciseDetail .v20Sub{
-  margin:1px 0 0!important;
+  margin:6px 0 0!important;
+  color:#53646b!important;
   font-size:13px!important;
+  font-weight:600!important;
   line-height:1.15!important;
 }
 .referenceExerciseDetail .referenceCompactInfoPanel{
@@ -1799,7 +1813,7 @@ main button:not(.primary):not(.active),
     margin-top:3px!important;
   }
   .referenceExerciseDetail .v20TitleRow h2{
-    font-size:24px!important;
+    font-size:21px!important;
   }
   .referenceExerciseDetail .v20Sub{
     font-size:12.5px!important;
