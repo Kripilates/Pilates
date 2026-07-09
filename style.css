@@ -1987,3 +1987,60 @@ main button:not(.primary):not(.active),
   }
 }
 
+/* Reference Glute Bridge: final step-by-step and page-end polish */
+.referenceExerciseDetail .v20Content{
+  padding-bottom:36px!important;
+}
+.referenceExerciseDetail .referenceTopHero{
+  box-shadow:0 10px 22px rgba(16,42,67,.055)!important;
+}
+.referenceExerciseDetail .referenceStepByStep article strong{
+  color:var(--p)!important;
+  font-size:14px!important;
+  line-height:1.05!important;
+}
+.referenceExerciseDetail .referenceStepByStep article span{
+  margin-top:12px!important;
+}
+.referenceExerciseDetail .referenceSbsPhoto b{
+  top:12px!important;
+  left:12px!important;
+  background:var(--p)!important;
+}
+.referenceExerciseDetail .referenceDownArrow{
+  color:rgba(32,182,178,.42)!important;
+  font-size:21px!important;
+}
+.referenceExerciseDetail .referenceStepByStepContent{
+  padding-bottom:10px!important;
+}
+
+@media(max-width:720px){
+  main:has(.referenceExerciseDetail){
+    padding-bottom:64px!important;
+  }
+  .referenceExerciseDetail.v20Detail{
+    padding-bottom:0!important;
+  }
+  .referenceExerciseDetail .v20Content{
+    padding-bottom:calc(16px + env(safe-area-inset-bottom))!important;
+  }
+  .referenceExerciseDetail .referenceTopHero{
+    box-shadow:0 8px 18px rgba(16,42,67,.05)!important;
+  }
+  .referenceExerciseDetail .referenceStepByStep article strong{
+    font-size:12.5px!important;
+  }
+  .referenceExerciseDetail .referenceStepByStep article span{
+    margin-top:7px!important;
+  }
+  .referenceExerciseDetail .referenceSbsPhoto b{
+    top:10px!important;
+    left:10px!important;
+  }
+  .referenceExerciseDetail .referenceDownArrow{
+    color:rgba(32,182,178,.38)!important;
+    font-size:15px!important;
+  }
+}
+
