@@ -348,8 +348,8 @@ function referenceStepByStep(k){
 }
 function referenceCompactInfoPanel(){
   return `<section class="referenceCompactInfoPanel" aria-label="Informace o cviku a dech">
-    <article><h3>Info</h3><ul><li>Lehké</li><li>Hýždě / nohy</li><li>Šetrné ke kolenům</li></ul></article>
-    <article><h3>Dech</h3><p><b>Nádech:</b> výchozí pozice</p><p><b>Výdech:</b> při zvednutí</p><p><b>Tempo:</b> pomalu</p></article>
+    <article><h3>Info</h3><ul><li><b>Obtížnost</b><strong>Lehké</strong></li><li><b>Zaměření</b><strong>Hýždě / nohy</strong></li><li><b>Kolena</b><strong>Šetrné ke kolenům</strong></li></ul></article>
+    <article><h3>Dech</h3><p><b>Nádech</b><strong>výchozí pozice</strong></p><p><b>Výdech</b><strong>při zvednutí</strong></p><p><b>Tempo</b><strong>pomalu</strong></p></article>
   </section>`;
 }
 function referenceRecommendations(meta){

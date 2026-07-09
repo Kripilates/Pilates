@@ -1415,7 +1415,7 @@ main button:not(.primary):not(.active),
 }
 .referenceRecommendations h3{
   margin:0 0 5px;
-  font-size:11.5px;
+  font-size:10.2px;
   line-height:1.15;
   text-transform:uppercase;
   letter-spacing:.02em;
@@ -1503,15 +1503,24 @@ main button:not(.primary):not(.active),
 }
 .referenceExerciseDetail .referenceCompactInfoPanel li,
 .referenceExerciseDetail .referenceCompactInfoPanel p{
+  display:grid;
+  grid-template-columns:max-content minmax(0,1fr);
+  gap:4px;
+  align-items:baseline;
   margin:0;
   color:var(--text);
   font-size:12px;
   line-height:1.16;
-  font-weight:800;
 }
 .referenceExerciseDetail .referenceCompactInfoPanel b{
   color:var(--muted);
   font-size:11px;
+  font-weight:700;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel strong{
+  min-width:0;
+  color:var(--text);
+  font-size:12px;
   font-weight:900;
 }
 .referenceExerciseDetail .referenceFlowStep strong,
@@ -1549,6 +1558,20 @@ main button:not(.primary):not(.active),
   padding:0!important;
   margin-bottom:0!important;
   min-height:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0!important;
+  margin:0!important;
+  background:transparent!important;
+  overflow:hidden!important;
 }
 @media(max-width:720px){
   .referenceExerciseDetail .referenceCompactInfoPanel{
@@ -1602,6 +1625,7 @@ main button:not(.primary):not(.active),
 }
 .referenceExerciseDetail .v20TitleRow{
   margin-bottom:0!important;
+  order:2!important;
 }
 .referenceExerciseDetail .v20TitleRow .eyebrow{
   font-size:9px!important;
@@ -1622,21 +1646,20 @@ main button:not(.primary):not(.active),
 }
 .referenceExerciseDetail .referenceCompactInfoPanel{
   margin-top:4px!important;
+  order:3!important;
+  max-width:100%;
+  box-sizing:border-box;
 }
-.referenceExerciseDetail details.referenceStepByStep:not([open]){
-  padding:0!important;
-  margin-bottom:0!important;
-  min-height:0!important;
-  background:transparent!important;
-  box-shadow:none!important;
+.referenceExerciseDetail .referenceTopHero{
+  order:0!important;
 }
-.referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{
-  display:none!important;
-  height:0!important;
-  min-height:0!important;
-  padding:0!important;
-  border:0!important;
-  overflow:hidden!important;
+.referenceExerciseDetail .referenceGuideCard{
+  order:1!important;
+  max-width:100%;
+  box-sizing:border-box;
+}
+.referenceExerciseDetail .referenceFlow{
+  max-width:100%;
 }
 @media(min-width:900px){
   .referenceExerciseDetail .v20TitleRow,
@@ -1645,15 +1668,31 @@ main button:not(.primary):not(.active),
   }
 }
 @media(max-width:720px){
+  .referenceExerciseDetail.v20Detail{
+    margin-left:0!important;
+    margin-right:0!important;
+    max-width:100%!important;
+  }
   .referenceExerciseDetail .v20TitleRow,
   .referenceExerciseDetail .referenceCompactInfoPanel{
     width:min(100%,390px)!important;
+  }
+  .referenceExerciseDetail .referenceGuideCard + .v20TitleRow{
+    margin-top:3px!important;
   }
   .referenceExerciseDetail .v20TitleRow h2{
     font-size:24px!important;
   }
   .referenceExerciseDetail .v20Sub{
     font-size:12.5px!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel li,
+  .referenceExerciseDetail .referenceCompactInfoPanel p{
+    grid-template-columns:1fr;
+    gap:1px;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel strong{
+    font-size:11px!important;
   }
 }
 
