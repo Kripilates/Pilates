@@ -19,7 +19,7 @@ Scope:
 | Glute Bridge | `assets/exercises/hip.jpg` | 🟡 | 🟡 | 🟡 | 🔴 | 🟡 | 🟡 | 🟡 | MINOR FIX | Cooler/desaturated than master |
 | Romanian Deadlift | `assets/exercises/rdl.jpg` | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | MINOR FIX | Different room feeling |
 | Fire Hydrant | `assets/exercises/hydrant.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
-| Clamshell | `assets/exercises/clam.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
+| Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | APPROVED | START and HERO approved; END uses START |
 | Side Leg Lift | `assets/exercises/sideleg_main.jpg` | 🟡 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | Current app image is low-res crop |
 | Dead Bug | `assets/exercises/deadbug.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Toe Taps | `assets/exercises/toetap.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
