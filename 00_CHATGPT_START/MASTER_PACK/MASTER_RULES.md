@@ -1,5 +1,12 @@
 # MASTER PACK RULES
 
+## Current approved visual references
+
+? Glute Bridge
+? Toe Tap
+
+P?i generov?n? nov?ch cvik? se pou??vaj? jako hlavn? vizu?ln? reference.
+
 MASTER_PACK je nejdůležitější složka pro tvorbu obrázků.
 
 Musí obsahovat referenční obrázky:

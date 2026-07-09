@@ -1,5 +1,21 @@
 # PILATES_BODY_AI_BIBLE
 
+# Approved Reference Exercises
+
+1. Glute Bridge
+2. Toe Tap
+
+Tyto dva cviky p?edstavuj? z?vazn? vizu?ln? standard projektu.
+
+Ve?ker? nov? obr?zky mus? odpov?dat:
+- modelce
+- prost?ed?
+- sv?tlu
+- barevnosti
+- objektivu
+- kompozici
+- kvalit?
+
 # 1. Účel projektu
 
 - Pilates Body 40+ je dlouhodobě vyvíjená aplikace.

@@ -16,7 +16,7 @@ Glute Bridge
 🟢 COMPLETE
 
 Toe Tap
-🟡 Čeká na schválené HERO/START/END podklady
+?? COMPLETE
 
 Dead Bug
 ⚪ Čeká
