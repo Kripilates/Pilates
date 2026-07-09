@@ -347,9 +347,16 @@ function referenceStepByStep(k){
   </details>`;
 }
 function referenceCompactInfoPanel(){
+  const icon=(path)=>`<svg class="referenceMiniIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
+  const difficultyIcon=icon('<path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/><path d="m7.8 7.8 2.1 2.1"/><path d="m14.1 14.1 2.1 2.1"/><path d="m16.2 7.8-2.1 2.1"/><path d="m9.9 14.1-2.1 2.1"/>');
+  const focusIcon=icon('<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/>');
+  const kneeIcon=icon('<path d="M9 4c2.6 1.6 3.8 4 3.8 6.4 0 2.1-.8 3.9-2.1 5.2"/><path d="M15 5c-1.4 2-1.7 4.1-.8 6.2.7 1.6 1.1 3.2.6 4.8-.4 1.2-1.2 2.3-2.4 3.2"/><path d="M9 16h7"/>');
+  const inhaleIcon=icon('<path d="M12 19V5"/><path d="m7 10 5-5 5 5"/>');
+  const exhaleIcon=icon('<path d="M12 5v14"/><path d="m7 14 5 5 5-5"/>');
+  const tempoIcon=icon('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>');
   return `<section class="referenceCompactInfoPanel" aria-label="Informace o cviku a dech">
-    <article><h3>Info</h3><ul><li><b>Obtížnost</b><strong>Lehké</strong></li><li><b>Zaměření</b><strong>Hýždě / nohy</strong></li><li><b>Kolena</b><strong>Šetrné ke kolenům</strong></li></ul></article>
-    <article><h3>Dech</h3><p><b>Nádech</b><strong>výchozí pozice</strong></p><p><b>Výdech</b><strong>při zvednutí</strong></p><p><b>Tempo</b><strong>pomalu</strong></p></article>
+    <article><h3>Info</h3><ul><li>${difficultyIcon}<span><b>Obtížnost</b><strong>Lehké</strong></span></li><li>${focusIcon}<span><b>Zaměření</b><strong>Hýždě / nohy</strong></span></li><li>${kneeIcon}<span><b>Kolena</b><strong>Šetrné ke kolenům</strong></span></li></ul></article>
+    <article><h3>Dech</h3><p>${inhaleIcon}<span><b>Nádech</b><strong>Výchozí pozice</strong></span></p><p>${exhaleIcon}<span><b>Výdech</b><strong>Při zvednutí</strong></span></p><p>${tempoIcon}<span><b>Tempo</b><strong>Pomalu</strong></span></p></article>
   </section>`;
 }
 function referenceRecommendations(meta){

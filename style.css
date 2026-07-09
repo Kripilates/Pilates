@@ -1506,23 +1506,49 @@ main button:not(.primary):not(.active),
 .referenceExerciseDetail .referenceCompactInfoPanel li,
 .referenceExerciseDetail .referenceCompactInfoPanel p{
   display:grid;
-  grid-template-columns:max-content minmax(0,1fr);
-  gap:4px;
-  align-items:baseline;
+  grid-template-columns:16px minmax(0,1fr);
+  gap:5px;
+  align-items:start;
   margin:0;
   color:var(--text);
   font-size:12px;
   line-height:1.16;
 }
+.referenceExerciseDetail .referenceCompactInfoPanel p + p{
+  margin-top:5px;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel li>span,
+.referenceExerciseDetail .referenceCompactInfoPanel p>span{
+  display:grid;
+  gap:2px;
+  min-width:0;
+}
+.referenceExerciseDetail .referenceMiniIcon{
+  width:15px;
+  height:15px;
+  margin-top:1px;
+  color:var(--p);
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity:.82;
+}
 .referenceExerciseDetail .referenceCompactInfoPanel b{
-  color:var(--muted);
-  font-size:11px;
+  color:#96a2a8;
+  font-size:12px;
+  line-height:1.05;
   font-weight:700;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel article:nth-child(2) b{
+  color:var(--p);
 }
 .referenceExerciseDetail .referenceCompactInfoPanel strong{
   min-width:0;
   color:var(--text);
-  font-size:12px;
+  font-size:13px;
+  line-height:1.12;
   font-weight:900;
 }
 .referenceExerciseDetail .referenceFlowStep strong,
@@ -1590,11 +1616,13 @@ main button:not(.primary):not(.active),
   }
   .referenceExerciseDetail .referenceCompactInfoPanel li,
   .referenceExerciseDetail .referenceCompactInfoPanel p{
-    font-size:11px!important;
-    line-height:1.13!important;
+    grid-template-columns:15px minmax(0,1fr)!important;
+    gap:4px!important;
+    font-size:12px!important;
+    line-height:1.12!important;
   }
   .referenceExerciseDetail .referenceCompactInfoPanel b{
-    font-size:10.5px!important;
+    font-size:12px!important;
   }
 }
 .referenceAdviceWatch{background:#F8FCF9}
@@ -1686,11 +1714,11 @@ main button:not(.primary):not(.active),
   }
   .referenceExerciseDetail .referenceCompactInfoPanel li,
   .referenceExerciseDetail .referenceCompactInfoPanel p{
-    grid-template-columns:1fr;
-    gap:1px;
+    grid-template-columns:15px minmax(0,1fr)!important;
+    gap:4px!important;
   }
   .referenceExerciseDetail .referenceCompactInfoPanel strong{
-    font-size:11px!important;
+    font-size:13px!important;
   }
 }
 
