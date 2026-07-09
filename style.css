@@ -1408,14 +1408,15 @@ main button:not(.primary):not(.active),
   padding-bottom:0!important;
 }
 .referenceRecommendations{
-  background:transparent;
-  border:0;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(202,224,224,.72);
+  border-radius:15px;
   box-shadow:none;
-  padding:0;
+  padding:8px;
 }
 .referenceRecommendations h3{
-  margin:0 0 5px;
-  font-size:11.5px;
+  margin:0 0 6px;
+  font-size:10.2px;
   line-height:1.15;
   text-transform:uppercase;
   letter-spacing:.02em;
@@ -1424,26 +1425,27 @@ main button:not(.primary):not(.active),
 }
 .referenceAdviceGrid{
   display:grid;
-  gap:5px;
+  gap:4px;
 }
 .referenceAdviceGrid article{
   border:0;
-  border-radius:13px;
-  padding:7px 9px;
-  box-shadow:0 5px 14px rgba(16,42,67,.025);
+  border-radius:12px;
+  padding:7px 8px;
+  box-shadow:0 4px 12px rgba(16,42,67,.018);
 }
 .referenceAdviceGrid h4{
   display:flex;
   align-items:center;
   gap:7px;
-  margin:0 0 5px;
+  margin:0 0 4px;
   color:var(--text);
   font-size:13px;
   line-height:1.15;
+  font-weight:800;
 }
 .referenceAdviceGrid h4 span{
-  width:18px;
-  height:18px;
+  width:17px;
+  height:17px;
   border-radius:50%;
   display:grid;
   place-items:center;
@@ -1464,12 +1466,299 @@ main button:not(.primary):not(.active),
 .referenceAdviceGrid li{
   font-size:12px!important;
   line-height:1.22!important;
-  margin:3px 0!important;
+  margin:2px 0!important;
   padding-left:18px!important;
 }
-.referenceAdviceFeel{background:#F7FCFD}
-.referenceAdviceWatch{background:#F8FCF9}
-.referenceAdviceMistakes{background:#FFF8F8}
+.referenceExerciseDetail .referenceCompactInfoPanel{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:6px;
+  align-items:stretch;
+  margin:0;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel article{
+  min-width:0;
+  min-height:100%;
+  padding:8px 9px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:linear-gradient(180deg,rgba(250,254,254,.96),rgba(246,252,252,.86));
+  box-shadow:0 5px 14px rgba(16,42,67,.025);
+}
+.referenceExerciseDetail .referenceCompactInfoPanel h3{
+  margin:0 0 5px;
+  color:var(--p);
+  font-size:11px;
+  line-height:1.1;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel ul{
+  display:grid;
+  gap:7px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel li,
+.referenceExerciseDetail .referenceCompactInfoPanel p{
+  display:grid;
+  grid-template-columns:16px minmax(0,1fr);
+  gap:5px;
+  align-items:start;
+  margin:0;
+  color:var(--text);
+  font-size:12px;
+  line-height:1.16;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel p + p{
+  margin-top:10px;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel li>span,
+.referenceExerciseDetail .referenceCompactInfoPanel p>span{
+  display:grid;
+  gap:2px;
+  min-width:0;
+}
+.referenceExerciseDetail .referenceMiniIcon{
+  width:13px;
+  height:13px;
+  margin-top:2px;
+  color:var(--p);
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.9;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity:.82;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel b{
+  color:#96a2a8;
+  font-size:12px;
+  line-height:1.05;
+  font-weight:700;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel article:nth-child(2) b{
+  color:var(--p);
+}
+.referenceExerciseDetail .referenceCompactInfoPanel strong{
+  min-width:0;
+  color:var(--text);
+  font-size:13px;
+  line-height:1.12;
+  font-weight:900;
+}
+.referenceExerciseDetail .referenceFlowStep strong,
+.referenceExerciseDetail .referenceFlowStep span{
+  display:none!important;
+}
+.referenceExerciseDetail .referenceFlowStep{
+  padding-bottom:0!important;
+}
+.referenceExerciseDetail .referenceGuideCard{
+  margin:-5px auto 0!important;
+  border-color:rgba(202,224,224,.72)!important;
+}
+.referenceExerciseDetail .referenceFlow{
+  gap:5px!important;
+  align-items:stretch;
+}
+.referenceExerciseDetail .referenceFlowStep{
+  border:1px solid rgba(202,224,224,.72)!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  padding-bottom:0!important;
+  box-shadow:none!important;
+}
+.referenceExerciseDetail .referenceFlowStep:nth-child(2){
+  border-color:rgba(32,182,178,.56)!important;
+}
+.referenceExerciseDetail .referenceStepPhoto{
+  height:64px!important;
+  background:#fff!important;
+}
+.referenceExerciseDetail .referenceStepPhoto img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  filter:none!important;
+}
+.referenceExerciseDetail .referenceFlowStep b{
+  width:14px!important;
+  height:14px!important;
+  font-size:8.5px!important;
+}
+.referenceExerciseDetail .referenceFlowStep i{
+  display:none!important;
+}
+.referenceExerciseDetail .referenceStepByStep{
+  border:0!important;
+  background:transparent!important;
+  padding:0!important;
+  margin-top:7px!important;
+}
+.referenceExerciseDetail .referenceStepByStep summary{
+  min-height:40px!important;
+  padding:9px 12px!important;
+  border:1px solid var(--line)!important;
+  border-radius:13px!important;
+  background:#fff!important;
+}
+.referenceExerciseDetail .referenceStepByStep[open] summary{
+  border-radius:13px 13px 0 0!important;
+}
+.referenceExerciseDetail .referenceStepByStepContent{
+  margin-top:0!important;
+  padding:8px!important;
+  border:1px solid var(--line)!important;
+  border-top:0!important;
+  border-radius:0 0 13px 13px!important;
+  background:#fff!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open]){
+  padding:0!important;
+  margin-bottom:0!important;
+  min-height:0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  overflow:visible!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0!important;
+  margin:0!important;
+  background:transparent!important;
+  overflow:hidden!important;
+}
+.referenceExerciseDetail .referenceRecommendations{
+  background:rgba(255,255,255,.86);
+  border:1px solid rgba(202,224,224,.72);
+  border-radius:16px;
+  padding:12px 12px;
+  box-shadow:0 8px 22px rgba(16,42,67,.025);
+}
+.referenceExerciseDetail .referenceRecommendations h3{
+  margin:0 0 10px;
+  color:#8a9aa0;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.09em;
+}
+.referenceExerciseDetail .referenceAdviceGrid{
+  gap:0;
+}
+.referenceExerciseDetail .referenceAdviceGrid article{
+  border:0;
+  border-radius:0;
+  padding:12px 0;
+  background:transparent;
+  box-shadow:none;
+}
+.referenceExerciseDetail .referenceAdviceGrid article + article{
+  border-top:1px solid rgba(202,224,224,.48);
+  padding-top:14px;
+}
+.referenceExerciseDetail .referenceAdviceGrid h4{
+  margin:0 0 8px;
+  color:#16313b;
+  font-size:15px;
+  line-height:1.2;
+  font-weight:800;
+}
+.referenceExerciseDetail .referenceAdviceGrid h4 span{
+  width:18px;
+  height:18px;
+  font-size:11px;
+  background:transparent;
+}
+.referenceExerciseDetail .referenceAdviceGrid p,
+.referenceExerciseDetail .referenceAdviceGrid li{
+  color:#34464f!important;
+  font-size:12.5px!important;
+  line-height:1.34!important;
+}
+.referenceExerciseDetail .referenceAdviceGrid li{
+  margin:3px 0!important;
+  padding-left:20px!important;
+}
+.referenceExerciseDetail .referenceAdviceGrid ul{
+  display:grid;
+  gap:1px;
+}
+.referenceExerciseDetail .referenceAdviceFeel{
+  background:transparent;
+}
+.referenceExerciseDetail .referenceAdviceFeel h4 span{
+  color:var(--p);
+  background:transparent;
+}
+.referenceExerciseDetail .referenceAdviceWatch{
+  background:transparent;
+}
+.referenceExerciseDetail .referenceAdviceWatch h4 span,
+.referenceExerciseDetail .referenceAdviceMistakes h4 span{
+  display:none;
+}
+.referenceExerciseDetail .referenceAdviceWatch h4 span,
+.referenceExerciseDetail .referenceAdviceWatch .checkList li:before{
+  color:#2EA66B!important;
+}
+.referenceExerciseDetail .referenceAdviceWatch h4 span{
+  background:transparent;
+}
+.referenceExerciseDetail .referenceAdviceMistakes{
+  background:transparent;
+}
+.referenceExerciseDetail .referenceAdviceMistakes h4 span,
+.referenceExerciseDetail .referenceAdviceMistakes .xList li:before{
+  color:#D94C64!important;
+}
+.referenceExerciseDetail .referenceAdviceMistakes h4 span{
+  background:transparent;
+}
+.referenceExerciseDetail .referenceStepByStep summary{
+  background:linear-gradient(180deg,#F8FEFD,#F0FCFB)!important;
+  border-color:rgba(32,182,178,.18)!important;
+  border-radius:16px!important;
+  color:#102a43!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 -1px 0 rgba(32,182,178,.06)!important;
+  padding-left:16px!important;
+}
+.referenceExerciseDetail .referenceStepByStep summary b{
+  background:rgba(32,182,178,.12)!important;
+  color:var(--p)!important;
+  font-size:13px!important;
+}
+@media(max-width:720px){
+  .referenceExerciseDetail .referenceCompactInfoPanel{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:5px!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel article{
+    padding:11px 8px 7px!important;
+    border-radius:12px!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel h3{
+    margin-bottom:4px!important;
+    font-size:10.5px!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel li,
+  .referenceExerciseDetail .referenceCompactInfoPanel p{
+    grid-template-columns:13px minmax(0,1fr)!important;
+    gap:4px!important;
+    font-size:12px!important;
+    line-height:1.12!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel b{
+    font-size:12px!important;
+  }
+}
 @media(max-width:720px){
   .referenceExerciseDetail .v20Aside{
     margin-top:-92px!important;
@@ -1478,14 +1767,110 @@ main button:not(.primary):not(.active),
     padding-bottom:calc(70px + env(safe-area-inset-bottom))!important;
   }
   .referenceAdviceGrid{
-    gap:5px;
+    gap:4px;
   }
   .referenceAdviceGrid article{
-    padding:7px 9px;
+    padding:7px 8px;
   }
-  .referenceExerciseDetail .v20Footer.referenceFooter{
-    margin-bottom:0!important;
-    padding-bottom:0!important;
+}
+
+/* Reference Glute Bridge: compact aligned header */
+.referenceExerciseDetail .v20TitleRow,
+.referenceExerciseDetail .referenceCompactInfoPanel{
+  width:min(100%,390px);
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.referenceExerciseDetail .v20TitleRow{
+  margin-bottom:0!important;
+  order:2!important;
+}
+.referenceExerciseDetail .v20TitleRow .eyebrow{
+  font-size:8px!important;
+  font-weight:600!important;
+  letter-spacing:.11em!important;
+  margin-bottom:1px!important;
+  color:#9aa8ad!important;
+}
+.referenceExerciseDetail .v20TitleRow h2{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:11px!important;
+  font-size:22px!important;
+  font-weight:650!important;
+  letter-spacing:.45px!important;
+  line-height:.98!important;
+  margin:0!important;
+}
+.referenceExerciseDetail .v20TitleRow h2::before{
+  content:'';
+  display:inline-block;
+  width:4px;
+  height:.84em;
+  border-radius:3px;
+  background:rgba(32,182,178,.72);
+  flex:0 0 auto;
+}
+.referenceExerciseDetail .v20TitleRow h2::after{
+  content:none!important;
+  display:none!important;
+}
+.referenceExerciseDetail .v20Sub{
+  margin:9px 0 0!important;
+  color:#53646b!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  line-height:1.15!important;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel{
+  margin-top:4px!important;
+  order:3!important;
+  max-width:100%;
+  box-sizing:border-box;
+}
+.referenceExerciseDetail .referenceTopHero{
+  order:0!important;
+}
+.referenceExerciseDetail .referenceGuideCard{
+  order:1!important;
+  max-width:100%;
+  box-sizing:border-box;
+}
+.referenceExerciseDetail .referenceFlow{
+  max-width:100%;
+}
+@media(min-width:900px){
+  .referenceExerciseDetail .v20TitleRow,
+  .referenceExerciseDetail .referenceCompactInfoPanel{
+    width:min(100%,430px);
+  }
+}
+@media(max-width:720px){
+  .referenceExerciseDetail.v20Detail{
+    margin-left:0!important;
+    margin-right:0!important;
+    max-width:100%!important;
+  }
+  .referenceExerciseDetail .v20TitleRow,
+  .referenceExerciseDetail .referenceCompactInfoPanel{
+    width:min(100%,390px)!important;
+  }
+  .referenceExerciseDetail .referenceGuideCard + .v20TitleRow{
+    margin-top:3px!important;
+  }
+  .referenceExerciseDetail .v20TitleRow h2{
+    font-size:21px!important;
+  }
+  .referenceExerciseDetail .v20Sub{
+    font-size:12.5px!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel li,
+  .referenceExerciseDetail .referenceCompactInfoPanel p{
+    grid-template-columns:13px minmax(0,1fr)!important;
+    gap:4px!important;
+  }
+  .referenceExerciseDetail .referenceCompactInfoPanel strong{
+    font-size:13px!important;
   }
 }
 

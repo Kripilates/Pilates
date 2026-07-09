@@ -346,6 +346,19 @@ function referenceStepByStep(k){
     </div>
   </details>`;
 }
+function referenceCompactInfoPanel(){
+  const icon=(path)=>`<svg class="referenceMiniIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
+  const difficultyIcon=icon('<path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/><path d="m7.8 7.8 2.1 2.1"/><path d="m14.1 14.1 2.1 2.1"/><path d="m16.2 7.8-2.1 2.1"/><path d="m9.9 14.1-2.1 2.1"/>');
+  const focusIcon=icon('<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/>');
+  const kneeIcon=icon('<path d="M9 4c2.6 1.6 3.8 4 3.8 6.4 0 2.1-.8 3.9-2.1 5.2"/><path d="M15 5c-1.4 2-1.7 4.1-.8 6.2.7 1.6 1.1 3.2.6 4.8-.4 1.2-1.2 2.3-2.4 3.2"/><path d="M9 16h7"/>');
+  const inhaleIcon=icon('<path d="M12 19V5"/><path d="m7 10 5-5 5 5"/>');
+  const exhaleIcon=icon('<path d="M12 5v14"/><path d="m7 14 5 5 5-5"/>');
+  const tempoIcon=icon('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>');
+  return `<section class="referenceCompactInfoPanel" aria-label="Informace o cviku a dech">
+    <article><h3>Info</h3><ul><li>${difficultyIcon}<span><b>Obtížnost</b><strong>Lehké</strong></span></li><li>${focusIcon}<span><b>Zaměření</b><strong>Hýždě / nohy</strong></span></li><li>${kneeIcon}<span><b>Kolena</b><strong>Šetrné ke kolenům</strong></span></li></ul></article>
+    <article><h3>Dech</h3><p>${inhaleIcon}<span><b>Nádech</b><strong>Výchozí pozice</strong></span></p><p>${exhaleIcon}<span><b>Výdech</b><strong>Při zvednutí</strong></span></p><p>${tempoIcon}<span><b>Tempo</b><strong>Pomalu</strong></span></p></article>
+  </section>`;
+}
 function referenceRecommendations(meta){
   return `<section class="referenceRecommendations" aria-label="Doporučení při cvičení">
     <h3>Doporučení při cvičení</h3>
@@ -987,24 +1000,25 @@ function info(k,opts={}){
                 <p class="eyebrow">Detail cviku</p>
                 <h2>${ex.name}</h2>
                 ${detailSideLabel}
-                <p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>
+                <p class="v20Sub">${hasReference?'Hýždě • zadní stehna':`${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}`}</p>
               </div>
               ${dose&&!hasReference?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
+            ${hasReference ? referenceCompactInfoPanel() : ''}
             ${hasReference ? '' : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
           <aside class="v20Aside">
-            <section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>
+            ${hasReference ? '' : `<section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>`}
             ${hasReference?'':`<section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg||`<div class="bodyMap v19BodyMap"><div class="bodySilhouetteV2 ${muscleClass}"><span class="head"></span><span class="torso"></span><span class="arms"></span><span class="leftLeg"></span><span class="rightLeg"></span><span class="highlight h1"></span><span class="highlight h2"></span></div></div>`}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>`}
-            <section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>
+            ${hasReference ? '' : `<section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>`}
             ${hasReference ? referenceRecommendations(meta) : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
             <section class="v20Card v20Watch"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
             <section class="v20Card v20Mistakes"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>`}
           </aside>
         </section>
         ${hasReference ? referenceStepByStep(k) : ''}
-        ${hasReference ? `<div class="v20Footer referenceFooter"><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>` : `<div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>`}
+        ${hasReference ? '' : `<div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>`}
       </div>
     </div>
   </section>`;
