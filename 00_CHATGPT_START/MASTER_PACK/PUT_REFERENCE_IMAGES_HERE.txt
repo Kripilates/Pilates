@@ -1,0 +1,9 @@
+Sem vlož referenční obrázky před zahájením nového ChatGPT vlákna.
+
+Povinné:
+- MODEL_MASTER_SCENE.png
+- MODEL_MASTER_CHARACTER.png
+- MODEL_MASTER_HERO.png
+
+Volitelné podle cviku:
+- EXERCISE_REFERENCE.png

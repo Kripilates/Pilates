@@ -1,43 +1,24 @@
 # Toe Tap
 
-Status: Draft / čeká na HERO
+Status: 🟢 COMPLETE
 
 ## Photos
-- [ ] START: `toetap_start_v1.png`
-- [ ] HERO: `toetap_hero_v1.png`
-- [x] END / not needed
+- [x] START ✔ (`toe_tap_start.png`)
+- [x] HERO ✔ (`toe_tap_hero.png`)
+- [x] END / not needed ✔
 
 ## Workflow
 START → HERO → START
 
-END se nepoužívá jako samostatný obrázek, protože návrat je stejný jako START.
+END se nevytváří, protože návratová pozice je totožná se START.
 
-## Required Files
-- [ ] `toetap_start_v1.png`
-- [ ] `toetap_hero_v1.png`
-- [ ] `toetap_guide_card_v1.png`
-- [ ] `toetap_step_by_step_v1.png`
+## Guide Card
+- [x] Guide Card ✔ (`toe_tap_guide_card_v1.png`)
 
-## Anatomy
-- leh na zádech
-- pánev stabilní
-- bedra neutrální
-- jedna noha zůstává v 90/90
-- druhá pokrčená noha jde špičkou těsně nad podložku
-- ruce podél těla
-- hlava položená
-
-## Checklist
-- [ ] stejná modelka
-- [ ] stejné prostředí
-- [ ] stejná kamera
-- [ ] stejný outfit
-- [ ] bosé nohy
-- [ ] žádný text v source obrázcích
-- [ ] nepropínat spodní nohu
-- [ ] neprohýbat bedra
+## Step by Step
+- [x] Step by Step ✔ (`toe_tap_step_by_step_v1.png`)
 
 ## Notes
 - modelka a prostředí podle MODEL_MASTER
 - nové assety vznikají pouze v Pilates Assets
-- `assets/exercises` se zatím nemění
+- assets/exercises se zatím nemění
