@@ -1489,3 +1489,116 @@ main button:not(.primary):not(.active),
   }
 }
 
+/* Reference Exercise 001: restrained visual polish */
+.referenceExerciseDetail .v20TopBar{
+  margin-bottom:16px!important;
+}
+.referenceExerciseDetail .v20TopBar button{
+  min-height:36px!important;
+  padding:7px 12px!important;
+  border-color:rgba(16,42,67,.10)!important;
+  box-shadow:0 5px 14px rgba(16,42,67,.035)!important;
+}
+.referenceExerciseDetail .referenceTopHero{
+  margin-bottom:14px;
+  border-color:rgba(255,255,255,.7);
+  border-radius:18px;
+  box-shadow:0 12px 28px rgba(16,42,67,.075);
+}
+.referenceExerciseDetail .referenceGuideCard{
+  margin-bottom:14px;
+}
+.referenceExerciseDetail .referenceFlow{
+  gap:6px;
+}
+.referenceExerciseDetail .referenceFlowStep{
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+.referenceExerciseDetail .referenceFlowStep:nth-child(2){
+  border-color:rgba(32,182,178,.45);
+}
+.referenceExerciseDetail .referenceStepPhoto{
+  height:74px;
+  border-bottom:1px solid var(--line);
+}
+.referenceExerciseDetail .referenceStepPhoto img{
+  object-fit:cover;
+}
+.referenceExerciseDetail .referenceFlowStep i{
+  display:none;
+}
+.referenceExerciseDetail .v20TitleRow{
+  margin-top:0!important;
+  margin-bottom:10px!important;
+}
+.referenceExerciseDetail .v20InfoList dt,
+.referenceExerciseDetail .v20BreathRow b{
+  color:var(--text)!important;
+}
+.referenceExerciseDetail .v20BreathRow span{
+  color:var(--p)!important;
+  font-weight:900!important;
+}
+.referenceExerciseDetail .referenceRecommendations{
+  margin-top:0;
+}
+.referenceExerciseDetail .referenceRecommendations h3{
+  margin-bottom:6px;
+}
+.referenceExerciseDetail .referenceAdviceGrid{
+  gap:6px;
+}
+.referenceExerciseDetail .referenceAdviceGrid article{
+  padding:8px 9px;
+}
+.referenceExerciseDetail .referenceAdviceGrid h4{
+  margin-bottom:6px;
+}
+.referenceExerciseDetail .referenceAdviceGrid li{
+  margin:4px 0!important;
+}
+.referenceExerciseDetail .referenceStepByStep{
+  margin-top:14px;
+}
+.referenceExerciseDetail .referenceStepByStep summary b{
+  width:26px;
+  height:26px;
+  color:var(--p);
+  transition:transform .24s ease,color .24s ease;
+}
+.referenceExerciseDetail .referenceStepByStep[open] summary b{
+  transform:rotate(180deg);
+}
+
+@media(max-width:720px){
+  .referenceExerciseDetail .v20TopBar{
+    margin-bottom:12px!important;
+  }
+  .referenceExerciseDetail .v20TopBar button{
+    min-height:34px!important;
+    padding:7px 10px!important;
+  }
+  .referenceExerciseDetail .referenceTopHero{
+    margin-bottom:10px;
+    border-radius:16px;
+    box-shadow:0 10px 22px rgba(16,42,67,.07);
+  }
+  .referenceExerciseDetail .referenceGuideCard{
+    margin-bottom:10px;
+  }
+  .referenceExerciseDetail .referenceStepPhoto{
+    height:54px;
+  }
+  .referenceExerciseDetail .v20TitleRow{
+    margin-bottom:8px!important;
+  }
+  .referenceExerciseDetail .referenceStepByStep{
+    margin-top:10px;
+  }
+  .referenceExerciseDetail .referenceStepByStep summary b{
+    width:22px;
+    height:22px;
+  }
+}
+
