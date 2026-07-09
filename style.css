@@ -1593,3 +1593,67 @@ main button:not(.primary):not(.active),
   }
 }
 
+/* Reference Glute Bridge: compact aligned header */
+.referenceExerciseDetail .v20TitleRow,
+.referenceExerciseDetail .referenceCompactInfoPanel{
+  width:min(100%,390px);
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.referenceExerciseDetail .v20TitleRow{
+  margin-bottom:0!important;
+}
+.referenceExerciseDetail .v20TitleRow .eyebrow{
+  font-size:9px!important;
+  font-weight:600!important;
+  letter-spacing:.04em!important;
+  margin-bottom:0!important;
+  color:var(--muted)!important;
+}
+.referenceExerciseDetail .v20TitleRow h2{
+  font-size:25px!important;
+  line-height:.98!important;
+  margin:0!important;
+}
+.referenceExerciseDetail .v20Sub{
+  margin:1px 0 0!important;
+  font-size:13px!important;
+  line-height:1.15!important;
+}
+.referenceExerciseDetail .referenceCompactInfoPanel{
+  margin-top:4px!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open]){
+  padding:0!important;
+  margin-bottom:0!important;
+  min-height:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  padding:0!important;
+  border:0!important;
+  overflow:hidden!important;
+}
+@media(min-width:900px){
+  .referenceExerciseDetail .v20TitleRow,
+  .referenceExerciseDetail .referenceCompactInfoPanel{
+    width:min(100%,430px);
+  }
+}
+@media(max-width:720px){
+  .referenceExerciseDetail .v20TitleRow,
+  .referenceExerciseDetail .referenceCompactInfoPanel{
+    width:min(100%,390px)!important;
+  }
+  .referenceExerciseDetail .v20TitleRow h2{
+    font-size:24px!important;
+  }
+  .referenceExerciseDetail .v20Sub{
+    font-size:12.5px!important;
+  }
+}
+
