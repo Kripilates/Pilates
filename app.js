@@ -1011,7 +1011,7 @@ function info(k,opts={}){
           </aside>
         </section>
         ${hasReference ? referenceStepByStep(k) : ''}
-        ${hasReference ? `<div class="v20Footer referenceFooter"><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>` : `<div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>`}
+        ${hasReference ? '' : `<div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>`}
       </div>
     </div>
   </section>`;

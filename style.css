@@ -1408,13 +1408,14 @@ main button:not(.primary):not(.active),
   padding-bottom:0!important;
 }
 .referenceRecommendations{
-  background:transparent;
-  border:0;
+  background:rgba(255,255,255,.62);
+  border:1px solid rgba(202,224,224,.72);
+  border-radius:15px;
   box-shadow:none;
-  padding:0;
+  padding:8px;
 }
 .referenceRecommendations h3{
-  margin:0 0 5px;
+  margin:0 0 6px;
   font-size:10.2px;
   line-height:1.15;
   text-transform:uppercase;
@@ -1424,26 +1425,27 @@ main button:not(.primary):not(.active),
 }
 .referenceAdviceGrid{
   display:grid;
-  gap:5px;
+  gap:4px;
 }
 .referenceAdviceGrid article{
   border:0;
-  border-radius:13px;
-  padding:7px 9px;
-  box-shadow:0 5px 14px rgba(16,42,67,.025);
+  border-radius:12px;
+  padding:7px 8px;
+  box-shadow:0 4px 12px rgba(16,42,67,.018);
 }
 .referenceAdviceGrid h4{
   display:flex;
   align-items:center;
   gap:7px;
-  margin:0 0 5px;
+  margin:0 0 4px;
   color:var(--text);
   font-size:13px;
   line-height:1.15;
+  font-weight:800;
 }
 .referenceAdviceGrid h4 span{
-  width:18px;
-  height:18px;
+  width:17px;
+  height:17px;
   border-radius:50%;
   display:grid;
   place-items:center;
@@ -1464,7 +1466,7 @@ main button:not(.primary):not(.active),
 .referenceAdviceGrid li{
   font-size:12px!important;
   line-height:1.22!important;
-  margin:3px 0!important;
+  margin:2px 0!important;
   padding-left:18px!important;
 }
 .referenceAdviceFeel{background:#F7FCFD}
@@ -1605,14 +1607,10 @@ main button:not(.primary):not(.active),
     padding-bottom:calc(70px + env(safe-area-inset-bottom))!important;
   }
   .referenceAdviceGrid{
-    gap:5px;
+    gap:4px;
   }
   .referenceAdviceGrid article{
-    padding:7px 9px;
-  }
-  .referenceExerciseDetail .v20Footer.referenceFooter{
-    margin-bottom:0!important;
-    padding-bottom:0!important;
+    padding:7px 8px;
   }
 }
 
