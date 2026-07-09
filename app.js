@@ -313,6 +313,22 @@ function detailHeroImage(k){
   const src = v22ImageSrc(k);
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
+function referencePhoto(ref,photo){
+  if(!ref)return '';
+  if(!photo)return ref.hero||'';
+  return ref.photos?.[photo] || ref[photo] || photo || ref.hero || '';
+}
+function referenceMiniSteps(ref){
+  return (ref.miniSteps||[
+    {n:1,title:'START',caption:'Lehni si',photo:'start'},
+    {n:2,title:'HERO',caption:'Zvedni pánev',photo:'hero'},
+    {n:3,title:'START',caption:'Polož pánev',photo:'start'}
+  ]).map(s=>({...s,photo:referencePhoto(ref,s.photo)}));
+}
+function referenceSubtitle(k,meta,ex){
+  const ref=referenceExerciseAssets[k];
+  return ref?.subtitle || (k==='hip' ? 'Hýždě • zadní stehna' : `${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}`);
+}
 function referenceHeroBlock(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
@@ -323,11 +339,7 @@ function referenceGuideCard(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
   const ex=data.exercises[k]||{};
-  const stepData=[
-    {n:1,title:'START',caption:'Lehni si',photo:ref.start},
-    {n:2,title:'HERO',caption:'Zvedni pánev',photo:ref.hero},
-    {n:3,title:'START',caption:'Polož pánev',photo:ref.start}
-  ];
+  const stepData=referenceMiniSteps(ref);
   return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
     <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
   </section>`;
@@ -340,13 +352,16 @@ function referenceStepByStep(k){
     <summary><span>Krok za krokem</span><b aria-hidden="true">⌄</b></summary>
     <div class="referenceStepByStepContent">
     ${ref.steps.map((s,i)=>{
-      const src=ref[s.photo]||ref.hero;
+      const src=referencePhoto(ref,s.photo)||ref.hero;
       return `<article><div class="referenceSbsPhoto"><img loading="lazy" src="${src}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"><b>${i+1}</b></div><strong>${esc(s.title)}</strong><span>${esc(s.text)}</span></article>${i<ref.steps.length-1?'<div class="referenceDownArrow" aria-hidden="true">↓</div>':''}`;
     }).join('')}
     </div>
   </details>`;
 }
-function referenceCompactInfoPanel(){
+function referenceCompactInfoPanel(k,meta){
+  const ref=referenceExerciseAssets[k]||{};
+  const info=ref.info||{};
+  const breath=ref.breath||{};
   const icon=(path)=>`<svg class="referenceMiniIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
   const difficultyIcon=icon('<path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/><path d="m7.8 7.8 2.1 2.1"/><path d="m14.1 14.1 2.1 2.1"/><path d="m16.2 7.8-2.1 2.1"/><path d="m9.9 14.1-2.1 2.1"/>');
   const focusIcon=icon('<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/>');
@@ -355,17 +370,21 @@ function referenceCompactInfoPanel(){
   const exhaleIcon=icon('<path d="M12 5v14"/><path d="m7 14 5 5 5-5"/>');
   const tempoIcon=icon('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>');
   return `<section class="referenceCompactInfoPanel" aria-label="Informace o cviku a dech">
-    <article><h3>Info</h3><ul><li>${difficultyIcon}<span><b>Obtížnost</b><strong>Lehké</strong></span></li><li>${focusIcon}<span><b>Zaměření</b><strong>Hýždě / nohy</strong></span></li><li>${kneeIcon}<span><b>Kolena</b><strong>Šetrné ke kolenům</strong></span></li></ul></article>
-    <article><h3>Dech</h3><p>${inhaleIcon}<span><b>Nádech</b><strong>Výchozí pozice</strong></span></p><p>${exhaleIcon}<span><b>Výdech</b><strong>Při zvednutí</strong></span></p><p>${tempoIcon}<span><b>Tempo</b><strong>Pomalu</strong></span></p></article>
+    <article><h3>Info</h3><ul><li>${difficultyIcon}<span><b>Obtížnost</b><strong>${esc(info.difficulty||meta.diff||'Lehké')}</strong></span></li><li>${focusIcon}<span><b>Zaměření</b><strong>${esc(info.focus||meta.area||'Hýždě / nohy')}</strong></span></li><li>${kneeIcon}<span><b>Kolena</b><strong>${esc(info.knees||meta.knee||'Šetrné ke kolenům')}</strong></span></li></ul></article>
+    <article><h3>Dech</h3><p>${inhaleIcon}<span><b>Nádech</b><strong>${esc(breath.inhale||'Výchozí pozice')}</strong></span></p><p>${exhaleIcon}<span><b>Výdech</b><strong>${esc(breath.exhale||'Při zvednutí')}</strong></span></p><p>${tempoIcon}<span><b>Tempo</b><strong>${esc(breath.tempo||'Pomalu')}</strong></span></p></article>
   </section>`;
 }
-function referenceRecommendations(meta){
+function referenceRecommendations(k,meta,ex){
+  const rec=referenceExerciseAssets[k]?.recommendations||{};
+  const feel=rec.feel||'Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.';
+  const watch=rec.watch||['Zatlačuj přes paty, ne přes špičky.','Drž pánev v jedné linii a neprohýbej se v bedrech.','Ramena zůstávají na zemi, krk je uvolněný.','Aktivuj břišní svaly po celou dobu.'];
+  const mistakes=rec.mistakes||[...meta.mistakes,'Zvedání příliš vysoko a ztráta kontroly.','Zatínání krku a ramen.'];
   return `<section class="referenceRecommendations" aria-label="Doporučení při cvičení">
     <h3>Doporučení při cvičení</h3>
     <div class="referenceAdviceGrid">
-      <article class="referenceAdviceFeel"><h4><span aria-hidden="true">●</span>Co bys měla cítit</h4><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></article>
-      <article class="referenceAdviceWatch"><h4><span aria-hidden="true">✓</span>Na co si dát pozor</h4><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></article>
-      <article class="referenceAdviceMistakes"><h4><span aria-hidden="true">×</span>Nejčastější chyby</h4><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></article>
+      <article class="referenceAdviceFeel"><h4><span aria-hidden="true">●</span>Co bys měla cítit</h4><p>${esc(feel)}</p></article>
+      <article class="referenceAdviceWatch"><h4><span aria-hidden="true">✓</span>Na co si dát pozor</h4><ul class="checkList">${watch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>
+      <article class="referenceAdviceMistakes"><h4><span aria-hidden="true">×</span>Nejčastější chyby</h4><ul class="xList">${mistakes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>
     </div>
   </section>`;
 }
@@ -1000,11 +1019,11 @@ function info(k,opts={}){
                 <p class="eyebrow">Detail cviku</p>
                 <h2>${ex.name}</h2>
                 ${detailSideLabel}
-                <p class="v20Sub">${hasReference?'Hýždě • zadní stehna':`${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}`}</p>
+                <p class="v20Sub">${hasReference?referenceSubtitle(k,meta,ex):`${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}`}</p>
               </div>
               ${dose&&!hasReference?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
-            ${hasReference ? referenceCompactInfoPanel() : ''}
+            ${hasReference ? referenceCompactInfoPanel(k,meta) : ''}
             ${hasReference ? '' : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
@@ -1012,7 +1031,7 @@ function info(k,opts={}){
             ${hasReference ? '' : `<section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>`}
             ${hasReference?'':`<section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg||`<div class="bodyMap v19BodyMap"><div class="bodySilhouetteV2 ${muscleClass}"><span class="head"></span><span class="torso"></span><span class="arms"></span><span class="leftLeg"></span><span class="rightLeg"></span><span class="highlight h1"></span><span class="highlight h2"></span></div></div>`}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>`}
             ${hasReference ? '' : `<section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>`}
-            ${hasReference ? referenceRecommendations(meta) : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
+            ${hasReference ? referenceRecommendations(k,meta,ex) : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
             <section class="v20Card v20Watch"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
             <section class="v20Card v20Mistakes"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>`}
           </aside>
