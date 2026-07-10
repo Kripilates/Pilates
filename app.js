@@ -1,5 +1,9 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
+const APP_VERSION='v59.3-dev';
+const versionEl=document.getElementById('app-version');
+if(versionEl)versionEl.textContent=APP_VERSION;
+document.title='Pilates Body 40+ '+APP_VERSION;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
@@ -684,12 +688,22 @@ function sideInfo(dose){
   if(m) return {side:true,timed:false,left:m[1],right:m[2],label:'na každou stranu'};
   return {side:false,timed:isTimedDose(txt),seconds:workSeconds(txt),label:''};
 }
+const alternatingExerciseIds=new Set(['bird','bird_hold','deadbug','deadbug_hold','toetap','toetap_slow','bicycle']);
+function isAlternatingExercise(k,dose=''){
+  return alternatingExerciseIds.has(k) || /střídavě/i.test(String(dose||''));
+}
+function alternatingLabel(k,dose=''){
+  return isAlternatingExercise(k,dose) ? 'Střídej pravou a levou stranu' : '';
+}
 function isSideDose(dose){return sideInfo(dose).side;}
 function currentSideLabel(info){
   if(!info?.side)return '';
   if(workoutPhase==='left')return 'Pravá strana';
   if(workoutPhase==='right'||workoutPhase==='switch')return 'Levá strana';
   return '';
+}
+function workoutMovementLabel(k,dose,info){
+  return alternatingLabel(k,dose) || currentSideLabel(info);
 }
 function oppositeSideLabel(label){
   return label.includes('Levá') ? 'Pravá strana' : 'Levá strana';
@@ -698,8 +712,8 @@ function sideContinueText(label){
   return label.includes('Pravá') ? 'pravou stranou' : 'levou stranou';
 }
 function phaseSideText(){
-  const dose=data.days[currentDay]?.items?.[currentExercise]?.[1]||'';
-  const label=currentSideLabel(sideInfo(dose));
+  const [k,dose]=data.days[currentDay]?.items?.[currentExercise]||[];
+  const label=workoutMovementLabel(k,dose,sideInfo(dose));
   if(label)return label;
   if(workoutPhase==='switch')return 'Změň stranu';
   return '';
@@ -764,9 +778,10 @@ function timerCircleStyle(){
   return `conic-gradient(var(--p) ${deg}deg, var(--p2) ${deg}deg)`;
 }
 function phaseLabel(){
-  const dose=data.days[currentDay].items[currentExercise]?.[1]||'';
+  const [k,dose]=data.days[currentDay].items[currentExercise]||[];
   const info=sideInfo(dose);
   if(workoutPhase==='prep') return 'Připrav se';
+  if(isAlternatingExercise(k,dose) && ['work','left','right','switch'].includes(workoutPhase)) return 'Střídavě';
   if(workoutPhase==='switch') return 'Změň stranu';
   if(workoutPhase==='roundRest') return 'Odpočinek';
   if(workoutPhase==='confirm') return 'Dokonči cvik';
@@ -782,10 +797,12 @@ function prettyDose(dose){
 }
 function currentInstruction(ex,dose){
   if(workoutPhase==='prep')return 'Připrav pozici.';
-  if(workoutPhase==='switch')return 'Změň stranu.';
+  if(workoutPhase==='switch')return isAlternatingExercise(Object.keys(data.exercises).find(id=>data.exercises[id]===ex),dose) ? 'Střídej pravou a levou stranu.' : 'Změň stranu.';
   if(workoutPhase==='roundRest'||workoutPhase==='rest')return 'Další kolo za chvíli.';
   if(workoutPhase==='confirm')return 'Dokonči cvik a pokračuj.';
   const info=sideInfo(dose);
+  const k=Object.keys(data.exercises).find(id=>data.exercises[id]===ex);
+  if(isAlternatingExercise(k,dose))return 'Střídej pravou a levou stranu.';
   if(info.side && (workoutPhase==='left'||workoutPhase==='right'))return `${currentSideLabel(info)}.`;
   return '';
 }
@@ -801,9 +818,9 @@ function showAutoTrain(){
   const isConfirm = workoutPhase==='confirm';
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
   const showPhase = ['prep','switch','roundRest'].includes(workoutPhase);
-  const sideLabel=currentSideLabel(info);
-  const sideText=sideLabel&&['left','right'].includes(workoutPhase) ? `<div class="sidePlainText">${sideLabel}</div>` : '';
-  const sideNotice=(workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ ${sideNoticeDone||'Strana'} hotová</b><span>Pokračujeme ${sideContinueText(sideNoticeNext)}.</span></div>` : '';
+  const sideLabel=workoutMovementLabel(k,dose,info);
+  const sideText=sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? `<div class="sidePlainText">${sideLabel}</div>` : '';
+  const sideNotice=(!isAlternatingExercise(k,dose) && workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ ${sideNoticeDone||'Strana'} hotová</b><span>Pokračujeme ${sideContinueText(sideNoticeNext)}.</span></div>` : '';
   const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
   const stickyTimer=(isTimedActive || workoutPhase==='roundRest') ? `<div class="trainStickyTimer" aria-label="Zbývající čas">${timerBlock}</div>` : '';
   const lowerInfo=(isTimedActive || workoutPhase==='roundRest') ? '' : timerBlock;
@@ -1003,7 +1020,8 @@ function info(k,opts={}){
   const dose=(planned&&planned[1]) || ex.dose || '';
   const doseInfo=sideInfo(dose);
   const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (!doseInfo.side && String(dose).match(/\d/) && !/opakování/i.test(String(dose)) ? 'opakování' : '');
-  const detailSideLabel=workoutRunning&&currentSideLabel(doseInfo) ? `<div class="sidePlainText detailSideText">${currentSideLabel(doseInfo)}</div>` : '';
+  const detailMoveLabel=workoutRunning ? workoutMovementLabel(k,dose,doseInfo) : '';
+  const detailSideLabel=detailMoveLabel ? `<div class="sidePlainText detailSideText">${detailMoveLabel}</div>` : '';
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
   const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : (currentDay!==undefined ? `<button data-action="day-return" data-day="${currentDay}">← Zpět na seznam cviků</button>` : `<button data-action="home">← Domů</button>`);
   const muscleImg=detailMuscleImage(k);
