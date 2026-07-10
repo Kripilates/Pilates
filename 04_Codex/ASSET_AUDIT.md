@@ -44,7 +44,7 @@ Scope:
 | Swan Prep | `assets/exercises/swan.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
 | Spine Stretch | `assets/exercises/spine.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
 | Wall Sit | `assets/exercises/wall.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
-| Glute Bridge March | `assets/exercises/hip_march.jpg` | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | White studio look, not master scene |
+| Glute Bridge March | `Pilates Assets/02_Exercise_Cards/Hip March` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. START uses shared Glute Bridge source. |
 | Romanian Deadlift - Slow | `assets/exercises/rdl_slow.jpg` | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | MINOR FIX | Different room feeling |
 | Clamshell Pulses | `assets/exercises/clam_pulse.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
 | Dead Bug Hold | `assets/exercises/deadbug_hold.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
