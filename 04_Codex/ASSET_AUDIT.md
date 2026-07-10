@@ -18,7 +18,7 @@ Scope:
 |---|---|---|---|---|---|---|---|---|---|---|
 | Glute Bridge | `assets/exercises/hip.jpg` | 🟡 | 🟡 | 🟡 | 🔴 | 🟡 | 🟡 | 🟡 | MINOR FIX | Cooler/desaturated than master |
 | Romanian Deadlift | `assets/exercises/rdl.jpg` | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | MINOR FIX | Different room feeling |
-| Fire Hydrant | `assets/exercises/hydrant.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
+| Fire Hydrant | START ✔; HERO ✔; END = START | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | APPROVED | APPROVED | Source images approved. |
 | Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Side Leg Lift | `assets/exercises/sideleg_main.jpg` | 🟡 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | Current app image is low-res crop |
 | Dead Bug | `assets/exercises/deadbug.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
