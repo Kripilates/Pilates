@@ -21,4 +21,5 @@ START → HERO → START
 ## Notes
 - source images approved
 - END is identical to START
-- Guide Card and Step by Step not created
+- Guide Card and Step by Step created
+- awaiting review
