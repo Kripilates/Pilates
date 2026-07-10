@@ -22,14 +22,14 @@ Scope:
 | Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Side Leg Lift | `assets/exercises/sideleg_main.jpg` | 🟡 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | Current app image is low-res crop |
 | Dead Bug | `assets/exercises/deadbug.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
-| Toe Taps | `assets/exercises/toetap.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
+| Toe Taps | `Pilates Assets/02_Exercise_Cards/Toe Tap` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Reverse Crunch | `assets/exercises/revcrunch.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Side Plank | `assets/exercises/sideplank.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Hollow Hold | `assets/exercises/hollow.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
 | Bent Over Row | `assets/exercises/row.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Shoulder Press | `assets/exercises/press.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Scene crop less consistent |
 | Lateral Raise | `assets/exercises/raise.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
-| Bird Dog | `assets/exercises/bird.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor color variation |
+| Bird Dog | `Pilates Assets/02_Exercise_Cards/Bird Dog` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Frog Pumps | `assets/exercises/frog.jpg` | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | White studio look, not master scene |
 | Donkey Kick | `assets/exercises/donkey.jpg` | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Bridge Abduction | `assets/exercises/abduction.jpg` | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | MINOR FIX | Slightly brighter than master |
