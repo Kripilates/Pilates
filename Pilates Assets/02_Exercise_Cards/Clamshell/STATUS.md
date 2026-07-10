@@ -1,4 +1,4 @@
-Status: 🟢 Source Images Approved
+Status: 🟡 Cards Awaiting Review
 
 ## Photos
 - [x] START
@@ -9,11 +9,11 @@ Status: 🟢 Source Images Approved
 START → HERO → START
 
 ## Guide Card
-- [ ] Not created
+- [x] Created
 - [ ] Approved
 
 ## Step by Step
-- [ ] Not created
+- [x] Created
 - [ ] Approved
 
 ## Notes
