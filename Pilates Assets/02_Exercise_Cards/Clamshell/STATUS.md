@@ -1,4 +1,4 @@
-Status: 🟡 Cards Awaiting Review
+Status: 🟢 COMPLETE
 
 ## Photos
 - [x] START
@@ -10,13 +10,17 @@ START → HERO → START
 
 ## Guide Card
 - [x] Created
-- [ ] Approved
+- [x] Approved
 
 ## Step by Step
 - [x] Created
-- [ ] Approved
+- [x] Approved
 
 ## Notes
+- Source Images Approved
+- Guide Card Approved
+- Step by Step Approved
+- Ready for App
 - source images approved
 - modelka a prostředí odpovídají MODEL_MASTER
 - anatomy approved
