@@ -1,11 +1,11 @@
-# MASTER PACK RULES
+﻿# MASTER PACK RULES
 
 ## Current approved visual references
 
-? Glute Bridge
-? Toe Tap
+- Glute Bridge
+- Toe Tap
 
-P?i generov?n? nov?ch cvik? se pou??vaj? jako hlavn? vizu?ln? reference.
+Při generování nových cviků se používají jako hlavní vizuální reference.
 
 MASTER_PACK je nejdůležitější složka pro tvorbu obrázků.
 
@@ -23,7 +23,28 @@ Musí obsahovat referenční obrázky:
   Finální schválený hero obrázek Glute Bridge.
 
 - EXERCISE_REFERENCE.png
-  Anatomická reference nového cviku, např. Toe Tap.
+  Anatomická reference konkrétního nového cviku, např. Toe Tap.
+  Určuje přesnou pozici těla, směr rukou a nohou, úhly v kloubech, oporu těla, správnou variantu cviku a případné střídání stran.
+
+## Závazné pravidlo pro nový cvik
+
+Při tvorbě každého nového cviku musí být kromě MASTER referencí vždy použita také anatomická reference:
+
+EXERCISE_REFERENCE.png
+
+Nový obrázek nesmí být schválen pouze podle vizuální podobnosti s MODEL_MASTER.
+Musí být současně porovnán vedle sebe s EXERCISE_REFERENCE.png.
+
+Kontrolní otázky:
+
+- Odpovídá poloha těla anatomické referenci?
+- Jsou aktivní správné končetiny?
+- Jsou pravá a levá strana správně rozlišeny?
+- Odpovídají úhly kolen, kyčlí, ramen a loktů?
+- Je hlava, krk a páteř ve správné poloze?
+- Nezměnil generátor cvik na jinou variantu?
+
+Pokud anatomie neodpovídá referenci, obrázek se neschvaluje ani v případě, že vizuálně odpovídá MODEL_MASTER.
 
 Při tvorbě nového obrázku platí:
 
@@ -33,7 +54,7 @@ Při tvorbě nového obrázku platí:
 4. Neměnit světlo.
 5. Neměnit kameru.
 6. Neměnit podlahu, rostliny, polici ani dekorace.
-7. Mění se pouze poloha těla podle nového cviku.
+7. Mění se pouze poloha těla podle nového cviku a podle EXERCISE_REFERENCE.png.
 
 Pokud nový obrázek vypadá jako jiná místnost, jiná modelka nebo jiné focení, je chybný.
 

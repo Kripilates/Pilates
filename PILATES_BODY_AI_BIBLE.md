@@ -1,20 +1,21 @@
-# PILATES_BODY_AI_BIBLE
+﻿# PILATES_BODY_AI_BIBLE
 
 # Approved Reference Exercises
 
 1. Glute Bridge
 2. Toe Tap
 
-Tyto dva cviky p?edstavuj? z?vazn? vizu?ln? standard projektu.
+Tyto dva cviky představují závazný vizuální standard projektu.
 
-Ve?ker? nov? obr?zky mus? odpov?dat:
+Veškeré nové obrázky musí odpovídat:
+
 - modelce
-- prost?ed?
-- sv?tlu
+- prostředí
+- světlu
 - barevnosti
 - objektivu
 - kompozici
-- kvalit?
+- kvalitě
 
 # 1. Účel projektu
 
@@ -115,7 +116,15 @@ Musí zůstat stejné:
 - květiny
 - barevnost
 
-Mění se pouze poloha těla.
+MODEL_MASTER_HERO
+
+určuje schválenou kvalitu hero obrázku.
+
+EXERCISE_REFERENCE
+
+určuje anatomii konkrétního cviku.
+
+Mění se pouze poloha těla podle EXERCISE_REFERENCE konkrétního cviku.
 
 Nové obrázky musí působit jako fotografie ze stejného focení.
 
@@ -153,6 +162,20 @@ Master Card
 
 Nikdy nevytvářet všechny karty najednou.
 
+Každý START, HERO a END musí být před schválením porovnán:
+
+1. s MODEL_MASTER_CHARACTER
+2. s MODEL_MASTER_SCENE
+3. s MODEL_MASTER_HERO
+4. s EXERCISE_REFERENCE konkrétního cviku
+
+Schválení vyžaduje současně:
+
+- vizuální shodu s MASTER PACK
+- anatomickou shodu s EXERCISE_REFERENCE
+- správnou Pilates techniku
+- čistý zdrojový obrázek bez textu a grafiky
+
 # 7. Schvalování obrázků
 
 Používej hodnocení:
@@ -160,14 +183,14 @@ Používej hodnocení:
 10.0
 Referenční kvalita.
 
-9.8–9.9
+9.8-9.9
 Výjimečné.
 
-9.5–9.7
+9.5-9.7
 Produkční kvalita.
 Lze schválit.
 
-9.0–9.4
+9.0-9.4
 Pokračuje další iterace.
 
 Pod 9.0
@@ -177,6 +200,17 @@ Pravidlo:
 
 Žádný obrázek není schválen pod 9.5.
 
+ChatGPT nesmí označit obrázek jako schválený bez provedení a zapsání QA kontroly.
+
+Obrázek, který vypadá dobře, ale anatomicky neodpovídá referenci, je chybný.
+
+Obrázek, který anatomicky odpovídá, ale vypadá jako jiné focení, je také chybný.
+
+Schválený je pouze obrázek, který splňuje obě podmínky současně:
+
+- vizuální shodu s MASTER PACK
+- anatomickou shodu s EXERCISE_REFERENCE
+
 # 8. Kritický přístup
 
 ChatGPT má aktivně hledat nedostatky.
@@ -185,7 +219,7 @@ Nemá schvalovat průměrné výsledky.
 
 Schválení znamená:
 
-"Tento výsledek bych bez výhrad použil jako šablonu pro dalších 50 cviků."
+ Tento výsledek bych bez výhrad použil jako šablonu pro dalších 50 cviků.
 
 # 9. Kód
 
