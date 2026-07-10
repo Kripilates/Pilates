@@ -3,6 +3,7 @@ const app=document.getElementById('app'),data=window.PB40_DATA;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
+let workoutTransitionLock=false;
 let sideNoticeUntil=0;
 let sideNoticeDone='', sideNoticeNext='';
 let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
@@ -12,6 +13,10 @@ if(!data||!data.days||!data.exercises){
 const $=id=>document.getElementById(id);
 function scrollTop(){
   requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
+}
+function renderTrainingScreen(html){
+  app.replaceChildren();
+  app.insertAdjacentHTML('afterbegin',html);
 }
 function detailHash(k,d=currentDay,i=currentExercise){
   const params=new URLSearchParams({ex:k});
@@ -800,18 +805,21 @@ function showAutoTrain(){
   const sideText=sideLabel&&['left','right'].includes(workoutPhase) ? `<div class="sidePlainText">${sideLabel}</div>` : '';
   const sideNotice=(workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ ${sideNoticeDone||'Strana'} hotová</b><span>Pokračujeme ${sideContinueText(sideNoticeNext)}.</span></div>` : '';
   const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${prettyDose(dose||ex.dose)}</b></div>`;
+  const stickyTimer=(isTimedActive || workoutPhase==='roundRest') ? `<div class="trainStickyTimer" aria-label="Zbývající čas">${timerBlock}</div>` : '';
+  const lowerInfo=(isTimedActive || workoutPhase==='roundRest') ? '' : timerBlock;
   const imgClass='bigimg';
-  app.innerHTML=`<section class="card fullTrain autoTrain v50Train v53CleanTrain">
+  renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
     <h2 class="trainName">${ex.name}</h2>
     ${sideText}
-    ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
+    ${stickyTimer}
     ${sideNotice}
-    ${timerBlock}
+    <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
+    ${lowerInfo}
     <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
-  </section>`;
+  </section>`);
   scrollTop();
 }
 function tickAuto(){
@@ -830,6 +838,9 @@ function startWorkoutTimer(){
   showAutoTrain();
 }
 function startNextExerciseOrRound(){
+  if(workoutTransitionLock)return;
+  workoutTransitionLock=true;
+  setTimeout(()=>{workoutTransitionLock=false;},300);
   const max=data.days[currentDay].items.length-1;
   // Série/kolo se počítá přes CELÝ DEN: nejdřív všech 6 cviků, potom druhé kolo.
   setDone(currentDay,currentExercise);
@@ -940,15 +951,15 @@ function showTrain(){
   const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k];
   const progress=Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise)/(workoutTotalSets*dayObj.items.length))*100);
   const imgClass='bigimg';
-  app.innerHTML=`<section class="card fullTrain v53CleanTrain">
+  renderTrainingScreen(`<section class="card fullTrain v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}">
     <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <h2 class="trainName">${ex.name}</h2>
     <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
-    ${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}
+    <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
     <button class="primary doneBtn" data-action="set-complete-manual">✓ Dokončeno</button>
     <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
-  </section>`;
+  </section>`);
   scrollTop();
 }
 function restScreen(){

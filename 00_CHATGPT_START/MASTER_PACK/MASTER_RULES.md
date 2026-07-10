@@ -1,9 +1,10 @@
-﻿# MASTER PACK RULES
+# MASTER PACK RULES
 
 ## Current approved visual references
 
 - Glute Bridge
 - Toe Tap
+- Dead Bug
 
 Při generování nových cviků se používají jako hlavní vizuální reference.
 
@@ -25,6 +26,75 @@ Musí obsahovat referenční obrázky:
 - EXERCISE_REFERENCE.png
   Anatomická reference konkrétního nového cviku, např. Toe Tap.
   Určuje přesnou pozici těla, směr rukou a nohou, úhly v kloubech, oporu těla, správnou variantu cviku a případné střídání stran.
+
+## PRE-GENERATION QA
+
+PRE-GENERATION QA je povinná součást workflow.
+
+Pořadí je vždy:
+
+PRE-GENERATION QA
+
+↓
+
+Generate
+
+↓
+
+POST-GENERATION QA
+
+↓
+
+Approval
+
+Nikdy nesmí být žádný krok přeskočen.
+
+## MASTER MATCH PRIORITY
+
+Pořadí priority je:
+
+1. Stejná modelka
+2. Stejná scéna
+3. Stejné světlo a barevnost
+4. Stejné oblečení
+5. Správná anatomie
+
+Pokud první dvě podmínky neprojdou, další kontrola nemůže vést ke schválení.
+
+MASTER CHARACTER znamená:
+
+- stejný obličej
+- stejný tvar obličeje
+- stejný nos
+- stejná čelist
+- stejný odstín vlasů
+- stejný účes
+- stejná postava a proporce
+
+MASTER SCENE znamená:
+
+- stejná místnost
+- stejná police
+- stejné rostliny
+- stejná váza a dekorace
+- stejná podlaha
+- stejná podložka
+- stejná perspektiva
+- stejná výška kamery
+- stejné světlo a stíny
+
+Nový obrázek nesmí být hodnocen samostatně.
+Musí být vždy porovnán vedle sebe minimálně s:
+
+- MODEL_MASTER_CHARACTER.png
+- MODEL_MASTER_SCENE.png
+- MODEL_MASTER_HERO.png
+
+Při dostupnosti schválených cviků také s:
+
+- Glute Bridge
+- Toe Tap
+- Dead Bug
 
 ## Závazné pravidlo pro nový cvik
 

@@ -2050,3 +2050,58 @@ main button:not(.primary):not(.active),
   }
 }
 
+
+/* Critical workout hotfix: keep only the current exercise visual and keep timer visible */
+.trainImageSlot{
+  display:block;
+  width:100%;
+  overflow:hidden;
+}
+.trainImageSlot .bigimg{
+  display:block;
+  width:100%;
+}
+.trainStickyTimer{
+  position:sticky;
+  top:112px;
+  z-index:8;
+  width:min(100%,330px);
+  margin:2px auto 5px!important;
+  pointer-events:none;
+}
+.trainStickyTimer .restBlock.compactTimer{
+  margin:0 auto!important;
+  padding:6px 10px!important;
+  border-radius:16px!important;
+  background:rgba(255,255,255,.96)!important;
+  backdrop-filter:blur(10px);
+  box-shadow:0 8px 24px rgba(16,42,67,.10)!important;
+}
+.trainStickyTimer .timerCircle.restOnly{
+  width:76px!important;
+  height:76px!important;
+  margin:0 auto!important;
+}
+.trainStickyTimer .timerCircle span{
+  width:58px!important;
+  height:58px!important;
+  font-size:30px!important;
+}
+@media(max-width:720px){
+  .trainStickyTimer{
+    top:104px;
+    margin:1px auto 4px!important;
+  }
+  .trainStickyTimer .restBlock.compactTimer{
+    padding:5px 9px!important;
+  }
+  .trainStickyTimer .timerCircle.restOnly{
+    width:70px!important;
+    height:70px!important;
+  }
+  .trainStickyTimer .timerCircle span{
+    width:54px!important;
+    height:54px!important;
+    font-size:28px!important;
+  }
+}

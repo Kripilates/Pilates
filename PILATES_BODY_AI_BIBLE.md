@@ -1,11 +1,12 @@
-﻿# PILATES_BODY_AI_BIBLE
+# PILATES_BODY_AI_BIBLE
 
 # Approved Reference Exercises
 
 1. Glute Bridge
 2. Toe Tap
+3. Dead Bug
 
-Tyto dva cviky představují závazný vizuální standard projektu.
+Tyto cviky představují závazný vizuální standard projektu.
 
 Veškeré nové obrázky musí odpovídat:
 
@@ -16,6 +17,64 @@ Veškeré nové obrázky musí odpovídat:
 - objektivu
 - kompozici
 - kvalitě
+
+# PRE-GENERATION QA (Mandatory)
+
+Před každým generováním musí ChatGPT provést kontrolu.
+
+Žádné generování nesmí začít bez této kontroly.
+
+Workflow:
+
+1. Urči aktivní cvik.
+
+Například:
+
+- Dead Bug
+- Clamshell
+- Toe Tap
+- Glute Bridge
+
+2. Urči přesně jeden asset.
+
+Možnosti:
+
+- START
+- HERO
+- END
+
+Nikdy více assetů najednou.
+
+3. Zakázané výstupy:
+
+- Guide Card
+- Step by Step
+- Master Card
+- Infografika
+- Poster
+- Instrukční karta
+- Koláž
+- UI
+- Grafické prvky
+
+Pokud by měl vzniknout některý z těchto výstupů, generování se okamžitě zastaví.
+
+4. Kontrola source image
+
+Musí být:
+
+- fotografie
+- bez textu
+- bez ikon
+- bez šipek
+- bez rámečků
+- bez grafiky
+- bez loga
+- bez popisků
+- bez čísel
+- bez UI
+
+Pokud některý bod neplatí, obrázek se nesmí vytvořit.
 
 # 1. Účel projektu
 
@@ -80,7 +139,7 @@ Referenční detail:
 
 Glute Bridge
 
-je od této chvíle DESIGN STANDARD v1.0.
+je DESIGN STANDARD v1.0.
 
 Design se již dále neupravuje.
 
@@ -88,7 +147,7 @@ Další cviky se přizpůsobují jemu.
 
 # 5. MODEL MASTER
 
-Rozliš dva typy referencí.
+Rozliš čtyři typy referencí.
 
 MODEL_MASTER_CHARACTER
 
@@ -102,15 +161,13 @@ obsahuje:
 
 MODEL_MASTER_SCENE
 
-je schválený Glute Bridge.
-
-Musí zůstat stejné:
+určuje:
 
 - místnost
-- kamera
-- perspektiva
+- kameru
+- perspektivu
 - světlo
-- podlaha
+- podlahu
 - koberec
 - police
 - květiny
@@ -178,27 +235,49 @@ Schválení vyžaduje současně:
 
 # 7. Schvalování obrázků
 
-Používej hodnocení:
+POST-GENERATION QA probíhá vždy v tomto pořadí:
 
-10.0
-Referenční kvalita.
+1. MASTER CHARACTER
+2. MASTER SCENE
+3. BAREVNOST A SVĚTLO
+4. OBLEČENÍ
+5. ANATOMICKÁ SHODA S EXERCISE_REFERENCE
+6. AI ARTEFAKTY
+7. CELKOVÝ DOJEM JEDNOHO FOCENÍ
 
-9.8-9.9
-Výjimečné.
+Pokud neprojde MASTER CHARACTER nebo MASTER SCENE, obrázek se automaticky neschvaluje, i kdyby byla anatomie správná.
 
-9.5-9.7
-Produkční kvalita.
-Lze schválit.
+Kontrolní otázka:
 
-9.0-9.4
-Pokračuje další iterace.
+„Kdyby uživatel viděl MODEL_MASTER, Glute Bridge, Toe Tap, Dead Bug a nový obrázek vedle sebe, uvěřil by, že vznikly během stejného focení se stejnou modelkou?“
 
-Pod 9.0
-Přepracovat.
+Pokud odpověď není jednoznačné ANO, obrázek se neschvaluje.
 
-Pravidlo:
+Hranice pro schválení:
 
-Žádný obrázek není schválen pod 9.5.
+- 9,5-10,0 = lze schválit
+- 9,0-9,4 = pokračuje další iterace
+- pod 9,0 = přepracovat
+
+Samotná anatomická správnost nestačí.
+
+Schválený obrázek musí současně splnit:
+
+- stejná modelka
+- stejný obličej
+- stejné vlasy
+- stejné oblečení
+- stejná místnost
+- stejná kamera
+- stejné světlo
+- stejná barevnost
+- stejná podložka
+- anatomická shoda s EXERCISE_REFERENCE
+- žádné rušivé AI artefakty
+
+Výsledek, který je „hezký“, ale vypadá jako jiné focení, je chybný.
+
+Žádný obrázek není schválen pod 9,5.
 
 ChatGPT nesmí označit obrázek jako schválený bez provedení a zapsání QA kontroly.
 
@@ -219,7 +298,7 @@ Nemá schvalovat průměrné výsledky.
 
 Schválení znamená:
 
- Tento výsledek bych bez výhrad použil jako šablonu pro dalších 50 cviků.
+„Tento výsledek bych bez výhrad použil jako šablonu pro dalších 50 cviků.“
 
 # 9. Kód
 
