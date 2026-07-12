@@ -2105,3 +2105,55 @@ main button:not(.primary):not(.active),
     font-size:28px!important;
   }
 }
+
+/* v59.5: workout flow polish */
+.v53CleanTrain .trainProgressLabel,
+.v50Train .trainProgressLabel{
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:1px;
+  flex:1 1 auto;
+  min-width:0;
+  text-align:right;
+  white-space:normal!important;
+}
+.v53CleanTrain .trainTop2 button,
+.v50Train .trainTop2 button{
+  flex:0 0 auto;
+}
+.v53CleanTrain .trainProgressLabel strong,
+.v50Train .trainProgressLabel strong{
+  color:var(--p);
+  font-size:1.04rem;
+  line-height:1.05;
+}
+.v53CleanTrain .trainProgressLabel small,
+.v50Train .trainProgressLabel small{
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.05;
+  font-weight:800;
+}
+.v53CleanTrain .noTimerBox,
+.v50Train .noTimerBox{
+  margin:5px auto 7px!important;
+}
+.v53CleanTrain.fullTrain,
+.v50Train{
+  padding-bottom:calc(132px + env(safe-area-inset-bottom))!important;
+}
+@media(max-width:420px){
+  .v53CleanTrain .trainTop2,
+  .v50Train .trainTop2{
+    align-items:center;
+  }
+  .v53CleanTrain .trainProgressLabel strong,
+  .v50Train .trainProgressLabel strong{
+    font-size:.98rem;
+  }
+  .v53CleanTrain .trainProgressLabel small,
+  .v50Train .trainProgressLabel small{
+    font-size:.72rem;
+  }
+}
