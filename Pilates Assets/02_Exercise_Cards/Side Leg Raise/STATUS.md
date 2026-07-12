@@ -22,6 +22,9 @@ START → HERO → START
 
 ## Notes
 - Source Images Approved.
+- Source Images Replaced.
+- Guide Card Rebuilt From Final Source Images.
+- Step by Step Rebuilt From Final Source Images.
 - Guide Card Approved.
 - Step by Step Approved.
 - Ready for App.
