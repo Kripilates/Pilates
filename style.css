@@ -2425,3 +2425,53 @@ main button:not(.primary):not(.active),
     min-height:22px;
   }
 }
+
+/* v59.12: tighter prep header without changing workout flow */
+.v53CleanTrain .workoutSideSlot,
+.v50Train .workoutSideSlot{
+  min-height:16px;
+  margin:0 auto 1px;
+}
+.autoTrain[data-workout-phase="prep"] .trainName{
+  margin:0 0 1px!important;
+  line-height:1.04!important;
+}
+.autoTrain[data-workout-phase="prep"] .compactWorkoutDose{
+  font-size:clamp(.98rem,3.3vw,1.16rem)!important;
+  margin:0 0 1px!important;
+}
+.autoTrain[data-workout-phase="prep"] .workoutStatusSlot{
+  gap:2px;
+  min-height:86px;
+  margin:0 auto 1px;
+}
+.autoTrain[data-workout-phase="prep"] .workoutPhaseText{
+  margin:0;
+}
+.autoTrain[data-workout-phase="prep"] .workoutStatusSlot .restBlock.compactTimer{
+  padding:3px 7px!important;
+}
+.autoTrain[data-workout-phase="prep"] .workoutStatusSlot .timerCircle.restOnly{
+  width:68px!important;
+  height:68px!important;
+}
+.autoTrain[data-workout-phase="prep"] .workoutStatusSlot .timerCircle span{
+  width:50px!important;
+  height:50px!important;
+  font-size:25px!important;
+}
+@media(max-width:420px){
+  .autoTrain[data-workout-phase="prep"] .workoutStatusSlot{
+    min-height:80px;
+    margin-bottom:1px;
+  }
+  .autoTrain[data-workout-phase="prep"] .workoutStatusSlot .timerCircle.restOnly{
+    width:64px!important;
+    height:64px!important;
+  }
+  .autoTrain[data-workout-phase="prep"] .workoutStatusSlot .timerCircle span{
+    width:48px!important;
+    height:48px!important;
+    font-size:24px!important;
+  }
+}

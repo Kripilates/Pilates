@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.11-dev';
+const APP_VERSION='v59.12-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -659,14 +659,17 @@ function days(){
 }
 
 const baseDayEquipment=['Podložka'];
-const exerciseEquipment={
-  abduction:['Mini band'],
-  row:['Dlouhá odporová guma','Lehké činky']
+const equipmentLabels={
+  dumbbells:'Lehké činky',
+  long_band:'Dlouhá odporová guma',
+  mini_band:'Mini band',
+  pilates_ball:'Malý pilates míč'
 };
 function dayEquipment(items){
   const gear=new Set(baseDayEquipment);
   items.forEach(([k])=>{
-    (exerciseEquipment[k]||[]).forEach(item=>gear.add(item));
+    const exercise=data.exercises[k];
+    (exercise?.equipment||[]).forEach(item=>gear.add(equipmentLabels[item]||item));
   });
   return [...gear];
 }
@@ -863,6 +866,7 @@ function showAutoTrain(opts={}){
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise;
   if(canPatchExisting){
+    existing.dataset.workoutPhase=workoutPhase;
     const bar=existing.querySelector('.progress .bar'); if(bar)bar.style.width=`${progress}%`;
     const doseEl=existing.querySelector('.compactWorkoutDose'); if(doseEl)doseEl.textContent=doseLabel;
     const phaseEl=existing.querySelector('.workoutPhaseText'); if(phaseEl)phaseEl.textContent=phaseText;
@@ -873,7 +877,7 @@ function showAutoTrain(opts={}){
     return;
   }
   const imgClass='bigimg';
-  renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}">
+  renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose trainProgressLabel"><strong>Cvik ${currentExercise+1} z ${dayObj.items.length}</strong><small>Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</small></span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <h2 class="trainName">${ex.name}</h2>
