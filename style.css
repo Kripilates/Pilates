@@ -2290,3 +2290,117 @@ main button:not(.primary):not(.active),
     font-size:.8rem!important;
   }
 }
+
+/* v59.8: stable workout header between prep and active phases */
+.v53CleanTrain .compactWorkoutDose,
+.v50Train .compactWorkoutDose{
+  color:var(--p)!important;
+  font-size:clamp(1rem,3.6vw,1.22rem)!important;
+  line-height:1.12!important;
+  margin:1px 0 4px!important;
+  text-align:center;
+}
+.v53CleanTrain .workoutStatusSlot,
+.v50Train .workoutStatusSlot{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  min-height:100px;
+  margin:0 auto 4px;
+  width:min(100%,330px);
+}
+.v53CleanTrain .workoutPhaseText,
+.v50Train .workoutPhaseText{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.04em;
+  line-height:1;
+  min-height:12px;
+  text-transform:uppercase;
+}
+.v53CleanTrain .workoutStatusSlot .restBlock.compactTimer,
+.v50Train .workoutStatusSlot .restBlock.compactTimer{
+  margin:0 auto!important;
+  padding:5px 9px!important;
+  border-radius:16px!important;
+}
+.v53CleanTrain .workoutStatusSlot .timerCircle.restOnly,
+.v50Train .workoutStatusSlot .timerCircle.restOnly{
+  width:74px!important;
+  height:74px!important;
+  margin:0 auto!important;
+}
+.v53CleanTrain .workoutStatusSlot .timerCircle span,
+.v50Train .workoutStatusSlot .timerCircle span{
+  width:56px!important;
+  height:56px!important;
+  font-size:28px!important;
+}
+.v53CleanTrain .workoutSeriesBox,
+.v50Train .workoutSeriesBox{
+  width:auto!important;
+  max-width:260px!important;
+  min-width:170px;
+  margin:0 auto!important;
+  padding:9px 13px!important;
+  border-radius:16px!important;
+  box-shadow:none!important;
+}
+.v53CleanTrain .workoutSeriesBox span,
+.v50Train .workoutSeriesBox span{
+  margin:0!important;
+  font-size:12px!important;
+  line-height:1.1!important;
+}
+.v53CleanTrain .workoutSideSlot,
+.v50Train .workoutSideSlot{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:24px;
+  margin:0 auto 2px;
+  width:min(100%,330px);
+}
+.v53CleanTrain .workoutSideSlot:empty::before,
+.v50Train .workoutSideSlot:empty::before{
+  content:"";
+}
+.v53CleanTrain .workoutSideSlot .sidePlainText,
+.v50Train .workoutSideSlot .sidePlainText{
+  margin:0!important;
+}
+@media(max-width:420px){
+  .v53CleanTrain .compactWorkoutDose,
+  .v50Train .compactWorkoutDose{
+    font-size:1rem!important;
+    margin-bottom:3px!important;
+  }
+  .v53CleanTrain .workoutStatusSlot,
+  .v50Train .workoutStatusSlot{
+    min-height:94px;
+    margin-bottom:3px;
+  }
+  .v53CleanTrain .workoutStatusSlot .timerCircle.restOnly,
+  .v50Train .workoutStatusSlot .timerCircle.restOnly{
+    width:68px!important;
+    height:68px!important;
+  }
+  .v53CleanTrain .workoutStatusSlot .timerCircle span,
+  .v50Train .workoutStatusSlot .timerCircle span{
+    width:52px!important;
+    height:52px!important;
+    font-size:26px!important;
+  }
+  .v53CleanTrain .workoutSeriesBox,
+  .v50Train .workoutSeriesBox{
+    min-width:150px;
+    padding:8px 12px!important;
+  }
+  .v53CleanTrain .workoutSideSlot,
+  .v50Train .workoutSideSlot{
+    min-height:22px;
+  }
+}

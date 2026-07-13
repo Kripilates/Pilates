@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.7-dev';
+const APP_VERSION='v59.8-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -745,7 +745,7 @@ function beginCurrentExercise(){
   workoutPaused=false;
   workoutPhase='prep';
   workoutLeft=WORKOUT_PREP_SECONDS;
-  startWorkoutTimer();
+  startWorkoutTimer(true);
 }
 function shouldRunWorkoutTimer(){
   const dose=data.days[currentDay]?.items?.[currentExercise]?.[1]||'';
@@ -840,7 +840,7 @@ function showSeriesRest(){
   </section>`);
   scrollTop();
 }
-function showAutoTrain(){
+function showAutoTrain(opts={}){
   const dayObj=data.days[currentDay];
   if(!dayObj.items.length){day(currentDay);return;}
   if(workoutPhase==='roundRest')return showSeriesRest();
@@ -851,29 +851,24 @@ function showAutoTrain(){
   const isTimedActive = ['prep','switch','roundRest'].includes(workoutPhase) || (info.timed && ['left','right','work'].includes(workoutPhase));
   const isConfirm = workoutPhase==='confirm';
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
-  const showPhase = ['prep','switch','roundRest'].includes(workoutPhase) || (isAlternatingExercise(k,dose) && ['work','left','right'].includes(workoutPhase));
   const sideLabel=workoutMovementLabel(k,dose,info);
   const sideText=sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? `<div class="sidePlainText">${sideLabel}</div>` : '';
   const sideNotice=(!isAlternatingExercise(k,dose) && workoutPhase==='switch' && Date.now()<sideNoticeUntil) ? `<div class="sideSwitchNotice"><b>✓ ${sideNoticeDone||'Strana'} hotová</b><span>Pokračujeme ${sideContinueText(sideNoticeNext)}.</span></div>` : '';
   const doseLabel=prettyDose(dose||ex.dose);
-  const timerBlock=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span><b>${doseLabel}</b></div>`;
-  const prepDoseBlock=`<div class="repBox noTimerBox prepDoseBox"><span>Dávka cviku</span><b>${doseLabel}</b></div>`;
-  const stickyTimer=(isTimedActive || workoutPhase==='roundRest') ? `<div class="trainStickyTimer" aria-label="Zbývající čas">${timerBlock}</div>` : '';
-  const upperInfo=workoutPhase==='prep' ? prepDoseBlock : (isTimedActive || workoutPhase==='roundRest') ? '' : timerBlock;
+  const phaseText=phaseLabel();
+  const statusContent=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox workoutSeriesBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>`;
   const imgClass='bigimg';
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose trainProgressLabel"><strong>Cvik ${currentExercise+1} z ${dayObj.items.length}</strong><small>Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</small></span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
-    ${showPhase?`<div class="phasePill">${phaseLabel()}</div>`:''}
     <h2 class="trainName">${ex.name}</h2>
-    ${sideText}
-    ${stickyTimer}
-    ${upperInfo}
-    ${sideNotice}
+    <div class="trainDose compactWorkoutDose">${doseLabel}</div>
+    <div class="workoutStatusSlot" aria-label="Stav cviku"><div class="workoutPhaseText">${phaseText}</div>${statusContent}</div>
+    <div class="workoutSideSlot">${sideText}${sideNotice}</div>
     <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
     <div class="row trainControls">${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
   </section>`);
-  scrollTop();
+  if(opts.resetScroll)scrollTop();
 }
 function tickAuto(){
   if(workoutPaused)return;
@@ -883,12 +878,12 @@ function tickAuto(){
   const el=document.getElementById('autoTimer'); if(el)el.textContent=workoutPhase==='roundRest'?formatCountdown(workoutLeft):workoutLeft;
   const circle=document.querySelector('.timerCircle'); if(circle)circle.style.background=timerCircleStyle();
 }
-function startWorkoutTimer(){
+function startWorkoutTimer(resetScroll=false){
   clearInterval(timer);
   if(['left','right','work'].includes(workoutPhase))cue('go');
   if(workoutPhase==='switch')cue('switch');
   timer=setInterval(tickAuto,1000);
-  showAutoTrain();
+  showAutoTrain({resetScroll});
 }
 function startNextExerciseOrRound(){
   if(workoutTransitionLock)return;
