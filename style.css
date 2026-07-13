@@ -2118,6 +2118,56 @@ main button:not(.primary):not(.active),
   text-align:right;
   white-space:normal!important;
 }
+
+/* v59.6: prep dose preview and daily equipment */
+.dayEquipmentCard h2{
+  font-size:15px;
+  letter-spacing:.08em;
+  color:var(--p);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.dayEquipmentList{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.dayEquipmentList span{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--text);
+  font-size:14px;
+  font-weight:900;
+  padding:8px 11px;
+}
+.v53CleanTrain .prepDoseBox,
+.v50Train .prepDoseBox{
+  max-width:330px;
+  width:min(100%,330px);
+  text-align:center;
+}
+.v53CleanTrain .prepDoseBox span,
+.v50Train .prepDoseBox span{
+  color:var(--muted);
+  font-size:.78rem;
+}
+.v53CleanTrain .prepDoseBox b,
+.v50Train .prepDoseBox b{
+  color:var(--p);
+  font-size:1.12rem;
+  line-height:1.15;
+}
+@media(max-width:420px){
+  .dayEquipmentList span{
+    font-size:13px;
+    padding:7px 10px;
+  }
+  .v53CleanTrain .prepDoseBox b,
+  .v50Train .prepDoseBox b{
+    font-size:1.04rem;
+  }
+}
 .v53CleanTrain .trainTop2 button,
 .v50Train .trainTop2 button{
   flex:0 0 auto;
