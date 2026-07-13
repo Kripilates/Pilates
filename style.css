@@ -2207,3 +2207,86 @@ main button:not(.primary):not(.active),
     font-size:.72rem;
   }
 }
+
+/* v59.7: compact active workout controls */
+.v53CleanTrain.fullTrain,
+.v50Train{
+  padding-bottom:calc(106px + env(safe-area-inset-bottom))!important;
+}
+.v53CleanTrain .trainControls,
+.v50Train .trainControls{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:5px!important;
+  padding:5px!important;
+  border-radius:16px!important;
+  margin-top:3px!important;
+  bottom:72px!important;
+}
+.v53CleanTrain .trainControls button,
+.v50Train .trainControls button{
+  min-width:0!important;
+  min-height:36px!important;
+  padding:7px 9px!important;
+  font-size:.92rem!important;
+  line-height:1.05!important;
+}
+.v53CleanTrain .trainControls .primary,
+.v50Train .trainControls .primary{
+  min-height:40px!important;
+  padding:8px 10px!important;
+}
+.v53CleanTrain .trainControls .doneRoundBtn,
+.v50Train .trainControls .doneRoundBtn{
+  grid-column:1 / -1;
+  min-height:42px!important;
+  padding:9px 12px!important;
+  font-size:1rem!important;
+}
+.v53CleanTrain .trainControls button[data-action="info"],
+.v50Train .trainControls button[data-action="info"]{
+  grid-column:1 / -1;
+  justify-self:center;
+  width:auto!important;
+  min-height:30px!important;
+  padding:5px 10px!important;
+  border-color:transparent!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--muted)!important;
+  font-size:.82rem!important;
+}
+@media(max-width:420px){
+  .v53CleanTrain.fullTrain,
+  .v50Train{
+    padding-bottom:calc(100px + env(safe-area-inset-bottom))!important;
+  }
+  .v53CleanTrain .trainControls,
+  .v50Train .trainControls{
+    bottom:70px!important;
+    gap:4px!important;
+    padding:5px!important;
+  }
+  .v53CleanTrain .trainControls button,
+  .v50Train .trainControls button{
+    min-height:34px!important;
+    padding:6px 8px!important;
+    font-size:.88rem!important;
+  }
+  .v53CleanTrain .trainControls .primary,
+  .v50Train .trainControls .primary{
+    min-height:38px!important;
+    padding:7px 9px!important;
+  }
+  .v53CleanTrain .trainControls .doneRoundBtn,
+  .v50Train .trainControls .doneRoundBtn{
+    min-height:40px!important;
+    padding:8px 10px!important;
+  }
+  .v53CleanTrain .trainControls button[data-action="info"],
+  .v50Train .trainControls button[data-action="info"]{
+    min-height:28px!important;
+    padding:4px 9px!important;
+    font-size:.8rem!important;
+  }
+}
