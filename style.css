@@ -2372,6 +2372,13 @@ main button:not(.primary):not(.active),
 .v50Train .workoutSideSlot .sidePlainText{
   margin:0!important;
 }
+.v53CleanTrain .workoutSideText,
+.v50Train .workoutSideText{
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
 @media(max-width:420px){
   .v53CleanTrain .compactWorkoutDose,
   .v50Train .compactWorkoutDose{
