@@ -2379,6 +2379,20 @@ main button:not(.primary):not(.active),
   text-overflow:ellipsis;
   white-space:nowrap;
 }
+
+/* v59.11: remove excessive bottom whitespace after active workout controls */
+.v53CleanTrain.fullTrain,
+.v50Train{
+  min-height:auto!important;
+  padding-bottom:calc(24px + env(safe-area-inset-bottom))!important;
+  margin-bottom:0!important;
+}
+@media(max-width:420px){
+  .v53CleanTrain.fullTrain,
+  .v50Train{
+    padding-bottom:calc(20px + env(safe-area-inset-bottom))!important;
+  }
+}
 @media(max-width:420px){
   .v53CleanTrain .compactWorkoutDose,
   .v50Train .compactWorkoutDose{
