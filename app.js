@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.12-dev';
+const APP_VERSION='v59.13-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -498,7 +498,8 @@ function daySummary(di){
   const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
   const minutes=Math.max(18, Math.round(items.length*4.5));
   const hard=items.some(([k])=>exMeta(k).diff==='Střední');
-  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>${hard?'🔥 Střední':'🟢 Lehké'}</span><span>🎯 ${main}</span></div>`;
+  const gear=dayEquipment(items).map(item=>`<span>${esc(item)}</span>`).join('');
+  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>${hard?'🔥 Střední':'🟢 Lehké'}</span><span>🎯 ${main}</span>${gear}</div>`;
 }
 
 function exCard(k,dose,d,i){
@@ -688,7 +689,6 @@ function day(di,opts={}){
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
-  ${day.items.length?dayEquipmentSection(day.items):''}
   <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`;
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
