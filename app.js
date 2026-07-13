@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.13-dev';
+const APP_VERSION='v59.14-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -855,9 +855,10 @@ function showAutoTrain(opts={}){
   const isConfirm = workoutPhase==='confirm';
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
   const sideLabel=workoutMovementLabel(k,dose,info);
+  const statusShowsCurrentSide=!isAlternatingExercise(k,dose) && ['left','right'].includes(workoutPhase);
   const sideSlotText=(!isAlternatingExercise(k,dose) && workoutPhase==='switch' && Date.now()<sideNoticeUntil)
     ? `✓ ${sideNoticeDone||'Strana'} hotová · Pokračujeme ${sideContinueText(sideNoticeNext)}.`
-    : (sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? sideLabel : '');
+    : (!statusShowsCurrentSide && sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? sideLabel : '');
   const sideText=`<div class="sidePlainText workoutSideText">${sideSlotText}</div>`;
   const doseLabel=prettyDose(dose||ex.dose);
   const phaseText=phaseLabel();
