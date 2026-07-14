@@ -1,0 +1,379 @@
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source Color Consistency Audit</title><style>
+:root{--bg:#f6fbfa;--card:#fff;--line:#dbe8e6;--text:#1f2d2b;--muted:#64726f;--teal:#168f8a;--amber:#a66a00;--red:#b3261e;--green:#1d7f55}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.45}main{max-width:1280px;margin:0 auto;padding:28px 18px 60px}h1{margin:0 0 8px;font-size:30px}h2{margin:34px 0 14px;font-size:24px}.intro,.exercise{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 10px 32px rgba(30,70,65,.08)}.master img{width:min(760px,100%);border-radius:14px;border:1px solid var(--line);display:block}.meta{color:var(--muted);font-size:14px}.pair{margin:18px 0 20px;padding:12px 14px;border-radius:12px;background:#eef8f6;border:1px solid #cde7e3}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0 20px}.slot{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.slot h3{margin:0;padding:10px 12px;background:#f3faf8;border-bottom:1px solid var(--line);font-size:14px;letter-spacing:.04em;color:#44615d}.slot img{display:block;width:100%;height:auto}.placeholder{min-height:180px;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;font-weight:700;color:var(--muted);background:#fbfdfd}.ok{color:var(--green)}.fix{color:var(--amber)}.regen{color:var(--red)}dl{display:grid;grid-template-columns:160px 1fr;gap:5px 12px;margin:12px;padding:0 0 12px}dt{font-size:12px;text-transform:uppercase;color:var(--muted);font-weight:700}dd{margin:0;font-size:13px}.summary{white-space:pre-line}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:780px){.grid,.two{grid-template-columns:1fr}main{padding:18px 10px}.intro,.exercise{padding:12px}dl{grid-template-columns:1fr}.slot h3{font-size:13px}}
+</style></head><body><main>
+<h1>Source Color Consistency Audit</h1>
+<p class="meta">COLOR MASTER = Pilates Assets\02_Exercise_Cards\Glute Bridge\glute_bridge_start_v1.png | generated 2026-07-14T10:32:06</p>
+<section class="intro master"><h2>COLOR MASTER</h2><img src="../../02_Exercise_Cards/Glute Bridge/glute_bridge_start_v1.png" alt="COLOR MASTER Glute Bridge START"><p class="meta">SHA-256: c23614b9f2dbe9de8e61fc63cdea535c295511b7bdaf4cd9747fa895e37129a9</p></section>
+
+<section class="exercise"><h2>Bird Dog</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> MINOR DIFFERENCE<br><strong>PAIR NOTES:</strong> Minor START/HERO color difference: luminance -4.0 %, saturation +9.4 %.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Bird Dog/bird_dog_start_v01.png" alt="Bird Dog START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\bird_dog_start_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -14.4 %
+Saturation: +12.7 %
+Wall neutral cast: a +1.3, b +0.6
+Coral top: Delta RGB 38.6
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/bird_dog_start_v01_color_preview.jpg" alt="Bird Dog START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Bird Dog/bird_dog_hero_v01.png" alt="Bird Dog HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_hero_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\bird_dog_hero_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -17.9 %
+Saturation: +23.3 %
+Wall neutral cast: a +1.7, b +0.9
+Coral top: Delta RGB 42.6
+Notes: luminance shift; saturation shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/bird_dog_hero_v01_color_preview.jpg" alt="Bird Dog HERO preview">
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Clamshell</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> OK<br><strong>PAIR NOTES:</strong> START/HERO are close: luminance -0.7 %, saturation +1.7 %.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Clamshell/clamshell_start_v01.png" alt="Clamshell START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Clamshell\clamshell_start_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\clamshell_start_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -14.9 %
+Saturation: +8.2 %
+Wall neutral cast: a +0.2, b -0.5
+Coral top: Delta RGB 38.3
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/clamshell_start_v01_color_preview.jpg" alt="Clamshell START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Clamshell/clamshell_hero_v01.png" alt="Clamshell HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Clamshell\clamshell_hero_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\clamshell_hero_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -15.5 %
+Saturation: +10.1 %
+Wall neutral cast: a +0.6, b +0.7
+Coral top: Delta RGB 33.1
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/clamshell_hero_v01_color_preview.jpg" alt="Clamshell HERO preview">
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Dead Bug</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> MINOR DIFFERENCE<br><strong>PAIR NOTES:</strong> Minor START/HERO color difference: luminance +1.7 %, saturation -13.6 %.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Dead Bug/dead_bug_start_v01.png" alt="Dead Bug START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Dead Bug\dead_bug_start_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\dead_bug_start_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: warmer than master
+Luminance: -14.4 %
+Saturation: +30.8 %
+Wall neutral cast: a +1.2, b +2.5
+Coral top: Delta RGB 30.6
+Notes: luminance shift; saturation shift; wall cast; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/dead_bug_start_v01_color_preview.jpg" alt="Dead Bug START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Dead Bug/dead_bug_hero_v01.png" alt="Dead Bug HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Dead Bug\dead_bug_hero_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\dead_bug_hero_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: warmer than master
+Luminance: -12.9 %
+Saturation: +13.0 %
+Wall neutral cast: a +0.6, b +1.4
+Coral top: Delta RGB 28.9
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/dead_bug_hero_v01_color_preview.jpg" alt="Dead Bug HERO preview">
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Fire Hydrant</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> OK<br><strong>PAIR NOTES:</strong> START/HERO are close: luminance +2.9 %, saturation +1.1 %.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Fire Hydrant/fire_hydrant_start_v01.png" alt="Fire Hydrant START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_start_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\fire_hydrant_start_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -14.0 %
+Saturation: +9.8 %
+Wall neutral cast: a +1.2, b +0.5
+Coral top: Delta RGB 39.9
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/fire_hydrant_start_v01_color_preview.jpg" alt="Fire Hydrant START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero_v01.png" alt="Fire Hydrant HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_hero_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\fire_hydrant_hero_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -11.5 %
+Saturation: +11.0 %
+Wall neutral cast: a +0.4, b +0.9
+Coral top: Delta RGB 28.6
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/fire_hydrant_hero_v01_color_preview.jpg" alt="Fire Hydrant HERO preview">
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Glute Bridge</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> MISMATCH<br><strong>PAIR NOTES:</strong> START/HERO differ visibly: luminance -11.0 %, saturation -6.7 %, RGB distance 33.5.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Glute Bridge/glute_bridge_start_v1.png" alt="Glute Bridge START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="ok">COLOR_OK</dd>
+          <dt>PAIR MISMATCH</dt><dd>YES</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Glute Bridge\glute_bridge_start_v1.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\glute_bridge_start_v1_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: +0.0 %
+Saturation: +0.0 %
+Wall neutral cast: a +0.0, b +0.0
+Coral top: Delta RGB 0.0
+Notes: minor color difference</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/glute_bridge_start_v1_color_preview.jpg" alt="Glute Bridge START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Glute Bridge/glute_bridge_hero_v1.png" alt="Glute Bridge HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>YES</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Glute Bridge\glute_bridge_hero_v1.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\glute_bridge_hero_v1_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -11.0 %
+Saturation: -6.7 %
+Wall neutral cast: a +0.6, b +0.1
+Coral top: Delta RGB 41.8
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/glute_bridge_hero_v1_color_preview.jpg" alt="Glute Bridge HERO preview">
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Hip March</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> MISSING START<br><strong>PAIR NOTES:</strong> START source asset was not found in 02_Exercise_Cards.</div>
+<div class="grid"><section class="slot"><h3>START ORIGINAL</h3><div class="placeholder">MISSING START</div></section><section class="slot"><h3>START PREVIEW</h3><div class="placeholder">MISSING START</div></section></div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Hip March/hip_march_hero_v01.png" alt="Hip March HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="ok">COLOR_OK</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Hip March\hip_march_hero_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>COLOR_OK</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -2.4 %
+Saturation: +4.4 %
+Wall neutral cast: a +0.2, b -0.3
+Coral top: Delta RGB 3.5
+Notes: minor color difference</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <div class="placeholder ok">COLOR_OK</div>
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Side Leg Raise</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> OK<br><strong>PAIR NOTES:</strong> START/HERO are close: luminance -1.7 %, saturation -6.5 %.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Side Leg Raise/side_leg_start_v01.png" alt="Side Leg Raise START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\side_leg_start_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -8.7 %
+Saturation: +38.5 %
+Wall neutral cast: a +0.0, b -0.7
+Coral top: Delta RGB 24.3
+Notes: saturation shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/side_leg_start_v01_color_preview.jpg" alt="Side Leg Raise START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Side Leg Raise/side_leg_raise_hero_v01.png" alt="Side Leg Raise HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>NO</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\side_leg_raise_hero_v01_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -10.2 %
+Saturation: +29.5 %
+Wall neutral cast: a -0.0, b -0.6
+Coral top: Delta RGB 22.4
+Notes: luminance shift; saturation shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/side_leg_raise_hero_v01_color_preview.jpg" alt="Side Leg Raise HERO preview">
+      </section>
+    </div>
+</section>
+<section class="exercise"><h2>Toe Tap</h2>
+<div class="pair"><strong>PAIR CONSISTENCY:</strong> MISMATCH<br><strong>PAIR NOTES:</strong> START/HERO differ visibly: luminance -2.0 %, saturation -27.6 %, RGB distance 7.1.</div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>START ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Toe Tap/toe_tap_start.png" alt="Toe Tap START original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>YES</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_start.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\toe_tap_start_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: near master
+Luminance: -13.7 %
+Saturation: -9.2 %
+Wall neutral cast: a +0.2, b +0.5
+Coral top: Delta RGB 45.2
+Notes: luminance shift; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>START PREVIEW</h3>
+        <img src="previews/toe_tap_start_color_preview.jpg" alt="Toe Tap START preview">
+      </section>
+    </div>
+
+    <div class="two">
+      <section class="slot">
+        <h3>HERO ORIGINAL</h3>
+        <img src="../../02_Exercise_Cards/Toe Tap/toe_tap_hero.png" alt="Toe Tap HERO original">
+        <dl>
+          <dt>PRIMARY STATUS</dt><dd class="fix">COLOR_FIX_POSSIBLE</dd>
+          <dt>PAIR MISMATCH</dt><dd>YES</dd>
+          <dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png</dd>
+          <dt>PREVIEW FILE</dt><dd>Pilates Assets\03_Exports\Source_Color_Audit\previews\toe_tap_hero_color_preview.jpg</dd>
+          <dt>COLOR DIFFERENCE SUMMARY</dt><dd class="summary">Temperature: cooler than master
+Luminance: -15.5 %
+Saturation: -34.3 %
+Wall neutral cast: a -0.8, b -2.4
+Coral top: Delta RGB 54.5
+Notes: luminance shift; saturation shift; wall cast; coral top shift</dd>
+        </dl>
+      </section>
+      <section class="slot">
+        <h3>HERO PREVIEW</h3>
+        <img src="previews/toe_tap_hero_color_preview.jpg" alt="Toe Tap HERO preview">
+      </section>
+    </div>
+</section>
+</main></body></html>

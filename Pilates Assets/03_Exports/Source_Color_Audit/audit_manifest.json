@@ -1,0 +1,326 @@
+{
+  "created_at": "2026-07-14T10:32:06",
+  "repo": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates",
+  "color_master": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Glute Bridge\\glute_bridge_start_v1.png",
+  "color_master_sha256": "c23614b9f2dbe9de8e61fc63cdea535c295511b7bdaf4cd9747fa895e37129a9",
+  "audited_source_images": 15,
+  "start_count": 7,
+  "hero_count": 8,
+  "records": [
+    {
+      "exercise": "Bird Dog",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_hero_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\bird_dog_hero_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-17.9 %",
+        "Saturation": "+23.3 %",
+        "Wall neutral cast": "a +1.7, b +0.9",
+        "Coral top": "Delta RGB 42.6",
+        "Summary": "luminance shift; saturation shift; coral top shift",
+        "lab_delta": 7.191874688230848,
+        "lum_pct": -17.891574945200965,
+        "sat_pct": 23.335082509648938
+      },
+      "pair_consistency": "MINOR DIFFERENCE",
+      "pair_notes": "Minor START/HERO color difference: luminance -4.0 %, saturation +9.4 %."
+    },
+    {
+      "exercise": "Bird Dog",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_start_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\bird_dog_start_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-14.4 %",
+        "Saturation": "+12.7 %",
+        "Wall neutral cast": "a +1.3, b +0.6",
+        "Coral top": "Delta RGB 38.6",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 6.712019914214492,
+        "lum_pct": -14.427053493623228,
+        "sat_pct": 12.718554038539882
+      },
+      "pair_consistency": "MINOR DIFFERENCE",
+      "pair_notes": "Minor START/HERO color difference: luminance -4.0 %, saturation +9.4 %."
+    },
+    {
+      "exercise": "Clamshell",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Clamshell\\clamshell_hero_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\clamshell_hero_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-15.5 %",
+        "Saturation": "+10.1 %",
+        "Wall neutral cast": "a +0.6, b +0.7",
+        "Coral top": "Delta RGB 33.1",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 7.394998331380855,
+        "lum_pct": -15.481122446523226,
+        "sat_pct": 10.055607711984758
+      },
+      "pair_consistency": "OK",
+      "pair_notes": "START/HERO are close: luminance -0.7 %, saturation +1.7 %."
+    },
+    {
+      "exercise": "Clamshell",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Clamshell\\clamshell_start_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\clamshell_start_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-14.9 %",
+        "Saturation": "+8.2 %",
+        "Wall neutral cast": "a +0.2, b -0.5",
+        "Coral top": "Delta RGB 38.3",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 7.823876965150996,
+        "lum_pct": -14.907529425034854,
+        "sat_pct": 8.190616792669616
+      },
+      "pair_consistency": "OK",
+      "pair_notes": "START/HERO are close: luminance -0.7 %, saturation +1.7 %."
+    },
+    {
+      "exercise": "Dead Bug",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Dead Bug\\dead_bug_hero_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\dead_bug_hero_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "warmer than master",
+        "Luminance": "-12.9 %",
+        "Saturation": "+13.0 %",
+        "Wall neutral cast": "a +0.6, b +1.4",
+        "Coral top": "Delta RGB 28.9",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 7.761721884447084,
+        "lum_pct": -12.934446118811596,
+        "sat_pct": 12.972169420480578
+      },
+      "pair_consistency": "MINOR DIFFERENCE",
+      "pair_notes": "Minor START/HERO color difference: luminance +1.7 %, saturation -13.6 %."
+    },
+    {
+      "exercise": "Dead Bug",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Dead Bug\\dead_bug_start_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\dead_bug_start_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "warmer than master",
+        "Luminance": "-14.4 %",
+        "Saturation": "+30.8 %",
+        "Wall neutral cast": "a +1.2, b +2.5",
+        "Coral top": "Delta RGB 30.6",
+        "Summary": "luminance shift; saturation shift; wall cast; coral top shift",
+        "lab_delta": 8.464931707055273,
+        "lum_pct": -14.37187617997605,
+        "sat_pct": 30.82569473198808
+      },
+      "pair_consistency": "MINOR DIFFERENCE",
+      "pair_notes": "Minor START/HERO color difference: luminance +1.7 %, saturation -13.6 %."
+    },
+    {
+      "exercise": "Fire Hydrant",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Fire Hydrant\\fire_hydrant_hero_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\fire_hydrant_hero_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-11.5 %",
+        "Saturation": "+11.0 %",
+        "Wall neutral cast": "a +0.4, b +0.9",
+        "Coral top": "Delta RGB 28.6",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 4.82347535808179,
+        "lum_pct": -11.51853503802403,
+        "sat_pct": 11.002007756807402
+      },
+      "pair_consistency": "OK",
+      "pair_notes": "START/HERO are close: luminance +2.9 %, saturation +1.1 %."
+    },
+    {
+      "exercise": "Fire Hydrant",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Fire Hydrant\\fire_hydrant_start_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\fire_hydrant_start_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-14.0 %",
+        "Saturation": "+9.8 %",
+        "Wall neutral cast": "a +1.2, b +0.5",
+        "Coral top": "Delta RGB 39.9",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 7.646387368077066,
+        "lum_pct": -14.015742642967533,
+        "sat_pct": 9.805606079723873
+      },
+      "pair_consistency": "OK",
+      "pair_notes": "START/HERO are close: luminance +2.9 %, saturation +1.1 %."
+    },
+    {
+      "exercise": "Glute Bridge",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Glute Bridge\\glute_bridge_hero_v1.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "YES",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\glute_bridge_hero_v1_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-11.0 %",
+        "Saturation": "-6.7 %",
+        "Wall neutral cast": "a +0.6, b +0.1",
+        "Coral top": "Delta RGB 41.8",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 8.154817767125767,
+        "lum_pct": -11.022945096423602,
+        "sat_pct": -6.688230730932498
+      },
+      "pair_consistency": "MISMATCH",
+      "pair_notes": "START/HERO differ visibly: luminance -11.0 %, saturation -6.7 %, RGB distance 33.5."
+    },
+    {
+      "exercise": "Glute Bridge",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Glute Bridge\\glute_bridge_start_v1.png",
+      "primary_status": "COLOR_OK",
+      "pair_mismatch": "YES",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\glute_bridge_start_v1_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "+0.0 %",
+        "Saturation": "+0.0 %",
+        "Wall neutral cast": "a +0.0, b +0.0",
+        "Coral top": "Delta RGB 0.0",
+        "Summary": "minor color difference",
+        "lab_delta": 0.0,
+        "lum_pct": 0.0,
+        "sat_pct": 0.0
+      },
+      "pair_consistency": "MISMATCH",
+      "pair_notes": "START/HERO differ visibly: luminance -11.0 %, saturation -6.7 %, RGB distance 33.5."
+    },
+    {
+      "exercise": "Hip March",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Hip March\\hip_march_hero_v01.png",
+      "primary_status": "COLOR_OK",
+      "pair_mismatch": "NO",
+      "preview": null,
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-2.4 %",
+        "Saturation": "+4.4 %",
+        "Wall neutral cast": "a +0.2, b -0.3",
+        "Coral top": "Delta RGB 3.5",
+        "Summary": "minor color difference",
+        "lab_delta": 1.2197871588558307,
+        "lum_pct": -2.3765964280727867,
+        "sat_pct": 4.400924573300434
+      },
+      "pair_consistency": "MISSING START",
+      "pair_notes": "START source asset was not found in 02_Exercise_Cards."
+    },
+    {
+      "exercise": "Side Leg Raise",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Side Leg Raise\\side_leg_raise_hero_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\side_leg_raise_hero_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-10.2 %",
+        "Saturation": "+29.5 %",
+        "Wall neutral cast": "a -0.0, b -0.6",
+        "Coral top": "Delta RGB 22.4",
+        "Summary": "luminance shift; saturation shift; coral top shift",
+        "lab_delta": 3.194367806090792,
+        "lum_pct": -10.245364521038908,
+        "sat_pct": 29.454458934365956
+      },
+      "pair_consistency": "OK",
+      "pair_notes": "START/HERO are close: luminance -1.7 %, saturation -6.5 %."
+    },
+    {
+      "exercise": "Side Leg Raise",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Side Leg Raise\\side_leg_start_v01.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "NO",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\side_leg_start_v01_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-8.7 %",
+        "Saturation": "+38.5 %",
+        "Wall neutral cast": "a +0.0, b -0.7",
+        "Coral top": "Delta RGB 24.3",
+        "Summary": "saturation shift; coral top shift",
+        "lab_delta": 3.858316517663405,
+        "lum_pct": -8.655504766673385,
+        "sat_pct": 38.461760378939616
+      },
+      "pair_consistency": "OK",
+      "pair_notes": "START/HERO are close: luminance -1.7 %, saturation -6.5 %."
+    },
+    {
+      "exercise": "Toe Tap",
+      "type": "HERO",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Toe Tap\\toe_tap_hero.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "YES",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\toe_tap_hero_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "cooler than master",
+        "Luminance": "-15.5 %",
+        "Saturation": "-34.3 %",
+        "Wall neutral cast": "a -0.8, b -2.4",
+        "Coral top": "Delta RGB 54.5",
+        "Summary": "luminance shift; saturation shift; wall cast; coral top shift",
+        "lab_delta": 11.751917956915378,
+        "lum_pct": -15.450309811417043,
+        "sat_pct": -34.27420646688097
+      },
+      "pair_consistency": "MISMATCH",
+      "pair_notes": "START/HERO differ visibly: luminance -2.0 %, saturation -27.6 %, RGB distance 7.1."
+    },
+    {
+      "exercise": "Toe Tap",
+      "type": "START",
+      "source": "Pilates Assets\\02_Exercise_Cards\\Toe Tap\\toe_tap_start.png",
+      "primary_status": "COLOR_FIX_POSSIBLE",
+      "pair_mismatch": "YES",
+      "preview": "Pilates Assets\\03_Exports\\Source_Color_Audit\\previews\\toe_tap_start_color_preview.jpg",
+      "color_difference_summary": {
+        "Temperature": "near master",
+        "Luminance": "-13.7 %",
+        "Saturation": "-9.2 %",
+        "Wall neutral cast": "a +0.2, b +0.5",
+        "Coral top": "Delta RGB 45.2",
+        "Summary": "luminance shift; coral top shift",
+        "lab_delta": 9.671198037924045,
+        "lum_pct": -13.747834346321639,
+        "sat_pct": -9.17583427890586
+      },
+      "pair_consistency": "MISMATCH",
+      "pair_notes": "START/HERO differ visibly: luminance -2.0 %, saturation -27.6 %, RGB distance 7.1."
+    }
+  ]
+}
