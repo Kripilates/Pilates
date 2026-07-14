@@ -1,0 +1,215 @@
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Visual Model Consistency Audit</title><style>
+:root{--bg:#f7fbfa;--card:#fff;--line:#dce9e7;--text:#1d2d2a;--muted:#63726f;--teal:#168d88;--ok:#14724c;--minor:#9b6400;--major:#b3261e;--model:#7828a0}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);line-height:1.45}main{max-width:1320px;margin:0 auto;padding:28px 18px 60px}h1{margin:0 0 8px;font-size:30px}h2{margin:30px 0 12px;font-size:23px}.meta{color:var(--muted);font-size:14px}.summary,.audit{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:18px 0;box-shadow:0 10px 28px rgba(32,72,68,.08)}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.slot{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.slot h3{margin:0;padding:10px 12px;background:#f0faf8;border-bottom:1px solid var(--line);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#3f625e}.slot img{display:block;width:100%;height:auto}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:12px;font-weight:750;background:#f8fbfb}.MODEL_OK{color:var(--ok)}.HAIR_MINOR_DIFFERENCE,.MUSCULARITY_MINOR_DIFFERENCE{color:var(--minor)}.HAIR_MAJOR_DIFFERENCE,.MUSCULARITY_MAJOR_DIFFERENCE{color:var(--major)}.MODEL_MAJOR_DIFFERENCE{color:var(--model)}dl{display:grid;grid-template-columns:180px 1fr;gap:6px 12px;margin:12px 0 0}dt{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:760}dd{margin:0;font-size:14px}.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.count{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fbfdfd}.count b{font-size:24px}@media(max-width:850px){main{padding:18px 10px}.summary,.audit{padding:12px}.pair{grid-template-columns:1fr}dl{grid-template-columns:1fr}}
+.decision-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px}.decision-table th,.decision-table td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}.decision-table th{background:#f0faf8;color:#3f625e;text-transform:uppercase;font-size:12px;letter-spacing:.04em}.decision-table strong{color:var(--major)}
+</style></head><body><main>
+<h1>VISUAL MODEL CONSISTENCY AUDIT</h1>
+<p class="meta">Generated 2026-07-14T11:20:29 | Reference: Pilates Assets\01_Master_Reference\MODEL_MASTER.png.png</p>
+<section class="summary"><h2>Scope</h2><p>This audit evaluates only model consistency: hair, skin impression, body/muscularity and whether the model reads as the same woman as MODEL_MASTER. It does not evaluate anatomy, room color, floor, mat, outfit color, Guide Cards or Step by Step cards.</p>
+<div class="counts">
+<div class="count MODEL_OK"><b>6</b><br>MODEL_OK</div>
+<div class="count HAIR_MINOR_DIFFERENCE"><b>5</b><br>HAIR_MINOR_DIFFERENCE</div>
+<div class="count HAIR_MAJOR_DIFFERENCE"><b>4</b><br>HAIR_MAJOR_DIFFERENCE</div>
+<div class="count MUSCULARITY_MINOR_DIFFERENCE"><b>6</b><br>MUSCULARITY_MINOR_DIFFERENCE</div>
+<div class="count MUSCULARITY_MAJOR_DIFFERENCE"><b>2</b><br>MUSCULARITY_MAJOR_DIFFERENCE</div>
+<div class="count MODEL_MAJOR_DIFFERENCE"><b>0</b><br>MODEL_MAJOR_DIFFERENCE</div>
+</div>
+<p><strong>Major findings:</strong> Bird Dog HERO, Bird Dog START, Fire Hydrant HERO, Fire Hydrant START</p></section>
+
+<section class="summary">
+  <h2>Manual QA Decisions</h2>
+  <p>Minor differences are accepted for this phase. No image changes are made by this audit decision.</p>
+  <table class="decision-table">
+    <thead><tr><th>Exercise</th><th>Image</th><th>Audit Finding</th><th>Decision</th><th>Reason</th></tr></thead>
+    <tbody><tr><td>Bird Dog</td><td>HERO</td><td>HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE</td><td><strong>HAIR_LOCAL_FIX_CANDIDATE</strong></td><td>Hair is too dark with dark brunette / copper-orange impression compared with MODEL_MASTER. Body is not a regeneration reason.</td></tr><tr><td>Bird Dog</td><td>START</td><td>HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE</td><td><strong>HAIR_LOCAL_FIX_CANDIDATE</strong></td><td>Hair is too dark with dark brunette / copper-orange impression compared with MODEL_MASTER. Body is not a regeneration reason.</td></tr><tr><td>Fire Hydrant</td><td>HERO</td><td>HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MAJOR_DIFFERENCE</td><td><strong>REGENERATE_SOURCE_MODEL_MISMATCH</strong></td><td>Model differs from MODEL_MASTER in hair lightness/color plus shoulders, deltoids, upper arms, upper back and overall muscular physique.</td></tr><tr><td>Fire Hydrant</td><td>START</td><td>HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MAJOR_DIFFERENCE</td><td><strong>REGENERATE_SOURCE_MODEL_MISMATCH</strong></td><td>Model differs from MODEL_MASTER in hair lightness/color plus shoulders, deltoids, upper arms, upper back and overall muscular physique.</td></tr></tbody>
+  </table>
+</section>
+
+<section class="audit"><h2>Bird Dog ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Bird Dog/bird_dog_hero_v01.png" alt="Bird Dog source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MAJOR_DIFFERENCE">HAIR_MAJOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MINOR_DIFFERENCE">MUSCULARITY_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_hero_v01.png</dd>
+<dt>REASON</dt><dd>Hair reads visibly darker than the MODEL_MASTER target in the all-fours pose; shoulders and forearms look a little more athletic, partly explainable by weight bearing.</dd>
+<dt>BODY AREA</dt><dd>shoulders / upper arms / forearms where visible</dd>
+</dl></section>
+<section class="audit"><h2>Bird Dog ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Bird Dog/bird_dog_start_v01.png" alt="Bird Dog source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MAJOR_DIFFERENCE">HAIR_MAJOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MINOR_DIFFERENCE">MUSCULARITY_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png</dd>
+<dt>REASON</dt><dd>Hair reads dark brunette in the pose rather than dark blonde / light brown; arm and shoulder definition is slightly stronger than MODEL_MASTER, but still mostly pose-related.</dd>
+<dt>BODY AREA</dt><dd>shoulders / upper arms / forearms where visible</dd>
+</dl></section>
+<section class="audit"><h2>Clamshell ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Clamshell/clamshell_hero_v01.png" alt="Clamshell source"></div>
+</div>
+<div class="chips">
+<span class="chip MODEL_OK">MODEL_OK</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Clamshell\clamshell_hero_v01.png</dd>
+<dt>REASON</dt><dd>Overall first impression remains consistent with MODEL_MASTER: similar feminine proportions, natural fit body, no excessive shoulder or arm definition.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+<section class="audit"><h2>Clamshell ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Clamshell/clamshell_start_v01.png" alt="Clamshell source"></div>
+</div>
+<div class="chips">
+<span class="chip MODEL_OK">MODEL_OK</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Clamshell\clamshell_start_v01.png</dd>
+<dt>REASON</dt><dd>Model reads as the same person family as MODEL_MASTER; hair and body definition are within acceptable source-series variation.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+<section class="audit"><h2>Dead Bug ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Dead Bug/dead_bug_hero_v01.png" alt="Dead Bug source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MINOR_DIFFERENCE">HAIR_MINOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MINOR_DIFFERENCE">MUSCULARITY_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Dead Bug\dead_bug_hero_v01.png</dd>
+<dt>REASON</dt><dd>Hair appears slightly darker/less neutral than MODEL_MASTER where visible; arms are somewhat more defined, but raised-arm tension explains part of it.</dd>
+<dt>BODY AREA</dt><dd>shoulders / upper arms / forearms where visible</dd>
+</dl></section>
+<section class="audit"><h2>Dead Bug ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Dead Bug/dead_bug_start_v01.png" alt="Dead Bug source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MINOR_DIFFERENCE">HAIR_MINOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MINOR_DIFFERENCE">MUSCULARITY_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Dead Bug\dead_bug_start_v01.png</dd>
+<dt>REASON</dt><dd>Hair impression is a little darker than the target; upper arms/shoulders show more athletic definition than MODEL_MASTER, but not enough to read as a different model.</dd>
+<dt>BODY AREA</dt><dd>shoulders / upper arms / forearms where visible</dd>
+</dl></section>
+<section class="audit"><h2>Fire Hydrant ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero_v01.png" alt="Fire Hydrant source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MAJOR_DIFFERENCE">HAIR_MAJOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MAJOR_DIFFERENCE">MUSCULARITY_MAJOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_hero_v01.png</dd>
+<dt>REASON</dt><dd>Hair reads too dark compared with the mid-light brown target. Shoulders/deltoids and upper arms look noticeably more muscular than MODEL_MASTER beyond normal pose tension.</dd>
+<dt>BODY AREA</dt><dd>shoulders / deltoids / upper arms / upper back / overall physique</dd>
+</dl></section>
+<section class="audit"><h2>Fire Hydrant ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Fire Hydrant/fire_hydrant_start_v01.png" alt="Fire Hydrant source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MAJOR_DIFFERENCE">HAIR_MAJOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MAJOR_DIFFERENCE">MUSCULARITY_MAJOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_start_v01.png</dd>
+<dt>REASON</dt><dd>Hair reads dark brunette rather than neutral dark blonde/light brown. Upper arms, shoulders and upper back appear stronger and more fitness-model-like than MODEL_MASTER.</dd>
+<dt>BODY AREA</dt><dd>shoulders / deltoids / upper arms / upper back / overall physique</dd>
+</dl></section>
+<section class="audit"><h2>Glute Bridge ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Glute Bridge/glute_bridge_hero_v1.png" alt="Glute Bridge source"></div>
+</div>
+<div class="chips">
+<span class="chip MODEL_OK">MODEL_OK</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Glute Bridge\glute_bridge_hero_v1.png</dd>
+<dt>REASON</dt><dd>Body proportions, hair impression and overall model identity stay close to MODEL_MASTER; no excessive muscularity is visible.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+<section class="audit"><h2>Glute Bridge ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Glute Bridge/glute_bridge_start_v1.png" alt="Glute Bridge source"></div>
+</div>
+<div class="chips">
+<span class="chip MODEL_OK">MODEL_OK</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Glute Bridge\glute_bridge_start_v1.png</dd>
+<dt>REASON</dt><dd>Reference-like source image. Hair, skin and body definition are aligned with the MODEL_MASTER identity target.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+<section class="audit"><h2>Hip March ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Hip March/hip_march_hero_v01.png" alt="Hip March source"></div>
+</div>
+<div class="chips">
+<span class="chip MODEL_OK">MODEL_OK</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Hip March\hip_march_hero_v01.png</dd>
+<dt>REASON</dt><dd>Model reads as same photo-series person: natural fit proportions, no heavy muscular definition, hair not outside target range.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+<section class="audit"><h2>Side Leg Raise ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Side Leg Raise/side_leg_raise_hero_v01.png" alt="Side Leg Raise source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MINOR_DIFFERENCE">HAIR_MINOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MINOR_DIFFERENCE">MUSCULARITY_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png</dd>
+<dt>REASON</dt><dd>Hair appears slightly darker in the side pose. Arm/shoulder visibility gives a mildly stronger athletic impression, but not a full model mismatch.</dd>
+<dt>BODY AREA</dt><dd>shoulders / upper arms / forearms where visible</dd>
+</dl></section>
+<section class="audit"><h2>Side Leg Raise ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Side Leg Raise/side_leg_start_v01.png" alt="Side Leg Raise source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MINOR_DIFFERENCE">HAIR_MINOR_DIFFERENCE</span>
+<span class="chip MUSCULARITY_MINOR_DIFFERENCE">MUSCULARITY_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png</dd>
+<dt>REASON</dt><dd>Hair is a bit darker than MODEL_MASTER target. Visible upper arm/shoulder tone is slightly stronger, still explainable by pose and support.</dd>
+<dt>BODY AREA</dt><dd>shoulders / upper arms / forearms where visible</dd>
+</dl></section>
+<section class="audit"><h2>Toe Tap ? HERO</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Toe Tap/toe_tap_hero.png" alt="Toe Tap source"></div>
+</div>
+<div class="chips">
+<span class="chip HAIR_MINOR_DIFFERENCE">HAIR_MINOR_DIFFERENCE</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png</dd>
+<dt>REASON</dt><dd>Hair reads a little darker / less light-brown than MODEL_MASTER, but body proportions and muscularity remain acceptable.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+<section class="audit"><h2>Toe Tap ? START</h2>
+<div class="pair">
+<div class="slot"><h3>MODEL_MASTER</h3><img src="../../01_Master_Reference/MODEL_MASTER.png.png" alt="MODEL_MASTER"></div>
+<div class="slot"><h3>SOURCE</h3><img src="../../02_Exercise_Cards/Toe Tap/toe_tap_start.png" alt="Toe Tap source"></div>
+</div>
+<div class="chips">
+<span class="chip MODEL_OK">MODEL_OK</span>
+</div><dl>
+<dt>SOURCE FILE</dt><dd>Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_start.png</dd>
+<dt>REASON</dt><dd>Overall model identity, hair impression and body definition are close enough to MODEL_MASTER for source-series consistency.</dd>
+<dt>BODY AREA</dt><dd>none significant</dd>
+</dl></section>
+</main></body></html>

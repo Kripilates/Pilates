@@ -1,0 +1,133 @@
+{
+  "changed_sources": [
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_hero_v01.png",
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_start_v01.png",
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Dead Bug\\dead_bug_hero_v01.png",
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Dead Bug\\dead_bug_start_v01.png",
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Fire Hydrant\\fire_hydrant_hero_v01.png",
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Fire Hydrant\\fire_hydrant_start_v01.png",
+    "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Side Leg Raise\\side_leg_raise_hero_v01.png"
+  ],
+  "backup_folder": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650",
+  "post_report": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\index.html",
+  "assets_hash_check": true,
+  "keep_original_hash_check": true,
+  "img_src_count": 21,
+  "existing_image_targets": 21,
+  "missing_image_targets": 0,
+  "missing": [],
+  "records": [
+    {
+      "exercise": "Bird Dog",
+      "type": "HERO",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_hero_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\bird_dog_hero_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Bird Dog\\bird_dog_hero_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\bird_dog_hero_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\bird_dog_hero_v01_after.png",
+      "before_hash": "933872c639612eb93d159c534d941370c599febec5549a09f441947a47d3bef8",
+      "preview_hash": "36d3a19ab8c59991ecca2b1d4bda32218ebbd01953cc8f9f8789a55217955f70",
+      "after_hash": "f981f668cb7c855cbe426a8e2dfb28c660d6b0c82bbdb3b2b2bc4f01661e910b",
+      "size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "exercise": "Bird Dog",
+      "type": "START",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_start_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\bird_dog_start_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Bird Dog\\bird_dog_start_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\bird_dog_start_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\bird_dog_start_v01_after.png",
+      "before_hash": "ced6fc50c9d4ed97a143feba60667972929fe359041b31b5d354be0a826baff1",
+      "preview_hash": "a3f6fa0da99e9c687afe75fff5077eaabbdc4e94f44299b0b230ec94251e8ac0",
+      "after_hash": "2bff6fb2b62f68fd52b30b26769feba5ff5bd0b1928d8438a102c756fd8dc4b4",
+      "size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "exercise": "Dead Bug",
+      "type": "HERO",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Dead Bug\\dead_bug_hero_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\dead_bug_hero_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Dead Bug\\dead_bug_hero_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\dead_bug_hero_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\dead_bug_hero_v01_after.png",
+      "before_hash": "7f8d070c7f53279779522b2005534b8050ae794ec64973c157f1e328f7a59f43",
+      "preview_hash": "136761caa068ae72d2906a6df581a793bf70f3186bffe6aaad2d448e1ee10d15",
+      "after_hash": "49f317d6da03ff3adbfb3ce5b6d8581bff39098c3769e46efdad146b9f0275c4",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "exercise": "Dead Bug",
+      "type": "START",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Dead Bug\\dead_bug_start_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\dead_bug_start_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Dead Bug\\dead_bug_start_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\dead_bug_start_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\dead_bug_start_v01_after.png",
+      "before_hash": "f8c697d0dd245bcd1d6bac674a43ec40e948422206a80bebe12cc81a2bccd5cd",
+      "preview_hash": "cc351746ce461125ee4b3b51743221bad4e29c2a1f2ff6fc8a7598d238f9efd0",
+      "after_hash": "7215e9bc2a40d99d373b44bfb7db8dfe1ecd9f4ec7aaa10195e4d0a76e20a8c3",
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "exercise": "Fire Hydrant",
+      "type": "HERO",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Fire Hydrant\\fire_hydrant_hero_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\fire_hydrant_hero_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Fire Hydrant\\fire_hydrant_hero_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\fire_hydrant_hero_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\fire_hydrant_hero_v01_after.png",
+      "before_hash": "4d70deee950c870d408182b73509df12b3e2c260c223284a665d2f7d3c03b84c",
+      "preview_hash": "a9d677a872d794a58d4bef8852f257594d5e64bb996dc88e403fd1571f529647",
+      "after_hash": "64935c4a2a2b23e4504ffd38c10f794d82c5e7c1efa51208a095a9d3b95dcc1c",
+      "size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "exercise": "Fire Hydrant",
+      "type": "START",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Fire Hydrant\\fire_hydrant_start_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\fire_hydrant_start_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Fire Hydrant\\fire_hydrant_start_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\fire_hydrant_start_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\fire_hydrant_start_v01_after.png",
+      "before_hash": "ac81b6fc2b8e9d4f7719d8d12ee02c0ac2f08408cc128e6616380b3ee4ddbd06",
+      "preview_hash": "69d859141a98b4b01c4ba34d2133f266b5816aabeed2b85a5499242a50eac422",
+      "after_hash": "1edcab6f446910d76b7850d81eba03703a9a9bbf86052582080cc0ab31981038",
+      "size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "exercise": "Side Leg Raise",
+      "type": "HERO",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Side Leg Raise\\side_leg_raise_hero_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Master_Audit\\previews\\side_leg_raise_hero_v01_master_preview.jpg",
+      "backup": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Source_Color_Approved_Backup_20260714_111650\\Side Leg Raise\\side_leg_raise_hero_v01.png",
+      "report_before": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\before_backup\\side_leg_raise_hero_v01_before.png",
+      "report_after": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Post_Color_QA\\after_sources\\side_leg_raise_hero_v01_after.png",
+      "before_hash": "86aeed0d4f79c5018b13ff984b1c19cb0e6757e8ed42b1cb88d79d7994cf382b",
+      "preview_hash": "3f4c4556d2092745039f986c65bccacfcb126dfa8b0bd3ed08940d48fc37c0ed",
+      "after_hash": "fbbcfe3767d7eaad5fa874b96ce62c2c688b2be173b45698b150fcbb9dc5d663",
+      "size": [
+        1672,
+        941
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "html_report": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Bird_Dog_Hair_Fix_Preview\\index.html",
+  "source_hash_check": true,
+  "model_master_hash_check": true,
+  "assets_hash_check": true,
+  "img_src_count": 6,
+  "existing_image_targets": 6,
+  "missing_image_targets": 0,
+  "missing": [],
+  "records": [
+    {
+      "label": "Bird Dog HERO",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_hero_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Bird_Dog_Hair_Fix_Preview\\previews\\bird_dog_hero_hair_fix_preview.png",
+      "mask_method": "Conservative RGB/luminance hair mask inside manual head ROI (250, 275, 535, 472), connected-component cleanup, 5px local expansion, 2.2px feather, alpha capped at 72%.",
+      "hair_lightness_change": "Local hair pixels lightly lifted; highlights and strand contrast preserved.",
+      "hair_color_shift": "Copper/dark-brunette cast reduced by adding green/blue balance and limiting red-orange dominance; no global photo change.",
+      "changed_pixel_count": 13317,
+      "changed_bounding_box": [
+        283,
+        306,
+        502,
+        443
+      ],
+      "changed_pixel_percentage": 0.8468529654161961,
+      "outside_expected_roi_count": 0,
+      "status": "HAIR_FIX_PREVIEW_READY",
+      "notes": "Preview only. Source remains unchanged. Mask constrained to hair/head area and does not intentionally affect face, skin, top, room or mat."
+    },
+    {
+      "label": "Bird Dog START",
+      "source": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\02_Exercise_Cards\\Bird Dog\\bird_dog_start_v01.png",
+      "preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Bird_Dog_Hair_Fix_Preview\\previews\\bird_dog_start_hair_fix_preview.png",
+      "mask_method": "Conservative RGB/luminance hair mask inside manual head ROI (250, 270, 545, 472), connected-component cleanup, 5px local expansion, 2.2px feather, alpha capped at 72%.",
+      "hair_lightness_change": "Local hair pixels lightly lifted; highlights and strand contrast preserved.",
+      "hair_color_shift": "Copper/dark-brunette cast reduced by adding green/blue balance and limiting red-orange dominance; no global photo change.",
+      "changed_pixel_count": 15217,
+      "changed_bounding_box": [
+        280,
+        296,
+        491,
+        468
+      ],
+      "changed_pixel_percentage": 0.9676775230711313,
+      "outside_expected_roi_count": 0,
+      "status": "HAIR_FIX_PREVIEW_READY",
+      "notes": "Preview only. Source remains unchanged. Mask constrained to hair/head area and does not intentionally affect face, skin, top, room or mat."
+    }
+  ]
+}
