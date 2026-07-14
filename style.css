@@ -2593,3 +2593,52 @@ main button:not(.primary):not(.active),
     font-size:22px!important;
   }
 }
+
+/* v59.16: workout header visual polish only */
+.v53CleanTrain .trainTop2,
+.v50Train .trainTop2{
+  margin-bottom:2px!important;
+}
+.v53CleanTrain .progress,
+.v50Train .progress{
+  margin:3px 0 3px!important;
+}
+.v53CleanTrain .workoutHeaderPanel,
+.v50Train .workoutHeaderPanel{
+  min-height:80px;
+  margin:2px auto 4px!important;
+  padding:7px 10px!important;
+}
+.v53CleanTrain .workoutHeaderPanel .compactWorkoutDose,
+.v50Train .workoutHeaderPanel .compactWorkoutDose{
+  font-size:clamp(1.12rem,3.8vw,1.28rem)!important;
+  line-height:1.08!important;
+  margin:0 0 2px!important;
+}
+.v53CleanTrain .workoutHeaderPanel .workoutPhaseText,
+.v50Train .workoutHeaderPanel .workoutPhaseText{
+  font-size:clamp(.68rem,2.35vw,.78rem)!important;
+  font-weight:700!important;
+  letter-spacing:.035em!important;
+  line-height:1.12!important;
+}
+.v53CleanTrain .workoutHeaderPanel .trainName,
+.v50Train .workoutHeaderPanel .trainName{
+  margin-bottom:2px!important;
+}
+.v53CleanTrain .workoutHeaderPanel + .trainImageSlot,
+.v50Train .workoutHeaderPanel + .trainImageSlot{
+  margin-top:2px!important;
+}
+@media(max-width:420px){
+  .v53CleanTrain .workoutHeaderPanel,
+  .v50Train .workoutHeaderPanel{
+    min-height:78px;
+    margin:2px auto 3px!important;
+    padding:7px 8px!important;
+  }
+  .v53CleanTrain .workoutHeaderPanel .compactWorkoutDose,
+  .v50Train .workoutHeaderPanel .compactWorkoutDose{
+    font-size:clamp(1.04rem,4.2vw,1.18rem)!important;
+  }
+}
