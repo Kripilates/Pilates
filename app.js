@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.14-dev';
+const APP_VERSION='v59.15-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -859,21 +859,27 @@ function showAutoTrain(opts={}){
   const sideSlotText=(!isAlternatingExercise(k,dose) && workoutPhase==='switch' && Date.now()<sideNoticeUntil)
     ? `✓ ${sideNoticeDone||'Strana'} hotová · Pokračujeme ${sideContinueText(sideNoticeNext)}.`
     : (!statusShowsCurrentSide && sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? sideLabel : '');
-  const sideText=`<div class="sidePlainText workoutSideText">${sideSlotText}</div>`;
   const doseLabel=prettyDose(dose||ex.dose);
   const phaseText=phaseLabel();
-  const statusContent=(isTimedActive || workoutPhase==='roundRest') ? `<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>` : `<div class="repBox noTimerBox workoutSeriesBox"><span>Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>`;
+  const hasTimerLayout=isTimedActive || workoutPhase==='roundRest';
+  const seriesLabel=`Série ${workoutCurrentSet} ze ${workoutTotalSets}`;
+  const statusLabel=workoutPaused ? 'Pauza' : (workoutPhase==='switch'&&sideSlotText ? sideSlotText : (statusShowsCurrentSide ? sideLabel : (sideSlotText || (workoutPhase==='work'&&!info.timed ? seriesLabel : phaseText))));
+  const timerContent=`<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>`;
+  const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
+  const workoutHeaderHtml=hasTimerLayout
+    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose">${doseLabel}</div><div class="workoutPhaseText">${statusLabel}</div></div><div class="workoutTimerSlot">${timerContent}</div>`
+    : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep')?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise;
   if(canPatchExisting){
     existing.dataset.workoutPhase=workoutPhase;
     const bar=existing.querySelector('.progress .bar'); if(bar)bar.style.width=`${progress}%`;
-    const doseEl=existing.querySelector('.compactWorkoutDose'); if(doseEl)doseEl.textContent=doseLabel;
-    const phaseEl=existing.querySelector('.workoutPhaseText'); if(phaseEl)phaseEl.textContent=phaseText;
-    const statusEl=existing.querySelector('.workoutStatusSlot');
-    if(statusEl)statusEl.innerHTML=`<div class="workoutPhaseText">${phaseText}</div>${statusContent}`;
-    const sideEl=existing.querySelector('.workoutSideText'); if(sideEl)sideEl.textContent=sideSlotText;
+    const headerPanel=existing.querySelector('.workoutHeaderPanel');
+    if(headerPanel){
+      headerPanel.className=workoutHeaderClass;
+      headerPanel.innerHTML=workoutHeaderHtml;
+    }
     const controls=existing.querySelector('.trainControls'); if(controls)controls.innerHTML=controlsHtml;
     return;
   }
@@ -881,10 +887,7 @@ function showAutoTrain(opts={}){
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}">
     <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose trainProgressLabel"><strong>Cvik ${currentExercise+1} z ${dayObj.items.length}</strong><small>Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</small></span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
-    <h2 class="trainName">${ex.name}</h2>
-    <div class="trainDose compactWorkoutDose">${doseLabel}</div>
-    <div class="workoutStatusSlot" aria-label="Stav cviku"><div class="workoutPhaseText">${phaseText}</div>${statusContent}</div>
-    <div class="workoutSideSlot">${sideText}</div>
+    <div class="${workoutHeaderClass}" aria-label="Stav cviku">${workoutHeaderHtml}</div>
     <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
