@@ -1,0 +1,22 @@
+{
+  "hero_status": "HAIR_FIX_PREVIEW_READY",
+  "mask_method": "V2 stronger local hair silhouette mask inside manual head ROI (248, 286, 535, 468); connected-component cleanup; 9px expansion; 3.0px feather; alpha cap 92%; strict plausible-hair guard.",
+  "changed_pixel_count": 18172,
+  "changed_bounding_box": [
+    282,
+    306,
+    526,
+    468
+  ],
+  "changed_pixel_percentage": 1.1555915061607807,
+  "outside_expected_roi_count": 0,
+  "html_report": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Bird_Dog_Hair_Fix_Preview\\index.html",
+  "v2_preview": "C:\\Users\\Kristy\\Documents\\GitHub\\Pilates\\Pilates Assets\\03_Exports\\Bird_Dog_Hair_Fix_Preview\\previews\\bird_dog_hero_hair_fix_preview_v2.png",
+  "source_hash_check": true,
+  "model_master_hash_check": true,
+  "assets_hash_check": true,
+  "img_src_count": 4,
+  "existing_image_targets": 4,
+  "missing_image_targets": 0,
+  "missing": []
+}
