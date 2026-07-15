@@ -1,49 +1,152 @@
 # MODEL CONSISTENCY AUDIT
 
-Updated: 2026-07-14T11:35:32
+AUDIT ONLY ? NO FILES CHANGED
 
-MODEL_MASTER: `Pilates Assets/01_Master_Reference/MODEL_MASTER.png.png`
+Datum auditu: 2026-07-15
 
-Scope: model consistency only. This document tracks hair, body/muscularity and overall model identity decisions. It does not evaluate anatomy, room color, floor, mat or outfit color.
+## Pou?it? reference
 
-## Manual QA Policy
+- Po?adovan? reference `Pilates Assets/01_Master_Reference/MODEL_MASTER.png`: nenalezena.
+- Hlavn? pou?it? identity reference: `Pilates Assets\01_Master_Reference\MODEL_MASTER.png.png`
+- Dal?? soubory v `01_Master_Reference`:
+  - `Pilates Assets\01_Master_Reference\ENVIRONMENT_MASTER.png` ? scene/environment reference candidate, not used as identity master
+  - `Pilates Assets\01_Master_Reference\MODEL_MASTER.png.png` ? main identity reference
+  - `Pilates Assets\01_Master_Reference\STUDIO MASTER.png` ? scene/environment reference candidate, not used as identity master
 
-- MODEL_OK: keep original unchanged.
-- HAIR_MINOR_DIFFERENCE: keep original unchanged for this phase.
-- MUSCULARITY_MINOR_DIFFERENCE: keep original unchanged for this phase.
-- Bird Dog major hair issue: local hair fix candidate only, no regeneration decision now.
-- Fire Hydrant major hair + muscularity issue: regenerate source due to model mismatch.
+## Rozsah auditu
 
-## Status Table
+- Auditov?no pouze source START / HERO / END v `Pilates Assets/02_Exercise_Cards/`.
+- Nehodnoceny Guide Card, Step by Step, exporty, preview, backupy ani archiv.
+- APPROVED status nebyl br?n jako automatick? shoda modelky.
 
-| Exercise | Image | Audit Finding | Decision | Reason |
-|---|---|---|---|---|
-| Bird Dog | HERO | HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE | HAIR_LOCAL_FIX_CANDIDATE | Hair is too dark with dark brunette / copper-orange impression compared with MODEL_MASTER. Body is not a regeneration reason. |
-| Bird Dog | START | HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE | HAIR_LOCAL_FIX_CANDIDATE | Hair is too dark with dark brunette / copper-orange impression compared with MODEL_MASTER. Body is not a regeneration reason. |
-| Clamshell | HERO | MODEL_OK | KEEP_ORIGINAL | Manual QA accepts the source as-is. |
-| Clamshell | START | MODEL_OK | KEEP_ORIGINAL | Manual QA accepts the source as-is. |
-| Dead Bug | HERO | HAIR_MINOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE | KEEP_ORIGINAL | Minor differences are accepted for this project phase. |
-| Dead Bug | START | HAIR_MINOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE | KEEP_ORIGINAL | Minor differences are accepted for this project phase. |
-| Fire Hydrant | HERO | HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MAJOR_DIFFERENCE | REGENERATE_SOURCE_MODEL_MISMATCH | Model differs from MODEL_MASTER in hair lightness/color plus shoulders, deltoids, upper arms, upper back and overall muscular physique. |
-| Fire Hydrant | START | HAIR_MAJOR_DIFFERENCE + MUSCULARITY_MAJOR_DIFFERENCE | REGENERATE_SOURCE_MODEL_MISMATCH | Model differs from MODEL_MASTER in hair lightness/color plus shoulders, deltoids, upper arms, upper back and overall muscular physique. |
-| Glute Bridge | HERO | MODEL_OK | KEEP_ORIGINAL | Manual QA accepts the source as-is. |
-| Glute Bridge | START | MODEL_OK | KEEP_ORIGINAL | Manual QA explicitly keeps original unchanged. |
-| Hip March | HERO | MODEL_OK | KEEP_ORIGINAL | Manual QA accepts the source as-is. |
-| Side Leg Raise | HERO | HAIR_MINOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE | KEEP_ORIGINAL | Minor differences are accepted for this project phase. |
-| Side Leg Raise | START | HAIR_MINOR_DIFFERENCE + MUSCULARITY_MINOR_DIFFERENCE | KEEP_ORIGINAL | Minor differences are accepted for this project phase. |
-| Toe Tap | HERO | HAIR_MINOR_DIFFERENCE | KEEP_ORIGINAL | Minor hair difference is accepted for this project phase. |
-| Toe Tap | START | MODEL_OK | KEEP_ORIGINAL | Manual QA accepts the source as-is. |
+## Souhrn
 
-## Regeneration Required
+- Po?et auditovan?ch SOURCE obr?zk?: 16
+- A: 4
+- B: 6
+- C: 4
+- D: 2
 
-- Fire Hydrant HERO: `REGENERATE_SOURCE_MODEL_MISMATCH`
-- Fire Hydrant START: `REGENERATE_SOURCE_MODEL_MISMATCH`
+## C / D n?lezy
 
-## Local Fix Candidate
+| PRIORITA | CVIK | SOURCE | SOUBOR | HODNOCEN? | HLAVN? ODCHYLKA |
+|---|---|---|---|---|---|
+| 1 | Fire Hydrant | HERO | `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_hero_v01.png` | D | Model reads as a different, more athletic woman: darker/copper hair, stronger shoulders/deltoids/upper arms and upper back. |
+| 2 | Fire Hydrant | START | `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_start_v01.png` | D | Same high-priority model mismatch as HERO: dark/copper hair plus visibly stronger athletic body type. |
+| 3 | Bird Dog | START | `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png` | C | Noticeable hair drift: dark brunette/copper-orange impression remains; body is acceptable for weight-bearing pose. |
+| 4 | Side Leg Raise | START | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png` | C | Noticeable drift in hair value/color and slightly stronger side-body/arm impression. |
+| 5 | Side Leg Raise | HERO | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png` | C | Noticeable drift: hair darker and body impression a little more athletic than MODEL_MASTER. |
+| 6 | Toe Tap | HERO | `Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png` | C | Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MODEL_MASTER. |
 
-- Bird Dog HERO: `HAIR_LOCAL_FIX_CANDIDATE`
-- Bird Dog START: `HAIR_LOCAL_FIX_CANDIDATE`
+## TOP 10 nejhor??ch obr?zk? z hlediska identity modelky
 
-## No Image Changes
+### 1. Fire Hydrant ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_hero_v01.png`
+Hodnocen?: D
+IDENTITA: Face/overall impression drifts from MODEL_MASTER; model appears more fitness/athletic.
+VLASY: Too dark with copper-orange cast, not mid-light dark blonde/light brown.
+POSTAVA: Strong mismatch: shoulders, deltoids, upper arms and upper back read more muscular than master.
+OUTFIT: Coral top and leggings broadly similar, but identity mismatch dominates.
+PRO? JE TO PROBL?M: Model reads as a different, more athletic woman: darker/copper hair, stronger shoulders/deltoids/upper arms and upper back.
+DOPORU?EN?: REGENERATE
 
-This documentation update does not overwrite source images, create previews, change assets/exercises, or modify the application.
+### 2. Fire Hydrant ? START
+Soubor: `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_start_v01.png`
+Hodnocen?: D
+IDENTITA: Overall body/face impression does not convincingly read as the same concrete woman.
+VLASY: Dark brunette/copper impression; outside target hair range.
+POSTAVA: Strong mismatch in shoulders, deltoids, upper arms, upper back and overall physique.
+OUTFIT: Outfit is in the family, but body/hair mismatch is too strong.
+PRO? JE TO PROBL?M: Same high-priority model mismatch as HERO: dark/copper hair plus visibly stronger athletic body type.
+DOPORU?EN?: REGENERATE
+
+### 3. Bird Dog ? START
+Soubor: `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png`
+Hodnocen?: C
+IDENTITA: Still plausible but noticeably less like MODEL_MASTER than stronger matches.
+VLASY: Too dark and warm/copper compared with mid-light dark blonde/light brown target.
+POSTAVA: Minor athletic definition from all-fours support; not a regeneration reason.
+OUTFIT: Outfit consistent enough.
+PRO? JE TO PROBL?M: Noticeable hair drift: dark brunette/copper-orange impression remains; body is acceptable for weight-bearing pose.
+DOPORU?EN?: MINOR FIX
+
+### 4. Side Leg Raise ? START
+Soubor: `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png`
+Hodnocen?: C
+IDENTITA: Reads as similar type but not fully the same specific woman.
+VLASY: Slightly darker / more contrasty than target.
+POSTAVA: Slightly more athletic in visible upper body; still not D.
+OUTFIT: Outfit close enough.
+PRO? JE TO PROBL?M: Noticeable drift in hair value/color and slightly stronger side-body/arm impression.
+DOPORU?EN?: MINOR FIX
+
+### 5. Side Leg Raise ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png`
+Hodnocen?: C
+IDENTITA: Comparable but visible AI drift from master identity.
+VLASY: Darker than target, less neutral mid-light brown.
+POSTAVA: Mild upper-arm/shoulder athletic impression; pose explains some but not all.
+OUTFIT: Outfit acceptable.
+PRO? JE TO PROBL?M: Noticeable drift: hair darker and body impression a little more athletic than MODEL_MASTER.
+DOPORU?EN?: MINOR FIX
+
+### 6. Toe Tap ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png`
+Hodnocen?: C
+IDENTITA: Somewhat different facial/hair impression; still usable but not strong.
+VLASY: Hair reads darker/more muted and less like the master target.
+POSTAVA: Body type acceptable; no major muscularity issue.
+OUTFIT: Outfit similar enough, though overall impression is less matched.
+PRO? JE TO PROBL?M: Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MODEL_MASTER.
+DOPORU?EN?: MINOR FIX
+
+### 7. Bird Dog ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_hero_v01.png`
+Hodnocen?: B
+IDENTITA: Believable in-app as same woman, but not a strong match.
+VLASY: Improved versus original; still not as natural/light as MODEL_MASTER.
+POSTAVA: Minor athletic definition from loaded arms; acceptable.
+OUTFIT: Outfit consistent.
+PRO? JE TO PROBL?M: After approved V1 hair fix, identity is acceptable; remaining drift is mainly weight-bearing/body tension and some hair character.
+DOPORU?EN?: KEEP
+
+### 8. Dead Bug ? START
+Soubor: `Pilates Assets\02_Exercise_Cards\Dead Bug\dead_bug_start_v01.png`
+Hodnocen?: B
+IDENTITA: Believable same model with small AI drift.
+VLASY: Slightly darker/warmer than master but within acceptable range.
+POSTAVA: Arms/shoulders slightly more defined due to pose, acceptable.
+OUTFIT: Outfit consistent.
+PRO? JE TO PROBL?M: Acceptable match with minor hair/body drift in raised-limb pose.
+DOPORU?EN?: KEEP
+
+### 9. Dead Bug ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Dead Bug\dead_bug_hero_v01.png`
+Hodnocen?: B
+IDENTITA: Reads as same general model in app context.
+VLASY: Slightly darker than target, not major.
+POSTAVA: Mild raised-arm definition, acceptable.
+OUTFIT: Outfit consistent.
+PRO? JE TO PROBL?M: Acceptable match; minor drift in face/hair and arm definition.
+DOPORU?EN?: KEEP
+
+### 10. Reverse Crunch ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Reverse Crunch\reverse_crunch_hero_v01.png`
+Hodnocen?: B
+IDENTITA: Believable same model in the series, not a strong perfect match.
+VLASY: Hair is somewhat wavier/lighter at ends than master but plausible.
+POSTAVA: Body proportions acceptable; no excessive muscularity.
+OUTFIT: Outfit close to standard.
+PRO? JE TO PROBL?M: Acceptable new HERO: face and body generally match, with some hair/styling drift from master.
+DOPORU?EN?: KEEP
+
+## Review board
+
+- TOP 10 contact sheet: `04_Codex\MODEL_CONSISTENCY_TOP10_REVIEW.png`
+
+## Pozn?mky
+
+- Fire Hydrant START/HERO jsou vysok? priorita regenerace kv?li kombinaci hair + body type mismatch.
+- Bird Dog HERO byl ji? lok?ln? opraven Hair Fix V1; po oprav? je veden jako B / KEEP, ne jako C/D.
+- Bird Dog START z?st?v? kandid?t na lok?ln? opravu vlas?.
+- Minor drift u B polo?ek ponechat pro tuto f?zi bez z?sahu.

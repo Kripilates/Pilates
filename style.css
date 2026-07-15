@@ -2642,3 +2642,11 @@ main button:not(.primary):not(.active),
     font-size:clamp(1.04rem,4.2vw,1.18rem)!important;
   }
 }
+
+/* Final stretch block in day detail */
+.finalStretchCard{background:linear-gradient(180deg,var(--card),var(--soft));border-style:dashed}
+.finalStretchHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.finalStretchHead span{color:var(--p);font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.finalStretchHead small{color:var(--muted);font-weight:800}
+.finalStretchGrid{grid-template-columns:minmax(0,1fr)!important}
+@media(min-width:760px){.finalStretchGrid{max-width:420px}}
