@@ -21,10 +21,12 @@ Datum auditu: 2026-07-15
 
 ## Souhrn
 
-- Po?et auditovan?ch SOURCE obr?zk?: 16
+- Po?et auditovan?ch SOURCE souboru: 17
+- Po?et unik?tn?ch SOURCE z?znamu v auditu: 17
+- Pozn?mka: `side leg.png` byl doplnen jako samostatny SOURCE, protoze neni byte-identicky se `side_leg_start_v01.png`.
 - A: 4
 - B: 6
-- C: 4
+- C: 5
 - D: 2
 
 ## C / D n?lezy
@@ -37,6 +39,7 @@ Datum auditu: 2026-07-15
 | 4 | Side Leg Raise | START | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png` | C | Noticeable drift in hair value/color and slightly stronger side-body/arm impression. |
 | 5 | Side Leg Raise | HERO | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png` | C | Noticeable drift: hair darker and body impression a little more athletic than MODEL_MASTER. |
 | 6 | Toe Tap | HERO | `Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png` | C | Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MODEL_MASTER. |
+| 7 | Side Leg Raise | START alias | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side leg.png` | C | Separate non-byte-identical SOURCE file. Same dimensions as `side_leg_start_v01.png`, but SHA-256 and pixels differ; visual finding is treated as same category as Side Leg START, without changing original Side Leg START rating. |
 
 ## TOP 10 nejhor??ch obr?zk? z hlediska identity modelky
 
@@ -139,6 +142,33 @@ POSTAVA: Body proportions acceptable; no excessive muscularity.
 OUTFIT: Outfit close to standard.
 PRO? JE TO PROBL?M: Acceptable new HERO: face and body generally match, with some hair/styling drift from master.
 DOPORU?EN?: KEEP
+
+
+## Side Leg START alias verification addendum
+
+Datum doplneni: 2026-07-15
+
+Compared files:
+
+- `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side leg.png`
+- `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_start_v01.png`
+
+Result:
+
+- Byte-identical: NO
+- SHA-256 `side leg.png`: `1a5df259d437fe09877d29122d5f3dd3770ac2e114d63af7822ea8e9c37d3f61`
+- SHA-256 `side_leg_start_v01.png`: `488dfadc721f8883f758e7d67dea2f34705f93fe3fd1f55a27eef0189c569245`
+- Dimensions both files: 1672 x 941 px
+- Pixel comparison: 1,563,896 / 1,573,352 pixels differ (99.39899%), first diff at 0,0, max channel diff 255
+- Sampled mean absolute RGB difference: 13.763
+
+Audit decision:
+
+- `side leg.png` is not a byte-identical duplicate alias of `side_leg_start_v01.png`.
+- It is added as a separate SOURCE file for audit coverage.
+- Original `Side Leg START` rating for `side_leg_start_v01.png` remains unchanged.
+- TOP 10 review board PNG was not updated, because this check did not introduce a new model-identity finding beyond the existing Side Leg START issue.
+- `MODEL_MASTER.png.png` keeps its current double extension; rename is deferred to a separate cleanup task.
 
 ## Review board
 
