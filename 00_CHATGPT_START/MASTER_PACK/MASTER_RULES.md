@@ -1,3 +1,10 @@
+> MASTER_PACK_V2_SUPERSEDES_THIS_FILE
+>
+> Tento soubor je ponechán pouze jako historická reference. Aktuální jediný platný MASTER systém je:
+> `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`
+>
+> Pokud je tento soubor v rozporu s MASTER_PACK_V2, platí MASTER_PACK_V2. Historii nemaž.
+
 # MASTER PACK RULES
 
 ## Current approved visual references

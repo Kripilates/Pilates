@@ -1,3 +1,7 @@
+> MASTER_SYSTEM_V2_ACTIVE
+>
+> Tento soubor je historická prompt knihovna v1. Pro aktuální prompt pravidla platí `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md` a `EXERCISE_PROMPT_TEMPLATE.md`. Nepoužívej staré prompty, pokud odporují MASTER_PACK_V2.
+
 # Prompt Library v1
 
 ## HERO

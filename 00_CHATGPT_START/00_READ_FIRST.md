@@ -1,3 +1,8 @@
+> MASTER_SYSTEM_V2_ACTIVE
+>
+> V novém chatu načti nejdříve `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md` a `00_CHATGPT_START/MASTER_PACK_V2/MASTER_IMAGE_CHECKLIST.md`.
+> Starý `MASTER_PACK/MASTER_RULES.md` je historická reference. Platí MASTER_PACK_V2.
+
 # READ FIRST – Pilates Body 40+
 
 Tento balíček je určen pro nové vlákno ChatGPT.

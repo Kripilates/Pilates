@@ -1,3 +1,8 @@
+> MASTER_SYSTEM_V2_ACTIVE
+>
+> Tento workflow je podřízen `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
+> Platný zdroj pravdy pro prostředí je ENVIRONMENT_MASTER. Platný zdroj pravdy pro identitu je MODEL_MASTER_CHARACTER. Starší formulace „Glute Bridge HERO je jediný MODEL MASTER“ je zastaralá, ale Glute Bridge HERO zůstává referencí kvality a schváleného vzhledu.
+
 # Pilates Body 40+ – IMAGE WORKFLOW v2.0
 
 ## Účel
@@ -6,7 +11,7 @@ Tento dokument definuje jednotný způsob tvorby všech obrázků v projektu Pil
 
 Je závazný pro všechny budoucí AI modely pracující na projektu.
 
-Pokud je jakýkoliv pokyn v rozporu s tímto dokumentem, přednost má IMAGE_WORKFLOW.md.
+Pokud je jakýkoliv MASTER pokyn v rozporu s MASTER_PACK_V2, přednost má MASTER_PACK_V2. Tento dokument zůstává podpůrný workflow dokument.
 
 ---
 
@@ -28,19 +33,18 @@ Ale jako jedno jediné focení.
 
 ---
 
-# MODEL MASTER
+# MASTER SYSTEM
 
-Referenční fotografie:
+Platný MASTER systém je MASTER_PACK_V2.
 
-Glute Bridge HERO
+Používej:
 
-Tato fotografie je jediný MODEL MASTER.
+- MODEL_MASTER_CHARACTER pro identitu modelky
+- ENVIRONMENT_MASTER pro prostředí
+- MODEL_MASTER_HERO pro kvalitu HERO výstupu
+- EXERCISE_REFERENCE pro anatomii konkrétního cviku
 
-Není pouze inspirací.
-
-Je závaznou předlohou.
-
-Každý nový obrázek musí působit jako další fotografie pořízená několik sekund po této fotografii.
+Glute Bridge HERO zůstává schválená reference kvality, ale není jediný MASTER systém.
 
 ---
 
@@ -265,7 +269,7 @@ Pokud je cvik proveden špatně, fotografie se považuje za chybnou bez ohledu n
 
 # Kontrola konzistence
 
-Před schválením každého nového obrázku musí AI porovnat nový obrázek s MODEL MASTER.
+Před schválením každého nového obrázku musí AI porovnat nový obrázek s MASTER_PACK_V2.
 
 Musí zkontrolovat:
 
@@ -284,7 +288,7 @@ Pokud je rozdíl viditelný na první pohled, obrázek není správný.
 
 Před dokončením každého obrázku si AI položí otázku:
 
-"Kdyby někdo viděl Glute Bridge HERO a tento nový obrázek vedle sebe, uvěřil by, že byly nafoceny během jednoho dopoledne jedním fotografem?"
+"Kdyby někdo viděl MASTER CHARACTER, MASTER ENVIRONMENT, Glute Bridge HERO a tento nový obrázek vedle sebe, uvěřil by, že jde o stejnou modelku ve stejné sérii?"
 
 Pokud odpověď není jednoznačně ANO,
 
@@ -313,7 +317,7 @@ Hodnotí se zejména:
 ## Hodnoticí stupnice
 
 10,0
-Referenční kvalita (MODEL MASTER)
+Referenční kvalita podle MASTER_PACK_V2
 
 9,8–9,9
 Výjimečná kvalita

@@ -1,3 +1,8 @@
+> MASTER_SYSTEM_V2_ACTIVE
+>
+> Prompt template je podřízen `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
+> Používej MODEL_MASTER_CHARACTER, MASTER TVÁŘ / Master tvář.png, ENVIRONMENT_MASTER, MODEL_MASTER_HERO a EXERCISE_REFERENCE. Neměň modelku, obličej, vlasy, postavu, outfit, místnost, kameru, světlo, perspektivu, podlahu ani podložku. Mění se pouze poloha těla podle cviku.
+
 # PRE-GENERATION QA
 
 Exercise:
@@ -54,15 +59,17 @@ Do not create:
 - new props
 
 Use MODEL_MASTER_CHARACTER.png.
-Use MODEL_MASTER_SCENE.png.
+Use Master tvář.png for MASTER FACE MATCH.
+Use ENVIRONMENT_MASTER.png.
 Use MODEL_MASTER_HERO.png.
 Use EXERCISE_REFERENCE.png.
 
 Use all MASTER references actively.
+MASTER FACE MATCH must pass: same face, jawline, eyes, nose, mouth, ears, hair, hairline, profile and 3/4 view. If face identity does not match Master tvář.png, mark the result as REGENERATE.
 Do not treat them as loose inspiration.
 They are fixed visual constraints.
 
-Keep the same model, room, camera, lighting, outfit and visual style.
+Keep the same model, face, hair, body, room, camera, lighting, outfit, floor, mat and visual style.
 Change only the body pose according to EXERCISE_REFERENCE.png.
 
 Match EXERCISE_REFERENCE.png precisely:

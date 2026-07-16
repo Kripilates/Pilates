@@ -1,3 +1,8 @@
+> MASTER_SYSTEM_V2_ACTIVE
+>
+> Tento checklist se používá pouze podle `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
+> QA probíhá automaticky před každým schválením a kontroluje MASTER CHARACTER, MASTER TVÁŘ / MASTER FACE MATCH, MASTER ENVIRONMENT, MASTER STYLE, EXERCISE_REFERENCE, anatomii, správnost cviku, kameru, světlo, outfit, barvy a AI artefakty. Bez skóre minimálně 9.5/10 nesmí být výsledek APPROVED.
+
 # PRE-GENERATION QA
 
 Aktivní cvik:
@@ -56,7 +61,30 @@ Výsledek:
 - [ ] PROŠLO
 - [ ] NEPROŠLO
 
-# 2. MASTER SCENE
+# 2. MASTER FACE MATCH
+
+Použít MASTER TVÁŘ: `Pilates Assets/01_Master_Reference/Master tvář.png`.
+
+- [ ] shoda obličeje
+- [ ] tvar čelisti
+- [ ] oči
+- [ ] nos
+- [ ] ústa
+- [ ] uši
+- [ ] vlasy
+- [ ] linie vlasů
+- [ ] profil
+- [ ] 3/4 pohled
+- [ ] konzistence mezi všemi cviky
+
+Výsledek:
+
+- [ ] PROŠLO
+- [ ] NEPROŠLO → REGENERATE
+
+Pokud identita neodpovídá MASTER TVÁŘI, obrázek se automaticky označí jako REGENERATE.
+
+# 3. MASTER ENVIRONMENT
 
 - [ ] stejná místnost
 - [ ] stejná police
@@ -74,7 +102,7 @@ Výsledek:
 - [ ] PROŠLO
 - [ ] NEPROŠLO
 
-# 3. BAREVNOST A SVĚTLO
+# 4. BAREVNOST A SVĚTLO
 
 - [ ] stejný odstín pleti
 - [ ] stejný odstín topu
@@ -82,7 +110,7 @@ Výsledek:
 - [ ] bez nežádoucího žlutého nebo oranžového nádechu
 - [ ] bez výrazně chladnějšího nebo teplejšího posunu
 
-# 4. OBLEČENÍ
+# 5. OBLEČENÍ
 
 - [ ] korálový top
 - [ ] antracitové legíny
@@ -90,7 +118,7 @@ Výsledek:
 - [ ] žádné boty
 - [ ] žádné nové doplňky
 
-# 5. ANATOMICKÁ SHODA S EXERCISE_REFERENCE
+# 6. ANATOMICKÁ SHODA S EXERCISE_REFERENCE
 
 - [ ] EXERCISE_REFERENCE.png byla při kontrole otevřená
 - [ ] nový obrázek byl porovnán s referencí vedle sebe
@@ -105,7 +133,7 @@ Výsledek:
 
 Pokud některý bod anatomické kontroly neprojde, výsledek je NESCHVÁLENO.
 
-# 6. AI ARTEFAKTY
+# 7. AI ARTEFAKTY
 
 - [ ] ruce a prsty
 - [ ] chodidla a prsty
@@ -115,7 +143,7 @@ Pokud některý bod anatomické kontroly neprojde, výsledek je NESCHVÁLENO.
 - [ ] pozadí
 - [ ] žádné deformace
 
-# 7. CELKOVÝ DOJEM JEDNOHO FOCENÍ
+# 8. CELKOVÝ DOJEM JEDNOHO FOCENÍ
 
 Povinná otázka:
 
@@ -130,7 +158,8 @@ Výsledek je automaticky NESCHVÁLENO.
 # Bodové hodnocení
 
 MASTER CHARACTER: __ / 10
-MASTER SCENE: __ / 10
+MASTER FACE MATCH: __ / 10
+MASTER ENVIRONMENT: __ / 10
 BAREVNOST: __ / 10
 ANATOMIE: __ / 10
 AI KVALITA: __ / 10
