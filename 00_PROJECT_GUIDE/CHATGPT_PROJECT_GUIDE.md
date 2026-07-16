@@ -48,7 +48,7 @@ Aplikace vzniká proto, aby spojila jednoduchý domácí trénink, jasné vizuá
   - `CODEX_WORKFLOW.md`
   - `REFERENCE_DETAIL_IMPLEMENTATION_PLAN.md`
   - `IMAGE_WORKFLOW.md`
-  - `Pilates Assets/06_Project_Status/PROJECT_STATUS.md`
+  - `Pilates Assets/06_Project_Status/ARCHITECTURE_DECISIONS.md`
   - `Pilates Assets/06_Project_Status/ROADMAP.md`
   - `Pilates Assets/06_Project_Status/CHANGELOG.md`
   - `Pilates Assets/06_Project_Status/ARCHITECTURE_DECISIONS.md`
