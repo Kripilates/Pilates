@@ -1,7 +1,7 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
-> Pro obrázky a asset QA platí `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
-> Platná environment reference je `Pilates Assets/01_Master_Reference/ENVIRONMENT_MASTER.png`. Starší formulace o `MODEL_MASTER.png` zůstávají historické, pokud odporují MASTER_PACK_V2.
+> Pro obrázky a asset QA platí `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
+> Platná environment reference je `Pilates Assets/01_Master_Reference/ENVIRONMENT_MASTER.png`. Starší formulace o `MODEL_MASTER.png` zůstávají historické, pokud odporují MASTER.
 
 # Pilates Assets
 

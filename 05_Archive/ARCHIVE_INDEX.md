@@ -12,7 +12,7 @@ Archivováno do:
 `05_Archive/Documentation_Cleanup_2026-07-16/00_CHATGPT_START/MASTER_PACK/MASTER_RULES.md`
 
 Důvod:
-Nahrazeno 00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md.
+Nahrazeno 00_CHATGPT_START/MASTER/MASTER_REFERENCE.md.
 
 ### 00_CHATGPT_START/MASTER_PACK/PUT_REFERENCE_IMAGES_HERE.txt
 
@@ -20,7 +20,7 @@ Archivováno do:
 `05_Archive/Documentation_Cleanup_2026-07-16/00_CHATGPT_START/MASTER_PACK/PUT_REFERENCE_IMAGES_HERE.txt`
 
 Důvod:
-Starý placeholder pro původní MASTER_PACK; nahrazen MASTER_PACK_V2 a aktuálními master referencemi.
+Starý placeholder pro původní MASTER_PACK; nahrazen MASTER a aktuálními master referencemi.
 
 ### 00_CHATGPT_START/MASTER_PACK/REFERENCE_IMAGES_README.md
 
@@ -28,7 +28,7 @@ Archivováno do:
 `05_Archive/Documentation_Cleanup_2026-07-16/00_CHATGPT_START/MASTER_PACK/REFERENCE_IMAGES_README.md`
 
 Důvod:
-Starý README původního MASTER_PACK; nahrazen MASTER_PACK_V2/MASTER_REFERENCE.md.
+Starý README původního MASTER_PACK; nahrazen MASTER/MASTER_REFERENCE.md.
 
 ### 00_CHATGPT_START/DOCUMENTS_TO_UPLOAD.md
 
@@ -36,7 +36,7 @@ Archivováno do:
 `05_Archive/Documentation_Cleanup_2026-07-16/00_CHATGPT_START/DOCUMENTS_TO_UPLOAD.md`
 
 Důvod:
-Starý návod pro nový chat s odkazy na původní MASTER_PACK; nahrazen 00_READ_FIRST.md a MASTER_PACK_V2.
+Starý návod pro nový chat s odkazy na původní MASTER_PACK; nahrazen 00_READ_FIRST.md a MASTER.
 
 ### Pilates Assets/00_Project_Standards/Prompt_Library_v1.md
 
@@ -44,7 +44,7 @@ Archivováno do:
 `05_Archive/Documentation_Cleanup_2026-07-16/Pilates Assets/00_Project_Standards/Prompt_Library_v1.md`
 
 Důvod:
-Historická prompt knihovna v1; nahrazena EXERCISE_PROMPT_TEMPLATE.md a MASTER_PACK_V2 pravidly.
+Historická prompt knihovna v1; nahrazena EXERCISE_PROMPT_TEMPLATE.md a MASTER pravidly.
 
 ### 00_PROJECT_GUIDE/PROJECT_STATUS.md
 
@@ -276,7 +276,7 @@ Archivováno do:
 `05_Archive/Documentation_Cleanup_2026-07-16/04_Codex/SOURCE_COLOR_MASTER_AUDIT.md`
 
 Důvod:
-Starý color preview audit; jeho rozhodnutí byla vyhodnocena, aktivní pravidla jsou v MASTER_PACK_V2.
+Starý color preview audit; jeho rozhodnutí byla vyhodnocena, aktivní pravidla jsou v MASTER.
 
 ### Pilates Assets/04_Codex/Guide_Card_Template_HTML_CSS_Proposal.md
 

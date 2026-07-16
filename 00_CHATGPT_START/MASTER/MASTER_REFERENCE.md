@@ -3,7 +3,7 @@
 Status: ACTIVE MASTER SYSTEM
 
 Tento dokument je jediný platný MASTER systém projektu Pilates Body 40+.
-Starší MASTER dokumenty a starší MASTER_PACK jsou historické reference. Pokud jsou v rozporu s tímto dokumentem, platí MASTER_PACK_V2.
+Starší MASTER dokumenty jsou historické reference. Pokud jsou v rozporu s tímto dokumentem, platí MASTER.
 
 Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidlo nesmí rozbít existující workflow aplikace ani již schválené obrazové podklady. Sjednocení pravidel nemění obsah ani logiku projektu.
 
@@ -259,17 +259,17 @@ Každý prompt musí říkat:
 - Create only a clean source image.
 - No text, title, labels, icons, frames, UI, numbers or graphic elements.
 
-ChatGPT nesmí improvizovat, domýšlet si pravidla ani vytvářet nové MASTER dokumenty. Pokud si není jistý, musí použít MASTER_PACK_V2.
+ChatGPT nesmí improvizovat, domýšlet si pravidla ani vytvářet nové MASTER dokumenty. Pokud si není jistý, musí použít MASTER.
 
 ## NEW CHAT RULES
 
 Po založení nového chatu musí ChatGPT:
 
-1. Načíst MASTER_PACK_V2/MASTER_REFERENCE.md.
-2. Načíst MASTER_PACK_V2/MASTER_IMAGE_CHECKLIST.md.
+1. Načíst MASTER/MASTER_REFERENCE.md.
+2. Načíst MASTER/MASTER_IMAGE_CHECKLIST.md.
 3. Načíst PILATES_BODY_AI_BIBLE.md.
 4. Načíst aktuální project guide pouze jako podpůrný kontext.
-5. Považovat MASTER_PACK_V2 za jediný zdroj pravdy pro MASTER pravidla.
+5. Považovat MASTER za jediný zdroj pravdy pro MASTER pravidla.
 6. Nikdy nepřepisovat schválená MASTER pravidla vlastními návrhy.
 
 ## OBSOLETE REFERENCES

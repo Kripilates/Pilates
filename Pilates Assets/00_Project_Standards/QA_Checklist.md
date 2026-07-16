@@ -1,6 +1,6 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
-> Tento checklist se používá pouze podle `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
+> Tento checklist se používá pouze podle `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
 > QA probíhá automaticky před každým schválením a kontroluje MASTER CHARACTER, MASTER TVÁŘ / MASTER FACE MATCH, MASTER ENVIRONMENT, MASTER STYLE, EXERCISE_REFERENCE, anatomii, správnost cviku, kameru, světlo, outfit, barvy a AI artefakty. Bez skóre minimálně 9.5/10 nesmí být výsledek APPROVED.
 
 # PRE-GENERATION QA

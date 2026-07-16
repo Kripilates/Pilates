@@ -1,6 +1,6 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
-> Prompt template je podřízen `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
+> Prompt template je podřízen `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
 > Používej MODEL_MASTER_CHARACTER, MASTER TVÁŘ / Master tvář.png, ENVIRONMENT_MASTER, MODEL_MASTER_HERO a EXERCISE_REFERENCE. Neměň modelku, obličej, vlasy, postavu, outfit, místnost, kameru, světlo, perspektivu, podlahu ani podložku. Mění se pouze poloha těla podle cviku.
 
 # PRE-GENERATION QA

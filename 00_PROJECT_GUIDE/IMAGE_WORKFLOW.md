@@ -1,6 +1,6 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
-> Tento workflow je podřízen `00_CHATGPT_START/MASTER_PACK_V2/MASTER_REFERENCE.md`.
+> Tento workflow je podřízen `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
 > Platný zdroj pravdy pro prostředí je ENVIRONMENT_MASTER. Platný zdroj pravdy pro identitu je MODEL_MASTER_CHARACTER. Starší formulace „Glute Bridge HERO je jediný MODEL MASTER“ je zastaralá, ale Glute Bridge HERO zůstává referencí kvality a schváleného vzhledu.
 
 # Pilates Body 40+ – IMAGE WORKFLOW v2.0
@@ -11,7 +11,7 @@ Tento dokument definuje jednotný způsob tvorby všech obrázků v projektu Pil
 
 Je závazný pro všechny budoucí AI modely pracující na projektu.
 
-Pokud je jakýkoliv MASTER pokyn v rozporu s MASTER_PACK_V2, přednost má MASTER_PACK_V2. Tento dokument zůstává podpůrný workflow dokument.
+Pokud je jakýkoliv MASTER pokyn v rozporu s MASTER, přednost má MASTER. Tento dokument zůstává podpůrný workflow dokument.
 
 ---
 
@@ -35,7 +35,7 @@ Ale jako jedno jediné focení.
 
 # MASTER SYSTEM
 
-Platný MASTER systém je MASTER_PACK_V2.
+Platný MASTER systém je MASTER.
 
 Používej:
 
@@ -269,7 +269,7 @@ Pokud je cvik proveden špatně, fotografie se považuje za chybnou bez ohledu n
 
 # Kontrola konzistence
 
-Před schválením každého nového obrázku musí AI porovnat nový obrázek s MASTER_PACK_V2.
+Před schválením každého nového obrázku musí AI porovnat nový obrázek s MASTER.
 
 Musí zkontrolovat:
 
@@ -317,7 +317,7 @@ Hodnotí se zejména:
 ## Hodnoticí stupnice
 
 10,0
-Referenční kvalita podle MASTER_PACK_V2
+Referenční kvalita podle MASTER
 
 9,8–9,9
 Výjimečná kvalita

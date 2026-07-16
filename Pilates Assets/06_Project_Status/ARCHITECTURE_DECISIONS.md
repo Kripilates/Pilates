@@ -3,13 +3,13 @@
 
 ## AD-008
 Název:
-MASTER_PACK_V2 je jediný platný MASTER systém pro tvorbu a QA obrázků.
+MASTER je jediný platný MASTER systém pro tvorbu a QA obrázků.
 
 Status:
 Accepted
 
 Důsledky:
-- Starší MASTER_PACK a starší prompt/QA formulace jsou historické reference.
+- Starší master a prompt/QA formulace jsou historické reference.
 - MASTER CHARACTER, MASTER ENVIRONMENT, MASTER STYLE a EXERCISE_REFERENCE mají přednost před starým pravidlem „Glute Bridge HERO jako jediný MODEL MASTER“.
 - Sjednocení pravidel nesmí rozbít aplikaci ani existující schválené obrazové podklady.
 
