@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.22-dev';
+const APP_VERSION='v59.24-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -668,7 +668,7 @@ function days(){
 
 const baseDayEquipment=['Podložka'];
 const equipmentLabels={
-  dumbbells:'Lehké činky',
+  dumbbells:'Činky',
   long_band:'Dlouhá odporová guma',
   mini_band:'Mini band',
   pilates_ball:'Malý pilates míč'
