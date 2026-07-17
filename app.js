@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.24-dev';
+const APP_VERSION='v59.27-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -505,8 +505,7 @@ function daySummary(di){
   const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
   const minutes=Math.max(18, Math.round(items.length*4.5));
   const hard=items.some(([k])=>exMeta(k).diff==='Střední');
-  const gear=dayEquipment(items).map(item=>`<span>${esc(item)}</span>`).join('');
-  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>${hard?'🔥 Střední':'🟢 Lehké'}</span><span>🎯 ${main}</span>${gear}</div>`;
+  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>${hard?'🔥 Střední':'🟢 Lehké'}</span><span>🎯 ${main}</span></div>`;
 }
 
 function exCard(k,dose,d,i){
@@ -607,7 +606,7 @@ function intro(){
     </div>
   </section>
   <section class="card"><h2>Co budeš potřebovat</h2>
-    <div class="needGrid"><span>🧘 Podložku</span><span>💧 Vodu</span><span>⭕ Miniband volitelně</span><span>🏋️ Lehké činky volitelně</span></div>
+    <div class="needGrid"><span>🧘 Podložku</span><span>💧 Vodu</span><span>⭕ Odporová guma volitelně</span><span>🏋️ Lehké činky volitelně</span></div>
     <p class="inlineTip"><b>Pravidlo:</b> necvič přes ostrou bolest. U kolen drž menší rozsah a u hýždí tlač hlavně přes paty.</p>
   </section>`;
 }
@@ -670,7 +669,7 @@ const baseDayEquipment=['Podložka'];
 const equipmentLabels={
   dumbbells:'Činky',
   long_band:'Dlouhá odporová guma',
-  mini_band:'Mini band',
+  mini_band:'Odporová guma',
   pilates_ball:'Malý pilates míč'
 };
 function dayEquipment(items){
@@ -685,6 +684,10 @@ function dayEquipmentSection(items){
   const gear=dayEquipment(items);
   return `<section class="card dayEquipmentCard"><h2>PŘIPRAV SI</h2><div class="dayEquipmentList">${gear.map(item=>`<span>${item}</span>`).join('')}</div></section>`;
 }
+function dayEquipmentInline(items){
+  const gear=dayEquipment(items);
+  return `<div class="dayEquipmentInline"><p class="eyebrow">PŘIPRAV SI</p><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
+}
 function day(di,opts={}){
   clearDetailRoute();
   lastMode='day';setNav('days');currentDay=di;
@@ -695,7 +698,7 @@ function day(di,opts={}){
     <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${daySummary(di)}
-    ${dayEquipment(equipmentItems)}
+    ${dayEquipmentInline(equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
