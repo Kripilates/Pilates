@@ -2650,3 +2650,42 @@ main button:not(.primary):not(.active),
 .finalStretchHead small{color:var(--muted);font-weight:800}
 .finalStretchGrid{grid-template-columns:minmax(0,1fr)!important}
 @media(min-width:760px){.finalStretchGrid{max-width:420px}}
+
+
+/* v59.22 no-image fallback */
+.noImageState{
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--p);
+  font-weight:800;
+  line-height:1.25;
+  background:linear-gradient(135deg,var(--p2),#fff)!important;
+  border:1px dashed rgba(32,182,178,.38)!important;
+  box-shadow:inset 0 0 0 1px rgba(32,182,178,.08);
+}
+.noImageState span{
+  display:block;
+  max-width:14ch;
+  padding:8px;
+}
+.noImageState.thumb{
+  font-size:11px;
+}
+.noImageState.bigimg{
+  aspect-ratio:3/2;
+  min-height:min(54vh,360px);
+}
+.noImageState.v20HeroPhoto,
+.noImageState.v22HeroPhoto{
+  width:100%;
+  height:100%;
+}
+.noImageState.v20StepPhoto,
+.noImageState.v22StepPhoto{
+  width:100%;
+}
+@media(max-width:560px){
+  .noImageState.bigimg{min-height:min(34vh,260px)}
+}

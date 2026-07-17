@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.21-dev';
+const APP_VERSION='v59.22-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -316,14 +316,19 @@ function openMasterCard(src,alt){
   app.insertAdjacentHTML('beforeend',`<div class="masterLightbox" data-action="close-master-card" role="dialog" aria-modal="true" aria-label="${esc(alt||'Kompletní karta cviku')}"><button class="masterLightboxClose" type="button" data-action="close-master-card" aria-label="Zavřít">×</button><img src="${esc(src)}" alt="${esc(alt||'Kompletní karta cviku')}"></div>`);
 }
 function v22ImageSrc(k){return referenceExerciseAssets[k]?.hero || data.exercises[k]?.image || '';}
+function noImage(c='thumb',extra=''){
+  return `<div class="${c} noImageState" ${extra} role="img" aria-label="Obrázek připravujeme"><span>Obrázek připravujeme</span></div>`;
+}
 function img(k,c='thumb',extra=''){
   const ex=data.exercises[k];
   const src=v22ImageSrc(k);
+  if(!src)return noImage(c,extra);
   return `<img loading="lazy" class="${c}" ${extra} src="${src}" alt="${ex.name}">`;
 }
 
 function detailHeroImage(k){
   const src = v22ImageSrc(k);
+  if(!src)return noImage('v20HeroPhoto v22HeroPhoto');
   return `<img loading="lazy" class="v20HeroPhoto v22HeroPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'}">`;
 }
 function referencePhoto(ref,photo){
@@ -467,6 +472,7 @@ function detailStepMedia(k,n){
   if(verifiedStepPhotos[k]) return detailStepImage(k,n);
   const ex=data.exercises[k];
   if(n===1){
+    if(!ex.image)return `<figure class="v50StepFallback">${noImage('v20StepPhoto v22StepPhoto')}<figcaption>Ukázka cviku</figcaption></figure>`;
     return `<figure class="v50StepFallback"><img src="${ex.image}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Ukázka cviku</figcaption></figure>`;
   }
   return `<div class="v50StepIcon" aria-hidden="true">${n}</div>`;
