@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.28-dev';
+const APP_VERSION='v59.29-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -280,12 +280,6 @@ function cue(kind){
 const day1RealImages={};
 
 const masterCards={
-  hip:'assets/exercises/mastercards/glute-bridge-master.webp?v=55cards',
-  toetap:'assets/exercises/mastercards/toe-taps-master.webp?v=55cards',
-  clam:'assets/exercises/mastercards/clamshell-master.webp?v=55cards',
-  hydrant:'assets/exercises/mastercards/fire-hydrant-master.webp?v=55cards',
-  sideleg:'assets/exercises/mastercards/side-leg-lift-master.webp?v=55cards',
-  bird:'assets/exercises/mastercards/bird-dog-master.webp?v=55cards'
 };
 const referenceExerciseAssets={
   hip:{
@@ -300,6 +294,118 @@ const referenceExerciseAssets={
       {title:'START',caption:'Výchozí',text:'Lehni si na záda, pokrč kolena a chodidla polož na šířku boků.',photo:'start'},
       {title:'HLAVNÍ POHYB',caption:'Zvedni',text:'S výdechem zvedni pánev. Aktivuj hýždě a drž střed těla pevný.',photo:'hero'},
       {title:'NÁVRAT',caption:'Pomalu zpět',text:'Pomalu a kontrolovaně polož pánev zpět do výchozí polohy.',photo:'start'}
+    ]
+  },
+  rdl:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky drž u stehen.',photo:'start'},
+      {n:2,title:'HIP HINGE',caption:'Pánev dozadu.',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět do stoje.',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Postav se na šířku boků. Činky drž u stehen, ramena stáhni dolů a páteř drž dlouhou.',photo:'start'},
+      {title:'HIP HINGE',text:'Posuň pánev dozadu. Holeně zůstávají téměř svislé, záda neutrální a krk v prodloužení páteře.',photo:'hero'},
+      {title:'NÁVRAT',text:'Zatlač chodidla do podložky, aktivuj hýždě a vrať se zpět do stoje bez zaklánění.',photo:'start'}
+    ]
+  },
+  hydrant:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni koleno',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Začni na všech čtyřech. Dlaně jsou pod rameny, kolena pod kyčlemi a páteř je neutrální.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem zvedni pokrčené koleno do strany. Pánev zůstává stabilní a pohyb vychází z kyčle.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať koleno zpět pod kyčel. Neprohýbej bedra a neotáčej trup.',photo:'start'}
+    ]
+  },
+  clam:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Leh na boku',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Otevři koleno',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na bok. Pokrč kolena přibližně do 90°. Chodidla zůstávají u sebe.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem otevři horní koleno. Pohyb vychází z kyčle a pánev zůstává stabilní.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať koleno zpět. Chodidla zůstávají u sebe a trup se neotáčí dozadu.',photo:'start'}
+    ]
+  },
+  sideleg:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Leh na boku',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni nohu',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na bok. Spodní nohu nech lehce pokrčenou nebo nataženou podle varianty. Horní noha je natažená.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem zvedni horní nohu přibližně do 35–45°. Pánev zůstává stabilní.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem pomalu spusť nohu zpět. Pohyb prováděj kontrolovaně a bez švihu.',photo:'start'}
+    ]
+  },
+  deadbug:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Připrav střed',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na záda. Ruce směřují vzhůru, kyčle a kolena jsou přibližně v 90° a střed těla je aktivní.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem natahuj současně protilehlou ruku a nohu. Bedra zůstávají přitisknutá k podložce.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať ruku i nohu zpět do startu a střídej strany.',photo:'start'}
+    ]
+  },
+  toetap:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_hero.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy v 90/90',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Špička k podložce',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na záda. Pánev je stabilní, bedra neutrální a obě nohy jsou v pozici 90/90.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem pomalu pokládej špičku jedné nohy směrem k podložce. Pánev zůstává stabilní.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať nohu zpět do výchozí pozice a střídej strany.',photo:'start'}
+    ]
+  },
+  bird:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Začni na všech čtyřech. Dlaně jsou pod rameny, kolena pod kyčlemi a páteř je neutrální.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem natáhni protilehlou ruku a nohu. Pánev drž stabilní a krk dlouhý.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať ruku i koleno zpět pod tělo a vystřídej stranu.',photo:'start'}
+    ]
+  },
+  hip_march:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v1.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v01.png',
+    miniSteps:[
+      {n:1,title:'START',caption:'Výchozí',photo:'start'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Přitáhni koleno',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na záda, pokrč kolena a zvedni pánev do pozice mostu.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem přitáhni jedno koleno přibližně do úhlu 90°. Pánev zůstává stabilní.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem polož chodidlo zpět na podložku a opakuj na druhou stranu.',photo:'start'}
     ]
   }
 };
