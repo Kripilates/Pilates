@@ -1,0 +1,279 @@
+{
+  "template": "guide_card_template",
+  "version": "1.0",
+  "reference": "Romanian Deadlift Guide Card",
+  "output": {
+    "file": "guide_card_template.png",
+    "width": 780,
+    "height": 1688,
+    "format": "png"
+  },
+  "design_tokens": {
+    "colors": {
+      "page_background": "#eff9f9",
+      "card_background": "#ffffff",
+      "border": "#b6efed",
+      "accent": "#1fb8b3",
+      "accent_dark": "#18a6a0",
+      "title": "#132b46",
+      "body": "#6a7e95",
+      "soft": "#ecfbfa"
+    },
+    "fonts": {
+      "family": "Arial",
+      "title": {
+        "size": 50,
+        "weight": 700
+      },
+      "step_label": {
+        "size": 24,
+        "weight": 700
+      },
+      "step_caption": {
+        "size": 18,
+        "weight": 400
+      },
+      "info_title": {
+        "size": 18,
+        "weight": 700
+      },
+      "info_body": {
+        "size": 19,
+        "weight": 400
+      },
+      "step_number": {
+        "size": 20,
+        "weight": 700
+      }
+    },
+    "radii": {
+      "outer_card": 26,
+      "hero_photo": 18,
+      "info_box": 14,
+      "step_number_circle": 19
+    }
+  },
+  "fixed_layout": {
+    "outer_card": {
+      "x": 34,
+      "y": 34,
+      "width": 712,
+      "height": 1620,
+      "radius": 26,
+      "border_width": 1
+    },
+    "top_accent": {
+      "x": 68,
+      "y": 70,
+      "width": 60,
+      "height": 7,
+      "radius": 4
+    },
+    "exercise_title": {
+      "x": 68,
+      "y": 116,
+      "max_width": 644
+    },
+    "hero_photo": {
+      "x": 68,
+      "y": 182,
+      "width": 644,
+      "height": 605,
+      "radius": 18,
+      "fit": "cover"
+    },
+    "mini_steps": [
+      {
+        "index": 1,
+        "photo": {
+          "x": 68,
+          "y": 866,
+          "width": 210,
+          "height": 122,
+          "fit": "contain_or_cover_by_source"
+        },
+        "number_circle": {
+          "cx": 98,
+          "cy": 900,
+          "radius": 19
+        },
+        "label_card": {
+          "x": 68,
+          "y": 1002,
+          "width": 210,
+          "height": 94
+        },
+        "label": {
+          "x": 82,
+          "y": 1022
+        },
+        "caption": {
+          "x": 82,
+          "y": 1060
+        }
+      },
+      {
+        "index": 2,
+        "photo": {
+          "x": 289,
+          "y": 866,
+          "width": 210,
+          "height": 122,
+          "fit": "cover"
+        },
+        "number_circle": {
+          "cx": 319,
+          "cy": 900,
+          "radius": 19
+        },
+        "label_card": {
+          "x": 289,
+          "y": 1002,
+          "width": 210,
+          "height": 94
+        },
+        "label": {
+          "x": 303,
+          "y": 1022
+        },
+        "caption": {
+          "x": 303,
+          "y": 1060
+        }
+      },
+      {
+        "index": 3,
+        "photo": {
+          "x": 510,
+          "y": 866,
+          "width": 210,
+          "height": 122,
+          "fit": "contain_or_cover_by_source"
+        },
+        "number_circle": {
+          "cx": 540,
+          "cy": 900,
+          "radius": 19
+        },
+        "label_card": {
+          "x": 510,
+          "y": 1002,
+          "width": 210,
+          "height": 94
+        },
+        "label": {
+          "x": 524,
+          "y": 1022
+        },
+        "caption": {
+          "x": 524,
+          "y": 1060
+        }
+      }
+    ],
+    "step_arrows": [
+      {
+        "x": 283,
+        "y": 908,
+        "text": "›"
+      },
+      {
+        "x": 504,
+        "y": 908,
+        "text": "›"
+      }
+    ],
+    "info_boxes": [
+      {
+        "key": "breath",
+        "x": 68,
+        "y": 1140,
+        "width": 211,
+        "height": 350,
+        "icon": {
+          "cx": 101,
+          "cy": 1176,
+          "radius": 18
+        },
+        "title": {
+          "x": 129,
+          "y": 1166
+        },
+        "body": {
+          "x": 86,
+          "y": 1238,
+          "max_width": 175
+        }
+      },
+      {
+        "key": "focus",
+        "x": 289,
+        "y": 1140,
+        "width": 211,
+        "height": 350,
+        "icon": {
+          "cx": 322,
+          "cy": 1176,
+          "radius": 18
+        },
+        "title": {
+          "x": 350,
+          "y": 1166
+        },
+        "body": {
+          "x": 307,
+          "y": 1238,
+          "max_width": 175
+        }
+      },
+      {
+        "key": "reps",
+        "x": 510,
+        "y": 1140,
+        "width": 211,
+        "height": 350,
+        "icon": {
+          "cx": 543,
+          "cy": 1176,
+          "radius": 18
+        },
+        "title": {
+          "x": 571,
+          "y": 1166
+        },
+        "body": {
+          "x": 528,
+          "y": 1238,
+          "max_width": 175
+        }
+      }
+    ]
+  },
+  "variables": {
+    "exercise_title": "Name of exercise",
+    "hero_photo": "Main HERO photograph",
+    "start_photo": "START photograph",
+    "hero_step_photo": "HERO photograph in mini step",
+    "end_or_start_photo": "END photograph, or START when END equals START",
+    "step_labels": [
+      "START",
+      "HLAVNÍ POHYB",
+      "NÁVRAT"
+    ],
+    "step_captions": [
+      "Initial position",
+      "Main movement",
+      "Return"
+    ],
+    "breath_text": "Breathing text",
+    "focus_text": "Technique focus text",
+    "repetition_text": "Repetition text"
+  },
+  "rules": [
+    "Do not move fixed layout objects.",
+    "Replace only variable photos and text.",
+    "Use approved source photos only.",
+    "When END equals START, reuse START photo.",
+    "Do not regenerate model, scene, lighting, or anatomy."
+  ]
+}

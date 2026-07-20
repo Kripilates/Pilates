@@ -1,0 +1,227 @@
+{
+  "template": "step_by_step_template",
+  "version": "1.0",
+  "reference": "Romanian Deadlift Step by Step",
+  "output": {
+    "file": "step_by_step_template.png",
+    "width": 780,
+    "height": 2280,
+    "format": "png"
+  },
+  "design_tokens": {
+    "colors": {
+      "page_background": "#eff9f9",
+      "card_background": "#ffffff",
+      "border": "#b6efed",
+      "accent": "#1fb8b3",
+      "title": "#132b46",
+      "body": "#6a7e95"
+    },
+    "fonts": {
+      "family": "Arial",
+      "title": {
+        "size": 50,
+        "weight": 700
+      },
+      "subtitle": {
+        "size": 25,
+        "weight": 400
+      },
+      "section_title": {
+        "size": 28,
+        "weight": 700
+      },
+      "section_body": {
+        "size": 24,
+        "weight": 400
+      },
+      "bottom_title": {
+        "size": 22,
+        "weight": 700
+      },
+      "bottom_body": {
+        "size": 17,
+        "weight": 400
+      },
+      "step_number": {
+        "size": 20,
+        "weight": 700
+      }
+    },
+    "radii": {
+      "outer_card": 26,
+      "step_photo": 10,
+      "bottom_box": 14,
+      "step_number_circle": 20
+    }
+  },
+  "fixed_layout": {
+    "outer_card": {
+      "x": 34,
+      "y": 34,
+      "width": 712,
+      "height": 2212,
+      "radius": 26,
+      "border_width": 1
+    },
+    "top_accent": {
+      "x": 68,
+      "y": 70,
+      "width": 60,
+      "height": 7,
+      "radius": 4
+    },
+    "exercise_title": {
+      "x": 55,
+      "y": 98,
+      "max_width": 670
+    },
+    "subtitle": {
+      "x": 55,
+      "y": 151,
+      "text": "Krok za krokem"
+    },
+    "steps": [
+      {
+        "index": 1,
+        "photo": {
+          "x": 55,
+          "y": 190,
+          "width": 650,
+          "height": 330,
+          "radius": 10,
+          "fit": "contain_or_cover_by_source"
+        },
+        "number_circle": {
+          "cx": 85,
+          "cy": 226,
+          "radius": 20
+        },
+        "title": {
+          "x": 55,
+          "y": 554
+        },
+        "body": {
+          "x": 55,
+          "y": 596,
+          "max_width": 650
+        },
+        "arrow_to_next": {
+          "x": 385,
+          "y": 762,
+          "text": "↓"
+        }
+      },
+      {
+        "index": 2,
+        "photo": {
+          "x": 55,
+          "y": 832,
+          "width": 650,
+          "height": 330,
+          "radius": 10,
+          "fit": "cover"
+        },
+        "number_circle": {
+          "cx": 85,
+          "cy": 868,
+          "radius": 20
+        },
+        "title": {
+          "x": 55,
+          "y": 1196
+        },
+        "body": {
+          "x": 55,
+          "y": 1238,
+          "max_width": 650
+        },
+        "arrow_to_next": {
+          "x": 385,
+          "y": 1404,
+          "text": "↓"
+        }
+      },
+      {
+        "index": 3,
+        "photo": {
+          "x": 55,
+          "y": 1474,
+          "width": 650,
+          "height": 330,
+          "radius": 10,
+          "fit": "contain_or_cover_by_source"
+        },
+        "number_circle": {
+          "cx": 85,
+          "cy": 1510,
+          "radius": 20
+        },
+        "title": {
+          "x": 55,
+          "y": 1838
+        },
+        "body": {
+          "x": 55,
+          "y": 1880,
+          "max_width": 650
+        }
+      }
+    ],
+    "bottom_info_box": {
+      "x": 55,
+      "y": 2020,
+      "width": 650,
+      "height": 170,
+      "radius": 14
+    },
+    "breath_block": {
+      "title": {
+        "x": 80,
+        "y": 2048
+      },
+      "body": {
+        "x": 80,
+        "y": 2088,
+        "max_width": 230
+      }
+    },
+    "technique_block": {
+      "title": {
+        "x": 350,
+        "y": 2048
+      },
+      "body": {
+        "x": 350,
+        "y": 2088,
+        "max_width": 310
+      }
+    }
+  },
+  "variables": {
+    "exercise_title": "Name of exercise",
+    "start_photo": "START photograph",
+    "hero_photo": "HERO photograph",
+    "end_or_start_photo": "END photograph, or START when END equals START",
+    "step_titles": [
+      "START",
+      "HLAVNI POHYB",
+      "NAVRAT"
+    ],
+    "step_texts": [
+      "Start description",
+      "Main movement description",
+      "Return description"
+    ],
+    "breath_text": "Breathing text",
+    "technique_text": "Technique and common mistakes text"
+  },
+  "rules": [
+    "Do not move fixed layout objects.",
+    "Replace only variable photos and text.",
+    "Use approved source photos only.",
+    "When END equals START, reuse START photo.",
+    "Do not regenerate model, scene, lighting, or anatomy.",
+    "Keep output size 780 x 2280 px."
+  ]
+}
