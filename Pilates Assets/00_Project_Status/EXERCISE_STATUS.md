@@ -34,7 +34,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Rainbow Leg Raise | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images |
 | Reverse Crunch | `Pilates Assets/02_Exercise_Cards/Reverse Crunch` | NE | `reverse_crunch_hero_v01.png` | NE | NE | ANO | IN PROGRESS |  |
 | Roll Up | `Pilates Assets/02_Exercise_Cards/Roll Up` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Romanian Deadlift | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift` | `romanian_deadlift_start_v01.png` | `romanian_deadlift_hero_v01.png` | AUTO (Codex) | AUTO (Codex) | ANO | COMPLETE | START a HERO jsou schválené. END se nevytváří (návratová pozice = START). Guide Card a Step by Step budou automaticky sestaveny Codexem ze schválených zdrojových obrázků podle projektové šablony. |
+| Romanian Deadlift | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift` | `romanian_deadlift_start_v01.png` | `romanian_deadlift_hero_v01.png` | `romanian_deadlift_guide_card_v01.png` | `romanian_deadlift_step_by_step_v01.png` | ANO | COMPLETE | START a HERO schválené. END se nevytváří (návratová pozice = START). Guide Card a Step by Step sestaveny ze sekvence START → HERO → START. |
 | Russian Twist | `Pilates Assets/02_Exercise_Cards/Russian Twist` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Scissors | `Pilates Assets/02_Exercise_Cards/Scissors` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Shoulder Press | `Pilates Assets/02_Exercise_Cards/Shoulder Press` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
