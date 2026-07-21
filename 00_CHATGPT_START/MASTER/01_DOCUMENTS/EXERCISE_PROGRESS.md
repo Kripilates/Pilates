@@ -1,5 +1,36 @@
 # Pilates Body 40+ – Progress
 
+## Legenda
+
+Pravidla:
+
+Reference = existuje schválená EXERCISE_REFERENCE.
+
+HERO / START / END = schválené zdrojové fotografie.
+
+Guide = Guide Card.
+
+Step = Step by Step.
+
+Export = všechny finální PNG fyzicky existují.
+
+QA = výsledek prošel finální kontrolou a je označen jako SCHVÁLENO.
+
+App = jestli je cvik skutečně použitý v aplikaci.
+
+App hodnoty:
+
+✅ obrázky jsou nasazené v aplikaci
+
+🟡 připravené, ale ještě nejsou propojené
+
+❌ aplikace stále používá starý obrázek nebo fallback
+
+Stav:
+HOTOVO
+ROZPRACOVÁNO
+ČEKÁ
+
 # NEXT TASKS
 
 1. Reverse Crunch START
@@ -177,58 +208,58 @@ Další doporučený cvik: Reverse Crunch START
 
 ## Přehled
 
-| Cvik | Reference | HERO | START | END | Guide Card | Step by Step | Stav | Poznámka |
-|---|---|---|---|---|---|---|---|---|
-| Bent Over Row | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Bicycle Crunch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Bird Dog | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Bridge Abduction | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Cat-Cow | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Chest Opener | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Chest Press | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Child's Pose | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Clamshell | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Dead Bug | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Donkey Kick | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Figure Four Stretch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Fire Hydrant | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Forearm Plank | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Frog Pumps | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Glute Bridge | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | oficiální referenční cvik a template; soubory v1/v2/v3; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Glute Bridge March | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Hamstring Stretch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Heel Taps | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Hip March | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | START sdílený z Glute Bridge, nebyl kopírován; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Hollow Hold | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Inner Thigh Lift | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Lateral Raise | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Leg Raises | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Mermaid Stretch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Plank Shoulder Taps | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Plie Squat | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Rainbow Leg Raise | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Reverse Crunch | ❌ chybí | ✅ hotovo | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ROZPRACOVÁNO | čeká na START, Guide Card a Step by Step; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Roll Up | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Romanian Deadlift | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | START/HERO schválené; END = START; Guide Card a Step by Step sestaveny; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Russian Twist | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Scissors | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Shoulder Press | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Side Kick | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Side Leg Lift | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Side Plank | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Side Plank Reach | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Sphinx Stretch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Spine Stretch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Standing Oblique Crunch | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Standing Side Bend | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Supine Twist | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Swan Prep | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Swimming | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| The Hundred | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Thread the Needle | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Toe Tap | ❌ chybí | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | ✅ hotovo | HOTOVO | schválený referenční cvik; soubory bez standardního _v01; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Triceps Kickback | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
-| Wall Sit | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ❌ chybí | ČEKÁ | .gitkeep / bez obrázků |
+| Cvik | Ref | HERO | START | END | Guide | Step | Export | QA | App | Stav | Poznámka |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Bent Over Row | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Bicycle Crunch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Bird Dog | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Bridge Abduction | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Cat-Cow | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Chest Opener | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Chest Press | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
+| Child's Pose | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Dead Bug | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Donkey Kick | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Figure Four Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Fire Hydrant | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Forearm Plank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Frog Pumps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Glute Bridge | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | oficiální referenční cvik a template; soubory v1/v2/v3; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Glute Bridge March | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Hamstring Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Heel Taps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Hip March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🟡 | HOTOVO | START sdílený z Glute Bridge, nebyl kopírován; připravené assety, propojení v aplikaci neověřeno podle názvu source sady; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Hollow Hold | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Inner Thigh Lift | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Lateral Raise | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Leg Raises | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Mermaid Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Plank Shoulder Taps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Plie Squat | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Rainbow Leg Raise | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Reverse Crunch | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ROZPRACOVÁNO | čeká na START, Guide Card a Step by Step; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Roll Up | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Romanian Deadlift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START; Guide Card a Step by Step sestaveny; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Russian Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Scissors | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Shoulder Press | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Side Kick | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Side Leg Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Side Plank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Side Plank Reach | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Sphinx Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Spine Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Standing Oblique Crunch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Standing Side Bend | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Swan Prep | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
+| The Hundred | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Thread the Needle | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Toe Tap | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | schválený referenční cvik; soubory bez standardního _v01; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Triceps Kickback | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
+| Wall Sit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 
 ## NEOVĚŘENO
 
