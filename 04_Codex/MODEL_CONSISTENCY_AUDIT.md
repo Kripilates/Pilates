@@ -36,10 +36,10 @@ Datum auditu: 2026-07-15
 | 1 | Fire Hydrant | HERO | `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_hero_v01.png` | D | Model reads as a different, more athletic woman: darker/copper hair, stronger shoulders/deltoids/upper arms and upper back. |
 | 2 | Fire Hydrant | START | `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_start_v01.png` | D | Same high-priority model mismatch as HERO: dark/copper hair plus visibly stronger athletic body type. |
 | 3 | Bird Dog | START | `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png` | C | Noticeable hair drift: dark brunette/copper-orange impression remains; body is acceptable for weight-bearing pose. |
-| 4 | Side Leg Raise | START | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png` | C | Noticeable drift in hair value/color and slightly stronger side-body/arm impression. |
-| 5 | Side Leg Raise | HERO | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png` | C | Noticeable drift: hair darker and body impression a little more athletic than MASTER model. |
+| 4 | Side Leg Lift | START | `Pilates Assets\02_Exercise_Cards\Side Leg Lift\side_leg_start_v01.png` | C | Noticeable drift in hair value/color and slightly stronger side-body/arm impression. |
+| 5 | Side Leg Lift | HERO | `Pilates Assets\02_Exercise_Cards\Side Leg Lift\side_leg_lift_hero_v01.png` | C | Noticeable drift: hair darker and body impression a little more athletic than MASTER model. |
 | 6 | Toe Tap | HERO | `Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png` | C | Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MASTER model. |
-| 7 | Side Leg Raise | START alias | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side leg.png` | C | Separate non-byte-identical SOURCE file. Same dimensions as `side_leg_start_v01.png`, but SHA-256 and pixels differ; visual finding is treated as same category as Side Leg START, without changing original Side Leg START rating. |
+| 7 | Side Leg Lift | START alias | `Pilates Assets\02_Exercise_Cards\Side Leg Lift\side leg.png` | C | Separate non-byte-identical SOURCE file. Same dimensions as `side_leg_start_v01.png`, but SHA-256 and pixels differ; visual finding is treated as same category as Side Leg Lift START, without changing original Side Leg Lift START rating. |
 
 ## TOP 10 nejhor??ch obr?zk? z hlediska identity modelky
 
@@ -73,8 +73,8 @@ OUTFIT: Outfit consistent enough.
 PRO? JE TO PROBL?M: Noticeable hair drift: dark brunette/copper-orange impression remains; body is acceptable for weight-bearing pose.
 DOPORU?EN?: MINOR FIX
 
-### 4. Side Leg Raise ? START
-Soubor: `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png`
+### 4. Side Leg Lift ? START
+Soubor: `Pilates Assets\02_Exercise_Cards\Side Leg Lift\side_leg_start_v01.png`
 Hodnocen?: C
 IDENTITA: Reads as similar type but not fully the same specific woman.
 VLASY: Slightly darker / more contrasty than target.
@@ -83,8 +83,8 @@ OUTFIT: Outfit close enough.
 PRO? JE TO PROBL?M: Noticeable drift in hair value/color and slightly stronger side-body/arm impression.
 DOPORU?EN?: MINOR FIX
 
-### 5. Side Leg Raise ? HERO
-Soubor: `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png`
+### 5. Side Leg Lift ? HERO
+Soubor: `Pilates Assets\02_Exercise_Cards\Side Leg Lift\side_leg_lift_hero_v01.png`
 Hodnocen?: C
 IDENTITA: Comparable but visible AI drift from master identity.
 VLASY: Darker than target, less neutral mid-light brown.
@@ -144,14 +144,14 @@ PRO? JE TO PROBL?M: Acceptable new HERO: face and body generally match, with som
 DOPORU?EN?: KEEP
 
 
-## Side Leg START alias verification addendum
+## Side Leg Lift START alias verification addendum
 
 Datum doplneni: 2026-07-15
 
 Compared files:
 
-- `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side leg.png`
-- `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side leg.png`
+- `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start_v01.png`
 
 Result:
 
@@ -166,8 +166,8 @@ Audit decision:
 
 - `side leg.png` is not a byte-identical duplicate alias of `side_leg_start_v01.png`.
 - It is added as a separate SOURCE file for audit coverage.
-- Original `Side Leg START` rating for `side_leg_start_v01.png` remains unchanged.
-- TOP 10 review board PNG was not updated, because this check did not introduce a new model-identity finding beyond the existing Side Leg START issue.
+- Original `Side Leg Lift START` rating for `side_leg_start_v01.png` remains unchanged.
+- TOP 10 review board PNG was not updated, because this check did not introduce a new model-identity finding beyond the existing Side Leg Lift START issue.
 - `MASTER model` keeps its current double extension; rename is deferred to a separate cleanup task.
 
 ## Review board

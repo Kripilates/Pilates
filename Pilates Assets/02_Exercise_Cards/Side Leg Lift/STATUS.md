@@ -1,23 +1,25 @@
-# Side Leg Raise
+# Side Leg Lift
 
 Status: 🟢 COMPLETE
 
 ## Photos
 - [x] START Approved:
-  `side_leg_start_v01.png`
+  `side_leg_lift_start_v01.png`
 - [x] HERO Approved:
-  `side_leg_raise_hero_v01.png`
+  `side_leg_lift_hero_v01.png`
 - [x] END = START
 
 ## Workflow
 START → HERO → START
 
 ## Guide Card
-- [x] Created
+- [x] Created:
+  `side_leg_lift_guide_card_v01.png`
 - [x] Approved
 
 ## Step by Step
-- [x] Created
+- [x] Created:
+  `side_leg_lift_step_by_step_v01.png`
 - [x] Approved
 
 ## Notes

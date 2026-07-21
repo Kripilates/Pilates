@@ -25,9 +25,9 @@
 `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero_v01.png`
 
 ## Side Leg Lift (`sideleg`)
-![Side Leg Lift](../02_Exercise_Cards/Side%20Leg%20Raise/side_leg_raise_hero_v01.png)
+![Side Leg Lift](../02_Exercise_Cards/Side%20Leg%20Raise/side_leg_lift_hero_v01.png)
 
-`Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_raise_hero_v01.png`
+`Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero_v01.png`
 
 ## Dead Bug (`deadbug`)
 ![Dead Bug](../02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01.png)
@@ -288,4 +288,3 @@
 ![Supine Twist](../../assets/exercises/thread.jpg)
 
 `assets/exercises/thread.jpg`
-

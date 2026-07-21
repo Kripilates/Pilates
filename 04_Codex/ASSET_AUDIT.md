@@ -20,7 +20,7 @@ Scope:
 | Romanian Deadlift | `assets/exercises/rdl.jpg` | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | MINOR FIX | Different room feeling |
 | Fire Hydrant | START ✔; HERO ✔; END = START | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | APPROVED | APPROVED | Source images approved. |
 | Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
-| Side Leg Lift | `Pilates Assets/02_Exercise_Cards/Side Leg Raise` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; source images replaced and cards rebuilt. |
+| Side Leg Lift | `Pilates Assets/02_Exercise_Cards/Side Leg Lift` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; source images replaced and cards rebuilt. |
 | Dead Bug | `assets/exercises/deadbug.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Toe Taps | `Pilates Assets/02_Exercise_Cards/Toe Tap` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Reverse Crunch | `assets/exercises/revcrunch.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |

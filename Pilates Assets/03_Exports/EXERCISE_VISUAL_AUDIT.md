@@ -21,7 +21,7 @@
 | `rdl` | Rumunský mrtvý tah | **KONTROLA** | Zadní stehna a hýždě. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
 | `hydrant` | Fire Hydrant | **KONTROLA** | Bok hýždě. | Fire Hydrant | YES | START OK / HERO OK / GUIDE OK / STEP OK |
 | `clam` | Clamshell | **HOTOVO** | Bok hýždě. | Clamshell | YES | START OK / HERO OK / GUIDE OK / STEP OK |
-| `sideleg` | Side Leg Lift | **HOTOVO** | Bok hýždě. | Side Leg Raise | YES | START OK / HERO OK / GUIDE OK / STEP OK |
+| `sideleg` | Side Leg Lift | **HOTOVO** | Bok hýždě. | Side Leg Lift | YES | START OK / HERO OK / GUIDE OK / STEP OK |
 | `deadbug` | Dead Bug | **HOTOVO** | Spodní břicho. | Dead Bug | YES | START OK / HERO OK / GUIDE OK / STEP OK |
 | `toetap` | Toe Taps | **HOTOVO** | Spodní břicho. | Toe Tap | YES | START OK / HERO OK / GUIDE OK / STEP OK |
 | `revcrunch` | Reverse Crunch | **ROZPRACOVÁNO** | Spodní břicho. | Reverse Crunch | YES | START -- / HERO OK / GUIDE -- / STEP -- |
@@ -265,7 +265,7 @@ _No source folder found._
 - Category/focus: Bok hýždě.
 - Default dose in data: not listed
 - Program usage: Day 1, Day 8, Day 15, Day 22, Day 29
-- Source folder: `Pilates Assets/02_Exercise_Cards/Side Leg Raise`
+- Source folder: `Pilates Assets/02_Exercise_Cards/Side Leg Lift`
 
 **Images found in Pilates Assets**
 
@@ -273,31 +273,31 @@ _No source folder found._
 
 | File | Size |
 |---|---|
-| `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_start_v01.png` | `1672 x 941` |
+| `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start_v01.png` | `1672 x 941` |
 
 - START alias:
 
 | File | Size |
 |---|---|
-| `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side leg.png` | `1672 x 941` |
+| `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side leg.png` | `1672 x 941` |
 
 - HERO:
 
 | File | Size |
 |---|---|
-| `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_raise_hero_v01.png` | `1672 x 941` |
+| `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero_v01.png` | `1672 x 941` |
 
 - GUIDE CARD:
 
 | File | Size |
 |---|---|
-| `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_raise_guide_card_v01.png` | `780 x 1688` |
+| `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_raise_guide_card_v01.png` | `780 x 1688` |
 
 - STEP BY STEP:
 
 | File | Size |
 |---|---|
-| `Pilates Assets/02_Exercise_Cards/Side Leg Raise/side_leg_raise_step_by_step_v01.png` | `780 x 2280` |
+| `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_raise_step_by_step_v01.png` | `780 x 2280` |
 
 **Actually used by app**
 

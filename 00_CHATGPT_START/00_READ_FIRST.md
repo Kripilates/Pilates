@@ -46,3 +46,12 @@ QA obrázků kontroluj vždy v pořadí:
 
 Nejdůležitější pravidlo:
 Nový obrázek nesmí být nová scéna ani nová modelka. Musí působit jako další fotografie ze stejné profesionální série.
+## Progress po načtení dokumentace
+
+Po načtení dokumentace vždy otevři:
+
+`MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`
+
+Podle něj zjisti aktuální stav projektu.
+
+Pokračuj od prvního rozpracovaného nebo plánovaného cviku, pokud uživatel neurčí jinak.

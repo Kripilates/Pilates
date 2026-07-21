@@ -36,8 +36,8 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 1 | 1 | rdl | RumunskĂ˝ mrtvĂ˝ tah | 12Ă— | assets/exercises/rdl.jpg?v=50 | Romanian Deadlift | CORRECT | KEEP |
 | 1 | 2 | hydrant | Fire Hydrant | 15/15 | assets/exercises/hydrant.jpg?v=50 | Fire Hydrant | CORRECT | KEEP |
 | 1 | 3 | clam | Clamshell | 15/15 | assets/exercises/clam.jpg?v=50 | Clamshell | CORRECT | KEEP |
-| 1 | 4 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | CORRECT | KEEP |
-| 1 | 5 | inner_thigh | Inner Thigh Lift | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
+| 1 | 4 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | CORRECT | KEEP |
+| 1 | 5 | inner_thigh | Inner Thigh Lift | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 1 | 6 | hip | Glute Bridge | 15Ă— | assets/exercises/hip.jpg?v=50 | Glute Bridge | CORRECT | KEEP |
 | 1 | stretch | figure_four | ProtaĹľenĂ­ hĂ˝ĹľdĂ­ vleĹľe | 35 s/strana | assets/exercises/hip.jpg?v=50 | Glute Bridge | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 2 | 1 | sideplank | Side Plank | 25 s/strana | assets/exercises/sideplank.jpg?v=50 | Side Plank | CORRECT | KEEP |
@@ -101,7 +101,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 11 | stretch | supine_twist | Rotace pĂˇteĹ™e vleĹľe | 35 s/strana | assets/exercises/thread.jpg?v=50 | Thread the Needle | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 12 | 1 | wall | Wall Sit | 35 s | assets/exercises/wall.jpg?v=50 | Spine Stretch duplicate image, not Wall Sit | DUPLICATE_MAPPING | NEW_SOURCE_REQUIRED or replace duplicate binary asset |
 | 12 | 2 | donkey | Donkey Kick | 18/18 | assets/exercises/donkey.jpg?v=50 | Donkey Kick | CORRECT | KEEP |
-| 12 | 3 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | CORRECT | KEEP |
+| 12 | 3 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | CORRECT | KEEP |
 | 12 | 4 | clam | Clamshell | 15/15 | assets/exercises/clam.jpg?v=50 | Clamshell | CORRECT | KEEP |
 | 12 | 5 | abduction | Bridge Abduction | 18Ă— | assets/exercises/abduction.jpg?v=50 | Bridge Abduction | CORRECT | KEEP |
 | 12 | 6 | frog | Frog Pumps | 18Ă— | assets/exercises/frog.jpg?v=50 | Frog Pumps | CORRECT | KEEP |
@@ -115,8 +115,8 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 13 | stretch | supine_twist | Rotace pĂˇteĹ™e vleĹľe | 35 s/strana | assets/exercises/thread.jpg?v=50 | Thread the Needle | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 15 | 1 | plie | PliĂ© Squat | 16Ă— | assets/exercises/plie.jpg?v=50 | Plie Squat | CORRECT | KEEP |
 | 15 | 2 | donkey | Donkey Kick | 15/15 | assets/exercises/donkey.jpg?v=50 | Donkey Kick | CORRECT | KEEP |
-| 15 | 3 | inner_thigh | Inner Thigh Lift | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
-| 15 | 4 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | CORRECT | KEEP |
+| 15 | 3 | inner_thigh | Inner Thigh Lift | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
+| 15 | 4 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 15/15 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | CORRECT | KEEP |
 | 15 | 5 | hip_march | Glute Bridge March | 14/14 | assets/exercises/hip_march.jpg?v=50 | Glute Bridge March | CORRECT | KEEP |
 | 15 | 6 | abduction | Bridge Abduction | 20Ă— | assets/exercises/abduction.jpg?v=50 | Bridge Abduction | CORRECT | KEEP |
 | 15 | stretch | figure_four | ProtaĹľenĂ­ hĂ˝ĹľdĂ­ vleĹľe | 35 s/strana | assets/exercises/hip.jpg?v=50 | Glute Bridge | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
@@ -143,7 +143,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 19 | 2 | donkey | Donkey Kick | 15/15 | assets/exercises/donkey.jpg?v=50 | Donkey Kick | CORRECT | KEEP |
 | 19 | 3 | rainbow | Rainbow Leg Raise | 14/14 | assets/exercises/rainbow.jpg?v=50 | Rainbow Leg Raise | CORRECT | KEEP |
 | 19 | 4 | clam | Clamshell | 18/18 | assets/exercises/clam.jpg?v=50 | Clamshell | CORRECT | KEEP |
-| 19 | 5 | inner_thigh | Inner Thigh Lift | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
+| 19 | 5 | inner_thigh | Inner Thigh Lift | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 19 | 6 | hip | Glute Bridge | 20Ă— | assets/exercises/hip.jpg?v=50 | Glute Bridge | CORRECT | KEEP |
 | 19 | stretch | figure_four | ProtaĹľenĂ­ hĂ˝ĹľdĂ­ vleĹľe | 40 s/strana | assets/exercises/hip.jpg?v=50 | Glute Bridge | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 20 | 1 | wall | Wall Sit | 40 s | assets/exercises/wall.jpg?v=50 | Spine Stretch duplicate image, not Wall Sit | DUPLICATE_MAPPING | NEW_SOURCE_REQUIRED or replace duplicate binary asset |
@@ -157,7 +157,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 22 | 2 | rdl | RumunskĂ˝ mrtvĂ˝ tah | 16Ă— | assets/exercises/rdl.jpg?v=50 | Romanian Deadlift | CORRECT | KEEP |
 | 22 | 3 | hydrant | Fire Hydrant | 15/15 | assets/exercises/hydrant.jpg?v=50 | Fire Hydrant | CORRECT | KEEP |
 | 22 | 4 | sidekick | Side Kick | 45 s/strana | assets/exercises/sidekick.jpg?v=50 | Side Kick | CORRECT | KEEP |
-| 22 | 5 | inner_thigh | Inner Thigh Lift | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
+| 22 | 5 | inner_thigh | Inner Thigh Lift | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 22 | 6 | hip | Glute Bridge | 22Ă— | assets/exercises/hip.jpg?v=50 | Glute Bridge | CORRECT | KEEP |
 | 22 | stretch | hamstring_supine | JemnĂ© protaĹľenĂ­ zadnĂ­ strany stehna | 40 s/strana | assets/exercises/spine.jpg?v=50 | Spine Stretch | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 23 | 1 | standing_oblique | Standing Oblique Crunch | 24Ă— stĹ™Ă­davÄ› | assets/exercises/mermaid.jpg?v=50 | Mermaid Stretch | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
@@ -183,7 +183,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 26 | 1 | plie | PliĂ© Squat | 16Ă— | assets/exercises/plie.jpg?v=50 | Plie Squat | CORRECT | KEEP |
 | 26 | 2 | rainbow | Rainbow Leg Raise | 14/14 | assets/exercises/rainbow.jpg?v=50 | Rainbow Leg Raise | CORRECT | KEEP |
 | 26 | 3 | sidekick | Side Kick | 45 s/strana | assets/exercises/sidekick.jpg?v=50 | Side Kick | CORRECT | KEEP |
-| 26 | 4 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | CORRECT | KEEP |
+| 26 | 4 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | CORRECT | KEEP |
 | 26 | 5 | abduction | Bridge Abduction | 22Ă— | assets/exercises/abduction.jpg?v=50 | Bridge Abduction | CORRECT | KEEP |
 | 26 | 6 | frog | Frog Pumps | 20Ă— | assets/exercises/frog.jpg?v=50 | Frog Pumps | CORRECT | KEEP |
 | 26 | stretch | figure_four | ProtaĹľenĂ­ hĂ˝ĹľdĂ­ vleĹľe | 40 s/strana | assets/exercises/hip.jpg?v=50 | Glute Bridge | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
@@ -198,7 +198,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | 29 | 2 | rdl | RumunskĂ˝ mrtvĂ˝ tah | 16Ă— | assets/exercises/rdl.jpg?v=50 | Romanian Deadlift | CORRECT | KEEP |
 | 29 | 3 | donkey | Donkey Kick | 18/18 | assets/exercises/donkey.jpg?v=50 | Donkey Kick | CORRECT | KEEP |
 | 29 | 4 | hydrant | Fire Hydrant | 18/18 | assets/exercises/hydrant.jpg?v=50 | Fire Hydrant | CORRECT | KEEP |
-| 29 | 5 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | CORRECT | KEEP |
+| 29 | 5 | sideleg | UnoĹľovĂˇnĂ­ vleĹľe na boku | 18/18 | assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | CORRECT | KEEP |
 | 29 | 6 | abduction | Bridge Abduction | 20Ă— | assets/exercises/abduction.jpg?v=50 | Bridge Abduction | CORRECT | KEEP |
 | 29 | stretch | hamstring_supine | JemnĂ© protaĹľenĂ­ zadnĂ­ strany stehna | 45 s/strana | assets/exercises/spine.jpg?v=50 | Spine Stretch | WRONG_EXERCISE_IMAGE | NEW_SOURCE_REQUIRED or REMAP_EXISTING_ASSET if correct approved asset exists |
 | 30 | 1 | sideplank_reach | BoÄŤnĂ­ prkno s rotacĂ­ | 12/12 | assets/exercises/sideplank_reach.jpg?v=50 | Side Plank duplicate image, not reach variant | DUPLICATE_MAPPING | NEW_SOURCE_REQUIRED or replace duplicate binary asset |
@@ -271,7 +271,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 | assets/exercises/mermaid.jpg?v=50 | Mermaid Stretch | mermaid, standing_oblique, standing_side_bend | INCORRECT_SHARED_IMAGE |
 | assets/exercises/revcrunch.jpg?v=50 | Reverse Crunch | bicycle, revcrunch | INCORRECT_SHARED_IMAGE |
 | assets/exercises/row.jpg?v=50 | Bent Over Row | chest_opener, row | INCORRECT_SHARED_IMAGE |
-| assets/exercises/sideleg_main.jpg?v=50 | Side Leg Raise / side lying leg lift | inner_thigh, sideleg | INCORRECT_SHARED_IMAGE |
+| assets/exercises/sideleg_main.jpg?v=50 | Side Leg Lift / side lying leg lift | inner_thigh, sideleg | INCORRECT_SHARED_IMAGE |
 | assets/exercises/spine.jpg?v=50 | Spine Stretch | hamstring_supine, spine | INCORRECT_SHARED_IMAGE |
 | assets/exercises/swan.jpg?v=50 | Hollow Hold duplicate image, not Swan/Sphinx | sphinx, swan | INCORRECT_SHARED_IMAGE |
 | assets/exercises/thread.jpg?v=50 | Thread the Needle | supine_twist, thread | INCORRECT_SHARED_IMAGE |
@@ -351,7 +351,7 @@ Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a doc
 - assets/exercises/mermaid.jpg?v=50: mermaid, standing_oblique, standing_side_bend -> Mermaid Stretch
 - assets/exercises/revcrunch.jpg?v=50: bicycle, revcrunch -> Reverse Crunch
 - assets/exercises/row.jpg?v=50: chest_opener, row -> Bent Over Row
-- assets/exercises/sideleg_main.jpg?v=50: inner_thigh, sideleg -> Side Leg Raise / side lying leg lift
+- assets/exercises/sideleg_main.jpg?v=50: inner_thigh, sideleg -> Side Leg Lift / side lying leg lift
 - assets/exercises/spine.jpg?v=50: hamstring_supine, spine -> Spine Stretch
 - assets/exercises/swan.jpg?v=50: sphinx, swan -> Hollow Hold duplicate image, not Swan/Sphinx
 - assets/exercises/thread.jpg?v=50: supine_twist, thread -> Thread the Needle
