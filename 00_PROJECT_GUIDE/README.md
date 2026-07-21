@@ -1,6 +1,6 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
-> Pro nový chat je závazný MASTER systém v `../00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
+> Pro nový chat je závazný MASTER systém v `../00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
 > `CHATGPT_PROJECT_GUIDE.md` slouží jako projektový kontext, ne jako samostatný MASTER zdroj pravdy.
 
 # PROJECT GUIDE
@@ -11,8 +11,8 @@ Tato složka obsahuje aktivní projektovou dokumentaci Pilates Body 40+.
 
 Použij nejprve:
 
-- `../00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`
-- `../00_CHATGPT_START/MASTER/MASTER_IMAGE_CHECKLIST.md`
+- `../00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`
+- `../00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`
 - `../PILATES_BODY_AI_BIBLE.md`
 - `CHATGPT_PROJECT_GUIDE.md`
 

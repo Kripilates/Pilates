@@ -8,7 +8,7 @@ Status: ACTIVE CHECKLIST FOR MASTER
 
 □ Použit MASTER model
 
-□ Použita MASTER tvář: Pilates Assets/01_Master_Reference/Master tvář.png
+□ Použita MASTER tvář: 00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png
 
 □ Shoda s MASTER tváří
 

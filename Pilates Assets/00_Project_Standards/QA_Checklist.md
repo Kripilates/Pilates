@@ -1,6 +1,6 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
-> Tento checklist se používá pouze podle `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
+> Tento checklist se používá pouze podle `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
 > QA probíhá automaticky před každým schválením a kontroluje MASTER model, MASTER tvář / SHODA S MASTER tvář, MASTER prostředí, styl projektu, EXERCISE_REFERENCE, anatomii, správnost cviku, kameru, světlo, outfit, barvy a AI artefakty. Bez skóre minimálně 9.5/10 nesmí být výsledek APPROVED.
 
 # PRE-GENERATION QA
@@ -63,7 +63,7 @@ Výsledek:
 
 # 2. SHODA S MASTER tvář
 
-Použít MASTER tvář: `Pilates Assets/01_Master_Reference/Master tvář.png`.
+Použít MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`.
 
 - [ ] shoda obličeje
 - [ ] tvar čelisti

@@ -1,6 +1,6 @@
 ﻿> MASTER_SYSTEM_V2_ACTIVE
 >
-> Pro MASTER pravidla platí pouze `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
+> Pro MASTER pravidla platí pouze `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
 > Tento guide je vstupní kontext projektu, ne samostatný MASTER systém. Starší zmínky o Glute Bridge HERO jako jediném MASTER modelu jsou zastaralé; platí rozdělený MASTER model, MASTER tvář, MASTER prostředí a EXERCISE_REFERENCE podle MASTER.
 
 # ChatGPT Project Guide – Pilates Body 40+

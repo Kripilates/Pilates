@@ -1,6 +1,6 @@
 ﻿> MASTER_SYSTEM_V2_ACTIVE
 >
-> Jediný platný MASTER systém projektu je `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
+> Jediný platný MASTER systém projektu je `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
 > Tento dokument zůstává projektová Bible pro aplikaci, spolupráci a obecná pravidla, ale všechna pravidla pro MASTER model, MASTER tvář, MASTER prostředí, EXERCISE_REFERENCE, promptování obrázků a QA se řídí MASTER.
 > Starší formulace typu „Glute Bridge HERO je jediný MASTER model“ jsou zastaralé. Platné MASTER reference jsou MASTER model, MASTER tvář, MASTER prostředí a EXERCISE_REFERENCE.
 > Nejvyšší prioritou je zpětná kompatibilita: žádné sjednocení pravidel nesmí rozbít existující workflow aplikace ani schválené obrazové podklady.

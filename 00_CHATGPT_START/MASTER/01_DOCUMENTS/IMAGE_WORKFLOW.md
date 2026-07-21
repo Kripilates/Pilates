@@ -1,6 +1,6 @@
 ﻿> MASTER_SYSTEM_V2_ACTIVE
 >
-> Tento workflow je podřízen `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
+> Tento workflow je podřízen `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
 > Platný zdroj pravdy pro prostředí je MASTER prostředí. Platný zdroj pravdy pro modelku je MASTER model a MASTER tvář. EXERCISE_REFERENCE určuje anatomii konkrétního cviku.
 
 # Pilates Body 40+ – IMAGE WORKFLOW v2.0

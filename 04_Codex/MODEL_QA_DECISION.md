@@ -2,7 +2,7 @@
 
 Updated: 2026-07-14T11:48:55
 
-MODEL_MASTER: `Pilates Assets/01_Master_Reference/MODEL_MASTER.png.png`
+MODEL_MASTER: `Pilates Assets/01_Master_Reference/MASTER_MODEL.png`
 
 | Exercise | Image | Audit Finding | Decision | Reason |
 |---|---|---|---|---|

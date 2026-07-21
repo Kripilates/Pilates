@@ -34,7 +34,7 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 ## MASTER SOURCES
 
 - MASTER model: jediná oficiální modelka projektu.
-- MASTER tvář: `Pilates Assets/01_Master_Reference/Master tvář.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
+- MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
 - MASTER prostředí: jediný zdroj pravdy pro místnost, světlo, kameru, perspektivu, podlahu, palmu, polici, dekorace a barevnost.
 - HERO referenční standard: referenční kvalita HERO fotografie.
 - EXERCISE_REFERENCE.png: anatomická reference konkrétního cviku, dodává se pro právě řešený cvik.
@@ -53,7 +53,7 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 - Přirozené ženské proporce.
 - Pleť musí zůstat přirozená a konzistentní s MASTER model.
 - Vlasy: natural mid-light Central European hair, dark blonde / light brown appearance, bez dark brunette, black, copper, orange nebo red dojmu.
-- Víceúhlová reference obličeje Master tvář.png pouze zpřesňuje stejnou identitu modelky.
+- Víceúhlová reference obličeje MASTER_FACE.png pouze zpřesňuje stejnou identitu modelky.
 
 ## MASTER tvář
 
@@ -289,8 +289,8 @@ ChatGPT nesmí improvizovat, domýšlet si pravidla ani vytvářet nové MASTER 
 
 Po založení nového chatu musí ChatGPT:
 
-1. Načíst MASTER/MASTER_REFERENCE.md.
-2. Načíst MASTER/MASTER_IMAGE_CHECKLIST.md.
+1. Načíst MASTER/01_DOCUMENTS/MASTER_REFERENCE.md.
+2. Načíst MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md.
 3. Načíst PILATES_BODY_AI_BIBLE.md.
 4. Načíst aktuální project guide pouze jako podpůrný kontext.
 5. Považovat MASTER za jediný zdroj pravdy pro MASTER pravidla.
