@@ -40,9 +40,21 @@ Poznámka: Starší předpoklad o posledním commitu `79f90a1 Add centralized ex
 
 Před vytvořením tohoto handoff souboru nebyly v pracovním stromu žádné necommitnuté ani nesledované změny.
 
-Po tomto úkolu je rozpracováno pouze:
+Aktuálně jsou v pracovním stromu rozpracované změny bez commitu:
 
-- `00_CODEX/00_CODEX_STATE.md` - nový stavový handoff soubor, zatím bez commitu.
+- `app.js`, `style.css`, `index.html` - předchozí UX úprava horní karty detailu dne na v59.31-dev.
+- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` - opravený stav Hip March / Glute Bridge March.
+- `Pilates Assets/02_Exercise_Cards/Hip March/STATUS.md` - Hip March uzavřen jako HOTOVO.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md` - nový stav Glute Bridge March.
+- `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero_v02.png` - schválený nový Hip March HERO.
+- `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_guide_card_v02.png` - schváleno.
+- `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_step_by_step_v02.png` - schváleno.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_mid_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/_LEGACY_HIP_MARCH_V01/` - archivované staré v01 karty.
+
+Poznámka: `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero_v01.png` byl po přesměrování `app.js` na `hip_march_hero_v02.png` přesunut do `Glute Bridge March/_LEGACY_HIP_MARCH_V01/`.
 
 ## Další krok
 

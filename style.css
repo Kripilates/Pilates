@@ -2141,6 +2141,40 @@ main button:not(.primary):not(.active),
   font-weight:900;
   padding:8px 11px;
 }
+.dayInfoGrid{
+  display:grid;
+  grid-template-columns:minmax(0,3fr) minmax(126px,2fr);
+  align-items:start;
+  gap:10px;
+  margin:10px 0 6px;
+}
+.dayInfoGrid .daySummary{
+  margin:0;
+  gap:6px;
+}
+.dayInfoGrid .daySummary span{
+  padding:6px 9px;
+}
+.dayInfoRight{
+  min-width:0;
+}
+.dayInfoGrid .dayEquipmentInline{
+  margin:0;
+}
+.dayInfoGrid .dayEquipmentInline .eyebrow{
+  color:var(--p);
+  font-size:13px;
+  font-weight:1000;
+  letter-spacing:.09em;
+  margin:0 0 5px;
+}
+.dayInfoGrid .dayEquipmentList{
+  gap:6px;
+}
+.dayInfoGrid .dayEquipmentList span{
+  font-size:13px;
+  padding:6px 9px;
+}
 .v53CleanTrain .prepDoseBox,
 .v50Train .prepDoseBox{
   max-width:330px;
@@ -2159,13 +2193,32 @@ main button:not(.primary):not(.active),
   line-height:1.15;
 }
 @media(max-width:420px){
+  .dayInfoGrid{
+    grid-template-columns:minmax(0,58fr) minmax(110px,42fr);
+    gap:7px;
+    margin:9px 0 5px;
+  }
+  .dayInfoGrid .daySummary,
+  .dayInfoGrid .dayEquipmentList{
+    gap:5px;
+  }
+  .dayInfoGrid .daySummary span,
   .dayEquipmentList span{
     font-size:13px;
     padding:7px 10px;
   }
+  .dayInfoGrid .dayEquipmentList span{
+    font-size:12px;
+    padding:6px 8px;
+  }
   .v53CleanTrain .prepDoseBox b,
   .v50Train .prepDoseBox b{
     font-size:1.04rem;
+  }
+}
+@media(max-width:330px){
+  .dayInfoGrid{
+    grid-template-columns:1fr;
   }
 }
 .v53CleanTrain .trainTop2 button,

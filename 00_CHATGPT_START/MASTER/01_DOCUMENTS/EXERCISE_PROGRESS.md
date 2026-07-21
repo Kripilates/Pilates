@@ -80,124 +80,122 @@ ROZPRACOVÁNO
 45. Frog Pumps HERO
 46. Frog Pumps Guide Card
 47. Frog Pumps Step by Step
-48. Glute Bridge March START
-49. Glute Bridge March HERO
-50. Glute Bridge March Guide Card
-51. Glute Bridge March Step by Step
-52. Hamstring Stretch START
-53. Hamstring Stretch HERO
-54. Hamstring Stretch Guide Card
-55. Hamstring Stretch Step by Step
-56. Heel Taps START
-57. Heel Taps HERO
-58. Heel Taps Guide Card
-59. Heel Taps Step by Step
-60. Hollow Hold START
-61. Hollow Hold HERO
-62. Hollow Hold Guide Card
-63. Hollow Hold Step by Step
-64. Inner Thigh Lift START
-65. Inner Thigh Lift HERO
-66. Inner Thigh Lift Guide Card
-67. Inner Thigh Lift Step by Step
-68. Lateral Raise START
-69. Lateral Raise HERO
-70. Lateral Raise Guide Card
-71. Lateral Raise Step by Step
-72. Leg Raises START
-73. Leg Raises HERO
-74. Leg Raises Guide Card
-75. Leg Raises Step by Step
-76. Mermaid Stretch START
-77. Mermaid Stretch HERO
-78. Mermaid Stretch Guide Card
-79. Mermaid Stretch Step by Step
-80. Plank Shoulder Taps START
-81. Plank Shoulder Taps HERO
-82. Plank Shoulder Taps Guide Card
-83. Plank Shoulder Taps Step by Step
-84. Plie Squat START
-85. Plie Squat HERO
-86. Plie Squat Guide Card
-87. Plie Squat Step by Step
-88. Roll Up START
-89. Roll Up HERO
-90. Roll Up Guide Card
-91. Roll Up Step by Step
-92. Russian Twist START
-93. Russian Twist HERO
-94. Russian Twist Guide Card
-95. Russian Twist Step by Step
-96. Scissors START
-97. Scissors HERO
-98. Scissors Guide Card
-99. Scissors Step by Step
-100. Shoulder Press START
-101. Shoulder Press HERO
-102. Shoulder Press Guide Card
-103. Shoulder Press Step by Step
-104. Side Kick START
-105. Side Kick HERO
-106. Side Kick Guide Card
-107. Side Kick Step by Step
-108. Side Plank START
-109. Side Plank HERO
-110. Side Plank Guide Card
-111. Side Plank Step by Step
-112. Side Plank Reach START
-113. Side Plank Reach HERO
-114. Side Plank Reach Guide Card
-115. Side Plank Reach Step by Step
-116. Sphinx Stretch START
-117. Sphinx Stretch HERO
-118. Sphinx Stretch Guide Card
-119. Sphinx Stretch Step by Step
-120. Spine Stretch START
-121. Spine Stretch HERO
-122. Spine Stretch Guide Card
-123. Spine Stretch Step by Step
-124. Standing Oblique Crunch START
-125. Standing Oblique Crunch HERO
-126. Standing Oblique Crunch Guide Card
-127. Standing Oblique Crunch Step by Step
-128. Standing Side Bend START
-129. Standing Side Bend HERO
-130. Standing Side Bend Guide Card
-131. Standing Side Bend Step by Step
-132. Supine Twist START
-133. Supine Twist HERO
-134. Supine Twist Guide Card
-135. Supine Twist Step by Step
-136. Swan Prep START
-137. Swan Prep HERO
-138. Swan Prep Guide Card
-139. Swan Prep Step by Step
-140. Swimming START
-141. Swimming HERO
-142. Swimming Guide Card
-143. Swimming Step by Step
-144. The Hundred START
-145. The Hundred HERO
-146. The Hundred Guide Card
-147. The Hundred Step by Step
-148. Thread the Needle START
-149. Thread the Needle HERO
-150. Thread the Needle Guide Card
-151. Thread the Needle Step by Step
-152. Triceps Kickback START
-153. Triceps Kickback HERO
-154. Triceps Kickback Guide Card
-155. Triceps Kickback Step by Step
-156. Wall Sit START
-157. Wall Sit HERO
-158. Wall Sit Guide Card
-159. Wall Sit Step by Step
+48. Glute Bridge March Guide Card
+49. Glute Bridge March Step by Step
+50. Hamstring Stretch START
+51. Hamstring Stretch HERO
+52. Hamstring Stretch Guide Card
+53. Hamstring Stretch Step by Step
+54. Heel Taps START
+55. Heel Taps HERO
+56. Heel Taps Guide Card
+57. Heel Taps Step by Step
+58. Hollow Hold START
+59. Hollow Hold HERO
+60. Hollow Hold Guide Card
+61. Hollow Hold Step by Step
+62. Inner Thigh Lift START
+63. Inner Thigh Lift HERO
+64. Inner Thigh Lift Guide Card
+65. Inner Thigh Lift Step by Step
+66. Lateral Raise START
+67. Lateral Raise HERO
+68. Lateral Raise Guide Card
+69. Lateral Raise Step by Step
+70. Leg Raises START
+71. Leg Raises HERO
+72. Leg Raises Guide Card
+73. Leg Raises Step by Step
+74. Mermaid Stretch START
+75. Mermaid Stretch HERO
+76. Mermaid Stretch Guide Card
+77. Mermaid Stretch Step by Step
+78. Plank Shoulder Taps START
+79. Plank Shoulder Taps HERO
+80. Plank Shoulder Taps Guide Card
+81. Plank Shoulder Taps Step by Step
+82. Plie Squat START
+83. Plie Squat HERO
+84. Plie Squat Guide Card
+85. Plie Squat Step by Step
+86. Roll Up START
+87. Roll Up HERO
+88. Roll Up Guide Card
+89. Roll Up Step by Step
+90. Russian Twist START
+91. Russian Twist HERO
+92. Russian Twist Guide Card
+93. Russian Twist Step by Step
+94. Scissors START
+95. Scissors HERO
+96. Scissors Guide Card
+97. Scissors Step by Step
+98. Shoulder Press START
+99. Shoulder Press HERO
+100. Shoulder Press Guide Card
+101. Shoulder Press Step by Step
+102. Side Kick START
+103. Side Kick HERO
+104. Side Kick Guide Card
+105. Side Kick Step by Step
+106. Side Plank START
+107. Side Plank HERO
+108. Side Plank Guide Card
+109. Side Plank Step by Step
+110. Side Plank Reach START
+111. Side Plank Reach HERO
+112. Side Plank Reach Guide Card
+113. Side Plank Reach Step by Step
+114. Sphinx Stretch START
+115. Sphinx Stretch HERO
+116. Sphinx Stretch Guide Card
+117. Sphinx Stretch Step by Step
+118. Spine Stretch START
+119. Spine Stretch HERO
+120. Spine Stretch Guide Card
+121. Spine Stretch Step by Step
+122. Standing Oblique Crunch START
+123. Standing Oblique Crunch HERO
+124. Standing Oblique Crunch Guide Card
+125. Standing Oblique Crunch Step by Step
+126. Standing Side Bend START
+127. Standing Side Bend HERO
+128. Standing Side Bend Guide Card
+129. Standing Side Bend Step by Step
+130. Supine Twist START
+131. Supine Twist HERO
+132. Supine Twist Guide Card
+133. Supine Twist Step by Step
+134. Swan Prep START
+135. Swan Prep HERO
+136. Swan Prep Guide Card
+137. Swan Prep Step by Step
+138. Swimming START
+139. Swimming HERO
+140. Swimming Guide Card
+141. Swimming Step by Step
+142. The Hundred START
+143. The Hundred HERO
+144. The Hundred Guide Card
+145. The Hundred Step by Step
+146. Thread the Needle START
+147. Thread the Needle HERO
+148. Thread the Needle Guide Card
+149. Thread the Needle Step by Step
+150. Triceps Kickback START
+151. Triceps Kickback HERO
+152. Triceps Kickback Guide Card
+153. Triceps Kickback Step by Step
+154. Wall Sit START
+155. Wall Sit HERO
+156. Wall Sit Guide Card
+157. Wall Sit Step by Step
 ## Souhrn
 
 Celkem cviků: 50
 Kompletně hotovo: 10
-Rozpracováno: 4
-Nezačato: 36
+Rozpracováno: 5
+Nezačato: 35
 
 Další doporučený cvik: Reverse Crunch START
 
@@ -221,10 +219,10 @@ Další doporučený cvik: Reverse Crunch START
 | Forearm Plank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Frog Pumps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Glute Bridge | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | oficiální referenční cvik a template; soubory v1/v2/v3; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Glute Bridge March | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Glute Bridge March | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ROZPRACOVÁNO | START/MID/HERO v02 zařazené; správná sekvence START → MID → HERO → MID → START; Guide Card a Step by Step vytvořit nově z v02 zdrojů |
 | Hamstring Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Heel Taps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
-| Hip March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🟡 | HOTOVO | START sdílený z Glute Bridge, nebyl kopírován; připravené assety, propojení v aplikaci neověřeno podle názvu source sady; EXERCISE_REFERENCE není uložená v MASTER balíčku |
+| Hip March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální workflow START → HERO → START; Hip March probíhá s pánví na podložce; staré v01 podklady zobrazovaly Glute Bridge March a jsou pouze v legacy; v02 source i karty jsou schválené a nasazené |
 | Hollow Hold | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Inner Thigh Lift | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Lateral Raise | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

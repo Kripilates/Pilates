@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.30-dev';
+const APP_VERSION='v59.33-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -395,18 +395,28 @@ const referenceExerciseAssets={
     ]
   },
   hip_march:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v1.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v02.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_guide_card_v02.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_step_by_step_v02.png',
+    subtitle:'Střed těla • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Výchozí',photo:'start'},
-      {n:2,title:'HLAVNÍ POHYB',caption:'Přitáhni koleno',photo:'hero'},
+      {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni nohu',photo:'hero'},
       {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
     ],
     steps:[
-      {title:'START',text:'Lehni si na záda, pokrč kolena a zvedni pánev do pozice mostu.',photo:'start'},
-      {title:'HLAVNÍ POHYB',text:'S výdechem přitáhni jedno koleno přibližně do úhlu 90°. Pánev zůstává stabilní.',photo:'hero'},
-      {title:'NÁVRAT',text:'S nádechem polož chodidlo zpět na podložku a opakuj na druhou stranu.',photo:'start'}
-    ]
+      {title:'START',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Pánev zůstává dole.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem zvedni jednu nohu do tabletop. Pánev, bedra, ramena a hlava zůstávají na podložce.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať chodidlo kontrolovaně zpět a opakuj na druhou stranu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Core / pánev',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí nohy',tempo:'Pomalu bez švihu'},
+    recommendations:{
+      feel:'Aktivní střed těla, klidnou pánev a kontrolované zvednutí nohy bez pohybu v bedrech.',
+      watch:['Pánev zůstává na podložce.','Bedra, ramena a hlava zůstávají klidné.','Koleno zvedej do tabletop bez švihu.'],
+      mistakes:['Zvedání pánve do mostu.','Prohýbání beder.','Přitahování kolene příliš k hrudníku.','Odraz opěrnou nohou.']
+    }
   },
   chest_press:{
     start:'assets/exercises/chest_press_step1.jpg?v=5930chestpress',
@@ -850,6 +860,9 @@ function dayEquipmentInline(items){
   const gear=dayEquipment(items);
   return `<div class="dayEquipmentInline"><p class="eyebrow">PŘIPRAV SI</p><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
+function dayInfoGrid(di,items){
+  return `<div class="dayInfoGrid"><div class="dayInfoLeft">${daySummary(di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
+}
 function day(di,opts={}){
   clearDetailRoute();
   lastMode='day';setNav('days');currentDay=di;
@@ -859,8 +872,7 @@ function day(di,opts={}){
   app.innerHTML=`<section class="dashboardHero dayHero">
     <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
-    ${daySummary(di)}
-    ${dayEquipmentInline(equipmentItems)}
+    ${dayInfoGrid(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
