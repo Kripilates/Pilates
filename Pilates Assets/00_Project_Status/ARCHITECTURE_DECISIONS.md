@@ -10,7 +10,7 @@ Accepted
 
 Důsledky:
 - Starší master a prompt/QA formulace jsou historické reference.
-- MASTER CHARACTER, MASTER ENVIRONMENT, MASTER STYLE a EXERCISE_REFERENCE mají přednost před starým pravidlem „Glute Bridge HERO jako jediný MODEL MASTER“.
+- MASTER model, MASTER prostředí, styl projektu a EXERCISE_REFERENCE mají přednost před starým pravidlem „Glute Bridge HERO jako jediný MASTER model“.
 - Sjednocení pravidel nesmí rozbít aplikaci ani existující schválené obrazové podklady.
 
 # Architecture Decisions

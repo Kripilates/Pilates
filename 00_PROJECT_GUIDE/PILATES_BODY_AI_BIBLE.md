@@ -1,8 +1,8 @@
-> MASTER_SYSTEM_V2_ACTIVE
+﻿> MASTER_SYSTEM_V2_ACTIVE
 >
 > Jediný platný MASTER systém projektu je `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
-> Tento dokument zůstává projektová Bible pro aplikaci, spolupráci a obecná pravidla, ale všechna pravidla pro MASTER CHARACTER, MASTER ENVIRONMENT, MASTER STYLE, promptování obrázků a QA se řídí MASTER.
-> Starší formulace typu „Glute Bridge HERO je jediný MODEL MASTER“ jsou zastaralé. Glute Bridge zůstává schválený designový a obrazový referenční podklad, ne jediný MASTER systém.
+> Tento dokument zůstává projektová Bible pro aplikaci, spolupráci a obecná pravidla, ale všechna pravidla pro MASTER model, MASTER tvář, MASTER prostředí, EXERCISE_REFERENCE, promptování obrázků a QA se řídí MASTER.
+> Starší formulace typu „Glute Bridge HERO je jediný MASTER model“ jsou zastaralé. Platné MASTER reference jsou MASTER model, MASTER tvář, MASTER prostředí a EXERCISE_REFERENCE.
 > Nejvyšší prioritou je zpětná kompatibilita: žádné sjednocení pravidel nesmí rozbít existující workflow aplikace ani schválené obrazové podklady.
 
 # PILATES_BODY_AI_BIBLE
@@ -152,49 +152,76 @@ Design se již dále neupravuje.
 
 Další cviky se přizpůsobují jemu.
 
-# 5. MODEL MASTER
+# 5. MASTER reference obrázků
 
-Rozliš čtyři typy referencí.
+Platné MASTER reference jsou pouze:
 
-MODEL_MASTER_CHARACTER a MASTER TVÁŘ
+- MASTER prostředí
+- MASTER model
+- MASTER tvář
+- EXERCISE_REFERENCE
 
-obsahují:
+MASTER prostředí je jediná schválená referenční fotografie místnosti.
 
-- modelku
-- obličej
-- MASTER FACE MATCH podle `Pilates Assets/01_Master_Reference/Master tvář.png`
-- vlasy
-- postavu
-- oblečení
-
-MODEL_MASTER_SCENE
-
-určuje:
+Obsahuje pouze:
 
 - místnost
 - kameru
 - perspektivu
 - světlo
 - podlahu
-- koberec
-- police
-- květiny
+- polici
+- dekorace
 - barevnost
 
-MODEL_MASTER_HERO
+MASTER prostředí je uzamčeno.
 
-určuje schválenou kvalitu hero obrázku.
+Nesmí se měnit:
 
-EXERCISE_REFERENCE
+- kamera
+- perspektiva
+- ohnisko
+- světlo
+- rozmístění objektů
+- velikost objektů
 
-určuje anatomii konkrétního cviku.
+Podložka není součást MASTER prostředí.
 
-Mění se pouze poloha těla podle EXERCISE_REFERENCE konkrétního cviku.
+Podložka je rekvizita stejně jako:
+
+- činky
+- odporová guma
+- míč
+- další cvičební pomůcky
+
+Podložka se přidává až při generování konkrétního cviku.
+
+MASTER model určuje:
+
+- postavu
+- oblečení
+- vlasy
+- identitu
+
+Mění se pouze poloha těla.
+
+MASTER tvář určuje:
+
+- obličej
+- oči
+- nos
+- ústa
+- čelist
+- výraz
+- odstín pleti
+
+Nikdy se nesmí změnit identita.
+
+EXERCISE_REFERENCE určuje anatomii konkrétního cviku.
 
 Nové obrázky musí působit jako fotografie ze stejného focení.
 
 Nikdy jako nové AI prostředí.
-
 # 6. Workflow obrázků
 
 Pořadí je vždy:
@@ -229,14 +256,14 @@ Nikdy nevytvářet všechny karty najednou.
 
 Každý START, HERO a END musí být před schválením porovnán:
 
-1. s MODEL_MASTER_CHARACTER
-2. s MODEL_MASTER_SCENE
-3. s MODEL_MASTER_HERO
+1. s MASTER model
+2. s MASTER tvář
+3. s MASTER prostředí
 4. s EXERCISE_REFERENCE konkrétního cviku
 
 Schválení vyžaduje současně:
 
-- vizuální shodu s MASTER PACK
+- vizuální shodu s MASTER modelem, MASTER tváří a MASTER prostředím
 - anatomickou shodu s EXERCISE_REFERENCE
 - správnou Pilates techniku
 - čistý zdrojový obrázek bez textu a grafiky
@@ -245,19 +272,19 @@ Schválení vyžaduje současně:
 
 POST-GENERATION QA probíhá vždy v tomto pořadí:
 
-1. MASTER CHARACTER
-2. MASTER SCENE
-3. BAREVNOST A SVĚTLO
-4. OBLEČENÍ
-5. ANATOMICKÁ SHODA S EXERCISE_REFERENCE
+1. MASTER model
+2. MASTER tvář
+3. MASTER prostředí
+4. EXERCISE_REFERENCE
+5. ANATOMICKÁ SPRÁVNOST
 6. AI ARTEFAKTY
-7. CELKOVÝ DOJEM JEDNOHO FOCENÍ
+7. CELKOVÝ DOJEM JEDNÉ FOTOGRAFICKÉ SÉRIE
 
-Pokud neprojde MASTER CHARACTER nebo MASTER SCENE, obrázek se automaticky neschvaluje, i kdyby byla anatomie správná.
+Pokud neprojde MASTER model, MASTER tvář nebo MASTER prostředí, obrázek se automaticky neschvaluje, i kdyby byla anatomie správná.
 
 Kontrolní otázka:
 
-„Kdyby uživatel viděl MODEL_MASTER, Glute Bridge, Toe Tap, Dead Bug a nový obrázek vedle sebe, uvěřil by, že vznikly během stejného focení se stejnou modelkou?“
+„Kdyby uživatel viděl MASTER model, MASTER tvář, MASTER prostředí a nový obrázek vedle sebe, uvěřil by, že vznikly během stejného focení se stejnou modelkou?“
 
 Pokud odpověď není jednoznačné ANO, obrázek se neschvaluje.
 
@@ -279,7 +306,7 @@ Schválený obrázek musí současně splnit:
 - stejná kamera
 - stejné světlo
 - stejná barevnost
-- stejná podložka
+- podložka jako rekvizita konkrétního cviku
 - anatomická shoda s EXERCISE_REFERENCE
 - žádné rušivé AI artefakty
 
@@ -295,7 +322,7 @@ Obrázek, který anatomicky odpovídá, ale vypadá jako jiné focení, je také
 
 Schválený je pouze obrázek, který splňuje obě podmínky současně:
 
-- vizuální shodu s MASTER PACK
+- vizuální shodu s MASTER modelem, MASTER tváří a MASTER prostředím
 - anatomickou shodu s EXERCISE_REFERENCE
 
 # 8. Kritický přístup

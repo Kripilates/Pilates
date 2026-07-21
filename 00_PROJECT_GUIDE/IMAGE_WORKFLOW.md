@@ -1,7 +1,7 @@
-> MASTER_SYSTEM_V2_ACTIVE
+﻿> MASTER_SYSTEM_V2_ACTIVE
 >
 > Tento workflow je podřízen `00_CHATGPT_START/MASTER/MASTER_REFERENCE.md`.
-> Platný zdroj pravdy pro prostředí je ENVIRONMENT_MASTER. Platný zdroj pravdy pro identitu je MODEL_MASTER_CHARACTER. Starší formulace „Glute Bridge HERO je jediný MODEL MASTER“ je zastaralá, ale Glute Bridge HERO zůstává referencí kvality a schváleného vzhledu.
+> Platný zdroj pravdy pro prostředí je MASTER prostředí. Platný zdroj pravdy pro modelku je MASTER model a MASTER tvář. EXERCISE_REFERENCE určuje anatomii konkrétního cviku.
 
 # Pilates Body 40+ – IMAGE WORKFLOW v2.0
 
@@ -39,12 +39,11 @@ Platný MASTER systém je MASTER.
 
 Používej:
 
-- MODEL_MASTER_CHARACTER pro identitu modelky
-- ENVIRONMENT_MASTER pro prostředí
-- MODEL_MASTER_HERO pro kvalitu HERO výstupu
+- MASTER prostředí pro místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost
+- MASTER model pro postavu, oblečení, vlasy a identitu
+- MASTER tvář pro obličej, oči, nos, ústa, čelist, výraz a odstín pleti
 - EXERCISE_REFERENCE pro anatomii konkrétního cviku
 
-Glute Bridge HERO zůstává schválená reference kvality, ale není jediný MASTER systém.
 
 ---
 
@@ -87,21 +86,11 @@ Bez jakékoliv změny.
 
 ## Prostředí
 
-Musí být stejné.
+MASTER prostředí je jediná schválená referenční fotografie místnosti. Obsahuje pouze místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost.
 
-Stejná místnost.
+MASTER prostředí je uzamčeno. Nesmí se měnit kamera, perspektiva, ohnisko, světlo, rozmístění objektů ani velikost objektů.
 
-Stejná podlaha.
-
-Stejná podložka.
-
-Stejné závěsy.
-
-Stejná police.
-
-Stejné dekorace.
-
-Stejný květináč.
+Podložka není součást MASTER prostředí. Podložka je rekvizita stejně jako činky, odporová guma, míč nebo další cvičební pomůcky. Přidává se až při generování konkrétního cviku.
 
 Stejné rozmístění všech objektů.
 
@@ -147,7 +136,7 @@ Stejná barevná teplota.
 
 ## Barevnost
 
-Stejná jako MODEL MASTER.
+Stejná jako MASTER model.
 
 Lehce studená.
 
@@ -170,6 +159,8 @@ Smí se změnit pouze:
 - poloha těla
 - poloha rukou
 - poloha nohou
+- podložka
+- cvičební pomůcky
 
 Nic dalšího.
 
@@ -271,14 +262,15 @@ Pokud je cvik proveden špatně, fotografie se považuje za chybnou bez ohledu n
 
 Před schválením každého nového obrázku musí AI porovnat nový obrázek s MASTER.
 
-Musí zkontrolovat:
+Musí zkontrolovat v pořadí:
 
-- modelku
-- prostředí
-- světlo
-- kameru
-- barevnost
-- oblečení
+1. MASTER model
+2. MASTER tvář
+3. MASTER prostředí
+4. EXERCISE_REFERENCE
+5. Anatomická správnost
+6. AI artefakty
+7. Celkový dojem jedné fotografické série
 
 Pokud je rozdíl viditelný na první pohled, obrázek není správný.
 
@@ -288,7 +280,7 @@ Pokud je rozdíl viditelný na první pohled, obrázek není správný.
 
 Před dokončením každého obrázku si AI položí otázku:
 
-"Kdyby někdo viděl MASTER CHARACTER, MASTER ENVIRONMENT, Glute Bridge HERO a tento nový obrázek vedle sebe, uvěřil by, že jde o stejnou modelku ve stejné sérii?"
+"Kdyby někdo viděl MASTER model, MASTER tvář, MASTER prostředí a tento nový obrázek vedle sebe, uvěřil by, že jde o stejnou modelku ve stejné sérii?"
 
 Pokud odpověď není jednoznačně ANO,
 
@@ -305,7 +297,8 @@ Každý obrázek musí být kriticky zhodnocen jako celek.
 Hodnotí se zejména:
 
 - anatomická správnost cviku,
-- konzistence s MODEL MASTER,
+- konzistence s MASTER model,
+- konzistence s MASTER tvář,
 - shoda modelky,
 - prostředí,
 - kamera,

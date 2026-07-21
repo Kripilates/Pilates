@@ -1,3 +1,27 @@
+﻿# OFICIÁLNÍ MASTER SYSTÉM
+
+Projekt Pilates Body 40+ používá pouze tyto čtyři závazné reference:
+
+1. MASTER prostředí
+   Referenční fotografie místnosti.
+   Určuje kameru, perspektivu, světlo, podlahu, rozmístění objektů a barevnost.
+
+2. MASTER model
+   Referenční fotografie celé modelky.
+   Určuje postavu, oblečení, vlasy a identitu.
+
+3. MASTER tvář
+   Referenční fotografie obličeje.
+   Určuje obličej, oči, nos, ústa, čelist, výraz a odstín pleti.
+
+4. EXERCISE_REFERENCE
+   Referenční fotografie nebo ilustrace konkrétního cviku.
+   Určuje anatomicky správnou polohu těla.
+
+Podložka není součást MASTER prostředí.
+Je rekvizitou konkrétního cviku stejně jako činky, odporová guma nebo míč.
+
+Veškeré další historické názvy jsou považovány za neplatné.
 # MASTER PACK v2.0 Reference
 
 Status: ACTIVE MASTER SYSTEM
@@ -9,16 +33,15 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 
 ## MASTER SOURCES
 
-- MODEL_MASTER_CHARACTER.png: jediná oficiální modelka projektu.
-- MASTER TVÁŘ: `Pilates Assets/01_Master_Reference/Master tvář.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER CHARACTER identity.
-- ENVIRONMENT_MASTER.png: jediný zdroj pravdy pro místnost, světlo, kameru, perspektivu, podložku, podlahu, palmu a polici.
-- MODEL_MASTER_HERO.png: referenční kvalita HERO fotografie.
-- MODEL_MASTER_SCENE.png: historická scéna ponechaná kvůli kompatibilitě; pro nové posouzení prostředí má přednost ENVIRONMENT_MASTER.png.
+- MASTER model: jediná oficiální modelka projektu.
+- MASTER tvář: `Pilates Assets/01_Master_Reference/Master tvář.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
+- MASTER prostředí: jediný zdroj pravdy pro místnost, světlo, kameru, perspektivu, podlahu, palmu, polici, dekorace a barevnost.
+- HERO referenční standard: referenční kvalita HERO fotografie.
 - EXERCISE_REFERENCE.png: anatomická reference konkrétního cviku, dodává se pro právě řešený cvik.
 
-## MASTER CHARACTER
+## MASTER model
 
-- MODEL_MASTER_CHARACTER je jediná oficiální modelka projektu.
+- MASTER model je jediná oficiální modelka projektu.
 - Modelka se nemění.
 - Obličej se nemění.
 - Vlasy se nemění.
@@ -28,15 +51,15 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 - Přirozená atletická postava.
 - Bez svalového kulturistického vzhledu.
 - Přirozené ženské proporce.
-- Pleť musí zůstat přirozená a konzistentní s MASTER CHARACTER.
+- Pleť musí zůstat přirozená a konzistentní s MASTER model.
 - Vlasy: natural mid-light Central European hair, dark blonde / light brown appearance, bez dark brunette, black, copper, orange nebo red dojmu.
 - Víceúhlová reference obličeje Master tvář.png pouze zpřesňuje stejnou identitu modelky.
 
-## MASTER TVÁŘ
+## MASTER tvář
 
-MASTER TVÁŘ je oficiální referenční karta identity obličeje modelky. Musí být používána společně s MASTER CHARACTER, MASTER ENVIRONMENT a MASTER STYLE při každém generování cviku.
+MASTER tvář je oficiální referenční karta identity obličeje modelky. Musí být používána společně s MASTER model, MASTER prostředí a styl projektu při každém generování cviku.
 
-MASTER TVÁŘ slouží jako referenční identita pro:
+MASTER tvář slouží jako referenční identita pro:
 
 - čelní pohled
 - levý profil
@@ -55,15 +78,15 @@ MASTER TVÁŘ slouží jako referenční identita pro:
 - vlasy
 - linii vlasů
 
-Při každém generování cviku musí být MASTER TVÁŘ považována za součást identity modelky. Modelka se nesmí měnit.
+Při každém generování cviku musí být MASTER tvář považována za součást identity modelky. Modelka se nesmí měnit.
 
 Mění se pouze:
 
 - poloha těla
-- výraz podle potřeby cviku
+- drobná změna výrazu, pokud vyplývá z anatomie nebo přirozeného provedení cviku
 - směr pohledu, pokud to vyžaduje anatomie cviku
 
-Pokud identita neodpovídá MASTER TVÁŘI, obrázek se automaticky označí jako REGENERATE.
+Pokud identita neodpovídá MASTER tváři, obrázek se automaticky označí jako REGENERATE.
 
 ## MASTER OUTFIT
 
@@ -75,19 +98,17 @@ Pokud identita neodpovídá MASTER TVÁŘI, obrázek se automaticky označí jak
 - žádné šperky
 - žádné nové doplňky
 
-## MASTER ENVIRONMENT
+## MASTER prostředí
 
-ENVIRONMENT_MASTER je jediný zdroj pravdy pro prostředí.
+MASTER prostředí je jediný zdroj pravdy pro prostředí. Podložka není součást MASTER prostředí; je rekvizita konkrétního cviku stejně jako činky, odporová guma, míč nebo další pomůcky.
 
 - světlá chladnější místnost
 - palma vlevo
 - dřevěná police vpravo
 - bílé závěsy
 - světlá přírodní dřevěná podlaha
-- tmavě šedá podložka
 - stejné rozmístění objektů
 - žádná změna místnosti
-- žádná změna podložky
 - žádná změna police
 - žádná změna palmy
 
@@ -110,7 +131,9 @@ ENVIRONMENT_MASTER je jediný zdroj pravdy pro prostředí.
 - žádná globální desaturace
 - zachovat bright, clean, natural, lightly warm-neutral vzhled
 
-## MASTER STYLE
+## Styl projektu
+
+Styl projektu definuje barevnost, fotografický styl, osvětlení a celkový vizuální charakter celé série. Není to samostatná MASTER reference.
 
 - fotorealistická čistá source fotografie
 - realistická anatomie
@@ -119,7 +142,7 @@ ENVIRONMENT_MASTER je jediný zdroj pravdy pro prostředí.
 - přirozený kontrast
 - přirozená saturace pleti
 - jasně viditelný coral-pink top
-- charcoal leggings a charcoal mat se zachovaným detailem
+- charcoal leggings se zachovaným detailem
 - fotografie musí působit jako jedna profesionální série
 
 ## NEVER CHANGE
@@ -135,7 +158,6 @@ ENVIRONMENT_MASTER je jediný zdroj pravdy pro prostředí.
 - Camera
 - Outfit
 - Floor
-- Mat
 - Colors
 - Existing approved assets
 - Existing application workflow
@@ -148,6 +170,8 @@ ENVIRONMENT_MASTER je jediný zdroj pravdy pro prostředí.
 - Hand position
 - Foot position
 - Head rotation, only if required by exercise
+- Mat, only as exercise prop
+- Exercise props
 
 ## MASTER WORKFLOW
 
@@ -187,7 +211,7 @@ Před každým obrázkem musí ChatGPT automaticky ověřit:
 - přesně jeden asset: START, HERO nebo END
 - že nevzniká Guide Card, Step by Step, Master Card, poster, infografika, UI, koláž ani grafický prvek
 - že výstup bude čistá source fotografie bez textu, ikon, čísel, rámečků, šipek, loga a UI
-- že bude použit MASTER CHARACTER, MASTER TVÁŘ, MASTER ENVIRONMENT, MASTER STYLE a EXERCISE_REFERENCE
+- že bude použit MASTER model, MASTER tvář, MASTER prostředí, styl projektu a EXERCISE_REFERENCE
 
 Bez PRE-GENERATION QA nesmí generování začít.
 
@@ -209,9 +233,9 @@ Kontrolovat vždy:
 - AI artefakty
 - celkový dojem jedné série
 
-## MASTER FACE MATCH
+## SHODA S MASTER tvář
 
-MASTER FACE MATCH je povinná součást automatické QA. Kontrolovat vždy:
+SHODA S MASTER tvář je povinná součást automatické QA. Kontrolovat vždy:
 
 - shodu obličeje
 - tvar čelisti
@@ -225,7 +249,7 @@ MASTER FACE MATCH je povinná součást automatické QA. Kontrolovat vždy:
 - 3/4 pohled
 - konzistenci mezi všemi cviky
 
-Pokud identita neodpovídá MASTER TVÁŘI, výsledek je automaticky REGENERATE.
+Pokud identita neodpovídá MASTER tváři, výsledek je automaticky REGENERATE.
 
 ## QUALITY GATE
 
@@ -234,9 +258,9 @@ Pokud identita neodpovídá MASTER TVÁŘI, výsledek je automaticky REGENERATE.
 - není anatomicky správně
 - neprojde QA
 - nemá minimálně 9.5/10
-- není vizuálně konzistentní s MASTER CHARACTER
-- není konzistentní s MASTER ENVIRONMENT
-- není konzistentní s MASTER STYLE
+- není vizuálně konzistentní s MASTER model
+- není konzistentní s MASTER prostředí
+- není konzistentní se stylem projektu
 
 QUALITY SCORE >= 9.5 / 10 → APPROVED
 
@@ -250,12 +274,12 @@ Schválený je pouze obrázek, který splňuje obě podmínky současně.
 
 Každý prompt musí říkat:
 
-- Use MODEL_MASTER_CHARACTER.png.
-- Use ENVIRONMENT_MASTER.png.
-- Use MODEL_MASTER_HERO.png for HERO quality.
+- Use MASTER model.
+- Use MASTER prostředí.
+- Use HERO reference quality standard for HERO quality.
 - Use EXERCISE_REFERENCE.png for anatomy.
-- Keep the same model, face, hair, body, outfit, room, camera, light, perspective, floor and mat.
-- Change only the body pose and required limb positions.
+- Keep the same model, face, hair, body, outfit, room, camera, light, perspective and floor.
+- Change only the body pose, required limb positions, mat and exercise props.
 - Create only a clean source image.
 - No text, title, labels, icons, frames, UI, numbers or graphic elements.
 
@@ -274,5 +298,5 @@ Po založení nového chatu musí ChatGPT:
 
 ## OBSOLETE REFERENCES
 
-Starší pravidla, která říkají, že jediný MODEL MASTER je pouze Glute Bridge HERO, jsou zastaralá.
-Glute Bridge HERO zůstává schválený referenční obrázek a designový standard, ale MASTER systém v2.0 se řídí rozdělenými referencemi MASTER CHARACTER, MASTER ENVIRONMENT, MASTER STYLE a EXERCISE_REFERENCE.
+Starší pravidla, která říkají, že jediný MASTER model je pouze Glute Bridge HERO, jsou zastaralá.
+Glute Bridge HERO zůstává schválený referenční obrázek a designový standard, ale MASTER systém v2.0 se řídí rozdělenými referencemi MASTER model, MASTER prostředí, styl projektu a EXERCISE_REFERENCE.

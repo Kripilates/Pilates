@@ -1,4 +1,4 @@
-# MASTER IMAGE CHECKLIST
+﻿# MASTER IMAGE CHECKLIST
 
 Status: ACTIVE CHECKLIST FOR MASTER
 
@@ -6,13 +6,13 @@ Status: ACTIVE CHECKLIST FOR MASTER
 
 □ Přesně jeden asset: START / HERO / END
 
-□ Použit MODEL_MASTER_CHARACTER
+□ Použit MASTER model
 
-□ Použita MASTER TVÁŘ: Pilates Assets/01_Master_Reference/Master tvář.png
+□ Použita MASTER tvář: Pilates Assets/01_Master_Reference/Master tvář.png
 
-□ Použit ENVIRONMENT_MASTER
+□ Shoda s MASTER tváří
 
-□ Použit MODEL_MASTER_HERO pro kvalitu HERO výstupu
+□ Použit MASTER prostředí
 
 □ Použita EXERCISE_REFERENCE konkrétního cviku
 
@@ -34,13 +34,11 @@ Status: ACTIVE CHECKLIST FOR MASTER
 
 □ Žádné hodinky ani šperky
 
-□ Stejná místnost podle ENVIRONMENT_MASTER
+□ Stejná místnost podle MASTER prostředí
 
 □ Stejná police
 
 □ Stejná palma
-
-□ Stejná podložka
 
 □ Stejná podlaha
 
@@ -62,10 +60,14 @@ Status: ACTIVE CHECKLIST FOR MASTER
 
 □ Žádné AI artefakty
 
+□ Výsledek působí jako fotografie ze stejného focení
+
 □ Čistá source fotografie bez textu, ikon, rámečků, UI a grafiky
 
 □ Hodnocení ≥9.5
 
 □ APPROVED pouze po automatické i manuální QA
 
-□ Pokud MASTER FACE MATCH neprojde, výsledek je REGENERATE
+□ Pokud SHODA S MASTER tvář neprojde, výsledek je REGENERATE
+
+Pokud neprojde MASTER model nebo MASTER tvář, výsledek je automaticky REGENERATE.

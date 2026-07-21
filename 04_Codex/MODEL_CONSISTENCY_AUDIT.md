@@ -6,11 +6,11 @@ Datum auditu: 2026-07-15
 
 ## Pou?it? reference
 
-- Po?adovan? reference `Pilates Assets/01_Master_Reference/MODEL_MASTER.png`: nenalezena.
-- Hlavn? pou?it? identity reference: `Pilates Assets\01_Master_Reference\MODEL_MASTER.png.png`
+- Po?adovan? reference `Pilates Assets/01_Master_Reference/MASTER model`: nenalezena.
+- Hlavn? pou?it? identity reference: `Pilates Assets\01_Master_Reference\MASTER model`
 - Dal?? soubory v `01_Master_Reference`:
-  - `Pilates Assets\01_Master_Reference\ENVIRONMENT_MASTER.png` ? scene/environment reference candidate, not used as identity master
-  - `Pilates Assets\01_Master_Reference\MODEL_MASTER.png.png` ? main identity reference
+  - `Pilates Assets\01_Master_Reference\MASTER prostředí` ? scene/environment reference candidate, not used as identity master
+  - `Pilates Assets\01_Master_Reference\MASTER model` ? main identity reference
   - `Pilates Assets\01_Master_Reference\STUDIO MASTER.png` ? scene/environment reference candidate, not used as identity master
 
 ## Rozsah auditu
@@ -37,8 +37,8 @@ Datum auditu: 2026-07-15
 | 2 | Fire Hydrant | START | `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_start_v01.png` | D | Same high-priority model mismatch as HERO: dark/copper hair plus visibly stronger athletic body type. |
 | 3 | Bird Dog | START | `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png` | C | Noticeable hair drift: dark brunette/copper-orange impression remains; body is acceptable for weight-bearing pose. |
 | 4 | Side Leg Raise | START | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_start_v01.png` | C | Noticeable drift in hair value/color and slightly stronger side-body/arm impression. |
-| 5 | Side Leg Raise | HERO | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png` | C | Noticeable drift: hair darker and body impression a little more athletic than MODEL_MASTER. |
-| 6 | Toe Tap | HERO | `Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png` | C | Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MODEL_MASTER. |
+| 5 | Side Leg Raise | HERO | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side_leg_raise_hero_v01.png` | C | Noticeable drift: hair darker and body impression a little more athletic than MASTER model. |
+| 6 | Toe Tap | HERO | `Pilates Assets\02_Exercise_Cards\Toe Tap\toe_tap_hero.png` | C | Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MASTER model. |
 | 7 | Side Leg Raise | START alias | `Pilates Assets\02_Exercise_Cards\Side Leg Raise\side leg.png` | C | Separate non-byte-identical SOURCE file. Same dimensions as `side_leg_start_v01.png`, but SHA-256 and pixels differ; visual finding is treated as same category as Side Leg START, without changing original Side Leg START rating. |
 
 ## TOP 10 nejhor??ch obr?zk? z hlediska identity modelky
@@ -46,7 +46,7 @@ Datum auditu: 2026-07-15
 ### 1. Fire Hydrant ? HERO
 Soubor: `Pilates Assets\02_Exercise_Cards\Fire Hydrant\fire_hydrant_hero_v01.png`
 Hodnocen?: D
-IDENTITA: Face/overall impression drifts from MODEL_MASTER; model appears more fitness/athletic.
+IDENTITA: Face/overall impression drifts from MASTER model; model appears more fitness/athletic.
 VLASY: Too dark with copper-orange cast, not mid-light dark blonde/light brown.
 POSTAVA: Strong mismatch: shoulders, deltoids, upper arms and upper back read more muscular than master.
 OUTFIT: Coral top and leggings broadly similar, but identity mismatch dominates.
@@ -66,7 +66,7 @@ DOPORU?EN?: REGENERATE
 ### 3. Bird Dog ? START
 Soubor: `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_start_v01.png`
 Hodnocen?: C
-IDENTITA: Still plausible but noticeably less like MODEL_MASTER than stronger matches.
+IDENTITA: Still plausible but noticeably less like MASTER model than stronger matches.
 VLASY: Too dark and warm/copper compared with mid-light dark blonde/light brown target.
 POSTAVA: Minor athletic definition from all-fours support; not a regeneration reason.
 OUTFIT: Outfit consistent enough.
@@ -90,7 +90,7 @@ IDENTITA: Comparable but visible AI drift from master identity.
 VLASY: Darker than target, less neutral mid-light brown.
 POSTAVA: Mild upper-arm/shoulder athletic impression; pose explains some but not all.
 OUTFIT: Outfit acceptable.
-PRO? JE TO PROBL?M: Noticeable drift: hair darker and body impression a little more athletic than MODEL_MASTER.
+PRO? JE TO PROBL?M: Noticeable drift: hair darker and body impression a little more athletic than MASTER model.
 DOPORU?EN?: MINOR FIX
 
 ### 6. Toe Tap ? HERO
@@ -100,14 +100,14 @@ IDENTITA: Somewhat different facial/hair impression; still usable but not strong
 VLASY: Hair reads darker/more muted and less like the master target.
 POSTAVA: Body type acceptable; no major muscularity issue.
 OUTFIT: Outfit similar enough, though overall impression is less matched.
-PRO? JE TO PROBL?M: Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MODEL_MASTER.
+PRO? JE TO PROBL?M: Model identity is acceptable but noticeably drifted: hair/face impression and saturation differ from MASTER model.
 DOPORU?EN?: MINOR FIX
 
 ### 7. Bird Dog ? HERO
 Soubor: `Pilates Assets\02_Exercise_Cards\Bird Dog\bird_dog_hero_v01.png`
 Hodnocen?: B
 IDENTITA: Believable in-app as same woman, but not a strong match.
-VLASY: Improved versus original; still not as natural/light as MODEL_MASTER.
+VLASY: Improved versus original; still not as natural/light as MASTER model.
 POSTAVA: Minor athletic definition from loaded arms; acceptable.
 OUTFIT: Outfit consistent.
 PRO? JE TO PROBL?M: After approved V1 hair fix, identity is acceptable; remaining drift is mainly weight-bearing/body tension and some hair character.
@@ -168,7 +168,7 @@ Audit decision:
 - It is added as a separate SOURCE file for audit coverage.
 - Original `Side Leg START` rating for `side_leg_start_v01.png` remains unchanged.
 - TOP 10 review board PNG was not updated, because this check did not introduce a new model-identity finding beyond the existing Side Leg START issue.
-- `MODEL_MASTER.png.png` keeps its current double extension; rename is deferred to a separate cleanup task.
+- `MASTER model` keeps its current double extension; rename is deferred to a separate cleanup task.
 
 ## Review board
 
