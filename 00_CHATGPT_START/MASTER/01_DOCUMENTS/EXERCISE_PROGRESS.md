@@ -195,8 +195,8 @@ ROZPRACOVÁNO
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 9
-Rozpracováno: 5
+Kompletně hotovo: 10
+Rozpracováno: 4
 Nezačato: 36
 
 Další doporučený cvik: Reverse Crunch START
@@ -211,7 +211,7 @@ Další doporučený cvik: Reverse Crunch START
 | Bridge Abduction | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Cat-Cow | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Chest Opener | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
-| Chest Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ROZPRACOVÁNO | START a HERO uložené a schválené; END = START; Guide Card a Step by Step vytvořené a čekají na manuální schválení; aplikace používá no-image fallback; EXERCISE_REFERENCE nebyla nalezena |
+| Chest Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO schválené; END = START; Guide Card a Step by Step schválené; anatomická reference byla při tvorbě použita, ale není fyzicky archivovaná; aplikace používá assets/exercises/chest_press.jpg a detailové reference Chest Press |
 | Child's Pose | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ROZPRACOVÁNO | existuje dokumentace/status, ale žádné PNG; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Dead Bug | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |

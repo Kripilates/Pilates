@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.29-dev';
+const APP_VERSION='v59.30-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -407,6 +407,27 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',text:'S výdechem přitáhni jedno koleno přibližně do úhlu 90°. Pánev zůstává stabilní.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem polož chodidlo zpět na podložku a opakuj na druhou stranu.',photo:'start'}
     ]
+  },
+  chest_press:{
+    start:'assets/exercises/chest_press_step1.jpg?v=5930chestpress',
+    hero:'assets/exercises/chest_press.jpg?v=5930chestpress',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky u hrudníku',photo:'start'},
+      {n:2,title:'TLAK NAHORU',caption:'Činky nad hrudník',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž u hrudníku.',photo:'start'},
+      {title:'TLAK NAHORU',text:'S výdechem vytlač činky nad hrudník. Zápěstí drž rovně, paže veď kontrolovaně a bedra nech klidně na podložce.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať činky k hrudníku. Lokty veď asi 45° od trupu a pohyb zastav lehkým dotykem paží o podložku.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hrudník / paže',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu',exhale:'Při vytlačení',tempo:'Kontrolovaně'},
+    recommendations:{
+      feel:'Práci v hrudníku, ramenou a tricepsech bez napětí v krku.',
+      watch:['Zápěstí drž rovně.','Ramena nech daleko od uší.','Bedra neprohýbej a pohyb veď kontrolovaně.'],
+      mistakes:['Zvedání ramen k uším.','Prohýbání beder.','Odražení loktů od podložky.']
+    }
   }
 };
 function detailMasterCard(k){
