@@ -22,15 +22,16 @@ Status: 🟡 ROZPRACOVÁNO
 START → MID → HERO → MID → START
 
 ## Guide Card
-- [ ] Not created
-- [ ] Approved
+- [x] Created: `glute_bridge_march_guide_card_v02.png`
+- [ ] Manual approval pending
 
 ## Step by Step
-- [ ] Not created
-- [ ] Approved
+- [x] Created: `glute_bridge_march_step_by_step_v02.png`
+- [ ] Manual approval pending
 
 ## Notes
 - MID v02 existuje.
-- Guide Card a Step by Step se mají nově vytvořit z v02 zdrojů.
+- Guide Card a Step by Step byly vytvořené z v02 zdrojů a čekají na manuální schválení.
 - Staré v01 karty z Hip March jsou archivované jako legacy a nejsou schválené.
-- App a QA čekají podle skutečného stavu aplikace.
+- Export PNG fyzicky existuje; QA čeká na manuální schválení karet.
+- App se nemění, dokud nejsou karty schválené.

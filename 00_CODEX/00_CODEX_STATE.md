@@ -25,36 +25,33 @@
 
 ## Poslední dokončený úkol
 
-Aktuální klon byl před vytvořením tohoto souboru čistý a synchronizovaný s `origin/main`.
+Poslední commit před aktuálními rozpracovanými změnami:
 
-Poslední commit:
-
-- Hash: `eb2c7877abe2378cfeee9e87eda57bdba33243cb`
-- Short hash: `eb2c787`
+- Hash: `51d47d122825c86d1c5048be9a515e9643f05757`
+- Short hash: `51d47d1`
 - Message: `a`
-- Datum: `2026-07-21 15:16:59 +0200`
+- Datum: `2026-07-22 00:22:50 +0200`
 
-Poznámka: Starší předpoklad o posledním commitu `79f90a1 Add centralized exercise progress tracker` neodpovídá aktuálnímu stavu tohoto klonu. Aktuální zdroj pravdy je Git stav uvedený výše.
+Před aktuálním úkolem byl `HEAD` synchronizovaný s `origin/main`.
 
 ## Aktuálně rozpracováno
 
-Před vytvořením tohoto handoff souboru nebyly v pracovním stromu žádné necommitnuté ani nesledované změny.
+Aktuální rozpracované změny bez commitu:
 
-Aktuálně jsou v pracovním stromu rozpracované změny bez commitu:
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/build_glute_bridge_march_cards.py` - build skript pro Guide Card a Step by Step.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_guide_card_v02.png` - nově vytvořená Guide Card, čeká na manuální schválení.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_step_by_step_v02.png` - nově vytvořený Step by Step, čeká na manuální schválení.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md` - aktualizovaný stav karet.
+- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` - odstraněné položky Glute Bridge March Guide/Step z NEXT TASKS a aktualizovaný řádek cviku.
+- `00_CODEX/00_CODEX_STATE.md` - tento aktualizovaný handoff.
 
-- `app.js`, `style.css`, `index.html` - předchozí UX úprava horní karty detailu dne na v59.31-dev.
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` - opravený stav Hip March / Glute Bridge March.
-- `Pilates Assets/02_Exercise_Cards/Hip March/STATUS.md` - Hip March uzavřen jako HOTOVO.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md` - nový stav Glute Bridge March.
-- `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero_v02.png` - schválený nový Hip March HERO.
-- `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_guide_card_v02.png` - schváleno.
-- `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_step_by_step_v02.png` - schváleno.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start_v02.png`
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_mid_v02.png`
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero_v02.png`
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/_LEGACY_HIP_MARCH_V01/` - archivované staré v01 karty.
+Source obrázky Glute Bridge March v02 zůstaly beze změny:
 
-Poznámka: `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero_v01.png` byl po přesměrování `app.js` na `hip_march_hero_v02.png` přesunut do `Glute Bridge March/_LEGACY_HIP_MARCH_V01/`.
+- `glute_bridge_march_start_v02.png`
+- `glute_bridge_march_mid_v02.png`
+- `glute_bridge_march_hero_v02.png`
+
+Aplikace zůstala beze změny.
 
 ## Další krok
 
@@ -76,6 +73,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`
 - `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`
 - `00_CHATGPT_START/MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md`
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md`
 
 ## Trvalá pravidla pro Codex
 
@@ -96,8 +94,8 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - Kristy PC: aktuální kontrolovaný klon je `C:\Users\Kristy\Documents\GitHub\Pilates`.
 - Tomáš PC: očekávaná cesta je `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`.
-- Poslední ověřený stav před vytvořením tohoto souboru: `HEAD...origin/main = 0 0`.
-- To znamená, že `HEAD` a `origin/main` byly shodné.
+- Poslední ověřený stav vůči origin/main: `HEAD...origin/main = 0 0`.
+- To znamená, že `HEAD` a `origin/main` jsou shodné; pracovní strom ale obsahuje výše uvedené necommitnuté změny.
 
 ## Předání na druhé PC
 
@@ -109,10 +107,6 @@ Na druhém PC začni těmito kroky:
 4. Pokud není stav `0 0`, nejdřív vyřeš synchronizaci podle pokynu uživatele.
 5. Přečti `00_CODEX/00_CODEX_STATE.md`.
 6. Pokračuj od položky uvedené v sekci `Další krok`.
-
-## AGENTS.md
-
-Při vytvoření tohoto souboru nebyl v aktivním projektu nalezen žádný `AGENTS.md`.
 
 ## Commit / Push
 
