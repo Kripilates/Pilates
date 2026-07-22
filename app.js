@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.34-dev';
+const APP_VERSION='v59.35-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -379,6 +379,30 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',text:'S výdechem pomalu pokládej špičku jedné nohy směrem k podložce. Pánev zůstává stabilní.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem vrať nohu zpět do výchozí pozice a střídej strany.',photo:'start'}
     ]
+  },
+  revcrunch:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_step_by_step_v01.png',
+    subtitle:'Spodní břicho • kontrola pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy v tabletop',photo:'start'},
+      {n:2,title:'PODSADIT PÁNEV',caption:'Kolena jemně k hrudníku',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět do startu',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, paže nech podél těla a nohy zvedni do tabletop. Hlava a ramena zůstávají na podložce.',photo:'start'},
+      {title:'PODSADIT PÁNEV',text:'S výdechem veď pohyb z břicha, jemně podsaď pánev a přitáhni kolena směrem k hrudníku.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať pánev dolů bez švihu a nastav nohy zpět do tabletop.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Spodní břicho',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu',exhale:'Při podsazení pánve',tempo:'Pomalu bez švihu'},
+    recommendations:{
+      feel:'Práci ve spodní části břicha a jemné kontrolované podsazení pánve bez švihu nohou.',
+      watch:['Pohyb veď z břicha, ne švihem nohou.','Ramena a krk nech uvolněné na podložce.','Bedra pokládej zpět kontrolovaně.'],
+      mistakes:['Švihání nohama.','Zvedání ramen k uším.','Přenášení pohybu do krku.','Nekontrolované položení beder.']
+    }
   },
   bird:{
     start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',

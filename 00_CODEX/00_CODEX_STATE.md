@@ -5,55 +5,27 @@
 - Projekt: Pilates Body 40+
 - Repozitář: Pilates
 - Branch: main
-- Git root je jediný zdroj pravdy pro aktuální stav projektu.
+- Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
 - `origin/main` je zdroj pravdy pro synchronizaci mezi počítači.
 
-## Cesty na počítačích
+## Poslední dokončený commit
 
-- Kristy PC: `C:\Users\Kristy\Documents\GitHub\Pilates`
-- Tomáš PC: `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`
-
-## Jak začít práci v novém vlákně
-
-1. Ověř Git root: `git rev-parse --show-toplevel`.
-2. Ověř branch: `git branch --show-current`.
-3. Ověř stav: `git status --short --branch`.
-4. Přečti tento soubor: `00_CODEX/00_CODEX_STATE.md`.
-5. Otevři relevantní MASTER dokumenty podle seznamu níže.
-6. Pokračuj podle sekce `Další krok`.
-7. Nespoléhej pouze na historii Codex vlákna. Skutečný stav vždy ověř v souborech a Gitu.
-
-## Poslední dokončený úkol
-
-Poslední commit před aktuálními rozpracovanými změnami:
-
-- Hash: `51d47d122825c86d1c5048be9a515e9643f05757`
-- Short hash: `51d47d1`
-- Message: `a`
-- Datum: `2026-07-22 00:22:50 +0200`
-
-Před aktuálním úkolem byl `HEAD` synchronizovaný s `origin/main`.
+- Hash: `3e1a695`
+- Message: `Deploy Glute Bridge March assets`
+- Stav vůči `origin/main`: lokální `main` je `ahead 1`.
+- Push posledního commitu zatím nebyl proveden.
 
 ## Aktuálně rozpracováno
 
 Aktuální rozpracované změny bez commitu:
 
-- `data.js` - přidán samostatný cvik `glute_bridge_march` / Pochod v mostu se schváleným HERO v02.
-- `app.js` - verze `v59.34-dev`, samostatné reference START/MID/HERO/Guide/Step pro `glute_bridge_march`.
-- `index.html` - cache parametry `data.js` a `app.js` aktualizované na `v=5934gbmarch`.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/build_glute_bridge_march_cards.py` - build skript pro Guide Card a Step by Step.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_step_by_step_v02.png` - layoutově opravený schválený Step by Step.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md` - Glute Bridge March označen jako HOTOVO.
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` - Glute Bridge March označen jako HOTOVO, souhrny přepočítané.
-- `00_CODEX/00_CODEX_STATE.md` - tento aktualizovaný handoff.
-
-Source obrázky Glute Bridge March v02 zůstaly beze změny:
-
-- `glute_bridge_march_start_v02.png`
-- `glute_bridge_march_mid_v02.png`
-- `glute_bridge_march_hero_v02.png`
-
-Hip March zůstává samostatný cvik `hip_march` a nebyl přepsán Glute Bridge Marchem.
+- Reverse Crunch / ZKRACOVAČKA OBRÁCENĚ je nasazený do aplikace jako HOTOVO.
+- `data.js` používá schválený HERO source: `Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero_v01.png`.
+- `app.js` obsahuje `referenceExerciseAssets.revcrunch` se START/HERO/Guide Card/Step by Step.
+- `index.html` má cache pro `data.js` a `app.js` nastavenou na `v=5935revcrunch`.
+- Verze aplikace: `v59.35-dev`.
+- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` označuje Reverse Crunch jako HOTOVO.
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/STATUS.md` označuje Reverse Crunch jako HOTOVO.
 
 ## Další krok
 
@@ -64,7 +36,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Reverse Crunch START`
+1. `Cat-Cow START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -72,10 +44,12 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - `00_CHATGPT_START/00_READ_FIRST.md`
 - `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md`
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/build_reverse_crunch_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_step_by_step_v01.png`
 
 ## Trvalá pravidla pro Codex
 
@@ -89,28 +63,14 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
   - `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`,
   - `NEXT TASKS`, pokud se změnilo pořadí práce.
 - Po každém Codex úkolu aktualizuj tento soubor, pokud se změnil stav projektu, další krok nebo důležitý kontext pro předání mezi PC.
-- Při práci mezi dvěma PC vždy ověř stav vůči `origin/main`.
-- Pokud je pracovní strom nečistý, nejdřív popiš změny a nepřepisuj je naslepo.
 
 ## Stav synchronizace
 
-- Kristy PC: aktuální kontrolovaný klon je `C:\Users\Kristy\Documents\GitHub\Pilates`.
-- Tomáš PC: očekávaná cesta je `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`.
-- Poslední ověřený stav vůči origin/main: `HEAD...origin/main = 0 0`.
-- To znamená, že `HEAD` a `origin/main` jsou shodné; pracovní strom ale obsahuje výše uvedené necommitnuté změny.
-
-## Předání na druhé PC
-
-Na druhém PC začni těmito kroky:
-
-1. Otevři správný Git root.
-2. Spusť `git status --short --branch`.
-3. Spusť `git rev-list --left-right --count HEAD...origin/main`.
-4. Pokud není stav `0 0`, nejdřív vyřeš synchronizaci podle pokynu uživatele.
-5. Přečti `00_CODEX/00_CODEX_STATE.md`.
-6. Pokračuj od položky uvedené v sekci `Další krok`.
+- Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 1 0`.
+- Lokální `main` obsahuje jeden commit, který ještě není na `origin/main`.
+- Pracovní strom obsahuje aktuální necommitnuté změny pro Reverse Crunch.
 
 ## Commit / Push
 
-- Commit vytvořen: NE
+- Commit pro aktuální Reverse Crunch změny: NE
 - Push proveden: NE
