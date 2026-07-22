@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.36-dev';
+const APP_VERSION='v59.37-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -428,6 +428,30 @@ const referenceExerciseAssets={
       feel:'Uvolnění páteře, ramen a kyčlí a plynulý pohyb obratel po obratli bez tlaku do beder.',
       watch:['Začni na všech čtyřech s rukama pod rameny a koleny pod kyčlemi.','Výdech veď do kočky, nádech do krávy.','Pohyb veď plynule a bez propadání mezi lopatkami.'],
       mistakes:['Propadání mezi lopatkami.','Zvedání ramen k uším.','Silové prohýbání beder.','Rychlý pohyb bez dechu.']
+    }
+  },
+  childs_pose:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_hero_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_step_by_step_v01.png',
+    subtitle:'Uvolnění zad • mobilita kyčlí',
+    miniSteps:[
+      {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
+      {n:2,title:'POZICE DÍTĚTE',caption:'Boky k patám',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět na všechny čtyři',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Začni na všech čtyřech. Dlaně dej pod ramena a kolena pod kyčle.',photo:'start'},
+      {title:'POZICE DÍTĚTE',text:'Pomalu posuň boky dozadu k patám, natáhni paže před sebe a uvolni hlavu k podložce.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem se vrať zpět na všechny čtyři a drž ramena daleko od uší.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Záda / kyčle',knees:'Zkrať rozsah při tlaku'},
+    breath:{inhale:'Do zad a žeber',exhale:'Plynule uvolni tělo',tempo:'Klidně bez tlaku'},
+    recommendations:{
+      feel:'Uvolnění zad, ramen a kyčlí a klidný dech do zad a žeber.',
+      watch:['Boky nech klesat směrem k patám jen do příjemného rozsahu.','Ramena nech daleko od uší.','Dýchej klidně do zad a žeber.'],
+      mistakes:['Tlačení kolen nebo kyčlí přes bolest.','Zvedání ramen k uším.','Zadržování dechu.','Příliš velký rozsah při tlaku v kolenou.']
     }
   },
   bird:{
