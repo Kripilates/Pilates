@@ -10,22 +10,22 @@
 
 ## Poslední dokončený commit
 
-- Hash: `3e1a695`
-- Message: `Deploy Glute Bridge March assets`
-- Stav vůči `origin/main`: lokální `main` je `ahead 1`.
-- Push posledního commitu zatím nebyl proveden.
+- Hash: `f2e66d1`
+- Message: `a`
+- Stav vůči `origin/main`: lokální `main` je shodný s `origin/main`.
+- Push posledního commitu už je na `origin/main`.
 
 ## Aktuálně rozpracováno
 
 Aktuální rozpracované změny bez commitu:
 
-- Reverse Crunch / ZKRACOVAČKA OBRÁCENĚ je nasazený do aplikace jako HOTOVO.
-- `data.js` používá schválený HERO source: `Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero_v01.png`.
-- `app.js` obsahuje `referenceExerciseAssets.revcrunch` se START/HERO/Guide Card/Step by Step.
-- `index.html` má cache pro `data.js` a `app.js` nastavenou na `v=5935revcrunch`.
-- Verze aplikace: `v59.35-dev`.
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` označuje Reverse Crunch jako HOTOVO.
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/STATUS.md` označuje Reverse Crunch jako HOTOVO.
+- Cat-Cow / KOČKA-KRÁVA je nasazený do aplikace jako HOTOVO.
+- `data.js` používá schválený HERO source: `Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`.
+- `app.js` obsahuje `referenceExerciseAssets.catcow` se START/HERO/END/Guide Card/Step by Step.
+- `index.html` má cache pro `data.js` a `app.js` nastavenou na `v=5936catcow`.
+- Verze aplikace: `v59.36-dev`.
+- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` označuje Cat-Cow jako HOTOVO.
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/STATUS.md` označuje Cat-Cow jako HOTOVO.
 
 ## Další krok
 
@@ -36,7 +36,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Cat-Cow START`
+1. `Child's Pose START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -44,12 +44,13 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - `00_CHATGPT_START/00_READ_FIRST.md`
 - `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/STATUS.md`
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/build_reverse_crunch_cards.py`
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start_v01.png`
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero_v01.png`
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_guide_card_v01.png`
-- `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_step_by_step_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/build_cat_cow_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_step_by_step_v01.png`
 
 ## Trvalá pravidla pro Codex
 
@@ -66,11 +67,11 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 ## Stav synchronizace
 
-- Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 1 0`.
-- Lokální `main` obsahuje jeden commit, který ještě není na `origin/main`.
-- Pracovní strom obsahuje aktuální necommitnuté změny pro Reverse Crunch.
+- Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
+- Lokální `main` je shodný s `origin/main`.
+- Pracovní strom obsahuje aktuální necommitnuté změny pro Cat-Cow nasazení a dokumentaci.
 
 ## Commit / Push
 
-- Commit pro aktuální Reverse Crunch změny: NE
+- Commit pro aktuální Cat-Cow nasazení: NE
 - Push proveden: NE

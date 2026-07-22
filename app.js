@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.35-dev';
+const APP_VERSION='v59.36-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -402,6 +402,32 @@ const referenceExerciseAssets={
       feel:'Práci ve spodní části břicha a jemné kontrolované podsazení pánve bez švihu nohou.',
       watch:['Pohyb veď z břicha, ne švihem nohou.','Ramena a krk nech uvolněné na podložce.','Bedra pokládej zpět kontrolovaně.'],
       mistakes:['Švihání nohama.','Zvedání ramen k uším.','Přenášení pohybu do krku.','Nekontrolované položení beder.']
+    }
+  },
+
+  catcow:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_step_by_step_v01.png',
+    subtitle:'Mobilita páteře • uvolnění zad',
+    miniSteps:[
+      {n:1,title:'START',caption:'Neutrální záda',photo:'start'},
+      {n:2,title:'KOČKA',caption:'Vyhrb záda',photo:'hero'},
+      {n:3,title:'KRÁVA',caption:'Otevři hrudník',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a záda drž neutrálně.',photo:'start'},
+      {title:'KOČKA',text:'S výdechem podsadíš pánev, vyhrbíš záda a necháš hlavu přirozeně klesnout.',photo:'hero'},
+      {title:'KRÁVA',text:'S nádechem jemně otevři hrudník, prodluž páteř a pohyb veď bez propadnutí do beder.',photo:'end'}
+    ],
+    info:{difficulty:'Lehké',focus:'Páteř / záda',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Do krávy',exhale:'Do kočky',tempo:'Plynule s dechem'},
+    recommendations:{
+      feel:'Uvolnění páteře, ramen a kyčlí a plynulý pohyb obratel po obratli bez tlaku do beder.',
+      watch:['Začni na všech čtyřech s rukama pod rameny a koleny pod kyčlemi.','Výdech veď do kočky, nádech do krávy.','Pohyb veď plynule a bez propadání mezi lopatkami.'],
+      mistakes:['Propadání mezi lopatkami.','Zvedání ramen k uším.','Silové prohýbání beder.','Rychlý pohyb bez dechu.']
     }
   },
   bird:{
