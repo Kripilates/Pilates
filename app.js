@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.33-dev';
+const APP_VERSION='v59.34-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -416,6 +416,31 @@ const referenceExerciseAssets={
       feel:'Aktivní střed těla, klidnou pánev a kontrolované zvednutí nohy bez pohybu v bedrech.',
       watch:['Pánev zůstává na podložce.','Bedra, ramena a hlava zůstávají klidné.','Koleno zvedej do tabletop bez švihu.'],
       mistakes:['Zvedání pánve do mostu.','Prohýbání beder.','Přitahování kolene příliš k hrudníku.','Odraz opěrnou nohou.']
+    }
+  },
+  glute_bridge_march:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_start_v02.png',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_mid_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero_v02.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_guide_card_v02.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_step_by_step_v02.png',
+    subtitle:'Hýždě • zadní stehna • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Pánev na podložce',photo:'start'},
+      {n:2,title:'POCHOD V MOSTU',caption:'Jedna noha v tabletop',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Stabilizuj most',photo:'mid'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech podél těla.',photo:'start'},
+      {title:'MOST A POCHOD',text:'Nejprve zvedni pánev do stabilního mostu. S výdechem zvedni jednu nohu do tabletop a pánev drž vodorovnou.',photo:'hero'},
+      {title:'STABILNÍ NÁVRAT',text:'Vrať chodidlo na podložku a stabilizuj most. Vystřídej nohy, potom polož pánev kontrolovaně dolů.',photo:'mid'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / pánev',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí',tempo:'Pomalu a stabilně'},
+    recommendations:{
+      feel:'Práci v hýždích a zadní straně stehen, stabilní pánev a klidný pochod v mostu.',
+      watch:['Nejprve zvedni pánev do stabilního mostu.','Pánev drž vodorovnou a nenechávej ji klesat.','Opři se o chodidlo, ne o krk.'],
+      mistakes:['Současné zvednutí pánve a nohy.','Vytáčení nebo klesání pánve.','Prohýbání beder.','Odraz opěrnou nohou.']
     }
   },
   chest_press:{

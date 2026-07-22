@@ -1,4 +1,4 @@
-﻿# CODEX STATE
+# CODEX STATE
 
 ## Projekt
 
@@ -38,11 +38,13 @@ Před aktuálním úkolem byl `HEAD` synchronizovaný s `origin/main`.
 
 Aktuální rozpracované změny bez commitu:
 
+- `data.js` - přidán samostatný cvik `glute_bridge_march` / Pochod v mostu se schváleným HERO v02.
+- `app.js` - verze `v59.34-dev`, samostatné reference START/MID/HERO/Guide/Step pro `glute_bridge_march`.
+- `index.html` - cache parametry `data.js` a `app.js` aktualizované na `v=5934gbmarch`.
 - `Pilates Assets/02_Exercise_Cards/Glute Bridge March/build_glute_bridge_march_cards.py` - build skript pro Guide Card a Step by Step.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_guide_card_v02.png` - nově vytvořená Guide Card, čeká na manuální schválení.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_step_by_step_v02.png` - nově vytvořený Step by Step, čeká na manuální schválení.
-- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md` - aktualizovaný stav karet.
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` - odstraněné položky Glute Bridge March Guide/Step z NEXT TASKS a aktualizovaný řádek cviku.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_step_by_step_v02.png` - layoutově opravený schválený Step by Step.
+- `Pilates Assets/02_Exercise_Cards/Glute Bridge March/STATUS.md` - Glute Bridge March označen jako HOTOVO.
+- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` - Glute Bridge March označen jako HOTOVO, souhrny přepočítané.
 - `00_CODEX/00_CODEX_STATE.md` - tento aktualizovaný handoff.
 
 Source obrázky Glute Bridge March v02 zůstaly beze změny:
@@ -51,7 +53,7 @@ Source obrázky Glute Bridge March v02 zůstaly beze změny:
 - `glute_bridge_march_mid_v02.png`
 - `glute_bridge_march_hero_v02.png`
 
-Aplikace zůstala beze změny.
+Hip March zůstává samostatný cvik `hip_march` a nebyl přepsán Glute Bridge Marchem.
 
 ## Další krok
 

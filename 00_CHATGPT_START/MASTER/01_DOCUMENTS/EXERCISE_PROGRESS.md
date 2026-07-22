@@ -191,8 +191,8 @@ ROZPRACOVÁNO
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 10
-Rozpracováno: 5
+Kompletně hotovo: 11
+Rozpracováno: 4
 Nezačato: 35
 
 Další doporučený cvik: Reverse Crunch START
@@ -217,7 +217,7 @@ Další doporučený cvik: Reverse Crunch START
 | Forearm Plank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Frog Pumps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Glute Bridge | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | oficiální referenční cvik a template; soubory v1/v2/v3; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Glute Bridge March | ❌ | ✅ | ✅ | ✅ | 🟡 | 🟡 | ✅ | ❌ | ❌ | ROZPRACOVÁNO | START/MID/HERO v02 zařazené; sekvence START → MID → HERO → MID → START; Guide Card a Step by Step v02 vytvořené a čekají na manuální schválení; App neměnit do schválení |
+| Glute Bridge March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/MID/HERO v02 schválené; sekvence START → MID → HERO → MID → START; Guide Card a Step by Step v02 schválené; App nasazena jako samostatný cvik `glute_bridge_march`, Hip March zůstává oddělený |
 | Hamstring Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Heel Taps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Hip March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální workflow START → HERO → START; Hip March probíhá s pánví na podložce; staré v01 podklady zobrazovaly Glute Bridge March a jsou pouze v legacy; v02 source i karty jsou schválené a nasazené |

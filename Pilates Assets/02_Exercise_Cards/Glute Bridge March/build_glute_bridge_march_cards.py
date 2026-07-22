@@ -230,9 +230,8 @@ def build_step():
         center_text(d, (58, y + 24, 148, y + 54), step_label, F["small_b"], TEAL_D)
         d.text((62, y + 72), heading, font=F["step_h"], fill=INK)
         paste_round(img, fit_image(photo, (656, 352)), (62, y + 114, 718, y + 466), 22)
-        body_y = y + 473 if step_label == "KROK 3" else y + 484
-        line_gap = 0 if step_label == "KROK 3" else 7
-        draw_wrapped(d, (62, body_y), body, F["step_body"], INK, 650, line_gap)
+        body_y = y + 466
+        draw_wrapped(d, (62, body_y), body, F["step_body"], INK, 650, 7)
         y += card_h + 38
 
     rounded(d, (34, y, 746, y + 300), 28, WARN, WARN_LINE, 2)

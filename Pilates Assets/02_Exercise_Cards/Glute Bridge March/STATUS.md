@@ -1,6 +1,6 @@
 # Glute Bridge March
 
-Status: 🟡 ROZPRACOVÁNO
+Status: ✅ HOTOVO
 
 ## Definition
 - Glute Bridge March / pochod v mostu.
@@ -23,15 +23,19 @@ START → MID → HERO → MID → START
 
 ## Guide Card
 - [x] Created: `glute_bridge_march_guide_card_v02.png`
-- [ ] Manual approval pending
+- [x] Approved
 
 ## Step by Step
 - [x] Created: `glute_bridge_march_step_by_step_v02.png`
-- [ ] Manual approval pending
+- [x] Approved
 
 ## Notes
 - MID v02 existuje.
-- Guide Card a Step by Step byly vytvořené z v02 zdrojů a čekají na manuální schválení.
+- Guide Card a Step by Step byly vytvořené z v02 zdrojů a schválené.
 - Staré v01 karty z Hip March jsou archivované jako legacy a nejsou schválené.
-- Export PNG fyzicky existuje; QA čeká na manuální schválení karet.
-- App se nemění, dokud nejsou karty schválené.
+- Export PNG fyzicky existuje; QA SCHVÁLENO.
+- App nasazena na samostatný cvik `glute_bridge_march`; Hip March zůstává oddělený.
+
+## App
+- [x] Nasazeno jako samostatný cvik `glute_bridge_march`.
+- [x] Nepřepisuje Hip March (`hip_march`).
