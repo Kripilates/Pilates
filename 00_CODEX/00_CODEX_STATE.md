@@ -20,6 +20,7 @@
 Aktuální rozpracované změny bez commitu:
 
 - Child's Pose má uložený a schválený START jako reuse source z Cat-Cow START.
+- Child's Pose má uložený a schválený HERO jako `childs_pose_hero_v01.png`.
 - `Pilates Assets/02_Exercise_Cards/Child's Pose/STATUS.md` označuje Child's Pose jako ROZPRACOVÁNO.
 - Cat-Cow / KOČKA-KRÁVA je nasazený do aplikace jako HOTOVO.
 - `data.js` používá schválený HERO source: `Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`.
@@ -38,7 +39,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Child's Pose HERO`
+1. `Child's Pose Guide Card`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -55,6 +56,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Child's Pose/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero_v01.png`
 
 ## Trvalá pravidla pro Codex
 
@@ -73,7 +75,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
-- Pracovní strom obsahuje aktuální necommitnuté změny pro Cat-Cow nasazení a Child's Pose START/dokumentaci.
+- Pracovní strom obsahuje aktuální necommitnuté změny pro Cat-Cow nasazení a Child's Pose START/HERO/dokumentaci.
 
 ## Commit / Push
 
