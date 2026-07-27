@@ -5,7 +5,7 @@
 - Projekt: Pilates Body 40+
 - Repozitář: Pilates
 - Branch: main
-- Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
+- Git root: `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`
 - `origin/main` je zdroj pravdy pro synchronizaci mezi počítači.
 
 ## Poslední dokončený commit
@@ -22,8 +22,9 @@ Aktuální rozpracované změny bez commitu:
 - Rainbow Leg Raise je HOTOVO: START/HERO/END, Guide Card, Step by Step, QA i App jsou schválené.
 - Child's Pose je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, QA i App jsou schválené.
 - Bent Over Row je HOTOVO: START/HERO v02, END = START v02, Guide Card v02, Step by Step v02, QA i App jsou schválené a nasazené jako ID `row`.
-- Progress souhrn po Bent Over Row nasazení: 50 celkem, 16 HOTOVO, 0 ROZPRACOVÁNO, 34 ČEKÁ.
-- Aplikace byla navýšena na `v59.39-dev`; `data.js`, `app.js` a cache parametry v `index.html` byly aktualizovány pro Bent Over Row v02.
+- Bicycle Crunch je HOTOVO: START/HERO/END v01, Guide Card v01, Step by Step v01, QA i App jsou schválené a nasazené jako ID `bicycle`.
+- Progress souhrn po Bicycle Crunch nasazení: 50 celkem, 17 HOTOVO, 0 ROZPRACOVÁNO, 33 ČEKÁ.
+- Aplikace byla navýšena na `v59.40-dev`; `data.js`, `app.js` a cache parametry v `index.html` byly aktualizovány pro Bicycle Crunch v01.
 
 ## Další krok
 
@@ -34,7 +35,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Bicycle Crunch START`
+1. `Bridge Abduction START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -52,6 +53,13 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Child's Pose/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_step_by_step_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/build_bicycle_crunch_cards.py`
 
 ## Trvalá pravidla pro Codex
 
@@ -70,9 +78,9 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
-- Pracovní strom obsahuje aktuální necommitnuté změny pro Cat-Cow nasazení a Child's Pose START/HERO/dokumentaci.
+- Pracovní strom obsahuje aktuální necommitnuté změny z předchozích schválených kroků a nový Bicycle Crunch assetový/dokumentační krok.
 
 ## Commit / Push
 
-- Commit pro aktuální Bent Over Row v02 assetový a dokumentační krok: NE
+- Commit pro aktuální Bicycle Crunch finální nasazení: NE
 - Push proveden: NE

@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.39-dev';
+const APP_VERSION='v59.40-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -402,6 +402,31 @@ const referenceExerciseAssets={
       feel:'Práci ve spodní části břicha a jemné kontrolované podsazení pánve bez švihu nohou.',
       watch:['Pohyb veď z břicha, ne švihem nohou.','Ramena a krk nech uvolněné na podložce.','Bedra pokládej zpět kontrolovaně.'],
       mistakes:['Švihání nohama.','Zvedání ramen k uším.','Přenášení pohybu do krku.','Nekontrolované položení beder.']
+    }
+  },
+  bicycle:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_end_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_step_by_step_v01.png',
+    subtitle:'Břicho • pas • střídání stran',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy v tabletop',photo:'start'},
+      {n:2,title:'ROTACE',caption:'Loket ke kolenu',photo:'hero'},
+      {n:3,title:'VÝMĚNA',caption:'Vystřídej strany',photo:'end'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na záda. Ruce polož lehce za hlavu a nohy zvedni do tabletop. Pánev drž stabilní.',photo:'start'},
+      {title:'ROTACE',text:'S výdechem přibliž levý loket k pravému kolenu. Levou nohu natáhni jen tak nízko, jak udržíš bedra.',photo:'hero'},
+      {title:'VÝMĚNA STRAN',text:'Plynule vystřídej strany. Pravý loket směřuje k levému kolenu a pravá noha se natahuje.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Břicho / pas',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Při výměně stran',exhale:'Při rotaci',tempo:'Plynule a kontrolovaně'},
+    recommendations:{
+      feel:'Práci šikmých břišních svalů, stabilní pánev a kontrolovanou rotaci hrudníku bez tahu za krk.',
+      watch:['Ruce nech lehce za hlavou a netahej za krk.','Lokty nezavírej silou, pohyb veď hrudníkem.','Bedra drž klidná a druhou nohu natahuj jen do bezpečného rozsahu.'],
+      mistakes:['Tahání rukama za krk.','Zavírání loktů místo rotace hrudníku.','Prohýbání beder.','Příliš rychlé střídání stran bez kontroly.']
     }
   },
 
