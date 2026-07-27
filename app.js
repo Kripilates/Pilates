@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.37-dev';
+const APP_VERSION='v59.38-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -515,6 +515,31 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích a zadní straně stehen, stabilní pánev a klidný pochod v mostu.',
       watch:['Nejprve zvedni pánev do stabilního mostu.','Pánev drž vodorovnou a nenechávej ji klesat.','Opři se o chodidlo, ne o krk.'],
       mistakes:['Současné zvednutí pánve a nohy.','Vytáčení nebo klesání pánve.','Prohýbání beder.','Odraz opěrnou nohou.']
+    }
+  },
+  rainbow:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_end_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_step_by_step_v01.png',
+    subtitle:'Hýždě • boky • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Noha nízko vpravo',photo:'start'},
+      {n:2,title:'OBLOUK',caption:'Zvedni přes střed',photo:'hero'},
+      {n:3,title:'END',caption:'Překřiž doleva',photo:'end'}
+    ],
+    steps:[
+      {title:'START',text:'Začni na všech čtyřech. Pracovní nohu nech téměř nataženou nízko na pravé straně.',photo:'start'},
+      {title:'OBLOUK',text:'S výdechem zvedni téměř nataženou nohu plynulým obloukem přes střed. Pánev směřuje k podložce.',photo:'hero'},
+      {title:'END',text:'Kontrolovaně spusť nohu za opěrnou nohu na levou stranu a vrať se stejným obloukem zpět.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Hýždě / boky',knees:'Na všech čtyřech'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí přes střed',tempo:'Plynule bez švihu'},
+    recommendations:{
+      feel:'Práci v hýždích a boku stehna, stabilní střed těla a kontrolovaný oblouk pracovní nohy.',
+      watch:['Pánev drž stabilní a směřující k podložce.','Pohyb veď z kyčle bez švihu.','Ramena nech daleko od uší a pracovní koleno téměř natažené.'],
+      mistakes:['Švihání nohou místo kontrolovaného oblouku.','Překlápění pánve do strany.','Prohýbání beder.','Krčení ramen k uším.']
     }
   },
   chest_press:{

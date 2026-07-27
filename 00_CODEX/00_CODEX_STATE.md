@@ -19,16 +19,12 @@
 
 Aktuální rozpracované změny bez commitu:
 
-- Child's Pose má uložený a schválený START jako reuse source z Cat-Cow START.
-- Child's Pose má uložený a schválený HERO jako `childs_pose_hero_v01.png`.
-- `Pilates Assets/02_Exercise_Cards/Child's Pose/STATUS.md` označuje Child's Pose jako ROZPRACOVÁNO.
-- Cat-Cow / KOČKA-KRÁVA je nasazený do aplikace jako HOTOVO.
-- `data.js` používá schválený HERO source: `Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`.
-- `app.js` obsahuje `referenceExerciseAssets.catcow` se START/HERO/END/Guide Card/Step by Step.
-- `index.html` má cache pro `data.js` a `app.js` nastavenou na `v=5936catcow`.
-- Verze aplikace: `v59.36-dev`.
-- `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` označuje Cat-Cow jako HOTOVO.
-- `Pilates Assets/02_Exercise_Cards/Cat-Cow/STATUS.md` označuje Cat-Cow jako HOTOVO.
+- Rainbow Leg Raise je HOTOVO: START/HERO/END, Guide Card, Step by Step, QA i App jsou schválené.
+- Aplikace používá kanonické ID `rainbow` a schválené v01 soubory z `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise`.
+- Staré Rainbow Leg Raise kandidáty se špatným úhlem zůstávají pouze v `_LEGACY_WRONG_ANGLE_V01`.
+- Child's Pose je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, QA i App jsou schválené.
+- Progress souhrn po opravě dokumentace: 50 celkem, 15 HOTOVO, 0 ROZPRACOVÁNO, 35 ČEKÁ.
+- Verze aplikace zůstává `v59.38-dev`; cache ani aplikační soubory se při dokumentační opravě Child's Pose neměnily.
 
 ## Další krok
 
@@ -39,7 +35,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Child's Pose Guide Card`
+1. `Bent Over Row START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -79,5 +75,5 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 ## Commit / Push
 
-- Commit pro aktuální Cat-Cow nasazení a Child's Pose START: NE
+- Commit pro aktuální dokumentační opravu Child's Pose: NE
 - Push proveden: NE
