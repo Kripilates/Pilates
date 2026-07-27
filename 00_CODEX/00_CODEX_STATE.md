@@ -20,11 +20,10 @@
 Aktuální rozpracované změny bez commitu:
 
 - Rainbow Leg Raise je HOTOVO: START/HERO/END, Guide Card, Step by Step, QA i App jsou schválené.
-- Aplikace používá kanonické ID `rainbow` a schválené v01 soubory z `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise`.
-- Staré Rainbow Leg Raise kandidáty se špatným úhlem zůstávají pouze v `_LEGACY_WRONG_ANGLE_V01`.
 - Child's Pose je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, QA i App jsou schválené.
-- Progress souhrn po opravě dokumentace: 50 celkem, 15 HOTOVO, 0 ROZPRACOVÁNO, 35 ČEKÁ.
-- Verze aplikace zůstává `v59.38-dev`; cache ani aplikační soubory se při dokumentační opravě Child's Pose neměnily.
+- Bent Over Row je ROZPRACOVÁNO: START je schválený jako byte-for-byte kopie Romanian Deadlift HERO, HERO a karty čekají.
+- Progress souhrn po Bent Over Row START: 50 celkem, 15 HOTOVO, 1 ROZPRACOVÁNO, 34 ČEKÁ.
+- Aplikace, `data.js`, cache a verze nebyly při Bent Over Row START úkolu měněny.
 
 ## Další krok
 
@@ -35,7 +34,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Bent Over Row START`
+1. `Bent Over Row HERO`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -75,5 +74,5 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 ## Commit / Push
 
-- Commit pro aktuální dokumentační opravu Child's Pose: NE
+- Commit pro aktuální Bent Over Row START dokumentační krok: NE
 - Push proveden: NE
