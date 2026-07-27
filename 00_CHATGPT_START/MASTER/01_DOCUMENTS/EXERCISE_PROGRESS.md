@@ -33,41 +33,38 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Bent Over Row HERO
-2. Bent Over Row Guide Card
-3. Bent Over Row Step by Step
-4. Bicycle Crunch START
-5. Bicycle Crunch HERO
-6. Bicycle Crunch Guide Card
-7. Bicycle Crunch Step by Step
-8. Bridge Abduction START
-9. Bridge Abduction HERO
-10. Bridge Abduction Guide Card
-11. Bridge Abduction Step by Step
-12. Chest Opener START
-13. Chest Opener HERO
-14. Chest Opener Guide Card
-15. Chest Opener Step by Step
-16. Donkey Kick START
-17. Donkey Kick HERO
-18. Donkey Kick Guide Card
-19. Donkey Kick Step by Step
-20. Figure Four Stretch START
-21. Figure Four Stretch HERO
-22. Figure Four Stretch Guide Card
-23. Figure Four Stretch Step by Step
-24. Forearm Plank START
-25. Forearm Plank HERO
-26. Forearm Plank Guide Card
-27. Forearm Plank Step by Step
-28. Frog Pumps START
-29. Frog Pumps HERO
-30. Frog Pumps Guide Card
-31. Frog Pumps Step by Step
-32. Hamstring Stretch START
-33. Hamstring Stretch HERO
-34. Hamstring Stretch Guide Card
-35. Hamstring Stretch Step by Step
+1. Bicycle Crunch START
+2. Bicycle Crunch HERO
+3. Bicycle Crunch Guide Card
+4. Bicycle Crunch Step by Step
+5. Bridge Abduction START
+6. Bridge Abduction HERO
+7. Bridge Abduction Guide Card
+8. Bridge Abduction Step by Step
+9. Chest Opener START
+10. Chest Opener HERO
+11. Chest Opener Guide Card
+12. Chest Opener Step by Step
+13. Donkey Kick START
+14. Donkey Kick HERO
+15. Donkey Kick Guide Card
+16. Donkey Kick Step by Step
+17. Figure Four Stretch START
+18. Figure Four Stretch HERO
+19. Figure Four Stretch Guide Card
+20. Figure Four Stretch Step by Step
+21. Forearm Plank START
+22. Forearm Plank HERO
+23. Forearm Plank Guide Card
+24. Forearm Plank Step by Step
+25. Frog Pumps START
+26. Frog Pumps HERO
+27. Frog Pumps Guide Card
+28. Frog Pumps Step by Step
+29. Hamstring Stretch START
+30. Hamstring Stretch HERO
+31. Hamstring Stretch Guide Card
+32. Hamstring Stretch Step by Step
 36. Heel Taps START
 37. Heel Taps HERO
 38. Heel Taps Guide Card
@@ -176,17 +173,17 @@ ROZPRACOVÁNO
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 15
-Rozpracováno: 1
+Kompletně hotovo: 16
+Rozpracováno: 0
 Nezačato: 34
 
-Další doporučený cvik: Bent Over Row HERO
+Další doporučený cvik: Bicycle Crunch START
 
 ## Přehled
 
 | Cvik | Ref | HERO | START | END | Guide | Step | Export | QA | App | Stav | Poznámka |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Bent Over Row | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ROZPRACOVÁNO | START schválený jako byte-for-byte kopie Romanian Deadlift HERO; END = START bez samostatného PNG; HERO, Guide Card a Step by Step čekají; App beze změny |
+| Bent Over Row | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v02 schválené; END = START v02 bez samostatného PNG; Guide Card a Step by Step v02 schválené; App nasazena jako `row`; aktivní cesty používají pouze Bent Over Row v02 soubory |
 | Bicycle Crunch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Bird Dog | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Bridge Abduction | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

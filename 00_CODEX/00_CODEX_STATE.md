@@ -21,9 +21,9 @@ Aktuální rozpracované změny bez commitu:
 
 - Rainbow Leg Raise je HOTOVO: START/HERO/END, Guide Card, Step by Step, QA i App jsou schválené.
 - Child's Pose je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, QA i App jsou schválené.
-- Bent Over Row je ROZPRACOVÁNO: START je schválený jako byte-for-byte kopie Romanian Deadlift HERO, HERO a karty čekají.
-- Progress souhrn po Bent Over Row START: 50 celkem, 15 HOTOVO, 1 ROZPRACOVÁNO, 34 ČEKÁ.
-- Aplikace, `data.js`, cache a verze nebyly při Bent Over Row START úkolu měněny.
+- Bent Over Row je HOTOVO: START/HERO v02, END = START v02, Guide Card v02, Step by Step v02, QA i App jsou schválené a nasazené jako ID `row`.
+- Progress souhrn po Bent Over Row nasazení: 50 celkem, 16 HOTOVO, 0 ROZPRACOVÁNO, 34 ČEKÁ.
+- Aplikace byla navýšena na `v59.39-dev`; `data.js`, `app.js` a cache parametry v `index.html` byly aktualizovány pro Bent Over Row v02.
 
 ## Další krok
 
@@ -34,7 +34,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Bent Over Row HERO`
+1. `Bicycle Crunch START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -74,5 +74,5 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 ## Commit / Push
 
-- Commit pro aktuální Bent Over Row START dokumentační krok: NE
+- Commit pro aktuální Bent Over Row v02 assetový a dokumentační krok: NE
 - Push proveden: NE

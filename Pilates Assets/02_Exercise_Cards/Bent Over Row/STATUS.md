@@ -1,39 +1,40 @@
 # Bent Over Row — STATUS
 
-Status: ROZPRACOVÁNO
+Status: HOTOVO
 
 ## Source Images
-- [x] START — bent_over_row_start_v01.png — SCHVÁLENO
-- [ ] HERO — čeká
-- [x] END — END = START, bez samostatného PNG
+- [x] START v02 — bent_over_row_start_v02.png — SCHVÁLENO
+- [x] HERO v02 — bent_over_row_hero_v02.png — SCHVÁLENO
+- [x] END — END = START v02, bez samostatného PNG
 
 ## Workflow
 START → HERO → START
 
 ## Guide Card
-- [ ] Not created
-- [ ] Approved
+- [x] Created — bent_over_row_guide_card_v02.png
+- [x] Approved
 
 ## Step by Step
-- [ ] Not created
-- [ ] Approved
+- [x] Created — bent_over_row_step_by_step_v02.png
+- [x] Approved
 
 ## Export
-- [ ] Guide Card
-- [ ] Step by Step
+- [x] Guide Card v02
+- [x] Step by Step v02
+- [x] Approved
 
 ## QA
-- [x] START technical QA
-- [ ] HERO QA
-- [ ] Manual visual approval
-- [ ] App QA
+- [x] START/HERO technical QA
+- [x] Guide Card QA
+- [x] Step by Step QA
+- [x] App QA
 
 ## App
-- [ ] New reference assets not deployed in this step
+- [x] Deployed as exercise ID `row`
 
 ## Notes
-- START je byte-for-byte kopie schváleného Romanian Deadlift HERO.
-- Zdroj kopie: ../Romanian Deadlift/romanian_deadlift_hero_v01.png
-- SHA-256 START: 3eb8ca00b4ec3aec577715c5d512ef50b464c4749907d31f143956bb28f729a0
-- Rozměr START: 1536 × 1024 px
-- Aplikace, data, cache a verze nebyly změněny.
+- START v02 and HERO v02 are the approved proportion-correct Bent Over Row source images.
+- END uses START v02 without a separate END PNG.
+- Guide Card v02 and Step by Step v02 are approved and deployed.
+- The rejected v01 Romanian Deadlift reuse is stored only in `_LEGACY_WRONG_PROPORTIONS_V01` and is not used by the application.
+- Active application paths use only Bent Over Row v02 files.

@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.38-dev';
+const APP_VERSION='v59.39-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -540,6 +540,31 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích a boku stehna, stabilní střed těla a kontrolovaný oblouk pracovní nohy.',
       watch:['Pánev drž stabilní a směřující k podložce.','Pohyb veď z kyčle bez švihu.','Ramena nech daleko od uší a pracovní koleno téměř natažené.'],
       mistakes:['Švihání nohou místo kontrolovaného oblouku.','Překlápění pánve do strany.','Prohýbání beder.','Krčení ramen k uším.']
+    }
+  },
+  row:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start_v02.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_guide_card_v02.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_step_by_step_v02.png',
+    subtitle:'Záda • lopatky • zadní ramena',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky pod rameny',photo:'start'},
+      {n:2,title:'PŘÍTAH',caption:'Lokty dozadu',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Postav se na šířku kyčlí. Kolena lehce pokrč, boky posuň dozadu a předkloň se z kyčlí. Paže nech natažené, činky pod rameny.',photo:'start'},
+      {title:'PŘÍTAH',text:'S výdechem veď lokty dozadu těsně kolem trupu. Přitáhni činky k dolním žebrům a lopatky jemně stáhni k sobě a dolů.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem spouštěj činky kontrolovaně dolů. Natáhni paže zpět pod ramena a udrž stabilní pánev i neutrální záda.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Záda / lopatky',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu',exhale:'Při přítahu',tempo:'Kontrolovaně bez švihu'},
+    recommendations:{
+      feel:'Práci v horní části zad, lopatkách a zadních ramenech při stabilním předklonu.',
+      watch:['Záda a krk drž neutrálně.','Lokty veď dozadu těsně kolem trupu.','Zápěstí drž rovná a ramena daleko od uší.'],
+      mistakes:['Kulatá nebo nadměrně prohnutá záda.','Zvedání ramen k uším.','Švihání trupem.','Bicepsový zdvih místo přítahu lokty.','Zalamování zápěstí.']
     }
   },
   chest_press:{
