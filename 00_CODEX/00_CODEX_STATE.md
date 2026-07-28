@@ -5,7 +5,7 @@
 - Projekt: Pilates Body 40+
 - Repozitář: Pilates
 - Branch: main
-- Git root: `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`
+- Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
 - `origin/main` je zdroj pravdy pro synchronizaci mezi počítači.
 
 ## Poslední dokončený commit
@@ -23,8 +23,11 @@ Aktuální rozpracované změny bez commitu:
 - Child's Pose je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, QA i App jsou schválené.
 - Bent Over Row je HOTOVO: START/HERO v02, END = START v02, Guide Card v02, Step by Step v02, QA i App jsou schválené a nasazené jako ID `row`.
 - Bicycle Crunch je HOTOVO: START/HERO/END v01, Guide Card v01, Step by Step v01, QA i App jsou schválené a nasazené jako ID `bicycle`.
-- Progress souhrn po Bicycle Crunch nasazení: 50 celkem, 17 HOTOVO, 0 ROZPRACOVÁNO, 33 ČEKÁ.
-- Aplikace byla navýšena na `v59.40-dev`; `data.js`, `app.js` a cache parametry v `index.html` byly aktualizovány pro Bicycle Crunch v01.
+- Bridge Abduction je HOTOVO: START/HERO/END jako START, Guide Card, Step by Step, Export, QA i App jsou schválené; nasazeno jako kanonické ID `abduction` bez pomůcky.
+- Chest Opener je ROZPRACOVÁNO: START `chest_opener_start_v01.png` je schválený; HERO, rozhodnutí o END, Guide Card a Step by Step čekají; App není nasazena.
+- Progress souhrn: 50 celkem, 18 HOTOVO, 1 ROZPRACOVÁNO, 31 ČEKÁ.
+- Aplikace je nyní `v59.42-dev`; cache `app.js` a `data.js` v `index.html` je `v=5942bridgeabduction`.
+- Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
 
@@ -35,7 +38,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Bridge Abduction START`
+1. `Chest Opener HERO`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -60,6 +63,14 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_guide_card_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/build_bicycle_crunch_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/build_bridge_abduction_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_step_by_step_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Chest Opener/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start_v01.png`
 
 ## Trvalá pravidla pro Codex
 
@@ -78,9 +89,9 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
-- Pracovní strom obsahuje aktuální necommitnuté změny z předchozích schválených kroků a nový Bicycle Crunch assetový/dokumentační krok.
+- Pracovní strom obsahuje aktuální necommitnuté změny pro Wake Lock/audio, dokončené nasazení Bridge Abduction a schválený Chest Opener START.
 
 ## Commit / Push
 
-- Commit pro aktuální Bicycle Crunch finální nasazení: NE
+- Commit pro aktuální Wake Lock a audio změny: NE
 - Push proveden: NE

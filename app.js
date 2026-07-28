@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.40-dev';
+const APP_VERSION='v59.42-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -9,6 +9,8 @@ let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
 let workoutTransitionLock=false;
 let workoutFinalStretch=false;
+let screenWakeLock=null;
+let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
 let sideNoticeDone='', sideNoticeNext='';
 const WORKOUT_PREP_SECONDS=10;
@@ -26,6 +28,39 @@ function renderTrainingScreen(html){
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
 }
+function isWorkoutScreenActive(){
+  return workoutRunning && Boolean(app.querySelector('.autoTrain'));
+}
+async function requestWorkoutWakeLock(){
+  if(!('wakeLock' in navigator) || screenWakeLock || wakeLockRequestPending || document.visibilityState!=='visible' || !isWorkoutScreenActive())return;
+  wakeLockRequestPending=true;
+  try{
+    const lock=await navigator.wakeLock.request('screen');
+    if(!isWorkoutScreenActive() || document.visibilityState!=='visible'){
+      await lock.release();
+      return;
+    }
+    screenWakeLock=lock;
+    lock.addEventListener('release',()=>{
+      if(screenWakeLock===lock)screenWakeLock=null;
+    });
+  }catch(e){}
+  finally{wakeLockRequestPending=false;}
+}
+async function releaseWorkoutWakeLock(){
+  const lock=screenWakeLock;
+  screenWakeLock=null;
+  if(!lock || lock.released)return;
+  try{await lock.release();}catch(e){}
+}
+function syncWorkoutWakeLock(){
+  if(isWorkoutScreenActive())void requestWorkoutWakeLock();
+  else void releaseWorkoutWakeLock();
+}
+new MutationObserver(syncWorkoutWakeLock).observe(app,{childList:true});
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible' && isWorkoutScreenActive())void requestWorkoutWakeLock();
+});
 function detailHash(k,d=currentDay,i=currentExercise){
   const params=new URLSearchParams({ex:k});
   if(Number.isFinite(Number(d)))params.set('day',String(Number(d)));
@@ -247,33 +282,56 @@ function setPill(dose){
   if(isTimedDose(dose))return '';
   return `<div class="setPill roundPill">Kolo ${workoutCurrentSet} z ${workoutTotalSets}</div>`;
 }
-let audioCtx=null;
+let audioCtx=null,audioMasterGain=null,audioUnlockPromise=null;
+const AUDIO_MASTER_GAIN=.18;
 function ensureAudio(){
   try{
     const C=window.AudioContext||window.webkitAudioContext; if(!C)return null;
-    if(!audioCtx)audioCtx=new C();
-    if(audioCtx.state==='suspended')audioCtx.resume();
+    if(!audioCtx){
+      audioCtx=new C();
+      audioMasterGain=audioCtx.createGain();
+      audioMasterGain.gain.value=AUDIO_MASTER_GAIN;
+      audioMasterGain.connect(audioCtx.destination);
+    }
     return audioCtx;
   }catch(e){return null;}
 }
-function beep(freq=660,dur=90){
+async function unlockAudio(){
+  const ctx=ensureAudio();
+  if(!ctx)return null;
+  try{
+    if(ctx.state==='suspended'){
+      if(!audioUnlockPromise){
+        audioUnlockPromise=ctx.resume().catch(()=>{}).finally(()=>{audioUnlockPromise=null;});
+      }
+      await audioUnlockPromise;
+    }
+    return ctx;
+  }catch(e){return null;}
+}
+function beep(freq=700,dur=140,delay=0){
   try{
     const ctx=ensureAudio(); if(!ctx)return;
+    if(ctx.state!=='running')return;
     const o=ctx.createOscillator(), g=ctx.createGain();
-    o.frequency.value=freq;o.type='sine';o.connect(g);g.connect(ctx.destination);
-    g.gain.setValueAtTime(.0001,ctx.currentTime);
-    g.gain.exponentialRampToValueAtTime(.05,ctx.currentTime+.015);
-    g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+(dur/1000));
-    o.start();
-    o.stop(ctx.currentTime+(dur/1000)+.02);
-    if(navigator.vibrate) navigator.vibrate(dur>100?70:35);
+    const start=ctx.currentTime+(delay/1000);
+    const end=start+(dur/1000);
+    o.frequency.value=freq;o.type='sine';o.connect(g);g.connect(audioMasterGain);
+    g.gain.setValueAtTime(.0001,start);
+    g.gain.exponentialRampToValueAtTime(1,start+.012);
+    g.gain.setValueAtTime(1,Math.max(start+.012,end-.035));
+    g.gain.exponentialRampToValueAtTime(.0001,end);
+    o.start(start);
+    o.stop(end+.02);
+    if(!delay&&navigator.vibrate)navigator.vibrate(dur>140?70:35);
   }catch(e){}
 }
 function cue(kind){
-  if(kind==='go'){beep(920,120);return;}
-  if(kind==='done'){beep(520,90);setTimeout(()=>beep(780,120),120);return;}
-  if(kind==='switch'){beep(700,80);setTimeout(()=>beep(700,80),110);return;}
-  beep(660,80);
+  if(kind==='go'){beep(720,140);beep(900,140,200);return;}
+  if(kind==='done'){beep(600,150);beep(800,150,210);return;}
+  if(kind==='switch'){beep(680,140);beep(680,140,200);return;}
+  if(kind==='complete'){beep(620,140);beep(780,140,190);beep(940,160,380);return;}
+  beep(700,140);
 }
 // v50: vypnuté staré ruční přesměrování obrázků.
 // Dříve prvních 6 cviků používalo *_main.jpg a karta se proto lišila od data.js.
@@ -540,6 +598,31 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích a zadní straně stehen, stabilní pánev a klidný pochod v mostu.',
       watch:['Nejprve zvedni pánev do stabilního mostu.','Pánev drž vodorovnou a nenechávej ji klesat.','Opři se o chodidlo, ne o krk.'],
       mistakes:['Současné zvednutí pánve a nohy.','Vytáčení nebo klesání pánve.','Prohýbání beder.','Odraz opěrnou nohou.']
+    }
+  },
+  abduction:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_step_by_step_v01.png',
+    subtitle:'Hýždě • boky • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Stabilní most',photo:'start'},
+      {n:2,title:'OTEVŘENÍ',caption:'Kolena do stran',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kolena zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ MOST',text:'Lehni si na záda, chodidla polož na podložku a zvedni pánev. Kolena směřují vpřed.',photo:'start'},
+      {title:'OTEVŘENÍ KOLEN',text:'S výdechem otevři obě kolena do stran. Pánev drž stabilní, vodorovnou a stále nahoře.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať kolena do výchozí polohy. Chodidla se neposouvají a pánev neklesá.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / boky',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu kolen',exhale:'Při otevření kolen',tempo:'Pomalu bez švihu'},
+    recommendations:{
+      feel:'Práci v hýždích a bocích při stabilní, vodorovné pánvi v mostu.',
+      watch:['Pánev drž vodorovnou a stále nahoře.','Chodidla nech pevně na podložce.','Kolena otevírej plynule z kyčlí.'],
+      mistakes:['Klesání nebo vytáčení pánve.','Prohýbání beder.','Vytáčení chodidel.','Otevírání kolen švihem.']
     }
   },
   rainbow:{
@@ -1114,6 +1197,8 @@ function finishWorkoutDay(){
   workoutPaused=false;
   workoutCurrentSet=1;
   workoutFinalStretch=false;
+  void releaseWorkoutWakeLock();
+  cue('complete');
   doneNext(false);
 }
 function beginFinalStretch(){
@@ -1147,11 +1232,13 @@ function shouldRunWorkoutTimer(){
   return ['prep','switch','roundRest'].includes(workoutPhase) || (info.timed && ['left','right','work'].includes(workoutPhase));
 }
 function openCurrentTraining(){
+  void unlockAudio();
   if(workoutRunning){
     const resumeTimer=workoutPausedByDetail;
     workoutPausedByDetail=false;
     if(resumeTimer)workoutPaused=false;
     showAutoTrain();
+    void requestWorkoutWakeLock();
     if(resumeTimer&&shouldRunWorkoutTimer()){
       clearInterval(timer);
       timer=setInterval(tickAuto,1000);
@@ -1162,6 +1249,7 @@ function openCurrentTraining(){
 }
 function startTraining(di,auto=true){
   clearDetailRoute();
+  void unlockAudio();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
   clearInterval(timer);
   workoutAuto=true;
@@ -1174,6 +1262,7 @@ function startTraining(di,auto=true){
   currentDay=di;
   currentExercise=0;
   beginCurrentExercise();
+  void requestWorkoutWakeLock();
 }
 
 function timerCircleStyle(){
@@ -1296,8 +1385,13 @@ function showAutoTrain(opts={}){
 function tickAuto(){
   if(workoutPaused)return;
   workoutLeft--;
-  if(workoutLeft<=3&&workoutLeft>0)beep(760,80);
-  if(workoutLeft<=0){cue(workoutPhase==='work'||workoutPhase==='left'||workoutPhase==='right'?'done':'go');advanceAutoPhase();return;}
+  if(workoutLeft<=3&&workoutLeft>0)beep(760,130);
+  if(workoutLeft<=0){
+    if(workoutPhase==='roundRest')cue('go');
+    else if(!workoutFinalStretch&&(workoutPhase==='work'||workoutPhase==='right'))cue('done');
+    advanceAutoPhase();
+    return;
+  }
   const el=document.getElementById('autoTimer'); if(el)el.textContent=workoutPhase==='roundRest'?formatCountdown(workoutLeft):workoutLeft;
   const circle=document.querySelector('.timerCircle'); if(circle)circle.style.background=timerCircleStyle();
 }
@@ -1634,7 +1728,7 @@ function showStats(){
   <div class="statGrid"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div></div><div class="row"><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div></section>`;
 }
 app.addEventListener('click',e=>{
-  ensureAudio();
+  void unlockAudio();
   const t=e.target.closest('[data-action],.exercise[data-day],.exercise[data-ex]');
   if(!t)return;
   const a=t.dataset.action;
@@ -1682,7 +1776,7 @@ app.addEventListener('click',e=>{
   if(a==='done-next-nomark')return doneNext(false);
   if(a==='toggle-auto'){workoutPaused=!workoutPaused;return showAutoTrain();}
   if(a==='skip-auto')return skipAuto();
-  if(a==='stop-auto'){clearInterval(timer);workoutAuto=false;return day(currentDay);}
+  if(a==='stop-auto'){clearInterval(timer);workoutAuto=false;void releaseWorkoutWakeLock();return day(currentDay);}
   if(a==='reset-day'){data.days[Number(t.dataset.day)].items.forEach((_,i)=>localStorage.removeItem(key(Number(t.dataset.day),i)));return day(Number(t.dataset.day));}
   if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
   if(a==='rest')return restScreen();
