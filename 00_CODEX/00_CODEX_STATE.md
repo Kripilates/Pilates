@@ -5,7 +5,7 @@
 - Projekt: Pilates Body 40+
 - Repozitář: Pilates
 - Branch: main
-- Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
+- Git root: `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`
 - `origin/main` je zdroj pravdy pro synchronizaci mezi počítači.
 
 ## Poslední dokončený commit
@@ -24,9 +24,10 @@ Aktuální rozpracované změny bez commitu:
 - Bent Over Row je HOTOVO: START/HERO v02, END = START v02, Guide Card v02, Step by Step v02, QA i App jsou schválené a nasazené jako ID `row`.
 - Bicycle Crunch je HOTOVO: START/HERO/END v01, Guide Card v01, Step by Step v01, QA i App jsou schválené a nasazené jako ID `bicycle`.
 - Bridge Abduction je HOTOVO: START/HERO/END jako START, Guide Card, Step by Step, Export, QA i App jsou schválené; nasazeno jako kanonické ID `abduction` bez pomůcky.
-- Chest Opener je ROZPRACOVÁNO: START `chest_opener_start_v01.png` je schválený; HERO, rozhodnutí o END, Guide Card a Step by Step čekají; App není nasazena.
-- Progress souhrn: 50 celkem, 18 HOTOVO, 1 ROZPRACOVÁNO, 31 ČEKÁ.
-- Aplikace je nyní `v59.42-dev`; cache `app.js` a `data.js` v `index.html` je `v=5942bridgeabduction`.
+- Chest Opener je HOTOVO: START a HERO v04, END = START, Guide Card v04, Step by Step v04, Export, QA i App jsou schválené; nasazeno jako ID `chest_opener`.
+- Donkey Kick je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, Export, QA i App jsou schválené; nasazeno jako ID `donkey` bez pomůcky a se samostatnou pravou/levou stranou.
+- Progress souhrn: 50 celkem, 20 HOTOVO, 0 ROZPRACOVÁNO, 30 ČEKÁ.
+- Aplikace je nyní `v59.44-dev`; cache `app.js` a `data.js` v `index.html` je `v=5944donkeykick`.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
@@ -38,7 +39,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Chest Opener HERO`
+1. `Figure Four Stretch START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -71,6 +72,9 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Chest Opener/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero_v04.png`
+- `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_guide_card_v04.png`
+- `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_step_by_step_v04.png`
 
 ## Trvalá pravidla pro Codex
 

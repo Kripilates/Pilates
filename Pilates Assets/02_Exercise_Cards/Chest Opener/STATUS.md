@@ -1,19 +1,23 @@
 # Chest Opener — STATUS
 
-Status: ROZPRACOVÁNO
+Status: HOTOVO
 
 ## Assets
 
 - EXERCISE_REFERENCE: není uložená v MASTER balíčku
 - START: chest_opener_start_v01.png — SCHVÁLENO
-- HERO: ČEKÁ
-- END: čeká na rozhodnutí podle finální sekvence
-- GUIDE CARD: ČEKÁ
-- STEP BY STEP: ČEKÁ
-- EXPORT: ČEKÁ
-- QA: ČEKÁ
-- APP: NENASAZENO
+- HERO: chest_opener_hero_v04.png — SCHVÁLENO
+- END: START / bez samostatného END PNG — SCHVÁLENO
+- GUIDE CARD: chest_opener_guide_card_v04.png — SCHVÁLENO
+- STEP BY STEP: chest_opener_step_by_step_v04.png — SCHVÁLENO
+- EXPORT: SCHVÁLENO
+- QA: SCHVÁLENO
+- APP: NASAZENO
+
+## Workflow
+
+START → HERO v04 → START
 
 ## Notes
 
-START je uložený jako schválený source obrázek v rozměru 1536 × 1024 px. Zdrojový PNG nebyl upraven. Dalším krokem je Chest Opener HERO.
+START a HERO v04 jsou schválené source obrázky v rozměru 1536 × 1024 px. END používá START bez samostatného PNG. Starší HERO v01 a v03 zůstávají zachované, ale nejsou aktuálním schváleným HERO. Guide Card a Step by Step v04 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `chest_opener`.

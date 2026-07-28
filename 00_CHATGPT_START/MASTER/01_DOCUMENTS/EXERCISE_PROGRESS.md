@@ -33,13 +33,6 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Chest Opener HERO
-2. Chest Opener Guide Card
-3. Chest Opener Step by Step
-4. Donkey Kick START
-5. Donkey Kick HERO
-6. Donkey Kick Guide Card
-7. Donkey Kick Step by Step
 8. Figure Four Stretch START
 9. Figure Four Stretch HERO
 10. Figure Four Stretch Guide Card
@@ -164,11 +157,11 @@ ROZPRACOVÁNO
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 18
-Rozpracováno: 1
-Nezačato: 31
+Kompletně hotovo: 20
+Rozpracováno: 0
+Nezačato: 30
 
-Další doporučený cvik: Chest Opener HERO
+Další doporučený cvik: Figure Four Stretch START
 
 ## Přehled
 
@@ -179,12 +172,12 @@ Další doporučený cvik: Chest Opener HERO
 | Bird Dog | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Bridge Abduction | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválený reuse source z Glute Bridge March MID v02; HERO je schválený; END = START bez samostatného PNG; Guide Card a Step by Step jsou schválené; App nasazena jako kanonické ID `abduction`; schválená varianta je bez pomůcky |
 | Cat-Cow | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START, HERO/CAT fáze a END/COW fáze schválené; Guide Card a Step by Step schválené; App nasazena jako samostatný cvik `catcow`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Chest Opener | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ROZPRACOVÁNO | START `chest_opener_start_v01.png` je uložený a schválený; HERO čeká; END čeká na rozhodnutí podle finální sekvence; Guide Card a Step by Step čekají; App nenasazeno |
+| Chest Opener | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO v04 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v04 manuálně schválené; Export a QA schválené; App nasazena přes `chest_opener` |
 | Chest Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO schválené; END = START; Guide Card a Step by Step schválené; anatomická reference byla při tvorbě použita, ale není fyzicky archivovaná; aplikace používá assets/exercises/chest_press.jpg a detailové reference Chest Press |
 | Child's Pose | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START bez samostatného PNG; Guide Card a Step by Step schválené; App nasazena přes `childs_pose`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Dead Bug | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Donkey Kick | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Donkey Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválená binární kopie Fire Hydrant START; HERO je schválený; END = START bez samostatného PNG; Guide Card a Step by Step jsou manuálně schválené; Export a QA schválené; App nasazena jako `donkey`; bez pomůcky; samostatné pravá/levá strana |
 | Figure Four Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Fire Hydrant | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Forearm Plank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

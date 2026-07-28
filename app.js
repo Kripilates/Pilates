@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.42-dev';
+const APP_VERSION='v59.44-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -382,6 +382,31 @@ const referenceExerciseAssets={
       {title:'NÁVRAT',text:'S nádechem vrať koleno zpět pod kyčel. Neprohýbej bedra a neotáčej trup.',photo:'start'}
     ]
   },
+  donkey:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_step_by_step_v01.png',
+    subtitle:'Hýždě • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
+      {n:2,title:'ZANOŽENÍ',caption:'Pokrčená noha vzhůru',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Koleno pod kyčel',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a záda drž neutrálně.',photo:'start'},
+      {title:'ZANOŽENÍ',text:'S výdechem zvedni jednu pokrčenou nohu dozadu a nahoru. Koleno drž přibližně v úhlu 90° a pánev vodorovně.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať koleno kontrolovaně pod kyčel. Opakuj podle programu a potom vystřídej strany.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Hýždě / pánev',knees:'Na všech čtyřech'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí nohy',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci v hýždích, aktivní střed těla a stabilní pánev bez tlaku v bedrech.',
+      watch:['Pánev drž stabilní a vodorovnou.','Břicho nech aktivní a ramena daleko od uší.','Pohyb veď z kyčle bez švihu.'],
+      mistakes:['Prohýbání beder.','Vytáčení pánve.','Zvedání nohy příliš vysoko.','Švihání nohou místo kontrolovaného pohybu.']
+    }
+  },
   clam:{
     start:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_hero_v01.png',
@@ -535,6 +560,31 @@ const referenceExerciseAssets={
       feel:'Uvolnění zad, ramen a kyčlí a klidný dech do zad a žeber.',
       watch:['Boky nech klesat směrem k patám jen do příjemného rozsahu.','Ramena nech daleko od uší.','Dýchej klidně do zad a žeber.'],
       mistakes:['Tlačení kolen nebo kyčlí přes bolest.','Zvedání ramen k uším.','Zadržování dechu.','Příliš velký rozsah při tlaku v kolenou.']
+    }
+  },
+  chest_opener:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_hero_v04.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_guide_card_v04.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_step_by_step_v04.png',
+    subtitle:'Hrudník • ramena • držení těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Paže podél těla',photo:'start'},
+      {n:2,title:'OTEVŘENÍ',caption:'Ruce spoj za tělem',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu uvolni',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Postav se vzpřímeně, chodidla dej přibližně na šířku kyčlí a paže nech volně podél těla.',photo:'start'},
+      {title:'OTEVŘENÍ HRUDNÍKU',text:'S nádechem spoj ruce za tělem, stáhni ramena dolů a dozadu a jemně otevři hrudník.',photo:'hero'},
+      {title:'NÁVRAT',text:'S výdechem pomalu uvolni ruce a vrať paže do výchozí polohy.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hrudník / ramena',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Při otevření hrudníku',exhale:'Při návratu',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Jemné otevření hrudníku a ramen při vzpřímeném držení těla bez tlaku v bedrech.',
+      watch:['Žebra nevytlačuj dopředu.','Ramena stáhni dolů a dozadu.','Hlavu drž v neutrální poloze.'],
+      mistakes:['Zvedání ramen k uším.','Zaklánění hlavy.','Prohýbání beder.','Vytlačování žeber dopředu.']
     }
   },
   bird:{
