@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.44-dev';
+const APP_VERSION='v59.46-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -700,6 +700,32 @@ const referenceExerciseAssets={
       mistakes:['Švihání nohou místo kontrolovaného oblouku.','Překlápění pánve do strany.','Prohýbání beder.','Krčení ramen k uším.']
     }
   },
+  figure_four:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start_v01.png',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_mid_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_guide_card_v02.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_step_by_step_v02.png',
+    subtitle:'Hýždě • kyčle • protažení',
+    miniSteps:[
+      {n:1,title:'START',caption:'Chodidla na podložce',photo:'start'},
+      {n:2,title:'NASTAVENÍ',caption:'Kotník přes stehno',photo:'mid'},
+      {n:3,title:'PROTAŽENÍ',caption:'Přitáhni nohy k trupu',photo:'hero'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a nech obě chodidla na podložce. Hlava, ramena a pánev zůstávají položené.',photo:'start'},
+      {title:'NASTAVENÍ',text:'Polož kotník pracovní nohy přes opačné stehno těsně nad kolenem a pracovní koleno otevři do strany.',photo:'mid'},
+      {title:'PROTAŽENÍ',text:'Sepni ruce za stehnem opěrné nohy a jemně přitáhni nohy směrem k trupu. Dýchej klidně a potom se vrať do startu.',photo:'hero'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / kyčle',knees:'Rozsah bez bolesti'},
+    breath:{inhale:'Plynule do žeber',exhale:'Jemně uvolni napětí',tempo:'Klidná výdrž'},
+    recommendations:{
+      feel:'Příjemné protažení hýždě a vnější strany kyčle bez tlaku v koleni nebo třísle.',
+      watch:['Kotník polož přes stehno těsně nad kolenem, ne přímo na kloub.','Hlavu, ramena a pánev nech na podložce.','Rozsah zmenši při nepříjemném tlaku v koleni nebo kyčli.'],
+      mistakes:['Tlačení rukou do pracovního kolena.','Kotník položený přímo na kolenním kloubu.','Zvedání hlavy nebo ramen z podložky.','Přitahování nohou přes bolest.']
+    }
+  },
   row:{
     start:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start_v02.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_hero_v02.png',
@@ -723,6 +749,31 @@ const referenceExerciseAssets={
       feel:'Práci v horní části zad, lopatkách a zadních ramenech při stabilním předklonu.',
       watch:['Záda a krk drž neutrálně.','Lokty veď dozadu těsně kolem trupu.','Zápěstí drž rovná a ramena daleko od uší.'],
       mistakes:['Kulatá nebo nadměrně prohnutá záda.','Zvedání ramen k uším.','Švihání trupem.','Bicepsový zdvih místo přítahu lokty.','Zalamování zápěstí.']
+    }
+  },
+  plank:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_step_by_step_v01.png',
+    subtitle:'Střed těla • ramena • hýždě',
+    miniSteps:[
+      {n:1,title:'START',caption:'Lokty pod rameny',photo:'start'},
+      {n:2,title:'VÝDRŽ',caption:'Tělo v jedné linii',photo:'hero'},
+      {n:3,title:'KONEC VÝDRŽE',caption:'Potom polož kolena',photo:'end'}
+    ],
+    steps:[
+      {title:'START',text:'Opři se o předloktí, lokty dej přímo pod ramena a natáhni nohy dozadu.',photo:'start'},
+      {title:'VÝDRŽ',text:'Zapři špičky do podložky, zpevni břicho a hýždě a drž tělo v jedné dlouhé linii.',photo:'hero'},
+      {title:'KONEC VÝDRŽE',text:'Plynule dýchej až do konce výdrže. Potom polož kolena kontrolovaně na podložku.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / ramena',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Plynule do žeber',exhale:'Plynule bez zadržení',tempo:'Statická výdrž'},
+    recommendations:{
+      feel:'Aktivní střed těla, ramena a hýždě při stabilní časové výdrži.',
+      watch:['Lokty drž přímo pod rameny.','Tělo drž v jedné dlouhé linii.','Hlavu a krk drž neutrálně a ramena daleko od uší.'],
+      mistakes:['Propadnutí v bedrech.','Příliš vysoko zvednutá pánev.','Ramena vytažená k uším.','Zadržování dechu.']
     }
   },
   chest_press:{

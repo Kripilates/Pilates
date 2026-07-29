@@ -5,7 +5,7 @@
 - Projekt: Pilates Body 40+
 - Repozitář: Pilates
 - Branch: main
-- Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
+- Git root: `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`
 - `origin/main` je zdroj pravdy pro synchronizaci mezi počítači.
 
 ## Poslední dokončený commit
@@ -19,10 +19,10 @@
 
 Aktuální rozpracované změny bez commitu:
 
-- Figure Four Stretch START, MID v02 a HERO v02 jsou schválené; MID/HERO byly bez resamplingu doplněny o 1 pravý pixel kopií krajního sloupce.
-- Figure Four Stretch Guide Card a Step by Step v02 jsou vytvořené a čekají na manuální schválení; Export, QA a App zatím nejsou schválené.
-- Progress souhrn: 50 celkem, 20 HOTOVO, 1 ROZPRACOVÁNO, 29 ČEKÁ.
-- Aplikace je nyní `v59.44-dev`; cache `app.js` a `data.js` v `index.html` je `v=5944donkeykick`.
+- Figure Four Stretch používá schválenou sestavu START v01 → MID v02 → HERO v02 → START v01; Guide Card a Step by Step v02 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `figure_four`.
+- Forearm Plank používá jeden schválený statický source pro START, HERO i END; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `plank`.
+- Progress souhrn: 50 celkem, 22 HOTOVO, 0 ROZPRACOVÁNO, 28 ČEKÁ.
+- Aplikace je nyní `v59.46-dev`; cache `app.js` a `data.js` v `index.html` je `v=5946figurefour`.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
@@ -34,7 +34,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Forearm Plank START`
+1. `Frog Pumps START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -49,6 +49,11 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/build_figure_four_stretch_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_guide_card_v02.png`
 - `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_step_by_step_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Forearm Plank/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Forearm Plank/build_forearm_plank_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`
@@ -96,9 +101,9 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
 - Před tímto úkolem byl pracovní strom čistý; dříve předané změny jsou součástí commitu `c588f7f`.
-- Pracovní strom nyní obsahuje pouze necommitnuté source, build, exportní a dokumentační změny Figure Four Stretch.
+- Pracovní strom nyní obsahuje necommitnuté source, build, exportní, aplikační a dokumentační změny Forearm Plank a dokončené nasazení Figure Four Stretch.
 
 ## Commit / Push
 
-- Commit pro aktuální Figure Four Stretch změny: NE
+- Commit pro aktuální Figure Four Stretch a Forearm Plank změny: NE
 - Push proveden: NE

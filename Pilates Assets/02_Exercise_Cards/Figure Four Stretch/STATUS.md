@@ -1,40 +1,41 @@
 # Figure Four Stretch
 
-Status: 🟡 ROZPRACOVÁNO
+Status: 🟢 HOTOVO
 
 ## Photos
-- [x] START:
+- [x] START v01 Approved:
   `figure_four_stretch_start_v01.png`
-  - SCHVÁLENO
-- [x] MID:
+- [x] MID v02 Approved:
   `figure_four_stretch_mid_v02.png`
   - SCHVÁLENO; plátno technicky rozšířeno o 1 px vpravo kopií původního krajního sloupce.
-- [x] HERO:
+- [x] HERO v02 Approved:
   `figure_four_stretch_hero_v02.png`
   - SCHVÁLENO; plátno technicky rozšířeno o 1 px vpravo kopií původního krajního sloupce.
-- [x] END = START, bez samostatného END PNG
+- [x] END = START v01, bez samostatného END PNG
+
+## Workflow
+START v01 → MID v02 → HERO v02 → START v01
 
 ## Guide Card
-- [x] VYTVOŘENA:
+- [x] Approved:
   `figure_four_stretch_guide_card_v02.png`
-- [ ] ČEKÁ NA MANUÁLNÍ SCHVÁLENÍ
 
 ## Step by Step
-- [x] VYTVOŘEN:
+- [x] Approved:
   `figure_four_stretch_step_by_step_v02.png`
-- [ ] ČEKÁ NA MANUÁLNÍ SCHVÁLENÍ
 
 ## Export
-- [ ] ČEKÁ NA MANUÁLNÍ SCHVÁLENÍ KARET
+- [x] Approved
 
 ## QA
-- [ ] ČEKÁ NA MANUÁLNÍ SCHVÁLENÍ
+- [x] Approved
 
 ## App
-- [ ] NENASAZENO
+- [x] Deployed as `figure_four`
 
 ## Notes
-- Schválená sekvence: START → MID → HERO.
+- Schválená sekvence: START v01 → MID v02 → HERO v02 → START v01.
 - Pracovní kotník a opěrná noha navazují mezi MID a HERO beze změny stran.
-- Guide Card a Step by Step v02 jsou vytvořené, ale zatím nejsou manuálně schválené.
-- Další krok podle trackeru: Forearm Plank START.
+- Guide Card a Step by Step v02 jsou manuálně schválené a nasazené.
+- Rozdílná čísla verzí jednotlivých source fází jsou záměrná.
+- Cvik se provádí samostatně na každou stranu, nikoli průběžným střídáním.
