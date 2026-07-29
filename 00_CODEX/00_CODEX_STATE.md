@@ -5,13 +5,13 @@
 - Projekt: Pilates Body 40+
 - Repozitář: Pilates
 - Branch: main
-- Git root: `C:\Users\Tomáš Machánek\Documents\GitHub\Pilates`
+- Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
 - `origin/main` je zdroj pravdy pro synchronizaci mezi počítači.
 
 ## Poslední dokončený commit
 
-- Hash: `f2e66d1`
-- Message: `a`
+- Hash: `c588f7f`
+- Message: `e`
 - Stav vůči `origin/main`: lokální `main` je shodný s `origin/main`.
 - Push posledního commitu už je na `origin/main`.
 
@@ -19,14 +19,9 @@
 
 Aktuální rozpracované změny bez commitu:
 
-- Rainbow Leg Raise je HOTOVO: START/HERO/END, Guide Card, Step by Step, QA i App jsou schválené.
-- Child's Pose je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, QA i App jsou schválené.
-- Bent Over Row je HOTOVO: START/HERO v02, END = START v02, Guide Card v02, Step by Step v02, QA i App jsou schválené a nasazené jako ID `row`.
-- Bicycle Crunch je HOTOVO: START/HERO/END v01, Guide Card v01, Step by Step v01, QA i App jsou schválené a nasazené jako ID `bicycle`.
-- Bridge Abduction je HOTOVO: START/HERO/END jako START, Guide Card, Step by Step, Export, QA i App jsou schválené; nasazeno jako kanonické ID `abduction` bez pomůcky.
-- Chest Opener je HOTOVO: START a HERO v04, END = START, Guide Card v04, Step by Step v04, Export, QA i App jsou schválené; nasazeno jako ID `chest_opener`.
-- Donkey Kick je HOTOVO: START/HERO, END = START, Guide Card, Step by Step, Export, QA i App jsou schválené; nasazeno jako ID `donkey` bez pomůcky a se samostatnou pravou/levou stranou.
-- Progress souhrn: 50 celkem, 20 HOTOVO, 0 ROZPRACOVÁNO, 30 ČEKÁ.
+- Figure Four Stretch START, MID v02 a HERO v02 jsou schválené; MID/HERO byly bez resamplingu doplněny o 1 pravý pixel kopií krajního sloupce.
+- Figure Four Stretch Guide Card a Step by Step v02 jsou vytvořené a čekají na manuální schválení; Export, QA a App zatím nejsou schválené.
+- Progress souhrn: 50 celkem, 20 HOTOVO, 1 ROZPRACOVÁNO, 29 ČEKÁ.
 - Aplikace je nyní `v59.44-dev`; cache `app.js` a `data.js` v `index.html` je `v=5944donkeykick`.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
@@ -39,7 +34,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Figure Four Stretch START`
+1. `Forearm Plank START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -47,6 +42,13 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - `00_CHATGPT_START/00_READ_FIRST.md`
 - `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_mid_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/build_figure_four_stretch_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_guide_card_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_step_by_step_v02.png`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`
@@ -93,9 +95,10 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
-- Pracovní strom obsahuje aktuální necommitnuté změny pro Wake Lock/audio, dokončené nasazení Bridge Abduction a schválený Chest Opener START.
+- Před tímto úkolem byl pracovní strom čistý; dříve předané změny jsou součástí commitu `c588f7f`.
+- Pracovní strom nyní obsahuje pouze necommitnuté source, build, exportní a dokumentační změny Figure Four Stretch.
 
 ## Commit / Push
 
-- Commit pro aktuální Wake Lock a audio změny: NE
+- Commit pro aktuální Figure Four Stretch změny: NE
 - Push proveden: NE
