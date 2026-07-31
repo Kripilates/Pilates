@@ -1194,8 +1194,8 @@ main button:not(.primary):not(.active),
 .referenceStepByStepContent{margin-top:14px}
 .referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{display:none!important;margin-top:0}
 .referenceStepByStep article{margin:0}
-.referenceSbsPhoto{position:relative;height:203px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.referenceSbsPhoto img{object-fit:cover}
+.referenceSbsPhoto{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.referenceSbsPhoto img{width:100%;height:auto;display:block;object-fit:contain;object-position:initial;transform:none}
 .referenceSbsPhoto b{position:absolute;top:9px;left:9px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--p);color:#fff;font-size:11px}
 .referenceStepByStep article strong{display:block;margin-top:12px;color:var(--p);font-size:15px;line-height:1;font-weight:900}
 .referenceStepByStep article span{display:block;margin-top:8px;color:var(--muted);font-size:12px;line-height:1.35}
@@ -1294,7 +1294,6 @@ main button:not(.primary):not(.active),
     margin-top:8px;
   }
   .referenceSbsPhoto{
-    height:146px;
     border-radius:10px;
   }
   .referenceSbsPhoto b{

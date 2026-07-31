@@ -21,3 +21,5 @@ START → HERO → START
 ## Notes
 
 START a HERO jsou schválené source obrázky v rozměru 1536 × 1024 px. START zobrazuje pánev na podložce, HERO krátký zdvih pánve při spojených ploskách a otevřených kolenou. END používá START bez samostatného PNG. Guide Card a Step by Step v01 jsou manuálně schválené. Cvik je nasazený v aplikaci pod kanonickým ID `frog`.
+
+- Dynamická sekce Krok za krokem používá opravené globální zobrazení fotografií v přirozeném poměru stran; source a exportní PNG zůstaly beze změny.
