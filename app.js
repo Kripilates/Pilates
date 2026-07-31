@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.49-dev';
+const APP_VERSION='v59.50-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -723,6 +723,31 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích a boku stehna, stabilní střed těla a kontrolovaný oblouk pracovní nohy.',
       watch:['Pánev drž stabilní a směřující k podložce.','Pohyb veď z kyčle bez švihu.','Ramena nech daleko od uší a pracovní koleno téměř natažené.'],
       mistakes:['Švihání nohou místo kontrolovaného oblouku.','Překlápění pánve do strany.','Prohýbání beder.','Krčení ramen k uším.']
+    }
+  },
+  hamstring_supine:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_step_by_step_v01.png',
+    subtitle:'Zadní strana stehna • jemné protažení',
+    miniSteps:[
+      {n:1,title:'START',caption:'Koleno pokrčené',photo:'start'},
+      {n:2,title:'PROPNUTÍ',caption:'Pata vzhůru',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda. Jedno koleno pokrč a chodidlo polož celé na podložku. Druhé stehno přitáhni k trupu a oběma rukama ho podepři zezadu nad kolenem.',photo:'start'},
+      {title:'PROPNUTÍ NOHY',text:'S výdechem pomalu propínej pracovní koleno a směruj patu vzhůru. Propni pouze do příjemného tahu.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem koleno kontrolovaně znovu pokrč. Pracovní stehno i pánev drž ve stejné poloze.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Zadní strana stehna',knees:'Rozsah bez bolesti'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při propnutí nohy',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Příjemné protažení zadní strany pracovního stehna bez bolesti v koleni nebo kyčli.',
+      watch:['Hlavu, ramena a pánev nech na podložce.','Rukama podpírej stehno zezadu nad kolenem, ne přímo v kloubu.','Pracovní koleno propínej pouze do příjemného tahu.'],
+      mistakes:['Zvedání pánve nebo ramen.','Tlak rukama do kolenního kloubu.','Násilné zamykání kolena.','Propínání nohy přes bolest.']
     }
   },
   figure_four:{

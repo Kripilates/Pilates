@@ -22,9 +22,10 @@ Aktuální rozpracované změny bez commitu:
 - Figure Four Stretch používá schválenou sestavu START v01 → MID v02 → HERO v02 → START v01; Guide Card a Step by Step v02 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `figure_four`.
 - Forearm Plank používá jeden schválený statický source pro START, HERO i END; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `plank`.
 - Frog Pumps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `frog`.
+- Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
-- Progress souhrn: 50 celkem, 23 HOTOVO, 0 ROZPRACOVÁNO, 27 ČEKÁ.
-- Aplikace je nyní `v59.49-dev`; cache `app.js` a `style.css` v `index.html` je `v=5949stepnatural`, cache `data.js` zůstává `v=5947frogpumps`.
+- Progress souhrn: 50 celkem, 24 HOTOVO, 0 ROZPRACOVÁNO, 26 ČEKÁ.
+- Aplikace je nyní `v59.50-dev`; cache `app.js` a `data.js` v `index.html` je `v=5950hamstringstretch`, cache `style.css` zůstává `v=5949stepnatural`.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
@@ -36,7 +37,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Hamstring Stretch START`
+1. `Heel Taps START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
