@@ -21,8 +21,9 @@ Aktuální rozpracované změny bez commitu:
 
 - Figure Four Stretch používá schválenou sestavu START v01 → MID v02 → HERO v02 → START v01; Guide Card a Step by Step v02 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `figure_four`.
 - Forearm Plank používá jeden schválený statický source pro START, HERO i END; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `plank`.
-- Progress souhrn: 50 celkem, 22 HOTOVO, 0 ROZPRACOVÁNO, 28 ČEKÁ.
-- Aplikace je nyní `v59.46-dev`; cache `app.js` a `data.js` v `index.html` je `v=5946figurefour`.
+- Frog Pumps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `frog`.
+- Progress souhrn: 50 celkem, 23 HOTOVO, 0 ROZPRACOVÁNO, 27 ČEKÁ.
+- Aplikace je nyní `v59.47-dev`; cache `app.js` a `data.js` v `index.html` je `v=5947frogpumps`.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
@@ -34,7 +35,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Frog Pumps START`
+1. `Hamstring Stretch START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -54,6 +55,12 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Forearm Plank/build_forearm_plank_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_guide_card_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_step_by_step_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Frog Pumps/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Frog Pumps/build_frog_pumps_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png`
@@ -101,9 +108,9 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
 - Před tímto úkolem byl pracovní strom čistý; dříve předané změny jsou součástí commitu `c588f7f`.
-- Pracovní strom nyní obsahuje necommitnuté source, build, exportní, aplikační a dokumentační změny Forearm Plank a dokončené nasazení Figure Four Stretch.
+- Pracovní strom nyní obsahuje necommitnuté source, build, exportní, aplikační a dokumentační změny Frog Pumps.
 
 ## Commit / Push
 
-- Commit pro aktuální Figure Four Stretch a Forearm Plank změny: NE
+- Commit pro aktuální Frog Pumps změny: NE
 - Push proveden: NE

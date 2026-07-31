@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.46-dev';
+const APP_VERSION='v59.47-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -405,6 +405,31 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích, aktivní střed těla a stabilní pánev bez tlaku v bedrech.',
       watch:['Pánev drž stabilní a vodorovnou.','Břicho nech aktivní a ramena daleko od uší.','Pohyb veď z kyčle bez švihu.'],
       mistakes:['Prohýbání beder.','Vytáčení pánve.','Zvedání nohy příliš vysoko.','Švihání nohou místo kontrolovaného pohybu.']
+    }
+  },
+  frog:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_step_by_step_v01.png',
+    subtitle:'Hýždě • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Plosky spolu',photo:'start'},
+      {n:2,title:'ZDVIH PÁNVE',caption:'Krátký most',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na záda, spoj plosky chodidel a nech kolena otevřená do stran.',photo:'start'},
+      {title:'ZDVIH PÁNVE',text:'Zpevni střed těla a s výdechem zvedni pánev do krátkého mostu. Nahoře aktivuj hýždě.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať pánev kontrolovaně na podložku. Chodidla nech spojená a kolena otevřená.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / pánev',knees:'Kolena otevřená'},
+    breath:{inhale:'Při návratu dolů',exhale:'Při zvednutí pánve',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci v hýždích a stabilní pánev při krátkém kontrolovaném zdvihu.',
+      watch:['Plosky chodidel nech po celý pohyb spojené.','Kolena zůstávají otevřená do stran.','Břicho drž aktivní a žebra nevytlačuj vzhůru.'],
+      mistakes:['Příliš vysoký zdvih pánve.','Prohýbání beder.','Zavírání kolen nebo rozdělení chodidel.','Odraz a švih místo práce hýždí.']
     }
   },
   clam:{
