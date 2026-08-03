@@ -25,7 +25,7 @@ Aktuální rozpracované změny bez commitu:
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
 - Progress souhrn: 50 celkem, 24 HOTOVO, 0 ROZPRACOVÁNO, 26 ČEKÁ.
-- Aplikace je nyní `v59.51-dev`; cache `app.js` a `data.js` v `index.html` je `v=5951controlmobility`, cache `style.css` zůstává `v=5949stepnatural`.
+- Aplikace je nyní `v59.52-dev`; cache `app.js` a `data.js` v `index.html` je `v=5952nowallsit`, cache `style.css` zůstává `v=5949stepnatural`.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
@@ -110,7 +110,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Poslední ověřený stav vůči origin/main před tímto úkolem: `HEAD...origin/main = 0 0`.
 - Lokální `main` je shodný s `origin/main`.
 - Před tímto úkolem byl pracovní strom čistý; dříve předané změny jsou součástí commitu `c588f7f`.
-- Pracovní strom nyní obsahuje necommitnuté změny programu pro dny 4, 8, 11, 18, 22, 25 a 26, verze/cache a tohoto předávacího souboru.
+- Verze `v59.52-dev` odstraňuje Wall Sit ze všech programových dnů: den 8 = Plié Squat 12×, den 12 = Plié Squat 14×, den 20 = Pochod v mostu 12× střídavě a den 22 = Plié Squat 16×.
 
 ## Commit / Push
 
