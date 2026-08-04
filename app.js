@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.57-dev';
+const APP_VERSION='v59.58-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -11,6 +11,7 @@ let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work
 let workoutTransitionLock=false;
 let workoutFinalStretch=false;
 let workoutExitDialogOpen=false, workoutExitWasPaused=false, workoutHistoryArmed=false;
+let workoutHistoryGuardSequence=0, workoutHistoryGuardId=null;
 let screenWakeLock=null;
 let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
@@ -50,9 +51,22 @@ function renderTrainingScreen(html){
   armWorkoutHistoryGuard();
 }
 function armWorkoutHistoryGuard(){
-  if(!workoutRunning || workoutHistoryArmed)return;
-  history.pushState({pb40WorkoutGuard:true},'',location.href);
+  if(!workoutRunning)return;
+  if(workoutHistoryGuardId===null)workoutHistoryGuardId=++workoutHistoryGuardSequence;
+  if(history.state?.pb40WorkoutGuard===workoutHistoryGuardId){
+    workoutHistoryArmed=true;
+    return;
+  }
+  const nextState=history.state&&typeof history.state==='object'?{...history.state}:{};
+  history.pushState({...nextState,pb40WorkoutGuard:workoutHistoryGuardId},'',location.href);
   workoutHistoryArmed=true;
+}
+function clearWorkoutHistoryGuard(url=location.href){
+  const currentState=history.state&&typeof history.state==='object'?{...history.state}:{};
+  if(currentState.pb40WorkoutGuard===workoutHistoryGuardId)delete currentState.pb40WorkoutGuard;
+  history.replaceState(Object.keys(currentState).length?currentState:null,'',url);
+  workoutHistoryArmed=false;
+  workoutHistoryGuardId=null;
 }
 function resumeWorkoutTimer(){
   if(workoutPaused || !shouldRunWorkoutTimer())return;
@@ -79,6 +93,7 @@ function showWorkoutExitDialog(){
 function continueWorkoutFromDialog(){
   document.querySelector('.workoutExitOverlay')?.remove();
   workoutExitDialogOpen=false;
+  armWorkoutHistoryGuard();
   workoutPaused=workoutExitWasPaused;
   resumeWorkoutTimer();
 }
@@ -89,8 +104,7 @@ function exitWorkoutToDay(){
   workoutRunning=false;
   workoutPaused=false;
   workoutAuto=false;
-  workoutHistoryArmed=false;
-  history.replaceState(null,'',location.pathname+location.search);
+  clearWorkoutHistoryGuard(location.pathname+location.search);
   void releaseWorkoutWakeLock();
   day(currentDay);
 }
@@ -1416,6 +1430,7 @@ function finishWorkoutDay(){
   clearInterval(timer);
   workoutRunning=false;
   workoutPaused=false;
+  clearWorkoutHistoryGuard();
   workoutCurrentSet=1;
   workoutFinalStretch=false;
   void releaseWorkoutWakeLock();
@@ -1473,6 +1488,7 @@ function startTraining(di,auto=true){
   void unlockAudio();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
   clearInterval(timer);
+  clearWorkoutHistoryGuard();
   workoutAuto=true;
   workoutRunning=true;
   workoutPaused=false;
@@ -2032,10 +2048,11 @@ window.addEventListener('popstate',()=>{
   if(workoutRunning&&isWorkoutScreenActive()){
     workoutHistoryArmed=false;
     armWorkoutHistoryGuard();
-    showWorkoutExitDialog();
+    if(!workoutExitDialogOpen)showWorkoutExitDialog();
     return;
   }
   workoutHistoryArmed=false;
+  workoutHistoryGuardId=null;
   if(!restoreDetailRoute())home();
 });
 if(!restoreDetailRoute()){
