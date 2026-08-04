@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.52-dev';
+const APP_VERSION='v59.53-dev';
 const versionEl=document.getElementById('app-version');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
@@ -16,6 +16,11 @@ let sideNoticeDone='', sideNoticeNext='';
 const WORKOUT_PREP_SECONDS=10;
 const WORKOUT_SWITCH_SECONDS=5;
 const WORKOUT_SERIES_REST_SECONDS=30;
+const PROGRAM_WEEK_HINTS=[
+  {from:0,to:9,text:'První týden se zaměřujeme na techniku, klidné tempo a kontrolovaný pohyb.'},
+  {from:10,to:19,text:'Druhý týden přidáváme pomalejší tempo, krátké výdrže a lepší kontrolu.'},
+  {from:20,to:29,text:'Třetí týden zpevni střed a pracuj přesněji. Cvič poctivě, ale ne přes bolest.'}
+];
 let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
 if(!data||!data.days||!data.exercises){
   app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
@@ -256,6 +261,9 @@ function statsData(){
 function nextDayIndex(){
   let n=data.days.findIndex((d,i)=>d.items.length&&pct(i)<100);
   return n<0?0:n;
+}
+function programWeekHint(dayIndex){
+  return PROGRAM_WEEK_HINTS.find(phase=>dayIndex>=phase.from&&dayIndex<=phase.to)?.text||'';
 }
 function restSeconds(k,dose){
   const ex=data.exercises[k];
@@ -1221,7 +1229,7 @@ function home(){
       <div class="helloRow"><div><p class="eyebrow">Dnes</p><h2>Pokračuj v tréninku</h2></div><div class="streakBadge">🔥 ${streak()} dní</div></div>
       <div class="todayCompact v22TodayCompact">
         <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-        <div><h3>${day.title}</h3><p class="muted">První týden se zaměřujeme na aktivaci hýždí a zadních stehen. Tlak přes paty, pomalé tempo a kontrola pohybu.</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků • ${lm?`pas ${fmtNum(lm.waist)} cm`:'měření zatím není'}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
+        <div><h3>${day.title}</h3><p class="muted">${programWeekHint(n)}</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků • ${lm?`pas ${fmtNum(lm.waist)} cm`:'měření zatím není'}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
       </div>
       <button class="primary cta" data-action="start-auto" data-day="${n}">▶ Cvič se mnou</button>
       <div class="compactActions v22Actions"><button data-action="day" data-day="${n}">♙ Ruční režim</button><button data-action="calendar">▣ Kalendář</button><button data-action="progress">▥ Měření</button></div>
@@ -1448,6 +1456,13 @@ function prettyDose(dose){
   if(info.timed)return `${info.seconds} sekund`;
   return String(dose||'');
 }
+function workoutDoseLabel(dose){
+  const info=sideInfo(dose);
+  if(info.side&&info.timed)return `${info.seconds} s / strana`;
+  if(info.side&&!info.timed)return `${info.left}/${info.right}`;
+  if(info.timed)return `${info.seconds} s`;
+  return String(dose||'').replace(/\s+střídavě$/i,'');
+}
 function currentInstruction(ex,dose){
   if(workoutFinalStretch && workoutPhase==='prep')return 'P\u0159iprav z\u00e1v\u011bre\u010dn\u00e9 prota\u017een\u00ed.';
   if(workoutFinalStretch && ['work','left','right'].includes(workoutPhase))return 'Uvolni se a d\u00fdchej.';
@@ -1495,7 +1510,8 @@ function showAutoTrain(opts={}){
   const sideSlotText=(!workoutFinalStretch && !isAlternatingExercise(k,dose) && workoutPhase==='switch' && Date.now()<sideNoticeUntil)
     ? `✓ ${sideNoticeDone||'Strana'} hotová · Pokračujeme ${sideContinueText(sideNoticeNext)}.`
     : (!statusShowsCurrentSide && sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? sideLabel : '');
-  const doseLabel=prettyDose(dose||ex.dose);
+  const doseLabel=workoutDoseLabel(dose||ex.dose);
+  const doseClass=doseLabel.length>7?' compactWorkoutDose--long':'';
   const phaseText=phaseLabel();
   const hasTimerLayout=isTimedActive || workoutPhase==='roundRest';
   const seriesLabel=workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : `S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}`;
@@ -1503,8 +1519,8 @@ function showAutoTrain(opts={}){
   const timerContent=`<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>`;
   const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
   const workoutHeaderHtml=hasTimerLayout
-    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose">${doseLabel}</div><div class="workoutPhaseText">${statusLabel}</div></div><div class="workoutTimerSlot">${timerContent}</div>`
-    : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
+    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${statusLabel}</div></div><div class="workoutTimerSlot">${timerContent}</div>`
+    : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
   const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
