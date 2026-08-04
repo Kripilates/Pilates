@@ -1,7 +1,8 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.53-dev';
+const APP_VERSION='v59.54-dev';
 const versionEl=document.getElementById('app-version');
+const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
@@ -29,9 +30,22 @@ const $=id=>document.getElementById(id);
 function scrollTop(){
   requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
 }
+function setWorkoutHeaderPosition(active=false){
+  if(!brandBadge)return;
+  const total=data.days?.[currentDay]?.items?.length||0;
+  if(active&&total){
+    const position=workoutFinalStretch?total:Math.min(total,currentExercise+1);
+    brandBadge.textContent=`Cvik ${position} z ${total}`;
+    brandBadge.classList.add('workoutPositionBadge');
+    return;
+  }
+  brandBadge.textContent='40+';
+  brandBadge.classList.remove('workoutPositionBadge');
+}
 function renderTrainingScreen(html){
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
+  setWorkoutHeaderPosition(true);
 }
 function isWorkoutScreenActive(){
   return workoutRunning && Boolean(app.querySelector('.autoTrain'));
@@ -239,6 +253,7 @@ function weeklyHint(arr){
 
 
 function setNav(a){
+  if(a!=='train')setWorkoutHeaderPosition(false);
   ['home','days','train','calendar','library','stats','progress'].forEach(n=>{
     const el=$(`nav-${n}`); if(el) el.classList.toggle('active',n===a);
   });
@@ -1482,14 +1497,14 @@ function showSeriesRest(){
   const completedSet=Math.max(1,workoutCurrentSet-1);
   const progress=Math.min(100, Math.round((completedSet*dayObj.items.length/Math.max(1,dayObj.items.length*workoutTotalSets))*100));
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain seriesRestScreen" data-current-day="${currentDay}" data-current-index="${currentExercise}">
-    <div class="trainTop2"><button data-action="stop-auto">← Ukončit</button><span class="dose">Den ${currentDay+1} • Pauza mezi sériemi</span></div>
+    <div class="trainTop2 trainTop2--compact"><span class="dose">Den ${currentDay+1} • Pauza mezi sériemi</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="phasePill">${phaseLabel()}</div>
     <h2 class="trainName">Série ${completedSet} ze ${workoutTotalSets} dokončena ✓</h2>
     <p class="muted" style="text-align:center">Odpočiň si před další sérií.</p>
     <div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${formatCountdown(workoutLeft)}</span></div></div>
     <p class="sidePlainText">Další: Série ${workoutCurrentSet} ze ${workoutTotalSets}</p>
-    <div class="row trainControls"><button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button><button data-action="skip-auto">Přeskočit</button></div>
+    <div class="row trainControls"><button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button><button data-action="skip-auto">Přeskočit</button><button class="trainStopBtn" data-action="stop-auto">Ukončit</button></div>
   </section>`);
   scrollTop();
 }
@@ -1518,11 +1533,12 @@ function showAutoTrain(opts={}){
   const statusLabel=workoutPaused ? 'Pauza' : (workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : (workoutPhase==='switch'&&sideSlotText ? sideSlotText : (statusShowsCurrentSide ? sideLabel : (sideSlotText || (workoutPhase==='work'&&!info.timed ? seriesLabel : phaseText)))));
   const timerContent=`<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>`;
   const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
+  const statusHtml=(workoutPhase==='prep'&&!workoutPaused) ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
   const workoutHeaderHtml=hasTimerLayout
-    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${statusLabel}</div></div><div class="workoutTimerSlot">${timerContent}</div>`
+    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
-  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button data-action="info" data-ex="${k}">Detail cviku</button>`;
+  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">Ukončit</button><button data-action="info" data-ex="${k}">Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0');
   if(canPatchExisting){
@@ -1539,9 +1555,9 @@ function showAutoTrain(opts={}){
   const imgClass='bigimg';
   const topLabel=workoutFinalStretch
     ? `<strong>ZÁVĚREČNÉ PROTAŽENÍ</strong><small>Den ${currentDay+1} • 3 s\u00e9rie dokon\u010den\u00e9</small>`
-    : `<strong>Cvik ${currentExercise+1} z ${dayObj.items.length}</strong><small>Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>`;
+    : `<small>Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
-    <div class="trainTop2"><button data-action="stop-auto">&larr; Ukončit</button><span class="dose trainProgressLabel">${topLabel}</span></div>
+    <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="${workoutHeaderClass}" aria-label="Stav cviku">${workoutHeaderHtml}</div>
     <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
@@ -1729,6 +1745,7 @@ function restScreen(){
   timer=setInterval(()=>{left--;const el=document.getElementById('timer');if(el)el.textContent=left;if(left<=0){clearInterval(timer);doneNext(false)}},1000);
 }
 function doneNext(mark=true){
+  setWorkoutHeaderPosition(false);
   if(mark)setDone(currentDay,currentExercise);
   const max=data.days[currentDay].items.length-1;
   if(currentExercise<max){currentExercise++;showTrain();return;}
@@ -1749,6 +1766,7 @@ function doneNext(mark=true){
   scrollTop();
 }
 function info(k,opts={}){
+  setWorkoutHeaderPosition(false);
   if(!opts.skipRoute)setDetailRoute(k,Boolean(opts.replaceRoute));
   const ex=data.exercises[k], meta=exMeta(k);
   const steps=detailSteps(k,ex);

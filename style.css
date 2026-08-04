@@ -2854,3 +2854,91 @@ main button:not(.primary):not(.active),
     gap:6px;
   }
 }
+
+/* v59.54: compact active workout chrome */
+.brandBadge.workoutPositionBadge{
+  padding:7px 10px;
+  border:1px solid var(--line);
+  background:var(--soft);
+  color:var(--p);
+  box-shadow:none;
+  font-size:15px;
+  line-height:1;
+  white-space:nowrap;
+}
+.v53CleanTrain .trainTop2--compact,
+.v50Train .trainTop2--compact{
+  justify-content:center!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:3px 7px!important;
+}
+.v53CleanTrain .trainTop2--compact .trainProgressLabel,
+.v50Train .trainTop2--compact .trainProgressLabel{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:7px;
+  width:100%;
+  text-align:center!important;
+}
+.v53CleanTrain .progress,
+.v50Train .progress{
+  margin:2px 0!important;
+}
+.v53CleanTrain .workoutHeaderPanel,
+.v50Train .workoutHeaderPanel{
+  min-height:122px;
+  margin:2px auto!important;
+  padding:5px 8px!important;
+}
+.v53CleanTrain .workoutHeaderPanel .trainName,
+.v50Train .workoutHeaderPanel .trainName{
+  margin-bottom:0!important;
+}
+.v53CleanTrain .workoutHeaderPanel .compactWorkoutDose,
+.v50Train .workoutHeaderPanel .compactWorkoutDose{
+  margin:0!important;
+}
+.v53CleanTrain .workoutHeaderPanel + .trainImageSlot,
+.v50Train .workoutHeaderPanel + .trainImageSlot{
+  margin-top:1px!important;
+}
+.v53CleanTrain .trainImageSlot .bigimg,
+.v50Train .trainImageSlot .bigimg{
+  height:clamp(250px,46vh,390px)!important;
+  max-height:46vh!important;
+  margin:1px 0 2px!important;
+  object-fit:contain!important;
+}
+.v53CleanTrain .trainControls,
+.v50Train .trainControls{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+.v53CleanTrain .trainControls:not(:has(button[data-action="skip-auto"])),
+.v50Train .trainControls:not(:has(button[data-action="skip-auto"])){
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+}
+.v53CleanTrain .trainControls .doneRoundBtn,
+.v50Train .trainControls .doneRoundBtn{
+  grid-column:auto;
+}
+.v53CleanTrain .trainControls .trainStopBtn,
+.v50Train .trainControls .trainStopBtn{
+  width:100%;
+}
+@media(max-width:430px){
+  .v53CleanTrain .trainTop2--compact,
+  .v50Train .trainTop2--compact{
+    padding:2px 5px!important;
+  }
+  .v53CleanTrain .workoutHeaderPanel,
+  .v50Train .workoutHeaderPanel{
+    min-height:120px;
+    padding:4px 7px!important;
+  }
+  .v53CleanTrain .trainImageSlot .bigimg,
+  .v50Train .trainImageSlot .bigimg{
+    height:clamp(250px,46vh,380px)!important;
+  }
+}
