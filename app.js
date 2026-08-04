@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.54-dev';
+const APP_VERSION='v59.55-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1504,7 +1504,7 @@ function showSeriesRest(){
     <p class="muted" style="text-align:center">Odpočiň si před další sérií.</p>
     <div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${formatCountdown(workoutLeft)}</span></div></div>
     <p class="sidePlainText">Další: Série ${workoutCurrentSet} ze ${workoutTotalSets}</p>
-    <div class="row trainControls"><button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button><button data-action="skip-auto">Přeskočit</button><button class="trainStopBtn" data-action="stop-auto">Ukončit</button></div>
+    <div class="row trainControls"><button class="primary" data-action="toggle-auto"><span class="controlIcon" aria-hidden="true">${workoutPaused?'&#9654;':'&#8545;'}</span>${workoutPaused?'Pokračovat':'Pauza'}</button><button data-action="skip-auto"><span class="controlIcon" aria-hidden="true">&#187;</span>Přeskočit</button><button class="trainStopBtn" data-action="stop-auto"><span class="controlIcon" aria-hidden="true">&#9632;</span>Ukončit</button></div>
   </section>`);
   scrollTop();
 }
@@ -1538,7 +1538,7 @@ function showAutoTrain(opts={}){
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
-  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto">${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto">Přeskočit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">Ukončit</button><button data-action="info" data-ex="${k}">Detail cviku</button>`;
+  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto"><span class="controlIcon" aria-hidden="true">${workoutPaused?'&#9654;':'&#8545;'}</span>${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto"><span class="controlIcon" aria-hidden="true">&#187;</span>Přeskočit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto"><span class="controlIcon" aria-hidden="true">&#9632;</span>Ukončit</button><button data-action="info" data-ex="${k}"><span class="controlIcon" aria-hidden="true">&#9432;</span>Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0');
   if(canPatchExisting){

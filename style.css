@@ -2942,3 +2942,63 @@ main button:not(.primary):not(.active),
     height:clamp(250px,46vh,380px)!important;
   }
 }
+
+/* v59.55: balanced workout hierarchy and control emphasis */
+.autoTrain.v53CleanTrain .workoutHeaderPanel .trainName,
+.autoTrain.v50Train .workoutHeaderPanel .trainName{
+  max-width:100%;
+  overflow:hidden;
+  color:var(--text);
+  font-size:clamp(1.18rem,4.9vw,1.62rem)!important;
+  font-weight:800!important;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.autoTrain.v53CleanTrain .workoutHeaderPanel .compactWorkoutDose,
+.autoTrain.v50Train .workoutHeaderPanel .compactWorkoutDose{
+  font-size:clamp(76px,20.5vw,96px)!important;
+}
+.autoTrain.v53CleanTrain .workoutHeaderPanel .compactWorkoutDose--long,
+.autoTrain.v50Train .workoutHeaderPanel .compactWorkoutDose--long{
+  font-size:clamp(30px,7.8vw,38px)!important;
+}
+.autoTrain.v53CleanTrain .trainControls button,
+.autoTrain.v50Train .trainControls button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  white-space:nowrap;
+}
+.autoTrain.v53CleanTrain .trainControls button[data-action="toggle-auto"],
+.autoTrain.v50Train .trainControls button[data-action="toggle-auto"]{
+  border-color:var(--p)!important;
+  background:var(--p)!important;
+  color:#fff!important;
+}
+.autoTrain.v53CleanTrain .trainControls button[data-action="skip-auto"],
+.autoTrain.v50Train .trainControls button[data-action="skip-auto"]{
+  border-color:var(--line)!important;
+  background:var(--soft)!important;
+  color:var(--text)!important;
+  box-shadow:none!important;
+}
+.autoTrain.v53CleanTrain .trainControls .trainStopBtn,
+.autoTrain.v50Train .trainControls .trainStopBtn{
+  border-color:rgba(232,93,117,.28)!important;
+  background:rgba(232,93,117,.06)!important;
+  color:var(--danger)!important;
+  box-shadow:none!important;
+}
+.autoTrain.v53CleanTrain .trainControls .controlIcon,
+.autoTrain.v50Train .trainControls .controlIcon{
+  flex:0 0 auto;
+  font-size:.9em;
+  line-height:1;
+}
+.autoTrain.v53CleanTrain .trainControls button[data-action="info"],
+.autoTrain.v50Train .trainControls button[data-action="info"]{
+  text-decoration:underline;
+  text-decoration-color:rgba(32,182,178,.35);
+  text-underline-offset:3px;
+}

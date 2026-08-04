@@ -25,9 +25,10 @@ Aktuální rozpracované změny bez commitu:
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
 - Progress souhrn: 50 celkem, 24 HOTOVO, 0 ROZPRACOVÁNO, 26 ČEKÁ.
-- Aplikace je nyní `v59.54-dev`; cache `app.js` a `style.css` v `index.html` je `v=5954compacttrain`, cache `data.js` zůstává `v=5952nowallsit`.
+- Aplikace je nyní `v59.55-dev`; cache `app.js` a `style.css` v `index.html` je `v=5955hierarchy`, cache `data.js` zůstává `v=5952nowallsit`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
+- Workout typografie zvýrazňuje název vůči dávce; spodní ovládání rozlišuje primární Pauzu, sekundární Přeskočit a tlumeně destruktivní Ukončit, zatímco Detail cviku má kompaktní informační ikonu.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 
 ## Další krok
