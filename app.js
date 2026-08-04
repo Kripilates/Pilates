@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.55-dev';
+const APP_VERSION='v59.57-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -10,6 +10,7 @@ let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
 let workoutTransitionLock=false;
 let workoutFinalStretch=false;
+let workoutExitDialogOpen=false, workoutExitWasPaused=false, workoutHistoryArmed=false;
 let screenWakeLock=null;
 let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
@@ -46,6 +47,52 @@ function renderTrainingScreen(html){
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
   setWorkoutHeaderPosition(true);
+  armWorkoutHistoryGuard();
+}
+function armWorkoutHistoryGuard(){
+  if(!workoutRunning || workoutHistoryArmed)return;
+  history.pushState({pb40WorkoutGuard:true},'',location.href);
+  workoutHistoryArmed=true;
+}
+function resumeWorkoutTimer(){
+  if(workoutPaused || !shouldRunWorkoutTimer())return;
+  clearInterval(timer);
+  timer=setInterval(tickAuto,1000);
+}
+function showWorkoutExitDialog(){
+  if(!workoutRunning || workoutExitDialogOpen)return;
+  workoutExitDialogOpen=true;
+  workoutExitWasPaused=workoutPaused;
+  if(!workoutPaused){
+    workoutPaused=true;
+    clearInterval(timer);
+  }
+  app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay" role="dialog" aria-modal="true" aria-labelledby="workoutExitTitle">
+    <div class="workoutExitDialog">
+      <h2 id="workoutExitTitle">Ukončit trénink?</h2>
+      <p>Průběh zůstane uložený a můžeš se vrátit přesně tam, kde končíš.</p>
+      <button class="primary" data-action="continue-workout">Pokračovat v tréninku</button>
+      <button class="workoutExitConfirm" data-action="confirm-stop-auto">Ukončit trénink</button>
+    </div>
+  </div>`);
+}
+function continueWorkoutFromDialog(){
+  document.querySelector('.workoutExitOverlay')?.remove();
+  workoutExitDialogOpen=false;
+  workoutPaused=workoutExitWasPaused;
+  resumeWorkoutTimer();
+}
+function exitWorkoutToDay(){
+  document.querySelector('.workoutExitOverlay')?.remove();
+  workoutExitDialogOpen=false;
+  clearInterval(timer);
+  workoutRunning=false;
+  workoutPaused=false;
+  workoutAuto=false;
+  workoutHistoryArmed=false;
+  history.replaceState(null,'',location.pathname+location.search);
+  void releaseWorkoutWakeLock();
+  day(currentDay);
 }
 function isWorkoutScreenActive(){
   return workoutRunning && Boolean(app.querySelector('.autoTrain'));
@@ -1961,7 +2008,9 @@ app.addEventListener('click',e=>{
   if(a==='done-next-nomark')return doneNext(false);
   if(a==='toggle-auto'){workoutPaused=!workoutPaused;return showAutoTrain();}
   if(a==='skip-auto')return skipAuto();
-  if(a==='stop-auto'){clearInterval(timer);workoutAuto=false;void releaseWorkoutWakeLock();return day(currentDay);}
+  if(a==='stop-auto')return showWorkoutExitDialog();
+  if(a==='continue-workout')return continueWorkoutFromDialog();
+  if(a==='confirm-stop-auto')return exitWorkoutToDay();
   if(a==='reset-day'){data.days[Number(t.dataset.day)].items.forEach((_,i)=>localStorage.removeItem(key(Number(t.dataset.day),i)));return day(Number(t.dataset.day));}
   if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
   if(a==='rest')return restScreen();
@@ -1979,7 +2028,16 @@ const progressNav=document.getElementById('nav-progress'); if(progressNav) progr
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
 /* v50: service worker registration removed to prevent stale PWA cache. */
-window.addEventListener('popstate',()=>{if(!restoreDetailRoute())home();});
+window.addEventListener('popstate',()=>{
+  if(workoutRunning&&isWorkoutScreenActive()){
+    workoutHistoryArmed=false;
+    armWorkoutHistoryGuard();
+    showWorkoutExitDialog();
+    return;
+  }
+  workoutHistoryArmed=false;
+  if(!restoreDetailRoute())home();
+});
 if(!restoreDetailRoute()){
   if(localStorage.getItem(introKey)!=='1') intro(); else home();
 }
