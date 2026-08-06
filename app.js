@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.58-dev';
+const APP_VERSION='v59.59-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -883,6 +883,56 @@ const referenceExerciseAssets={
       feel:'Práci v horní části zad, lopatkách a zadních ramenech při stabilním předklonu.',
       watch:['Záda a krk drž neutrálně.','Lokty veď dozadu těsně kolem trupu.','Zápěstí drž rovná a ramena daleko od uší.'],
       mistakes:['Kulatá nebo nadměrně prohnutá záda.','Zvedání ramen k uším.','Švihání trupem.','Bicepsový zdvih místo přítahu lokty.','Zalamování zápěstí.']
+    }
+  },
+  heeltaps:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_step_by_step_v01.png',
+    subtitle:'Břicho • pas • střídavý dosah',
+    miniSteps:[
+      {n:1,title:'START',caption:'Lopatky zvednuté',photo:'start'},
+      {n:2,title:'DOSAH',caption:'Ruka ke stejné patě',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Přes střed',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Lopatky lehce zvedni a paže natáhni podél těla.',photo:'start'},
+      {title:'DOSAH K PATĚ',text:'S výdechem se malým kontrolovaným úklonem přibliž pravou rukou k pravé patě.',photo:'hero'},
+      {title:'VYSTŘÍDÁNÍ STRAN',text:'Vrať se přes střed a stejným pohybem dosáhni levou rukou k levé patě. Pánev drž klidnou.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Břicho / pas',knees:'Chodidla na podložce'},
+    breath:{inhale:'Při návratu přes střed',exhale:'Při dosahu k patě',tempo:'Pomalu a střídavě'},
+    recommendations:{
+      feel:'Práci šikmých břišních svalů při stabilní pánvi a malém střídavém úklonu.',
+      watch:['Pravou rukou dosahuj k pravé patě a levou k levé.','Krk drž dlouhý a lopatky jen lehce zvednuté.','Pánev a chodidla nech klidné.'],
+      mistakes:['Dosah oběma rukama k jedné patě.','Příliš vysoké zvedání ramen.','Švihání trupem.','Pohyb pánve nebo chodidel.']
+    }
+  },
+  hollow:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_step_by_step_v01.png',
+    subtitle:'Střed těla • bezpečná Pilates výdrž',
+    miniSteps:[
+      {n:1,title:'START',caption:'Chodidla na podložce',photo:'start'},
+      {n:2,title:'VÝDRŽ',caption:'Bedra přitisknutá',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, pokrč kolena přibližně do pravého úhlu a chodidla polož na podložku. Paže nech podél těla.',photo:'start'},
+      {title:'ZVEDNUTÍ DO HOLLOW HOLD',text:'S výdechem lehce podsaď pánev, přitiskni bedra a zvedni hlavu i lopatky. Natáhni nohy šikmo vzhůru a paže drž nízko.',photo:'hero'},
+      {title:'VÝDRŽ A NÁVRAT',text:'Plynule dýchej. Potom kontrolovaně pokrč kolena, polož chodidla a vrať hlavu na podložku.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Hluboký střed těla',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Plynule během výdrže',exhale:'Při přechodu do výdrže',tempo:'Statická kontrolovaná výdrž'},
+    recommendations:{
+      feel:'Aktivní hluboký střed těla při bedrech pevně přitisknutých k podložce.',
+      watch:['Bedra drž po celou dobu na podložce.','Paže nech klidné a ramena daleko od uší.','Obě natažené nohy drž ve stejné výšce.'],
+      mistakes:['Odlepení beder od podložky.','Kmitání pažemi jako u The Hundred.','Příliš nízké nohy za cenu prohnutí beder.','Zadržování dechu nebo švih.']
     }
   },
   plank:{
