@@ -19,6 +19,8 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Leg Raises používá schválenou sekvenci START v02 → HERO v01 → START v02; Guide Card a Step by Step v01 jsou manuálně schválené a vizuální asset balík je dokončený. Cvik zůstává ROZPRACOVÁNO, protože zatím není nasazený v aplikaci.
+
 - Lateral Raise používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod kanonickým ID `raise`.
 
 - Inner Thigh Lift používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `inner_thigh`. Textový audit proběhne později hromadně.
@@ -30,7 +32,7 @@ Aktuální rozpracované změny bez commitu:
 - Frog Pumps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `frog`.
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
-- Progress souhrn: 50 celkem, 28 HOTOVO, 0 ROZPRACOVÁNO, 22 ČEKÁ.
+- Progress souhrn: 50 celkem, 28 HOTOVO, 1 ROZPRACOVÁNO, 21 ČEKÁ.
 - Aplikace je nyní `v59.61-dev`; cache `app.js` a `data.js` v `index.html` je `v=5961lateralraise`, cache `style.css` zůstává `v=5957workoutpolish`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
@@ -49,7 +51,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Leg Raises START`
+1. `Mermaid Stretch START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -128,6 +130,12 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Lateral Raise/build_lateral_raise_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_guide_card_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_step_by_step_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Leg Raises/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start_v02.png`
+- `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Leg Raises/build_leg_raises_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_step_by_step_v01.png`
 ## Trvalá pravidla pro Codex
 
 - Nikdy nedělej commit ani push bez výslovného pokynu uživatele.
