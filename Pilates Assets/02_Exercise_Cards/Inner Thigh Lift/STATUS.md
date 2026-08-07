@@ -1,6 +1,6 @@
 # Inner Thigh Lift
 
-Status: ROZPRACOVÁNO
+Status: HOTOVO
 
 ## Source Images
 
@@ -26,8 +26,8 @@ START → HERO → START
 
 - Export: ✅ HOTOVO
 - Finální QA: ✅ SCHVÁLENO — manuální vizuální kontrola
-- App: ❌
-- Celkový stav: ROZPRACOVÁNO
+- App: ✅ NASAZENO — kanonické ID `inner_thigh`
+- Celkový stav: HOTOVO
 - Vizuální část: HOTOVO
 
 ## Notes
@@ -37,4 +37,4 @@ START → HERO → START
 - Sekvence karet je START → HERO → START.
 - Guide Card a Step by Step jsou manuálně vizuálně schválené.
 - Textový audit proběhne později hromadně.
-- Celkový stav zůstává ROZPRACOVÁNO pouze kvůli nenapojené aplikaci.
+- Schválené source obrázky a karty jsou nasazené v aplikaci pod kanonickým ID `inner_thigh`.

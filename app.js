@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.59-dev';
+const APP_VERSION='v59.61-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -885,6 +885,31 @@ const referenceExerciseAssets={
       mistakes:['Kulatá nebo nadměrně prohnutá záda.','Zvedání ramen k uším.','Švihání trupem.','Bicepsový zdvih místo přítahu lokty.','Zalamování zápěstí.']
     }
   },
+  raise:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_step_by_step_v01.png',
+    subtitle:'Ramena • stabilita trupu',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky podél těla',photo:'start'},
+      {n:2,title:'UPAŽENÍ',caption:'Paže do výšky ramen',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Postav se vzpřímeně. Do každé ruky vezmi lehkou činku. Paže jsou podél těla, lokty mírně pokrčené.',photo:'start'},
+      {title:'UPAŽENÍ',text:'Se zpevněným středem těla zvedni paže do stran přibližně do výšky ramen. Ramena drž dole a pohyb veď plynule.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'Pomalu spusť paže zpět do výchozí polohy. Pohyb kontroluj po celou dobu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Ramena / stabilita trupu',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při zvednutí paží',tempo:'Plynule bez švihu'},
+    recommendations:{
+      feel:'Práci ramen při stabilním trupu a plynulém kontrolovaném pohybu.',
+      watch:['Ramena drž daleko od uší.','Lokty nech mírně pokrčené.','Paže zvedej nejvýše do úrovně ramen.'],
+      mistakes:['Švihání činkami.','Zvedání ramen k uším.','Prohýbání beder.','Zvedání paží nad úroveň ramen.']
+    }
+  },
   heeltaps:{
     start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v01.png',
@@ -933,6 +958,31 @@ const referenceExerciseAssets={
       feel:'Aktivní hluboký střed těla při bedrech pevně přitisknutých k podložce.',
       watch:['Bedra drž po celou dobu na podložce.','Paže nech klidné a ramena daleko od uší.','Obě natažené nohy drž ve stejné výšce.'],
       mistakes:['Odlepení beder od podložky.','Kmitání pažemi jako u The Hundred.','Příliš nízké nohy za cenu prohnutí beder.','Zadržování dechu nebo švih.']
+    }
+  },
+  inner_thigh:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_step_by_step_v01.png',
+    subtitle:'Vnitřní stehna • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Spodní noha natažená',photo:'start'},
+      {n:2,title:'ZDVIH',caption:'Několik centimetrů',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na bok. Spodní nohu nech nataženou, horní pokrč a chodidlo polož před spodní koleno. Hlava je pohodlně opřená o paži.',photo:'start'},
+      {title:'ZVEDNUTÍ SPODNÍ NOHY',text:'Zpevni střed těla a pomalu zvedni spodní nataženou nohu několik centimetrů nad podložku. Pánev zůstává stabilní.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'Pomalu spusť spodní nohu zpět k podložce. Pokračuj plynule bez švihu a potom vystřídej stranu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Vnitřní stehna',knees:'Bez tlaku na kolena'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při zvednutí spodní nohy',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci vnitřního stehna spodní nohy při stabilní pánvi a malém kontrolovaném pohybu.',
+      watch:['Pánev drž stabilní a neotáčej se dozadu.','Spodní nohu zvedej jen několik centimetrů.','Po dokončení dávky vystřídej stranu.'],
+      mistakes:['Švihání spodní nohou.','Zvedání nohy příliš vysoko.','Otáčení pánve dozadu.','Napětí v krku a ramenou.']
     }
   },
   plank:{
