@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.65-dev';
+const APP_VERSION='v59.66-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1058,6 +1058,31 @@ const referenceExerciseAssets={
       feel:'Práci hýždí a stehen při stabilní pánvi a vzpřímeném trupu.',
       watch:['Kolena veď ve směru špiček.','Paty nech po celou dobu na podložce.','Klesej pouze do bezpečného rozsahu.'],
       mistakes:['Vtáčení kolen dovnitř.','Zvedání pat.','Příliš hluboký dřep.','Předklánění nebo podsazování pánve.']
+    }
+  },
+  rollup:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_end_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png',
+    subtitle:'Střed těla • kontrola páteře',
+    miniSteps:[
+      {n:1,title:'START',caption:'Leh na zádech',photo:'start'},
+      {n:2,title:'ROLOVÁNÍ',caption:'Paže vpřed',photo:'hero'},
+      {n:3,title:'SED',caption:'Kontrolované dokončení',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ LEH',text:'Lehni si na záda. Nohy natáhni a drž těsně vedle sebe. Paže veď za hlavu a střed těla jemně zpevni.',photo:'start'},
+      {title:'ROLOVÁNÍ VZHŮRU',text:'S výdechem zvedej hlavu, ramena a páteř obratel po obratli. Paže veď plynule vpřed a nohy nech na podložce.',photo:'hero'},
+      {title:'SED A NÁVRAT',text:'Dokonči pohyb v kontrolovaném sedu s pažemi vpřed. Poté se pomalu obratel po obratli vrať do výchozí polohy.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / páteř',knees:'Nohy na podložce'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při rolování vzhůru',tempo:'Obratel po obratli'},
+    recommendations:{
+      feel:'Práci středu těla a plynulé postupné rolování páteře bez švihu.',
+      watch:['Nohy drž po celou dobu na podložce.','Páteř roluj postupně obratel po obratli.','Ramena drž daleko od uší.'],
+      mistakes:['Použití švihu.','Zvedání nohou z podložky.','Trhavý pohyb páteře.','Ramena vytažená k uším.']
     }
   },
   plank:{

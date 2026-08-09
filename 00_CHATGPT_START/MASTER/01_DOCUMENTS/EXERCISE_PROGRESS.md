@@ -33,86 +33,82 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Roll Up START
-2. Roll Up HERO
-3. Roll Up Guide Card
-4. Roll Up Step by Step
-5. Russian Twist START
-6. Russian Twist HERO
-7. Russian Twist Guide Card
-8. Russian Twist Step by Step
-9. Scissors START
-10. Scissors HERO
-11. Scissors Guide Card
-12. Scissors Step by Step
-13. Shoulder Press START
-14. Shoulder Press HERO
-15. Shoulder Press Guide Card
-16. Shoulder Press Step by Step
-17. Side Kick START
-18. Side Kick HERO
-19. Side Kick Guide Card
-20. Side Kick Step by Step
-21. Side Plank START
-22. Side Plank HERO
-23. Side Plank Guide Card
-24. Side Plank Step by Step
-25. Side Plank Reach START
-26. Side Plank Reach HERO
-27. Side Plank Reach Guide Card
-28. Side Plank Reach Step by Step
-29. Sphinx Stretch START
-30. Sphinx Stretch HERO
-31. Sphinx Stretch Guide Card
-32. Sphinx Stretch Step by Step
-33. Spine Stretch START
-34. Spine Stretch HERO
-35. Spine Stretch Guide Card
-36. Spine Stretch Step by Step
-37. Standing Oblique Crunch START
-38. Standing Oblique Crunch HERO
-39. Standing Oblique Crunch Guide Card
-40. Standing Oblique Crunch Step by Step
-41. Standing Side Bend START
-42. Standing Side Bend HERO
-43. Standing Side Bend Guide Card
-44. Standing Side Bend Step by Step
-45. Supine Twist START
-46. Supine Twist HERO
-47. Supine Twist Guide Card
-48. Supine Twist Step by Step
-49. Swan Prep START
-50. Swan Prep HERO
-51. Swan Prep Guide Card
-52. Swan Prep Step by Step
-53. Swimming START
-54. Swimming HERO
-55. Swimming Guide Card
-56. Swimming Step by Step
-57. The Hundred START
-58. The Hundred HERO
-59. The Hundred Guide Card
-60. The Hundred Step by Step
-61. Thread the Needle START
-62. Thread the Needle HERO
-63. Thread the Needle Guide Card
-64. Thread the Needle Step by Step
-65. Triceps Kickback START
-66. Triceps Kickback HERO
-67. Triceps Kickback Guide Card
-68. Triceps Kickback Step by Step
-69. Wall Sit START
-70. Wall Sit HERO
-71. Wall Sit Guide Card
-72. Wall Sit Step by Step
+1. Russian Twist START
+2. Russian Twist HERO
+3. Russian Twist Guide Card
+4. Russian Twist Step by Step
+5. Scissors START
+6. Scissors HERO
+7. Scissors Guide Card
+8. Scissors Step by Step
+9. Shoulder Press START
+10. Shoulder Press HERO
+11. Shoulder Press Guide Card
+12. Shoulder Press Step by Step
+13. Side Kick START
+14. Side Kick HERO
+15. Side Kick Guide Card
+16. Side Kick Step by Step
+17. Side Plank START
+18. Side Plank HERO
+19. Side Plank Guide Card
+20. Side Plank Step by Step
+21. Side Plank Reach START
+22. Side Plank Reach HERO
+23. Side Plank Reach Guide Card
+24. Side Plank Reach Step by Step
+25. Sphinx Stretch START
+26. Sphinx Stretch HERO
+27. Sphinx Stretch Guide Card
+28. Sphinx Stretch Step by Step
+29. Spine Stretch START
+30. Spine Stretch HERO
+31. Spine Stretch Guide Card
+32. Spine Stretch Step by Step
+33. Standing Oblique Crunch START
+34. Standing Oblique Crunch HERO
+35. Standing Oblique Crunch Guide Card
+36. Standing Oblique Crunch Step by Step
+37. Standing Side Bend START
+38. Standing Side Bend HERO
+39. Standing Side Bend Guide Card
+40. Standing Side Bend Step by Step
+41. Supine Twist START
+42. Supine Twist HERO
+43. Supine Twist Guide Card
+44. Supine Twist Step by Step
+45. Swan Prep START
+46. Swan Prep HERO
+47. Swan Prep Guide Card
+48. Swan Prep Step by Step
+49. Swimming START
+50. Swimming HERO
+51. Swimming Guide Card
+52. Swimming Step by Step
+53. The Hundred START
+54. The Hundred HERO
+55. The Hundred Guide Card
+56. The Hundred Step by Step
+57. Thread the Needle START
+58. Thread the Needle HERO
+59. Thread the Needle Guide Card
+60. Thread the Needle Step by Step
+61. Triceps Kickback START
+62. Triceps Kickback HERO
+63. Triceps Kickback Guide Card
+64. Triceps Kickback Step by Step
+65. Wall Sit START
+66. Wall Sit HERO
+67. Wall Sit Guide Card
+68. Wall Sit Step by Step
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 32
+Kompletně hotovo: 33
 Rozpracováno: 0
-Nezačato: 18
+Nezačato: 17
 
-Další doporučený cvik: Roll Up START
+Další doporučený cvik: Russian Twist START
 
 ## Přehled
 
@@ -147,7 +143,7 @@ Další doporučený cvik: Roll Up START
 | Plie Squat | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `plie`; kontrola duplicity bez nálezu |
 | Rainbow Leg Raise | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END schválené; sekvence START → HERO → END; Guide Card a Step by Step schválené; App nasazena přes `rainbow`; staré kandidáty se špatným úhlem jsou v `_LEGACY_WRONG_ANGLE_V01` |
 | Reverse Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválený reuse source z Toe Tap START; HERO, Guide Card a Step by Step schválené; END = START; App nasazena jako samostatný cvik `revcrunch`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Roll Up | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Roll Up | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `rollup`; starý placeholder ani chybná `.png..png` varianta nejsou aktivní |
 | Romanian Deadlift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START; Guide Card a Step by Step sestaveny; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Russian Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Scissors | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
