@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.61-dev';
+const APP_VERSION='v59.65-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -985,6 +985,81 @@ const referenceExerciseAssets={
       mistakes:['Švihání spodní nohou.','Zvedání nohy příliš vysoko.','Otáčení pánve dozadu.','Napětí v krku a ramenou.']
     }
   },
+  legraises:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start_v02.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_step_by_step_v01.png',
+    subtitle:'Spodní břicho • stabilita trupu',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy vzhůru',photo:'start'},
+      {n:2,title:'SPOUŠTĚNÍ',caption:'Kontrolovaně dolů',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Pomalu vzhůru',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, paže nech podél těla a obě nohy natáhni vzhůru. Bedra drž opřená o podložku.',photo:'start'},
+      {title:'SPOUŠTĚNÍ NOHOU',text:'S nádechem spouštěj obě natažené nohy pouze do výšky, ve které udržíš bedra na podložce.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S výdechem vrať nohy pomalu vzhůru. Pohyb veď bez švihu a pánev nech stabilní.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Spodní břicho',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Při spouštění nohou',exhale:'Při návratu vzhůru',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci spodní části břicha při stabilní pánvi a bedrech opřených o podložku.',
+      watch:['Bedra drž po celou dobu na podložce.','Obě nohy spouštěj stejně vysoko a pomalu.','Rozsah zmenši, pokud se bedra začnou odlepovat.'],
+      mistakes:['Odlepení beder od podložky.','Spuštění nohou příliš nízko.','Švihání nohama.','Zvedání ramen nebo napětí v krku.']
+    }
+  },
+  mermaid:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_step_by_step_v01.png',
+    subtitle:'Bok trupu • mobilita páteře',
+    miniSteps:[
+      {n:1,title:'START',caption:'Vzpřímený sed',photo:'start'},
+      {n:2,title:'BOČNÍ ÚKLON',caption:'Paže nad hlavou',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Plynule zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Sedni si vzpřímeně, obě kolena pokrč na jednu stranu. Jednu ruku lehce opři o podložku.',photo:'start'},
+      {title:'BOČNÍ ÚKLON',text:'S výdechem se ukláněj k opěrné ruce. Opačnou paži protáhni obloukem nad hlavou.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem se plynule vrať do vzpřímeného sedu. Pánev zůstává stabilní.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Bok trupu / páteř',knees:'Pohodlný rozsah'},
+    breath:{inhale:'Ve vzpřímeném sedu a při návratu',exhale:'Do bočního úklonu',tempo:'Pomalu a plynule'},
+    recommendations:{
+      feel:'Příjemné protažení boku trupu při vzpřímené a stabilní pánvi.',
+      watch:['Sedací kosti drž co nejvíce na podložce.','Ramena nech daleko od uší a hrudník směřuj dopředu.','Protahuj se pouze do příjemného rozsahu.'],
+      mistakes:['Otáčení trupu.','Předklánění místo bočního úklonu.','Zvedání ramene k uchu.','Tlačení do bolestivého rozsahu.']
+    }
+  },
+  plie:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_step_by_step_v01.png',
+    subtitle:'Hýždě • stehna • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Široký stoj',photo:'start'},
+      {n:2,title:'PLIÉ DŘEP',caption:'Kolena ke špičkám',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Vzpřímený stoj',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POSTOJ',text:'Postav se do širokého postoje. Špičky vytoč mírně ven, paty nech na podložce, pánev drž neutrální a trup vzpřímený.',photo:'start'},
+      {title:'PLIÉ DŘEP',text:'S nádechem pokrč kolena ve směru špiček. Klesej plynule jen do bezpečné hloubky a paty drž na podložce.',photo:'hero'},
+      {title:'NÁVRAT DO STOJE',text:'S výdechem zatlač chodidla do podložky a plynule narovnej kolena. Pánev drž neutrální a trup stále vzpřímený.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / stehna',knees:'Bezpečný rozsah'},
+    breath:{inhale:'Při klesání',exhale:'Při návratu do stoje',tempo:'Plynule a kontrolovaně'},
+    recommendations:{
+      feel:'Práci hýždí a stehen při stabilní pánvi a vzpřímeném trupu.',
+      watch:['Kolena veď ve směru špiček.','Paty nech po celou dobu na podložce.','Klesej pouze do bezpečného rozsahu.'],
+      mistakes:['Vtáčení kolen dovnitř.','Zvedání pat.','Příliš hluboký dřep.','Předklánění nebo podsazování pánve.']
+    }
+  },
   plank:{
     start:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
@@ -1008,6 +1083,31 @@ const referenceExerciseAssets={
       feel:'Aktivní střed těla, ramena a hýždě při stabilní časové výdrži.',
       watch:['Lokty drž přímo pod rameny.','Tělo drž v jedné dlouhé linii.','Hlavu a krk drž neutrálně a ramena daleko od uší.'],
       mistakes:['Propadnutí v bedrech.','Příliš vysoko zvednutá pánev.','Ramena vytažená k uším.','Zadržování dechu.']
+    }
+  },
+  tap:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start_v02.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_step_by_step_v01.png',
+    subtitle:'Střed těla • ramena • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Vysoký plank',photo:'start'},
+      {n:2,title:'DOTYK',caption:'Opačné rameno',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Dlaň pod rameno',photo:'start'}
+    ],
+    steps:[
+      {title:'VYSOKÝ PLANK',text:'Zaujmi vysoký plank. Dlaně polož pod ramena a chodidla dej mírně šíře než boky. Tělo drž v jedné dlouhé linii.',photo:'start'},
+      {title:'DOTYK RAMENE',text:'Zpevni břicho a s výdechem zvedni jednu ruku. Kontrolovaně se dotkni opačného ramene a pánev drž klidnou.',photo:'hero'},
+      {title:'VYSTŘÍDÁNÍ STRAN',text:'Vrať dlaň pod rameno a proveď pohyb druhou rukou. Boky drž stále co nejvíce bez pohybu.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / ramena',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Při návratu dlaně',exhale:'Při dotyku ramene',tempo:'Pomalu a střídavě'},
+    recommendations:{
+      feel:'Aktivní střed těla a ramena při stabilní pánvi a kontrolovaném střídání rukou.',
+      watch:['Dlaně drž přímo pod rameny.','Pánev a boky drž co nejvíce bez pohybu.','Hlavu nech v prodloužení páteře.'],
+      mistakes:['Otáčení nebo houpání pánve.','Propadnutí v bedrech.','Propadnutí mezi rameny.','Příliš úzký postoj chodidel.']
     }
   },
   chest_press:{

@@ -33,98 +33,86 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Mermaid Stretch START
-2. Mermaid Stretch HERO
-3. Mermaid Stretch Guide Card
-4. Mermaid Stretch Step by Step
-5. Plank Shoulder Taps START
-6. Plank Shoulder Taps HERO
-7. Plank Shoulder Taps Guide Card
-8. Plank Shoulder Taps Step by Step
-9. Plie Squat START
-10. Plie Squat HERO
-11. Plie Squat Guide Card
-12. Plie Squat Step by Step
-13. Roll Up START
-14. Roll Up HERO
-15. Roll Up Guide Card
-16. Roll Up Step by Step
-17. Russian Twist START
-18. Russian Twist HERO
-19. Russian Twist Guide Card
-20. Russian Twist Step by Step
-21. Scissors START
-22. Scissors HERO
-23. Scissors Guide Card
-24. Scissors Step by Step
-25. Shoulder Press START
-26. Shoulder Press HERO
-27. Shoulder Press Guide Card
-28. Shoulder Press Step by Step
-29. Side Kick START
-30. Side Kick HERO
-31. Side Kick Guide Card
-32. Side Kick Step by Step
-33. Side Plank START
-34. Side Plank HERO
-35. Side Plank Guide Card
-36. Side Plank Step by Step
-37. Side Plank Reach START
-38. Side Plank Reach HERO
-39. Side Plank Reach Guide Card
-40. Side Plank Reach Step by Step
-41. Sphinx Stretch START
-42. Sphinx Stretch HERO
-43. Sphinx Stretch Guide Card
-44. Sphinx Stretch Step by Step
-45. Spine Stretch START
-46. Spine Stretch HERO
-47. Spine Stretch Guide Card
-48. Spine Stretch Step by Step
-49. Standing Oblique Crunch START
-50. Standing Oblique Crunch HERO
-51. Standing Oblique Crunch Guide Card
-52. Standing Oblique Crunch Step by Step
-53. Standing Side Bend START
-54. Standing Side Bend HERO
-55. Standing Side Bend Guide Card
-56. Standing Side Bend Step by Step
-57. Supine Twist START
-58. Supine Twist HERO
-59. Supine Twist Guide Card
-60. Supine Twist Step by Step
-61. Swan Prep START
-62. Swan Prep HERO
-63. Swan Prep Guide Card
-64. Swan Prep Step by Step
-65. Swimming START
-66. Swimming HERO
-67. Swimming Guide Card
-68. Swimming Step by Step
-69. The Hundred START
-70. The Hundred HERO
-71. The Hundred Guide Card
-72. The Hundred Step by Step
-73. Thread the Needle START
-74. Thread the Needle HERO
-75. Thread the Needle Guide Card
-76. Thread the Needle Step by Step
-77. Triceps Kickback START
-78. Triceps Kickback HERO
-79. Triceps Kickback Guide Card
-80. Triceps Kickback Step by Step
-81. Wall Sit START
-82. Wall Sit HERO
-83. Wall Sit Guide Card
-84. Wall Sit Step by Step
+1. Roll Up START
+2. Roll Up HERO
+3. Roll Up Guide Card
+4. Roll Up Step by Step
+5. Russian Twist START
+6. Russian Twist HERO
+7. Russian Twist Guide Card
+8. Russian Twist Step by Step
+9. Scissors START
+10. Scissors HERO
+11. Scissors Guide Card
+12. Scissors Step by Step
+13. Shoulder Press START
+14. Shoulder Press HERO
+15. Shoulder Press Guide Card
+16. Shoulder Press Step by Step
+17. Side Kick START
+18. Side Kick HERO
+19. Side Kick Guide Card
+20. Side Kick Step by Step
+21. Side Plank START
+22. Side Plank HERO
+23. Side Plank Guide Card
+24. Side Plank Step by Step
+25. Side Plank Reach START
+26. Side Plank Reach HERO
+27. Side Plank Reach Guide Card
+28. Side Plank Reach Step by Step
+29. Sphinx Stretch START
+30. Sphinx Stretch HERO
+31. Sphinx Stretch Guide Card
+32. Sphinx Stretch Step by Step
+33. Spine Stretch START
+34. Spine Stretch HERO
+35. Spine Stretch Guide Card
+36. Spine Stretch Step by Step
+37. Standing Oblique Crunch START
+38. Standing Oblique Crunch HERO
+39. Standing Oblique Crunch Guide Card
+40. Standing Oblique Crunch Step by Step
+41. Standing Side Bend START
+42. Standing Side Bend HERO
+43. Standing Side Bend Guide Card
+44. Standing Side Bend Step by Step
+45. Supine Twist START
+46. Supine Twist HERO
+47. Supine Twist Guide Card
+48. Supine Twist Step by Step
+49. Swan Prep START
+50. Swan Prep HERO
+51. Swan Prep Guide Card
+52. Swan Prep Step by Step
+53. Swimming START
+54. Swimming HERO
+55. Swimming Guide Card
+56. Swimming Step by Step
+57. The Hundred START
+58. The Hundred HERO
+59. The Hundred Guide Card
+60. The Hundred Step by Step
+61. Thread the Needle START
+62. Thread the Needle HERO
+63. Thread the Needle Guide Card
+64. Thread the Needle Step by Step
+65. Triceps Kickback START
+66. Triceps Kickback HERO
+67. Triceps Kickback Guide Card
+68. Triceps Kickback Step by Step
+69. Wall Sit START
+70. Wall Sit HERO
+71. Wall Sit Guide Card
+72. Wall Sit Step by Step
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 28
-Rozpracováno: 1
-Nezačato: 21
+Kompletně hotovo: 32
+Rozpracováno: 0
+Nezačato: 18
 
-Další doporučený cvik: Mermaid Stretch START
+Další doporučený cvik: Roll Up START
 
 ## Přehled
 
@@ -153,10 +141,10 @@ Další doporučený cvik: Mermaid Stretch START
 | Hollow Hold | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v01 a HERO v02, Guide Card a Step by Step v01 manuálně schválené; END = START bez samostatného PNG; App nasazena jako `hollow`; bezpečná Pilates výdrž bez kmitání pažemi |
 | Inner Thigh Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01, Guide Card a Step by Step v01 manuálně schválené; END = START bez samostatného PNG; nasazeno v aplikaci pod ID `inner_thigh`; textový audit proběhne později hromadně |
 | Lateral Raise | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; Export a QA dokončené; App nasazena pod kanonickým ID `raise` |
-| Leg Raises | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ROZPRACOVÁNO | START v02 a HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; vizuální asset balík a QA dokončené; App nenapojena |
-| Mermaid Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
-| Plank Shoulder Taps | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
-| Plie Squat | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Leg Raises | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v02 a HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena pod kanonickým ID `legraises` |
+| Mermaid Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 manuálně schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `mermaid`; starý placeholder není aktivní |
+| Plank Shoulder Taps | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v02 a HERO v01 manuálně schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `tap` jako střídavý cvik |
+| Plie Squat | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `plie`; kontrola duplicity bez nálezu |
 | Rainbow Leg Raise | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END schválené; sekvence START → HERO → END; Guide Card a Step by Step schválené; App nasazena přes `rainbow`; staré kandidáty se špatným úhlem jsou v `_LEGACY_WRONG_ANGLE_V01` |
 | Reverse Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválený reuse source z Toe Tap START; HERO, Guide Card a Step by Step schválené; END = START; App nasazena jako samostatný cvik `revcrunch`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Roll Up | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

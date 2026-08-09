@@ -1,6 +1,6 @@
 # Leg Raises
 
-Status: ROZPRACOVÁNO
+Status: HOTOVO
 
 ## Source Images
 
@@ -27,8 +27,8 @@ START → HERO → START
 - Vizuální část: ✅ DOKONČENA
 - Export: ✅ HOTOVO
 - Finální vizuální QA: ✅ SCHVÁLENO
-- App: ❌ NENASAZENO
-- Celkový stav: ROZPRACOVÁNO
+- App: ✅ NASAZENO
+- Celkový stav: HOTOVO
 
 ## Notes
 
@@ -36,5 +36,5 @@ START → HERO → START
 - END používá START bez samostatného PNG.
 - Sekvence karet je START → HERO → START.
 - Guide Card a Step by Step jsou manuálně vizuálně schválené.
-- Vizuální asset balík je dokončený; stav zůstává ROZPRACOVÁNO do nasazení v aplikaci.
-- Aplikace a ostatní cviky zůstaly beze změny.
+- Vizuální asset balík je dokončený a nasazený v aplikaci pod kanonickým ID `legraises`.
+- Aktivní cesty používají schválené START v02, HERO v01, Guide Card v01 a Step by Step v01.
