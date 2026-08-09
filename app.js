@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.67-dev';
+const APP_VERSION='v59.69-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -960,6 +960,31 @@ const referenceExerciseAssets={
       mistakes:['Kulatá záda.','Zvedání chodidel z podložky.','Švihání pažemi.','Pohyb pánve nebo kolen.']
     }
   },
+  scissors:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_step_by_step_v01.png',
+    subtitle:'Spodní břicho • stehna • střídání nohou',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy natažené',photo:'start'},
+      {n:2,title:'NŮŽKY',caption:'Jedna noha výš',photo:'hero'},
+      {n:3,title:'STŘÍDEJ NOHY',caption:'Plynule vyměň nohy',photo:'hero'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, nohy natáhni a paže polož podél těla. Dlaně opři o podložku, pánev drž neutrálně a bedra pod kontrolou.',photo:'start'},
+      {title:'NŮŽKOVÁ POLOHA',text:'Zpevni střed těla. Jednu nataženou nohu zvedni výš a druhou drž níže nad podložkou. Hlavu, ramena a pánev nech klidné.',photo:'hero'},
+      {title:'STŘÍDEJ NOHY',text:'Plynule vystřídej nohy – horní spouštěj dolů a spodní současně zvedej vzhůru. Pánev drž stabilní.',photo:'hero'}
+    ],
+    info:{difficulty:'Střední',focus:'Spodní břicho / stehna',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Při kontrolovaném pohybu',exhale:'Při vystřídání nohou',tempo:'Pomalu a plynule'},
+    recommendations:{
+      feel:'Práci spodního břicha a stehen při stabilní pánvi a kontrolovaných bedrech.',
+      watch:['Hlavu a ramena nech na podložce.','Pánev nezvedej ani nenakláněj.','Kolena drž natažená, ale nepřepínej je.','Nohy nepřitahuj rukama.'],
+      mistakes:['Prohýbání v bedrech.','Pokrčování kolen.','Zvedání pánve.','Švihání nohama.']
+    }
+  },
   hollow:{
     start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v02.png',
@@ -1641,7 +1666,7 @@ function sideInfo(dose){
   if(m) return {side:true,timed:false,left:m[1],right:m[2],label:'na každou stranu'};
   return {side:false,timed:isTimedDose(txt),seconds:workSeconds(txt),label:''};
 }
-const alternatingExerciseIds=new Set(['bird','bird_hold','deadbug','deadbug_hold','toetap','toetap_slow','tap','bicycle']);
+const alternatingExerciseIds=new Set(['bird','bird_hold','deadbug','deadbug_hold','toetap','toetap_slow','tap','bicycle','scissors']);
 function isAlternatingExercise(k,dose=''){
   return alternatingExerciseIds.has(k) || /střídavě/i.test(String(dose||''));
 }

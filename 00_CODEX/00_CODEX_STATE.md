@@ -29,6 +29,8 @@ Aktuální rozpracované změny bez commitu:
 
 - Russian Twist používá manuálně schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou schválené a cvik je nasazený v aplikaci pod kanonickým ID `russian`.
 
+- Scissors používá schválené START v01 a HERO v01; END používá START, zatímco třetí instruktážní krok Guide Card, Step by Step a dynamického detailu používá stejný nezrcadlený HERO pro vysvětlení pokračujícího střídání nohou. Cvik je nasazený pod kanonickým ID `scissors`.
+
 - Leg Raises používá schválenou sekvenci START v02 → HERO v01 → START v02; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod kanonickým ID `legraises`.
 
 - Lateral Raise používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod kanonickým ID `raise`.
@@ -42,8 +44,8 @@ Aktuální rozpracované změny bez commitu:
 - Frog Pumps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `frog`.
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
-- Progress souhrn: 50 celkem, 34 HOTOVO, 0 ROZPRACOVÁNO, 16 ČEKÁ.
-- Aplikace je nyní `v59.67-dev`; cache `app.js` a `data.js` v `index.html` je `v=5967russiantwist`, cache `style.css` zůstává `v=5957workoutpolish`.
+- Progress souhrn: 50 celkem, 35 HOTOVO, 0 ROZPRACOVÁNO, 15 ČEKÁ.
+- Aplikace je nyní `v59.69-dev`; cache `app.js` je `v=5969scissorssteps`, cache `data.js` zůstává `v=5968scissors` a cache `style.css` zůstává `v=5957workoutpolish`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
 - Workout typografie zvýrazňuje název vůči dávce; spodní ovládání rozlišuje primární Pauzu, sekundární Přeskočit a tlumeně destruktivní Ukončit, zatímco Detail cviku má kompaktní informační ikonu.
@@ -61,7 +63,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Scissors START`
+1. `Shoulder Press START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
