@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.66-dev';
+const APP_VERSION='v59.67-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -933,6 +933,31 @@ const referenceExerciseAssets={
       feel:'Práci šikmých břišních svalů při stabilní pánvi a malém střídavém úklonu.',
       watch:['Pravou rukou dosahuj k pravé patě a levou k levé.','Krk drž dlouhý a lopatky jen lehce zvednuté.','Pánev a chodidla nech klidné.'],
       mistakes:['Dosah oběma rukama k jedné patě.','Příliš vysoké zvedání ramen.','Švihání trupem.','Pohyb pánve nebo chodidel.']
+    }
+  },
+  russian:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_step_by_step_v01.png',
+    subtitle:'Střed těla • šikmé břišní svaly',
+    miniSteps:[
+      {n:1,title:'START',caption:'Středová poloha',photo:'start'},
+      {n:2,title:'OTOČENÍ',caption:'Trup do strany',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět na střed',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Sedni si, pokrč kolena a chodidla polož na šířku boků. Trup mírně zakloň, páteř drž dlouhou a ruce spoj před hrudníkem.',photo:'start'},
+      {title:'OTOČENÍ TRUPU',text:'Zpevni břicho a s výdechem otoč hrudník do jedné strany. Pánev, kolena a chodidla drž klidné.',photo:'hero'},
+      {title:'VYSTŘÍDÁNÍ STRAN',text:'Vrať se přes střed a plynule proveď pohyb na druhou stranu. Záklon trupu ani polohu chodidel neměň.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / pas',knees:'Chodidla na podložce'},
+    breath:{inhale:'Při návratu na střed',exhale:'Při otočení',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci šikmých břišních svalů při stabilní pánvi a kontrolované rotaci hrudníku.',
+      watch:['Chodidla nech po celou dobu na podložce.','Páteř drž dlouhou a ramena daleko od uší.','Otáčej celý hrudník, ne pouze spojené ruce.'],
+      mistakes:['Kulatá záda.','Zvedání chodidel z podložky.','Švihání pažemi.','Pohyb pánve nebo kolen.']
     }
   },
   hollow:{
