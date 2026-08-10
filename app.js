@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.69-dev';
+const APP_VERSION='v59.70-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -883,6 +883,31 @@ const referenceExerciseAssets={
       feel:'Práci v horní části zad, lopatkách a zadních ramenech při stabilním předklonu.',
       watch:['Záda a krk drž neutrálně.','Lokty veď dozadu těsně kolem trupu.','Zápěstí drž rovná a ramena daleko od uší.'],
       mistakes:['Kulatá nebo nadměrně prohnutá záda.','Zvedání ramen k uším.','Švihání trupem.','Bicepsový zdvih místo přítahu lokty.','Zalamování zápěstí.']
+    }
+  },
+  press:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_step_by_step_v01.png',
+    subtitle:'Ramena • paže • stabilita trupu',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky u ramen',photo:'start'},
+      {n:2,title:'TLAK VZHŮRU',caption:'Činky nad hlavu',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Činky zpět k ramenům',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Postav se vzpřímeně. Činky drž u ramen, lokty pokrčené, zápěstí rovná a střed těla zpevněný.',photo:'start'},
+      {title:'TLAK NAD HLAVU',text:'S výdechem vytlač činky kontrolovaně vzhůru nad hlavu. Ramena drž daleko od uší a trup stabilní.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať činky pomalu k ramenům. Neprohýbej bedra a pohyb dokonči bez švihu.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Ramena / paže',knees:'Šetrné ke kolenům'},
+    breath:{inhale:'Při návratu k ramenům',exhale:'Při tlaku vzhůru',tempo:'Plynule a kontrolovaně'},
+    recommendations:{
+      feel:'Práci ramen a paží při stabilním trupu a kontrolovaném tlaku nad hlavu.',
+      watch:['Střed těla drž zpevněný.','Ramena drž daleko od uší.','Zápěstí drž rovná a trup vzpřímený.'],
+      mistakes:['Prohýbání v bedrech.','Zvedání ramen k uším.','Švihání činkami.','Zalamování zápěstí.']
     }
   },
   raise:{

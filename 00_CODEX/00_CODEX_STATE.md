@@ -35,6 +35,9 @@ Aktuální rozpracované změny bez commitu:
 
 - Lateral Raise používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod kanonickým ID `raise`.
 
+
+- Shoulder Press používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou vytvořené a ověřené a cvik je nasazený v aplikaci pod kanonickým ID `press` s pomůckou „Činky“.
+
 - Inner Thigh Lift používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `inner_thigh`. Textový audit proběhne později hromadně.
 - Hollow Hold používá schválenou sekvenci START v01 → HERO v02 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hollow`.
 - Heel Taps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `heeltaps` jako střídavý stejnostranný dosah ruky k patě.
@@ -44,8 +47,8 @@ Aktuální rozpracované změny bez commitu:
 - Frog Pumps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `frog`.
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
-- Progress souhrn: 50 celkem, 35 HOTOVO, 0 ROZPRACOVÁNO, 15 ČEKÁ.
-- Aplikace je nyní `v59.69-dev`; cache `app.js` je `v=5969scissorssteps`, cache `data.js` zůstává `v=5968scissors` a cache `style.css` zůstává `v=5957workoutpolish`.
+- Progress souhrn: 50 celkem, 36 HOTOVO, 0 ROZPRACOVÁNO, 14 ČEKÁ.
+- Aplikace je nyní `v59.70-dev`; cache `app.js` je `v=5970shoulderpress`, cache `data.js` je `v=5970shoulderpress` a cache `style.css` zůstává `v=5957workoutpolish`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
 - Workout typografie zvýrazňuje název vůči dávce; spodní ovládání rozlišuje primární Pauzu, sekundární Přeskočit a tlumeně destruktivní Ukončit, zatímco Detail cviku má kompaktní informační ikonu.
@@ -63,7 +66,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Shoulder Press START`
+1. `Side Kick START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -136,6 +139,12 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/build_inner_thigh_lift_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_guide_card_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_step_by_step_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Shoulder Press/STATUS.md`
+- `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Shoulder Press/build_shoulder_press_cards.py`
+- `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_guide_card_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Lateral Raise/STATUS.md`
 - `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero_v01.png`
