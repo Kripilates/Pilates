@@ -33,66 +33,62 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Side Plank START
-2. Side Plank HERO
-3. Side Plank Guide Card
-4. Side Plank Step by Step
-5. Side Plank Reach START
-6. Side Plank Reach HERO
-7. Side Plank Reach Guide Card
-8. Side Plank Reach Step by Step
-9. Sphinx Stretch START
-10. Sphinx Stretch HERO
-11. Sphinx Stretch Guide Card
-12. Sphinx Stretch Step by Step
-13. Spine Stretch START
-14. Spine Stretch HERO
-15. Spine Stretch Guide Card
-16. Spine Stretch Step by Step
-17. Standing Oblique Crunch START
-18. Standing Oblique Crunch HERO
-19. Standing Oblique Crunch Guide Card
-20. Standing Oblique Crunch Step by Step
-21. Standing Side Bend START
-22. Standing Side Bend HERO
-23. Standing Side Bend Guide Card
-24. Standing Side Bend Step by Step
-25. Supine Twist START
-26. Supine Twist HERO
-27. Supine Twist Guide Card
-28. Supine Twist Step by Step
-29. Swan Prep START
-30. Swan Prep HERO
-31. Swan Prep Guide Card
-32. Swan Prep Step by Step
-33. Swimming START
-34. Swimming HERO
-35. Swimming Guide Card
-36. Swimming Step by Step
-37. The Hundred START
-38. The Hundred HERO
-39. The Hundred Guide Card
-40. The Hundred Step by Step
-41. Thread the Needle START
-42. Thread the Needle HERO
-43. Thread the Needle Guide Card
-44. Thread the Needle Step by Step
-45. Triceps Kickback START
-46. Triceps Kickback HERO
-47. Triceps Kickback Guide Card
-48. Triceps Kickback Step by Step
-49. Wall Sit START
-50. Wall Sit HERO
-51. Wall Sit Guide Card
-52. Wall Sit Step by Step
+1. Side Plank Reach START
+2. Side Plank Reach HERO
+3. Side Plank Reach Guide Card
+4. Side Plank Reach Step by Step
+5. Sphinx Stretch START
+6. Sphinx Stretch HERO
+7. Sphinx Stretch Guide Card
+8. Sphinx Stretch Step by Step
+9. Spine Stretch START
+10. Spine Stretch HERO
+11. Spine Stretch Guide Card
+12. Spine Stretch Step by Step
+13. Standing Oblique Crunch START
+14. Standing Oblique Crunch HERO
+15. Standing Oblique Crunch Guide Card
+16. Standing Oblique Crunch Step by Step
+17. Standing Side Bend START
+18. Standing Side Bend HERO
+19. Standing Side Bend Guide Card
+20. Standing Side Bend Step by Step
+21. Supine Twist START
+22. Supine Twist HERO
+23. Supine Twist Guide Card
+24. Supine Twist Step by Step
+25. Swan Prep START
+26. Swan Prep HERO
+27. Swan Prep Guide Card
+28. Swan Prep Step by Step
+29. Swimming START
+30. Swimming HERO
+31. Swimming Guide Card
+32. Swimming Step by Step
+33. The Hundred START
+34. The Hundred HERO
+35. The Hundred Guide Card
+36. The Hundred Step by Step
+37. Thread the Needle START
+38. Thread the Needle HERO
+39. Thread the Needle Guide Card
+40. Thread the Needle Step by Step
+41. Triceps Kickback START
+42. Triceps Kickback HERO
+43. Triceps Kickback Guide Card
+44. Triceps Kickback Step by Step
+45. Wall Sit START
+46. Wall Sit HERO
+47. Wall Sit Guide Card
+48. Wall Sit Step by Step
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 37
+Kompletně hotovo: 38
 Rozpracováno: 0
-Nezačato: 13
+Nezačato: 12
 
-Další doporučený cvik: Side Plank START
+Další doporučený cvik: Side Plank Reach START
 
 ## Přehled
 
@@ -134,7 +130,7 @@ Další doporučený cvik: Side Plank START
 | Shoulder Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `press`; pomůcka Činky |
 | Side Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → kop dopředu → kop dozadu; Guide Card a Step by Step v01 manuálně schválené; App nasazena pod kanonickým ID `sidekick`; bez pomůcky |
 | Side Leg Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Side Plank | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Side Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank`; sekvence START → HERO → START |
 | Side Plank Reach | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Sphinx Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Spine Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

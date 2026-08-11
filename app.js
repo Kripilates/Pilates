@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.72-dev';
+const APP_VERSION='v59.73-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -575,6 +575,31 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',text:'S výdechem zvedni horní nohu přibližně do 35–45°. Pánev zůstává stabilní.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem pomalu spusť nohu zpět. Pohyb prováděj kontrolovaně a bez švihu.',photo:'start'}
     ]
+  },
+  sideplank:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_step_by_step_v01.png',
+    subtitle:'Střed těla • pas • ramena',
+    miniSteps:[
+      {n:1,title:'START',caption:'Pánev na podložce',photo:'start'},
+      {n:2,title:'SIDE PLANK',caption:'Zvedni pánev',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na bok. Spodní loket dej přímo pod rameno, předloktí opři o podložku a nohy natáhni. Pánev zůstává dole.',photo:'start'},
+      {title:'SIDE PLANK',text:'S výdechem zpevni břicho a zvedni pánev z podložky. Tělo drž v dlouhé linii a spodní rameno aktivní.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem spusť pánev pomalu zpět na podložku. Zachovej oporu předloktí a pohyb dokonči bez propadnutí v rameni.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / pas',knees:'Nohy natažené'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při zvednutí pánve',tempo:'Plynule a kontrolovaně'},
+    recommendations:{
+      feel:'Práci středu těla, boční strany trupu a stabilní oporu spodního ramene.',
+      watch:['Loket drž přímo pod ramenem.','Rameno nech daleko od ucha a aktivně se odtlačuj od podložky.','Pánev drž stabilní a tělo v dlouhé linii.'],
+      mistakes:['Propadnutí ve spodním rameni.','Klesající pánev.','Prohnutí v bedrech.','Rychlý nebo nekontrolovaný návrat.']
+    }
   },
   deadbug:{
     start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01.png',
