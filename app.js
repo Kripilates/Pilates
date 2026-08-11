@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.70-dev';
+const APP_VERSION='v59.71-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -960,7 +960,31 @@ const referenceExerciseAssets={
       mistakes:['Dosah oběma rukama k jedné patě.','Příliš vysoké zvedání ramen.','Švihání trupem.','Pohyb pánve nebo chodidel.']
     }
   },
-  russian:{
+  sidekick:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_end_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_step_by_step_v01.png',
+    subtitle:'Hýždě • boky • střed těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Výchozí poloha',photo:'start'},
+      {n:2,title:'DOPŘEDU',caption:'Horní nohu veď vpřed',photo:'hero'},
+      {n:3,title:'DOZADU',caption:'Kontrolovaně vzad',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na bok, hlavu podepři dlaní a spodní loket nech na podložce. Horní dlaň opři před tělem a nohy natáhni.',photo:'start'},
+      {title:'POHYB DOPŘEDU',text:'Horní nohu zvedni přibližně do výšky kyčle a kontrolovaně ji veď dopředu. Pánev ani trup neotáčej.',photo:'hero'},
+      {title:'POHYB DOZADU',text:'Plynule veď horní nohu zpět a mírně za osu těla. Rozsah ukonči dřív, než začneš prohýbat bedra nebo pohybovat pánví.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Hýždě / boky',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Plynule při návratu',exhale:'Při pohybu nohy',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci hýždí, boků a středu těla při stabilní pánvi a klidném trupu.',
+      watch:['Pánev drž stabilní a trup klidný.','Spodní nohu nech na podložce.','Rozsah přizpůsob tak, aby ses nezačala prohýbat nebo přetáčet.'],
+      mistakes:['Houpání pánví nebo trupem.','Kopání švihem.','Prohýbání v bedrech.','Příliš velký rozsah pohybu dozadu.']
+    }
+  },  russian:{
     start:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start_v01.png',
