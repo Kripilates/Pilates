@@ -50,12 +50,13 @@ Aktuální rozpracované změny bez commitu:
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
 - Progress souhrn: 50 celkem, 37 HOTOVO, 0 ROZPRACOVÁNO, 13 ČEKÁ.
-- Aplikace je nyní `v59.71-dev`; cache `app.js` je `v=5971sidekick`, cache `data.js` je `v=5971sidekick` a cache `style.css` zůstává `v=5957workoutpolish`.
+- Aplikace je nyní `v59.72-dev`; cache `app.js` je `v=5972appback`, cache `data.js` zůstává `v=5971sidekick` a cache `style.css` zůstává `v=5957workoutpolish`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
 - Workout typografie zvýrazňuje název vůči dávce; spodní ovládání rozlišuje primární Pauzu, sekundární Přeskočit a tlumeně destruktivní Ukončit, zatímco Detail cviku má kompaktní informační ikonu.
 - Systémové Android Back i spodní tlačítko Ukončit používají stejný potvrzovací dialog; pokračování i pozdější návrat zachovávají aktuální cvik, sérii, fázi a zbývající čas.
 - Workout history guard ve v59.58 používá jednoznačný marker konkrétního workoutu; po každém Pokračovat se jeho přítomnost obnoví bez vrstvení history záznamů a skutečné ukončení marker odstraní.
+- Interní navigace ve v59.72 používá koordinované `history.state` markery pro Home, Plán, den, detail cviku, Kalendář, Program, knihovnu, oblíbené, měření a statistiky. Systémový Back vrací skutečný původ detailu, workout guard má prioritu a první Back na kořenovém Home zobrazí potvrzení ukončení aplikace.
 - Aktivní workout má finálně vyváženou hierarchii názvu a dávky; Ukončit je jemně odlišené červeným tónem a Detail cviku funguje jako zřetelné tyrkysové sekundární tlačítko bez podtržení.
 - Aktivní workout používá Screen Wake Lock s bezpečným fallbackem a zesílené dvoutónové Web Audio signály přes jeden sdílený AudioContext a master GainNode.
 

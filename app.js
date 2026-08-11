@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.71-dev';
+const APP_VERSION='v59.72-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -12,6 +12,8 @@ let workoutTransitionLock=false;
 let workoutFinalStretch=false;
 let workoutExitDialogOpen=false, workoutExitWasPaused=false, workoutHistoryArmed=false;
 let workoutHistoryGuardSequence=0, workoutHistoryGuardId=null;
+let pendingWorkoutExitDay=null;
+let appHistoryRendering=false, rootExitDialogOpen=false, rootExitAllowed=false;
 let screenWakeLock=null;
 let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
@@ -31,6 +33,45 @@ if(!data||!data.days||!data.exercises){
 const $=id=>document.getElementById(id);
 function scrollTop(){
   requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'auto'}));
+}
+function appRouteUrl(view,params={}){
+  return view==='exercise-detail' ? detailHash(params.exerciseId,params.day,params.exercise) : location.pathname+location.search;
+}
+function appRouteKey(view,params={}){
+  if(view==='day')return `day:${params.day}`;
+  if(view==='exercise-detail')return `exercise-detail:${params.exerciseId}:${params.day}:${params.exercise}`;
+  if(view==='workout')return `workout:${params.day}`;
+  return view;
+}
+function setAppView(view,params={},opts={}){
+  if(appHistoryRendering)return;
+  const state={pb40App:true,appView:view,...params};
+  state.pb40RouteKey=appRouteKey(view,state);
+  const current=history.state;
+  const same=current?.pb40App&&current.pb40RouteKey===state.pb40RouteKey;
+  const method=opts.replace||same?'replaceState':'pushState';
+  history[method](state,'',appRouteUrl(view,state));
+}
+function showRootExitDialog(){
+  if(rootExitDialogOpen)return;
+  rootExitDialogOpen=true;
+  app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay rootExitOverlay" role="dialog" aria-modal="true" aria-labelledby="rootExitTitle">
+    <div class="workoutExitDialog">
+      <h2 id="rootExitTitle">Ukončit aplikaci?</h2>
+      <p>Opravdu chceš opustit Pilates Body 40+?</p>
+      <button class="primary" data-action="stay-in-app">Zůstat</button>
+      <button class="workoutExitConfirm" data-action="confirm-exit-app">Ukončit</button>
+    </div>
+  </div>`);
+}
+function closeRootExitDialog(){
+  document.querySelector('.rootExitOverlay')?.remove();
+  rootExitDialogOpen=false;
+}
+function confirmRootExit(){
+  closeRootExitDialog();
+  rootExitAllowed=true;
+  history.back();
 }
 function setWorkoutHeaderPosition(active=false){
   if(!brandBadge)return;
@@ -104,9 +145,11 @@ function exitWorkoutToDay(){
   workoutRunning=false;
   workoutPaused=false;
   workoutAuto=false;
-  clearWorkoutHistoryGuard(location.pathname+location.search);
+  workoutHistoryArmed=false;
+  workoutHistoryGuardId=null;
   void releaseWorkoutWakeLock();
-  day(currentDay);
+  pendingWorkoutExitDay=currentDay;
+  history.go(-2);
 }
 function isWorkoutScreenActive(){
   return workoutRunning && Boolean(app.querySelector('.autoTrain'));
@@ -147,27 +190,16 @@ function detailHash(k,d=currentDay,i=currentExercise){
   if(Number.isFinite(Number(i)))params.set('i',String(Number(i)));
   return `#detail?${params.toString()}`;
 }
-function setDetailRoute(k,replace=false){
-  const hash=detailHash(k);
-  if(location.hash===hash)return;
-  (replace?history.replaceState:history.pushState).call(history,null,'',hash);
-}
-function clearDetailRoute(replace=false){
-  if(!location.hash.startsWith('#detail'))return;
-  const target=location.pathname+location.search;
-  (replace?history.replaceState:history.pushState).call(history,null,'',target);
-}
-function restoreDetailRoute(){
+function detailStateFromHash(){
   if(!location.hash.startsWith('#detail'))return false;
   const params=new URLSearchParams(location.hash.replace(/^#detail\??/,''));
   const k=params.get('ex');
   if(!k||!data.exercises[k])return false;
   const d=Number(params.get('day'));
   const i=Number(params.get('i'));
-  if(Number.isInteger(d)&&data.days[d])currentDay=d;
-  if(Number.isInteger(i))currentExercise=i;
-  info(k,{replaceRoute:true});
-  return true;
+  const dayIndex=Number.isInteger(d)&&data.days[d]?d:0;
+  const exerciseIndex=Number.isInteger(i)?i:0;
+  return {pb40App:true,appView:'exercise-detail',exerciseId:k,day:dayIndex,exercise:exerciseIndex,pb40RouteKey:appRouteKey('exercise-detail',{exerciseId:k,day:dayIndex,exercise:exerciseIndex})};
 }
 const key=(d,i)=>`pb40-d${d}-e${i}`; // SAME KEYS as V3_full: progress stays
 const done=(d,i)=>localStorage.getItem(key(d,i))==='1';
@@ -1578,6 +1610,7 @@ function backupPanel(){
 
 function markIntroSeen(){localStorage.setItem(introKey,'1');}
 function intro(){
+  setAppView('intro');
   lastMode='intro';setNav('library');
   app.innerHTML=`<section class="introHero">
     <div class="introBadge">30 dní</div>
@@ -1599,7 +1632,7 @@ function intro(){
   </section>`;
 }
 function programInfo(){
-  clearDetailRoute();
+  setAppView('program');
   lastMode='library';setNav('library');
   app.innerHTML=`<section class="introHero compactIntro">
     <div class="introBadge">Pilates Body 40+</div>
@@ -1621,7 +1654,7 @@ function programInfo(){
 }
 
 function home(){
-  clearDetailRoute();
+  setAppView('home');
   lastMode='home';setNav('home');
   const s=statsData(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),lm=latestMeasurement(),ln=latestNote();
   app.innerHTML=`<div class="v22Home">
@@ -1644,7 +1677,7 @@ function home(){
 }
 
 function days(){
-  clearDetailRoute();
+  setAppView('plan');
   lastMode='days';setNav('days');
   const groups=[];
   data.days.forEach((d,di)=>{const wi=Math.floor(di/7);if(!groups[wi])groups[wi]=[];groups[wi].push({d,di});});
@@ -1680,7 +1713,7 @@ function dayInfoGrid(di,items){
   return `<div class="dayInfoGrid"><div class="dayInfoLeft">${daySummary(di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
 }
 function day(di,opts={}){
-  clearDetailRoute();
+  setAppView('day',{day:di},{replace:Boolean(opts.replaceRoute)});
   lastMode='day';setNav('days');currentDay=di;
   const day=data.days[di];
   const stretch=dayStretch(di);
@@ -1808,11 +1841,11 @@ function openCurrentTraining(){
   return startTraining(nextDayIndex(),true);
 }
 function startTraining(di,auto=true){
-  clearDetailRoute();
   void unlockAudio();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
   clearInterval(timer);
   clearWorkoutHistoryGuard();
+  setAppView('workout',{day:di});
   workoutAuto=true;
   workoutRunning=true;
   workoutPaused=false;
@@ -2154,7 +2187,7 @@ function doneNext(mark=true){
 }
 function info(k,opts={}){
   setWorkoutHeaderPosition(false);
-  if(!opts.skipRoute)setDetailRoute(k,Boolean(opts.replaceRoute));
+  if(!workoutRunning&&!opts.skipRoute)setAppView('exercise-detail',{exerciseId:k,day:currentDay,exercise:currentExercise},{replace:Boolean(opts.replaceRoute)});
   const ex=data.exercises[k], meta=exMeta(k);
   const steps=detailSteps(k,ex);
   const stretchPlanned=dayStretch(currentDay);
@@ -2165,7 +2198,7 @@ function info(k,opts={}){
   const detailMoveLabel=workoutRunning ? workoutMovementLabel(k,dose,doseInfo) : '';
   const detailSideLabel=detailMoveLabel ? `<div class="sidePlainText detailSideText">${detailMoveLabel}</div>` : '';
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
-  const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : (currentDay!==undefined ? `<button data-action="day-return" data-day="${currentDay}">← Zpět na seznam cviků</button>` : `<button data-action="home">← Domů</button>`);
+  const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : `<button data-action="history-back">← Zpět</button>`;
   const muscleImg=detailMuscleImage(k);
   const hasReference=Boolean(referenceExerciseAssets[k]);
   const hasMasterCard=Boolean(masterCards[k])&&!hasReference;
@@ -2215,21 +2248,21 @@ function info(k,opts={}){
   scrollTop();
 }
 function library(){
-  clearDetailRoute();
+  setAppView('library');
   lastMode='library';setNav('library');
   app.innerHTML=`<section class="card"><h2>Program</h2><div class="moreGrid"><button data-action="program-info">✦ O programu</button><button data-action="progress">◎ Měření</button><button data-action="stats">↗ Statistiky</button><button data-action="library-list">◈ Knihovna cviků</button><button data-action="export-progress">⬇ Záloha</button><button onclick="document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')">🌙 Tmavý režim</button></div></section>
   <section class="card"><h2>Knihovna cviků</h2><p class="muted">Klepni na cvik pro detail techniky.</p><div class="libraryGrid">${Object.keys(data.exercises).map(k=>exCard(k,data.exercises[k].dose)).join('')}</div></section>`;
   scrollTop();
 }
 function favs(){
-  clearDetailRoute();
+  setAppView('favourites');
   lastMode='library';setNav('library');
   const keys=Object.keys(data.exercises).filter(k=>isFav(k));
   app.innerHTML=`<section class="card"><h2>Oblíbené cviky</h2>${keys.length?'<div class="libraryGrid">'+keys.map(k=>exCard(k,data.exercises[k].dose)).join('')+'</div>':'<p class="muted">Zatím žádné oblíbené.</p>'}</section>`;
   scrollTop();
 }
 function calendar(){
-  clearDetailRoute();
+  setAppView('calendar');
   lastMode='calendar';setNav('calendar');
   const now=new Date(), y=now.getFullYear(), m=now.getMonth();
   const first=new Date(y,m,1), last=new Date(y,m+1,0);
@@ -2252,7 +2285,7 @@ function calendar(){
 }
 
 function progressTracker(){
-  clearDetailRoute();
+  setAppView('progress');
   lastMode='progress';setNav('progress');
   const arr=measurements(), first=firstMeasurement(), last=latestMeasurement();
   const today=todayKey();
@@ -2294,10 +2327,60 @@ function saveMeasureFromForm(){
 }
 
 function showStats(){
-  clearDetailRoute();
+  setAppView('stats');
   lastMode='stats';setNav('stats');const s=statsData();
   app.innerHTML=`<section class="card"><h2>Statistiky</h2><p class="muted">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
   <div class="statGrid"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div></div><div class="row"><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div></section>`;
+}
+function renderAppState(state){
+  if(!state?.pb40App)return home();
+  appHistoryRendering=true;
+  try{
+    switch(state.appView){
+      case 'intro': intro(); break;
+      case 'home': home(); break;
+      case 'plan': days(); break;
+      case 'day': day(Number(state.day)||0); break;
+      case 'exercise-detail':
+        currentDay=Number(state.day)||0;
+        currentExercise=Number(state.exercise)||0;
+        info(state.exerciseId,{skipRoute:true});
+        break;
+      case 'calendar': calendar(); break;
+      case 'program': programInfo(); break;
+      case 'library': library(); break;
+      case 'favourites': favs(); break;
+      case 'progress': progressTracker(); break;
+      case 'stats': showStats(); break;
+      case 'workout': day(Number(state.day)||0); break;
+      default: home();
+    }
+  }finally{
+    appHistoryRendering=false;
+  }
+}
+function initialiseAppHistory(){
+  if(history.state?.pb40App){
+    renderAppState(history.state);
+    return;
+  }
+  const directDetail=detailStateFromHash();
+  const rootUrl=location.pathname+location.search;
+  const homeState={pb40App:true,appView:'home',pb40RouteKey:'home'};
+  history.replaceState({pb40Boundary:true},'',rootUrl);
+  history.pushState(homeState,'',rootUrl);
+  if(directDetail){
+    history.pushState(directDetail,'',appRouteUrl('exercise-detail',directDetail));
+    renderAppState(directDetail);
+    return;
+  }
+  if(localStorage.getItem(introKey)!=='1'){
+    const introState={pb40App:true,appView:'intro',pb40RouteKey:'intro'};
+    history.pushState(introState,'',rootUrl);
+    renderAppState(introState);
+    return;
+  }
+  renderAppState(homeState);
 }
 app.addEventListener('click',e=>{
   void unlockAudio();
@@ -2306,6 +2389,9 @@ app.addEventListener('click',e=>{
   const a=t.dataset.action;
   if(a==='open-master-card')return openMasterCard(t.dataset.src,t.dataset.alt);
   if(a==='close-master-card'){t.closest('.masterLightbox')?.remove();return;}
+  if(a==='stay-in-app'){closeRootExitDialog();return;}
+  if(a==='confirm-exit-app')return confirmRootExit();
+  if(a==='history-back'){history.back();return;}
   if(a==='home')return home();
   if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}
   if(a==='program-info')return programInfo();
@@ -2338,7 +2424,7 @@ app.addEventListener('click',e=>{
     if(t.dataset.index!==undefined && t.dataset.index!=='') currentExercise=Number(t.dataset.index);
     return info(t.dataset.ex);
   }
-  if(a==='day-return')return day(Number(t.dataset.day),{restoreScroll:true});
+  if(a==='day-return'){history.back();return;}
   if(a==='day'||(t.classList.contains('exercise')&&t.dataset.day!==''))return day(Number(t.dataset.day));
   if(a==='start')return startTraining(Number(t.dataset.day),true);
   if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
@@ -2368,18 +2454,33 @@ const progressNav=document.getElementById('nav-progress'); if(progressNav) progr
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
 /* v50: service worker registration removed to prevent stale PWA cache. */
-window.addEventListener('popstate',()=>{
-  if(workoutRunning&&isWorkoutScreenActive()){
+window.addEventListener('popstate',event=>{
+  if(workoutRunning){
     workoutHistoryArmed=false;
     armWorkoutHistoryGuard();
     if(!workoutExitDialogOpen)showWorkoutExitDialog();
     return;
   }
+  if(pendingWorkoutExitDay!==null){
+    const exitDay=pendingWorkoutExitDay;
+    pendingWorkoutExitDay=null;
+    day(exitDay);
+    return;
+  }
+  if(event.state?.pb40Boundary){
+    if(rootExitAllowed){
+      rootExitAllowed=false;
+      history.back();
+      return;
+    }
+    history.forward();
+    showRootExitDialog();
+    return;
+  }
+  if(rootExitDialogOpen&&event.state?.appView==='home')return;
   workoutHistoryArmed=false;
   workoutHistoryGuardId=null;
-  if(!restoreDetailRoute())home();
+  if(event.state?.pb40App)renderAppState(event.state);
 });
-if(!restoreDetailRoute()){
-  if(localStorage.getItem(introKey)!=='1') intro(); else home();
-}
+initialiseAppHistory();
 })();
