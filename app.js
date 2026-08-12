@@ -1,12 +1,13 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.73-dev';
+const APP_VERSION='v59.74-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Pilates Body 40+ '+APP_VERSION;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
+let workoutContext=null;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
 let workoutTransitionLock=false;
 let workoutFinalStretch=false;
@@ -21,6 +22,11 @@ let sideNoticeDone='', sideNoticeNext='';
 const WORKOUT_PREP_SECONDS=10;
 const WORKOUT_SWITCH_SECONDS=5;
 const WORKOUT_SERIES_REST_SECONDS=30;
+const PROGRAM_DIFFICULTY_KEY='pb40-program-difficulty-v1';
+const DIFFICULTY_MIGRATION_NOTICE_KEY='pb40-difficulty-migration-notice-v1';
+const PROGRAM_LAYOUT_KEY='pb40-program-layout-v2';
+const PROGRAM_LAYOUT_VERSION='2';
+const DIFFICULTY_VALUES=['easy','medium','hard'];
 const PROGRAM_WEEK_HINTS=[
   {from:0,to:9,text:'První týden se zaměřujeme na techniku, klidné tempo a kontrolovaný pohyb.'},
   {from:10,to:19,text:'Druhý týden přidáváme pomalejší tempo, krátké výdrže a lepší kontrolu.'},
@@ -145,6 +151,7 @@ function exitWorkoutToDay(){
   workoutRunning=false;
   workoutPaused=false;
   workoutAuto=false;
+  workoutContext=null;
   workoutHistoryArmed=false;
   workoutHistoryGuardId=null;
   void releaseWorkoutWakeLock();
@@ -200,6 +207,86 @@ function detailStateFromHash(){
   const dayIndex=Number.isInteger(d)&&data.days[d]?d:0;
   const exerciseIndex=Number.isInteger(i)?i:0;
   return {pb40App:true,appView:'exercise-detail',exerciseId:k,day:dayIndex,exercise:exerciseIndex,pb40RouteKey:appRouteKey('exercise-detail',{exerciseId:k,day:dayIndex,exercise:exerciseIndex})};
+}
+const legacyProgramItemIds={
+  0:['rdl','hydrant','clam','sideleg','inner_thigh','hip'],
+  3:['rollup','clam','swan','toetap','standing_side_bend'],
+  10:['rollup','hundred','scissors','swan','standing_side_bend'],
+  19:['glute_bridge_march','raise','standing_side_bend','chest_press','sideplank_reach','swan'],
+  24:['rollup','clam','swimming','hundred','swan','standing_side_bend']
+};
+function validDifficulty(value){return DIFFICULTY_VALUES.includes(value)?value:null;}
+function getProgramDifficulty(){return validDifficulty(localStorage.getItem(PROGRAM_DIFFICULTY_KEY));}
+function effectiveProgramDifficulty(){return getProgramDifficulty()||data.program?.defaultDifficulty||'medium';}
+function difficultyConfig(value=effectiveProgramDifficulty()){
+  return data.program?.difficulties?.[validDifficulty(value)||'medium']||{label:'Střední',sets:3};
+}
+function difficultyLabel(value=effectiveProgramDifficulty()){return difficultyConfig(value).label;}
+function difficultySets(value=effectiveProgramDifficulty()){return Number(difficultyConfig(value).sets)||3;}
+function setProgramDifficulty(value){
+  const clean=validDifficulty(value);
+  if(!clean)return false;
+  localStorage.setItem(PROGRAM_DIFFICULTY_KEY,clean);
+  localStorage.removeItem(DIFFICULTY_MIGRATION_NOTICE_KEY);
+  return true;
+}
+function resolveDose(rawDose,difficulty=effectiveProgramDifficulty()){
+  if(typeof rawDose==='string')return rawDose;
+  if(!rawDose||typeof rawDose!=='object')return '';
+  return String(rawDose[validDifficulty(difficulty)||'medium']??rawDose.medium??'');
+}
+function resolvedDayItems(di,difficulty=effectiveProgramDifficulty()){
+  return (data.days?.[di]?.items||[]).map(([id,dose])=>[id,resolveDose(dose,difficulty)]);
+}
+function resolvedDayStretch(di,difficulty=effectiveProgramDifficulty()){
+  const stretch=data.days?.[di]?.stretch;
+  return Array.isArray(stretch)&&stretch[0]&&data.exercises[stretch[0]]?[stretch[0],resolveDose(stretch[1],difficulty)]:null;
+}
+function hasLegacyProgramData(){
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(!k)continue;
+    if(/^pb40-d\d+-e\d+$/.test(k)||/^pb40-log-/.test(k)||/^pb40-fav-/.test(k)||k==='pb40-measurements'||k==='pb40-workout-notes')return true;
+  }
+  return false;
+}
+function migrateLegacyDifficulty(){
+  if(getProgramDifficulty())return;
+  if(localStorage.getItem(PROGRAM_DIFFICULTY_KEY)!==null)localStorage.removeItem(PROGRAM_DIFFICULTY_KEY);
+  if(!hasLegacyProgramData())return;
+  localStorage.setItem(PROGRAM_DIFFICULTY_KEY,'medium');
+  localStorage.setItem(DIFFICULTY_MIGRATION_NOTICE_KEY,'1');
+}
+function migrateProgramLayout(){
+  if(localStorage.getItem(PROGRAM_LAYOUT_KEY)===PROGRAM_LAYOUT_VERSION)return;
+  Object.entries(legacyProgramItemIds).forEach(([dayIndex,oldIds])=>{
+    const di=Number(dayIndex);
+    const completedIds=new Set(oldIds.filter((_,i)=>localStorage.getItem(`pb40-d${di}-e${i}`)==='1'));
+    oldIds.forEach((_,i)=>localStorage.removeItem(`pb40-d${di}-e${i}`));
+    (data.days?.[di]?.items||[]).forEach(([id],i)=>{
+      if(completedIds.has(id))localStorage.setItem(`pb40-d${di}-e${i}`,'1');
+    });
+  });
+  localStorage.setItem(PROGRAM_LAYOUT_KEY,PROGRAM_LAYOUT_VERSION);
+}
+function importedProgressKey(k,layoutVersion){
+  if(layoutVersion===PROGRAM_LAYOUT_VERSION)return k;
+  const match=String(k).match(/^pb40-d(\d+)-e(\d+)$/);
+  if(!match)return k;
+  const di=Number(match[1]),oldIndex=Number(match[2]),oldIds=legacyProgramItemIds[di];
+  if(!oldIds||!oldIds[oldIndex])return k;
+  const nextIndex=(data.days?.[di]?.items||[]).findIndex(([id])=>id===oldIds[oldIndex]);
+  return nextIndex<0?k:`pb40-d${di}-e${nextIndex}`;
+}
+function createWorkoutContext(di){
+  const difficulty=effectiveProgramDifficulty();
+  return {
+    dayIndex:di,
+    difficulty,
+    totalSets:difficultySets(difficulty),
+    items:resolvedDayItems(di,difficulty),
+    stretch:resolvedDayStretch(di,difficulty)
+  };
 }
 const key=(d,i)=>`pb40-d${d}-e${i}`; // SAME KEYS as V3_full: progress stays
 const done=(d,i)=>localStorage.getItem(key(d,i))==='1';
@@ -1548,9 +1635,8 @@ function daySummary(di){
   const counts={};
   items.forEach(([k])=>{const a=exMeta(k).area;counts[a]=(counts[a]||0)+1;});
   const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
-  const minutes=Math.max(18, Math.round(items.length*4.5));
-  const hard=items.some(([k])=>exMeta(k).diff==='Střední');
-  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>${hard?'🔥 Střední':'🟢 Lehké'}</span><span>🎯 ${main}</span></div>`;
+  const minutes=Math.max(14,Math.round(items.length*1.5*difficultySets()));
+  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>🎯 ${main}</span></div>`;
 }
 
 function exCard(k,dose,d,i){
@@ -1575,7 +1661,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v53',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'PB40-v60-difficulty1',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
@@ -1591,7 +1677,8 @@ function allowedBackupKey(k){
   return /^pb40-d\d+-e\d+$/.test(k) ||
     /^pb40-log-\d{4}-\d{2}-\d{2}$/.test(k) ||
     /^pb40-fav-[a-z0-9_-]+$/i.test(k) ||
-    k===measureKey || k===noteKey || k===introKey;
+    k===measureKey || k===noteKey || k===introKey ||
+    k===PROGRAM_DIFFICULTY_KEY || k===DIFFICULTY_MIGRATION_NOTICE_KEY || k===PROGRAM_LAYOUT_KEY;
 }
 function cleanBackupValue(k,v){
   if(k===measureKey){
@@ -1602,9 +1689,12 @@ function cleanBackupValue(k,v){
     try{return JSON.stringify(normalizeWorkoutNotes(typeof v==='string'?JSON.parse(v):v));}
     catch(e){return JSON.stringify([]);}
   }
+  if(k===PROGRAM_DIFFICULTY_KEY)return validDifficulty(String(v))||'medium';
+  if(k===PROGRAM_LAYOUT_KEY)return String(v)===PROGRAM_LAYOUT_VERSION?PROGRAM_LAYOUT_VERSION:null;
   if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-log-/.test(k) || /^pb40-fav-/.test(k) || k===introKey){
     return String(v)==='1'?'1':'0';
   }
+  if(k===DIFFICULTY_MIGRATION_NOTICE_KEY)return String(v)==='1'?'1':'0';
   return null;
 }
 function importProgressFile(file){
@@ -1617,12 +1707,14 @@ function importProgressFile(file){
         throw new Error('bad backup');
       }
       let imported=0;
+      const importedLayoutVersion=String(payload.items[PROGRAM_LAYOUT_KEY]??'');
       Object.keys(payload.items).forEach(k=>{
         if(!allowedBackupKey(k))return;
         const clean=cleanBackupValue(k,payload.items[k]);
-        if(clean!==null){localStorage.setItem(k,clean);imported++;}
+        if(clean!==null){localStorage.setItem(importedProgressKey(k,importedLayoutVersion),clean);imported++;}
       });
       if(!imported)throw new Error('empty backup');
+      migrateLegacyDifficulty();
       alert('Pokrok je načtený.');
       home();
     }catch(e){alert('Soubor se nepodařilo načíst nebo nemá správný formát zálohy.');}
@@ -1696,17 +1788,46 @@ function home(){
       <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
       <section class="v22InfoCard v22Areas"><h3>Zaměřené oblasti</h3><img src="assets/exercises/day1_muscles.jpg" alt="Zaměřené oblasti"><div><span><i></i>Hlavní svaly</span><span><i class="secondary"></i>Vedlejší svaly</span></div></section>
     </aside>
-    <section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>
+    <section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${resolvedDayItems(n).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>
   </div>`;
   scrollTop();
 }
 
+function difficultyOptionButtons(next,dayIndex){
+  return DIFFICULTY_VALUES.map(value=>{
+    const cfg=difficultyConfig(value);
+    const description=value==='easy'?'Menší objem · 2 série':value==='medium'?'Doporučená · 3 série':'Vyšší objem · 3 série';
+    return `<button class="difficultyOption ${value==='medium'?'recommended':''}" data-action="choose-difficulty" data-difficulty="${value}" data-next="${next}" data-day="${dayIndex}"><span><b>${cfg.label}</b><small>${description}</small></span>${value==='medium'?'<em>Doporučujeme</em>':''}</button>`;
+  }).join('');
+}
+function difficultyChooser(next='plan',dayIndex=0,opts={}){
+  if(!opts.skipRoute)setAppView('difficulty',{next,day:dayIndex});
+  lastMode='difficulty';setNav('days');
+  app.innerHTML=`<section class="difficultyOnboarding" aria-labelledby="difficultyTitle">
+    <p class="eyebrow">30denní program</p>
+    <h2 id="difficultyTitle">Jak chceš začít?</h2>
+    <div class="difficultyOptions">${difficultyOptionButtons(next,dayIndex)}</div>
+    <p class="difficultyHint">Obtížnost můžeš kdykoliv změnit.</p>
+  </section>`;
+  scrollTop();
+}
+function difficultyControl(view,dayIndex=0){
+  const current=effectiveProgramDifficulty();
+  return `<details class="difficultyControl"><summary>Obtížnost: <b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary><div class="difficultyMenu" role="group" aria-label="Změnit obtížnost">${DIFFICULTY_VALUES.map(value=>`<button class="${value===current?'selected':''}" data-action="set-difficulty" data-difficulty="${value}" data-view="${view}" data-day="${dayIndex}"><b>${difficultyLabel(value)}</b><small>${value==='easy'?'2 série':value==='medium'?'3 série · doporučená':'3 série'}</small></button>`).join('')}</div></details>`;
+}
+function difficultyMigrationNotice(){
+  if(localStorage.getItem(DIFFICULTY_MIGRATION_NOTICE_KEY)!=='1')return '';
+  localStorage.removeItem(DIFFICULTY_MIGRATION_NOTICE_KEY);
+  return `<div class="difficultyMigrationNote"><b>Pokračuješ na Střední obtížnost.</b><span>Tvůj dosavadní pokrok zůstal zachovaný. Úroveň můžeš kdykoliv změnit.</span></div>`;
+}
+
 function days(){
+  if(!getProgramDifficulty())return difficultyChooser('plan');
   setAppView('plan');
   lastMode='days';setNav('days');
   const groups=[];
   data.days.forEach((d,di)=>{const wi=Math.floor(di/7);if(!groups[wi])groups[wi]=[];groups[wi].push({d,di});});
-  app.innerHTML=`<section class="card planIntro"><h2>Plán na 30 dní</h2><p class="muted">Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.</p><button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button></section>
+  app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.</p><button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button></section>
   ${groups.map((g,wi)=>`<section class="card weekBlock"><div class="topLine"><h2>Týden ${wi+1}</h2><span class="pill">${g.filter(x=>x.d.items.length&&pct(x.di)===100).length}/6 hotovo</span></div><div class="dayGrid">${g.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`).join('')}`;
   scrollTop();
 }
@@ -1735,23 +1856,25 @@ function dayEquipmentInline(items){
   return `<div class="dayEquipmentInline"><p class="eyebrow">PŘIPRAV SI</p><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
 function dayInfoGrid(di,items){
-  return `<div class="dayInfoGrid"><div class="dayInfoLeft">${daySummary(di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
+  return `<div class="dayInfoGrid"><div class="dayInfoLeft">${daySummary(di)}${difficultyControl('day',di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
 }
 function day(di,opts={}){
+  if(!getProgramDifficulty())return difficultyChooser('day',di);
   setAppView('day',{day:di},{replace:Boolean(opts.replaceRoute)});
   lastMode='day';setNav('days');currentDay=di;
   const day=data.days[di];
-  const stretch=dayStretch(di);
-  const equipmentItems=stretch?[...day.items,stretch]:day.items;
-  app.innerHTML=`<section class="dashboardHero dayHero">
+  const selectedItems=resolvedDayItems(di);
+  const stretch=resolvedDayStretch(di);
+  const equipmentItems=stretch?[...selectedItems,stretch]:selectedItems;
+  app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
     <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${dayInfoGrid(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
     ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
   </section>
-  <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${day.items.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>
-  ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po třetí sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
+  <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>
+  ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
       const card=document.querySelector(`.exercise[data-day="${di}"][data-index="${detailReturnExercise}"]`);
@@ -1802,9 +1925,9 @@ function dayStretch(di=currentDay){
 }
 function currentWorkoutEntry(){
   if(workoutFinalStretch){
-    return dayStretch(currentDay) || [];
+    return workoutContext?.stretch || resolvedDayStretch(currentDay,workoutContext?.difficulty) || [];
   }
-  return data.days[currentDay]?.items?.[currentExercise] || [];
+  return workoutContext?.items?.[currentExercise] || resolvedDayItems(currentDay,workoutContext?.difficulty)[currentExercise] || [];
 }
 function finishWorkoutDay(){
   data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i));
@@ -1818,9 +1941,10 @@ function finishWorkoutDay(){
   void releaseWorkoutWakeLock();
   cue('complete');
   doneNext(false);
+  workoutContext=null;
 }
 function beginFinalStretch(){
-  if(!dayStretch(currentDay)){
+  if(!(workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty))){
     finishWorkoutDay();
     return;
   }
@@ -1866,6 +1990,7 @@ function openCurrentTraining(){
   return startTraining(nextDayIndex(),true);
 }
 function startTraining(di,auto=true){
+  if(!getProgramDifficulty())return difficultyChooser('workout',di);
   void unlockAudio();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
   clearInterval(timer);
@@ -1875,6 +2000,8 @@ function startTraining(di,auto=true){
   workoutRunning=true;
   workoutPaused=false;
   workoutCurrentSet=1;
+  workoutContext=createWorkoutContext(di);
+  workoutTotalSets=workoutContext.totalSets;
   workoutFinalStretch=false;
   lastMode='train';
   setNav('train');
@@ -1999,7 +2126,7 @@ function showAutoTrain(opts={}){
   }
   const imgClass='bigimg';
   const topLabel=workoutFinalStretch
-    ? `<strong>ZÁVĚREČNÉ PROTAŽENÍ</strong><small>Den ${currentDay+1} • 3 s\u00e9rie dokon\u010den\u00e9</small>`
+    ? `<strong>ZÁVĚREČNÉ PROTAŽENÍ</strong><small>Den ${currentDay+1} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
     : `<small>Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
@@ -2038,7 +2165,7 @@ function startNextExerciseOrRound(){
     finishWorkoutDay();
     return;
   }
-  const max=data.days[currentDay].items.length-1;
+  const max=(workoutContext?.items?.length||data.days[currentDay].items.length)-1;
   // Serie/kolo: nejdriv vsechny hlavni cviky, potom dalsi kolo.
   setDone(currentDay,currentExercise);
   if(currentExercise<max){
@@ -2054,7 +2181,7 @@ function startNextExerciseOrRound(){
     startWorkoutTimer();
     return;
   }
-  if(dayStretch(currentDay)){
+  if(workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty)){
     beginFinalStretch();
     return;
   }
@@ -2160,10 +2287,10 @@ function skipAuto(){
 
 function showTrain(){
   clearInterval(timer);
-  const dayObj=data.days[currentDay];
-  if(!dayObj.items.length){day(currentDay);return;}
-  const [k,dose]=dayObj.items[currentExercise],ex=data.exercises[k];
-  const progress=Math.round((((workoutCurrentSet-1)*dayObj.items.length + currentExercise)/(workoutTotalSets*dayObj.items.length))*100);
+  const items=workoutContext?.items||resolvedDayItems(currentDay,workoutContext?.difficulty);
+  if(!items.length){day(currentDay);return;}
+  const [k,dose]=items[currentExercise],ex=data.exercises[k];
+  const progress=Math.round((((workoutCurrentSet-1)*items.length + currentExercise)/(workoutTotalSets*items.length))*100);
   const imgClass='bigimg';
   renderTrainingScreen(`<section class="card fullTrain v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}">
     <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
@@ -2177,7 +2304,7 @@ function showTrain(){
   scrollTop();
 }
 function restScreen(){
-  const [k,dose]=data.days[currentDay].items[currentExercise];
+  const [k,dose]=currentWorkoutEntry();
   let left=restSeconds(k,dose);
   app.innerHTML=`<section class="card restScreen">
     <button data-action="train-current">← Cvik</button>
@@ -2195,11 +2322,12 @@ function doneNext(mark=true){
   const max=data.days[currentDay].items.length-1;
   if(currentExercise<max){currentExercise++;showTrain();return;}
   const next=currentDay+1<data.days.length?currentDay+1:0;
+  const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
   app.innerHTML=`<section class="card finishCard">
     <div class="finishEmoji">🎉</div>
     <h2>Den hotový</h2>
     <p class="muted">${data.days[currentDay].title}</p>
-    <div class="finishSummary"><div><b>${data.days[currentDay].items.length}</b><span>cviků</span></div><div><b>${data.days[currentDay].items.filter(x=>!isTimedDose(x[1])).length*workoutTotalSets}</b><span>kol</span></div><div><b>${data.days[currentDay].items.filter(x=>isTimedDose(x[1])).length}</b><span>časové cviky</span></div></div>
+    <div class="finishSummary"><div><b>${completedItems.length}</b><span>cviků</span></div><div><b>${completedItems.filter(x=>!isTimedDose(x[1])).length*workoutTotalSets}</b><span>kol</span></div><div><b>${completedItems.filter(x=>isTimedDose(x[1])).length}</b><span>časové cviky</span></div></div>
     <div class="finishForm">
       <b>Jaké to dnes bylo?</b>
       <div class="moodRow"><button data-action="select-mood" data-mood="good">😊 dobré</button><button data-action="select-mood" data-mood="tough">😅 těžší</button><button data-action="select-mood" data-mood="pain">⚠ něco bolelo</button></div>
@@ -2208,6 +2336,8 @@ function doneNext(mark=true){
     <button class="primary bigbtn" data-action="save-workout-note">Uložit a domů</button>
     <div class="row"><button data-action="home">Přeskočit poznámku</button><button data-action="day" data-day="${next}">Další den</button></div>
   </section>`;
+  workoutRunning=false;
+  workoutContext=null;
   scrollTop();
 }
 function info(k,opts={}){
@@ -2217,7 +2347,9 @@ function info(k,opts={}){
   const steps=detailSteps(k,ex);
   const stretchPlanned=dayStretch(currentDay);
   const planned=(data.days[currentDay]?.items||[]).find(x=>x[0]===k) || (stretchPlanned&&stretchPlanned[0]===k?stretchPlanned:null);
-  const dose=(planned&&planned[1]) || ex.dose || '';
+  const dose=workoutRunning&&currentWorkoutEntry()[0]===k
+    ? currentWorkoutEntry()[1]
+    : resolveDose((planned&&planned[1])||ex.dose||'',effectiveProgramDifficulty());
   const doseInfo=sideInfo(dose);
   const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (!isAlternatingExercise(k,dose) && !doseInfo.side && String(dose).match(/\d/) && !/opakování/i.test(String(dose)) ? 'opakování' : '');
   const detailMoveLabel=workoutRunning ? workoutMovementLabel(k,dose,doseInfo) : '';
@@ -2364,6 +2496,7 @@ function renderAppState(state){
     switch(state.appView){
       case 'intro': intro(); break;
       case 'home': home(); break;
+      case 'difficulty': difficultyChooser(state.next||'plan',Number(state.day)||0,{skipRoute:true}); break;
       case 'plan': days(); break;
       case 'day': day(Number(state.day)||0); break;
       case 'exercise-detail':
@@ -2419,6 +2552,17 @@ app.addEventListener('click',e=>{
   if(a==='history-back'){history.back();return;}
   if(a==='home')return home();
   if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}
+  if(a==='choose-difficulty'){
+    if(!setProgramDifficulty(t.dataset.difficulty))return;
+    const next=t.dataset.next||'plan',di=Number(t.dataset.day)||0;
+    if(next==='workout')return startTraining(di,true);
+    if(next==='day')return day(di);
+    return days();
+  }
+  if(a==='set-difficulty'){
+    if(!setProgramDifficulty(t.dataset.difficulty))return;
+    return t.dataset.view==='day'?day(Number(t.dataset.day)||0):days();
+  }
   if(a==='program-info')return programInfo();
   if(a==='days')return days();
   if(a==='stats')return showStats();
@@ -2507,5 +2651,7 @@ window.addEventListener('popstate',event=>{
   workoutHistoryGuardId=null;
   if(event.state?.pb40App)renderAppState(event.state);
 });
+migrateProgramLayout();
+migrateLegacyDifficulty();
 initialiseAppHistory();
 })();

@@ -19,6 +19,11 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Three-level program difficulty is implemented in `v59.74-dev` from the manually approved `00_CODEX/30_DAY_3_LEVEL_FINAL_SPEC.md`: `easy` uses 2 series, `medium` 3, and `hard` 3. The preference is stored in `pb40-program-difficulty-v1`; legacy progress migrates to `medium`, new users receive a first-entry chooser, and Plan/day detail expose the selector.
+- Active workouts use an immutable in-memory difficulty snapshot, so same-session detail/resume and a global change from another tab do not alter the running workout. Completed-day difficulty metadata and true cross-reload workout resume remain Phase 2.
+- The five approved order changes are protected by `pb40-program-layout-v2`, which remaps existing per-index progress by exercise ID. Program data validation covers 26 active days, 78 day-level combinations, all 9 HIGH corrections, and all existing dose formats.
+- Difficulty QA passed at 360/390/430 px and desktop without horizontal overflow; Easy/Medium/Hard doses, 2/3/3 series, Android Back, progress preservation, same-session resume, and multi-tab behavior were checked.
+
 - Mermaid Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou vytvořené, ověřené a cvik je nasazený v aplikaci pod kanonickým ID `mermaid`.
 
 - Plank Shoulder Taps používá schválenou sekvenci START v02 → HERO v01 → START v02; Guide Card a Step by Step v01 jsou vytvořené, ověřené a cvik je nasazený v aplikaci pod kanonickým ID `tap` jako `20× střídavě`.
