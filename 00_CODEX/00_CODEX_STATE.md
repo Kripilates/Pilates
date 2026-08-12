@@ -19,6 +19,8 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Side Plank Reach používá schválenou sekvenci START v01 → HERO v01 → END v01; Guide Card a Step by Step v01 jsou vytvořené, ověřené a cvik je nasazený v aplikaci pod kanonickým ID `sideplank_reach` bez změny programových dávek.
+
 - Three-level program difficulty is implemented in `v59.74-dev` from the manually approved `00_CODEX/30_DAY_3_LEVEL_FINAL_SPEC.md`: `easy` uses 2 series, `medium` 3, and `hard` 3. The preference is stored in `pb40-program-difficulty-v1`; legacy progress migrates to `medium`, new users receive a first-entry chooser, and Plan/day detail expose the selector.
 - Active workouts use an immutable in-memory difficulty snapshot, so same-session detail/resume and a global change from another tab do not alter the running workout. Completed-day difficulty metadata and true cross-reload workout resume remain Phase 2.
 - The five approved order changes are protected by `pb40-program-layout-v2`, which remaps existing per-index progress by exercise ID. Program data validation covers 26 active days, 78 day-level combinations, all 9 HIGH corrections, and all existing dose formats.
@@ -56,8 +58,8 @@ Aktuální rozpracované změny bez commitu:
 - Frog Pumps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `frog`.
 - Hamstring Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hamstring_supine`.
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
-- Progress souhrn: 50 celkem, 38 HOTOVO, 0 ROZPRACOVÁNO, 12 ČEKÁ.
-- Aplikace je nyní `v59.73-dev`; cache `app.js` je `v=5973sideplank`, cache `data.js` zůstává `v=5971sidekick` a cache `style.css` zůstává `v=5957workoutpolish`.
+- Progress souhrn: 50 celkem, 39 HOTOVO, 0 ROZPRACOVÁNO, 11 ČEKÁ.
+- Aplikace je nyní `v59.75-dev`; cache `app.js` a `data.js` je `v=5975sideplankreach` a cache `style.css` zůstává `v=5974difficulty`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
 - Workout typografie zvýrazňuje název vůči dávce; spodní ovládání rozlišuje primární Pauzu, sekundární Přeskočit a tlumeně destruktivní Ukončit, zatímco Detail cviku má kompaktní informační ikonu.
@@ -76,7 +78,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Side Plank Reach START`
+1. `Sphinx Stretch START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 

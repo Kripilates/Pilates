@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.74-dev';
+const APP_VERSION='v59.75-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -686,6 +686,31 @@ const referenceExerciseAssets={
       feel:'Práci středu těla, boční strany trupu a stabilní oporu spodního ramene.',
       watch:['Loket drž přímo pod ramenem.','Rameno nech daleko od ucha a aktivně se odtlačuj od podložky.','Pánev drž stabilní a tělo v dlouhé linii.'],
       mistakes:['Propadnutí ve spodním rameni.','Klesající pánev.','Prohnutí v bedrech.','Rychlý nebo nekontrolovaný návrat.']
+    }
+  },
+  sideplank_reach:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_end_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_step_by_step_v01.png',
+    subtitle:'Střed těla • pas • stabilita ramene',
+    miniSteps:[
+      {n:1,title:'START',caption:'Stabilní boční prkno',photo:'start'},
+      {n:2,title:'REACH POD TRUP',caption:'Kontrolovaná rotace',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Otevři hrudník',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Nastav boční prkno na předloktí. Loket dej přímo pod rameno, nohy natáhni a pánev drž vysoko. Horní paže je podél těla.',photo:'start'},
+      {title:'REACH POD TRUP',text:'S výdechem veď horní paži pod trup a současně kontrolovaně rotuj hrudník k podložce. Opěrné rameno zůstává aktivní.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem otevři hrudník a vrať horní paži vzhůru podle koncové polohy. Pánev drž stabilní a tělo v dlouhé linii.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / pas',knees:'Nohy natažené'},
+    breath:{inhale:'Při otevření a návratu',exhale:'Při reach pod trup',tempo:'Plynule bez švihu'},
+    recommendations:{
+      feel:'Práci šikmých břišních svalů, stabilní pánev a aktivní oporu spodního ramene.',
+      watch:['Loket drž přímo pod ramenem.','Pánev drž stabilní a nenechávej ji klesat.','Rotuj společně paží a hrudníkem bez švihu.'],
+      mistakes:['Propadnutí v opěrném rameni.','Klesající nebo vytáčená pánev.','Švih horní paží bez kontroly trupu.','Nadměrné prohnutí v bedrech.']
     }
   },
   deadbug:{
