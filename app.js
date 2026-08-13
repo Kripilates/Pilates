@@ -1,10 +1,10 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.77-dev';
+const APP_VERSION='v59.78-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
-document.title='Pilates Body 40+ '+APP_VERSION;
+document.title='MooVka '+APP_VERSION;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutContext=null;
@@ -64,7 +64,7 @@ function showRootExitDialog(){
   app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay rootExitOverlay" role="dialog" aria-modal="true" aria-labelledby="rootExitTitle">
     <div class="workoutExitDialog">
       <h2 id="rootExitTitle">Ukončit aplikaci?</h2>
-      <p>Opravdu chceš opustit Pilates Body 40+?</p>
+      <p>Opravdu chceš opustit MooVka?</p>
       <button class="primary" data-action="stay-in-app">Zůstat</button>
       <button class="workoutExitConfirm" data-action="confirm-exit-app">Ukončit</button>
     </div>
@@ -88,7 +88,7 @@ function setWorkoutHeaderPosition(active=false){
     brandBadge.classList.add('workoutPositionBadge');
     return;
   }
-  brandBadge.textContent='40+';
+  brandBadge.textContent='';
   brandBadge.classList.remove('workoutPositionBadge');
 }
 function renderTrainingScreen(html){
@@ -1806,7 +1806,7 @@ function intro(){
   lastMode='intro';setNav('library');
   app.innerHTML=`<section class="introHero">
     <div class="introBadge">30 dní</div>
-    <h2>Vítej v Pilates Body 40+</h2>
+    <h2>Vítej v MooVka</h2>
     <p>Jemný, ale poctivý plán pro zpevnění břicha, hýždí, stehen a lepší držení těla. Cvičíš doma, většinou 20–30 minut denně.</p>
     <button class="primary cta" data-action="intro-start">Začít program</button>
     <button data-action="home">Přeskočit na domů</button>
@@ -1827,7 +1827,7 @@ function programInfo(){
   setAppView('program');
   lastMode='library';setNav('library');
   app.innerHTML=`<section class="introHero compactIntro">
-    <div class="introBadge">Pilates Body 40+</div>
+    <div class="introBadge">MooVka</div>
     <h2>O programu</h2>
     <p>30denní domácí plán pro zpevnění středu těla, hýždí, zadních stehen a držení těla. Je stavěný tak, aby šel cvičit reálně i v běžném dni.</p>
     <button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button>
@@ -2437,7 +2437,7 @@ function info(k,opts={}){
   app.innerHTML=`<section class="exerciseDetailPage v20Detail ${hasMasterCard?'v20MasterDetail':''} ${hasReference?'referenceExerciseDetail':''}">
     <div class="v20Shell">
       <aside class="v20SideNav" aria-label="Navigace">
-        <h2>Pilates Body 40+</h2>
+        <h2>MooVka</h2>
         <button data-action="home"><span>⌂</span>Domů</button>
         <button data-action="days"><span>☑</span>Plán</button>
         <button class="active" data-action="train-current"><span>▶</span>Cvičit</button>

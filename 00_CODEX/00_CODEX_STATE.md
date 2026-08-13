@@ -207,3 +207,12 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
 - Commit pro aktuální programové změny: NE
 - Push proveden: NE
+
+
+## MooVka branding v59.78-dev
+
+- Aktivni znacka aplikace je `MooVka`.
+- Hlavicka pouziva finalni `Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg`.
+- Manifest, titulky a viditelne texty aplikace byly sjednoceny na `MooVka`.
+- Historicke dokumenty a existujici Guide Card / Step by Step PNG nebyly hromadne prepisovany.
+- Verze: `v59.78-dev`; cache: `style.css?v=5978moovka`, `app.js?v=5978moovka`.

@@ -1,6 +1,6 @@
 {
-  "name": "Pilates Body 40+ v54 security1",
-  "short_name": "PB40 v54",
+  "name": "MooVka",
+  "short_name": "MooVka",
   "start_url": "./index.html?v=54security1",
   "scope": "./",
   "display": "standalone",
