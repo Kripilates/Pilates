@@ -33,58 +33,50 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Sphinx Stretch START
-2. Sphinx Stretch HERO
-3. Sphinx Stretch Guide Card
-4. Sphinx Stretch Step by Step
-5. Spine Stretch START
-6. Spine Stretch HERO
-7. Spine Stretch Guide Card
-8. Spine Stretch Step by Step
-9. Standing Oblique Crunch START
-10. Standing Oblique Crunch HERO
-11. Standing Oblique Crunch Guide Card
-12. Standing Oblique Crunch Step by Step
-13. Standing Side Bend START
-14. Standing Side Bend HERO
-15. Standing Side Bend Guide Card
-16. Standing Side Bend Step by Step
-17. Supine Twist START
-18. Supine Twist HERO
-19. Supine Twist Guide Card
-20. Supine Twist Step by Step
-21. Swan Prep START
-22. Swan Prep HERO
-23. Swan Prep Guide Card
-24. Swan Prep Step by Step
-25. Swimming START
-26. Swimming HERO
-27. Swimming Guide Card
-28. Swimming Step by Step
-29. The Hundred START
-30. The Hundred HERO
-31. The Hundred Guide Card
-32. The Hundred Step by Step
-33. Thread the Needle START
-34. Thread the Needle HERO
-35. Thread the Needle Guide Card
-36. Thread the Needle Step by Step
-37. Triceps Kickback START
-38. Triceps Kickback HERO
-39. Triceps Kickback Guide Card
-40. Triceps Kickback Step by Step
-41. Wall Sit START
-42. Wall Sit HERO
-43. Wall Sit Guide Card
-44. Wall Sit Step by Step
+1. Standing Oblique Crunch START
+2. Standing Oblique Crunch HERO
+3. Standing Oblique Crunch Guide Card
+4. Standing Oblique Crunch Step by Step
+5. Standing Side Bend START
+6. Standing Side Bend HERO
+7. Standing Side Bend Guide Card
+8. Standing Side Bend Step by Step
+9. Supine Twist START
+10. Supine Twist HERO
+11. Supine Twist Guide Card
+12. Supine Twist Step by Step
+13. Swan Prep START
+14. Swan Prep HERO
+15. Swan Prep Guide Card
+16. Swan Prep Step by Step
+17. Swimming START
+18. Swimming HERO
+19. Swimming Guide Card
+20. Swimming Step by Step
+21. The Hundred START
+22. The Hundred HERO
+23. The Hundred Guide Card
+24. The Hundred Step by Step
+25. Thread the Needle START
+26. Thread the Needle HERO
+27. Thread the Needle Guide Card
+28. Thread the Needle Step by Step
+29. Triceps Kickback START
+30. Triceps Kickback HERO
+31. Triceps Kickback Guide Card
+32. Triceps Kickback Step by Step
+33. Wall Sit START
+34. Wall Sit HERO
+35. Wall Sit Guide Card
+36. Wall Sit Step by Step
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 39
+Kompletně hotovo: 41
 Rozpracováno: 0
-Nezačato: 11
+Nezačato: 9
 
-Další doporučený cvik: Sphinx Stretch START
+Další doporučený cvik: Standing Oblique Crunch START
 
 ## Přehled
 
@@ -128,8 +120,8 @@ Další doporučený cvik: Sphinx Stretch START
 | Side Leg Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Side Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank`; sekvence START → HERO → START |
 | Side Plank Reach | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank_reach`; starý placeholder není aktivní |
-| Sphinx Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
-| Spine Stretch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Sphinx Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický stretch; START/HERO/END používají schválený START v01 bez fyzického HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `sphinx` |
+| Spine Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `spine` |
 | Standing Oblique Crunch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Standing Side Bend | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

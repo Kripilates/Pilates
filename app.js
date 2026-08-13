@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.75-dev';
+const APP_VERSION='v59.77-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1276,6 +1276,55 @@ const referenceExerciseAssets={
       feel:'Práci spodní části břicha při stabilní pánvi a bedrech opřených o podložku.',
       watch:['Bedra drž po celou dobu na podložce.','Obě nohy spouštěj stejně vysoko a pomalu.','Rozsah zmenši, pokud se bedra začnou odlepovat.'],
       mistakes:['Odlepení beder od podložky.','Spuštění nohou příliš nízko.','Švihání nohama.','Zvedání ramen nebo napětí v krku.']
+    }
+  },
+  spine:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_step_by_step_v01.png',
+    subtitle:'Záda • střed těla • mobilita páteře',
+    miniSteps:[
+      {n:1,title:'START',caption:'Vzpřímený sed',photo:'start'},
+      {n:2,title:'PROTAŽENÍ',caption:'Zakulať páteř',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět do vzpřímení',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Sedni si vzpřímeně, nohy natáhni před sebe a chodidla dej do flexe. Paže natáhni vpřed ve výšce ramen.',photo:'start'},
+      {title:'ZAKULACENÍ PÁTEŘE',text:'S výdechem skloň hlavu a postupně zakulacuj páteř. Paže veď vpřed a ramena drž daleko od uší.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem se postupně vrať do vzpřímeného sedu. Páteř znovu vytáhni vzhůru a zachovej stabilní pánev.',photo:'end'}
+    ],
+    info:{difficulty:'Lehké',focus:'Záda / střed těla',knees:'Bez tlaku na kolena'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při zakulacení a pohybu vpřed',tempo:'Pomalu a plynule'},
+    recommendations:{
+      feel:'Plynulé zakulacení a protažení páteře při stabilní pánvi a uvolněných ramenou.',
+      watch:['Pánev drž stabilní.','Ramena nech daleko od uší.','Pohyb veď zakulacením páteře, ne pouze předklonem z kyčlí.'],
+      mistakes:['Předklon pouze z kyčlí.','Ramena vytažená k uším.','Přetahování pohybu silou.','Ztráta stabilní polohy pánve.']
+    }
+  },  sphinx:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_step_by_step_v01.png',
+    subtitle:'Záda • hrudník • mobilita páteře',
+    miniSteps:[
+      {n:1,title:'NASTAVENÍ',caption:'Leh na břiše',photo:'start'},
+      {n:2,title:'SPHINX',caption:'Opři se o předloktí',photo:'hero'},
+      {n:3,title:'VÝDRŽ',caption:'Uvolni ramena',photo:'end'}
+    ],
+    steps:[
+      {title:'NASTAVENÍ',text:'Lehni si na břicho a natáhni nohy dozadu. Předloktí polož na podložku a lokty nastav přibližně pod ramena.',photo:'start'},
+      {title:'SPHINX',text:'Opři se do předloktí a jemně zvedni hrudník. Pánev a stehna nech na podložce a ramena drž daleko od uší.',photo:'hero'},
+      {title:'VÝDRŽ',text:'Prodluž páteř, krk nech přirozeně a v pozici klidně dýchej. Záklon zvětšuj jen do příjemného rozsahu.',photo:'end'}
+    ],
+    info:{difficulty:'Lehké',focus:'Záda / hrudník',knees:'Bez tlaku na kolena'},
+    breath:{inhale:'Prodlužuj páteř a otevírej hrudník',exhale:'Uvolni ramena a drž pozici',tempo:'Statická výdrž'},
+    recommendations:{
+      feel:'Jemné otevření hrudníku a protažení přední strany těla bez tlaku v bedrech.',
+      watch:['Ramena drž daleko od uší.','Pánev a stehna nech na podložce.','Záklon zvětšuj pouze do příjemného rozsahu.'],
+      mistakes:['Ramena vytažená k uším.','Zaklánění hlavy.','Násilné prohnutí v bedrech.','Zvedání pánve nebo stehen z podložky.']
     }
   },
   mermaid:{
