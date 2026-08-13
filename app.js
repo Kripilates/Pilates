@@ -1302,7 +1302,8 @@ const referenceExerciseAssets={
       watch:['Pánev drž stabilní.','Ramena nech daleko od uší.','Pohyb veď zakulacením páteře, ne pouze předklonem z kyčlí.'],
       mistakes:['Předklon pouze z kyčlí.','Ramena vytažená k uším.','Přetahování pohybu silou.','Ztráta stabilní polohy pánve.']
     }
-  },  sphinx:{
+  },
+  sphinx:{
     start:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
