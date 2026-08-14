@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.79-dev';
+const APP_VERSION='v59.81-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1136,6 +1136,23 @@ const referenceExerciseAssets={
       mistakes:['Dosah oběma rukama k jedné patě.','Příliš vysoké zvedání ramen.','Švihání trupem.','Pohyb pánve nebo chodidel.']
     }
   },
+  standing_oblique:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero_opposite_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_step_by_step_v01.png',
+    subtitle:'Břicho • šikmé břišní svaly • střed těla',
+    miniSteps:[{n:1,title:'START',caption:'Výchozí postoj',photo:'start'},{n:2,title:'PŘITAŽENÍ',caption:'Koleno k lokti',photo:'hero'},{n:3,title:'DRUHÁ STRANA',caption:'Střídej strany',photo:'end'}],
+    steps:[
+      {title:'VÝCHOZÍ POSTOJ',text:'Postav se vzpřímeně, chodidla přibližně na šířku boků. Ruce dej za hlavu a lokty nech otevřené.',photo:'start'},
+      {title:'PŘITAŽENÍ KOLENA',text:'Zpevni střed těla a zvedni koleno do strany směrem k lokti na stejné straně. Trup lehce ukloň.',photo:'hero'},
+      {title:'DRUHÁ STRANA',text:'Vrať se do vzpřímeného stoje a pohyb zopakuj na druhou stranu. Pokračuj plynule střídavě.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Břicho / šikmé břišní svaly',knees:'Stojná noha stabilní'},
+    breath:{inhale:'Při návratu do stoje',exhale:'Při přitažení kolena',tempo:'Plynule a střídavě'},
+    recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Netahej rukama za hlavu.','Lokty nech otevřené a nehrb záda.','Stojnou nohu drž stabilní.'],mistakes:['Tahání za hlavu.','Zavírání loktů dopředu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
+  },
   sidekick:{
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero_v01.png',
@@ -1834,7 +1851,7 @@ function programInfo(){
   setAppView('program');
   lastMode='library';setNav('library');
   app.innerHTML=`<section class="introHero compactIntro">
-    <div class="introBadge">Moovka</div>
+    <img class="programBrandLogo" src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt="Moovka">
     <h2>O programu</h2>
     <p>30denní domácí plán pro zpevnění středu těla, hýždí, zadních stehen a držení těla. Je stavěný tak, aby šel cvičit reálně i v běžném dni.</p>
     <button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button>
@@ -1881,14 +1898,14 @@ function onboardingStepIndicator(step){
 }
 function onboardingDifficultyOptions(selected){
   const descriptions={
-    easy:['Menší objem','2 série','Pro pozvolnější start nebo návrat ke cvičení.'],
-    medium:['Doporučená','3 série','Plnohodnotný trénink s rozumnou výzvou.'],
-    hard:['Vyšší objem','3 série','Pro zkušenější a pro větší výzvu.']
+    easy:['Pozvolnější start · 2 série','Pro pozvolnější začátek nebo návrat ke cvičení.'],
+    medium:['3 série','Plnohodnotný trénink s rozumnou výzvou.'],
+    hard:['Větší výzva · 3 série','Pro zkušenější a pro větší výzvu.']
   };
   return DIFFICULTY_VALUES.map(value=>{
-    const [meta,sets,copy]=descriptions[value];
+    const [meta,copy]=descriptions[value];
     const isSelected=value===selected;
-    return `<button class="onboardingDifficulty ${isSelected?'selected':''}" data-action="onboarding-select" data-difficulty="${value}" role="radio" aria-checked="${isSelected}"><span class="onboardingDifficultyTitle"><b>${difficultyLabel(value)}</b>${value==='medium'?'<em>Doporučená</em>':''}</span><strong>${meta} · ${sets}</strong><small>${copy}</small></button>`;
+    return `<button class="onboardingDifficulty ${isSelected?'selected':''}" data-action="onboarding-select" data-difficulty="${value}" role="radio" aria-checked="${isSelected}"><span class="onboardingDifficultyTitle"><b>${difficultyLabel(value)}</b>${value==='medium'?'<em>Doporučená</em>':''}</span><strong>${meta}</strong><small>${copy}</small></button>`;
   }).join('');
 }
 function renderOnboarding(step=1,opts={}){
@@ -1913,10 +1930,10 @@ function renderOnboarding(step=1,opts={}){
   if(safeStep===1){
     content=`<div class="onboardingWelcome"><img src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt="Moovka"><h1>Vítej v Moovce</h1><p class="onboardingLead">30 dní pohybu pro pevnější tělo, lepší kondici<br class="wideOnly"> a dobrý pocit ze cvičení.</p><p>Cvičíš svým tempem a obtížnost můžeš kdykoliv změnit.</p><button class="primary onboardingPrimary" data-action="onboarding-next" data-step="2">Začít</button></div>`;
   }else if(safeStep===2){
-    content=`<div class="onboardingChoice"><p class="eyebrow">30denní program</p><h1>Jak chceš začít?</h1><div class="onboardingDifficultyList" role="radiogroup" aria-label="Obtížnost programu">${onboardingDifficultyOptions(onboardingSession.selected)}</div><p class="onboardingHint">Obtížnost můžeš kdykoliv změnit v Plánu.</p><button class="primary onboardingPrimary" data-action="onboarding-next" data-step="3">Pokračovat</button></div>`;
+    content=`<div class="onboardingChoice"><p class="eyebrow">30denní program</p><h1>Jak chceš začít?</h1><p class="onboardingChoiceHelp">Vyber si obtížnost, která ti bude nejvíc vyhovovat.</p><div class="onboardingDifficultyList" role="radiogroup" aria-label="Obtížnost programu">${onboardingDifficultyOptions(onboardingSession.selected)}</div><p class="onboardingHint">Nevíš? Začni Střední. Kdykoliv můžeš přepnout.</p><button class="primary onboardingPrimary" data-action="onboarding-next" data-step="3">Pokračovat</button></div>`;
   }else{
-    const existing=onboardingSession.hasProgress;
-    content=`<div class="onboardingDone"><p class="eyebrow">Hotovo</p><h1>Máš nastaveno</h1><div class="onboardingSelectedDifficulty"><span>Obtížnost</span><strong>${difficultyLabel(onboardingSession.selected)}</strong></div><p>Moovka je připravená.<br>${existing?'Můžeš pokračovat tam, kde jsi skončila, nebo si prohlédnout celý plán.':'Můžeš začít prvním dnem nebo si nejdřív prohlédnout celý plán.'}</p><div class="onboardingActions"><button class="primary onboardingPrimary" data-action="onboarding-complete-primary">${existing?'Pokračovat v programu':'Spustit Den 1'}</button><button class="onboardingSecondary" data-action="onboarding-complete-plan">Prohlédnout plán</button></div></div>`;
+    const existing=onboardingSession.manual||onboardingSession.hasProgress;
+    content=`<div class="onboardingDone"><p class="eyebrow">Hotovo</p><h1>Máš všechno nastavené</h1><div class="onboardingSelectedDifficulty"><span>Tvoje obtížnost</span><strong>${difficultyLabel(onboardingSession.selected)}</strong><small>${difficultySets(onboardingSession.selected)} série</small></div><p class="onboardingDoneHint">Obtížnost můžeš kdykoliv změnit v Plánu.</p><div class="onboardingActions"><button class="primary onboardingPrimary" data-action="onboarding-complete-primary">${existing?'Pokračovat v programu':'Začít program'}</button><button class="onboardingSecondary" data-action="onboarding-complete-plan">Prohlédnout plán</button></div></div>`;
   }
   app.innerHTML=`<section class="onboardingScreen" aria-labelledby="onboardingTitle"><div class="onboardingTop">${onboardingStepIndicator(safeStep)}${close}</div>${content}</section>`;
   const heading=app.querySelector('.onboardingScreen h1');
@@ -1946,7 +1963,7 @@ function completeOnboarding(destination){
 function difficultyOptionButtons(next,dayIndex){
   return DIFFICULTY_VALUES.map(value=>{
     const cfg=difficultyConfig(value);
-    const description=value==='easy'?'Menší objem · 2 série':value==='medium'?'Doporučená · 3 série':'Vyšší objem · 3 série';
+    const description=value==='easy'?'Pozvolnější start · 2 série':value==='medium'?'Doporučená · 3 série':'Větší výzva · 3 série';
     return `<button class="difficultyOption ${value==='medium'?'recommended':''}" data-action="choose-difficulty" data-difficulty="${value}" data-next="${next}" data-day="${dayIndex}"><span><b>${cfg.label}</b><small>${description}</small></span>${value==='medium'?'<em>Doporučujeme</em>':''}</button>`;
   }).join('');
 }

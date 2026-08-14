@@ -60,7 +60,7 @@ Aktuální rozpracované změny bez commitu:
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
 - Sphinx Stretch používá jeden schválený statický source START v01 pro START, HERO i END; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `sphinx` bez změny programových dávek.
 - Spine Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `spine` bez změny programové dávky.
-- Progress souhrn: 50 celkem, 41 HOTOVO, 0 ROZPRACOVÁNO, 9 ČEKÁ.
+- Progress souhrn: 50 celkem, 42 HOTOVO, 0 ROZPRACOVÁNO, 8 ČEKÁ.
 - Aplikace je nyní `v59.77-dev`; cache `app.js` a `data.js` je `v=5977spine` a cache `style.css` zůstává `v=5974difficulty`.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
@@ -80,7 +80,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Standing Oblique Crunch START`
+1. `Standing Side Bend START`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -226,3 +226,23 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Vybrana obtiznost se pri dokonceni uklada do existujiciho `pb40-program-difficulty-v1`.
 - Android Back pouziva stavajici globalni `popstate`; rucni pruvodce se vraci na puvodni obrazovku a povinny prvni pruchod nelze Backem obejit.
 - Verze/cache: `v59.79-dev`, `style.css?v=5979onboarding`, `app.js?v=5979onboarding`.
+
+
+## Standing Oblique Crunch v59.80-dev
+
+- Schválená sekvence START v01 → HERO v01 → HERO opposite v01 → START je nasazená pod ID standing_oblique.
+- Guide Card a Step by Step v01 jsou schválené a nasazené.
+- Dávky ve dnech 9, 16 a 23 zůstaly beze změny.
+- Progress: 50 celkem, 42 HOTOVO, 0 ROZPRACOVÁNO, 8 ČEKÁ.
+- NEXT TASK: Standing Side Bend START.
+- Verze/cache: v59.80-dev; data.js?v=5980standingoblique; app.js?v=5980standingoblique.
+
+
+## Moovka onboarding polish v59.81-dev
+
+- Tříkrokový onboarding používá finální logo Moovka, kompaktnější rozestupy a nové finální texty.
+- Volby obtížnosti nepoužívají formulace „menší objem“ ani „vyšší objem“; Střední zůstává doporučená.
+- Závěrečný krok dynamicky zobrazuje zvolenou obtížnost a počet sérií; nový profil používá CTA „Začít program“, ručně otevřený onboarding existující uživatelky „Pokračovat v programu“.
+- Stránka O programu používá skutečný SVG logo asset bez textové kapsle.
+- Ukládání obtížnosti, progress, history, Android Back a workout flow zůstaly beze změny.
+- Verze/cache: v59.81-dev; style.css?v=5981onboardingpolish; app.js?v=5981onboardingpolish.

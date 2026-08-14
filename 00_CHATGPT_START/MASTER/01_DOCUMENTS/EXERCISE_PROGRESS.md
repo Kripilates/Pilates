@@ -33,50 +33,47 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Standing Oblique Crunch START
-2. Standing Oblique Crunch HERO
-3. Standing Oblique Crunch Guide Card
-4. Standing Oblique Crunch Step by Step
-5. Standing Side Bend START
-6. Standing Side Bend HERO
-7. Standing Side Bend Guide Card
-8. Standing Side Bend Step by Step
-9. Supine Twist START
-10. Supine Twist HERO
-11. Supine Twist Guide Card
-12. Supine Twist Step by Step
-13. Swan Prep START
-14. Swan Prep HERO
-15. Swan Prep Guide Card
-16. Swan Prep Step by Step
-17. Swimming START
-18. Swimming HERO
-19. Swimming Guide Card
-20. Swimming Step by Step
-21. The Hundred START
-22. The Hundred HERO
-23. The Hundred Guide Card
-24. The Hundred Step by Step
-25. Thread the Needle START
-26. Thread the Needle HERO
-27. Thread the Needle Guide Card
-28. Thread the Needle Step by Step
-29. Triceps Kickback START
-30. Triceps Kickback HERO
-31. Triceps Kickback Guide Card
-32. Triceps Kickback Step by Step
-33. Wall Sit START
-34. Wall Sit HERO
-35. Wall Sit Guide Card
-36. Wall Sit Step by Step
+1. Standing Side Bend START
+2. Standing Side Bend HERO
+3. Standing Side Bend Guide Card
+4. Standing Side Bend Step by Step
+5. Supine Twist START
+6. Supine Twist HERO
+7. Supine Twist Guide Card
+8. Supine Twist Step by Step
+9. Swan Prep START
+10. Swan Prep HERO
+11. Swan Prep Guide Card
+12. Swan Prep Step by Step
+13. Swimming START
+14. Swimming HERO
+15. Swimming Guide Card
+16. Swimming Step by Step
+17. The Hundred START
+18. The Hundred HERO
+19. The Hundred Guide Card
+20. The Hundred Step by Step
+21. Thread the Needle START
+22. Thread the Needle HERO
+23. Thread the Needle Guide Card
+24. Thread the Needle Step by Step
+25. Triceps Kickback START
+26. Triceps Kickback HERO
+27. Triceps Kickback Guide Card
+28. Triceps Kickback Step by Step
+29. Wall Sit START
+30. Wall Sit HERO
+31. Wall Sit Guide Card
+32. Wall Sit Step by Step
+
 ## Souhrn
 
 Celkem cviků: 50
-Kompletně hotovo: 41
+Kompletně hotovo: 42
 Rozpracováno: 0
-Nezačato: 9
+Nezačato: 8
 
-Další doporučený cvik: Standing Oblique Crunch START
+Další doporučený cvik: Standing Side Bend START
 
 ## Přehled
 
@@ -122,7 +119,7 @@ Další doporučený cvik: Standing Oblique Crunch START
 | Side Plank Reach | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank_reach`; starý placeholder není aktivní |
 | Sphinx Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický stretch; START/HERO/END používají schválený START v01 bez fyzického HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `sphinx` |
 | Spine Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `spine` |
-| Standing Oblique Crunch | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; sekvence START → přitažení na jednu stranu → přitažení na opačnou stranu → START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID standing_oblique; programové dávky beze změny |
 | Standing Side Bend | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Swan Prep | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
