@@ -1,6 +1,6 @@
 {
-  "name": "MooVka",
-  "short_name": "MooVka",
+  "name": "Moovka",
+  "short_name": "Moovka",
   "start_url": "./index.html?v=54security1",
   "scope": "./",
   "display": "standalone",
