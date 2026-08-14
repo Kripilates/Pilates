@@ -3174,3 +3174,69 @@ main button:not(.primary):not(.active),
   .difficultyControl summary{min-height:40px;padding:7px 9px;font-size:12px}
   .difficultyControl summary b{font-size:13px}
 }
+/* v59.79: Moovka onboarding */
+.onboardingScreen{
+  width:min(100%,760px);
+  min-height:min(660px,calc(100dvh - 190px));
+  margin:12px auto;
+  padding:20px clamp(18px,5vw,42px) 28px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:0 14px 36px var(--shadow);
+  overflow:hidden;
+}
+.onboardingTop{min-height:34px;display:flex;align-items:center;justify-content:center;position:relative}
+.onboardingProgress{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:900;letter-spacing:.02em}
+.onboardingProgress div{display:flex;gap:6px}
+.onboardingProgress i{display:block;width:7px;height:7px;border-radius:50%;background:var(--line)}
+.onboardingProgress i.active{background:var(--p);box-shadow:0 0 0 3px var(--p2)}
+.onboardingClose{position:absolute;right:0;top:0;min-height:34px;padding:5px 9px;border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:800}
+.onboardingWelcome,.onboardingChoice,.onboardingDone{max-width:620px;margin:0 auto;text-align:center}
+.onboardingWelcome{padding-top:clamp(34px,8vh,82px)}
+.onboardingWelcome img{display:block;width:min(72%,310px);height:auto;margin:0 auto 34px}
+.onboardingScreen h1{margin:0;color:var(--text);font-size:clamp(29px,6vw,42px);line-height:1.12;letter-spacing:0}
+.onboardingScreen p{color:var(--muted);font-size:clamp(15px,2.8vw,17px);line-height:1.55}
+.onboardingLead{margin:18px 0 8px;color:var(--text)!important;font-weight:800}
+.onboardingPrimary,.onboardingSecondary{width:min(100%,360px);min-height:50px;margin:18px auto 0;font-size:16px;font-weight:900}
+.onboardingSecondary{display:block;background:var(--soft);border:1px solid var(--line);color:var(--text)}
+.onboardingChoice{padding-top:12px}
+.onboardingChoice .eyebrow,.onboardingDone .eyebrow{margin:10px 0 6px;color:var(--p)}
+.onboardingDifficultyList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0 14px;text-align:left}
+.onboardingDifficulty{min-width:0;min-height:174px;padding:16px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:10px;border:1px solid var(--line);border-radius:15px;background:var(--soft);color:var(--text);text-align:left;box-shadow:none}
+.onboardingDifficulty.selected{border-color:var(--p);background:var(--p2);box-shadow:0 0 0 2px rgba(30,150,138,.12)}
+.onboardingDifficultyTitle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.onboardingDifficultyTitle b{font-size:18px}
+.onboardingDifficultyTitle em{padding:4px 7px;border-radius:999px;background:var(--p);color:#fff;font-size:10px;font-style:normal;font-weight:900;white-space:nowrap}
+.onboardingDifficulty strong{font-size:13px;color:var(--p)}
+.onboardingDifficulty small{color:var(--muted);font-size:13px;line-height:1.35}
+.onboardingHint{margin:0!important;font-size:14px!important}
+.onboardingDone{padding-top:clamp(34px,8vh,76px)}
+.onboardingSelectedDifficulty{width:min(100%,360px);margin:24px auto;padding:18px;border:1px solid var(--p);border-radius:15px;background:var(--p2)}
+.onboardingSelectedDifficulty span,.onboardingSelectedDifficulty strong{display:block}
+.onboardingSelectedDifficulty span{color:var(--muted);font-size:13px;font-weight:800}
+.onboardingSelectedDifficulty strong{margin-top:4px;color:var(--p);font-size:28px}
+.onboardingActions{display:flex;flex-direction:column;align-items:center}
+.onboardingReplayButton{margin-top:10px;background:transparent;border:1px solid var(--line);color:var(--p);font-weight:900}
+@media(max-width:620px){
+  .onboardingScreen{min-height:calc(100dvh - 168px);margin:4px auto;padding:14px 14px 22px;border-radius:18px}
+  .onboardingWelcome{padding-top:clamp(24px,6vh,52px)}
+  .onboardingWelcome img{width:min(68%,250px);margin-bottom:26px}
+  .onboardingDifficultyList{grid-template-columns:1fr;gap:8px;margin:18px 0 12px}
+  .onboardingDifficulty{min-height:92px;padding:12px 13px;gap:6px}
+  .onboardingDifficulty small{font-size:12px}
+  .onboardingPrimary,.onboardingSecondary{min-height:48px;margin-top:14px}
+}
+@media(max-width:390px){
+  .onboardingScreen{padding-inline:11px}
+  .onboardingScreen h1{font-size:28px}
+  .onboardingScreen p{font-size:14px}
+  .onboardingDifficulty{min-height:88px;padding:10px 11px}
+  .onboardingDifficultyTitle b{font-size:16px}
+  .wideOnly{display:none}
+}
+@media(max-height:700px) and (max-width:620px){
+  .onboardingScreen{min-height:auto}
+  .onboardingWelcome,.onboardingDone{padding-top:18px}
+  .onboardingWelcome img{width:min(55%,210px);margin-bottom:18px}
+}

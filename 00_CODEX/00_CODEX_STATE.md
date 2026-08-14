@@ -216,3 +216,13 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Manifest, titulky a viditelne texty aplikace byly sjednoceny na `Moovka`.
 - Historicke dokumenty a existujici Guide Card / Step by Step PNG nebyly hromadne prepisovany.
 - Verze: `v59.78-dev`; cache: `style.css?v=5978moovka`, `app.js?v=5978moovka`.
+
+## Moovka onboarding v59.79-dev
+
+- Prvni skutecny vstup nove uzivatelky do 30denniho programu otevre trikrokovy uvodni pruvodce.
+- Persistentni marker: `moovka-onboarding-completed-v1`.
+- Existujici profil je rozpoznan podle realnych `pb40-*` dat pokroku, logu, oblibenych, mereni nebo poznamek; onboarding se mu automaticky nevnucuje.
+- Rucni spusteni je dostupne pres `Program -> O programu -> Zobrazit uvodni pruvodce` a nemeni data, dokud uzivatelka pruvodce nedokonci.
+- Vybrana obtiznost se pri dokonceni uklada do existujiciho `pb40-program-difficulty-v1`.
+- Android Back pouziva stavajici globalni `popstate`; rucni pruvodce se vraci na puvodni obrazovku a povinny prvni pruchod nelze Backem obejit.
+- Verze/cache: `v59.79-dev`, `style.css?v=5979onboarding`, `app.js?v=5979onboarding`.

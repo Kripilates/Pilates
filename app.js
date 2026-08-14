@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.78-dev';
+const APP_VERSION='v59.79-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -26,6 +26,7 @@ const PROGRAM_DIFFICULTY_KEY='pb40-program-difficulty-v1';
 const DIFFICULTY_MIGRATION_NOTICE_KEY='pb40-difficulty-migration-notice-v1';
 const PROGRAM_LAYOUT_KEY='pb40-program-layout-v2';
 const PROGRAM_LAYOUT_VERSION='2';
+const ONBOARDING_COMPLETED_KEY='moovka-onboarding-completed-v1';
 const DIFFICULTY_VALUES=['easy','medium','hard'];
 const PROGRAM_WEEK_HINTS=[
   {from:0,to:9,text:'První týden se zaměřujeme na techniku, klidné tempo a kontrolovaný pohyb.'},
@@ -33,6 +34,7 @@ const PROGRAM_WEEK_HINTS=[
   {from:20,to:29,text:'Třetí týden zpevni střed a pracuj přesněji. Cvič poctivě, ale ne přes bolest.'}
 ];
 let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
+let onboardingSession=null;
 if(!data||!data.days||!data.exercises){
   app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
 }
@@ -250,6 +252,11 @@ function hasLegacyProgramData(){
   }
   return false;
 }
+function onboardingCompleted(){return localStorage.getItem(ONBOARDING_COMPLETED_KEY)==='1';}
+function migrateExistingProfileOnboarding(){
+  if(!onboardingCompleted()&&hasLegacyProgramData())localStorage.setItem(ONBOARDING_COMPLETED_KEY,'1');
+}
+function shouldStartRequiredOnboarding(){return !onboardingCompleted()&&!hasLegacyProgramData();}
 function migrateLegacyDifficulty(){
   if(getProgramDifficulty())return;
   if(localStorage.getItem(PROGRAM_DIFFICULTY_KEY)!==null)localStorage.removeItem(PROGRAM_DIFFICULTY_KEY);
@@ -1739,7 +1746,7 @@ function exportProgress(){
   const payload={version:'PB40-v60-difficulty1',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
-    if(k&&k.startsWith('pb40-')) payload.items[k]=localStorage.getItem(k);
+    if(k&&(k.startsWith('pb40-')||k===ONBOARDING_COMPLETED_KEY)) payload.items[k]=localStorage.getItem(k);
   }
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');
@@ -1752,7 +1759,7 @@ function allowedBackupKey(k){
   return /^pb40-d\d+-e\d+$/.test(k) ||
     /^pb40-log-\d{4}-\d{2}-\d{2}$/.test(k) ||
     /^pb40-fav-[a-z0-9_-]+$/i.test(k) ||
-    k===measureKey || k===noteKey || k===introKey ||
+    k===measureKey || k===noteKey || k===introKey || k===ONBOARDING_COMPLETED_KEY ||
     k===PROGRAM_DIFFICULTY_KEY || k===DIFFICULTY_MIGRATION_NOTICE_KEY || k===PROGRAM_LAYOUT_KEY;
 }
 function cleanBackupValue(k,v){
@@ -1766,7 +1773,7 @@ function cleanBackupValue(k,v){
   }
   if(k===PROGRAM_DIFFICULTY_KEY)return validDifficulty(String(v))||'medium';
   if(k===PROGRAM_LAYOUT_KEY)return String(v)===PROGRAM_LAYOUT_VERSION?PROGRAM_LAYOUT_VERSION:null;
-  if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-log-/.test(k) || /^pb40-fav-/.test(k) || k===introKey){
+  if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-log-/.test(k) || /^pb40-fav-/.test(k) || k===introKey || k===ONBOARDING_COMPLETED_KEY){
     return String(v)==='1'?'1':'0';
   }
   if(k===DIFFICULTY_MIGRATION_NOTICE_KEY)return String(v)==='1'?'1':'0';
@@ -1831,6 +1838,7 @@ function programInfo(){
     <h2>O programu</h2>
     <p>30denní domácí plán pro zpevnění středu těla, hýždí, zadních stehen a držení těla. Je stavěný tak, aby šel cvičit reálně i v běžném dni.</p>
     <button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button>
+    <button class="onboardingReplayButton" data-action="show-onboarding">Zobrazit úvodní průvodce</button>
   </section>
   <section class="card programCard"><h2>Co tě čeká</h2>
     <div class="programSteps">
@@ -1868,6 +1876,73 @@ function home(){
   scrollTop();
 }
 
+function onboardingStepIndicator(step){
+  return `<div class="onboardingProgress" aria-label="Krok ${step} ze 3"><span>${step} z 3</span><div aria-hidden="true">${[1,2,3].map(value=>`<i class="${value===step?'active':''}"></i>`).join('')}</div></div>`;
+}
+function onboardingDifficultyOptions(selected){
+  const descriptions={
+    easy:['Menší objem','2 série','Pro pozvolnější start nebo návrat ke cvičení.'],
+    medium:['Doporučená','3 série','Plnohodnotný trénink s rozumnou výzvou.'],
+    hard:['Vyšší objem','3 série','Pro zkušenější a pro větší výzvu.']
+  };
+  return DIFFICULTY_VALUES.map(value=>{
+    const [meta,sets,copy]=descriptions[value];
+    const isSelected=value===selected;
+    return `<button class="onboardingDifficulty ${isSelected?'selected':''}" data-action="onboarding-select" data-difficulty="${value}" role="radio" aria-checked="${isSelected}"><span class="onboardingDifficultyTitle"><b>${difficultyLabel(value)}</b>${value==='medium'?'<em>Doporučená</em>':''}</span><strong>${meta} · ${sets}</strong><small>${copy}</small></button>`;
+  }).join('');
+}
+function renderOnboarding(step=1,opts={}){
+  const safeStep=Math.max(1,Math.min(3,Number(step)||1));
+  if(!onboardingSession){
+    const hasProgress=hasLegacyProgramData();
+    onboardingSession={manual:Boolean(opts.manual),required:Boolean(opts.required),hasProgress,selected:getProgramDifficulty()||'medium'};
+  }
+  onboardingSession.selected=validDifficulty(onboardingSession.selected)||getProgramDifficulty()||'medium';
+  if(!opts.skipRoute){
+    setAppView('onboarding',{
+      step:safeStep,
+      manual:onboardingSession.manual,
+      required:onboardingSession.required,
+      hasProgress:onboardingSession.hasProgress,
+      selected:onboardingSession.selected
+    },{replace:Boolean(opts.replaceRoute)});
+  }
+  lastMode='onboarding';setNav('days');
+  const close=onboardingSession.manual?'<button class="onboardingClose" data-action="history-back" aria-label="Zavřít průvodce">Zavřít</button>':'';
+  let content='';
+  if(safeStep===1){
+    content=`<div class="onboardingWelcome"><img src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt="Moovka"><h1>Vítej v Moovce</h1><p class="onboardingLead">30 dní pohybu pro pevnější tělo, lepší kondici<br class="wideOnly"> a dobrý pocit ze cvičení.</p><p>Cvičíš svým tempem a obtížnost můžeš kdykoliv změnit.</p><button class="primary onboardingPrimary" data-action="onboarding-next" data-step="2">Začít</button></div>`;
+  }else if(safeStep===2){
+    content=`<div class="onboardingChoice"><p class="eyebrow">30denní program</p><h1>Jak chceš začít?</h1><div class="onboardingDifficultyList" role="radiogroup" aria-label="Obtížnost programu">${onboardingDifficultyOptions(onboardingSession.selected)}</div><p class="onboardingHint">Obtížnost můžeš kdykoliv změnit v Plánu.</p><button class="primary onboardingPrimary" data-action="onboarding-next" data-step="3">Pokračovat</button></div>`;
+  }else{
+    const existing=onboardingSession.hasProgress;
+    content=`<div class="onboardingDone"><p class="eyebrow">Hotovo</p><h1>Máš nastaveno</h1><div class="onboardingSelectedDifficulty"><span>Obtížnost</span><strong>${difficultyLabel(onboardingSession.selected)}</strong></div><p>Moovka je připravená.<br>${existing?'Můžeš pokračovat tam, kde jsi skončila, nebo si prohlédnout celý plán.':'Můžeš začít prvním dnem nebo si nejdřív prohlédnout celý plán.'}</p><div class="onboardingActions"><button class="primary onboardingPrimary" data-action="onboarding-complete-primary">${existing?'Pokračovat v programu':'Spustit Den 1'}</button><button class="onboardingSecondary" data-action="onboarding-complete-plan">Prohlédnout plán</button></div></div>`;
+  }
+  app.innerHTML=`<section class="onboardingScreen" aria-labelledby="onboardingTitle"><div class="onboardingTop">${onboardingStepIndicator(safeStep)}${close}</div>${content}</section>`;
+  const heading=app.querySelector('.onboardingScreen h1');
+  if(heading)heading.id='onboardingTitle';
+  scrollTop();
+}
+function startOnboarding(manual=false){
+  const hasProgress=hasLegacyProgramData();
+  onboardingSession={manual:Boolean(manual),required:!manual&&!hasProgress,hasProgress,selected:getProgramDifficulty()||'medium'};
+  renderOnboarding(1);
+}
+function maybeStartRequiredOnboarding(){
+  if(!shouldStartRequiredOnboarding())return false;
+  startOnboarding(false);
+  return true;
+}
+function completeOnboarding(destination){
+  if(!onboardingSession)return;
+  const session={...onboardingSession};
+  if(!setProgramDifficulty(session.selected))return;
+  localStorage.setItem(ONBOARDING_COMPLETED_KEY,'1');
+  onboardingSession=null;
+  if(destination==='plan')return days();
+  if(session.hasProgress)return day(nextDayIndex());
+  return startTraining(0,true);
+}
 function difficultyOptionButtons(next,dayIndex){
   return DIFFICULTY_VALUES.map(value=>{
     const cfg=difficultyConfig(value);
@@ -1897,6 +1972,7 @@ function difficultyMigrationNotice(){
 }
 
 function days(){
+  if(maybeStartRequiredOnboarding())return;
   if(!getProgramDifficulty())return difficultyChooser('plan');
   setAppView('plan');
   lastMode='days';setNav('days');
@@ -1934,6 +2010,7 @@ function dayInfoGrid(di,items){
   return `<div class="dayInfoGrid"><div class="dayInfoLeft">${daySummary(di)}${difficultyControl('day',di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
 }
 function day(di,opts={}){
+  if(maybeStartRequiredOnboarding())return;
   if(!getProgramDifficulty())return difficultyChooser('day',di);
   setAppView('day',{day:di},{replace:Boolean(opts.replaceRoute)});
   lastMode='day';setNav('days');currentDay=di;
@@ -2065,6 +2142,7 @@ function openCurrentTraining(){
   return startTraining(nextDayIndex(),true);
 }
 function startTraining(di,auto=true){
+  if(maybeStartRequiredOnboarding())return;
   if(!getProgramDifficulty())return difficultyChooser('workout',di);
   void unlockAudio();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
@@ -2572,6 +2650,10 @@ function renderAppState(state){
       case 'intro': intro(); break;
       case 'home': home(); break;
       case 'difficulty': difficultyChooser(state.next||'plan',Number(state.day)||0,{skipRoute:true}); break;
+      case 'onboarding':
+        onboardingSession={manual:Boolean(state.manual),required:Boolean(state.required),hasProgress:Boolean(state.hasProgress),selected:validDifficulty(state.selected)||getProgramDifficulty()||'medium'};
+        renderOnboarding(Number(state.step)||1,{skipRoute:true});
+        break;
       case 'plan': days(); break;
       case 'day': day(Number(state.day)||0); break;
       case 'exercise-detail':
@@ -2607,12 +2689,7 @@ function initialiseAppHistory(){
     renderAppState(directDetail);
     return;
   }
-  if(localStorage.getItem(introKey)!=='1'){
-    const introState={pb40App:true,appView:'intro',pb40RouteKey:'intro'};
-    history.pushState(introState,'',rootUrl);
-    renderAppState(introState);
-    return;
-  }
+
   renderAppState(homeState);
 }
 app.addEventListener('click',e=>{
@@ -2639,6 +2716,11 @@ app.addEventListener('click',e=>{
     return t.dataset.view==='day'?day(Number(t.dataset.day)||0):days();
   }
   if(a==='program-info')return programInfo();
+  if(a==='show-onboarding')return startOnboarding(true);
+  if(a==='onboarding-next')return renderOnboarding(Number(t.dataset.step)||1,{replaceRoute:true});
+  if(a==='onboarding-select'){onboardingSession.selected=validDifficulty(t.dataset.difficulty)||onboardingSession.selected;return renderOnboarding(2,{replaceRoute:true});}
+  if(a==='onboarding-complete-primary')return completeOnboarding('primary');
+  if(a==='onboarding-complete-plan')return completeOnboarding('plan');
   if(a==='days')return days();
   if(a==='stats')return showStats();
   if(a==='calendar')return calendar();
@@ -2711,6 +2793,11 @@ window.addEventListener('popstate',event=>{
     day(exitDay);
     return;
   }
+  if(onboardingSession?.required&&event.state?.appView!=='onboarding'){
+    history.forward();
+    return;
+  }
+  if(onboardingSession&&event.state?.appView!=='onboarding')onboardingSession=null;
   if(event.state?.pb40Boundary){
     if(rootExitAllowed){
       rootExitAllowed=false;
@@ -2728,5 +2815,6 @@ window.addEventListener('popstate',event=>{
 });
 migrateProgramLayout();
 migrateLegacyDifficulty();
+migrateExistingProfileOnboarding();
 initialiseAppHistory();
 })();
