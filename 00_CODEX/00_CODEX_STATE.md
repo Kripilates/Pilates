@@ -246,3 +246,11 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Stránka O programu používá skutečný SVG logo asset bez textové kapsle.
 - Ukládání obtížnosti, progress, history, Android Back a workout flow zůstaly beze změny.
 - Verze/cache: v59.81-dev; style.css?v=5981onboardingpolish; app.js?v=5981onboardingpolish.
+
+## Plán ve 4 etapách — v59.82-dev
+
+- Zobrazení Plánu seskupuje dny do etap: 1–7, 8–14, 15–21 a 22–30.
+- Nadpisy: Rozjezd, Budujeme sílu, Posouváme se dál a Finále.
+- Progress badge počítá pouze aktivní tréninkové dny; etapy mají 6, 6, 6 a 8 aktivních dní.
+- Programová data, pořadí dnů, dávky, obtížnosti, dokončené dny a workout flow zůstaly beze změny.
+- Cache: style.css?v=5982planstages, app.js?v=5982planstages; data.js beze změny.

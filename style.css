@@ -3243,3 +3243,9 @@ main button:not(.primary):not(.active),
   .onboardingWelcome,.onboardingDone{padding-top:14px}
   .onboardingWelcome img{width:min(52%,200px);margin-bottom:15px}
 }
+
+/* v59.82: four-stage plan headings */
+.stageHead{align-items:flex-start}
+.stageHead h2{min-width:0;line-height:1.2}
+.stageHead .pill{flex:0 0 auto}
+@media(max-width:390px){.stageHead{align-items:center}.stageHead h2{max-width:calc(100% - 92px);font-size:20px}}
