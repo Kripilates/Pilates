@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.86-dev';
+const APP_VERSION='v59.87-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1869,9 +1869,9 @@ function programInfo(){
   </section>
   <section class="aboutProgramSection"><h2>Co tě čeká</h2>
     <div class="aboutFocusList">
-      <div><b>01</b><span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></span></div>
-      <div><b>02</b><span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></span></div>
-      <div><b>03</b><span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></span></div>
+      <article><span class="aboutFocusIcon">${lineIcon('glutes')}</span><div><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
+      <article><span class="aboutFocusIcon">${lineIcon('core')}</span><div><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
+      <article><span class="aboutFocusIcon">${lineIcon('mobility')}</span><div><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
     </div>
   </section>
   <section class="trainingPrinciplesSection"><h2>Jak cvičit správně</h2>
