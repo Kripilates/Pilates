@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.89-dev';
+const APP_VERSION='v59.90-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -291,6 +291,7 @@ function createWorkoutContext(di){
   return {
     dayIndex:di,
     difficulty,
+    startedAt:Date.now(),
     totalSets:difficultySets(difficulty),
     items:resolvedDayItems(di,difficulty),
     stretch:resolvedDayStretch(di,difficulty)
@@ -2535,21 +2536,26 @@ function doneNext(mark=true){
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
   const dayTitle=data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
   const completedCount=completedItems.length;
+  const workoutStartedAt=Number(workoutContext?.startedAt);
+  const elapsedMinutes=workoutStartedAt>0 ? Math.max(1,Math.round((Date.now()-workoutStartedAt)/60000)) : null;
   app.innerHTML=`<section class="finishExperience">
     <div class="finishHero">
       <img class="finishHeroImage" src="Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start_v01.png" alt="Z\u00e1v\u011bre\u010dn\u00e9 prota\u017een\u00ed Mermaid Stretch">
       <div class="finishBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""></div>
+      <div class="finishCompleteBadge">Den ${currentDay+1} dokon\u010den <span class="finishCompleteCheck">${lineIcon('quality')}</span></div>
       <div class="finishHeroCopy">
-        <p>Skv\u011bl\u00e1 pr\u00e1ce</p>
-        <h2>M\u00e1\u0161 hotovo!</h2>
-        <span>Dne\u0161n\u00ed tr\u00e9nink je za tebou.</span>
+        <p>Skv\u011bl\u00e1 pr\u00e1ce!</p>
+        <h2>M\u00e1\u0161<br>hotovo!</h2>
+        <span>Dne\u0161n\u00ed tr\u00e9nink<br>je za tebou.</span>
       </div>
+      <div class="finishWave" aria-hidden="true"><svg viewBox="0 0 760 92" preserveAspectRatio="none"><path class="finishWaveFill" d="M-12 58C145 8 282 4 430 40c111 27 205 53 342 21v38H-12Z"/><path class="finishWaveCoral" d="M-15 53C137 3 279 1 431 37c116 27 205 52 344 18"/><path class="finishWaveTeal" d="M-15 66C143 16 284 12 432 47c115 27 204 48 343 15"/></svg></div>
     </div>
     <div class="finishContent">
       <p class="finishDayMeta">Den ${currentDay+1} \u2022 ${esc(dayTitle)}</p>
       <div class="finishSummary" aria-label="Souhrn tr\u00e9ninku">
         <div><b>${completedCount}</b><span>cvik\u016f</span></div>
         <div><b>${workoutTotalSets}</b><span>s\u00e9rie</span></div>
+        ${elapsedMinutes!==null?`<div><b>${elapsedMinutes}</b><span>minut</span></div>`:''}
       </div>
       <div class="finishForm">
         <h3>Jak se ti dnes cvi\u010dilo?</h3>
@@ -2558,10 +2564,10 @@ function doneNext(mark=true){
           <button data-action="select-mood" data-mood="tough">N\u00e1ro\u010dn\u011bj\u0161\u00ed</button>
           <button data-action="select-mood" data-mood="pain">P\u0159\u00edli\u0161 n\u00e1ro\u010dn\u00e9</button>
         </div>
-        <button class="finishNoteToggle" data-action="toggle-finish-note" aria-expanded="false">${lineIcon('note')}<span>+ P\u0159idat pozn\u00e1mku</span></button>
+        <button class="finishNoteToggle" data-action="toggle-finish-note" aria-expanded="false"><span class="finishNoteToggleLabel">${lineIcon('note')}<span>+ P\u0159idat pozn\u00e1mku</span></span><span class="finishNoteChevron">${lineIcon('chevron')}</span></button>
         <div class="finishNoteField" hidden><textarea id="finish-note" placeholder="Co si chce\u0161 zapamatovat pro p\u0159\u00ed\u0161t\u011b?"></textarea></div>
       </div>
-      <button class="primary finishSaveButton" data-action="save-workout-note"><span>Ulo\u017eit a dom\u016f</span><span aria-hidden="true">\u203a</span></button>
+      <button class="primary finishSaveButton" data-action="save-workout-note"><span>Ulo\u017eit a dom\u016f</span>${lineIcon('chevron')}</button>
     </div>
   </section>`;
   workoutRunning=false;
