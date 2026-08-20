@@ -3373,3 +3373,42 @@ body.dark .libraryExercisePhoto{background:#fff}
   .libraryExerciseCard{grid-template-columns:108px minmax(0,1fr) 16px;gap:8px}
   .libraryExerciseMedia{width:108px}
 }
+/* v59.84: jasný mezistav výměny strany */
+.sideSwitchState{
+  min-height:clamp(280px,46vh,430px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:12px 0;
+  padding:28px 18px;
+  border:1px solid rgba(232,93,117,.34);
+  border-radius:24px;
+  background:radial-gradient(circle at 50% 38%,rgba(232,93,117,.18),transparent 46%),linear-gradient(160deg,var(--card),var(--soft));
+  text-align:center;
+}
+.sideSwitchState strong{
+  color:var(--danger);
+  font-size:clamp(24px,7vw,36px);
+  line-height:1.05;
+  letter-spacing:.08em;
+}
+.sideSwitchState span{
+  color:var(--danger);
+  font-size:clamp(78px,24vw,126px);
+  font-weight:900;
+  line-height:.9;
+  font-variant-numeric:tabular-nums;
+}
+.sideSwitchState small{
+  color:var(--text);
+  font-size:clamp(17px,4.8vw,22px);
+  font-weight:800;
+}
+body.dark .sideSwitchState{
+  background:radial-gradient(circle at 50% 38%,rgba(232,93,117,.2),transparent 46%),linear-gradient(160deg,var(--card),var(--soft));
+}
+@media(max-width:430px){
+  .sideSwitchState{min-height:42vh;margin:8px 0;padding:22px 14px}
+}

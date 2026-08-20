@@ -83,3 +83,18 @@ http://127.0.0.1:8765/
 
 **MANUAL DECISION REQUIRED:** Opravit nebo povolit lokalni browser sandbox; produkcni kod aplikace kvuli testu nemenit.
 
+## Následná finální browserová QA — 2026-08-20
+
+- Browser skutečně spuštěn: ANO (bundlovaný Playwright Chromium)
+- Moovka skutečně načtena: ANO
+- Testovaná URL: `http://127.0.0.1:8765/`
+- Viewporty: 360 × 844, 390 × 844, 430 × 844
+- Program, knihovna, kategorie a nové detaily: PASS
+- Bezpečné fallbacky a schválené source mappingy: PASS
+- Horizontální overflow: 0 nálezů
+- `pageerror`: 0; `console.error`: 0; chybné image response: 0
+- Side Plank první strana → VÝMĚNA STRANY (5 s) → druhá strana: PASS
+- Pauza, Přeskočit a návrat z detailu bez auto-advance: PASS
+- Screenshoty byly vytvořeny mimo repo v Codex visualizations prostoru.
+
+Verdikt následné QA: **PASS**

@@ -33,47 +33,26 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Standing Side Bend START
-2. Standing Side Bend HERO
-3. Standing Side Bend Guide Card
-4. Standing Side Bend Step by Step
-5. Supine Twist START
-6. Supine Twist HERO
-7. Supine Twist Guide Card
-8. Supine Twist Step by Step
-9. Swan Prep START
-10. Swan Prep HERO
-11. Swan Prep Guide Card
-12. Swan Prep Step by Step
-13. Swimming START
-14. Swimming HERO
-15. Swimming Guide Card
-16. Swimming Step by Step
-17. The Hundred START
-18. The Hundred HERO
-19. The Hundred Guide Card
-20. The Hundred Step by Step
-21. Thread the Needle START
-22. Thread the Needle HERO
-23. Thread the Needle Guide Card
-24. Thread the Needle Step by Step
-25. Triceps Kickback START
-26. Triceps Kickback HERO
-27. Triceps Kickback Guide Card
-28. Triceps Kickback Step by Step
-29. Wall Sit START
-30. Wall Sit HERO
-31. Wall Sit Guide Card
-32. Wall Sit Step by Step
+1. Standing Side Bend Guide Card
+2. Standing Side Bend Step by Step
+3. Supine Twist START / HERO / Guide / Step
+4. Swan Prep START / HERO / Guide / Step
+5. Swimming START / HERO / Guide / Step
+6. The Hundred START / HERO / Guide / Step
+7. Thread the Needle START / HERO / Guide / Step
+8. Triceps Kickback START / HERO / Guide / Step
+9. Rozpažování s činkami vleže HERO / Guide / Step
+10. Kliky na kolenou SOURCE / Guide / Step
+11. Wall Sit START / HERO / Guide / Step
 
 ## Souhrn
 
-Celkem cviků: 50
-Kompletně hotovo: 42
-Rozpracováno: 0
+Celkem cviků: 52
+Kompletně hotovo: 41
+Rozpracováno: 3
 Nezačato: 8
 
-Další doporučený cvik: Standing Side Bend START
+Další doporučený asset krok: Standing Side Bend Guide Card
 
 ## Přehled
 
@@ -86,6 +65,8 @@ Další doporučený cvik: Standing Side Bend START
 | Cat-Cow | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START, HERO/CAT fáze a END/COW fáze schválené; Guide Card a Step by Step schválené; App nasazena jako samostatný cvik `catcow`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Chest Opener | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO v04 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v04 manuálně schválené; Export a QA schválené; App nasazena přes `chest_opener` |
 | Chest Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO schválené; END = START; Guide Card a Step by Step schválené; anatomická reference byla při tvorbě použita, ale není fyzicky archivovaná; aplikace používá assets/exercises/chest_press.jpg a detailové reference Chest Press |
+| Rozpažování s činkami vleže | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ROZPRACOVÁNO | START reuse chest_press_hero_v01.png; vlastní HERO, Guide a Step PENDING; aplikace používá fallback |
+| Kliky na kolenou | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ČEKÁ | SOURCE, Guide a Step PENDING; aplikace používá fallback |
 | Child's Pose | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START bez samostatného PNG; Guide Card a Step by Step schválené; App nasazena přes `childs_pose`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Dead Bug | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
@@ -118,9 +99,9 @@ Další doporučený cvik: Standing Side Bend START
 | Side Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank`; sekvence START → HERO → START |
 | Side Plank Reach | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank_reach`; starý placeholder není aktivní |
 | Sphinx Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický stretch; START/HERO/END používají schválený START v01 bez fyzického HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `sphinx` |
-| Spine Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `spine` |
+| Spine Stretch | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ROZPRACOVÁNO | START/HERO v01 schválené a nasazené; END = START; Guide a Step PENDING |
 | Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; sekvence START → přitažení na jednu stranu → přitažení na opačnou stranu → START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID standing_oblique; programové dávky beze změny |
-| Standing Side Bend | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Standing Side Bend | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ROZPRACOVÁNO | START/HERO v01 nalezené; aplikace používá HERO; END = START; Guide a Step PENDING |
 | Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Swan Prep | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |

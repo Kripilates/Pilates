@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.83-dev';
+const APP_VERSION='v59.84-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1307,8 +1307,6 @@ const referenceExerciseAssets={
     start:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_hero_v01.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_step_by_step_v01.png',
     subtitle:'Záda • střed těla • mobilita páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Vzpřímený sed',photo:'start'},
@@ -2264,6 +2262,7 @@ function showAutoTrain(opts={}){
   const totalItems=dayObj.items.length*workoutTotalSets;
   const doneItems=workoutFinalStretch ? totalItems : (workoutCurrentSet-1)*dayObj.items.length + currentExercise;
   const progress=Math.min(100, Math.round((doneItems/Math.max(1,totalItems))*100));
+  const isSideSwitch = !workoutFinalStretch && info.side && !isAlternatingExercise(k,dose) && workoutPhase==='switch';
   const isTimedActive = ['prep','switch','roundRest'].includes(workoutPhase) || (info.timed && ['left','right','work'].includes(workoutPhase));
   const isConfirm = workoutPhase==='confirm';
   const isRepWork = !info.timed && ['work','left','right'].includes(workoutPhase);
@@ -2281,13 +2280,15 @@ function showAutoTrain(opts={}){
   const timerContent=`<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>`;
   const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
   const statusHtml=(workoutPhase==='prep'&&!workoutPaused) ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
-  const workoutHeaderHtml=hasTimerLayout
+  const workoutHeaderHtml=isSideSwitch
+    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`
+    : hasTimerLayout
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
   const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto"><span class="controlIcon" aria-hidden="true">${workoutPaused?'&#9654;':'&#8545;'}</span>${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto"><span class="controlIcon" aria-hidden="true">&#187;</span>Přeskočit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto"><span class="controlIcon" aria-hidden="true">&#9632;</span>Ukončit</button><button data-action="info" data-ex="${k}"><span class="controlIcon" aria-hidden="true">&#9432;</span>Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
-  const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0');
+  const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0') && (existing.dataset.workoutPhase==='switch')===(workoutPhase==='switch');
   if(canPatchExisting){
     existing.dataset.workoutPhase=workoutPhase;
     const bar=existing.querySelector('.progress .bar'); if(bar)bar.style.width=`${progress}%`;
@@ -2303,11 +2304,14 @@ function showAutoTrain(opts={}){
   const topLabel=workoutFinalStretch
     ? `<strong>ZÁVĚREČNÉ PROTAŽENÍ</strong><small>Den ${currentDay+1} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
     : `<small>Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>`;
+  const workoutVisualHtml=isSideSwitch
+    ? `<div class="sideSwitchState" role="status" aria-live="polite"><strong>VÝMĚNA STRANY</strong><span id="autoTimer">${workoutLeft}</span><small>Připrav druhou stranu</small></div>`
+    : `<div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="${workoutHeaderClass}" aria-label="Stav cviku">${workoutHeaderHtml}</div>
-    <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
+    ${workoutVisualHtml}
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
   if(opts.resetScroll)scrollTop();
@@ -2583,7 +2587,7 @@ const exerciseLibraryCategories={
   core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird']},
   glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','hip','plie','donkey','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
   legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','sideleg','plie','hip_march','scissors','hip','abduction']},
-  upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','plank','tap','sideplank','sideplank_reach']},
+  upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','chest_fly','knee_pushup','plank','tap','sideplank','sideplank_reach']},
   back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},
   mobility:{title:'Mobilita + protažení',support:'Uvolnění, rozsah pohybu a klidný dech.',icon:'mobility',ids:['swan','standing_side_bend','spine','sphinx','mermaid','supine_twist','catcow','thread','chest_opener','figure_four','hamstring_supine']}
 };

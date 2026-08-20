@@ -48,7 +48,7 @@ Datum specifikace: 12. 8. 2026
 
 **Závěrečné protažení:** Rotace páteře vleže — 35 s/strana
 
-## Den 3 – Horní část + držení těla
+## Den 3 – Horní část + prsa
 
 **Série:** L 2 | S 3 | N 3  
 **Pomůcky:** Podložka, Činky  
@@ -62,6 +62,7 @@ Datum specifikace: 12. 8. 2026
 | Triceps Kickback | 10× | 11× | 15× |
 | Bird Dog | 16× střídavě | 18× střídavě | 24× střídavě |
 | Prkno na předloktích | 15 s | 15 s | 30 s |
+| Rozpažování s činkami vleže | 8× | 9× | 12× |
 
 **Závěrečné protažení:** Chest Opener — 45 s
 
@@ -78,6 +79,7 @@ Datum specifikace: 12. 8. 2026
 | Clamshell | 10/10 | 11/11 | 15/15 |
 | Swan Prep | 25 s | 25 s | 40 s |
 | Toe Taps | 16× střídavě | 18× střídavě | 24× střídavě |
+| Bird Dog | 14× střídavě | 16× střídavě | 20× střídavě |
 
 **Závěrečné protažení:** Mermaid Stretch — 30 s/strana
 
@@ -112,6 +114,7 @@ Datum specifikace: 12. 8. 2026
 | Glute Bridge | 12× | 13× | 18× |
 | Plank Shoulder Taps | 12× střídavě | 13× střídavě | 20× střídavě |
 | Prkno na předloktích | 15 s | 15 s | 30 s |
+| Tlaky s činkami nad hlavu | 8× | 9× | 12× |
 
 **Závěrečné protažení:** Rotace páteře vleže — 35 s/strana
 
@@ -158,7 +161,7 @@ Datum specifikace: 12. 8. 2026
 
 **Závěrečné protažení:** Sphinx Stretch — 40 s
 
-## Den 10 – Horní část + držení těla
+## Den 10 – Horní část + prsa
 
 **Série:** L 2 | S 3 | N 3  
 **Pomůcky:** Podložka, Činky  
@@ -172,6 +175,7 @@ Datum specifikace: 12. 8. 2026
 | Tlaky s činkami vleže | 10× | 11× | 15× |
 | Bird Dog | 16× střídavě | 18× střídavě | 24× střídavě |
 | Swimming | 20 s | 20 s | 30 s |
+| Kliky na kolenou | 5× | 6× | 10× |
 
 **Závěrečné protažení:** Chest Opener — 45 s
 
@@ -222,6 +226,7 @@ Datum specifikace: 12. 8. 2026
 | Plank Shoulder Taps | 12× střídavě | 13× střídavě | 20× střídavě |
 | Pochod vleže | 8/8 | 9/9 | 12/12 |
 | Dead Bug | 16× střídavě | 18× střídavě | 24× střídavě |
+| Tlaky s činkami vleže | 10× | 11× | 15× |
 
 **Závěrečné protažení:** Rotace páteře vleže — 35 s/strana
 
@@ -268,7 +273,7 @@ Datum specifikace: 12. 8. 2026
 
 **Závěrečné protažení:** Sphinx Stretch — 40 s
 
-## Den 17 – Horní část + držení těla
+## Den 17 – Horní část + prsa
 
 **Série:** L 2 | S 3 | N 3  
 **Pomůcky:** Podložka, Činky  
@@ -282,6 +287,7 @@ Datum specifikace: 12. 8. 2026
 | Triceps Kickback | 10× | 11× | 14× |
 | Bird Dog | 18× střídavě | 20× střídavě | 24× střídavě |
 | Prkno na předloktích | 20 s | 20 s | 35 s |
+| Rozpažování s činkami vleže | 10× | 11× | 14× |
 
 **Závěrečné protažení:** Thread the Needle — 40 s/strana
 
@@ -298,6 +304,7 @@ Datum specifikace: 12. 8. 2026
 | Swimming | 25 s | 25 s | 35 s |
 | Heel Taps | 16× střídavě | 18× střídavě | 24× střídavě |
 | Spine Stretch | 30 s | 30 s | 45 s |
+| Protažení s rotací v kleku | 20 s/strana | 20 s/strana | 30 s/strana |
 
 **Závěrečné protažení:** Cat-Cow — 40 s
 
@@ -332,6 +339,7 @@ Datum specifikace: 12. 8. 2026
 | Tlaky s činkami vleže | 10× | 11× | 16× |
 | Boční prkno s rotací | 6/6 | 7/7 | 12/12 |
 | Swan Prep | 30 s | 30 s | 45 s |
+| Bent Over Row | 10× | 11× | 15× |
 
 **Závěrečné protažení:** Rotace páteře vleže — 35 s/strana
 
@@ -378,7 +386,7 @@ Datum specifikace: 12. 8. 2026
 
 **Závěrečné protažení:** Sphinx Stretch — 45 s
 
-## Den 24 – Horní část + držení těla
+## Den 24 – Horní část + prsa
 
 **Série:** L 2 | S 3 | N 3  
 **Pomůcky:** Podložka, Činky  
@@ -392,6 +400,7 @@ Datum specifikace: 12. 8. 2026
 | Triceps Kickback | 12× | 13× | 14× |
 | Tlaky s činkami vleže | 12× | 13× | 16× |
 | Bird Dog | 18× střídavě | 20× střídavě | 24× střídavě |
+| Kliky na kolenou | 6× | 7× | 10× |
 
 **Závěrečné protažení:** Chest Opener — 45 s
 
@@ -409,6 +418,7 @@ Datum specifikace: 12. 8. 2026
 | Swimming | 30 s | 30 s | 35 s |
 | The Hundred | 25 s | 25 s | 35 s |
 | Swan Prep | 30 s | 30 s | 35 s |
+| Protažení páteře v sedu | 30 s | 30 s | 40 s |
 
 **Závěrečné protažení:** Mermaid Stretch — 40 s/strana
 
@@ -443,6 +453,7 @@ Datum specifikace: 12. 8. 2026
 | Plank Shoulder Taps | 14× střídavě | 16× střídavě | 20× střídavě |
 | Glute Bridge | 16× | 18× | 22× |
 | Hollow Hold | 15 s | 15 s | 30 s |
+| Tlaky s činkami vleže | 10× | 11× | 14× |
 
 **Závěrečné protažení:** Rotace páteře vleže — 35 s/strana
 

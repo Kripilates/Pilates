@@ -254,3 +254,27 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Progress badge počítá pouze aktivní tréninkové dny; etapy mají 6, 6, 6 a 8 aktivních dní.
 - Programová data, pořadí dnů, dávky, obtížnosti, dokončené dny a workout flow zůstaly beze změny.
 - Cache: style.css?v=5982planstages, app.js?v=5982planstages; data.js beze změny.
+
+## Program a samostatná knihovna cviků — v59.83-dev
+
+- Výchozí stav této etapy je commit `2b9146b`, shodný s `origin/main`.
+- Program byl oddělen od katalogu cviků a používá samostatný dashboard.
+- Knihovna obsahuje šest kategorií, Oblíbené a Všechny cviky.
+- Kategorie, detail, history návraty, favorite flow, fallback obrázků a dark mode byly následně ověřeny v reálném browseru.
+- Mobilní QA 360 / 390 / 430 px: bez horizontálního overflow, pageerror a console.error.
+- Cache: `style.css?v=5983programlibrary`, `app.js?v=5983programlibrary`.
+
+## Program, copy, asset mapping a „VÝMĚNA STRANY“ — v59.84-dev
+
+- Počet unikátních exercise IDs se změnil z 50 na 52.
+- Přidány byly `chest_fly` a `knee_pushup`, oba v kategorii Horní část + prsa.
+- Program byl doplněn ve dnech 3, 4, 6, 10, 13, 17, 18, 20, 24, 25 a 27; core dny 2, 9, 16, 23 a 30 zůstaly beze změny.
+- Lehká = 2 série, Střední = 3 série, Náročná = 3 série. Volno zůstává ve dnech 7, 14, 21 a 28. Závěrečný stretch zůstává jednou po hlavních sériích.
+- Side-switch používá stávajících 5 sekund a zobrazuje „VÝMĚNA STRANY“, aktuální odpočet a „Připrav druhou stranu“ bez exercise obrázku.
+- Browser QA na Side Plank potvrdila první stranu, výměnu, druhou stranu, Pauzu, Přeskočit i návrat z detailu bez auto-advance.
+- Standing Side Bend používá nalezený HERO. Swan Prep, Supine Twist, Swimming a Triceps Kickback používají bezpečný fallback.
+- Spine Stretch START/HERO jsou nasazené; Guide a Step zůstávají PENDING.
+- QA syntax, data, program, mappingy a browser 360/390/430: PASS.
+- Verze/cache: `v59.84-dev`; `style.css?v=5984programcopy`, `data.js?v=5984programcopy`, `app.js?v=5984programcopy`.
+- Commit: NE
+- Push: NE
