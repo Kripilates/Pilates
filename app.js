@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.84-dev';
+const APP_VERSION='v59.85-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1856,15 +1856,21 @@ function programInfo(){
     <button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button>
     <button class="onboardingReplayButton" data-action="show-onboarding">Zobrazit úvodní průvodce</button>
   </section>
-  <section class="card programCard"><h2>Co tě čeká</h2>
+  <section class="card programCard aboutProgramSection"><h2>Co tě čeká</h2>
     <div class="programSteps">
-      <div><b>01</b><h3>Hýždě + zadní stehna</h3><p class="muted">Tlak přes paty, pomalejší tempo, žádné švihání.</p></div>
-      <div><b>02</b><h3>Břicho + pas</h3><p class="muted">Core cviky bez tahání krkem a bez prohýbání beder.</p></div>
-      <div><b>03</b><h3>Mobilita a celé tělo</h3><p class="muted">Odlehčené dny, záda, ramena a plynulost pohybu.</p></div>
+      <div><b>01</b><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div>
+      <div><b>02</b><h3>Břicho + pas</h3><p>Stabilní střed těla bez zbytečného přetěžování.</p></div>
+      <div><b>03</b><h3>Mobilita a celé tělo</h3><p>Záda, ramena, pohyblivost a lehčí celotělové dny.</p></div>
     </div>
   </section>
-  <section class="card"><h2>Jak cvičit správně</h2>
-    <ul class="cleanList"><li>Raději menší rozsah a čistý pohyb než rychlé opakování.</li><li>U hýžďových cviků si hlídej, že necítíš hlavně kyčle.</li><li>U břicha dýchej a drž bedra stabilní.</li><li>Bolest kolen znamená zmenšit rozsah nebo cvik přeskočit.</li></ul>
+  <section class="card trainingPrinciplesSection"><h2>Jak cvičit správně</h2>
+    <div class="trainingPrinciples">
+      <div class="trainingPrinciple"><span>${lineIcon('quality')}</span><div><h3>Kvalita před rychlostí</h3><p>Cvič pomalu a kontrolovaně. Raději méně správných opakování než rychlý pohyb bez kontroly.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('breathe')}</span><div><h3>Dýchej</h3><p>Nezadržuj dech. Výdech ti pomůže zvládnout náročnější část pohybu.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('listen')}</span><div><h3>Poslouchej tělo</h3><p>Svalová práce je v pořádku. Ostrá nebo kloubní bolest není.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('adjust')}</span><div><h3>Přizpůsob si cvik</h3><p>Když je cvik příliš těžký, zmenši rozsah nebo zvol lehčí variantu.</p></div></div>
+    </div>
+    <aside class="trainingSafety">${lineIcon('shield')}<div><strong>Cvič bezpečně</strong><p>Pokud při cvičení cítíš ostrou nebo neobvyklou bolest, cvik přeruš. Při zdravotních potížích nebo nejistotě se poraď s lékařem nebo fyzioterapeutem.</p></div></aside>
   </section>`;
   scrollTop();
 }
@@ -2608,6 +2614,11 @@ function lineIcon(name){
     mobility:'<path d="M5 12h14M8 8l-4 4 4 4m8-8 4 4-4 4"/>',
     heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
     all:'<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
+    quality:'<path d="m5 13 4 4L19 7"/><path d="M4 4h16v16H4z"/>',
+    breathe:'<path d="M4 10c3 0 3-4 6-4 2.5 0 3 2 3 4s-1.5 4-4 4H5"/><path d="M9 18h7c2.2 0 4-1.6 4-3.6S18.2 11 16 11h-1"/>',
+    listen:'<path d="M12 21s7-4.4 7-11a4 4 0 0 0-7-2.6A4 4 0 0 0 5 10c0 6.6 7 11 7 11z"/><path d="M9 12h2l1-3 1.5 6 1-3H17"/>',
+    adjust:'<path d="M4 7h10m4 0h2M4 17h2m4 0h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
+    shield:'<path d="M12 3 5 6v5c0 4.7 2.8 8 7 10 4.2-2 7-5.3 7-10V6z"/><path d="m9 12 2 2 4-4"/>',
     backArrow:'<path d="m15 18-6-6 6-6"/>',
     chevron:'<path d="m9 18 6-6-6-6"/>'
   };

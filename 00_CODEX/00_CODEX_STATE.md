@@ -278,3 +278,13 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Verze/cache: `v59.84-dev`; `style.css?v=5984programcopy`, `data.js?v=5984programcopy`, `app.js?v=5984programcopy`.
 - Commit: NE
 - Push: NE
+
+## O programu + Jak cvičit správně — v59.85-dev
+
+- Hero a finální logo Moovka zůstaly beze změny.
+- „Co tě čeká“ používá tři kompaktní programové oblasti s kratšími texty.
+- „Jak cvičit správně“ používá čtyři stručné principy s existujícím line-icon stylem a samostatné klidné bezpečnostní doporučení.
+- Mobilní browser QA 360 / 390 / 430 px, dark mode, history návrat, overflow a application console/page errors: PASS.
+- Verze/cache: v59.85-dev; style.css?v=5985aboutprinciples, app.js?v=5985aboutprinciples; data.js beze změny.
+- Commit: NE
+- Push: NE
