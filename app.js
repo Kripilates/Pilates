@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.88-dev';
+const APP_VERSION='v59.89-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -2258,15 +2258,19 @@ function showSeriesRest(){
   const dayObj=data.days[currentDay];
   const completedSet=Math.max(1,workoutCurrentSet-1);
   const progress=Math.min(100, Math.round((completedSet*dayObj.items.length/Math.max(1,dayObj.items.length*workoutTotalSets))*100));
-  renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain seriesRestScreen" data-current-day="${currentDay}" data-current-index="${currentExercise}">
-    <div class="trainTop2 trainTop2--compact"><span class="dose">Den ${currentDay+1} • Pauza mezi sériemi</span></div>
+  const restProgress=Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SERIES_REST_SECONDS)*100));
+  renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain seriesRestScreen workoutTransitionScreen" data-current-day="${currentDay}" data-current-index="${currentExercise}">
+    <div class="trainTop2 trainTop2--compact"><span class="dose">Den ${currentDay+1} \u2022 Pauza mezi s\u00e9riemi</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
-    <div class="phasePill">${phaseLabel()}</div>
-    <h2 class="trainName">Série ${completedSet} ze ${workoutTotalSets} dokončena ✓</h2>
-    <p class="muted" style="text-align:center">Odpočiň si před další sérií.</p>
-    <div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${formatCountdown(workoutLeft)}</span></div></div>
-    <p class="sidePlainText">Další: Série ${workoutCurrentSet} ze ${workoutTotalSets}</p>
-    <div class="row trainControls"><button class="primary" data-action="toggle-auto"><span class="controlIcon" aria-hidden="true">${workoutPaused?'&#9654;':'&#8545;'}</span>${workoutPaused?'Pokračovat':'Pauza'}</button><button data-action="skip-auto"><span class="controlIcon" aria-hidden="true">&#187;</span>Přeskočit</button><button class="trainStopBtn" data-action="stop-auto"><span class="controlIcon" aria-hidden="true">&#9632;</span>Ukončit</button></div>
+    <div class="workoutTransitionState" role="status" aria-live="polite">
+      <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""></div>
+      <p class="workoutTransitionEyebrow">S\u00e9rie ${completedSet} dokon\u010dena</p>
+      <h2>Kr\u00e1tk\u00fd odpo\u010dinek</h2>
+      <strong class="workoutTransitionCountdown" id="autoTimer">${formatCountdown(workoutLeft)}</strong>
+      <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${restProgress}%"></i></div>
+      <small>N\u00e1sleduje: S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>
+    </div>
+    <div class="row trainControls"><button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pauza'}</button><button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button><button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button></div>
   </section>`);
   scrollTop();
 }
@@ -2303,7 +2307,7 @@ function showAutoTrain(opts={}){
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
-  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">✓ Dokončeno</button>`:`<button class="primary" data-action="toggle-auto"><span class="controlIcon" aria-hidden="true">${workoutPaused?'&#9654;':'&#8545;'}</span>${workoutPaused?'Pokračovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto"><span class="controlIcon" aria-hidden="true">&#187;</span>Přeskočit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto"><span class="controlIcon" aria-hidden="true">&#9632;</span>Ukončit</button><button data-action="info" data-ex="${k}"><span class="controlIcon" aria-hidden="true">&#9432;</span>Detail cviku</button>`;
+  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button><button data-action="info" data-ex="${k}">${lineIcon('info')}Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0') && (existing.dataset.workoutPhase==='switch')===(workoutPhase==='switch');
   if(canPatchExisting){
@@ -2321,8 +2325,16 @@ function showAutoTrain(opts={}){
   const topLabel=workoutFinalStretch
     ? `<strong>ZÁVĚREČNÉ PROTAŽENÍ</strong><small>Den ${currentDay+1} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
     : `<small>Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>`;
+  const switchDetail=sideNoticeNext ? `${ex.name} \u2022 ${sideNoticeNext.toLowerCase()}` : ex.name;
   const workoutVisualHtml=isSideSwitch
-    ? `<div class="sideSwitchState" role="status" aria-live="polite"><strong>VÝMĚNA STRANY</strong><span id="autoTimer">${workoutLeft}</span><small>Připrav druhou stranu</small></div>`
+    ? `<div class="workoutTransitionState sideSwitchState" role="status" aria-live="polite">
+        <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""></div>
+        <p class="workoutTransitionEyebrow">Druh\u00e1 strana</p>
+        <h2>P\u0159iprav se na druhou stranu</h2>
+        <strong class="workoutTransitionCountdown" id="autoTimer">${workoutLeft}</strong>
+        <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SWITCH_SECONDS)*100))}%"></i></div>
+        <small>${switchDetail}</small>
+      </div>`
     : `<div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
@@ -2345,6 +2357,11 @@ function tickAuto(){
   }
   const el=document.getElementById('autoTimer'); if(el)el.textContent=workoutPhase==='roundRest'?formatCountdown(workoutLeft):workoutLeft;
   const circle=document.querySelector('.timerCircle'); if(circle)circle.style.background=timerCircleStyle();
+  const transitionLine=document.getElementById('workoutTransitionProgress');
+  if(transitionLine){
+    const total=workoutPhase==='switch' ? WORKOUT_SWITCH_SECONDS : workoutPhase==='roundRest' ? WORKOUT_SERIES_REST_SECONDS : 1;
+    transitionLine.style.width=`${Math.max(0,Math.min(100,(workoutLeft/total)*100))}%`;
+  }
 }
 function startWorkoutTimer(resetScroll=false){
   clearInterval(timer);
@@ -2425,9 +2442,7 @@ function advanceAutoPhase(){
         return;
       }
       clearInterval(timer);
-      workoutPhase='confirm';
-      workoutLeft=0;
-      showAutoTrain();
+      completeOneSet();
       return;
     }
     completeOneSet();
@@ -2517,20 +2532,37 @@ function doneNext(mark=true){
   if(mark)setDone(currentDay,currentExercise);
   const max=data.days[currentDay].items.length-1;
   if(currentExercise<max){currentExercise++;showTrain();return;}
-  const next=currentDay+1<data.days.length?currentDay+1:0;
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
-  app.innerHTML=`<section class="card finishCard">
-    <div class="finishEmoji">🎉</div>
-    <h2>Den hotový</h2>
-    <p class="muted">${data.days[currentDay].title}</p>
-    <div class="finishSummary"><div><b>${completedItems.length}</b><span>cviků</span></div><div><b>${completedItems.filter(x=>!isTimedDose(x[1])).length*workoutTotalSets}</b><span>kol</span></div><div><b>${completedItems.filter(x=>isTimedDose(x[1])).length}</b><span>časové cviky</span></div></div>
-    <div class="finishForm">
-      <b>Jaké to dnes bylo?</b>
-      <div class="moodRow"><button data-action="select-mood" data-mood="good">😊 dobré</button><button data-action="select-mood" data-mood="tough">😅 těžší</button><button data-action="select-mood" data-mood="pain">⚠ něco bolelo</button></div>
-      <textarea id="finish-note" placeholder="Krátká poznámka: co šlo dobře, co bolelo, co upravit příště…"></textarea>
+  const dayTitle=data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
+  const completedCount=completedItems.length;
+  app.innerHTML=`<section class="finishExperience">
+    <div class="finishHero">
+      <img class="finishHeroImage" src="Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start_v01.png" alt="Z\u00e1v\u011bre\u010dn\u00e9 prota\u017een\u00ed Mermaid Stretch">
+      <div class="finishBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""></div>
+      <div class="finishHeroCopy">
+        <p>Skv\u011bl\u00e1 pr\u00e1ce</p>
+        <h2>M\u00e1\u0161 hotovo!</h2>
+        <span>Dne\u0161n\u00ed tr\u00e9nink je za tebou.</span>
+      </div>
     </div>
-    <button class="primary bigbtn" data-action="save-workout-note">Uložit a domů</button>
-    <div class="row"><button data-action="home">Přeskočit poznámku</button><button data-action="day" data-day="${next}">Další den</button></div>
+    <div class="finishContent">
+      <p class="finishDayMeta">Den ${currentDay+1} \u2022 ${esc(dayTitle)}</p>
+      <div class="finishSummary" aria-label="Souhrn tr\u00e9ninku">
+        <div><b>${completedCount}</b><span>cvik\u016f</span></div>
+        <div><b>${workoutTotalSets}</b><span>s\u00e9rie</span></div>
+      </div>
+      <div class="finishForm">
+        <h3>Jak se ti dnes cvi\u010dilo?</h3>
+        <div class="moodRow">
+          <button data-action="select-mood" data-mood="good">Dob\u0159e</button>
+          <button data-action="select-mood" data-mood="tough">N\u00e1ro\u010dn\u011bj\u0161\u00ed</button>
+          <button data-action="select-mood" data-mood="pain">P\u0159\u00edli\u0161 n\u00e1ro\u010dn\u00e9</button>
+        </div>
+        <button class="finishNoteToggle" data-action="toggle-finish-note" aria-expanded="false">${lineIcon('note')}<span>+ P\u0159idat pozn\u00e1mku</span></button>
+        <div class="finishNoteField" hidden><textarea id="finish-note" placeholder="Co si chce\u0161 zapamatovat pro p\u0159\u00ed\u0161t\u011b?"></textarea></div>
+      </div>
+      <button class="primary finishSaveButton" data-action="save-workout-note"><span>Ulo\u017eit a dom\u016f</span><span aria-hidden="true">\u203a</span></button>
+    </div>
   </section>`;
   workoutRunning=false;
   workoutContext=null;
@@ -2630,6 +2662,11 @@ function lineIcon(name){
     clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     levels:'<path d="M5 19V13h4v6M10 19V9h4v10M15 19V5h4v14"/><path d="M3 19h18"/>',
     equipment:'<path d="M7 8v8M4 10v4m13-6v8m3-6v4M7 12h10"/>',
+    play:'<path d="m9 6 9 6-9 6z"/>',
+    pause:'<path d="M9 6v12M15 6v12"/>',
+    skip:'<path d="m6 7 6 5-6 5zM12 7l6 5-6 5z"/>',
+    stop:'<rect x="7" y="7" width="10" height="10" rx="1"/>',
+    note:'<path d="M5 19h4l10-10-4-4L5 15z"/><path d="m13 7 4 4"/>',
     listen:'<path d="M12 21s7-4.4 7-11a4 4 0 0 0-7-2.6A4 4 0 0 0 5 10c0 6.6 7 11 7 11z"/><path d="M9 12h2l1-3 1.5 6 1-3H17"/>',
     adjust:'<path d="M4 7h10m4 0h2M4 17h2m4 0h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
     shield:'<path d="M12 3 5 6v5c0 4.7 2.8 8 7 10 4.2-2 7-5.3 7-10V6z"/><path d="m9 12 2 2 4-4"/>',
@@ -2848,6 +2885,14 @@ app.addEventListener('click',e=>{
   if(a==='save-measure')return saveMeasureFromForm();
   if(a==='export-progress')return exportProgress();
   if(a==='save-workout-note')return saveWorkoutNote();
+  if(a==='toggle-finish-note'){
+    const field=document.querySelector('.finishNoteField');
+    if(!field)return;
+    field.hidden=!field.hidden;
+    t.setAttribute('aria-expanded',String(!field.hidden));
+    if(!field.hidden)document.getElementById('finish-note')?.focus();
+    return;
+  }
   if(a==='select-mood'){document.querySelectorAll('.moodRow button').forEach(b=>b.classList.remove('selected'));t.classList.add('selected');return;}
   if(a==='library')return library();
   if(a==='library-list')return exerciseLibrary();
