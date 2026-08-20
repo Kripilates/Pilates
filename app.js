@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.87-dev';
+const APP_VERSION='v59.88-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1869,19 +1869,19 @@ function programInfo(){
   </section>
   <section class="aboutProgramSection"><h2>Co tě čeká</h2>
     <div class="aboutFocusList">
-      <article><span class="aboutFocusIcon">${lineIcon('glutes')}</span><div><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
-      <article><span class="aboutFocusIcon">${lineIcon('core')}</span><div><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
-      <article><span class="aboutFocusIcon">${lineIcon('mobility')}</span><div><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v1.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png" alt="Russian Twist"><div><span class="aboutFocusAccent">${lineIcon('core')}</span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero_v01.png" alt="Mermaid"><div><span class="aboutFocusAccent">${lineIcon('mobility')}</span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
     </div>
   </section>
   <section class="trainingPrinciplesSection"><h2>Jak cvičit správně</h2>
     <div class="trainingPrinciples">
-      <div class="trainingPrinciple"><span>${lineIcon('quality')}</span><div><h3>Kvalita před rychlostí</h3><p>Cvič pomalu a kontrolovaně. Raději méně správných opakování než rychlý pohyb bez kontroly.</p></div></div>
-      <div class="trainingPrinciple"><span>${lineIcon('breathe')}</span><div><h3>Dýchej</h3><p>Nezadržuj dech. Výdech ti pomůže zvládnout náročnější část pohybu.</p></div></div>
-      <div class="trainingPrinciple"><span>${lineIcon('listen')}</span><div><h3>Poslouchej tělo</h3><p>Svalová práce je v pořádku. Ostrá nebo kloubní bolest není.</p></div></div>
-      <div class="trainingPrinciple"><span>${lineIcon('adjust')}</span><div><h3>Přizpůsob si cvik</h3><p>Když je cvik příliš těžký, zmenši rozsah nebo zvol lehčí variantu.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('quality')}</span><div><h3>Kvalita před rychlostí</h3><p>Cvič pomalu a kontrolovaně.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('breathe')}</span><div><h3>Dýchej</h3><p>Nezadržuj dech.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('listen')}</span><div><h3>Poslouchej tělo</h3><p>Ostrá nebo kloubní bolest není v pořádku.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('adjust')}</span><div><h3>Přizpůsob si cvik</h3><p>Zmenši rozsah nebo zvol lehčí variantu.</p></div></div>
     </div>
-    <aside class="trainingSafety">${lineIcon('shield')}<div><strong>Cvič bezpečně</strong><p>Pokud při cvičení cítíš ostrou nebo neobvyklou bolest, cvik přeruš. Při zdravotních potížích nebo nejistotě se poraď s lékařem nebo fyzioterapeutem.</p></div></aside>
+    <aside class="trainingSafety">${lineIcon('shield')}<div><strong>Cvič bezpečně</strong><p>Při ostré nebo neobvyklé bolesti cvik přeruš. Při zdravotních potížích se poraď s lékařem nebo fyzioterapeutem.</p></div></aside>
   </section>
   </div>`;
   scrollTop();
