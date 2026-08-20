@@ -288,3 +288,14 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Verze/cache: v59.85-dev; style.css?v=5985aboutprinciples, app.js?v=5985aboutprinciples; data.js beze změny.
 - Commit: NE
 - Push: NE
+## Standing Side Bend — v59.91-dev
+
+- Schválené START, HERO pro jednu stranu, HERO pro opačnou stranu, Guide Card a Step by Step v01 jsou nasazené pod ID `standing_side_bend`.
+- Referenční detail používá sekvenci START → úklon na jednu stranu → START → úklon na opačnou stranu bez zrcadlení source obrázků.
+- Technické texty výslovně rozlišují cvik od Standing Oblique Crunch: bez přitahování lokte ke koleni, bez rotace a bez předklonu.
+- Programové dávky a dny 4, 11, 20 a 25 zůstaly beze změny.
+- Progress: 52 celkem, 42 HOTOVO, 2 ROZPRACOVÁNO, 8 ČEKÁ.
+- NEXT TASK: Supine Twist START.
+- Verze/cache: `v59.91-dev`; `data.js?v=5991standingsidebend`, `app.js?v=5991standingsidebend`; `style.css` beze změny.
+- Commit: NE
+- Push: NE

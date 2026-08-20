@@ -33,26 +33,24 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Standing Side Bend Guide Card
-2. Standing Side Bend Step by Step
-3. Supine Twist START / HERO / Guide / Step
-4. Swan Prep START / HERO / Guide / Step
-5. Swimming START / HERO / Guide / Step
-6. The Hundred START / HERO / Guide / Step
-7. Thread the Needle START / HERO / Guide / Step
-8. Triceps Kickback START / HERO / Guide / Step
-9. Rozpažování s činkami vleže HERO / Guide / Step
-10. Kliky na kolenou SOURCE / Guide / Step
-11. Wall Sit START / HERO / Guide / Step
+1. Supine Twist START / HERO / Guide / Step
+2. Swan Prep START / HERO / Guide / Step
+3. Swimming START / HERO / Guide / Step
+4. The Hundred START / HERO / Guide / Step
+5. Thread the Needle START / HERO / Guide / Step
+6. Triceps Kickback START / HERO / Guide / Step
+7. Rozpažování s činkami vleže HERO / Guide / Step
+8. Kliky na kolenou SOURCE / Guide / Step
+9. Wall Sit START / HERO / Guide / Step
 
 ## Souhrn
 
 Celkem cviků: 52
-Kompletně hotovo: 41
-Rozpracováno: 3
+Kompletně hotovo: 42
+Rozpracováno: 2
 Nezačato: 8
 
-Další doporučený asset krok: Standing Side Bend Guide Card
+Další doporučený asset krok: Supine Twist START
 
 ## Přehled
 
@@ -101,7 +99,7 @@ Další doporučený asset krok: Standing Side Bend Guide Card
 | Sphinx Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický stretch; START/HERO/END používají schválený START v01 bez fyzického HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `sphinx` |
 | Spine Stretch | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ROZPRACOVÁNO | START/HERO v01 schválené a nasazené; END = START; Guide a Step PENDING |
 | Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; sekvence START → přitažení na jednu stranu → přitažení na opačnou stranu → START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID standing_oblique; programové dávky beze změny |
-| Standing Side Bend | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ROZPRACOVÁNO | START/HERO v01 nalezené; aplikace používá HERO; END = START; Guide a Step PENDING |
+| Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; END = START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
 | Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Swan Prep | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |

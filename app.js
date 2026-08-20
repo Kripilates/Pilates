@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.90-dev';
+const APP_VERSION='v59.91-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1154,6 +1154,33 @@ const referenceExerciseAssets={
     info:{difficulty:'Střední',focus:'Břicho / šikmé břišní svaly',knees:'Stojná noha stabilní'},
     breath:{inhale:'Při návratu do stoje',exhale:'Při přitažení kolena',tempo:'Plynule a střídavě'},
     recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Netahej rukama za hlavu.','Lokty nech otevřené a nehrb záda.','Stojnou nohu drž stabilní.'],mistakes:['Tahání za hlavu.','Zavírání loktů dopředu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
+  },
+  standing_side_bend:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v01.png',
+    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_step_by_step_v01.png',
+    subtitle:'Pas • boční linie těla • mobilita',
+    miniSteps:[
+      {n:1,title:'START',caption:'Vzpřímený stoj',photo:'start'},
+      {n:2,title:'BOČNÍ ÚKLON',caption:'Jedna strana',photo:'hero'},
+      {n:3,title:'OPAČNÁ STRANA',caption:'Plynule vystřídej',photo:'opposite'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Postav se vzpřímeně, chodidla dej přibližně na šířku boků. Ruce polož lehce za hlavu, lokty nech otevřené a ramena spusť od uší.',photo:'start'},
+      {title:'ÚKLON NA JEDNU STRANU',text:'S výdechem se kontrolovaně ukloň do strany. Pánev drž stabilní, hrudník směřuje stále dopředu a hlava přirozeně navazuje na páteř.',photo:'hero'},
+      {title:'NÁVRAT DO STŘEDU',text:'S nádechem se vrať do vzpřímeného postoje. Neprohýbej bedra a lokty nech otevřené.',photo:'start'},
+      {title:'ÚKLON NA OPAČNOU STRANU',text:'Stejným kontrolovaným pohybem se ukloň na opačnou stranu. Pánev neposouvej do protisměru a trup neotáčej.',photo:'opposite'}
+    ],
+    info:{difficulty:'Lehké',focus:'Pas / boční linie těla',knees:'Přirozeně měkká'},
+    breath:{inhale:'Při návratu do středu',exhale:'Do bočního úklonu',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Protažení boční linie trupu a jemnou práci pasu při stabilní pánvi.',
+      watch:['Chodidla drž přibližně na šířku boků a kolena přirozeně měkká.','Hrudník směřuje dopředu a hlava zůstává v prodloužení páteře.','Strany střídej plynule bez švihu.'],
+      mistakes:['Rotace hrudníku.','Předklon místo čistého úklonu do strany.','Vystrčení pánve do protisměru.','Přitahování lokte ke koleni.']
+    }
   },
   sidekick:{
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start_v01.png',
