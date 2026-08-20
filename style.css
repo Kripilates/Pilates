@@ -3412,40 +3412,26 @@ body.dark .sideSwitchState{
 @media(max-width:430px){
   .sideSwitchState{min-height:42vh;margin:8px 0;padding:22px 14px}
 }
-/* v59.85: compact About the program and training principles */
-.aboutProgramSection,.trainingPrinciplesSection{width:min(100%,920px);margin-inline:auto}
-.aboutProgramSection>h2,.trainingPrinciplesSection>h2{margin-bottom:14px}
-.aboutProgramSection .programSteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
-.aboutProgramSection .programSteps>div{min-width:0;padding:4px 18px 5px;border-right:1px solid var(--line)}
-.aboutProgramSection .programSteps>div:first-child{padding-left:2px}
-.aboutProgramSection .programSteps>div:last-child{padding-right:2px;border-right:0}
-.aboutProgramSection .programSteps b{display:inline-block;min-width:0;height:auto;margin-bottom:9px;border-radius:0;background:transparent;color:var(--p);font-size:13px;letter-spacing:.08em}
-.aboutProgramSection .programSteps h3{margin:0;color:var(--text);font-size:17px;line-height:1.25}
-.aboutProgramSection .programSteps p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
-.trainingPrinciples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}
-.trainingPrinciple{min-width:0;padding:15px 0;display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;border-bottom:1px solid var(--line)}
-.trainingPrinciple>span{width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:var(--p2);color:var(--p)}
-.trainingPrinciple>span .lineIcon{width:21px;height:21px}
-.trainingPrinciple h3{margin:0;color:var(--text);font-size:14px;line-height:1.25;text-transform:uppercase;letter-spacing:.035em}
-.trainingPrinciple p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
-.trainingSafety{margin-top:18px;padding:15px 16px;display:grid;grid-template-columns:30px minmax(0,1fr);gap:11px;border-radius:15px;background:var(--soft);color:var(--text)}
-.trainingSafety>.lineIcon{width:24px;height:24px;margin-top:1px;color:var(--p)}
-.trainingSafety strong{font-size:14px}
-.trainingSafety p{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.45}
-body.dark .trainingPrinciple>span{background:rgba(30,150,138,.16)}
-@media(max-width:600px){
-  .aboutProgramSection .programSteps{grid-template-columns:1fr}
-  .aboutProgramSection .programSteps>div,.aboutProgramSection .programSteps>div:first-child,.aboutProgramSection .programSteps>div:last-child{padding:13px 0;border-right:0;border-bottom:1px solid var(--line)}
-  .aboutProgramSection .programSteps>div:first-child{padding-top:2px}
-  .aboutProgramSection .programSteps>div:last-child{padding-bottom:2px;border-bottom:0}
-  .aboutProgramSection .programSteps b{margin-bottom:4px}
-  .trainingPrinciples{grid-template-columns:1fr}
-  .trainingPrinciple{padding:13px 0}
-}
-@media(max-width:360px){
-  .aboutProgramSection,.trainingPrinciplesSection{padding:15px 13px}
-  .trainingPrinciple{grid-template-columns:34px minmax(0,1fr);gap:9px}
-  .trainingPrinciple>span{width:34px;height:34px;border-radius:10px}
-  .trainingPrinciple p,.trainingSafety p{font-size:12px}
-  .trainingSafety{padding:13px}
-}
+/* v59.86: final mobile-app polish for About the program */
+.programAboutPage{width:min(100%,960px);margin:0 auto;padding-bottom:8px}
+.aboutHero{display:grid;grid-template-columns:minmax(300px,.92fr) minmax(0,1.08fr);overflow:hidden;margin:10px 0 22px;border:1px solid var(--line);border-radius:28px;background:var(--card);box-shadow:0 12px 34px var(--shadow)}
+.aboutHeroMedia{min-height:370px;overflow:hidden;background:var(--soft)}
+.aboutHeroMedia img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 50%}
+.aboutHeroContent{min-width:0;padding:26px;display:flex;flex-direction:column;justify-content:center}
+.aboutHeroContent h2{margin:0 0 8px;color:var(--p);font-size:14px;letter-spacing:.08em;text-transform:uppercase}
+.aboutHeroContent h3{margin:0;color:var(--text);font-size:clamp(27px,3.2vw,38px);line-height:1.08;letter-spacing:-.025em}
+.aboutHeroContent>p{margin:12px 0 18px;color:var(--muted);font-size:15px;line-height:1.5}
+.aboutProgramFacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.aboutProgramFacts>div{min-width:0;padding:0 12px;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;align-items:start;border-left:1px solid var(--line)}
+.aboutProgramFacts>div:first-child{padding-left:0;border-left:0}.aboutProgramFacts>div:last-child{padding-right:0}
+.aboutProgramFacts .lineIcon{width:21px;height:21px;color:var(--p)}.aboutProgramFacts>div:last-child .lineIcon{color:var(--danger)}
+.aboutProgramFacts strong,.aboutProgramFacts small{display:block}.aboutProgramFacts strong{color:var(--text);font-size:13px;line-height:1.25}.aboutProgramFacts small{margin-top:2px;color:var(--muted);font-size:11px;line-height:1.3}
+.aboutHeroActions{display:flex;gap:9px;margin-top:18px;align-items:center}.aboutHeroActions button{margin:0;min-height:44px;padding:10px 15px;font-size:14px}.aboutPrimaryCta{flex:1}.aboutSecondaryAction{flex:0 1 auto;background:transparent}
+.aboutProgramSection,.trainingPrinciplesSection{width:min(100%,920px);margin:0 auto;padding:22px 6px}.aboutProgramSection>h2,.trainingPrinciplesSection>h2{margin:0 0 15px;font-size:24px}
+.aboutFocusList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.aboutFocusList>div{min-width:0;padding:4px 20px;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;border-left:1px solid var(--line)}
+.aboutFocusList>div:first-child{padding-left:0;border-left:0}.aboutFocusList>div:last-child{padding-right:0}.aboutFocusList b{color:var(--danger);font-size:12px;letter-spacing:.08em}.aboutFocusList h3{margin:0;color:var(--text);font-size:16px;line-height:1.3}.aboutFocusList p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+.trainingPrinciples{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 22px}.trainingPrinciple{min-width:0;padding:12px 0;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;border-bottom:1px solid var(--line)}
+.trainingPrinciple>span{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--p)}.trainingPrinciple>span .lineIcon{width:21px;height:21px}.trainingPrinciple h3{margin:0;color:var(--text);font-size:13px;line-height:1.25;text-transform:uppercase;letter-spacing:.035em}.trainingPrinciple p{margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.4}
+.trainingSafety{margin-top:14px;padding:13px 0 0;display:grid;grid-template-columns:28px minmax(0,1fr);gap:9px;border-top:1px solid var(--line);color:var(--text)}.trainingSafety>.lineIcon{width:21px;height:21px;color:var(--p)}.trainingSafety strong{font-size:13px}.trainingSafety p{margin:3px 0 0;color:var(--muted);font-size:12px;line-height:1.4}
+@media(max-width:700px){.aboutHero{grid-template-columns:1fr;margin-top:8px;border-radius:24px}.aboutHeroMedia{height:auto;aspect-ratio:3/2;min-height:0}.aboutHeroMedia img{object-position:50% 48%}.aboutHeroContent{padding:20px 18px 18px}.aboutHeroContent h3{font-size:29px}.aboutProgramFacts{grid-template-columns:1fr 1fr;gap:12px 0}.aboutProgramFacts>div:nth-child(2){padding-right:0}.aboutProgramFacts>div:nth-child(3){grid-column:1/-1;padding:12px 0 0;border-top:1px solid var(--line);border-left:0}.aboutHeroActions{display:grid;grid-template-columns:1fr}.aboutHeroActions button{width:100%}.aboutProgramSection,.trainingPrinciplesSection{padding:18px 4px}.aboutFocusList,.trainingPrinciples{grid-template-columns:1fr}.aboutFocusList>div,.aboutFocusList>div:first-child,.aboutFocusList>div:last-child{padding:12px 0;border-left:0;border-bottom:1px solid var(--line)}.aboutFocusList>div:first-child{padding-top:2px}.aboutFocusList>div:last-child{padding-bottom:2px;border-bottom:0}}
+@media(max-width:380px){.aboutHeroContent{padding:17px 15px 16px}.aboutHeroContent h3{font-size:26px}.aboutHeroContent>p{font-size:14px}.aboutProgramFacts>div{padding-inline:8px;grid-template-columns:21px minmax(0,1fr);gap:6px}.aboutProgramFacts .lineIcon{width:19px;height:19px}.trainingPrinciple p{font-size:12px}}

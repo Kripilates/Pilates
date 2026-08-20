@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.85-dev';
+const APP_VERSION='v59.86-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1849,21 +1849,32 @@ function intro(){
 function programInfo(){
   setAppView('program');
   lastMode='library';setNav('library');
-  app.innerHTML=`<section class="introHero compactIntro">
-    <img class="programBrandLogo" src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt="Moovka">
-    <h2>O programu</h2>
-    <p>30denní domácí plán pro zpevnění středu těla, hýždí, zadních stehen a držení těla. Je stavěný tak, aby šel cvičit reálně i v běžném dni.</p>
-    <button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button>
-    <button class="onboardingReplayButton" data-action="show-onboarding">Zobrazit úvodní průvodce</button>
-  </section>
-  <section class="card programCard aboutProgramSection"><h2>Co tě čeká</h2>
-    <div class="programSteps">
-      <div><b>01</b><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div>
-      <div><b>02</b><h3>Břicho + pas</h3><p>Stabilní střed těla bez zbytečného přetěžování.</p></div>
-      <div><b>03</b><h3>Mobilita a celé tělo</h3><p>Záda, ramena, pohyblivost a lehčí celotělové dny.</p></div>
+  app.innerHTML=`<div class="programAboutPage">
+  <section class="aboutHero">
+    <div class="aboutHeroMedia"><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png" alt="Cvičení na podložce"></div>
+    <div class="aboutHeroContent">
+      <h2>O programu</h2>
+      <h3>30 dní pro silnější a pevnější tělo</h3>
+      <p>Domácí tréninky zaměřené na zpevnění, sílu a pohyblivost.</p>
+      <div class="aboutProgramFacts">
+        <div>${lineIcon('clock')}<span><strong>20–30 min</strong><small>na trénink</small></span></div>
+        <div>${lineIcon('levels')}<span><strong>3 úrovně</strong><small>obtížnosti</small></span></div>
+        <div>${lineIcon('equipment')}<span><strong>Činky + podložka</strong><small>činky lze nahradit PET lahvemi</small></span></div>
+      </div>
+      <div class="aboutHeroActions">
+        <button class="primary aboutPrimaryCta" data-action="start-auto" data-day="${nextDayIndex()}">Pokračovat v tréninku</button>
+        <button class="onboardingReplayButton aboutSecondaryAction" data-action="show-onboarding">Zobrazit úvodní průvodce</button>
+      </div>
     </div>
   </section>
-  <section class="card trainingPrinciplesSection"><h2>Jak cvičit správně</h2>
+  <section class="aboutProgramSection"><h2>Co tě čeká</h2>
+    <div class="aboutFocusList">
+      <div><b>01</b><span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></span></div>
+      <div><b>02</b><span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></span></div>
+      <div><b>03</b><span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></span></div>
+    </div>
+  </section>
+  <section class="trainingPrinciplesSection"><h2>Jak cvičit správně</h2>
     <div class="trainingPrinciples">
       <div class="trainingPrinciple"><span>${lineIcon('quality')}</span><div><h3>Kvalita před rychlostí</h3><p>Cvič pomalu a kontrolovaně. Raději méně správných opakování než rychlý pohyb bez kontroly.</p></div></div>
       <div class="trainingPrinciple"><span>${lineIcon('breathe')}</span><div><h3>Dýchej</h3><p>Nezadržuj dech. Výdech ti pomůže zvládnout náročnější část pohybu.</p></div></div>
@@ -1871,10 +1882,10 @@ function programInfo(){
       <div class="trainingPrinciple"><span>${lineIcon('adjust')}</span><div><h3>Přizpůsob si cvik</h3><p>Když je cvik příliš těžký, zmenši rozsah nebo zvol lehčí variantu.</p></div></div>
     </div>
     <aside class="trainingSafety">${lineIcon('shield')}<div><strong>Cvič bezpečně</strong><p>Pokud při cvičení cítíš ostrou nebo neobvyklou bolest, cvik přeruš. Při zdravotních potížích nebo nejistotě se poraď s lékařem nebo fyzioterapeutem.</p></div></aside>
-  </section>`;
+  </section>
+  </div>`;
   scrollTop();
 }
-
 function home(){
   setAppView('home');
   lastMode='home';setNav('home');
@@ -2615,7 +2626,10 @@ function lineIcon(name){
     heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
     all:'<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
     quality:'<path d="m5 13 4 4L19 7"/><path d="M4 4h16v16H4z"/>',
-    breathe:'<path d="M4 10c3 0 3-4 6-4 2.5 0 3 2 3 4s-1.5 4-4 4H5"/><path d="M9 18h7c2.2 0 4-1.6 4-3.6S18.2 11 16 11h-1"/>',
+    breathe:'<path d="M11 5v14"/><path d="M11 10c-1-2-2-4-3.5-4C5 6 4 9 4 12.5S5.5 19 9 19c1.2 0 2-.8 2-2.2z"/><path d="M13 10c1-2 2-4 3.5-4C19 6 20 9 20 12.5S18.5 19 15 19c-1.2 0-2-.8-2-2.2z"/>',
+    clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    levels:'<path d="M5 19V13h4v6M10 19V9h4v10M15 19V5h4v14"/><path d="M3 19h18"/>',
+    equipment:'<path d="M7 8v8M4 10v4m13-6v8m3-6v4M7 12h10"/>',
     listen:'<path d="M12 21s7-4.4 7-11a4 4 0 0 0-7-2.6A4 4 0 0 0 5 10c0 6.6 7 11 7 11z"/><path d="M9 12h2l1-3 1.5 6 1-3H17"/>',
     adjust:'<path d="M4 7h10m4 0h2M4 17h2m4 0h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
     shield:'<path d="M12 3 5 6v5c0 4.7 2.8 8 7 10 4.2-2 7-5.3 7-10V6z"/><path d="m9 12 2 2 4-4"/>',
