@@ -3973,3 +3973,257 @@ body.dark .finishExperience .finishSummary span{color:var(--muted)}
   .finishExperience .moodRow{gap:6px}
   .finishExperience .moodRow button{font-size:.73rem}
 }
+
+/* v59.96: completion screen follows the approved compact photo-to-white reference */
+body:has(.finishExperience)>header{display:flex}
+body:has(.finishExperience){padding-bottom:0;background:#fff}
+main:has(.finishExperience){
+  max-width:none;
+  padding-top:0;
+  padding-right:0;
+  padding-bottom:82px;
+  padding-left:0;
+}
+.finishExperience{
+  width:min(100%,760px);
+  margin:0 auto;
+  overflow:visible;
+  border:0;
+  border-radius:0;
+  background:#fff;
+  color:#102a43;
+  box-shadow:none;
+}
+.finishCompletionProgress{
+  height:6px;
+  margin:8px 24px 0;
+  overflow:hidden;
+  border-radius:999px;
+  background:var(--p2);
+}
+.finishCompletionProgress i{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:inherit;
+  background:var(--p);
+}
+.finishHero{
+  position:relative;
+  height:430px;
+  overflow:hidden;
+  background:#fff;
+}
+.finishHeroImage{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 52%;
+}
+.finishHero::after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 48%,rgba(255,255,255,.18) 59%,rgba(255,255,255,.78) 79%,#fff 100%);
+}
+.finishHeroCopy{
+  position:absolute;
+  z-index:2;
+  left:32px;
+  bottom:12px;
+  width:min(64%,390px);
+  color:#102a43;
+  text-align:left;
+}
+.finishHeroCopy p{
+  margin:0 0 7px;
+  color:var(--danger);
+  font-size:1.2rem;
+  font-style:normal;
+  font-weight:900;
+  line-height:1.1;
+}
+.finishHeroCopy p::after{display:none}
+.finishHeroCopy h2{
+  margin:0;
+  color:#102a43;
+  font-family:inherit;
+  font-size:clamp(58px,9vw,72px);
+  font-weight:900;
+  line-height:.88;
+  letter-spacing:0;
+}
+.finishContent{
+  padding:2px 30px 24px;
+  background:#fff;
+}
+.finishDayMeta{
+  margin:0 0 10px;
+  color:var(--p);
+  text-align:center;
+  font-size:.88rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.finishExperience .finishSummary{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:0;
+  margin:0 0 15px;
+  padding:8px 0 12px;
+  border:0;
+}
+.finishExperience .finishSummary div{
+  padding:0 12px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+}
+.finishExperience .finishSummary div+div{border-left:1px solid var(--line)}
+.finishExperience .finishSummary b{
+  display:block;
+  color:#102a43;
+  font-family:inherit;
+  font-size:42px;
+  font-weight:900;
+  line-height:.92;
+  letter-spacing:0;
+}
+.finishExperience .finishSummary span{
+  display:block;
+  margin-top:6px;
+  color:#718096;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.finishExperience .finishForm{
+  display:grid;
+  gap:10px;
+  margin:0;
+  text-align:center;
+}
+.finishExperience .finishForm h3{
+  margin:0;
+  color:#102a43;
+  font-family:inherit;
+  font-size:22px;
+  font-weight:900;
+  line-height:1.2;
+}
+.finishExperience .finishForm h3::after{display:none}
+.finishExperience .moodRow{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+}
+.finishExperience .moodRow button,
+.finishExperience .moodRow button:nth-child(n){
+  min-height:44px;
+  padding:7px 6px;
+  border:1px solid var(--line);
+  border-radius:23px;
+  background:#fff;
+  color:#718096;
+  box-shadow:none;
+  font-size:.84rem;
+  font-weight:900;
+  line-height:1.15;
+}
+.finishExperience .moodRow button.selected,
+.finishExperience .moodRow button:nth-child(n).selected{
+  border-color:var(--p);
+  background:var(--p);
+  color:#fff;
+  box-shadow:none;
+}
+.finishNoteToggle{
+  width:auto;
+  min-height:38px;
+  margin:0 auto;
+  padding:5px 8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:0;
+  border-radius:18px;
+  background:transparent;
+  color:#718096;
+  box-shadow:none;
+}
+.finishNoteToggle .lineIcon{width:19px;height:19px;color:var(--p)}
+.finishNoteField[hidden]{display:none}
+.finishNoteField textarea{
+  width:100%;
+  min-height:78px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:11px;
+  background:var(--soft);
+  color:var(--text);
+  font:inherit;
+  resize:vertical;
+}
+.finishSaveButton,
+.finishSaveButton.primary{
+  width:100%;
+  min-height:52px;
+  margin-top:10px;
+  padding:11px 22px;
+  border:0;
+  border-radius:26px;
+  background:var(--p)!important;
+  background-image:none!important;
+  color:#fff;
+  box-shadow:0 9px 22px rgba(32,182,178,.22);
+  font-size:1.05rem;
+}
+body.dark .finishExperience,
+body.dark .finishContent{background:#fff;color:#102a43}
+body.dark .finishHero::after{background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 48%,rgba(255,255,255,.18) 59%,rgba(255,255,255,.78) 79%,#fff 100%)}
+body.dark .finishHeroCopy,
+body.dark .finishHeroCopy h2,
+body.dark .finishDayMeta,
+body.dark .finishExperience .finishSummary b,
+body.dark .finishExperience .finishForm h3{color:#102a43}
+body.dark .finishDayMeta{color:var(--p)}
+body.dark .finishExperience .finishSummary span,
+body.dark .finishExperience .moodRow button{color:#718096}
+body.dark .finishExperience .moodRow button.selected{color:#fff}
+@media(max-width:560px){
+  main:has(.finishExperience){padding-bottom:74px}
+  .finishExperience{margin:0 auto;border-radius:0}
+  .finishCompletionProgress{height:6px;margin:7px 18px 0}
+  .finishHero{height:clamp(310px,40.5vh,342px)}
+  .finishHeroImage{object-position:50% 52%}
+  .finishHeroCopy{left:22px;bottom:7px;width:72%}
+  .finishHeroCopy p{margin-bottom:5px;font-size:17px}
+  .finishHeroCopy h2{font-size:52px}
+  .finishContent{padding:0 18px 12px}
+  .finishDayMeta{margin-bottom:6px;font-size:.75rem}
+  .finishExperience .finishSummary{margin-bottom:9px;padding:5px 0 8px}
+  .finishExperience .finishSummary div{padding:0 7px}
+  .finishExperience .finishSummary b{font-size:34px}
+  .finishExperience .finishSummary span{margin-top:4px;font-size:.64rem}
+  .finishExperience .finishForm{gap:8px}
+  .finishExperience .finishForm h3{font-size:19px}
+  .finishExperience .moodRow{gap:7px}
+  .finishExperience .moodRow button,
+  .finishExperience .moodRow button:nth-child(n){min-height:42px;padding:6px 4px;font-size:.75rem}
+  .finishNoteToggle{min-height:34px;padding:3px 7px;font-size:.88rem}
+  .finishSaveButton,.finishSaveButton.primary{min-height:48px;margin-top:8px;padding:9px 18px;font-size:1rem}
+}
+@media(max-width:360px){
+  .finishHero{height:310px}
+  .finishHeroCopy h2{font-size:48px}
+  .finishContent{padding-right:14px;padding-left:14px}
+  .finishExperience .moodRow{gap:5px}
+  .finishExperience .moodRow button,
+  .finishExperience .moodRow button:nth-child(n){font-size:.7rem}
+}
