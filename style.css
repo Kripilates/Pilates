@@ -3974,7 +3974,7 @@ body.dark .finishExperience .finishSummary span{color:var(--muted)}
   .finishExperience .moodRow button{font-size:.73rem}
 }
 
-/* v59.96: completion screen follows the approved compact photo-to-white reference */
+/* v59.97: completion screen follows the approved compact photo-to-white reference */
 body:has(.finishExperience)>header{display:flex}
 body:has(.finishExperience){padding-bottom:0;background:#fff}
 main:has(.finishExperience){
@@ -4040,7 +4040,7 @@ main:has(.finishExperience){
 }
 .finishHeroCopy p{
   margin:0 0 7px;
-  color:var(--danger);
+  color:var(--p);
   font-size:1.2rem;
   font-style:normal;
   font-weight:900;
@@ -4204,24 +4204,24 @@ body.dark .finishExperience .moodRow button.selected{color:#fff}
   .finishHeroImage{object-position:50% 52%}
   .finishHeroCopy{left:22px;bottom:7px;width:72%}
   .finishHeroCopy p{margin-bottom:5px;font-size:17px}
-  .finishHeroCopy h2{font-size:52px}
+  .finishHeroCopy h2{font-size:48px}
   .finishContent{padding:0 18px 12px}
   .finishDayMeta{margin-bottom:6px;font-size:.75rem}
-  .finishExperience .finishSummary{margin-bottom:9px;padding:5px 0 8px}
+  .finishExperience .finishSummary{margin-bottom:11px;padding:7px 0 10px}
   .finishExperience .finishSummary div{padding:0 7px}
   .finishExperience .finishSummary b{font-size:34px}
   .finishExperience .finishSummary span{margin-top:4px;font-size:.64rem}
-  .finishExperience .finishForm{gap:8px}
+  .finishExperience .finishForm{gap:9px}
   .finishExperience .finishForm h3{font-size:19px}
   .finishExperience .moodRow{gap:7px}
   .finishExperience .moodRow button,
   .finishExperience .moodRow button:nth-child(n){min-height:42px;padding:6px 4px;font-size:.75rem}
   .finishNoteToggle{min-height:34px;padding:3px 7px;font-size:.88rem}
-  .finishSaveButton,.finishSaveButton.primary{min-height:48px;margin-top:8px;padding:9px 18px;font-size:1rem}
+  .finishSaveButton,.finishSaveButton.primary{min-height:48px;margin-top:11px;padding:9px 18px;font-size:1rem}
 }
 @media(max-width:360px){
   .finishHero{height:310px}
-  .finishHeroCopy h2{font-size:48px}
+  .finishHeroCopy h2{font-size:45px}
   .finishContent{padding-right:14px;padding-left:14px}
   .finishExperience .moodRow{gap:5px}
   .finishExperience .moodRow button,
