@@ -1,10 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-<<<<<<< Updated upstream
-const APP_VERSION='v59.91-dev';
-=======
 const APP_VERSION='v59.92-dev';
->>>>>>> Stashed changes
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1919,7 +1915,7 @@ function intro(){
 function programInfo(){
   setAppView('program');
   lastMode='library';setNav('library');
-<<<<<<< Updated upstream
+  const programComplete=isProgramComplete();
   app.innerHTML=`<div class="programAboutPage">
   <section class="aboutHero">
     <div class="aboutHeroMedia"><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png" alt="Cvičení na podložce"></div>
@@ -1933,23 +1929,9 @@ function programInfo(){
         <div>${lineIcon('equipment')}<span><strong>Činky + podložka</strong><small>činky lze nahradit PET lahvemi</small></span></div>
       </div>
       <div class="aboutHeroActions">
-        <button class="primary aboutPrimaryCta" data-action="start-auto" data-day="${nextDayIndex()}">Pokračovat v tréninku</button>
+        <button class="primary aboutPrimaryCta" data-action="${programComplete?'days':'start-auto'}"${programComplete?'':` data-day="${nextDayIndex()}"`}>${programComplete?'Zobrazit dokončený plán':'Pokračovat v tréninku'}</button>
         <button class="onboardingReplayButton aboutSecondaryAction" data-action="show-onboarding">Zobrazit úvodní průvodce</button>
       </div>
-=======
-  const programComplete=isProgramComplete();
-  app.innerHTML=`<section class="introHero compactIntro">
-    <div class="introBadge">Pilates Body 40+</div>
-    <h2>O programu</h2>
-    <p>30denní domácí plán pro zpevnění středu těla, hýždí, zadních stehen a držení těla. Je stavěný tak, aby šel cvičit reálně i v běžném dni.</p>
-    <button class="primary cta" data-action="${programComplete?'days':'start-auto'}"${programComplete?'':` data-day="${nextDayIndex()}"`}>${programComplete?'Zobrazit dokončený plán':'▶ Pokračovat v tréninku'}</button>
-  </section>
-  <section class="card programCard"><h2>Co tě čeká</h2>
-    <div class="programSteps">
-      <div><b>01</b><h3>Hýždě + zadní stehna</h3><p class="muted">Tlak přes paty, pomalejší tempo, žádné švihání.</p></div>
-      <div><b>02</b><h3>Břicho + pas</h3><p class="muted">Core cviky bez tahání krkem a bez prohýbání beder.</p></div>
-      <div><b>03</b><h3>Mobilita a celé tělo</h3><p class="muted">Odlehčené dny, záda, ramena a plynulost pohybu.</p></div>
->>>>>>> Stashed changes
     </div>
   </section>
   <section class="aboutProgramSection"><h2>Co tě čeká</h2>
@@ -2094,22 +2076,15 @@ function days(){
   if(!getProgramDifficulty())return difficultyChooser('plan');
   setAppView('plan');
   lastMode='days';setNav('days');
-<<<<<<< Updated upstream
+  const programComplete=isProgramComplete();
   const groups=[
     {title:'1. etapa · Rozjezd',from:0,to:7},
     {title:'2. etapa · Budujeme sílu',from:7,to:14},
     {title:'3. etapa · Posouváme se dál',from:14,to:21},
     {title:'4. etapa · Finále',from:21,to:30}
   ].map(group=>({...group,days:data.days.slice(group.from,group.to).map((d,index)=>({d,di:group.from+index}))}));
-  app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.</p><button class="primary cta" data-action="start-auto" data-day="${nextDayIndex()}">▶ Pokračovat v tréninku</button></section>
-  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
-=======
-  const programComplete=isProgramComplete();
-  const groups=[];
-  data.days.forEach((d,di)=>{const wi=Math.floor(di/7);if(!groups[wi])groups[wi]=[];groups[wi].push({d,di});});
   app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${programComplete?'new-program-cycle':'start-auto'}"${programComplete?'':` data-day="${nextDayIndex()}"`}>${programComplete?'Začít nový 30denní cyklus':'▶ Pokračovat v tréninku'}</button></section>
-  ${groups.map((g,wi)=>`<section class="card weekBlock"><div class="topLine"><h2>Týden ${wi+1}</h2><span class="pill">${g.filter(x=>x.d.items.length&&pct(x.di)===100).length}/6 hotovo</span></div><div class="dayGrid">${g.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`).join('')}`;
->>>>>>> Stashed changes
+  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
   scrollTop();
 }
 
