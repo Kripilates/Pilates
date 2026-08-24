@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.93-dev';
+const APP_VERSION='v59.94-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1576,6 +1576,31 @@ const referenceExerciseAssets={
       watch:['Zápěstí drž rovně.','Ramena nech daleko od uší.','Bedra neprohýbej a pohyb veď kontrolovaně.'],
       mistakes:['Zvedání ramen k uším.','Prohýbání beder.','Odražení loktů od podložky.']
     }
+  },
+  chest_fly:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_step_by_step_v01.png',
+    subtitle:'Hrudník • ramena',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky nad hrudníkem',photo:'start'},
+      {n:2,title:'OTEVŘENÍ',caption:'Paže do stran',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Stejným obloukem',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem, paže téměř natažené a lokty lehce pokrčené.',photo:'start'},
+      {title:'OTEVŘENÍ PAŽÍ',text:'S nádechem otevírej paže kontrolovaně do stran po oblouku. Lokty nech mírně pokrčené a ramena drž daleko od uší.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S výdechem vrať činky stejným obloukem zpět nad hrudník. Pohyb veď plynule bez švihu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hrudník / ramena',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Při otevírání paží',exhale:'Při návratu nad hrudník',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci prsních svalů a lehké protažení hrudníku při kontrolovaném rozevření paží.',
+      watch:['Lokty nech mírně pokrčené.','Ramena drž daleko od uší.','Bedra a pánev drž stabilní.'],
+      mistakes:['Propnutí loktů.','Příliš hluboké spuštění paží.','Zalomení zápěstí.','Švih nebo zvedání ramen k uším.']
+    }
   }
 };
 function detailMasterCard(k){
@@ -2436,7 +2461,7 @@ function showAutoTrain(opts={}){
   const switchDetail=sideNoticeNext ? `${ex.name} \u2022 ${sideNoticeNext.toLowerCase()}` : ex.name;
   const workoutVisualHtml=isSideSwitch
     ? `<div class="workoutTransitionState sideSwitchState" role="status" aria-live="polite">
-        <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""></div>
+        <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_M_FINAL.svg" alt=""></div>
         <p class="workoutTransitionEyebrow">Druh\u00e1 strana</p>
         <h2>P\u0159iprav se na druhou stranu</h2>
         <strong class="workoutTransitionCountdown" id="autoTimer">${workoutLeft}</strong>

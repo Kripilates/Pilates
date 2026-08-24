@@ -299,3 +299,39 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Verze/cache: `v59.91-dev`; `data.js?v=5991standingsidebend`, `app.js?v=5991standingsidebend`; `style.css` beze změny.
 - Commit: NE
 - Push: NE
+
+## Spine Stretch asset completion — 2026-08-24
+
+- Schválené source zůstávají `spine_stretch_start_v01.png` a `spine_stretch_hero_v01.png`; END používá START bez samostatného PNG.
+- Guide Card `spine_stretch_guide_card_v01.png` (780 × 1688) a Step by Step `spine_stretch_step_by_step_v01.png` (780 × 2280) prošly reprodukčním buildem a vizuálním QA bez změny source hashů.
+- App již používá schválené START/HERO pod ID `spine`; aplikace ani program nebyly v tomto asset tasku změněny.
+- Progress: 52 celkem, 43 HOTOVO, 1 ROZPRACOVÁNO, 8 ČEKÁ.
+- NEXT TASK: Supine Twist START.
+- Commit: NE
+- Push: NE
+## Chest Fly / Knee Push-Up asset structure — 2026-08-24
+
+- Založeny anglické kanonické složky `Chest Fly` a `Knee Push-Up`.
+- Chest Fly (`chest_fly`) zůstává ROZPRACOVÁNO; START reuse je zdokumentovaný relativní cestou k `Chest Press/chest_press_hero_v01.png`, bez vytvoření PNG kopie.
+- Knee Push-Up (`knee_pushup`) zůstává ČEKÁ; SOURCE, Guide a Step jsou PENDING.
+- Progress zůstává 52 celkem, 43 HOTOVO, 1 ROZPRACOVÁNO, 8 ČEKÁ.
+- Aplikace, data a PNG zůstaly beze změny.
+
+## Chest Press HERO replacement — 2026-08-24
+
+- Nový uživatelsky schválený `chest_press_hero_v01.png` má SHA-256 `b5b10ef23365122aa54be46113728b2af547ddda8de0c2c1e46284b11e7d6e6c`.
+- Chest Press Guide Card a Step by Step byly znovu exportovány se stejnými texty a layoutem, pouze s novým HERO.
+- Chest Press START zůstal beze změny; Chest Fly reuse nadále odkazuje na `../Chest Press/chest_press_hero_v01.png` a eviduje nový hash.
+- Aplikace, program a ostatní exercise PNG nebyly tímto krokem změněny.
+
+## Chest Fly completion — v59.94-dev
+
+- Chest Fly je dokončený pod kanonickým ID `chest_fly` se sekvencí START → HERO → START.
+- START a END používají nový schválený `Chest Press/chest_press_hero_v01.png` bez fyzické kopie; vlastní HERO je `Chest Fly/chest_fly_hero_v01.png`.
+- Guide Card a Step by Step v01 prošly rozměrovým, obsahovým a vizuálním QA a jsou evidované v `referenceExerciseAssets`.
+- Aplikace používá schválené assety bez fallbacku; `data.js`, workout program, dávky a pořadí zůstaly beze změny.
+- Progress: 52 celkem, 44 HOTOVO, 0 ROZPRACOVÁNO, 8 ČEKÁ.
+- NEXT TASK: Supine Twist START.
+- Verze/cache: `v59.94-dev`; `app.js?v=5994chestfly`; `data.js` a `style.css` beze změny.
+- Commit: NE
+- Push: NE

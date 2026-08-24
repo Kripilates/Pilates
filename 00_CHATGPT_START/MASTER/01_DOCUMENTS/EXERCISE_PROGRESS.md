@@ -39,15 +39,14 @@ ROZPRACOVÁNO
 4. The Hundred START / HERO / Guide / Step
 5. Thread the Needle START / HERO / Guide / Step
 6. Triceps Kickback START / HERO / Guide / Step
-7. Rozpažování s činkami vleže HERO / Guide / Step
-8. Kliky na kolenou SOURCE / Guide / Step
-9. Wall Sit START / HERO / Guide / Step
+7. Kliky na kolenou SOURCE / Guide / Step
+8. Wall Sit START / HERO / Guide / Step
 
 ## Souhrn
 
 Celkem cviků: 52
-Kompletně hotovo: 42
-Rozpracováno: 2
+Kompletně hotovo: 44
+Rozpracováno: 0
 Nezačato: 8
 
 Další doporučený asset krok: Supine Twist START
@@ -63,7 +62,7 @@ Další doporučený asset krok: Supine Twist START
 | Cat-Cow | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START, HERO/CAT fáze a END/COW fáze schválené; Guide Card a Step by Step schválené; App nasazena jako samostatný cvik `catcow`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Chest Opener | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO v04 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v04 manuálně schválené; Export a QA schválené; App nasazena přes `chest_opener` |
 | Chest Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO schválené; END = START; Guide Card a Step by Step schválené; anatomická reference byla při tvorbě použita, ale není fyzicky archivovaná; aplikace používá assets/exercises/chest_press.jpg a detailové reference Chest Press |
-| Rozpažování s činkami vleže | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ROZPRACOVÁNO | START reuse chest_press_hero_v01.png; vlastní HERO, Guide a Step PENDING; aplikace používá fallback |
+| Rozpažování s činkami vleže | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválený reuse aktuálního Chest Press HERO bez fyzické kopie; vlastní HERO v01 schválený; END = START; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `chest_fly` |
 | Kliky na kolenou | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ČEKÁ | SOURCE, Guide a Step PENDING; aplikace používá fallback |
 | Child's Pose | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START bez samostatného PNG; Guide Card a Step by Step schválené; App nasazena přes `childs_pose`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
@@ -97,7 +96,7 @@ Další doporučený asset krok: Supine Twist START
 | Side Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank`; sekvence START → HERO → START |
 | Side Plank Reach | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank_reach`; starý placeholder není aktivní |
 | Sphinx Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický stretch; START/HERO/END používají schválený START v01 bez fyzického HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `sphinx` |
-| Spine Stretch | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ | ✅ | ROZPRACOVÁNO | START/HERO v01 schválené a nasazené; END = START; Guide a Step PENDING |
+| Spine Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené a nasazené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod ID `spine` |
 | Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; sekvence START → přitažení na jednu stranu → přitažení na opačnou stranu → START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID standing_oblique; programové dávky beze změny |
 | Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; END = START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
 | Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

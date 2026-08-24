@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 70 530 410" role="img" aria-labelledby="title desc">
+  <title id="title">MooVka M symbol</title>
+  <desc id="desc">Samostatný symbol M přesně převzatý z finálního vektorového loga MooVka</desc>
+  <defs>
+    <mask id="m-tip-mask" maskUnits="userSpaceOnUse" x="390" y="320" width="120" height="150">
+      <rect x="390" y="320" width="120" height="150" fill="#000"/>
+      <path d="M343 163 C377 119 427 112 449 145 C476 187 474 304 450 390 C447 402 444 414 441 426"
+            fill="none" stroke="#fff" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M205 220 C160 130 108 104 69 137 C24 175 28 311 69 357 C113 407 176 379 231 310 L343 163 C377 119 427 112 449 145 C476 187 474 304 450 390 C447 402 444 414 441 426"
+          stroke="#F05A78" stroke-width="54"/>
+    <path d="M380 350 C405 432 478 449 510 360 L510 480 L380 480 Z"
+          fill="#12BDB8" stroke="none" mask="url(#m-tip-mask)"/>
+    <circle cx="205" cy="220" r="27" fill="#F05A78" stroke="none"/>
+  </g>
+</svg>
