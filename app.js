@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.92-dev';
+const APP_VERSION='v59.93-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -26,7 +26,7 @@ const WORKOUT_SERIES_REST_SECONDS=30;
 const PROGRAM_DIFFICULTY_KEY='pb40-program-difficulty-v1';
 const DIFFICULTY_MIGRATION_NOTICE_KEY='pb40-difficulty-migration-notice-v1';
 const PROGRAM_LAYOUT_KEY='pb40-program-layout-v2';
-const PROGRAM_LAYOUT_VERSION='2';
+const PROGRAM_LAYOUT_VERSION='3';
 const ONBOARDING_COMPLETED_KEY='moovka-onboarding-completed-v1';
 const DIFFICULTY_VALUES=['easy','medium','hard'];
 const PROGRAM_WEEK_HINTS=[
@@ -235,6 +235,16 @@ const legacyProgramItemIds={
   19:['glute_bridge_march','raise','standing_side_bend','chest_press','sideplank_reach','swan'],
   24:['rollup','clam','swimming','hundred','swan','standing_side_bend']
 };
+const previousProgramItemIdsV2={
+  2:['row','press','raise','triceps_kickback','bird','plank','chest_fly'],
+  5:['row','rdl','chest_press','hip','tap','plank','press'],
+  9:['row','press','triceps_kickback','chest_press','bird','swimming','knee_pushup'],
+  12:['rdl','press','raise','tap','hip_march','deadbug','chest_press'],
+  16:['row','press','raise','triceps_kickback','bird','plank','chest_fly'],
+  19:['standing_side_bend','raise','glute_bridge_march','chest_press','sideplank_reach','swan','row'],
+  23:['row','press','raise','triceps_kickback','chest_press','bird','knee_pushup'],
+  26:['row','press','sideplank_reach','tap','hip','hollow','chest_press']
+};
 function validDifficulty(value){return DIFFICULTY_VALUES.includes(value)?value:null;}
 function getProgramDifficulty(){return validDifficulty(localStorage.getItem(PROGRAM_DIFFICULTY_KEY));}
 function effectiveProgramDifficulty(){return getProgramDifficulty()||data.program?.defaultDifficulty||'medium';}
@@ -283,8 +293,10 @@ function migrateLegacyDifficulty(){
   localStorage.setItem(DIFFICULTY_MIGRATION_NOTICE_KEY,'1');
 }
 function migrateProgramLayout(){
-  if(localStorage.getItem(PROGRAM_LAYOUT_KEY)===PROGRAM_LAYOUT_VERSION)return;
-  Object.entries(legacyProgramItemIds).forEach(([dayIndex,oldIds])=>{
+  const storedVersion=localStorage.getItem(PROGRAM_LAYOUT_KEY);
+  if(storedVersion===PROGRAM_LAYOUT_VERSION)return;
+  const sourceItemIds=storedVersion==='2'?previousProgramItemIdsV2:legacyProgramItemIds;
+  Object.entries(sourceItemIds).forEach(([dayIndex,oldIds])=>{
     const di=Number(dayIndex);
     const completedIds=new Set(oldIds.filter((_,i)=>localStorage.getItem(`pb40-d${di}-e${i}`)==='1'));
     oldIds.forEach((_,i)=>localStorage.removeItem(`pb40-d${di}-e${i}`));
@@ -298,7 +310,9 @@ function importedProgressKey(k,layoutVersion){
   if(layoutVersion===PROGRAM_LAYOUT_VERSION)return k;
   const match=String(k).match(/^pb40-d(\d+)-e(\d+)$/);
   if(!match)return k;
-  const di=Number(match[1]),oldIndex=Number(match[2]),oldIds=legacyProgramItemIds[di];
+  const di=Number(match[1]),oldIndex=Number(match[2]);
+  const sourceItemIds=String(layoutVersion||'')==='2'?previousProgramItemIdsV2:legacyProgramItemIds;
+  const oldIds=sourceItemIds[di];
   if(!oldIds||!oldIds[oldIndex])return k;
   const nextIndex=(data.days?.[di]?.items||[]).findIndex(([id])=>id===oldIds[oldIndex]);
   return nextIndex<0?k:`pb40-d${di}-e${nextIndex}`;
@@ -1793,13 +1807,38 @@ function exMeta(k){
   else mistakes.push('Tlačení do bolesti místo jemného rozsahu.');
   return {area,diff,knee,tempo,breath,mistakes};
 }
+const ESTIMATED_REP_SECONDS=3.2;
+const ESTIMATED_TRANSITION_SECONDS=6;
+function estimatedDoseSeconds(k,dose){
+  const info=sideInfo(dose);
+  if(info.timed)return info.seconds*(info.side?2:1)+(info.side?WORKOUT_SWITCH_SECONDS:0);
+  if(info.side){
+    return (Number(info.left||0)+Number(info.right||0))*ESTIMATED_REP_SECONDS+WORKOUT_SWITCH_SECONDS;
+  }
+  const match=String(dose||'').match(/(\d+)\s*×/);
+  return match?Number(match[1])*ESTIMATED_REP_SECONDS:0;
+}
+function estimatedWorkoutMinutes(di,difficulty=effectiveProgramDifficulty()){
+  const items=resolvedDayItems(di,difficulty);
+  if(!items.length)return 0;
+  const sets=difficultySets(difficulty);
+  const perSetSeconds=items.reduce((total,[k,dose])=>total+WORKOUT_PREP_SECONDS+estimatedDoseSeconds(k,dose),0)
+    + Math.max(0,items.length-1)*ESTIMATED_TRANSITION_SECONDS;
+  let totalSeconds=perSetSeconds*sets+Math.max(0,sets-1)*WORKOUT_SERIES_REST_SECONDS;
+  const stretch=resolvedDayStretch(di,difficulty);
+  if(stretch){
+    totalSeconds+=ESTIMATED_TRANSITION_SECONDS+WORKOUT_PREP_SECONDS+estimatedDoseSeconds(stretch[0],stretch[1]);
+  }
+  return Math.max(5,Math.round(totalSeconds/300)*5);
+}
 function daySummary(di){
-  const items=data.days[di].items;
+  const difficulty=effectiveProgramDifficulty();
+  const items=resolvedDayItems(di,difficulty);
   if(!items.length)return '';
   const counts={};
   items.forEach(([k])=>{const a=exMeta(k).area;counts[a]=(counts[a]||0)+1;});
   const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
-  const minutes=Math.max(14,Math.round(items.length*1.5*difficultySets()));
+  const minutes=estimatedWorkoutMinutes(di,difficulty);
   return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>🎯 ${main}</span></div>`;
 }
 

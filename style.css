@@ -3609,6 +3609,29 @@ body.dark .sideSwitchState{
 .sideSwitchState .workoutBrandMark{width:46px;height:42px;margin:0 auto 17px}
 .sideSwitchState .workoutTransitionEyebrow{color:var(--p)}
 .sideSwitchState h2{font-size:clamp(26px,6vw,38px);letter-spacing:0;text-transform:none}
+.autoTrain[data-workout-phase="switch"] .sideSwitchState,
+body.dark .autoTrain[data-workout-phase="switch"] .sideSwitchState{
+  min-height:0;
+  margin:8px 0;
+  padding:18px;
+}
+.autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutBrandMark{
+  width:92px;
+  height:auto;
+  overflow:visible;
+  margin:0 auto 9px;
+}
+.autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutBrandMark img{
+  width:100%;
+  max-width:100%;
+  height:auto;
+}
+.autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutTransitionEyebrow{margin-bottom:4px}
+.autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutTransitionCountdown{
+  margin:11px 0 9px;
+  font-size:clamp(58px,17vw,82px);
+}
+.autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutTransitionProgress{margin-bottom:10px}
 .seriesRestScreen .workoutTransitionCountdown{font-size:clamp(56px,16vw,88px);letter-spacing:-.02em}
 
 /* v59.90: completion screen aligned with the approved reference */
