@@ -3632,7 +3632,33 @@ body.dark .autoTrain[data-workout-phase="switch"] .sideSwitchState{
   font-size:clamp(58px,17vw,82px);
 }
 .autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutTransitionProgress{margin-bottom:10px}
-.seriesRestScreen .workoutTransitionCountdown{font-size:clamp(56px,16vw,88px);letter-spacing:-.02em}
+.seriesRestScreen.fullTrain.autoTrain{
+  min-height:0;
+  padding-bottom:18px;
+}
+.seriesRestScreen .workoutTransitionState{
+  min-height:clamp(300px,38vh,340px);
+  margin:8px 0 10px;
+  padding:22px 18px;
+}
+.seriesRestScreen .workoutBrandMark{
+  width:72px;
+  height:auto;
+  overflow:visible;
+  margin:0 auto 10px;
+}
+.seriesRestScreen .workoutBrandMark img{
+  width:100%;
+  max-width:100%;
+  height:auto;
+}
+.seriesRestScreen .workoutTransitionEyebrow{margin-bottom:4px}
+.seriesRestScreen .workoutTransitionCountdown{
+  margin:14px 0 11px;
+  font-size:clamp(56px,16vw,88px);
+  letter-spacing:-.02em;
+}
+.seriesRestScreen .workoutTransitionProgress{margin-bottom:12px}
 
 /* v59.90: completion screen aligned with the approved reference */
 body:has(.finishExperience)>header{display:none}

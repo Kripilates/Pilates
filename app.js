@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.94-dev';
+const APP_VERSION='v59.95-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -2396,7 +2396,7 @@ function showSeriesRest(){
     <div class="trainTop2 trainTop2--compact"><span class="dose">Den ${currentDay+1} \u2022 Pauza mezi s\u00e9riemi</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="workoutTransitionState" role="status" aria-live="polite">
-      <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""></div>
+      <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_M_FINAL.svg" alt=""></div>
       <p class="workoutTransitionEyebrow">S\u00e9rie ${completedSet} dokon\u010dena</p>
       <h2>Kr\u00e1tk\u00fd odpo\u010dinek</h2>
       <strong class="workoutTransitionCountdown" id="autoTimer">${formatCountdown(workoutLeft)}</strong>
