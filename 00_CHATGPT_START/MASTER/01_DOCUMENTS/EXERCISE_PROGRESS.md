@@ -33,22 +33,21 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Supine Twist START / HERO / Guide / Step
-2. Swan Prep START / HERO / Guide / Step
-3. Swimming START / HERO / Guide / Step
-4. The Hundred START / HERO / Guide / Step
-5. Thread the Needle START / HERO / Guide / Step
-6. Triceps Kickback START / HERO / Guide / Step
-7. Wall Sit START / HERO / Guide / Step
+1. Swan Prep START / HERO / Guide / Step
+2. Swimming START / HERO / Guide / Step
+3. The Hundred START / HERO / Guide / Step
+4. Thread the Needle START / HERO / Guide / Step
+5. Triceps Kickback START / HERO / Guide / Step
+6. Wall Sit START / HERO / Guide / Step
 
 ## Souhrn
 
 Celkem cviků: 52
-Kompletně hotovo: 45
+Kompletně hotovo: 46
 Rozpracováno: 0
-Nezačato: 7
+Nezačato: 6
 
-Další doporučený asset krok: Supine Twist START
+Další doporučený asset krok: Swan Prep START
 
 ## Přehled
 
@@ -98,7 +97,7 @@ Další doporučený asset krok: Supine Twist START
 | Spine Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené a nasazené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod ID `spine` |
 | Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; sekvence START → přitažení na jednu stranu → přitažení na opačnou stranu → START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID standing_oblique; programové dávky beze změny |
 | Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; END = START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
-| Supine Twist | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Supine Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `supine_twist` ve v59.101-dev; sekvence START → HERO → START |
 | Swan Prep | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
 | The Hundred | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

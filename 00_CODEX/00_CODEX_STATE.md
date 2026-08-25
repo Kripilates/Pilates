@@ -347,3 +347,15 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Verze/cache: `v59.98-dev`; `app.js?v=5998kneepushup`; `data.js?v=5998kneepushup`; `style.css` beze změny.
 - Commit: NE
 - Push: NE
+
+## Supine Twist completion — v59.101-dev
+
+- Supine Twist / Rotace páteře vleže je dokončený pod kanonickým ID `supine_twist` se sekvencí START → HERO → START.
+- Schválené START, HERO, Guide Card a Step by Step v01 byly nasazeny bez změny PNG; END používá přesně START bez samostatného souboru.
+- `referenceExerciseAssets.supine_twist` zpřístupňuje hlavní HERO, mini sekvenci a dynamický Step by Step bez fallbacku.
+- Program, pořadí a dávky ve dnech 2, 6, 11, 13, 20, 27 a 30 zůstaly beze změny.
+- Progress: 52 celkem, 46 HOTOVO, 0 ROZPRACOVÁNO, 6 ČEKÁ.
+- NEXT TASK: Swan Prep START.
+- Verze/cache: `v59.101-dev`; `app.js?v=59101supinetwist`; `data.js` a `style.css` beze změny.
+- Commit: NE
+- Push: NE

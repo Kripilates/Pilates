@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.100-dev';
+const APP_VERSION='v59.102-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1582,6 +1582,32 @@ const referenceExerciseAssets={
       mistakes:['Otáčení nebo houpání pánve.','Propadnutí v bedrech.','Propadnutí mezi rameny.','Příliš úzký postoj chodidel.']
     }
   },
+  supine_twist:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_step_by_step_v01.png',
+    subtitle:'Pas • záda • mobilita páteře',
+    miniSteps:[
+      {n:1,title:'START',caption:'Kolena uprostřed',photo:'start'},
+      {n:2,title:'ROTACE',caption:'Kolena do strany',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět do středu',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže otevři do stran a ramena uvolni.',photo:'start'},
+      {title:'KOLENA DO STRANY',text:'S výdechem spouštěj obě kolena společně do strany. Pánev nech přirozeně následovat pohyb.',photo:'hero'},
+      {title:'OTEVŘENÝ HRUDNÍK',text:'Kolena drž u sebe a obě ramena nech na podložce. Hrudník zůstává otevřený vzhůru.',photo:'hero'},
+      {title:'NÁVRAT A VYSTŘÍDÁNÍ',text:'S nádechem vrať kolena do středu. Poté stejný pohyb proveď kontrolovaně na opačnou stranu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Pas / záda',knees:'Kolena drž u sebe'},
+    breath:{inhale:'Ve středu a při návratu',exhale:'Při spouštění kolen',tempo:'Pomalu a bez švihu'},
+    recommendations:{
+      feel:'Jemné uvolnění zad, pasu a páteře při otevřeném hrudníku.',
+      watch:['Kolena drž u sebe.','Obě ramena nech na podložce.','Rozsah zmenši při nepříjemném tahu nebo bolesti.'],
+      mistakes:['Rozdělování kolen.','Zvedání opačného ramene.','Švihový pohyb.','Tlačení kolen silou k podložce.']
+    }
+  },
   knee_pushup:{
     start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero_v01.png',
@@ -1609,8 +1635,11 @@ const referenceExerciseAssets={
     }
   },
   chest_press:{
-    start:'assets/exercises/chest_press_step1.jpg?v=5930chestpress',
-    hero:'assets/exercises/chest_press.jpg?v=5930chestpress',
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_step_by_step_v01.png',
     miniSteps:[
       {n:1,title:'START',caption:'Činky u hrudníku',photo:'start'},
       {n:2,title:'TLAK NAHORU',caption:'Činky nad hrudník',photo:'hero'},
