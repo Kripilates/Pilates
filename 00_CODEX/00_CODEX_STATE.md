@@ -359,3 +359,27 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Verze/cache: `v59.101-dev`; `app.js?v=59101supinetwist`; `data.js` a `style.css` beze změny.
 - Commit: NE
 - Push: NE
+
+## Finální dokončení 30denního programu — v59.104-dev
+
+- Workout, který změní celý program z nedokončeného na dokončený, přeskakuje běžnou denní completion a otevírá rovnou samostatnou program completion obrazovku.
+- Detekce používá existující přechod `!programWasCompleteAtWorkoutStart && isProgramComplete()` a není vázaná na Den 30.
+- Obrazovka používá existující logo Moovka a schválený asset `Mermaid Stretch/mermaid_stretch_start_v01.png` s CSS cropem a fade do bílé.
+- Statistiky vycházejí ze skutečných dat: 30 programových dní a 26 dokončených aktivních tréninků. Celkové minuty nejsou spolehlivě ukládané, proto se nezobrazují.
+- CTA zachovává existující potvrzení a používá `startNewProgramCycle()`; reset maže pouze progress klíče a ponechává historii, kalendářní logy, poznámky, měření, oblíbené, obtížnost, onboarding a nastavení.
+- `node --check app.js`, `node --check data.js`, parsování `index.html`, logická regresní QA a `git diff --check`: PASS.
+- Browser runtime nebyl v této relaci dostupný; finální interaktivní kontrola 390 × 844 a console QA zůstává k ověření v reálném browseru.
+- Verze/cache: `v59.104-dev`; `style.css?v=59104programfinale`, `app.js?v=59104programfinale`; `data.js` beze změny.
+- Commit: NE
+- Push: NE
+## Swan Prep completion — v59.105-dev
+
+- Swan Prep / Jemný záklon vleže je dokončený pod kanonickým ID `swan` se sekvencí START → HERO → START.
+- Schválené START, HERO, Guide Card a Step by Step v01 byly nasazeny bez změny PNG; END používá přesně START bez samostatného souboru.
+- `referenceExerciseAssets.swan` zpřístupňuje hlavní HERO, mini sekvenci a dynamický Step by Step bez fallbacku.
+- Program, pořadí a dávky ve dnech 4, 11, 20 a 25 zůstaly beze změny.
+- Progress: 52 celkem, 47 HOTOVO, 0 ROZPRACOVÁNO, 5 ČEKÁ.
+- NEXT TASK: Swimming START.
+- Verze/cache: `v59.105-dev`; `app.js?v=59105swanprep`; `data.js` a `style.css` cache beze změny.
+- Commit: NE
+- Push: NE

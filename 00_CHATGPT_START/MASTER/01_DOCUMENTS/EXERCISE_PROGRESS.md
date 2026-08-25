@@ -33,21 +33,21 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Swan Prep START / HERO / Guide / Step
-2. Swimming START / HERO / Guide / Step
-3. The Hundred START / HERO / Guide / Step
-4. Thread the Needle START / HERO / Guide / Step
-5. Triceps Kickback START / HERO / Guide / Step
-6. Wall Sit START / HERO / Guide / Step
+1. Swimming START / HERO / Guide / Step
+2. The Hundred START / HERO / Guide / Step
+3. Thread the Needle START / HERO / Guide / Step
+4. Triceps Kickback START / HERO / Guide / Step
+5. Wall Sit START / HERO / Guide / Step
+
 
 ## Souhrn
 
 Celkem cviků: 52
-Kompletně hotovo: 46
+Kompletně hotovo: 47
 Rozpracováno: 0
-Nezačato: 6
+Nezačato: 5
 
-Další doporučený asset krok: Swan Prep START
+Další doporučený asset krok: Swimming START
 
 ## Přehled
 
@@ -98,7 +98,7 @@ Další doporučený asset krok: Swan Prep START
 | Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; sekvence START → přitažení na jednu stranu → přitažení na opačnou stranu → START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID standing_oblique; programové dávky beze změny |
 | Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; END = START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
 | Supine Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `supine_twist` ve v59.101-dev; sekvence START → HERO → START |
-| Swan Prep | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Swan Prep | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `swan` ve v59.105-dev; sekvence START → HERO → START |
 | Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
 | The Hundred | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 | Thread the Needle | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |

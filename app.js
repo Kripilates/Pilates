@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.103-dev';
+const APP_VERSION='v59.105-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -111,7 +111,7 @@ function setWorkoutHeaderPosition(active=false){
     return;
   }
   brandBadge.textContent='';
-  brandBadge.classList.remove('workoutPositionBadge');
+  brandBadge.classList.remove('workoutPositionBadge','programCompletionBadge');
 }
 function setWorkoutNavigationLocked(locked){
   if(!primaryNav)return;
@@ -533,6 +533,7 @@ function resetProgramCycleProgress(){
   workoutContext=null;
 }
 function startNewProgramCycle(){
+  programCompletedByCurrentWorkout=false;
   resetProgramCycleProgress();
   closeProgramCycleDialog();
   day(0);
@@ -541,14 +542,32 @@ function showProgramCompletion(){
   setWorkoutHeaderPosition(false);
   lastMode='home';
   setNav('home');
-  app.innerHTML=`<section class="card programCycleCompletion" aria-labelledby="programCompletionTitle">
-    <p class="eyebrow">30denní program</p>
-    <h2 id="programCompletionTitle">30denní program dokončen</h2>
-    <p class="programCycleLead">Máš za sebou celý 30denní program.</p>
-    <p>Můžeš začít znovu od Dne 1. Historie tréninků, kalendář, poznámky, měření a ostatní osobní data zůstanou zachované.</p>
-    <div class="programCycleCompletionActions">
-      <button class="primary" data-action="new-program-cycle">Začít nový 30denní cyklus</button>
-      <button data-action="dismiss-program-completion">Teď ne</button>
+  const summary=statsData();
+  const programDays=data.days.length;
+  const completedWorkouts=summary.daysComplete;
+  if(brandBadge){
+    brandBadge.textContent='Program dokončen';
+    brandBadge.classList.add('programCompletionBadge');
+  }
+  app.innerHTML=`<section class="programCompletionExperience" aria-labelledby="programCompletionTitle">
+    <div class="programCompletionProgress" role="progressbar" aria-label="Dokončený program" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
+    <div class="programCompletionHero">
+      <img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png" alt="Závěrečné protažení Mermaid Stretch">
+    </div>
+    <div class="programCompletionContent">
+      <p class="programCompletionMeta">${programDays} dní <span>•</span> ${completedWorkouts} tréninků</p>
+      <h1 id="programCompletionTitle">Máš to<span>.</span></h1>
+      <p class="programCompletionLead">Celý program dokončen.</p>
+      <div class="programCompletionStats" aria-label="Souhrn dokončeného programu">
+        <div><b>${programDays}</b><strong>dní</strong><span>dokončeno</span></div>
+        <div><b>${completedWorkouts}</b><strong>tréninků</strong><span>dokončeno</span></div>
+      </div>
+      <div class="programCompletionContinue">
+        <h2>Chceš pokračovat?</h2>
+        <p>Začni znovu od 1. dne.<br>Tvoje historie zůstane zachovaná.</p>
+      </div>
+      <button class="primary programCompletionPrimary" data-action="new-program-cycle">Začít nový cyklus</button>
+      <button class="programCompletionDismiss" data-action="dismiss-program-completion">Teď ne</button>
     </div>
   </section>`;
   scrollTop();
@@ -1621,7 +1640,32 @@ const referenceExerciseAssets={
       mistakes:['Rozdělování kolen.','Zvedání opačného ramene.','Švihový pohyb.','Tlačení kolen silou k podložce.']
     }
   },
-  knee_pushup:{
+  swan:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_step_by_step_v01.png',
+    subtitle:'Záda • držení těla • otevření hrudníku',
+    miniSteps:[
+      {n:1,title:'START',caption:'Výchozí poloha',photo:'start'},
+      {n:2,title:'ZVEDNI HRUDNÍK',caption:'Nízký kontrolovaný zdvih',photo:'hero'},
+      {n:3,title:'ZPĚT',caption:'Pomalu polož trup',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na břicho, nohy natáhni a nárty nech na podložce. Dlaně polož vedle ramen a lokty drž u těla.',photo:'start'},
+      {title:'PRODLOUŽENÍ PÁTEŘE',text:'Stáhni ramena od uší, prodluž temeno hlavy vpřed a aktivuj střed těla. Pánev a stehna zůstávají opřené.',photo:'hero'},
+      {title:'NÍZKÝ ZDVIH HRUDNÍKU',text:'S výdechem zvedni hlavu a hrudník jen nízko nad podložku. Lokty nech pokrčené a pohled směřuj šikmo dolů.',photo:'hero'},
+      {title:'NÁVRAT DOLŮ',text:'S nádechem trup pomalu polož zpět. Udržuj dlouhý krk a pohyb stále kontroluj.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Záda / držení těla',knees:'Bez zátěže kolen'},
+    breath:{inhale:'V dolní poloze a při návratu',exhale:'Při zvednutí hrudníku',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Posílení zad, otevření hrudníku a lepší držení těla při dlouhé páteři.',
+      watch:['Ramena drž daleko od uší.','Pánev a stehna nech na podložce.','Hlavu drž v prodloužení páteře a zvedej se jen nízko.'],
+      mistakes:['Zaklánění hlavy.','Zvedání ramen k uším.','Tlačení do vysoké kobry.','Nadměrné prohýbání beder.']
+    }
+  },  knee_pushup:{
     start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero_v01.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
@@ -2768,6 +2812,13 @@ function doneNext(mark=true){
   const workoutStartedAt=Number(workoutContext?.startedAt);
   const elapsedMinutes=workoutStartedAt>0 ? Math.max(1,Math.round((Date.now()-workoutStartedAt)/60000)) : null;
   programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
+  if(programCompletedByCurrentWorkout){
+    workoutRunning=false;
+    setWorkoutNavigationLocked(false);
+    workoutContext=null;
+    showProgramCompletion();
+    return;
+  }
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="finishHero">
