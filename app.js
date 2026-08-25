@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.97-dev';
+const APP_VERSION='v59.98-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -1560,6 +1560,32 @@ const referenceExerciseAssets={
       feel:'Aktivní střed těla a ramena při stabilní pánvi a kontrolovaném střídání rukou.',
       watch:['Dlaně drž přímo pod rameny.','Pánev a boky drž co nejvíce bez pohybu.','Hlavu nech v prodloužení páteře.'],
       mistakes:['Otáčení nebo houpání pánve.','Propadnutí v bedrech.','Propadnutí mezi rameny.','Příliš úzký postoj chodidel.']
+    }
+  },
+  knee_pushup:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_step_by_step_v01.png',
+    subtitle:'Paže • hrudník • střed těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Výchozí poloha',photo:'start'},
+      {n:2,title:'DOLŮ',caption:'Kontrolovaně k podložce',photo:'hero'},
+      {n:3,title:'ZPĚT',caption:'Vytlač se vzhůru',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Opři se o dlaně a kolena. Dlaně měj pod rameny, střed těla aktivní a hlavu v prodloužení páteře.',photo:'start'},
+      {title:'POHYB DOLŮ',text:'S nádechem pokrč lokty šikmo dozadu a kontrolovaně spouštěj hrudník k podložce.',photo:'hero'},
+      {title:'PEVNÁ OSA TĚLA',text:'Pánev drž v jedné ose s trupem. Neprohýbej bedra, nezvedej boky a nepokládej hrudník na podložku.',photo:'hero'},
+      {title:'NÁVRAT VZHŮRU',text:'S výdechem zatlač do dlaní, propni paže bez zamykání loktů a vrať se do výchozí polohy.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Horní část těla',knees:'Opora o kolena'},
+    breath:{inhale:'Při pohybu dolů',exhale:'Při vytlačení vzhůru',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci paží, hrudníku a středu těla při pevné ose od kolen až k hlavě.',
+      watch:['Dlaně drž pod rameny.','Pánev drž v jedné ose s trupem.','Lokty veď šikmo dozadu a ramena nech daleko od uší.'],
+      mistakes:['Propadnutí v bedrech.','Zvedání pánve.','Rozevírání loktů do stran.','Padání hlavy dolů.']
     }
   },
   chest_press:{

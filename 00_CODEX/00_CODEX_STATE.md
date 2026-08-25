@@ -335,3 +335,15 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Verze/cache: `v59.94-dev`; `app.js?v=5994chestfly`; `data.js` a `style.css` beze změny.
 - Commit: NE
 - Push: NE
+
+## Knee Push-Up completion — v59.98-dev
+
+- Knee Push-Up / Kliky na kolenou je dokončený pod kanonickým ID `knee_pushup` se sekvencí START → HERO → START.
+- Schválené START, HERO, Guide Card a Step by Step v01 byly nasazeny bez změny PNG; END používá START bez samostatného souboru.
+- Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.knee_pushup` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
+- Program, pořadí a dávky ve dnech 10 a 24 zůstaly beze změny.
+- Progress: 52 celkem, 45 HOTOVO, 0 ROZPRACOVÁNO, 7 ČEKÁ.
+- NEXT TASK: Supine Twist START.
+- Verze/cache: `v59.98-dev`; `app.js?v=5998kneepushup`; `data.js?v=5998kneepushup`; `style.css` beze změny.
+- Commit: NE
+- Push: NE
