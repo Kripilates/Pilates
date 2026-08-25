@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.98-dev';
+const APP_VERSION='v59.100-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 if(versionEl)versionEl.textContent=APP_VERSION;
@@ -13,6 +13,7 @@ let workoutTransitionLock=false;
 let workoutFinalStretch=false;
 let workoutExitDialogOpen=false, workoutExitWasPaused=false, workoutHistoryArmed=false;
 let programCycleDialogOpen=false;
+let programWasCompleteAtWorkoutStart=false, programCompletedByCurrentWorkout=false;
 let workoutHistoryGuardSequence=0, workoutHistoryGuardId=null;
 let pendingWorkoutExitDay=null;
 let appHistoryRendering=false, rootExitDialogOpen=false, rootExitAllowed=false;
@@ -88,7 +89,7 @@ function showProgramCycleDialog(){
   programCycleDialogOpen=true;
   app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay programCycleOverlay" role="dialog" aria-modal="true" aria-labelledby="programCycleTitle">
     <div class="workoutExitDialog">
-      <h2 id="programCycleTitle">Začít nový 30denní cyklus?</h2>
+      <h2 id="programCycleTitle">Začít znovu od Dne 1?</h2>
       <p>Průběh aktuálního plánu se vynuluje a začneš znovu Dnem 1. Historie, kalendář, poznámky, měření, oblíbené cviky i zvolená obtížnost zůstanou zachované.</p>
       <button class="primary" data-action="confirm-new-program-cycle">Ano, začít nový cyklus</button>
       <button data-action="cancel-new-program-cycle">Zrušit</button>
@@ -452,6 +453,9 @@ function saveWorkoutNote(){
   const arr=workoutNotes();
   arr.push({date:todayKey(),day:currentDay,title:data.days[currentDay].title,mood,text});
   saveWorkoutNotes(arr.slice(-60));
+  const offerNewCycle=programCompletedByCurrentWorkout&&isProgramComplete();
+  programCompletedByCurrentWorkout=false;
+  if(offerNewCycle)return showProgramCompletion();
   home();
 }
 function czechCountLabel(value,one,few,many){
@@ -519,6 +523,22 @@ function startNewProgramCycle(){
   resetProgramCycleProgress();
   closeProgramCycleDialog();
   day(0);
+}
+function showProgramCompletion(){
+  setWorkoutHeaderPosition(false);
+  lastMode='home';
+  setNav('home');
+  app.innerHTML=`<section class="card programCycleCompletion" aria-labelledby="programCompletionTitle">
+    <p class="eyebrow">30denní program</p>
+    <h2 id="programCompletionTitle">30denní program dokončen</h2>
+    <p class="programCycleLead">Máš za sebou celý 30denní program.</p>
+    <p>Můžeš začít znovu od Dne 1. Historie tréninků, kalendář, poznámky, měření a ostatní osobní data zůstanou zachované.</p>
+    <div class="programCycleCompletionActions">
+      <button class="primary" data-action="new-program-cycle">Začít nový 30denní cyklus</button>
+      <button data-action="dismiss-program-completion">Teď ne</button>
+    </div>
+  </section>`;
+  scrollTop();
 }
 function nextDayIndex(){
   let n=data.days.findIndex((d,i)=>d.items.length&&pct(i)<100);
@@ -1911,8 +1931,8 @@ function exCard(k,dose,d,i){
     k==='sideleg' ? ['Hýždě (střední sval)','Kyčle','Stehno'] :
     k==='deadbug' ? ['Břicho (hlavně)','Core','Stabilizace'] : [meta.area,meta.diff,meta.knee];
   return `<article class="exercise v18exercise v22exercise ${isReal?'v22RealCard':''} ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
-    <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}${ok?' ✓':''}</span></div>
-    <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}<span class="doneMark">${ok?'✓':''}</span></div>
+    <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}</span></div>
+    <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}</div>
     <div class="v22CardLabels">${labels.map((x,j)=>`<span class="${j===0?'mainLabel':''}">${x}</span>`).join('')}</div>
     <div class="v22Open"><span>Jak provést</span><b>›</b></div>
   </article>`;
@@ -2354,6 +2374,8 @@ function startTraining(di,auto=true){
   workoutAuto=true;
   workoutRunning=true;
   workoutPaused=false;
+  programWasCompleteAtWorkoutStart=isProgramComplete();
+  programCompletedByCurrentWorkout=false;
   workoutCurrentSet=1;
   workoutContext=createWorkoutContext(di);
   workoutTotalSets=workoutContext.totalSets;
@@ -2702,6 +2724,7 @@ function doneNext(mark=true){
   const completedCount=completedItems.length;
   const workoutStartedAt=Number(workoutContext?.startedAt);
   const elapsedMinutes=workoutStartedAt>0 ? Math.max(1,Math.round((Date.now()-workoutStartedAt)/60000)) : null;
+  programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="finishHero">
@@ -3032,6 +3055,7 @@ app.addEventListener('click',e=>{
   if(a==='new-program-cycle')return showProgramCycleDialog();
   if(a==='cancel-new-program-cycle'){closeProgramCycleDialog();return;}
   if(a==='confirm-new-program-cycle')return startNewProgramCycle();
+  if(a==='dismiss-program-completion'){programCompletedByCurrentWorkout=false;return home();}
   if(a==='history-back'){history.back();return;}
   if(a==='home')return home();
   if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}

@@ -643,6 +643,43 @@ main button:not(.primary):not(.active),
   padding:10px!important;
 }
 
+.v22exercise.done{
+  opacity:1;
+}
+
+.programCycleCompletion{
+  width:min(100%,620px);
+  margin:clamp(32px,8vh,76px) auto 110px;
+  padding:clamp(28px,6vw,48px);
+  text-align:center;
+}
+.programCycleCompletion h2{
+  margin:8px 0 14px;
+  color:var(--text);
+  font-size:clamp(30px,7vw,44px);
+  line-height:1.08;
+}
+.programCycleCompletion>p:not(.eyebrow){
+  max-width:500px;
+  margin:0 auto 14px;
+  color:var(--muted);
+  line-height:1.55;
+}
+.programCycleCompletion .programCycleLead{
+  color:var(--text)!important;
+  font-size:1.12rem;
+  font-weight:900;
+}
+.programCycleCompletionActions{
+  display:grid;
+  gap:10px;
+  margin-top:26px;
+}
+.programCycleCompletionActions button{
+  width:100%;
+  min-height:52px;
+}
+
 .v22CardHead{
   margin-bottom:7px!important;
 }
