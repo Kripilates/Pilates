@@ -1,8 +1,9 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.102-dev';
+const APP_VERSION='v59.103-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
+const primaryNav=document.querySelector('body > nav');
 if(versionEl)versionEl.textContent=APP_VERSION;
 document.title='Moovka '+APP_VERSION;
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
@@ -112,7 +113,17 @@ function setWorkoutHeaderPosition(active=false){
   brandBadge.textContent='';
   brandBadge.classList.remove('workoutPositionBadge');
 }
+function setWorkoutNavigationLocked(locked){
+  if(!primaryNav)return;
+  primaryNav.hidden=Boolean(locked);
+  primaryNav.style.display=locked?'none':'';
+  primaryNav.inert=Boolean(locked);
+  if(locked)primaryNav.setAttribute('aria-hidden','true');
+  else primaryNav.removeAttribute('aria-hidden');
+  primaryNav.querySelectorAll('button').forEach(button=>{button.disabled=Boolean(locked);});
+}
 function renderTrainingScreen(html){
+  setWorkoutNavigationLocked(true);
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
   setWorkoutHeaderPosition(true);
@@ -170,6 +181,7 @@ function exitWorkoutToDay(){
   workoutExitDialogOpen=false;
   clearInterval(timer);
   workoutRunning=false;
+  setWorkoutNavigationLocked(false);
   workoutPaused=false;
   workoutAuto=false;
   workoutContext=null;
@@ -483,6 +495,7 @@ function weeklyHint(arr){
 
 
 function setNav(a){
+  if(!workoutRunning)setWorkoutNavigationLocked(false);
   if(a!=='train')setWorkoutHeaderPosition(false);
   ['home','days','train','calendar','library','stats','progress'].forEach(n=>{
     const el=$(`nav-${n}`); if(el) el.classList.toggle('active',n===a);
@@ -2336,6 +2349,7 @@ function finishWorkoutDay(){
   currentExercise=Math.max(0,data.days[currentDay].items.length-1);
   clearInterval(timer);
   workoutRunning=false;
+  setWorkoutNavigationLocked(false);
   workoutPaused=false;
   clearWorkoutHistoryGuard();
   workoutCurrentSet=1;
@@ -2486,7 +2500,7 @@ function showSeriesRest(){
       <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${restProgress}%"></i></div>
       <small>N\u00e1sleduje: S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>
     </div>
-    <div class="row trainControls"><button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pauza'}</button><button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button><button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button></div>
+    <div class="row trainControls"><button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button><button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button><button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button></div>
   </section>`);
   scrollTop();
 }
@@ -2518,12 +2532,12 @@ function showAutoTrain(opts={}){
   const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
   const statusHtml=(workoutPhase==='prep'&&!workoutPaused) ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
   const workoutHeaderHtml=isSideSwitch
-    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`
+    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="workoutPhaseText">${seriesLabel}</div></div>`
     : hasTimerLayout
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
-  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pauza'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button><button data-action="info" data-ex="${k}">${lineIcon('info')}Detail cviku</button>`;
+  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button><button data-action="info" data-ex="${k}">${lineIcon('info')}Detail cviku</button>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0') && (existing.dataset.workoutPhase==='switch')===(workoutPhase==='switch');
   if(canPatchExisting){
@@ -2788,6 +2802,7 @@ function doneNext(mark=true){
     brandBadge.classList.add('workoutPositionBadge');
   }
   workoutRunning=false;
+  setWorkoutNavigationLocked(false);
   workoutContext=null;
   scrollTop();
 }
