@@ -15,7 +15,7 @@ Status: HOTOVO
 - GUIDE CARD: ✅ `swan_prep_guide_card_v01.png` (780 × 1688 px, RGB, SHA-256 `2e5f5acbe03e70dd28b9ffb220ec431c2a37162f226e5491353850eb19e09ffe`)
 - STEP BY STEP: ✅ `swan_prep_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `9a36cd98f82bbe7f026f63886ee70609ed7ff453a7e4e5d62b6b808ed48316e8`)
 - EXPORT: ✅
-- QA: ✅ technické a browserové
+- QA: ✅ assetové a technické; opakované mobilní browser QA nasazení blokuje lokální chyba Codex browser runtime (`setup refresh had errors`)
 - APP: ✅ nasazeno pod kanonickým ID `swan` ve verzi `v59.105-dev`
 
 ## Notes

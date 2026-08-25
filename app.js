@@ -1665,7 +1665,8 @@ const referenceExerciseAssets={
       watch:['Ramena drž daleko od uší.','Pánev a stehna nech na podložce.','Hlavu drž v prodloužení páteře a zvedej se jen nízko.'],
       mistakes:['Zaklánění hlavy.','Zvedání ramen k uším.','Tlačení do vysoké kobry.','Nadměrné prohýbání beder.']
     }
-  },  knee_pushup:{
+  },
+  knee_pushup:{
     start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero_v01.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',

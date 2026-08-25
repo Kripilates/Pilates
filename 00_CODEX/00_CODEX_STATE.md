@@ -381,5 +381,6 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Progress: 52 celkem, 47 HOTOVO, 0 ROZPRACOVÁNO, 5 ČEKÁ.
 - NEXT TASK: Swimming START.
 - Verze/cache: `v59.105-dev`; `app.js?v=59105swanprep`; `data.js` a `style.css` cache beze změny.
+- Assetové URL a statická regresní QA prošly; mobilní browser re-check 390 px nebylo možné spustit kvůli lokální chybě Codex browser runtime (`setup refresh had errors`).
 - Commit: NE
 - Push: NE
