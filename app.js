@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.106-dev';
+const APP_VERSION='v59.108-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1025,6 +1025,32 @@ const referenceExerciseAssets={
       mistakes:['Vytáčení pánve do strany.','Tlačení hlavy nebo ramene silou do podložky.','Zadržování dechu.','Rychlý švih místo kontrolované rotace.']
     }
   },
+  swimming:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_step_by_step_v01.png',
+    subtitle:'Záda • hýždě • střed těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Leh na břiše',photo:'start'},
+      {n:2,title:'ZVEDNUTÍ',caption:'Protilehlé končetiny',photo:'hero'},
+      {n:3,title:'STŘÍDÁNÍ',caption:'Plynule střídej',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na břicho. Paže natáhni před sebe, nohy dozadu a drž krk v prodloužení páteře.',photo:'start'},
+      {title:'ZVEDNUTÍ',text:'Zvedni jednu paži a protilehlou nohu jen několik centimetrů nad podložku.',photo:'hero'},
+      {title:'STŘÍDÁNÍ',text:'Plynule vystřídej opačnou paži a nohu. Trup a pánev drž co nejstabilnější.',photo:'hero'},
+      {title:'KONTROLA',text:'Pokračuj v klidném střídání a po dokončení kontrolovaně polož ruce i nohy zpět.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Záda / střed těla',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Plynule po celou dobu',exhale:'Plynule po celou dobu',tempo:'Střídavě bez švihu'},
+    recommendations:{
+      feel:'Záda, hýždě a střed těla při klidném střídání protilehlé paže a nohy.',
+      watch:['Drž střed těla aktivní.','Nevytahuj ramena k uším.','Pánev a trup drž co nejstabilnější.'],
+      mistakes:['Zaklánění hlavy.','Zvedání končetin příliš vysoko.','Houpání trupu nebo pánve.','Zadržování dechu.']
+    }
+  },
   hip_march:{
     start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v02.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v02.png',
@@ -1416,6 +1442,32 @@ const referenceExerciseAssets={
       feel:'Aktivní hluboký střed těla při bedrech pevně přitisknutých k podložce.',
       watch:['Bedra drž po celou dobu na podložce.','Paže nech klidné a ramena daleko od uší.','Obě natažené nohy drž ve stejné výšce.'],
       mistakes:['Odlepení beder od podložky.','Kmitání pažemi jako u The Hundred.','Příliš nízké nohy za cenu prohnutí beder.','Zadržování dechu nebo švih.']
+    }
+  },
+  hundred:{
+    start:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/the_hundred_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/the_hundred_step_by_step_v01.png',
+    subtitle:'Střed těla • dech • malé pulzy paží',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy v 90/90',photo:'start'},
+      {n:2,title:'PRACOVNÍ POZICE',caption:'Zvedni lopatky',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Lehni si na záda. Nohy zvedni do 90/90, paže nech dlouhé podél těla a krk drž uvolněný.',photo:'start'},
+      {title:'PRACOVNÍ POZICE',text:'Zpevni střed těla a zvedni hlavu s lopatkami. Paže drž nízko nad podložkou.',photo:'hero'},
+      {title:'MALÉ PULZY',text:'V pracovní pozici prováděj malé kontrolované pulzy natažených paží. Dýchej plynule a nezadržuj dech.',photo:'hero'},
+      {title:'NÁVRAT',text:'Po dokončení polož hlavu a lopatky zpět. Nohy vrať kontrolovaně bez prohnutí v bedrech.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Hluboký střed těla',knees:'Bez zátěže kolen'},
+    breath:{inhale:'Plynule během pulzů',exhale:'Plynule během pulzů',tempo:'Malé kontrolované kmity'},
+    recommendations:{
+      feel:'Hluboké břicho, kontrolu dechu a stabilní bedra při malých pulzech natažených paží.',
+      watch:['Krk nech dlouhý a bradu netlač k hrudníku.','Ramena drž daleko od uší.','Bedra udrž stabilní a paže kmitají jen v malém rozsahu.'],
+      mistakes:['Zadržování dechu.','Přetěžování krku.','Zvedání ramen k uším.','Příliš velké kmity paží nebo prohýbání beder.']
     }
   },
   inner_thigh:{

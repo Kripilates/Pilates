@@ -33,20 +33,18 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Swimming START / HERO / Guide / Step
-2. The Hundred START / HERO / Guide / Step
-3. Triceps Kickback START / HERO / Guide / Step
-4. Wall Sit START / HERO / Guide / Step
+1. Triceps Kickback START / HERO / Guide / Step
+2. Wall Sit START / HERO / Guide / Step
 
 
 ## Souhrn
 
 Celkem cviků: 52
-Kompletně hotovo: 48
+Kompletně hotovo: 50
 Rozpracováno: 0
-Nezačato: 4
+Nezačato: 2
 
-Další doporučený asset krok: Swimming START
+Další doporučený asset krok: Triceps Kickback START
 
 ## Přehled
 
@@ -98,8 +96,8 @@ Další doporučený asset krok: Swimming START
 | Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; END = START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
 | Supine Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `supine_twist` ve v59.101-dev; sekvence START → HERO → START |
 | Swan Prep | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `swan` ve v59.105-dev; sekvence START → HERO → START |
-| Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
-| The Hundred | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Swimming | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; střídavý pohyb používá stejný HERO bez zrcadlení a opačná fáze je vysvětlena textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `swimming`; programové dávky beze změny |
+| The Hundred | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; The Hundred používá HERO jako pracovní pozici s malými pulzy paží vysvětlenými textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `hundred`; programové dávky beze změny |
 | Thread the Needle | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/END přímo používají schválený Bird Dog START bez fyzické kopie; HERO v01 schválený; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `thread`; programové dávky beze změny |
 | Toe Tap | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | schválený referenční cvik; soubory bez standardního _v01; EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Triceps Kickback | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |

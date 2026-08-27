@@ -48,8 +48,8 @@ Generated: 2026-07-20T06:30:19.359Z
 | Standing Side Bend | `Pilates Assets/02_Exercise_Cards/Standing Side Bend` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Supine Twist | `Pilates Assets/02_Exercise_Cards/Supine Twist` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Swan Prep | `Pilates Assets/02_Exercise_Cards/Swan Prep` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Swimming | `Pilates Assets/02_Exercise_Cards/Swimming` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Swimming | `Pilates Assets/02_Exercise_Cards/Swimming` | `swimming_start_v01.png` | `swimming_hero_v01.png` | `swimming_guide_card_v01.png` | `swimming_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; alternating phase uses same HERO without mirrored or duplicate source |
+| The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | `hundred_start_v01.png` | `hundred_hero_v01.png` | `the_hundred_guide_card_v01.png` | `the_hundred_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; HERO represents working position for small arm pulses |
 | Thread the Needle | `Pilates Assets/02_Exercise_Cards/Thread the Needle` | reuse `../Bird Dog/bird_dog_start_v01.png` | `thread_the_needle_hero_v01.png` | `thread_the_needle_guide_card_v01.png` | `thread_the_needle_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; duplicate source not created |
 | Toe Tap | `Pilates Assets/02_Exercise_Cards/Toe Tap` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images; other PNG: toe_tap_guide_card_v1.png, toe_tap_hero.png, toe_tap_start.png, toe_tap_step_by_step_v1.png |
 | Triceps Kickback | `Pilates Assets/02_Exercise_Cards/Triceps Kickback` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
@@ -57,9 +57,9 @@ Generated: 2026-07-20T06:30:19.359Z
 
 ## Summary
 
-- COMPLETE: 6
+- COMPLETE: 8
 - IN PROGRESS: 7
-- EMPTY: 38
+- EMPTY: 36
 - MISSING: 0
 
 ## Possible duplicates
@@ -112,8 +112,6 @@ Generated: 2026-07-20T06:30:19.359Z
 - Standing Side Bend
 - Supine Twist
 - Swan Prep
-- Swimming
-- The Hundred
 - Thread the Needle
 - Toe Tap
 - Toe Taps

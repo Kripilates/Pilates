@@ -23,6 +23,7 @@ Scope:
 | Side Leg Lift | `Pilates Assets/02_Exercise_Cards/Side Leg Lift` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; source images replaced and cards rebuilt. |
 | Dead Bug | `assets/exercises/deadbug.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Toe Taps | `Pilates Assets/02_Exercise_Cards/Toe Tap` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
+| The Hundred | START/END reuse `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; HERO represents working position for small arm pulses; duplicate END source not created. |
 | Reverse Crunch | `assets/exercises/revcrunch.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Side Plank | `assets/exercises/sideplank.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Hollow Hold | `assets/exercises/hollow.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
@@ -42,6 +43,7 @@ Scope:
 | Mermaid Stretch | `assets/exercises/mermaid.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Side Kick Series | `assets/exercises/sidekick.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
 | Swan Prep | `assets/exercises/swan.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
+| Swimming | START/END reuse `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; alternating phase uses same HERO without mirroring; duplicate END source not created. |
 | Spine Stretch | `assets/exercises/spine.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
 | Wall Sit | `assets/exercises/wall.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
 | Glute Bridge March | `Pilates Assets/02_Exercise_Cards/Hip March` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. START uses shared Glute Bridge source. |

@@ -80,7 +80,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Swimming START / HERO / Guide / Step`
+1. `Triceps Kickback START / HERO / Guide / Step`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -95,6 +95,32 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Program, pořadí a dávky ve dnech 17 a 18 zůstaly beze změny.
 - Progress: 52 celkem, 48 HOTOVO, 0 ROZPRACOVÁNO, 4 ČEKÁ.
 - NEXT TASK: Swimming START / HERO / Guide / Step.
+
+## Swimming completion — v59.107-dev
+
+- Swimming je dokončený pod kanonickým ID `swimming` se sekvencí START → HERO → střídání protilehlých končetin → START.
+- Schválené START a HERO v01 byly použity beze změny; END používá přesně START bez samostatného souboru.
+- Guide Card a Step by Step v01 byly vytvořené ze schválených source fotek. Step by Step používá stejný HERO i pro krok střídání, bez zrcadlení a bez druhého HERO.
+- Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.swimming` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
+- Program, pořadí a dávky ve dnech 10, 18 a 25 zůstaly beze změny.
+- Progress: 52 celkem, 49 HOTOVO, 0 ROZPRACOVÁNO, 3 ČEKÁ.
+- NEXT TASK: The Hundred START / HERO / Guide / Step.
+- Verze/cache: `v59.107-dev`; `app.js?v=59107swimming`; `data.js?v=59107swimming`; `style.css` cache beze změny.
+- Commit: NE
+- Push: NE
+
+## The Hundred completion — v59.108-dev
+
+- The Hundred je dokončený pod kanonickým ID `hundred`; zobrazovaný název v aplikaci zůstává `Kmity pažemi vleže`.
+- Schválené START a HERO v01 byly použity beze změny; END používá přesně START bez samostatného souboru.
+- Guide Card a Step by Step v01 byly vytvořené ze schválených source fotek. Step by Step používá sekvenci START → HERO → HERO → START, protože HERO představuje pracovní pozici s malými pulzy paží.
+- Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.hundred` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
+- Program, pořadí a dávky ve dnech 11, 23 a 25 zůstaly beze změny.
+- Progress: 52 celkem, 50 HOTOVO, 0 ROZPRACOVÁNO, 2 ČEKÁ.
+- NEXT TASK: Triceps Kickback START / HERO / Guide / Step.
+- Verze/cache: `v59.108-dev`; `app.js?v=59108hundred`; `data.js?v=59108hundred`; `style.css` cache beze změny.
+- Commit: NE
+- Push: NE
 - Verze/cache: `v59.106-dev`; `app.js?v=59106threadneedle`; `data.js?v=59106threadneedle`; `style.css?v=59117programcleanup`.
 - Commit: NE
 - Push: NE
