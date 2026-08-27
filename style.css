@@ -4522,8 +4522,20 @@ body.dark .programCompletionHero::after{background:linear-gradient(to bottom,rgb
 }
 /* workout detail return */
 @media(max-width:720px){
+  body:has(.workoutExerciseDetail) {
+    padding-bottom:0!important;
+  }
+
+  main:has(.workoutExerciseDetail) {
+    padding-bottom:0!important;
+  }
+
+  .workoutExerciseDetail .v20Shell {
+    min-height:0!important;
+  }
+
   .workoutExerciseDetail .v20Content {
-    padding-bottom:calc(150px + env(safe-area-inset-bottom))!important;
+    padding-bottom:calc(136px + env(safe-area-inset-bottom))!important;
   }
 
   .workoutExerciseDetail .workoutDetailReturn {
@@ -4543,6 +4555,45 @@ body.dark .programCompletionHero::after{background:linear-gradient(to bottom,rgb
     box-shadow:0 10px 26px rgba(17,94,89,.22);
     font-size:.95rem;
     font-weight:900;
+  }
+}
+
+/* Reference detail: keep only the bottom reserve needed for the floating return CTA */
+@media(max-width:720px){
+  main:has(.referenceExerciseDetail){
+    padding-bottom:0!important;
+  }
+
+  .referenceExerciseDetail.v20Detail,
+  .referenceExerciseDetail .v20Shell,
+  .referenceExerciseDetail .v20Grid,
+  .referenceExerciseDetail .v20Main,
+  .referenceExerciseDetail .v20Aside{
+    min-height:0!important;
+  }
+
+  .referenceExerciseDetail.v20Detail{
+    margin-bottom:0!important;
+    padding-bottom:0!important;
+  }
+
+  .referenceExerciseDetail .v20Content{
+    min-height:0!important;
+    padding-bottom:calc(24px + env(safe-area-inset-bottom))!important;
+  }
+
+  .workoutExerciseDetail.referenceExerciseDetail .v20Content{
+    min-height:0!important;
+    padding-bottom:calc(140px + env(safe-area-inset-bottom))!important;
+  }
+
+  .referenceExerciseDetail .referenceStepByStep{
+    min-height:0!important;
+    margin-bottom:0!important;
+  }
+
+  .referenceExerciseDetail .referenceStepByStepContent{
+    padding-bottom:0!important;
   }
 }
 /* v59.110: photographic program completion */

@@ -554,15 +554,18 @@ function showProgramCompletion(){
     <div class="programCompletionHero">
       <img src="Pilates%20Assets/01_Master_Reference/MODEL_MASTER.png.png" alt="Modelka Moovka po dokončení programu">
       <div class="programCompletionHeroCopy">
-        <p class="programCompletionMeta">${programDays} dní <span>•</span> ${completedWorkouts} tréninků</p>
+        <div class="programCompletionStats" aria-label="Souhrn dokončeného programu">
+          <div><b>${programDays}</b><strong>DNÍ</strong></div>
+          <i aria-hidden="true"></i>
+          <div><b>${completedWorkouts}</b><strong>TRÉNINKŮ</strong></div>
+        </div>
         <h1 id="programCompletionTitle">Máš to<span>.</span></h1>
-        <p class="programCompletionLead">Celý program dokončen.</p>
       </div>
     </div>
     <div class="programCompletionContent">
       <div class="programCompletionContinue">
         <h2>Chceš pokračovat?</h2>
-        <p>Začni znovu od 1. dne.<br>Tvoje historie zůstane zachovaná.</p>
+        <p>Začni znovu od 1. dne.<br>Tvoje dokončené tréninky zůstávají v kalendáři.</p>
       </div>
       <button class="primary programCompletionPrimary" data-action="new-program-cycle">Začít nový cyklus</button>
       <button class="programCompletionDismiss" data-action="dismiss-program-completion">Teď ne</button>
