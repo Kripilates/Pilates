@@ -4346,14 +4346,20 @@ main:has(.programCompletionExperience){
 }
 .programCompletionStats{
   display:grid;
-  grid-template-columns:auto 1px auto;
+  grid-template-columns:1fr 1px 1fr;
   align-items:center;
   gap:26px;
+  width:min(100%,300px);
   margin:0 0 28px;
+  transform:translateX(10px);
 }
 .programCompletionStats div,
 .programCompletionStats b,
 .programCompletionStats strong{display:block}
+.programCompletionStats div{
+  min-width:0;
+  text-align:center;
+}
 .programCompletionStats i{
   width:1px;
   height:64px;
