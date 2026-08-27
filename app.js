@@ -568,16 +568,14 @@ function showProgramCompletion(){
   app.innerHTML=`<section class="programCompletionExperience" aria-labelledby="programCompletionTitle">
     <div class="programCompletionProgress" role="progressbar" aria-label="Dokončený program" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="programCompletionHero">
-      <img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png" alt="Závěrečné protažení Mermaid Stretch">
+      <img src="Pilates%20Assets/01_Master_Reference/MODEL_MASTER.png.png" alt="Modelka Moovka po dokončení programu">
+      <div class="programCompletionHeroCopy">
+        <p class="programCompletionMeta">${programDays} dní <span>•</span> ${completedWorkouts} tréninků</p>
+        <h1 id="programCompletionTitle">Máš to<span>.</span></h1>
+        <p class="programCompletionLead">Celý program dokončen.</p>
+      </div>
     </div>
     <div class="programCompletionContent">
-      <p class="programCompletionMeta">${programDays} dní <span>•</span> ${completedWorkouts} tréninků</p>
-      <h1 id="programCompletionTitle">Máš to<span>.</span></h1>
-      <p class="programCompletionLead">Celý program dokončen.</p>
-      <div class="programCompletionStats" aria-label="Souhrn dokončeného programu">
-        <div><b>${programDays}</b><strong>dní</strong><span>dokončeno</span></div>
-        <div><b>${completedWorkouts}</b><strong>tréninků</strong><span>dokončeno</span></div>
-      </div>
       <div class="programCompletionContinue">
         <h2>Chceš pokračovat?</h2>
         <p>Začni znovu od 1. dne.<br>Tvoje historie zůstane zachovaná.</p>

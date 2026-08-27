@@ -4567,3 +4567,149 @@ main:has(.autoTrain.workoutFitsViewport) {
     font-weight:900;
   }
 }
+/* v59.110: photographic program completion */
+.programCompletionExperience{
+  display:flex;
+  flex-direction:column;
+}
+.programCompletionProgress{flex:0 0 auto}
+.programCompletionHero{
+  flex:0 0 auto;
+  height:clamp(430px,62vh,560px);
+  background:#f4eee8;
+}
+.programCompletionHero img{
+  object-fit:cover;
+  object-position:50% 38%;
+  transform:translateX(9%) scale(1.35);
+  transform-origin:50% 20%;
+}
+.programCompletionHero::after,
+body.dark .programCompletionHero::after{
+  background:linear-gradient(to bottom,rgba(255,255,255,0) 76%,rgba(255,255,255,.08) 84%,#fff 100%);
+}
+.programCompletionHeroCopy{
+  position:absolute;
+  z-index:2;
+  top:53%;
+  left:clamp(24px,7vw,54px);
+  width:min(48%,350px);
+  transform:translateY(-50%);
+  text-align:left;
+}
+.programCompletionHeroCopy .programCompletionMeta{
+  margin:0 0 10px;
+  font-size:clamp(.72rem,1.8vw,.9rem);
+  letter-spacing:.16em;
+}
+.programCompletionHeroCopy h1{
+  margin:0;
+  color:#0b2d57;
+  font:900 clamp(58px,10vw,82px)/.9 Arial,system-ui,sans-serif;
+  letter-spacing:-.055em;
+}
+.programCompletionHeroCopy h1 span{color:var(--p)}
+.programCompletionHeroCopy .programCompletionLead{
+  margin:12px 0 0;
+  color:#40536b;
+  font-size:clamp(1rem,2.7vw,1.25rem);
+  font-weight:700;
+  line-height:1.25;
+}
+.programCompletionHeroCopy .programCompletionLead::after{display:none}
+.programCompletionContent{
+  flex:0 0 auto;
+  margin-top:0;
+  padding:10px 30px 18px;
+  background:#fff;
+}
+.programCompletionStats{display:none}
+.programCompletionContinue h2{margin-bottom:4px}
+.programCompletionContinue p{line-height:1.35}
+.programCompletionPrimary,
+.programCompletionPrimary.primary{
+  min-height:54px;
+  margin-top:16px;
+}
+.programCompletionDismiss{
+  min-height:32px;
+  margin-top:6px;
+  padding-top:3px;
+  padding-bottom:3px;
+}
+body.dark .programCompletionContent{background:#fff}
+
+@media(max-width:560px){
+  .programCompletionHero{
+    height:clamp(390px,56dvh,472px);
+  }
+  .programCompletionHero img{
+    object-position:50% 38%;
+    transform:translateX(11%) scale(1.62);
+    transform-origin:50% 20%;
+  }
+  .programCompletionHeroCopy{
+    top:54%;
+    left:20px;
+    width:54%;
+  }
+  .programCompletionHeroCopy .programCompletionMeta{
+    margin-bottom:8px;
+    font-size:.68rem;
+    letter-spacing:.13em;
+    white-space:nowrap;
+  }
+  .programCompletionHeroCopy .programCompletionMeta span{padding:0 .2em}
+  .programCompletionHeroCopy h1{font-size:56px}
+  .programCompletionHeroCopy .programCompletionLead{
+    width:12rem;
+    margin-top:8px;
+    font-size:.94rem;
+  }
+  .programCompletionContent{
+    margin-top:0;
+    padding:8px 18px 4px;
+  }
+  .programCompletionContinue h2{
+    margin-bottom:3px;
+    font-size:1.08rem;
+  }
+  .programCompletionContinue p{
+    font-size:.84rem;
+    line-height:1.28;
+  }
+  .programCompletionPrimary,
+  .programCompletionPrimary.primary{
+    min-height:50px;
+    margin-top:11px;
+    padding-top:11px;
+    padding-bottom:11px;
+    font-size:1rem;
+  }
+  .programCompletionDismiss{
+    min-height:30px;
+    margin-top:4px;
+  }
+}
+
+@media(max-width:560px) and (max-height:900px){
+  .programCompletionExperience{
+    height:calc(100dvh - 126px - env(safe-area-inset-bottom));
+    min-height:0;
+  }
+  .programCompletionHero{
+    flex:0 0 clamp(390px,56dvh,472px);
+    height:auto;
+  }
+  .programCompletionContent{
+    flex:1 0 auto;
+    margin-top:0;
+    padding-bottom:4px;
+  }
+}
+
+@media(max-width:360px){
+  .programCompletionHeroCopy{left:16px;width:56%}
+  .programCompletionHeroCopy h1{font-size:50px}
+  .programCompletionHeroCopy .programCompletionMeta{font-size:.62rem}
+}
