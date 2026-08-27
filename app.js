@@ -122,12 +122,28 @@ function setWorkoutNavigationLocked(locked){
   else primaryNav.removeAttribute('aria-hidden');
   primaryNav.querySelectorAll('button').forEach(button=>{button.disabled=Boolean(locked);});
 }
+function updateWorkoutViewportFit(){
+  const workout=app.querySelector('.autoTrain.v53CleanTrain,.autoTrain.v50Train');
+  if(!workout)return;
+  workout.classList.remove('workoutFitsViewport');
+  const workoutTop=Math.max(0,workout.getBoundingClientRect().top+window.scrollY);
+  const availableHeight=Math.max(0,window.innerHeight-workoutTop);
+  const fits=workout.scrollHeight<=availableHeight+1;
+  workout.classList.toggle('workoutFitsViewport',fits);
+  if(fits)window.scrollTo({top:0,behavior:'auto'});
+}
 function renderTrainingScreen(html){
   setWorkoutNavigationLocked(true);
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
   setWorkoutHeaderPosition(true);
   armWorkoutHistoryGuard();
+  requestAnimationFrame(()=>{
+    updateWorkoutViewportFit();
+    app.querySelectorAll('.trainImageSlot img').forEach(image=>{
+      if(!image.complete)image.addEventListener('load',updateWorkoutViewportFit,{once:true});
+    });
+  });
 }
 function armWorkoutHistoryGuard(){
   if(!workoutRunning)return;
@@ -2919,6 +2935,7 @@ function info(k,opts={}){
         ${hasReference ? '' : `<div class="v20Footer"><button data-action="prev">← Předchozí cvik</button><strong>${currentExercise+1 || 1} / ${data.days[currentDay]?.items?.length || 6} cviků</strong><button class="primary" data-action="train-current">▶ Zpět ke cviku</button></div>`}
       </div>
     </div>
+    ${workoutRunning?'<button class="workoutDetailReturn" data-action="train-current">← Zpět ke cvičení</button>':''}
   </section>`;
   scrollTop();
 }
@@ -3247,6 +3264,9 @@ const progressNav=document.getElementById('nav-progress'); if(progressNav) progr
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
 /* v50: service worker registration removed to prevent stale PWA cache. */
+window.addEventListener('resize',()=>{
+  if(workoutRunning)requestAnimationFrame(updateWorkoutViewportFit);
+});
 window.addEventListener('popstate',event=>{
   if(workoutRunning){
     workoutHistoryArmed=false;

@@ -4520,3 +4520,50 @@ body.dark .programCompletionHero::after{background:linear-gradient(to bottom,rgb
 .autoTrain.v50Train .trainImageSlot .bigimg {
   max-width:100%;
 }
+/* v59.109: workout UX fix 1B */
+main:has(.autoTrain.workoutFitsViewport) {
+  padding-bottom:0!important;
+  overflow-y:hidden;
+}
+
+.autoTrain.workoutFitsViewport {
+  overflow-y:hidden;
+}
+
+.autoTrain.v53CleanTrain .trainImageSlot,
+.autoTrain.v50Train .trainImageSlot {
+  height:auto!important;
+  min-height:0!important;
+  padding-bottom:0!important;
+}
+
+.autoTrain.v53CleanTrain .trainImageSlot .bigimg,
+.autoTrain.v50Train .trainImageSlot .bigimg {
+  height:auto!important;
+  max-height:none!important;
+}
+
+@media(max-width:720px){
+  .workoutExerciseDetail .v20Content {
+    padding-bottom:calc(150px + env(safe-area-inset-bottom))!important;
+  }
+
+  .workoutExerciseDetail .workoutDetailReturn {
+    position:fixed;
+    left:50%;
+    bottom:calc(76px + env(safe-area-inset-bottom));
+    z-index:60;
+    display:block;
+    width:min(calc(100% - 32px),360px);
+    min-height:48px;
+    padding:12px 18px;
+    transform:translateX(-50%);
+    border:1px solid rgba(32,182,178,.35);
+    border-radius:999px;
+    background:var(--p);
+    color:#fff;
+    box-shadow:0 10px 26px rgba(17,94,89,.22);
+    font-size:.95rem;
+    font-weight:900;
+  }
+}
