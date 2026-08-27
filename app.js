@@ -2877,7 +2877,7 @@ function info(k,opts={}){
   const muscleImg=detailMuscleImage(k);
   const hasReference=Boolean(referenceExerciseAssets[k]);
   const hasMasterCard=Boolean(masterCards[k])&&!hasReference;
-  app.innerHTML=`<section class="exerciseDetailPage v20Detail ${hasMasterCard?'v20MasterDetail':''} ${hasReference?'referenceExerciseDetail':''}">
+  app.innerHTML=`<section class="exerciseDetailPage v20Detail ${workoutRunning?'workoutExerciseDetail':''} ${hasMasterCard?'v20MasterDetail':''} ${hasReference?'referenceExerciseDetail':''}">
     <div class="v20Shell">
       <aside class="v20SideNav" aria-label="Navigace">
         <h2>Moovka</h2>

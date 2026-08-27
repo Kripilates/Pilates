@@ -4478,3 +4478,45 @@ body.dark .programCompletionHero::after{background:linear-gradient(to bottom,rgb
   .programCompletionPrimary,.programCompletionPrimary.primary{min-height:50px;margin-top:12px;padding-top:11px;padding-bottom:11px}
   .programCompletionDismiss{min-height:32px;margin-top:5px;padding-top:3px;padding-bottom:3px}
 }
+/* v59.108: workout UX fix 1 */
+@media(max-width:720px){
+  .workoutExerciseDetail .v20TopBar {
+    position:sticky;
+    top:0;
+    z-index:40;
+    width:100%;
+    margin:0 0 12px;
+    padding:8px 0;
+    background:rgba(246,251,251,.97);
+    backdrop-filter:blur(10px);
+  }
+
+  body.dark .workoutExerciseDetail .v20TopBar {
+    background:rgba(13,31,35,.97);
+  }
+}
+
+.autoTrain.v53CleanTrain,
+.autoTrain.v50Train {
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow-x:clip;
+  overscroll-behavior-x:none;
+  overscroll-behavior-y:contain;
+}
+
+.autoTrain.v53CleanTrain .trainImageSlot,
+.autoTrain.v50Train .trainImageSlot,
+.autoTrain.v53CleanTrain .trainControls,
+.autoTrain.v50Train .trainControls,
+.autoTrain.v53CleanTrain .workoutHeaderPanel,
+.autoTrain.v50Train .workoutHeaderPanel {
+  min-width:0;
+  max-width:100%;
+}
+
+.autoTrain.v53CleanTrain .trainImageSlot .bigimg,
+.autoTrain.v50Train .trainImageSlot .bigimg {
+  max-width:100%;
+}
