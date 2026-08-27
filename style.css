@@ -4520,29 +4520,7 @@ body.dark .programCompletionHero::after{background:linear-gradient(to bottom,rgb
 .autoTrain.v50Train .trainImageSlot .bigimg {
   max-width:100%;
 }
-/* v59.109: workout UX fix 1B */
-main:has(.autoTrain.workoutFitsViewport) {
-  padding-bottom:0!important;
-  overflow-y:hidden;
-}
-
-.autoTrain.workoutFitsViewport {
-  overflow-y:hidden;
-}
-
-.autoTrain.v53CleanTrain .trainImageSlot,
-.autoTrain.v50Train .trainImageSlot {
-  height:auto!important;
-  min-height:0!important;
-  padding-bottom:0!important;
-}
-
-.autoTrain.v53CleanTrain .trainImageSlot .bigimg,
-.autoTrain.v50Train .trainImageSlot .bigimg {
-  height:auto!important;
-  max-height:none!important;
-}
-
+/* workout detail return */
 @media(max-width:720px){
   .workoutExerciseDetail .v20Content {
     padding-bottom:calc(150px + env(safe-area-inset-bottom))!important;
@@ -4595,12 +4573,12 @@ main:has(.autoTrain.workoutFitsViewport) {
 .programCompletionHero::after,
 body.dark .programCompletionHero::after{
   z-index:1;
-  background:linear-gradient(to bottom,rgba(255,255,255,0) 58%,rgba(255,255,255,.03) 66%,rgba(255,255,255,.12) 75%,rgba(255,255,255,.32) 84%,rgba(255,255,255,.68) 93%,#fff 100%);
+  background:linear-gradient(to bottom,rgba(255,255,255,0) 68%,rgba(255,255,255,.03) 74%,rgba(255,255,255,.10) 81%,rgba(255,255,255,.25) 88%,rgba(255,255,255,.55) 94%,#fff 100%);
 }
 .programCompletionHeroCopy{
   position:absolute;
   z-index:2;
-  top:48%;
+  top:36%;
   left:clamp(24px,7vw,54px);
   width:min(48%,350px);
   transform:translateY(-50%);
@@ -4658,7 +4636,7 @@ body.dark .programCompletionContent{background:#fff}
     transform-origin:50% 20%;
   }
   .programCompletionHeroCopy{
-    top:47%;
+    top:34%;
     left:20px;
     width:54%;
   }
@@ -4723,11 +4701,9 @@ body.dark .programCompletionContent{background:#fff}
   .programCompletionHeroCopy .programCompletionMeta{font-size:.62rem}
 }
 
-/* v59.111: workout UX fix 1C */
-.fullTrain.autoTrain.v50Train.v53CleanTrain{
-  height:auto!important;
-  min-height:0!important;
-  min-block-size:0!important;
-  padding-bottom:calc(20px + env(safe-area-inset-bottom))!important;
-  margin-bottom:0!important;
+@media(max-width:720px){
+  html:has(.autoTrain),
+  body:has(.autoTrain){
+    overscroll-behavior-y:none;
+  }
 }

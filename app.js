@@ -122,36 +122,12 @@ function setWorkoutNavigationLocked(locked){
   else primaryNav.removeAttribute('aria-hidden');
   primaryNav.querySelectorAll('button').forEach(button=>{button.disabled=Boolean(locked);});
 }
-function updateWorkoutViewportFit(){
-  const workout=app.querySelector('.autoTrain.v53CleanTrain,.autoTrain.v50Train');
-  if(!workout)return;
-  workout.classList.remove('workoutFitsViewport');
-  if(window.scrollY>1)return;
-  const workoutTop=Math.max(0,workout.getBoundingClientRect().top);
-  const availableHeight=Math.max(0,window.innerHeight-workoutTop);
-  const fits=Math.ceil(workout.getBoundingClientRect().height)<=availableHeight+1;
-  workout.classList.toggle('workoutFitsViewport',fits);
-}
-function scheduleWorkoutViewportFit({resetScroll=false}={}){
-  const settle=()=>{
-    const workout=app.querySelector('.autoTrain.v53CleanTrain,.autoTrain.v50Train');
-    if(!workout)return;
-    workout.classList.remove('workoutFitsViewport');
-    if(resetScroll)scrollTop();
-    requestAnimationFrame(()=>requestAnimationFrame(updateWorkoutViewportFit));
-  };
-  settle();
-  app.querySelectorAll('.trainImageSlot img').forEach(image=>{
-    if(!image.complete)image.addEventListener('load',settle,{once:true});
-  });
-}
 function renderTrainingScreen(html){
   setWorkoutNavigationLocked(true);
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
   setWorkoutHeaderPosition(true);
   armWorkoutHistoryGuard();
-  scheduleWorkoutViewportFit({resetScroll:true});
 }
 function armWorkoutHistoryGuard(){
   if(!workoutRunning)return;
@@ -2640,6 +2616,7 @@ function showAutoTrain(opts={}){
     ${workoutVisualHtml}
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
+  if(!existing||opts.resetScroll)scrollTop();
 }
 function tickAuto(){
   if(workoutPaused)return;
@@ -3269,9 +3246,6 @@ const progressNav=document.getElementById('nav-progress'); if(progressNav) progr
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
 /* v50: service worker registration removed to prevent stale PWA cache. */
-window.addEventListener('resize',()=>{
-  if(workoutRunning)requestAnimationFrame(updateWorkoutViewportFit);
-});
 window.addEventListener('popstate',event=>{
   if(workoutRunning){
     workoutHistoryArmed=false;
