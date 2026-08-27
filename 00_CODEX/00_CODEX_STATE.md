@@ -80,9 +80,24 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Standing Side Bend START`
+1. `Swimming START / HERO / Guide / Step`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
+
+## Thread the Needle completion — v59.106-dev
+
+- Thread the Needle / Protažení s rotací v kleku je dokončený pod kanonickým ID `thread`.
+- START a END přímo používají schválený `Bird Dog/bird_dog_start_v01.png` bez vytvoření duplicitního source assetu.
+- HERO je manuálně schválený `Thread the Needle/thread_the_needle_hero_v01.png`.
+- Guide Card `thread_the_needle_guide_card_v01.png` (780 × 1688) a Step by Step `thread_the_needle_step_by_step_v01.png` (780 × 2280) byly vytvořené ze schválených source assetů.
+- Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.thread` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
+- Bird Dog source i app mapping zůstaly beze změny.
+- Program, pořadí a dávky ve dnech 17 a 18 zůstaly beze změny.
+- Progress: 52 celkem, 48 HOTOVO, 0 ROZPRACOVÁNO, 4 ČEKÁ.
+- NEXT TASK: Swimming START / HERO / Guide / Step.
+- Verze/cache: `v59.106-dev`; `app.js?v=59106threadneedle`; `data.js?v=59106threadneedle`; `style.css?v=59117programcleanup`.
+- Commit: NE
+- Push: NE
 
 ## Relevantní soubory
 

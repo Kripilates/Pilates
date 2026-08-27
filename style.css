@@ -4586,6 +4586,102 @@ body.dark .programCompletionContent{
 .autoTrain.v50Train .trainImageSlot .bigimg {
   max-width:100%;
 }
+
+/* Workout UX fix 2: stable mobile header and controls */
+@media(max-width:560px){
+  .autoTrain.v53CleanTrain .trainTop2,
+  .autoTrain.v50Train .trainTop2,
+  .autoTrain.v53CleanTrain .trainTop2--compact,
+  .autoTrain.v50Train .trainTop2--compact{
+    min-width:0;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .autoTrain.v53CleanTrain .workoutHeaderPanel,
+  .autoTrain.v50Train .workoutHeaderPanel{
+    display:grid;
+    align-items:center;
+    min-height:128px;
+    overflow:hidden;
+  }
+
+  .autoTrain.v53CleanTrain .workoutHeaderPanel--timed,
+  .autoTrain.v50Train .workoutHeaderPanel--timed{
+    grid-template-columns:minmax(0,1fr) 66px;
+    column-gap:8px;
+  }
+
+  .autoTrain.v53CleanTrain .workoutHeaderPanel--center,
+  .autoTrain.v50Train .workoutHeaderPanel--center{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .autoTrain.v53CleanTrain .workoutHeaderText,
+  .autoTrain.v50Train .workoutHeaderText{
+    min-width:0;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .autoTrain.v53CleanTrain .workoutHeaderPanel .trainName,
+  .autoTrain.v50Train .workoutHeaderPanel .trainName{
+    display:-webkit-box;
+    min-height:2.25em;
+    max-height:2.25em;
+    overflow:hidden;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    text-overflow:clip;
+    white-space:normal;
+  }
+
+  .autoTrain.v53CleanTrain .workoutHeaderPanel .compactWorkoutDose,
+  .autoTrain.v50Train .workoutHeaderPanel .compactWorkoutDose{
+    max-width:100%;
+    overflow:hidden;
+    font-size:clamp(68px,18vw,82px)!important;
+    text-align:center;
+  }
+
+  .autoTrain.v53CleanTrain .workoutTimerSlot,
+  .autoTrain.v50Train .workoutTimerSlot{
+    width:66px;
+    min-width:66px;
+    max-width:66px;
+    justify-self:end;
+    overflow:hidden;
+  }
+
+  .autoTrain.v53CleanTrain .trainControls,
+  .autoTrain.v50Train .trainControls{
+    align-items:stretch;
+    gap:7px!important;
+    min-width:0;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .autoTrain.v53CleanTrain .trainControls button,
+  .autoTrain.v50Train .trainControls button{
+    min-width:0!important;
+    min-height:48px!important;
+    height:48px;
+    padding:10px 6px!important;
+    overflow:hidden;
+    font-size:clamp(.72rem,3.05vw,.88rem)!important;
+    line-height:1!important;
+    text-overflow:clip;
+    white-space:nowrap;
+  }
+
+  .autoTrain.v53CleanTrain .trainControls .controlIcon,
+  .autoTrain.v50Train .trainControls .controlIcon{
+    width:16px;
+    height:16px;
+    flex:0 0 16px;
+  }
+}
 /* workout detail return */
 @media(max-width:720px){
   body:has(.workoutExerciseDetail) {

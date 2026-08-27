@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.105-dev';
+const APP_VERSION='v59.106-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -998,6 +998,32 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',text:'S výdechem natáhni protilehlou ruku a nohu. Pánev drž stabilní a krk dlouhý.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem vrať ruku i koleno zpět pod tělo a vystřídej stranu.',photo:'start'}
     ]
+  },
+  thread:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_step_by_step_v01.png',
+    subtitle:'Horní záda • rotace páteře',
+    miniSteps:[
+      {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
+      {n:2,title:'ROTACE',caption:'Provleč paži',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět na všechny čtyři',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a páteř drž neutrálně.',photo:'start'},
+      {title:'HLAVNÍ POHYB',text:'S výdechem provleč jednu paži pod tělem. Rameno a hlavu nech jemně klesnout k podložce.',photo:'hero'},
+      {title:'PROTAŽENÍ',text:'Pánev drž nad koleny a dýchej do horní části zad. Netlač hlavu ani rameno silou dolů.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem se kontrolovaně vrať zpět na všechny čtyři a potom vystřídej stranu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Horní záda / páteř',knees:'Na všech čtyřech'},
+    breath:{inhale:'Při návratu',exhale:'Při rotaci pod trup',tempo:'Pomalu a plynule'},
+    recommendations:{
+      feel:'Jemné protažení horní části zad, oblasti mezi lopatkami a uvolnění hrudní páteře.',
+      watch:['Pánev drž nad koleny.','Ramena nech uvolněná a pohyb veď bez tlaku.','Dýchej klidně do zad a zůstaň jen v příjemném rozsahu.'],
+      mistakes:['Vytáčení pánve do strany.','Tlačení hlavy nebo ramene silou do podložky.','Zadržování dechu.','Rychlý švih místo kontrolované rotace.']
+    }
   },
   hip_march:{
     start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v02.png',

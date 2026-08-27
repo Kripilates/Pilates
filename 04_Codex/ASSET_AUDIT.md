@@ -37,7 +37,7 @@ Scope:
 | Forearm Plank | `assets/exercises/plank.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | MINOR FIX | Background less visible |
 | Plank Shoulder Taps | `assets/exercises/tap.jpg` | 🟡 | 🟡 | 🟡 | 🔴 | 🟡 | 🟡 | 🟡 | MINOR FIX | Color tone differs |
 | Cat-Cow | `assets/exercises/catcow.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Crop/scene less anchored |
-| Thread the Needle | `assets/exercises/thread.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
+| Thread the Needle | START/END reuse `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; duplicate START/END source not created. |
 | Roll Up | `assets/exercises/rollup.jpg` | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Crop differs from master |
 | Mermaid Stretch | `assets/exercises/mermaid.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Side Kick Series | `assets/exercises/sidekick.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
