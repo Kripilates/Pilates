@@ -4584,14 +4584,23 @@ main:has(.autoTrain.workoutFitsViewport) {
   transform:translateX(9%) scale(1.35);
   transform-origin:50% 20%;
 }
+.programCompletionHero::before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:linear-gradient(90deg,rgba(255,255,255,.58) 0%,rgba(255,255,255,.38) 27%,rgba(255,255,255,.12) 48%,rgba(255,255,255,0) 66%);
+  pointer-events:none;
+}
 .programCompletionHero::after,
 body.dark .programCompletionHero::after{
-  background:linear-gradient(to bottom,rgba(255,255,255,0) 76%,rgba(255,255,255,.08) 84%,#fff 100%);
+  z-index:1;
+  background:linear-gradient(to bottom,rgba(255,255,255,0) 58%,rgba(255,255,255,.03) 66%,rgba(255,255,255,.12) 75%,rgba(255,255,255,.32) 84%,rgba(255,255,255,.68) 93%,#fff 100%);
 }
 .programCompletionHeroCopy{
   position:absolute;
   z-index:2;
-  top:53%;
+  top:48%;
   left:clamp(24px,7vw,54px);
   width:min(48%,350px);
   transform:translateY(-50%);
@@ -4649,7 +4658,7 @@ body.dark .programCompletionContent{background:#fff}
     transform-origin:50% 20%;
   }
   .programCompletionHeroCopy{
-    top:54%;
+    top:47%;
     left:20px;
     width:54%;
   }
@@ -4712,4 +4721,13 @@ body.dark .programCompletionContent{background:#fff}
   .programCompletionHeroCopy{left:16px;width:56%}
   .programCompletionHeroCopy h1{font-size:50px}
   .programCompletionHeroCopy .programCompletionMeta{font-size:.62rem}
+}
+
+/* v59.111: workout UX fix 1C */
+.fullTrain.autoTrain.v50Train.v53CleanTrain{
+  height:auto!important;
+  min-height:0!important;
+  min-block-size:0!important;
+  padding-bottom:calc(20px + env(safe-area-inset-bottom))!important;
+  margin-bottom:0!important;
 }

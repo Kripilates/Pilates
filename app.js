@@ -126,11 +126,24 @@ function updateWorkoutViewportFit(){
   const workout=app.querySelector('.autoTrain.v53CleanTrain,.autoTrain.v50Train');
   if(!workout)return;
   workout.classList.remove('workoutFitsViewport');
-  const workoutTop=Math.max(0,workout.getBoundingClientRect().top+window.scrollY);
+  if(window.scrollY>1)return;
+  const workoutTop=Math.max(0,workout.getBoundingClientRect().top);
   const availableHeight=Math.max(0,window.innerHeight-workoutTop);
-  const fits=workout.scrollHeight<=availableHeight+1;
+  const fits=Math.ceil(workout.getBoundingClientRect().height)<=availableHeight+1;
   workout.classList.toggle('workoutFitsViewport',fits);
-  if(fits)window.scrollTo({top:0,behavior:'auto'});
+}
+function scheduleWorkoutViewportFit({resetScroll=false}={}){
+  const settle=()=>{
+    const workout=app.querySelector('.autoTrain.v53CleanTrain,.autoTrain.v50Train');
+    if(!workout)return;
+    workout.classList.remove('workoutFitsViewport');
+    if(resetScroll)scrollTop();
+    requestAnimationFrame(()=>requestAnimationFrame(updateWorkoutViewportFit));
+  };
+  settle();
+  app.querySelectorAll('.trainImageSlot img').forEach(image=>{
+    if(!image.complete)image.addEventListener('load',settle,{once:true});
+  });
 }
 function renderTrainingScreen(html){
   setWorkoutNavigationLocked(true);
@@ -138,12 +151,7 @@ function renderTrainingScreen(html){
   app.insertAdjacentHTML('afterbegin',html);
   setWorkoutHeaderPosition(true);
   armWorkoutHistoryGuard();
-  requestAnimationFrame(()=>{
-    updateWorkoutViewportFit();
-    app.querySelectorAll('.trainImageSlot img').forEach(image=>{
-      if(!image.complete)image.addEventListener('load',updateWorkoutViewportFit,{once:true});
-    });
-  });
+  scheduleWorkoutViewportFit({resetScroll:true});
 }
 function armWorkoutHistoryGuard(){
   if(!workoutRunning)return;
@@ -2632,7 +2640,6 @@ function showAutoTrain(opts={}){
     ${workoutVisualHtml}
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
-  if(opts.resetScroll)scrollTop();
 }
 function tickAuto(){
   if(workoutPaused)return;
