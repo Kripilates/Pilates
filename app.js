@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.108-dev';
+const APP_VERSION='v59.109-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1793,6 +1793,32 @@ const referenceExerciseAssets={
       feel:'Práci v hrudníku, ramenou a tricepsech bez napětí v krku.',
       watch:['Zápěstí drž rovně.','Ramena nech daleko od uší.','Bedra neprohýbej a pohyb veď kontrolovaně.'],
       mistakes:['Zvedání ramen k uším.','Prohýbání beder.','Odražení loktů od podložky.']
+    }
+  },
+  triceps_kickback:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start_v01.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_hero_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_step_by_step_v01.png',
+    subtitle:'Triceps • zadní strana paží • činky',
+    miniSteps:[
+      {n:1,title:'START',caption:'Lokty u těla',photo:'start'},
+      {n:2,title:'PROPNUTÍ PAŽÍ',caption:'Předloktí dozadu',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'START',text:'Postav se stabilně a lehce se předkloň. Zpevni střed těla, drž záda neutrální a lokty přitáhni k trupu.',photo:'start'},
+      {title:'PROPNUTÍ PAŽÍ',text:'Bez pohybu nadloktí propni předloktí dozadu. Lokty zůstávají u těla.',photo:'hero'},
+      {title:'KONTROLA POHYBU',text:'Krátce pohyb kontroluj v krajní poloze. Ramena drž dole a trup stabilní.',photo:'hero'},
+      {title:'NÁVRAT',text:'Kontrolovaně pokrč lokty a vrať činky do výchozí polohy. Poté pokračuj dalším opakováním.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Triceps / paže',knees:'Stabilní stoj'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při propnutí paží',tempo:'Pomalu bez švihu'},
+    recommendations:{
+      feel:'Zadní stranu paží při stabilním trupu, klidných ramenou a loktech držených u těla.',
+      watch:['Lokty drž u těla a během pohybu neposouvej nadloktí.','Záda drž neutrální a střed těla aktivní.','Činky veď kontrolovaně bez švihu.'],
+      mistakes:['Zvedání ramen k uším.','Prohýbání beder.','Houpání trupem.','Pohyb nadloktí dopředu a dozadu.']
     }
   },
   chest_fly:{
