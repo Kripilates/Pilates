@@ -4465,7 +4465,7 @@ body.dark .programCompletionHero::after{background:linear-gradient(to bottom,rgb
   .programCompletionExperience{height:calc(100dvh - 126px - env(safe-area-inset-bottom))}
   .programCompletionProgress{margin-top:4px}
   .programCompletionHero{height:238px}
-  .programCompletionHero img{object-position:52% 50%;transform:scale(1.16)}
+  .programCompletionHero img{object-position:50% 50%;transform:scale(2.05);transform-origin:50% 25%}
   .programCompletionContent{margin-top:-28px;padding-bottom:4px}
   .programCompletionMeta{margin-bottom:5px}
   .programCompletionLead{margin-top:5px}
