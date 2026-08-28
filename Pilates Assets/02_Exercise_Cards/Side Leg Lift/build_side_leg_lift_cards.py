@@ -62,8 +62,8 @@ STEP_TEXTS = [
 
 STEP_BREATH = "Výdech při zvednutí horní nohy. Nádech při kontrolovaném návratu."
 STEP_WATCH = (
-    "Pánev drž stabilní a kolmo k podložce. Horní noha zůstává natažená, "
-    "pohyb vychází z kyčle a nejde do výšky za cenu přetočení pánve."
+    "Pánev drž stabilní a kolmo k podložce. Horní noha zůstává natažená "
+    "a pohyb vychází z kyčle, ne ze švihu."
 )
 
 
@@ -126,6 +126,19 @@ def fit_image(path, size, centering=(0.5, 0.58)):
         return ImageOps.fit(
             source.convert("RGB"), size, method=Image.Resampling.LANCZOS, centering=centering
         )
+
+
+def contain_image(path, size, margin=6):
+    with Image.open(path) as source:
+        rgb = source.convert("RGB")
+        inner_size = (size[0] - 2 * margin, size[1] - 2 * margin)
+        contained = ImageOps.contain(rgb, inner_size, method=Image.Resampling.LANCZOS)
+        width, height = rgb.size
+        wall_sample = rgb.crop((width // 3, 0, 2 * width // 3, max(1, height // 6)))
+        background = tuple(round(value) for value in ImageStat.Stat(wall_sample).mean)
+        canvas = Image.new("RGB", size, background)
+        canvas.paste(contained, ((size[0] - contained.width) // 2, (size[1] - contained.height) // 2))
+        return canvas
 
 
 def paste_round(base, image, box, radius=22):
@@ -196,30 +209,30 @@ def build_guide():
     margins = {}
 
     rounded(draw, (34, 34, 746, 140))
-    draw.text((62, 49), "ZVEDÁNÍ VNITŘNÍHO STEHNA", font=F["title"], fill=INK)
-    draw.text((62, 94), "Vnitřní stehna a stabilita pánve", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 49), "SIDE LEG LIFT", font=F["title"], fill=INK)
+    draw.text((62, 94), "Hýždě • boky • stabilita pánve", font=F["small_b"], fill=TEAL_D)
     _, desc_bottom = draw_wrapped(
-        draw, (62, 115), "Posiluje vnitřní stranu stehen a pomáhá udržet stabilní pánev.",
+        draw, (62, 115), "Posiluje boky a hýždě při kontrolovaném zdvihu horní nohy.",
         F["tiny"], MUTED, 650, 2
     )
     margins["GUIDE DESCRIPTION"] = 140 - desc_bottom
-    x = pill(draw, (62, 148), "Vnitřní stehna", F["small_b"])
+    x = pill(draw, (62, 148), "Hýždě a boky", F["small_b"])
     pill(draw, (x, 148), "Bez pomůcky", F["small_b"])
 
     rounded(draw, (34, 196, 746, 653))
-    paste_round(image, fit_image(HERO, (680, 393)), (50, 218, 730, 611))
+    paste_round(image, contain_image(HERO, (680, 393), 8), (50, 218, 730, 611))
 
     mini_y, mini_w, mini_h = 675, 218, 146
     xs = [34, 274, 514]
     labels = [
-        ("START", "Spodní noha natažená", START),
-        ("ZDVIH", "Několik centimetrů", HERO),
-        ("NÁVRAT", "Pomalu zpět", START),
+        ("START", "Výchozí poloha", START),
+        ("HERO", "Zvednutí horní nohy", HERO),
+        ("START", "Kontrolovaný návrat", START),
     ]
     for index, (x0, (label, caption, source)) in enumerate(zip(xs, labels), 1):
         card_bottom = mini_y + mini_h + 74
         rounded(draw, (x0, mini_y, x0 + mini_w, card_bottom), 22)
-        paste_round(image, fit_image(source, (mini_w - 22, mini_h)),
+        paste_round(image, contain_image(source, (mini_w - 22, mini_h), 4),
                     (x0 + 11, mini_y + 10, x0 + mini_w - 11, mini_y + 10 + mini_h), 16)
         draw.ellipse((x0 + 15, mini_y + 15, x0 + 43, mini_y + 43), fill=TEAL)
         center_text(draw, (x0 + 15, mini_y + 15, x0 + 43, mini_y + 43), str(index), F["tiny"], CARD)
@@ -231,7 +244,7 @@ def build_guide():
     info_y, box_w, box_h = 915, 218, 164
     info = [
         ("breath", "DECH", "Výdech při zvednutí. Nádech při návratu."),
-        ("focus", "ZAMĚŘ SE", "Pánev drž stabilní. Pohyb veď spodní nohou."),
+        ("focus", "ZAMĚŘ SE", "Pánev stabilní. Pohyb vychází z kyčle."),
         ("repeat", "OPAKOVÁNÍ", "Podle dávky. Potom vystřídej stranu."),
     ]
     for index, (x0, (kind, heading, body)) in enumerate(zip(xs, info), 1):
@@ -269,7 +282,7 @@ def build_step():
     draw = ImageDraw.Draw(image)
     rounded(draw, (34, 34, 746, 126))
     draw.text((62, 56), "Krok za krokem", font=F["step_title"], fill=INK)
-    draw.text((62, 98), "ZVEDÁNÍ VNITŘNÍHO STEHNA", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 98), "SIDE LEG LIFT", font=F["small_b"], fill=TEAL_D)
 
     y, margins = 160, {}
     for step_label, heading, body, source in STEP_TEXTS:
@@ -280,7 +293,7 @@ def build_step():
         center_text(draw, (58, y + 24, 148, y + 54), step_label, F["small_b"], TEAL_D)
         draw.text((62, y + 72), heading, font=F["step_h"], fill=INK)
         image_bottom = y + 466
-        paste_round(image, fit_image(source, (656, 352)), (62, y + 114, 718, image_bottom))
+        paste_round(image, contain_image(source, (656, 352), 8), (62, y + 114, 718, image_bottom))
         _, body_bottom = draw_wrapped(draw, (62, image_bottom + 16), body, F["step_body"], INK, 656, 7)
         margins[step_label] = ensure_bottom_margin(step_label, body_bottom, card_bottom)
         y += card_height + 5

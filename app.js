@@ -778,8 +778,11 @@ const referenceExerciseAssets={
     ]
   },
   sideleg:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_start_v02.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_step_by_step_v01.png',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na boku',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni nohu',photo:'hero'},
