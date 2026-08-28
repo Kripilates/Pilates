@@ -505,7 +505,7 @@ function weeklyHint(arr){
 function setNav(a){
   if(!workoutRunning)setWorkoutNavigationLocked(false);
   if(a!=='train')setWorkoutHeaderPosition(false);
-  ['home','days','train','calendar','library','stats','progress'].forEach(n=>{
+  ['home','days','calendar','library','stats','progress'].forEach(n=>{
     const el=$(`nav-${n}`); if(el) el.classList.toggle('active',n===a);
   });
 }
@@ -3390,7 +3390,6 @@ app.addEventListener('click',e=>{
 app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});
 $('nav-home').onclick=home;
 $('nav-days').onclick=days;
-$('nav-train').onclick=openCurrentTraining;
 $('nav-calendar').onclick=calendar;
 $('nav-library').onclick=library;
 $('nav-stats').onclick=showStats;
