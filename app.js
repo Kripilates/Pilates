@@ -1285,9 +1285,9 @@ const referenceExerciseAssets={
     }
   },
   heeltaps:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_step_by_step_v01.png',
     subtitle:'Břicho • pas • střídavý dosah',
@@ -1299,7 +1299,7 @@ const referenceExerciseAssets={
     steps:[
       {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Lopatky lehce zvedni a paže natáhni podél těla.',photo:'start'},
       {title:'DOSAH K PATĚ',text:'S výdechem se malým kontrolovaným úklonem přibliž pravou rukou k pravé patě.',photo:'hero'},
-      {title:'VYSTŘÍDÁNÍ STRAN',text:'Vrať se přes střed a stejným pohybem dosáhni levou rukou k levé patě. Pánev drž klidnou.',photo:'start'}
+      {title:'NÁVRAT PŘES STŘED',text:'Vrať se kontrolovaně přes střed. Další opakování proveď k levé patě a strany pravidelně střídej.',photo:'start'}
     ],
     info:{difficulty:'Střední',focus:'Břicho / pas',knees:'Chodidla na podložce'},
     breath:{inhale:'Při návratu přes střed',exhale:'Při dosahu k patě',tempo:'Pomalu a střídavě'},
