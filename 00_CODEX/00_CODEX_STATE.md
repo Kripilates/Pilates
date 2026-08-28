@@ -80,7 +80,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Triceps Kickback START / HERO / Guide / Step`
+1. `Wall Sit START / HERO / Guide / Step`
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -106,6 +106,19 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Progress: 52 celkem, 49 HOTOVO, 0 ROZPRACOVÁNO, 3 ČEKÁ.
 - NEXT TASK: The Hundred START / HERO / Guide / Step.
 - Verze/cache: `v59.107-dev`; `app.js?v=59107swimming`; `data.js?v=59107swimming`; `style.css` cache beze změny.
+- Commit: NE
+- Push: NE
+
+## Triceps Kickback completion — v59.109-dev
+
+- Triceps Kickback je dokončený pod kanonickým ID `triceps_kickback`.
+- Schválené START a HERO v01 byly použity beze změny; END používá přesně START bez samostatného souboru.
+- Guide Card a Step by Step v01 byly vytvořené ze schválených source fotek. Step by Step používá sekvenci START → HERO → HERO → START, protože krok kontroly pohybu používá stejný HERO.
+- Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.triceps_kickback` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
+- Program, pořadí a dávky ve dnech 3, 10, 17 a 24 zůstaly beze změny.
+- Progress: 52 celkem, 51 HOTOVO, 0 ROZPRACOVÁNO, 1 ČEKÁ.
+- NEXT TASK: Wall Sit START / HERO / Guide / Step.
+- Verze/cache: `v59.109-dev`; `app.js?v=59109triceps`; `data.js?v=59109triceps`; `style.css` cache beze změny.
 - Commit: NE
 - Push: NE
 

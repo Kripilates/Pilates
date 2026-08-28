@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.109-dev';
+const APP_VERSION='v59.111-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -32,9 +32,10 @@ const PROGRAM_LAYOUT_VERSION='3';
 const ONBOARDING_COMPLETED_KEY='moovka-onboarding-completed-v1';
 const DIFFICULTY_VALUES=['easy','medium','hard'];
 const PROGRAM_WEEK_HINTS=[
-  {from:0,to:9,text:'První týden se zaměřujeme na techniku, klidné tempo a kontrolovaný pohyb.'},
-  {from:10,to:19,text:'Druhý týden přidáváme pomalejší tempo, krátké výdrže a lepší kontrolu.'},
-  {from:20,to:29,text:'Třetí týden zpevni střed a pracuj přesněji. Cvič poctivě, ale ne přes bolest.'}
+  {from:0,to:6,text:'První týden se zaměřujeme na techniku, klidné tempo a kontrolovaný pohyb.'},
+  {from:7,to:13,text:'Druhý týden přidáváme pomalejší tempo, krátké výdrže a lepší kontrolu.'},
+  {from:14,to:20,text:'Třetí týden zpevni střed a pracuj přesněji.'},
+  {from:21,to:29,text:'Čtvrtý týden je finální — poctivě, ale ne přes bolest.'}
 ];
 let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
 let onboardingSession=null;
@@ -367,6 +368,13 @@ function streak(){
   return n;
 }
 function monthName(d){return d.toLocaleDateString('cs-CZ',{month:'long',year:'numeric'});}
+function planDayTitle(title){return String(title||'').replace(/^Den\s+\d+\s*(?:[•·-]\s*)?/i,'');}
+function monthOffsetDate(year,month,offset){return new Date(year,month+offset,1);}
+function isFutureMonth(year,month){
+  const now=new Date();
+  return year>now.getFullYear() || (year===now.getFullYear()&&month>now.getMonth());
+}
+function calendarTodayState(){return hasLog(todayKey())?'✓':'—';}
 const measureKey='pb40-measurements';
 function esc(v){
   return String(v??'').replace(/[&<>\"']/g,ch=>({
@@ -1955,34 +1963,54 @@ function referenceStepByStep(k){
     </div>
   </details>`;
 }
-function referenceCompactInfoPanel(k,meta){
+function referenceEquipmentLabel(item){
+  const labels={dumbbells:'Činky',mat:'Podložka',chair:'Židle',wall:'Zeď'};
+  return labels[item] || String(item||'').trim();
+}
+function referencePracticalInfo(k,meta,ex){
   const ref=referenceExerciseAssets[k]||{};
-  const info=ref.info||{};
-  const breath=ref.breath||{};
-  const icon=(path)=>`<svg class="referenceMiniIcon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${path}</svg>`;
-  const difficultyIcon=icon('<path d="M12 4v4"/><path d="M12 16v4"/><path d="M4 12h4"/><path d="M16 12h4"/><path d="m7.8 7.8 2.1 2.1"/><path d="m14.1 14.1 2.1 2.1"/><path d="m16.2 7.8-2.1 2.1"/><path d="m9.9 14.1-2.1 2.1"/>');
-  const focusIcon=icon('<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/>');
-  const kneeIcon=icon('<path d="M9 4c2.6 1.6 3.8 4 3.8 6.4 0 2.1-.8 3.9-2.1 5.2"/><path d="M15 5c-1.4 2-1.7 4.1-.8 6.2.7 1.6 1.1 3.2.6 4.8-.4 1.2-1.2 2.3-2.4 3.2"/><path d="M9 16h7"/>');
-  const inhaleIcon=icon('<path d="M12 19V5"/><path d="m7 10 5-5 5 5"/>');
-  const exhaleIcon=icon('<path d="M12 5v14"/><path d="m7 14 5 5 5-5"/>');
-  const tempoIcon=icon('<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/>');
-  return `<section class="referenceCompactInfoPanel" aria-label="Informace o cviku a dech">
-    <article><h3>Info</h3><ul><li>${difficultyIcon}<span><b>Obtížnost</b><strong>${esc(info.difficulty||meta.diff||'Lehké')}</strong></span></li><li>${focusIcon}<span><b>Zaměření</b><strong>${esc(info.focus||meta.area||'Hýždě / nohy')}</strong></span></li><li>${kneeIcon}<span><b>Kolena</b><strong>${esc(info.knees||meta.knee||'Šetrné ke kolenům')}</strong></span></li></ul></article>
-    <article><h3>Dech</h3><p>${inhaleIcon}<span><b>Nádech</b><strong>${esc(breath.inhale||'Výchozí pozice')}</strong></span></p><p>${exhaleIcon}<span><b>Výdech</b><strong>${esc(breath.exhale||'Při zvednutí')}</strong></span></p><p>${tempoIcon}<span><b>Tempo</b><strong>${esc(breath.tempo||'Pomalu')}</strong></span></p></article>
+  const equipment=[...(ref.equipment||[]),...(ex.equipment||[])]
+    .map(referenceEquipmentLabel)
+    .filter(Boolean);
+  const uniqueEquipment=[...new Set(equipment)];
+  const exhale=String(ref.breath?.exhale||meta.breath||'').trim();
+  const breath=exhale ? `Výdech ${exhale.replace(/^při/i,'při')}` : '';
+  return [...uniqueEquipment,breath].filter(Boolean).join(' • ');
+}
+function referenceCompactInfoPanel(k,meta){
+  const line=referencePracticalInfo(k,meta,data.exercises[k]||{});
+  if(!line)return '';
+  return `<p class="referencePracticalLine">${esc(line)}</p>`;
+}
+function referenceAnatomyBlock(k){
+  const ref=referenceExerciseAssets[k]||{};
+  const anatomy=ref.anatomy;
+  if(!anatomy)return '';
+  const items=(Array.isArray(anatomy)?anatomy:anatomy.images||[anatomy])
+    .map(item=>typeof item==='string'?{src:item}:item)
+    .filter(item=>item&&item.src);
+  if(!items.length)return '';
+  return `<section class="referenceAnatomy" aria-label="Zapojené svaly">
+    <h3>Zapojené svaly</h3>
+    <div class="referenceAnatomyFigures referenceAnatomyFigures--${items.length>1?'dual':'single'}">
+      ${items.map(item=>`<img loading="lazy" src="${esc(item.src)}" alt="${esc(item.alt||'Zapojené svaly')}">`).join('')}
+    </div>
   </section>`;
 }
-function referenceRecommendations(k,meta,ex){
+function referenceSafetyPoints(k,meta,ex){
+  if(k==='rdl')return ['Drž záda rovná.','Pohyb veď z kyčlí, ne ze zad.','Kolena nech jen lehce pokrčená.'];
   const rec=referenceExerciseAssets[k]?.recommendations||{};
-  const feel=rec.feel||'Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.';
-  const watch=rec.watch||['Zatlačuj přes paty, ne přes špičky.','Drž pánev v jedné linii a neprohýbej se v bedrech.','Ramena zůstávají na zemi, krk je uvolněný.','Aktivuj břišní svaly po celou dobu.'];
-  const mistakes=rec.mistakes||[...meta.mistakes,'Zvedání příliš vysoko a ztráta kontroly.','Zatínání krku a ramen.'];
-  return `<section class="referenceRecommendations" aria-label="Doporučení při cvičení">
-    <h3>Doporučení při cvičení</h3>
-    <div class="referenceAdviceGrid">
-      <article class="referenceAdviceFeel"><h4><span aria-hidden="true">●</span>Co bys měla cítit</h4><p>${esc(feel)}</p></article>
-      <article class="referenceAdviceWatch"><h4><span aria-hidden="true">✓</span>Na co si dát pozor</h4><ul class="checkList">${watch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>
-      <article class="referenceAdviceMistakes"><h4><span aria-hidden="true">×</span>Nejčastější chyby</h4><ul class="xList">${mistakes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></article>
-    </div>
+  if(Array.isArray(rec.watch)&&rec.watch.length)return rec.watch.slice(0,3);
+  const watch=String(ex.watch||'').split(/[.!?]/).map(x=>x.trim()).filter(Boolean).map(x=>`${x}.`);
+  if(watch.length)return watch.slice(0,3);
+  return (meta.mistakes||[]).slice(0,3);
+}
+function referenceRecommendations(k,meta,ex){
+  const watch=referenceSafetyPoints(k,meta,ex);
+  if(!watch.length)return '';
+  return `<section class="referenceRecommendations referenceSafety" aria-label="Na co si dát pozor">
+    <h3>Na co si dát pozor</h3>
+    <ul class="checkList">${watch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
   </section>`;
 }
 const day1StepFiles={
@@ -2110,23 +2138,23 @@ function daySummary(di){
   const minutes=estimatedWorkoutMinutes(di,difficulty);
   return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>🎯 ${main}</span></div>`;
 }
+function cardMainFocus(ex){
+  const focus=String(ex?.focus||'').replace(/\.$/,'').trim();
+  if(!focus)return '';
+  const compact=focus.split(/[,.]/)[0].trim();
+  return compact.length<=34 ? compact : '';
+}
 
 function exCard(k,dose,d,i){
   const ex=data.exercises[k],ok=d!==undefined&&done(d,i),meta=exMeta(k);
   const rep=dose||ex.dose||'';
   const num=(i!==undefined?i+1:'');
   const isReal=false;
-  const labels = k==='hip' ? ['Hýždě (hlavně)','Zadní stehna','Spodní záda'] :
-    k==='rdl' ? ['Zadní stehna (hlavně)','Hýždě','Spodní záda'] :
-    k==='hydrant' ? ['Hýždě (střední sval)','Hýždě','Core'] :
-    k==='clam' ? ['Hýždě (střední sval)','Hýždě','Kyčle'] :
-    k==='sideleg' ? ['Hýždě (střední sval)','Kyčle','Stehno'] :
-    k==='deadbug' ? ['Břicho (hlavně)','Core','Stabilizace'] : [meta.area,meta.diff,meta.knee];
+  const mainFocus=cardMainFocus(ex);
   return `<article class="exercise v18exercise v22exercise ${isReal?'v22RealCard':''} ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
     <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}</span></div>
     <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}</div>
-    <div class="v22CardLabels">${labels.map((x,j)=>`<span class="${j===0?'mainLabel':''}">${x}</span>`).join('')}</div>
-    <div class="v22Open"><span>Jak provést</span><b>›</b></div>
+    <div class="v22CardFoot">${mainFocus?`<span class="mainLabel">${esc(mainFocus)}</span>`:'<span></span>'}<b aria-hidden="true">›</b></div>
   </article>`;
 }
 
@@ -2392,7 +2420,7 @@ function days(){
     {title:'4. etapa · Finále',from:21,to:30}
   ].map(group=>({...group,days:data.days.slice(group.from,group.to).map((d,index)=>({d,di:group.from+index}))}));
   app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${programComplete?'new-program-cycle':'start-auto'}"${programComplete?'':` data-day="${nextDayIndex()}"`}>${programComplete?'Začít nový 30denní cyklus':'▶ Pokračovat v tréninku'}</button></section>
-  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total;return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${d.title}</h3><p>${rest?'Regenerace':`Splněno ${dn} z ${total} cviků`}</p><div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
+  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total,status=rest?'Regenerace':dn>0?`Splněno ${dn} z ${total} cviků`:'';return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${planDayTitle(d.title)}</h3>${status?`<p>${status}</p>`:''}<div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
   scrollTop();
 }
 
@@ -3003,11 +3031,12 @@ function info(k,opts={}){
                 <p class="eyebrow">Detail cviku</p>
                 <h2>${ex.name}</h2>
                 ${detailSideLabel}
-                <p class="v20Sub">${hasReference?referenceSubtitle(k,meta,ex):`${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}`}</p>
+                ${hasReference?'':`<p class="v20Sub">${meta.area.replace(' / ',' • ')}${ex.focus?` • ${ex.focus}`:''}</p>`}
               </div>
               ${dose&&!hasReference?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
             ${hasReference ? referenceCompactInfoPanel(k,meta) : ''}
+            ${hasReference ? referenceAnatomyBlock(k) : ''}
             ${hasReference ? '' : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
@@ -3090,14 +3119,18 @@ function library(){
   setAppView('library');
   lastMode='library';setNav('library');
   const dark=document.body.classList.contains('dark');
-  app.innerHTML=`<section class="programDashboard"><div class="programDashboardIntro"><p>Program</p><h2>Vše pro tvůj pokrok</h2><span>Výsledky, měření a správná technika na jednom místě.</span></div><div class="programFeatureGrid"><button class="programFeature programFeatureWide" type="button" data-action="stats"><span class="programFeatureIcon">${lineIcon('stats')}</span><span><strong>Statistiky</strong><small>Aktivita a pokrok</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="progress"><span class="programFeatureIcon">${lineIcon('measure')}</span><span><strong>Měření</strong><small>Sleduj své výsledky</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="library-list"><span class="programFeatureIcon coralAccent">${lineIcon('library')}</span><span><strong>Knihovna cviků</strong><small>Technika podle partií</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button></div><section class="programSettings"><h3>Nastavení a informace</h3><button class="programSettingRow" type="button" data-action="program-info"><span>${lineIcon('info')}</span><strong>O Moovce</strong><i>${lineIcon('chevron')}</i></button><button class="programSettingRow" type="button" data-action="export-progress"><span>${lineIcon('backup')}</span><strong>Záloha dat</strong><i>${lineIcon('chevron')}</i></button><button class="programSettingRow" type="button" data-action="toggle-theme" role="switch" aria-checked="${dark}"><span>${lineIcon('moon')}</span><strong>Tmavý režim</strong><i class="programSwitch ${dark?'on':''}" aria-hidden="true"><b></b></i></button></section></section>`;
+  const s=statsData(),arr=measurements(),last=latestMeasurement();
+  const favCount=Object.keys(data.exercises).filter(k=>isFav(k)).length;
+  const diff=effectiveProgramDifficulty();
+  const lastMeasure=last?[last.weight&&`váha ${safeFmtNum(last.weight)} kg`,last.waist&&`pas ${safeFmtNum(last.waist)} cm`].filter(Boolean).join(' · '):'Přidat první měření';
+  app.innerHTML=`<section class="programDashboard myMoovka"><div class="programDashboardIntro"><p>Moje Moovka</p><h2>Osobní centrum</h2><span>Pokrok, měření a tvoje uložené cviky na jednom místě.</span></div><div class="programFeatureGrid myMoovkaGrid"><button class="programFeature programFeatureWide" type="button" data-action="stats"><span class="programFeatureIcon">${lineIcon('stats')}</span><span><strong>Můj pokrok</strong><small>${s.percent}% programu · ${s.daysComplete} hotových dní · ${s.complete} cviků</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="progress"><span class="programFeatureIcon">${lineIcon('measure')}</span><span><strong>Měření pokroku</strong><small>${lastMeasure||'Poslední měření je uložené'}${arr.length?` · ${arr.length} ${arr.length===1?'záznam':'záznamů'}`:''}</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="library-category" data-category="favorites"><span class="programFeatureIcon coralAccent">${lineIcon('heart')}</span><span><strong>Uložené cviky</strong><small>${favCount?`${favCount} ${favCount===1?'uložený cvik':'uložených cviků'}`:'Zatím žádné uložené cviky'}</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button></div><section class="programSettings myMoovkaSettings"><h3>Nastavení cvičení</h3><div class="profileDifficulty"><span>${lineIcon('levels')}</span><div><strong>Úroveň programu</strong><small>${difficultyLabel(diff)} · ${diff==='easy'?'2 série':diff==='medium'?'3 série · doporučená':'3 série'}</small></div></div>${difficultyControl('profile')}</section><section class="programSettings myMoovkaInfo"><h3>Další nastavení</h3><button class="programSettingRow" type="button" data-action="program-info"><span>${lineIcon('info')}</span><strong>O Moovce</strong><i>${lineIcon('chevron')}</i></button><button class="programSettingRow" type="button" data-action="toggle-theme" role="switch" aria-checked="${dark}"><span>${lineIcon('moon')}</span><strong>Tmavý režim</strong><i class="programSwitch ${dark?'on':''}" aria-hidden="true"><b></b></i></button></section></section>`;
   scrollTop();
 }
 function exerciseLibrary(){
   setAppView('exercise-library');
   lastMode='library';setNav('library');
   const categoryTiles=exerciseLibraryOrder.map(id=>{const c=exerciseLibraryCategories[id];return `<button class="libraryCategoryTile libraryCategory-${id}" type="button" data-action="library-category" data-category="${id}"><span>${lineIcon(c.icon)}</span><strong>${c.title}</strong><small>${c.ids.filter(k=>data.exercises[k]).length} cviků</small></button>`;}).join('');
-  app.innerHTML=`<section class="exerciseLibrary"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět na Program</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Co chceš procvičit?</h2><span>Vyber si partii a prohlédni si správnou techniku cviků.</span></div><div class="libraryCategoryGrid">${categoryTiles}</div><div class="libraryUtilityGrid"><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="favorites"><span>${lineIcon('heart')}</span><strong>Oblíbené</strong><small>Tvoje uložené cviky</small></button><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="all"><span>${lineIcon('all')}</span><strong>Všechny cviky</strong><small>Celý katalog</small></button></div></section>`;
+  app.innerHTML=`<section class="exerciseLibrary"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Co chceš procvičit?</h2><span>Vyber si partii a prohlédni si správnou techniku cviků.</span></div><div class="libraryCategoryGrid">${categoryTiles}</div><div class="libraryUtilityGrid"><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="favorites"><span>${lineIcon('heart')}</span><strong>Oblíbené</strong><small>Tvoje uložené cviky</small></button><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="all"><span>${lineIcon('all')}</span><strong>Všechny cviky</strong><small>Celý katalog</small></button></div></section>`;
   scrollTop();
 }
 function exerciseLibraryCategory(categoryId,routeView='exercise-library-category'){
@@ -3115,48 +3148,54 @@ function exerciseLibraryCategory(categoryId,routeView='exercise-library-category
   scrollTop();
 }
 function favs(){return exerciseLibraryCategory('favorites','favourites');}
-function calendar(){
+function calendar(year,month){
   setAppView('calendar');
   lastMode='calendar';setNav('calendar');
-  const now=new Date(), y=now.getFullYear(), m=now.getMonth();
+  const today=new Date();
+  let y=Number.isInteger(year)?year:today.getFullYear();
+  let m=Number.isInteger(month)?month:today.getMonth();
+  if(isFutureMonth(y,m)){y=today.getFullYear();m=today.getMonth();}
+  const now=new Date(y,m,1);
   const first=new Date(y,m,1), last=new Date(y,m+1,0);
   const start=(first.getDay()+6)%7;
+  const isCurrentMonth=y===today.getFullYear()&&m===today.getMonth();
+  const prev=monthOffsetDate(y,m,-1), next=monthOffsetDate(y,m,1);
   const cells=[];
   for(let i=0;i<start;i++)cells.push('<div class="calCell empty"></div>');
   for(let d=1;d<=last.getDate();d++){
-    const dt=new Date(y,m,d), dk=dateKey(dt), isToday=dk===todayKey(), ok=hasLog(dk);
+    const dt=new Date(y,m,d), dk=dateKey(dt), isToday=isCurrentMonth&&dk===todayKey(), ok=hasLog(dk);
     cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''}" data-action="calendar-day" data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
   }
   const logs=loggedDates();
-  app.innerHTML=`<section class="card"><h2>Kalendář cvičení</h2>
-    <p class="muted">${monthName(now)} • odcvičené dny se označí automaticky, jakmile dokončíš aspoň jeden cvik.</p>
-    <div class="statGrid"><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div><div class="statBox"><b>${logs.length}</b><span class="muted">dní celkem</span></div><div class="statBox"><b>${hasLog(todayKey())?'ano':'ne'}</b><span class="muted">dnes</span></div></div>
+  app.innerHTML=`<section class="card calendarCard"><h2>Kalendář cvičení</h2>
+    <div class="calendarMonthNav"><button data-action="calendar-prev" data-year="${prev.getFullYear()}" data-month="${prev.getMonth()}" aria-label="Předchozí měsíc">‹</button><strong>${monthName(now)}</strong><button data-action="calendar-next" data-year="${next.getFullYear()}" data-month="${next.getMonth()}" ${isCurrentMonth?'disabled aria-disabled="true"':''} aria-label="Následující měsíc">›</button></div>
+    <p class="muted calendarHelp">Hotové dny se označí automaticky.</p>
+    <div class="statGrid"><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div><div class="statBox"><b>${logs.length}</b><span class="muted">dní celkem</span></div><div class="statBox"><b>${calendarTodayState()}</b><span class="muted">dnes</span></div></div>
     <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
     <div class="calendarGrid">${cells.join('')}</div>
-    <div class="row"><button data-action="mark-today">Označit dnešek ručně</button><button data-action="unmark-today">Odebrat dnešek</button></div>
+    <div class="row calendarActions"><button data-action="mark-today" data-year="${y}" data-month="${m}">Označit dnešek ručně</button><button data-action="unmark-today" data-year="${y}" data-month="${m}">Odebrat dnešek</button></div>
   </section>`;
   scrollTop();
 }
 
 function progressTracker(){
   setAppView('progress');
-  lastMode='progress';setNav('progress');
-  const arr=measurements(), first=firstMeasurement(), last=latestMeasurement();
+  lastMode='progress';setNav('library');
+  const arr=measurements(), last=latestMeasurement();
   const today=todayKey();
   const rows=arr.slice().reverse().map((m,ri)=>`<tr><td>${esc(m.date)}</td><td>${safeFmtNum(m.weight)}</td><td>${safeFmtNum(m.waist)}</td><td>${safeFmtNum(m.hips)}</td><td>${safeFmtNum(m.thigh)}</td><td><button class="smallBtn" data-action="delete-measure" data-index="${arr.length-1-ri}">Smazat</button></td></tr>`).join('');
-  app.innerHTML=`<section class="card"><h2>Měření pokroku</h2>
-    <p class="muted">Stačí jednou týdně. Neřeš denní výkyvy — u těla je důležitý trend, ne jedno číslo.</p>
-    <div class="statGrid"><div class="statBox"><b>${last?fmtNum(last.weight):'—'}</b><span class="muted">poslední váha kg</span></div><div class="statBox"><b>${first&&last?deltaText(first.waist,last.waist):'—'}</b><span class="muted">pas od začátku</span></div><div class="statBox"><b>${arr.length}</b><span class="muted">záznamů</span></div></div>
-    <div class="inlineTip"><b>Vyhodnocení:</b><br>${weeklyHint(arr)}</div>
-  </section>
-  ${backupPanel()}
-  <section class="card"><h2>Grafy</h2>
+  const summary=last?`<section class="card measurementSummary"><h2>Poslední měření</h2><div class="measurementSummaryGrid"><div><b>${safeFmtNum(last.weight)}</b><span>váha kg</span></div><div><b>${safeFmtNum(last.waist)}</b><span>pas cm</span></div><div><b>${safeFmtNum(last.hips)}</b><span>boky cm</span></div><div><b>${safeFmtNum(last.thigh)}</b><span>stehno cm</span></div></div></section>`:'';
+  const charts=arr.length>=2?`<section class="card measurementCharts"><h2>Vývoj</h2>
     ${sparkChart(arr,'weight','Váha','kg')}
     ${sparkChart(arr,'waist','Pas','cm')}
     ${sparkChart(arr,'hips','Boky','cm')}
     ${sparkChart(arr,'thigh','Stehno','cm')}
+  </section>`:'';
+  app.innerHTML=`<div class="measurementPage"><section class="card measurementIntro"><h2>Měření pokroku</h2>
+    <p class="muted">Stačí jednou týdně. U těla sleduj trend, ne jedno číslo.</p>
   </section>
-  <section class="card"><h2>Nový záznam</h2>
+  ${summary}
+  <section class="card measurementEntry"><h2>Nový záznam</h2>
     <div class="measureForm">
       <label>Datum<input id="m-date" type="date" value="${today}"></label>
       <label>Váha kg<input id="m-weight" type="number" step="0.1" inputmode="decimal" placeholder="např. 66.0"></label>
@@ -3167,10 +3206,11 @@ function progressTracker(){
     </div>
     <button class="primary bigbtn" data-action="save-measure">Uložit měření</button>
   </section>
-  <section class="card"><h2>Historie</h2>
-    ${arr.length?`<div class="tableWrap"><table><thead><tr><th>Datum</th><th>kg</th><th>Pas</th><th>Boky</th><th>Stehno</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="muted">Zatím nemáš uložené žádné měření.</p>'}
+  ${charts}
+  <section class="card measurementHistory"><h2>Historie měření</h2>
+    ${arr.length?`<div class="tableWrap"><table><thead><tr><th>Datum</th><th>kg</th><th>Pas</th><th>Boky</th><th>Stehno</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="muted compactEmpty">Zatím nemáš uložené žádné měření.</p>'}
     ${last&&last.note?`<div class="inlineTip"><b>Poslední poznámka:</b><br>${esc(last.note)}</div>`:''}
-  </section>`;
+  </section></div>`;
   scrollTop();
 }
 function saveMeasureFromForm(){
@@ -3182,9 +3222,9 @@ function saveMeasureFromForm(){
 
 function showStats(){
   setAppView('stats');
-  lastMode='stats';setNav('stats');const s=statsData();
-  app.innerHTML=`<section class="card"><h2>Statistiky</h2><p class="muted">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
-  <div class="statGrid"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div></div><div class="row"><button data-action="calendar">Kalendář</button><button data-action="progress">Měření</button></div></section>`;
+  lastMode='stats';setNav('library');const s=statsData();
+  app.innerHTML=`<section class="card myProgress"><h2>Můj pokrok</h2><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
+  <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>`;
 }
 function renderAppState(state){
   if(!state?.pb40App)return home();
@@ -3270,6 +3310,7 @@ app.addEventListener('click',e=>{
   }
   if(a==='set-difficulty'){
     if(!setProgramDifficulty(t.dataset.difficulty))return;
+    if(t.dataset.view==='profile')return library();
     return t.dataset.view==='day'?day(Number(t.dataset.day)||0):days();
   }
   if(a==='program-info')return programInfo();
@@ -3303,9 +3344,10 @@ app.addEventListener('click',e=>{
     return library();
   }
   if(a==='delete-measure'){const arr=measurements();arr.splice(Number(t.dataset.index),1);saveMeasurements(arr);return progressTracker();}
-  if(a==='mark-today'){markToday();return calendar();}
-  if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar();}
-  if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');return calendar();}
+  if(a==='calendar-prev'||a==='calendar-next')return calendar(Number(t.dataset.year),Number(t.dataset.month));
+  if(a==='mark-today'){markToday();return calendar(Number(t.dataset.year),Number(t.dataset.month));}
+  if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar(Number(t.dataset.year),Number(t.dataset.month));}
+  if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');const parts=String(t.dataset.date||'').split('-').map(Number);return calendar(parts[0],parts[1]-1);}
   if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex,{replaceRoute:true});}
   if(a==='info'||t.dataset.ex){
     if(t.dataset.day!==undefined && t.dataset.day!==''){

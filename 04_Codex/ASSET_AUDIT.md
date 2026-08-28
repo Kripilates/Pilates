@@ -30,6 +30,7 @@ Scope:
 | Bent Over Row | `assets/exercises/row.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Shoulder Press | `assets/exercises/press.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Scene crop less consistent |
 | Lateral Raise | `assets/exercises/raise.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
+| Triceps Kickback | START/END reuse `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; Step uses same HERO for movement control; duplicate END source not created. |
 | Bird Dog | `Pilates Assets/02_Exercise_Cards/Bird Dog` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Frog Pumps | `assets/exercises/frog.jpg` | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | White studio look, not master scene |
 | Donkey Kick | `assets/exercises/donkey.jpg` | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |

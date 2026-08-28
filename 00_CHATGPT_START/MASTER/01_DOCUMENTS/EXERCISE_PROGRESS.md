@@ -33,18 +33,17 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Triceps Kickback START / HERO / Guide / Step
-2. Wall Sit START / HERO / Guide / Step
+1. Wall Sit START / HERO / Guide / Step
 
 
 ## Souhrn
 
 Celkem cviků: 52
-Kompletně hotovo: 50
+Kompletně hotovo: 51
 Rozpracováno: 0
-Nezačato: 2
+Nezačato: 1
 
-Další doporučený asset krok: Triceps Kickback START
+Další doporučený asset krok: Wall Sit START
 
 ## Přehled
 
@@ -100,7 +99,7 @@ Další doporučený asset krok: Triceps Kickback START
 | The Hundred | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; The Hundred používá HERO jako pracovní pozici s malými pulzy paží vysvětlenými textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `hundred`; programové dávky beze změny |
 | Thread the Needle | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/END přímo používají schválený Bird Dog START bez fyzické kopie; HERO v01 schválený; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `thread`; programové dávky beze změny |
 | Toe Tap | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | schválený referenční cvik; soubory bez standardního _v01; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Triceps Kickback | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
+| Triceps Kickback | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Step by Step používá stejný HERO pro kontrolu pohybu bez další mezifáze; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `triceps_kickback`; programové dávky beze změny |
 | Wall Sit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
 
 ## NEOVĚŘENO

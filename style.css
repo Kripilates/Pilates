@@ -4764,3 +4764,524 @@ body.dark .programCompletionContent{
     overscroll-behavior-y:none;
   }
 }
+
+/* v59.110: simplified reference exercise detail */
+.referenceExerciseDetail .v20Grid{
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.referenceExerciseDetail .v20Main,
+.referenceExerciseDetail .v20Aside,
+.referenceExerciseDetail .referenceStepByStep{
+  width:min(100%,430px)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.referenceExerciseDetail .v20Main{
+  gap:7px!important;
+}
+.referenceExerciseDetail .v20Aside{
+  display:block!important;
+  margin-top:8px!important;
+}
+.referenceExerciseDetail .referenceGuideCard{
+  margin-bottom:0!important;
+}
+.referenceExerciseDetail .v20TitleRow{
+  width:min(100%,430px)!important;
+  margin:2px auto 0!important;
+  padding:0!important;
+  grid-template-columns:1fr!important;
+  gap:0!important;
+}
+.referenceExerciseDetail .v20TitleRow .eyebrow{
+  margin:0 0 2px!important;
+  color:#8da0a6!important;
+  font-size:8px!important;
+  font-weight:600!important;
+  letter-spacing:.08em!important;
+}
+.referenceExerciseDetail .v20TitleRow h2{
+  margin:0!important;
+  color:#132a45!important;
+  font-size:22px!important;
+  font-weight:760!important;
+  line-height:1.05!important;
+  letter-spacing:.01em!important;
+}
+.referenceExerciseDetail .v20Sub{
+  display:none!important;
+}
+.referenceExerciseDetail .referencePracticalLine{
+  width:min(100%,430px);
+  margin:1px auto 7px!important;
+  color:#53666c;
+  font-size:13px;
+  font-weight:750;
+  line-height:1.25;
+}
+.referenceExerciseDetail .referenceAnatomy{
+  width:min(100%,430px);
+  margin:6px auto 8px;
+  padding:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+.referenceExerciseDetail .referenceAnatomy h3,
+.referenceExerciseDetail .referenceRecommendations h3{
+  margin:0 0 6px!important;
+  color:#7f959b!important;
+  font-size:10px!important;
+  font-weight:750!important;
+  line-height:1.1!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+}
+.referenceExerciseDetail .referenceAnatomyFigures{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+.referenceExerciseDetail .referenceAnatomyFigures--single img{
+  width:min(100%,210px);
+}
+.referenceExerciseDetail .referenceAnatomyFigures--dual img{
+  width:min(48%,180px);
+}
+.referenceExerciseDetail .referenceAnatomy img{
+  height:auto;
+  display:block;
+  border-radius:14px;
+}
+.referenceExerciseDetail .referenceRecommendations.referenceSafety{
+  width:min(100%,430px);
+  margin:0 auto!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.referenceExerciseDetail .referenceRecommendations.referenceSafety .checkList{
+  display:grid;
+  gap:4px;
+  margin:0!important;
+  padding:10px 12px!important;
+  border:0!important;
+  border-radius:14px!important;
+  background:#F3FBF5!important;
+  box-shadow:none!important;
+}
+.referenceExerciseDetail .referenceRecommendations.referenceSafety .checkList li{
+  margin:0!important;
+  padding-left:18px!important;
+  color:#263d45!important;
+  font-size:12.5px!important;
+  line-height:1.28!important;
+}
+.referenceExerciseDetail .referenceRecommendations.referenceSafety .checkList li:before{
+  color:#20b6b2!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open]){
+  padding:0!important;
+  margin-top:10px!important;
+  margin-bottom:0!important;
+  min-height:0!important;
+  height:auto!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.referenceExerciseDetail details.referenceStepByStep:not([open])>.referenceStepByStepContent{
+  display:none!important;
+  height:0!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+@media(max-width:720px){
+  .referenceExerciseDetail .v20Main,
+  .referenceExerciseDetail .v20Aside,
+  .referenceExerciseDetail .v20TitleRow,
+  .referenceExerciseDetail .referenceStepByStep,
+  .referenceExerciseDetail .referencePracticalLine,
+  .referenceExerciseDetail .referenceAnatomy,
+  .referenceExerciseDetail .referenceRecommendations.referenceSafety{
+    width:min(100%,390px)!important;
+  }
+  .referenceExerciseDetail .v20Main{
+    gap:6px!important;
+  }
+  .referenceExerciseDetail .v20Aside{
+    margin-top:7px!important;
+  }
+  .referenceExerciseDetail .referenceGuideCard + .v20TitleRow{
+    margin-top:1px!important;
+  }
+  .referenceExerciseDetail .referencePracticalLine{
+    margin-bottom:6px!important;
+    font-size:12.5px!important;
+  }
+  .referenceExerciseDetail .referenceRecommendations.referenceSafety .checkList{
+    padding:9px 11px!important;
+  }
+}
+
+/* v59.111: compact mobile home exercise cards */
+.v22DayExercises .v22CardFoot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:26px;
+}
+.v22DayExercises .v22CardFoot span{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color:var(--p);
+  font-size:12px;
+  font-weight:900;
+}
+.v22DayExercises .v22CardFoot b{
+  flex:0 0 auto;
+  color:var(--p);
+  font-size:24px;
+  line-height:1;
+}
+@media(max-width:720px){
+  .v22Home{
+    gap:10px!important;
+  }
+  .v22InfoCard{
+    padding:10px 12px!important;
+  }
+  .v22InfoCard h3{
+    margin-bottom:6px!important;
+    font-size:17px!important;
+  }
+  .v22InfoCard p{
+    line-height:1.32!important;
+    font-size:14px!important;
+  }
+  .v22InfoCard small{
+    margin-top:6px!important;
+    padding:7px 8px!important;
+  }
+  .v22DayExercises{
+    padding:12px!important;
+  }
+  .v22DayExercises .topLine{
+    margin-bottom:8px!important;
+  }
+  .v22DayExercises h2{
+    font-size:22px!important;
+  }
+  .v22DayExercises .v22ExerciseGrid{
+    gap:8px!important;
+  }
+  .v22DayExercises .v22exercise{
+    padding:8px!important;
+    border-radius:17px!important;
+  }
+  .v22DayExercises .v22CardHead{
+    grid-template-columns:28px minmax(0,1fr) auto!important;
+    gap:7px!important;
+    margin-bottom:6px!important;
+  }
+  .v22DayExercises .v22CardNum{
+    width:28px!important;
+    height:28px!important;
+    font-size:13px!important;
+  }
+  .v22DayExercises .v22CardHead h3{
+    font-size:16px!important;
+    line-height:1.12!important;
+    white-space:normal!important;
+    display:-webkit-box!important;
+    -webkit-box-orient:vertical!important;
+    -webkit-line-clamp:2!important;
+    overflow:hidden!important;
+  }
+  .v22DayExercises .repBadge{
+    max-width:116px!important;
+    min-height:28px!important;
+    padding:4px 8px!important;
+    font-size:12px!important;
+    white-space:nowrap!important;
+  }
+  .v22DayExercises .v22PhotoWrap{
+    height:96px!important;
+    margin-bottom:6px!important;
+  }
+  .v22DayExercises .v22CardLabels,
+  .v22DayExercises .v22Open{
+    display:none!important;
+  }
+  .v22DayExercises .v22CardFoot{
+    min-height:23px;
+  }
+}
+@media(max-width:380px){
+  .v22DayExercises .repBadge{
+    max-width:96px!important;
+    font-size:11.5px!important;
+  }
+  .v22DayExercises .v22PhotoWrap{
+    height:88px!important;
+  }
+}
+
+/* v59.112: compact plan cleanup and calendar month navigation */
+.calendarMonthNav{
+  display:grid;
+  grid-template-columns:42px 1fr 42px;
+  align-items:center;
+  gap:8px;
+  margin:10px 0 6px;
+}
+.calendarMonthNav strong{
+  text-align:center;
+  color:var(--text);
+  font-size:18px;
+  font-weight:900;
+  text-transform:capitalize;
+}
+.calendarMonthNav button{
+  min-height:38px;
+  padding:7px 0;
+  border-radius:14px;
+  color:var(--p);
+  font-size:25px;
+  line-height:1;
+}
+.calendarMonthNav button:disabled{
+  opacity:.38;
+  cursor:default;
+  transform:none;
+}
+.calendarHelp{
+  margin:0!important;
+}
+.calendarActions{
+  gap:7px;
+  margin-top:10px!important;
+}
+.calendarActions button{
+  flex:1;
+  min-height:38px;
+  padding:8px 9px!important;
+  color:var(--muted);
+  font-size:12.5px!important;
+  box-shadow:none!important;
+}
+@media(max-width:720px){
+  body:has(.calendarCard) main{
+    min-height:0!important;
+    padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;
+  }
+  .calendarCard{
+    margin-bottom:6px!important;
+    padding-bottom:12px!important;
+  }
+  .calendarCard .statGrid{
+    margin:9px 0!important;
+  }
+  .calendarCard .statBox{
+    padding:8px 6px!important;
+  }
+  .calendarCard .statBox b{
+    font-size:20px!important;
+    line-height:1.05!important;
+  }
+  .calendarCard .weekHead{
+    margin:10px 0 5px!important;
+  }
+  .calendarActions{
+    margin-bottom:0!important;
+  }
+  .dayInfo h3{
+    margin-bottom:3px!important;
+  }
+  .dayInfo p{
+    margin-bottom:0!important;
+  }
+}
+
+/* v59.113: Moje Moovka personal hub and compact progress screens */
+.myMoovka{
+  max-width:720px;
+}
+.myMoovka .programDashboardIntro{
+  padding:10px 2px 10px;
+}
+.myMoovka .programDashboardIntro h2{
+  font-size:clamp(28px,5vw,34px);
+}
+.myMoovkaGrid{
+  grid-template-columns:1fr;
+  gap:10px;
+}
+.myMoovkaGrid .programFeature,
+.myMoovkaGrid .programFeatureWide{
+  min-height:0;
+  padding:14px;
+  border-radius:18px;
+}
+.myMoovkaGrid .programFeatureWide{
+  background:var(--p2);
+}
+.myMoovkaGrid .programFeatureIcon,
+.myMoovkaGrid .programFeatureWide .programFeatureIcon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+}
+.myMoovkaGrid .programFeature strong,
+.myMoovkaGrid .programFeatureWide strong{
+  font-size:18px;
+}
+.myMoovkaGrid .programFeature small{
+  font-size:13px;
+}
+.myMoovkaSettings,
+.myMoovkaInfo{
+  margin-top:16px;
+}
+.myMoovkaSettings h3,
+.myMoovkaInfo h3{
+  padding-bottom:7px;
+}
+.profileDifficulty{
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr);
+  gap:10px;
+  align-items:center;
+  padding:12px 2px 8px;
+  color:var(--text);
+}
+.profileDifficulty .lineIcon{
+  color:var(--p);
+}
+.profileDifficulty strong,
+.profileDifficulty small{
+  display:block;
+}
+.profileDifficulty small{
+  margin-top:3px;
+  color:var(--muted);
+  font-weight:800;
+}
+.myMoovka .difficultyControl{
+  margin:0;
+}
+.myMoovka .difficultyControl summary{
+  min-height:44px;
+  padding:10px 12px;
+}
+.myMoovka .difficultyMenu{
+  gap:7px;
+}
+.myMoovka .difficultyMenu button{
+  padding:10px;
+}
+.myProgress,
+.measurementPage{
+  width:min(100%,720px);
+  margin-left:auto;
+  margin-right:auto;
+}
+.myProgress h2,
+.measurementIntro h2{
+  margin-bottom:6px;
+}
+.myProgressMain{
+  color:var(--p)!important;
+  font-size:26px!important;
+  font-weight:900;
+  margin:0 0 8px;
+}
+.myProgressStats{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  margin:12px 0 10px!important;
+}
+.myProgressActions{
+  margin-top:8px!important;
+}
+.myProgressActions button{
+  width:100%;
+  min-height:44px;
+  box-shadow:none;
+}
+.measurementPage .card{
+  margin:9px 0;
+}
+.measurementIntro{
+  padding-bottom:12px;
+}
+.measurementSummaryGrid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+}
+.measurementSummaryGrid div{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:9px 7px;
+  text-align:center;
+}
+.measurementSummaryGrid b,
+.measurementSummaryGrid span{
+  display:block;
+}
+.measurementSummaryGrid b{
+  color:var(--p);
+  font-size:20px;
+  line-height:1.05;
+}
+.measurementSummaryGrid span{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:800;
+  margin-top:4px;
+}
+.measurementEntry .bigbtn{
+  margin-bottom:0;
+}
+.measurementHistory .compactEmpty{
+  margin:4px 0 0;
+}
+@media(max-width:720px){
+  nav button#nav-library{
+    font-size:11.5px;
+  }
+  .myMoovka{
+    padding-bottom:8px;
+  }
+  .myMoovka .programDashboardIntro span{
+    margin-top:5px;
+  }
+  .myMoovkaGrid .programFeature,
+  .myMoovkaGrid .programFeatureWide{
+    grid-template-columns:42px minmax(0,1fr);
+    gap:10px;
+    padding:12px;
+  }
+  .myMoovkaGrid .programFeatureIcon,
+  .myMoovkaGrid .programFeatureWide .programFeatureIcon{
+    width:42px;
+    height:42px;
+  }
+  .myMoovkaGrid .programFeatureArrow{
+    display:none;
+  }
+  .measurementSummaryGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .measurementPage .measureForm{
+    margin-top:8px;
+  }
+}

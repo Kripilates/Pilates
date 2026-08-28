@@ -52,14 +52,14 @@ Generated: 2026-07-20T06:30:19.359Z
 | The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | `hundred_start_v01.png` | `hundred_hero_v01.png` | `the_hundred_guide_card_v01.png` | `the_hundred_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; HERO represents working position for small arm pulses |
 | Thread the Needle | `Pilates Assets/02_Exercise_Cards/Thread the Needle` | reuse `../Bird Dog/bird_dog_start_v01.png` | `thread_the_needle_hero_v01.png` | `thread_the_needle_guide_card_v01.png` | `thread_the_needle_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; duplicate source not created |
 | Toe Tap | `Pilates Assets/02_Exercise_Cards/Toe Tap` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images; other PNG: toe_tap_guide_card_v1.png, toe_tap_hero.png, toe_tap_start.png, toe_tap_step_by_step_v1.png |
-| Triceps Kickback | `Pilates Assets/02_Exercise_Cards/Triceps Kickback` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Triceps Kickback | `Pilates Assets/02_Exercise_Cards/Triceps Kickback` | `triceps_kickback_start_v01.png` | `triceps_kickback_hero_v01.png` | `triceps_kickback_guide_card_v01.png` | `triceps_kickback_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; Step uses same HERO for movement control |
 | Wall Sit | `Pilates Assets/02_Exercise_Cards/Wall Sit` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 
 ## Summary
 
-- COMPLETE: 8
+- COMPLETE: 9
 - IN PROGRESS: 7
-- EMPTY: 36
+- EMPTY: 35
 - MISSING: 0
 
 ## Possible duplicates
@@ -115,5 +115,4 @@ Generated: 2026-07-20T06:30:19.359Z
 - Thread the Needle
 - Toe Tap
 - Toe Taps
-- Triceps Kickback
 - Wall Sit
