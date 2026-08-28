@@ -2292,16 +2292,15 @@ function programInfo(){
 function home(){
   setAppView('home');
   lastMode='home';setNav('home');
-  const s=statsData(),programComplete=isProgramComplete(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),lm=latestMeasurement(),ln=latestNote();
+  const programComplete=isProgramComplete(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),ln=latestNote();
   app.innerHTML=`<div class="v22Home">
     <section class="v22HeroPanel">
-      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${programComplete?'Program dokončen':'Pokračuj v tréninku'}</h2></div><div class="streakBadge">🔥 ${streak()} dní</div></div>
+      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${programComplete?'Program dokončen':'Pokračuj v tréninku'}</h2></div></div>
       <div class="todayCompact v22TodayCompact">
         <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-        <div><h3>${day.title}</h3><p class="muted">${programWeekHint(n)}</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků • ${lm?`pas ${fmtNum(lm.waist)} cm`:'měření zatím není'}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
+        <div><h3>${day.title}</h3><p class="muted">${programWeekHint(n)}</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
       </div>
       <button class="primary cta" data-action="${programComplete?'days':'start-auto'}"${programComplete?'':` data-day="${n}"`}>${programComplete?'Zobrazit dokončený plán':'▶ Cvič se mnou'}</button>
-      <div class="compactActions v22Actions"><button data-action="day" data-day="${n}">♙ Ruční režim</button><button data-action="calendar">▣ Kalendář</button><button data-action="progress">▥ Měření</button></div>
     </section>
     <aside class="v22SidePanels">
       <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
