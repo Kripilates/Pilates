@@ -6,13 +6,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "heel_taps_start_v01.png"
-HERO = BASE / "heel_taps_hero_v01.png"
+START = BASE / "heel_taps_start_v02.png"
+HERO = BASE / "heel_taps_hero_v02.png"
 GUIDE = BASE / "heel_taps_guide_card_v01.png"
 STEP = BASE / "heel_taps_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "dffef06fa06e7258709f06baf6be677abfbb1c1d42787c08ed91b774c573f154",
-    HERO: "b2297d015a2b435dad19f57514c5d9d9c71ffd0cf262792348d1a54c1eb762c0",
+    START: "92500921f8e76aff9af593c63e5580cf2d3f33d4d6ec629d0088a62dabe016ca",
+    HERO: "583f94cece17164aa981941cc5629c242f2b43dc4752742cf0d95c8b1364caf3",
 }
 BG = (244, 251, 250)
 CARD = (255, 255, 255)
@@ -52,8 +52,8 @@ STEP_TEXTS = [
     ),
     (
         "KROK 3",
-        "VYSTŘÍDÁNÍ STRAN",
-        "Vrať se přes střed a proveď stejný pohyb k levé patě. Pokračuj střídavě bez pohybu pánve.",
+        "NÁVRAT PŘES STŘED",
+        "Vrať se kontrolovaně přes střed. Další opakování proveď k levé patě a strany pravidelně střídej.",
         START,
     ),
 ]
