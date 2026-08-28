@@ -5065,9 +5065,16 @@ body.dark .programCompletionContent{
 .calendarHelp{
   margin:0!important;
 }
+.calendarSummaryText{
+  margin:5px 0 9px;
+  color:var(--p);
+  font-size:13px;
+  font-weight:900;
+  line-height:1.25;
+}
 .calendarActions{
   gap:7px;
-  margin-top:10px!important;
+  margin:10px 0 0!important;
 }
 .calendarActions button{
   flex:1;
@@ -5095,6 +5102,9 @@ body.dark .programCompletionContent{
   .calendarCard .statBox b{
     font-size:20px!important;
     line-height:1.05!important;
+  }
+  .calendarSummaryText{
+    margin:4px 0 8px!important;
   }
   .calendarCard .weekHead{
     margin:10px 0 5px!important;

@@ -3167,13 +3167,17 @@ function calendar(year,month){
     cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''}" data-action="calendar-day" data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
   }
   const logs=loggedDates();
+  const todayLogged=hasLog(todayKey());
+  const dayCountLabel=logs.length===1?'odcvičený den':'odcvičených dní';
+  const todayAction=todayLogged?'unmark-today':'mark-today';
+  const todayActionLabel=todayLogged?'Odebrat dnešek':'Označit dnešek';
   app.innerHTML=`<section class="card calendarCard"><h2>Kalendář cvičení</h2>
     <div class="calendarMonthNav"><button data-action="calendar-prev" data-year="${prev.getFullYear()}" data-month="${prev.getMonth()}" aria-label="Předchozí měsíc">‹</button><strong>${monthName(now)}</strong><button data-action="calendar-next" data-year="${next.getFullYear()}" data-month="${next.getMonth()}" ${isCurrentMonth?'disabled aria-disabled="true"':''} aria-label="Následující měsíc">›</button></div>
     <p class="muted calendarHelp">Hotové dny se označí automaticky.</p>
-    <div class="statGrid"><div class="statBox"><b>${streak()}</b><span class="muted">série dní</span></div><div class="statBox"><b>${logs.length}</b><span class="muted">dní celkem</span></div><div class="statBox"><b>${calendarTodayState()}</b><span class="muted">dnes</span></div></div>
+    <p class="calendarSummaryText">${logs.length} ${dayCountLabel}</p>
     <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
     <div class="calendarGrid">${cells.join('')}</div>
-    <div class="row calendarActions"><button data-action="mark-today" data-year="${y}" data-month="${m}">Označit dnešek ručně</button><button data-action="unmark-today" data-year="${y}" data-month="${m}">Odebrat dnešek</button></div>
+    <div class="row calendarActions"><button data-action="${todayAction}" data-year="${y}" data-month="${m}">${todayActionLabel}</button></div>
   </section>`;
   scrollTop();
 }

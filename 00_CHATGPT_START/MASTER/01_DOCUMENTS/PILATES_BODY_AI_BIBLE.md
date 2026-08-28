@@ -161,6 +161,10 @@ Platné MASTER reference jsou pouze:
 - MASTER tvář
 - EXERCISE_REFERENCE
 
+Pro anatomické obrázky "Zapojené svaly" platí navíc `MASTER_ANATOMY.md` a zamčený `MOOVKA_MASTER_BODY_v01`.
+
+Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md` a `MOOVKA_MASTER_BODY_v01`. Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
+
 MASTER prostředí je jediná schválená referenční fotografie místnosti.
 
 Obsahuje pouze:
