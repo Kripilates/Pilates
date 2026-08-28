@@ -24,7 +24,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Hollow Hold | `Pilates Assets/02_Exercise_Cards/Hollow Hold` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Opener | `Pilates Assets/02_Exercise_Cards/Chest Opener` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Press | `Pilates Assets/02_Exercise_Cards/Chest Press` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Child's Pose | `Pilates Assets/02_Exercise_Cards/Child's Pose` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images |
+| Child's Pose | `Pilates Assets/02_Exercise_Cards/Child's Pose` | `childs_pose_start_v01.png` | `childs_pose_hero_v01.png` | `childs_pose_guide_card_v01.png` | `childs_pose_step_by_step_v01.png` | ANO | COMPLETE | END = START reuse; used as day 20 final stretch `40 s` |
 | Inner Thigh Lift | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Lateral Raise | `Pilates Assets/02_Exercise_Cards/Lateral Raise` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Leg Raises | `Pilates Assets/02_Exercise_Cards/Leg Raises` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
@@ -38,7 +38,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Russian Twist | `Pilates Assets/02_Exercise_Cards/Russian Twist` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Scissors | `Pilates Assets/02_Exercise_Cards/Scissors` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Shoulder Press | `Pilates Assets/02_Exercise_Cards/Shoulder Press` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Side Kick | `Pilates Assets/02_Exercise_Cards/Side Kick` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Side Kick | `Pilates Assets/02_Exercise_Cards/Side Kick` | `side_kick_start_v01.png` | `side_kick_hero_v01.png` | `side_kick_guide_card_v01.png` | `side_kick_step_by_step_v01.png` | NE | COMPLETE | END = `side_kick_end_v01.png`; used in program days 18 and 25 |
 | Side Leg Lift | `Pilates Assets/02_Exercise_Cards/Side Leg Lift` | `side_leg_start_v01.png` | `side_leg_lift_hero_v01.png` | `side_leg_lift_guide_card_v01.png` | `side_leg_lift_step_by_step_v01.png` | NE | COMPLETE | other PNG: side leg.png |
 | Side Plank | `Pilates Assets/02_Exercise_Cards/Side Plank` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Side Plank Reach | `Pilates Assets/02_Exercise_Cards/Side Plank Reach` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
@@ -48,19 +48,21 @@ Generated: 2026-07-20T06:30:19.359Z
 | Standing Side Bend | `Pilates Assets/02_Exercise_Cards/Standing Side Bend` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Supine Twist | `Pilates Assets/02_Exercise_Cards/Supine Twist` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Swan Prep | `Pilates Assets/02_Exercise_Cards/Swan Prep` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Swimming | `Pilates Assets/02_Exercise_Cards/Swimming` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Thread the Needle | `Pilates Assets/02_Exercise_Cards/Thread the Needle` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Swimming | `Pilates Assets/02_Exercise_Cards/Swimming` | `swimming_start_v01.png` | `swimming_hero_v01.png` | `swimming_guide_card_v01.png` | `swimming_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; alternating phase uses same HERO without mirrored or duplicate source |
+| The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | `hundred_start_v01.png` | `hundred_hero_v01.png` | `the_hundred_guide_card_v01.png` | `the_hundred_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; HERO represents working position for small arm pulses |
+| Thread the Needle | `Pilates Assets/02_Exercise_Cards/Thread the Needle` | reuse `../Bird Dog/bird_dog_start_v01.png` | `thread_the_needle_hero_v01.png` | `thread_the_needle_guide_card_v01.png` | `thread_the_needle_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; duplicate source not created |
 | Toe Tap | `Pilates Assets/02_Exercise_Cards/Toe Tap` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images; other PNG: toe_tap_guide_card_v1.png, toe_tap_hero.png, toe_tap_start.png, toe_tap_step_by_step_v1.png |
-| Triceps Kickback | `Pilates Assets/02_Exercise_Cards/Triceps Kickback` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Wall Sit | `Pilates Assets/02_Exercise_Cards/Wall Sit` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Triceps Kickback | `Pilates Assets/02_Exercise_Cards/Triceps Kickback` | `triceps_kickback_start_v01.png` | `triceps_kickback_hero_v01.png` | `triceps_kickback_guide_card_v01.png` | `triceps_kickback_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; Step uses same HERO for movement control |
+| Wall Sit | `Pilates Assets/02_Exercise_Cards/Wall Sit` | NE | NE | NE | NE | NE | REMOVED | ODSTRANĚNO z aktivního programu; nezapočítávat mezi aktivní cviky ani čekající assety |
 
 ## Summary
 
-- COMPLETE: 5
-- IN PROGRESS: 7
-- EMPTY: 39
+- Active exercises: 51
+- COMPLETE: 51
+- IN PROGRESS: 0
+- EMPTY / WAITING: 0
 - MISSING: 0
+- Wall Sit: ODSTRANĚNO, mimo aktivní cviky
 
 ## Possible duplicates
 
@@ -112,10 +114,6 @@ Generated: 2026-07-20T06:30:19.359Z
 - Standing Side Bend
 - Supine Twist
 - Swan Prep
-- Swimming
-- The Hundred
 - Thread the Needle
 - Toe Tap
 - Toe Taps
-- Triceps Kickback
-- Wall Sit

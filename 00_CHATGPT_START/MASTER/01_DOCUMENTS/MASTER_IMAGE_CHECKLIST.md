@@ -16,6 +16,10 @@ Status: ACTIVE CHECKLIST FOR MASTER
 
 □ Použita EXERCISE_REFERENCE konkrétního cviku
 
+□ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": načten MASTER_ANATOMY.md
+
+□ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": použit zamčený MOOVKA_MASTER_BODY_v01
+
 □ Stejný obličej
 
 □ Stejné vlasy

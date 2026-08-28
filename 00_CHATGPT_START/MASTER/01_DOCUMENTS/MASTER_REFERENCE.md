@@ -18,6 +18,10 @@ Projekt Pilates Body 40+ používá pouze tyto čtyři závazné reference:
    Referenční fotografie nebo ilustrace konkrétního cviku.
    Určuje anatomicky správnou polohu těla.
 
+Pro anatomické obrázky "Zapojené svaly" platí navíc povinný dokument `MASTER_ANATOMY.md` a zamčený master `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`.
+Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md`.
+Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
+
 Podložka není součást MASTER prostředí.
 Je rekvizitou konkrétního cviku stejně jako činky, odporová guma nebo míč.
 
@@ -36,6 +40,7 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 - MASTER model: jediná oficiální modelka projektu.
 - MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
 - MASTER prostředí: jediný zdroj pravdy pro místnost, světlo, kameru, perspektivu, podlahu, palmu, polici, dekorace a barevnost.
+- MASTER anatomie: `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`, zamčený základ pro všechny anatomy assety "Zapojené svaly"; pravidla určuje `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
 - HERO referenční standard: referenční kvalita HERO fotografie.
 - EXERCISE_REFERENCE.png: anatomická reference konkrétního cviku, dodává se pro právě řešený cvik.
 
@@ -292,9 +297,10 @@ Po založení nového chatu musí ChatGPT:
 1. Načíst MASTER/01_DOCUMENTS/MASTER_REFERENCE.md.
 2. Načíst MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md.
 3. Načíst PILATES_BODY_AI_BIBLE.md.
-4. Načíst aktuální project guide pouze jako podpůrný kontext.
-5. Považovat MASTER za jediný zdroj pravdy pro MASTER pravidla.
-6. Nikdy nepřepisovat schválená MASTER pravidla vlastními návrhy.
+4. Při práci s anatomickými obrázky načíst MASTER_ANATOMY.md a MOOVKA_MASTER_BODY_v01.
+5. Načíst aktuální project guide pouze jako podpůrný kontext.
+6. Považovat MASTER za jediný zdroj pravdy pro MASTER pravidla.
+7. Nikdy nepřepisovat schválená MASTER pravidla vlastními návrhy.
 
 ## OBSOLETE REFERENCES
 

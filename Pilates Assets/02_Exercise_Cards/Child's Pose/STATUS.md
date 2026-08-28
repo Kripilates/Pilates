@@ -26,9 +26,11 @@ START → HERO → START
 - [x] Source images technical QA
 - [x] Manual visual approval
 - [x] App QA
+- [x] Program QA — použit jako závěrečný stretch ve dni 20
 
 ## App
 - [x] Deployed
+- [x] Program day 20 stretch — `40 s`
 
 ## Notes
 - START je schválený reuse source z Cat-Cow START.

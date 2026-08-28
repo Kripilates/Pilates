@@ -33,21 +33,19 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. Swimming START / HERO / Guide / Step
-2. The Hundred START / HERO / Guide / Step
-3. Thread the Needle START / HERO / Guide / Step
-4. Triceps Kickback START / HERO / Guide / Step
-5. Wall Sit START / HERO / Guide / Step
+1. žádné — asset knihovna aktivních cviků je dokončená
 
 
 ## Souhrn
 
-Celkem cviků: 52
-Kompletně hotovo: 47
+Celkem aktivních cviků: 51
+Kompletně hotovo: 51
 Rozpracováno: 0
-Nezačato: 5
+Nezačato: 0
 
-Další doporučený asset krok: Swimming START
+Wall Sit: ODSTRANĚNO z aktivního programu, nezapočítává se mezi aktivní cviky.
+
+Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je použit jako závěrečný stretch ve dni 20.
 
 ## Přehled
 
@@ -89,7 +87,7 @@ Další doporučený asset krok: Swimming START
 | Russian Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 manuálně schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 schválené; App nasazena pod `russian` |
 | Scissors | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je binární reuse schváleného Leg Raises START v02; HERO v01 je samostatný schválený source; END = START bez samostatného PNG; třetí instruktážní krok používá stejný nezrcadlený HERO pro pokračující střídání; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `scissors` |
 | Shoulder Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `press`; pomůcka Činky |
-| Side Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → kop dopředu → kop dozadu; Guide Card a Step by Step v01 manuálně schválené; App nasazena pod kanonickým ID `sidekick`; bez pomůcky |
+| Side Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → kop dopředu → kop dozadu; Guide Card a Step by Step v01 manuálně schválené; App nasazena pod kanonickým ID `sidekick`; použit v programu ve dnech 18 a 25; bez pomůcky |
 | Side Leg Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Side Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank`; sekvence START → HERO → START |
 | Side Plank Reach | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank_reach`; starý placeholder není aktivní |
@@ -99,12 +97,12 @@ Další doporučený asset krok: Swimming START
 | Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v01 schválené; END = START; Guide Card a Step by Step v01 schválené; App nasazena pod kanonickým ID `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
 | Supine Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `supine_twist` ve v59.101-dev; sekvence START → HERO → START |
 | Swan Prep | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `swan` ve v59.105-dev; sekvence START → HERO → START |
-| Swimming | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
-| The Hundred | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
-| Thread the Needle | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Swimming | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; střídavý pohyb používá stejný HERO bez zrcadlení a opačná fáze je vysvětlena textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `swimming`; programové dávky beze změny |
+| The Hundred | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; The Hundred používá HERO jako pracovní pozici s malými pulzy paží vysvětlenými textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `hundred`; programové dávky beze změny |
+| Thread the Needle | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/END přímo používají schválený Bird Dog START bez fyzické kopie; HERO v01 schválený; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `thread`; programové dávky beze změny |
 | Toe Tap | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | schválený referenční cvik; soubory bez standardního _v01; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Triceps Kickback | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ČEKÁ | aplikace používá no-image fallback; .gitkeep / bez obrázků |
-| Wall Sit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ČEKÁ | .gitkeep / bez obrázků |
+| Triceps Kickback | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Step by Step používá stejný HERO pro kontrolu pohybu bez další mezifáze; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `triceps_kickback`; programové dávky beze změny |
+| Wall Sit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ODSTRANĚNO | Odstraněno z aktivního programu; nezapočítává se mezi aktivní cviky ani čekající assety. |
 
 ## NEOVĚŘENO
 

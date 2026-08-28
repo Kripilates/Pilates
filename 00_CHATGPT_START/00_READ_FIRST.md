@@ -1,6 +1,8 @@
 ﻿> MASTER_SYSTEM_V2_ACTIVE
 >
 > V novém chatu načti nejdříve `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md` a `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`.
+> Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` a `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`.
+> Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 > Starší MASTER dokumentace je historická. Platí MASTER.
 
 # READ FIRST – Pilates Body 40+
@@ -14,6 +16,7 @@ Nejdříve si přečti:
 3. `MASTER/01_DOCUMENTS/PILATES_BODY_AI_BIBLE.md`
 4. `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`
 5. `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`
+6. `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` při jakékoli práci s anatomickými obrázky
 
 Nezačínej od nuly.
 

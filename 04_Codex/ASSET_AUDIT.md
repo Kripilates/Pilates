@@ -23,12 +23,14 @@ Scope:
 | Side Leg Lift | `Pilates Assets/02_Exercise_Cards/Side Leg Lift` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; source images replaced and cards rebuilt. |
 | Dead Bug | `assets/exercises/deadbug.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Toe Taps | `Pilates Assets/02_Exercise_Cards/Toe Tap` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
+| The Hundred | START/END reuse `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; HERO represents working position for small arm pulses; duplicate END source not created. |
 | Reverse Crunch | `assets/exercises/revcrunch.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Side Plank | `assets/exercises/sideplank.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Hollow Hold | `assets/exercises/hollow.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
 | Bent Over Row | `assets/exercises/row.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
 | Shoulder Press | `assets/exercises/press.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Scene crop less consistent |
 | Lateral Raise | `assets/exercises/raise.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
+| Triceps Kickback | START/END reuse `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; Step uses same HERO for movement control; duplicate END source not created. |
 | Bird Dog | `Pilates Assets/02_Exercise_Cards/Bird Dog` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. |
 | Frog Pumps | `assets/exercises/frog.jpg` | 🔴 | 🔴 | 🔴 | 🔴 | 🔴 | 🟡 | 🔴 | REGENERATE | White studio look, not master scene |
 | Donkey Kick | `assets/exercises/donkey.jpg` | 🟢 | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
@@ -37,13 +39,14 @@ Scope:
 | Forearm Plank | `assets/exercises/plank.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | MINOR FIX | Background less visible |
 | Plank Shoulder Taps | `assets/exercises/tap.jpg` | 🟡 | 🟡 | 🟡 | 🔴 | 🟡 | 🟡 | 🟡 | MINOR FIX | Color tone differs |
 | Cat-Cow | `assets/exercises/catcow.jpg` | 🟢 | 🟡 | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Crop/scene less anchored |
-| Thread the Needle | `assets/exercises/thread.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
+| Thread the Needle | START/END reuse `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; duplicate START/END source not created. |
 | Roll Up | `assets/exercises/rollup.jpg` | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | 🟡 | MINOR FIX | Crop differs from master |
 | Mermaid Stretch | `assets/exercises/mermaid.jpg` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | APPROVED | Anatomy needs reference check |
-| Side Kick Series | `assets/exercises/sidekick.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
+| Side Kick | `Pilates Assets/02_Exercise_Cards/Side Kick` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; used in program days 18 and 25 under canonical ID `sidekick`. |
 | Swan Prep | `assets/exercises/swan.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
+| Swimming | START/END reuse `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png`; HERO `Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero_v01.png` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved; alternating phase uses same HERO without mirroring; duplicate END source not created. |
 | Spine Stretch | `assets/exercises/spine.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
-| Wall Sit | `assets/exercises/wall.jpg` | 🟡 | 🔴 | 🟡 | 🔴 | 🟡 | 🟡 | 🔴 | REGENERATE | Different room feeling |
+| Wall Sit | removed from active program | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | REMOVED | Removed from active exercises; not counted as active or pending. |
 | Glute Bridge March | `Pilates Assets/02_Exercise_Cards/Hip March` | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 | COMPLETE | Complete asset set approved. START uses shared Glute Bridge source. |
 | Romanian Deadlift - Slow | `assets/exercises/rdl_slow.jpg` | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | MINOR FIX | Different room feeling |
 | Clamshell Pulses | `assets/exercises/clam_pulse.jpg` | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟡 | 🟡 | APPROVED | Minor light variation |
