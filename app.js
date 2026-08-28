@@ -1354,9 +1354,9 @@ const referenceExerciseAssets={
     }
   },
   sidekick:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_end_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_end_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_step_by_step_v01.png',
     subtitle:'Hýždě • boky • střed těla',
