@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.111-dev';
+const APP_VERSION='v59.112-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -2092,8 +2092,8 @@ function exMeta(k){
   if(icon==='🔥')area='Core';
   if(icon==='💪')area='Záda / ramena';
   if(icon==='🧘')area='Mobilita';
-  if(['plank','sideplank','hollow','tap','plie','wall'].includes(k))diff='Střední';
-  if(['wall','plie'].includes(k))knee='Pozor na kolena';
+  if(['plank','sideplank','hollow','tap','plie'].includes(k))diff='Střední';
+  if(['plie'].includes(k))knee='Pozor na kolena';
   const tempo = icon==='🧘' ? 'plynule s dechem' : (icon==='🔥' ? '2 s tam / 2 s zpět' : 'pomalu bez švihu');
   const breath = icon==='🔥' ? 'Vydechni při záběru břicha.' : (icon==='🍑' ? 'Vydechni při zvednutí / zatlačení.' : 'Dýchej klidně do žeber.');
   const mistakes = [];

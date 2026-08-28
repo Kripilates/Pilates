@@ -60,8 +60,8 @@ Aktuální rozpracované změny bez commitu:
 - Dynamická sekce Krok za krokem globálně zobrazuje source fotografie v přirozeném poměru stran bez pevné výšky a ořezu `cover`; hlavní HERO, miniatury a PNG karty zůstávají beze změny.
 - Sphinx Stretch používá jeden schválený statický source START v01 pro START, HERO i END; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `sphinx` bez změny programových dávek.
 - Spine Stretch používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `spine` bez změny programové dávky.
-- Progress souhrn: 50 celkem, 42 HOTOVO, 0 ROZPRACOVÁNO, 8 ČEKÁ.
-- Aplikace je nyní `v59.77-dev`; cache `app.js` a `data.js` je `v=5977spine` a cache `style.css` zůstává `v=5974difficulty`.
+- Progress souhrn: 51 aktivních cviků, 51 HOTOVO, 0 ROZPRACOVÁNO, 0 ČEKÁ. Wall Sit je ODSTRANĚNO a nezapočítává se.
+- Aplikace je nyní `v59.112-dev`; cache `app.js` a `data.js` je `v=59112program` a cache `style.css` zůstává beze změny.
 - Aktivní workout zobrazuje dávku dominantně a domovská obrazovka vybírá text první, druhé nebo třetí fáze podle dne programu (dny 1-10, 11-20 a 21-30).
 - Aktivní workout má kompaktní horní navigaci bez tlačítka Ukončit a bez textu Připrav se; Ukončit je součástí spodního ovládacího panelu, pravý badge hlavičky zobrazuje aktuální `Cvik X z Y` a uvolněný prostor využívá větší fotografie cviku.
 - Workout typografie zvýrazňuje název vůči dávce; spodní ovládání rozlišuje primární Pauzu, sekundární Přeskočit a tlumeně destruktivní Ukončit, zatímco Detail cviku má kompaktní informační ikonu.
@@ -80,7 +80,7 @@ Pokračovat podle:
 
 Aktuálně první položka v `NEXT TASKS`:
 
-1. `Wall Sit START / HERO / Guide / Step`
+1. Žádné — aktivní asset knihovna je dokončená; Wall Sit je odstraněný z aktivního programu.
 
 Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 
@@ -94,7 +94,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Bird Dog source i app mapping zůstaly beze změny.
 - Program, pořadí a dávky ve dnech 17 a 18 zůstaly beze změny.
 - Progress: 52 celkem, 48 HOTOVO, 0 ROZPRACOVÁNO, 4 ČEKÁ.
-- NEXT TASK: Swimming START / HERO / Guide / Step.
+- NEXT TASK: dokončeno v pozdějším milníku.
 
 ## Swimming completion — v59.107-dev
 
@@ -104,7 +104,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.swimming` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
 - Program, pořadí a dávky ve dnech 10, 18 a 25 zůstaly beze změny.
 - Progress: 52 celkem, 49 HOTOVO, 0 ROZPRACOVÁNO, 3 ČEKÁ.
-- NEXT TASK: The Hundred START / HERO / Guide / Step.
+- NEXT TASK: dokončeno v pozdějším milníku.
 - Verze/cache: `v59.107-dev`; `app.js?v=59107swimming`; `data.js?v=59107swimming`; `style.css` cache beze změny.
 - Commit: NE
 - Push: NE
@@ -116,9 +116,21 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Guide Card a Step by Step v01 byly vytvořené ze schválených source fotek. Step by Step používá sekvenci START → HERO → HERO → START, protože krok kontroly pohybu používá stejný HERO.
 - Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.triceps_kickback` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
 - Program, pořadí a dávky ve dnech 3, 10, 17 a 24 zůstaly beze změny.
-- Progress: 52 celkem, 51 HOTOVO, 0 ROZPRACOVÁNO, 1 ČEKÁ.
-- NEXT TASK: Wall Sit START / HERO / Guide / Step.
+- Progress: 51 aktivních cviků, 51 HOTOVO, 0 ROZPRACOVÁNO, 0 ČEKÁ. Wall Sit je ODSTRANĚNO a nezapočítává se.
+- NEXT TASK: žádné čekající aktivní assety.
 - Verze/cache: `v59.109-dev`; `app.js?v=59109triceps`; `data.js?v=59109triceps`; `style.css` cache beze změny.
+- Commit: NE
+- Push: NE
+
+## Program active exercise cleanup — v59.112-dev
+
+- Den 18 `Kontrola & mobilita`: `sideleg` nahrazeno cvikem `sidekick` s dávkami Lehká `8/8`, Střední `9/9`, Náročná `12/12`.
+- Den 20 `Celé tělo`: závěrečný stretch `supine_twist` nahrazen `childs_pose` s dávkou `40 s`.
+- Den 25 `Kontrola & mobilita`: `clam` nahrazeno cvikem `sidekick` s dávkami Lehká `10/10`, Střední `11/11`, Náročná `14/14`.
+- `wall` nebyl aktivně referencovaný v žádném dni ani stretch fázi; osiřelá definice Wall Sit byla odstraněna z `data.js`.
+- Program má 30 dní, volné dny zůstávají 7, 14, 21 a 28.
+- Progress: 51 aktivních cviků, 51 HOTOVO, 0 ROZPRACOVÁNO, 0 ČEKÁ.
+- Verze/cache: `v59.112-dev`; `app.js?v=59112program`; `data.js?v=59112program`; `style.css` cache beze změny.
 - Commit: NE
 - Push: NE
 
@@ -130,7 +142,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Aplikace používá schválený HERO jako hlavní obrázek a `referenceExerciseAssets.hundred` zpřístupňuje START/HERO/END, Guide Card a Step by Step bez fallbacku.
 - Program, pořadí a dávky ve dnech 11, 23 a 25 zůstaly beze změny.
 - Progress: 52 celkem, 50 HOTOVO, 0 ROZPRACOVÁNO, 2 ČEKÁ.
-- NEXT TASK: Triceps Kickback START / HERO / Guide / Step.
+- NEXT TASK: dokončeno v pozdějším milníku.
 - Verze/cache: `v59.108-dev`; `app.js?v=59108hundred`; `data.js?v=59108hundred`; `style.css` cache beze změny.
 - Commit: NE
 - Push: NE
@@ -433,7 +445,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `referenceExerciseAssets.swan` zpřístupňuje hlavní HERO, mini sekvenci a dynamický Step by Step bez fallbacku.
 - Program, pořadí a dávky ve dnech 4, 11, 20 a 25 zůstaly beze změny.
 - Progress: 52 celkem, 47 HOTOVO, 0 ROZPRACOVÁNO, 5 ČEKÁ.
-- NEXT TASK: Swimming START.
+- NEXT TASK: dokončeno v pozdějším milníku.
 - Verze/cache: `v59.105-dev`; `app.js?v=59105swanprep`; `data.js` a `style.css` cache beze změny.
 - Assetové URL a statická regresní QA prošly; mobilní browser re-check 390 px nebylo možné spustit kvůli lokální chybě Codex browser runtime (`setup refresh had errors`).
 - Commit: NE

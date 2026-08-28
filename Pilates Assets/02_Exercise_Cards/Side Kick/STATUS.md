@@ -28,6 +28,7 @@ START → KOP DOPŘEDU → KOP DOZADU
 - Export: ✅ HOTOVO
 - Finální QA: ✅ SCHVÁLENO
 - App: ✅ NASAZENO — kanonické ID `sidekick`
+- Program: ✅ ZAŘAZENO — den 18 a den 25
 - Celkový stav: HOTOVO
 
 ## Notes
@@ -36,4 +37,6 @@ START → KOP DOPŘEDU → KOP DOZADU
 - END je samostatná poloha kopu dozadu, nikoli návrat do START.
 - Sekvence karet a dynamického detailu je START → HERO → END.
 - Schválená varianta je bez pomůcky.
-- Program, dávky, série a workout logika zůstaly beze změny.
+- Den 18 používá dávky Lehká `8/8`, Střední `9/9`, Náročná `12/12`.
+- Den 25 používá dávky Lehká `10/10`, Střední `11/11`, Náročná `14/14`.
+- Série a workout logika zůstaly beze změny.
