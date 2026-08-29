@@ -2386,7 +2386,7 @@ function programInfo(){
 function home(){
   setAppView('home');
   lastMode='home';setNav('home');
-  const resumeState=loadWorkoutResumeState();
+  const resumeState=activeWorkoutResumeState();
   const programComplete=!resumeState&&isProgramComplete();
   const n=resumeState?resumeState.dayIndex:nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),ln=latestNote();
   const isRestDay=!totalN;
@@ -2662,6 +2662,7 @@ function loadWorkoutResumeState(){
   try{return normalizeWorkoutResumeState(JSON.parse(localStorage.getItem(WORKOUT_RESUME_KEY)||'null'))}
   catch(e){return null}
 }
+function activeWorkoutResumeState(){return loadWorkoutResumeState();}
 function saveWorkoutResumeState(){
   if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
   const state=normalizeWorkoutResumeState({
@@ -2684,7 +2685,7 @@ function saveWorkoutResumeState(){
 }
 function clearWorkoutResumeState(){localStorage.removeItem(WORKOUT_RESUME_KEY);}
 function resumeForDay(di){
-  const state=loadWorkoutResumeState();
+  const state=activeWorkoutResumeState();
   return state&&Number(state.dayIndex)===di?state:null;
 }
 function resumePrompt(di){
