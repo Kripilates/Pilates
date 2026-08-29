@@ -31,7 +31,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Mermaid Stretch | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Plank Shoulder Taps | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Plie Squat | `Pilates Assets/02_Exercise_Cards/Plie Squat` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Rainbow Leg Raise | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images |
+| Rainbow Leg Raise | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise` | `rainbow_leg_raise_start_v02.png` | `rainbow_leg_raise_hero_v02.png` | `rainbow_leg_raise_guide_card_v01.png` | `rainbow_leg_raise_step_by_step_v01.png` | ANO | COMPLETE | END = `rainbow_leg_raise_end_v02.png`; App uses canonical ID `rainbow` |
 | Reverse Crunch | `Pilates Assets/02_Exercise_Cards/Reverse Crunch` | NE | `reverse_crunch_hero_v01.png` | NE | NE | ANO | IN PROGRESS |  |
 | Roll Up | `Pilates Assets/02_Exercise_Cards/Roll Up` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Romanian Deadlift | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift` | `romanian_deadlift_start_v01.png` | `romanian_deadlift_hero_v01.png` | `romanian_deadlift_guide_card_v01.png` | `romanian_deadlift_step_by_step_v01.png` | ANO | COMPLETE | START a HERO schválené. END se nevytváří (návratová pozice = START). Guide Card a Step by Step sestaveny ze sekvence START → HERO → START. |
