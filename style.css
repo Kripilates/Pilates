@@ -4951,13 +4951,14 @@ body.dark .programCompletionContent{
   text-overflow:ellipsis;
   white-space:nowrap;
   color:var(--p);
-  font-size:12px;
-  font-weight:900;
+  font-size:12.5px;
+  font-weight:950;
 }
 .v22DayExercises .v22CardFoot b{
   flex:0 0 auto;
   color:var(--p);
-  font-size:24px;
+  font-size:27px;
+  font-weight:950;
   line-height:1;
 }
 @media(max-width:720px){
@@ -5030,7 +5031,14 @@ body.dark .programCompletionContent{
     display:none!important;
   }
   .v22DayExercises .v22CardFoot{
-    min-height:23px;
+    min-height:24px;
+  }
+  .v22DayExercises .v22CardFoot span{
+    font-size:12px!important;
+    letter-spacing:.01em;
+  }
+  .v22DayExercises .v22CardFoot b{
+    font-size:26px!important;
   }
 }
 @media(max-width:380px){
