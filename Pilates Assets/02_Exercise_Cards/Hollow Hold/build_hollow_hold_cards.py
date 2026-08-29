@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "hollow_hold_start_v01.png"
-HERO = BASE / "hollow_hold_hero_v02.png"
+START = BASE / "hollow_hold_start_v02.png"
+HERO = BASE / "hollow_hold_hero_v03.png"
 GUIDE = BASE / "hollow_hold_guide_card_v01.png"
 STEP = BASE / "hollow_hold_step_by_step_v01.png"
 EXPECTED_FILE_HASHES = {
-    START: "a587858ca275e488a4abb77c4de88d6e476bfa080fb380046e336e9db97716a1",
-    HERO: "2c59fce4e454ef1a2b56ff8309cddf5f22bfd82b5c15f80a5612fa9f50d2c7d2",
+    START: "31c92a55d25bf77119aed4f62daab5c87d92c10e5e42e76803463a82da954774",
+    HERO: "14cab55cf1cfc176bf894f2d02147d76810cd5684fda70b01c73dda885a91b3e",
 }
-EXPECTED_HERO_PIXEL_HASH = "875e901bb0e5321747268822f0a885dd60daf59fab0927c07887060f279e809a"
+EXPECTED_HERO_PIXEL_HASH = "02c7d8c083125f966240775b8d3cdee2bbb9395322944dea7c55d8bf7f3d1e06"
 BG = (244, 251, 250)
 CARD = (255, 255, 255)
 INK = (38, 44, 47)
@@ -29,39 +29,39 @@ WARN_ICON = (199, 92, 84)
 FONT_DIR = Path(r"C:\Windows\Fonts")
 
 GUIDE_HOW = [
-    ("1", "Lehni si na záda, pokrč kolena do pravého úhlu a chodidla polož na podložku."),
-    ("2", "S výdechem podsaď pánev, přitiskni bedra a zvedni hlavu i lopatky. Nohy natáhni šikmo vzhůru."),
-    ("3", "Plynule dýchej. Potom pokrč kolena, polož chodidla a vrať hlavu na podložku."),
+    ("1", "Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech podél těla."),
+    ("2", "Zvedni hlavu a lopatky, natáhni obě nohy šikmo nad podložku a drž bedra přitisknutá."),
+    ("3", "Při návratu pomalu pokrč kolena, polož chodidla a vrať hlavu i lopatky na podložku."),
 ]
 
 GUIDE_WATCH = (
-    "Bedra drž na podložce, ramena daleko od uší a paže klidné. Pokud se bedra odlepují, zvedni nohy výš."
+    "Bedra drž po celou dobu na podložce. Pokud se odlepují, zvedni nohy výš nebo cvik ukonči."
 )
 
 STEP_TEXTS = [
     (
         "KROK 1",
         "VÝCHOZÍ POLOHA",
-        "Lehni si na záda, pokrč kolena přibližně do pravého úhlu a chodidla polož na podložku. Paže nech natažené podél těla.",
+        "Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech natažené podél těla.",
         START,
     ),
     (
         "KROK 2",
-        "ZVEDNUTÍ DO HOLLOW HOLD",
-        "S výdechem podsaď pánev, přitiskni bedra a zvedni hlavu i lopatky. Natáhni nohy šikmo vzhůru a paže drž nízko.",
+        "HOLLOW HOLD / VÝDRŽ",
+        "Zvedni hlavu a lopatky. Obě nohy natáhni šikmo nad podložku a paže drž nízko podél těla.",
         HERO,
     ),
     (
         "KROK 3",
-        "VÝDRŽ A NÁVRAT",
-        "Drž bedra na podložce a plynule dýchej. Potom pokrč kolena, polož chodidla a vrať hlavu na podložku.",
+        "KONTROLOVANÝ NÁVRAT",
+        "Pomalu pokrč kolena, polož chodidla a vrať hlavu i lopatky na podložku. Pohyb ukonči kontrolovaně.",
         START,
     ),
 ]
 
 STEP_BREATH = "Plynule dýchej a nezadržuj dech. Výdech použij při přechodu do výdrže."
 STEP_WATCH = (
-    "Bedra drž na podložce, ramena daleko od uší. Při odlepení beder zvedni nohy výš nebo je mírně pokrč."
+    "Bedra drž na podložce. Vyšší nohy jsou snazší, nižší náročnější. Při odlepení beder zvedni nohy výš nebo skonči."
 )
 
 def sha256(path):
@@ -201,7 +201,7 @@ def build_guide():
 
     rounded(draw, (34, 34, 746, 140))
     draw.text((62, 49), "HOLLOW HOLD", font=F["title"], fill=INK)
-    draw.text((62, 94), "Bezpečná Pilates výdrž", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 94), "Kontrolovaná výdrž středu těla", font=F["small_b"], fill=TEAL_D)
     _, desc_bottom = draw_wrapped(
         draw, (62, 115), "Posiluje hluboký střed těla při stabilních bedrech.",
         F["tiny"], MUTED, 650, 2
@@ -271,7 +271,7 @@ def build_step():
     draw = ImageDraw.Draw(image)
     rounded(draw, (34, 34, 746, 126))
     draw.text((62, 56), "Krok za krokem", font=F["step_title"], fill=INK)
-    draw.text((62, 98), "HOLLOW HOLD / Bezpečná Pilates výdrž", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 98), "HOLLOW HOLD / Kontrolovaná výdrž středu těla", font=F["small_b"], fill=TEAL_D)
 
     y, margins = 160, {}
     for step_label, heading, body, source in STEP_TEXTS:

@@ -1,31 +1,41 @@
-# Hollow Hold — STATUS
+# Hollow Hold - STATUS
 
-Status: HOTOVO
+Status: HOTOVO / APP NASAZENO
 
 ## Assets
 
-- START: `hollow_hold_start_v01.png` — SCHVÁLENO
-- HERO: `hollow_hold_hero_v02.png` — SCHVÁLENO
-- END: START / bez samostatného END PNG — SCHVÁLENO
-- GUIDE CARD: `hollow_hold_guide_card_v01.png` — SCHVÁLENO
-- STEP BY STEP: `hollow_hold_step_by_step_v01.png` — SCHVÁLENO
-- EXPORT: SCHVÁLENO
-- QA: SCHVÁLENO — manuální vizuální kontrola
-- APP: NASAZENO
+- START: `hollow_hold_start_v02.png` - SCHVALENO
+- HERO: `hollow_hold_hero_v03.png` - SCHVALENO
+- END: START v02 / bez samostatneho END PNG
+- GUIDE CARD: `hollow_hold_guide_card_v01.png` - VYGENEROVANO
+- STEP BY STEP: `hollow_hold_step_by_step_v01.png` - VYGENEROVANO
+- EXPORT: HOTOVO
+- QA: HOTOVO - vizualni kontrola exportu
+- APP: NASAZENO - `data.js` pouziva HERO v03, detail pouziva START v02 / HERO v03 / START v02 a Guide/Step exporty v01
 
 ## Workflow
 
-START → HERO → START
+START -> VYDRZ -> NAVRAT
+
+Obrazova sekvence:
+
+START v02 -> HERO v03 -> START v02
 
 ## Source verification
 
-- START: 1536 × 1024 px; SHA-256 `a587858ca275e488a4abb77c4de88d6e476bfa080fb380046e336e9db97716a1`
-- HERO: 1536 × 1024 px; file SHA-256 `2c59fce4e454ef1a2b56ff8309cddf5f22bfd82b5c15f80a5612fa9f50d2c7d2`
-- HERO pixel SHA-256 RGBA: `875e901bb0e5321747268822f0a885dd60daf59fab0927c07887060f279e809a`
+- START approved: 1536 x 1024 px, RGB, SHA-256 `31c92a55d25bf77119aed4f62daab5c87d92c10e5e42e76803463a82da954774`
+- START working copy: 1536 x 1024 px, RGB, SHA-256 `31c92a55d25bf77119aed4f62daab5c87d92c10e5e42e76803463a82da954774`
+- HERO approved: 1536 x 1024 px, RGB, SHA-256 `14cab55cf1cfc176bf894f2d02147d76810cd5684fda70b01c73dda885a91b3e`
+- HERO working copy: 1536 x 1024 px, RGB, SHA-256 `14cab55cf1cfc176bf894f2d02147d76810cd5684fda70b01c73dda885a91b3e`
+
+## Export verification
+
+- Guide Card: `hollow_hold_guide_card_v01.png`, 780 x 1688 px, RGB
+- Step by Step: `hollow_hold_step_by_step_v01.png`, 780 x 2280 px, RGB
 
 ## Notes
 
-- Bezpečná Pilates varianta pro Pilates Body 40+.
-- Bedra zůstávají přitisknutá k podložce, paže jsou klidné a nohy přibližně 35–45° nad podložkou.
-- Nejde o Hundred ani gymnastickou variantu Hollow Hold.
-- Guide Card a Step by Step v01 jsou manuálně schválené a nasazené v aplikaci pod ID `hollow`.
+- Schvalene SOURCE fotografie nebyly vizualne upravovany.
+- END pouziva presne START v02.
+- Builder pouziva pouze `hollow_hold_start_v02.png` a `hollow_hold_hero_v03.png`.
+- Texty zduraznuji pritisknuta bedra, nizke paze podel tela a rozdil obtiznosti podle vysky nohou.

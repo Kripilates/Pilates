@@ -1504,21 +1504,21 @@ const referenceExerciseAssets={
     }
   },
   hollow:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v03.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_step_by_step_v01.png',
-    subtitle:'Střed těla • bezpečná Pilates výdrž',
+    subtitle:'Střed těla • kontrolovaná výdrž středu těla',
     miniSteps:[
       {n:1,title:'START',caption:'Chodidla na podložce',photo:'start'},
       {n:2,title:'VÝDRŽ',caption:'Bedra přitisknutá',photo:'hero'},
       {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
     ],
     steps:[
-      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, pokrč kolena přibližně do pravého úhlu a chodidla polož na podložku. Paže nech podél těla.',photo:'start'},
-      {title:'ZVEDNUTÍ DO HOLLOW HOLD',text:'S výdechem lehce podsaď pánev, přitiskni bedra a zvedni hlavu i lopatky. Natáhni nohy šikmo vzhůru a paže drž nízko.',photo:'hero'},
-      {title:'VÝDRŽ A NÁVRAT',text:'Plynule dýchej. Potom kontrolovaně pokrč kolena, polož chodidla a vrať hlavu na podložku.',photo:'start'}
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech natažené podél těla.',photo:'start'},
+      {title:'HOLLOW HOLD / VÝDRŽ',text:'Zvedni hlavu a lopatky. Obě nohy natáhni šikmo nad podložku a paže drž nízko podél těla.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'Pomalu pokrč kolena, polož chodidla a vrať hlavu i lopatky na podložku. Pohyb ukonči kontrolovaně.',photo:'start'}
     ],
     info:{difficulty:'Střední',focus:'Hluboký střed těla',knees:'Bez zátěže kolen'},
     breath:{inhale:'Plynule během výdrže',exhale:'Při přechodu do výdrže',tempo:'Statická kontrolovaná výdrž'},
@@ -2402,23 +2402,26 @@ function home(){
   const resumeExercise=resumeState?data.exercises[resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]]?.name:'';
   const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
   const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'▶ Cvič se mnou';
+  const heroTitle=programComplete?'Program dokončen':resumeState?'Rozdělaný trénink':isRestDay?'Den pro regeneraci':'Pokračuj v tréninku';
+  const dayDescription=resumeState?`Pokračuj: ${esc(resumeExercise||'aktuální cvik')} • série ${resumeState.workoutCurrentSet} z ${resumeState.workoutTotalSets}`:isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':programWeekHint(n);
+  const tipText=isRestDay?'Dnes je na řadě regenerace. Dej si volno nebo lehkou procházku a zítra pokračujeme.':`${coachHint()}<br>Důležitá je pravidelnost.`;
   const actionHtml=resumeState
     ? `<button class="primary cta" data-action="resume-workout" data-day="${n}">Pokračovat</button><button data-action="restart-workout" data-day="${n}">Začít znovu</button>`
     : `<button class="primary cta" data-action="${ctaAction}"${programComplete?'':` data-day="${n}"`}>${ctaLabel}</button>`;
   app.innerHTML=`<div class="v22Home">
     <section class="v22HeroPanel">
-      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${programComplete?'Program dokončen':resumeState?'Rozdělaný trénink':'Pokračuj v tréninku'}</h2></div></div>
+      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${heroTitle}</h2></div></div>
       <div class="todayCompact v22TodayCompact">
         <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-        <div><h3>${day.title}</h3><p class="muted">${resumeState?`Pokračuj: ${esc(resumeExercise||'aktuální cvik')} • série ${resumeState.workoutCurrentSet} z ${resumeState.workoutTotalSets}`:isRestDay?'Regenerace je součást programu. Dnes nespouštíme trénink.':programWeekHint(n)}</p><div class="miniMeta">${isRestDay?'Den volna':`<b>${doneN}/${totalN}</b> cviků`}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
+        <div><h3>${day.title}</h3><p class="muted">${dayDescription}</p><div class="miniMeta">${isRestDay?'Den volna':`<b>${doneN}/${totalN}</b> cviků`}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
       </div>
       ${actionHtml}
     </section>
     <aside class="v22SidePanels">
-      <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
+      <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${tipText}</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
       <section class="v22InfoCard v22Areas"><h3>Zaměřené oblasti</h3><img src="assets/exercises/day1_muscles.jpg" alt="Zaměřené oblasti"><div><span><i></i>Hlavní svaly</span><span><i class="secondary"></i>Vedlejší svaly</span></div></section>
     </aside>
-    <section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${resolvedDayItems(n).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>
+    ${isRestDay?'':`<section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${resolvedDayItems(n).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>`}
   </div>`;
   scrollTop();
 }
@@ -2580,7 +2583,7 @@ function day(di,opts={}){
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${dayInfoGrid(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
-    ${day.items.length?`${resumePrompt(di)}<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
+    ${day.items.length?`${resumePrompt(di)}<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
   </section>
   ${isRestDay?'':`<section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`}
   ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
@@ -2823,7 +2826,7 @@ function startTraining(di,auto=true,opts={}){
   }
   if(opts.forceRestart===true)clearWorkoutResumeState();
   void unlockAudio();
-  // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
+  // v54/texty8: sjednocený automatický trénink.
   clearInterval(timer);
   clearWorkoutHistoryGuard();
   setAppView('workout',{day:di});
@@ -2936,7 +2939,7 @@ function showAutoTrain(opts={}){
     ? `✓ ${sideNoticeDone||'Strana'} hotová · Pokračujeme ${sideContinueText(sideNoticeNext)}.`
     : (!statusShowsCurrentSide && sideLabel&&(['left','right'].includes(workoutPhase)||isAlternatingExercise(k,dose)) ? sideLabel : '');
   const doseLabel=workoutDoseLabel(dose||ex.dose);
-  const doseClass=doseLabel.length>7?' compactWorkoutDose--long':'';
+  const doseClass=`${doseLabel.length>7?' compactWorkoutDose--long':''}${info.side&&info.timed?' compactWorkoutDose--timedSide':''}`;
   const phaseText=phaseLabel();
   const hasTimerLayout=isTimedActive || workoutPhase==='roundRest';
   const seriesLabel=workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : `S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}`;
@@ -3611,7 +3614,6 @@ app.addEventListener('click',e=>{
   }
   if(a==='day-return'){history.back();return;}
   if(a==='day'||(t.classList.contains('exercise')&&t.dataset.day!==''))return day(Number(t.dataset.day));
-  if(a==='start')return startTraining(Number(t.dataset.day),true);
   if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
   if(a==='resume-workout')return restoreWorkoutState(resumeForDay(Number(t.dataset.day)));
   if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
