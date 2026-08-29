@@ -582,6 +582,15 @@ function resetDayProgress(di){
   const resume=loadWorkoutResumeState();
   if(resume&&Number(resume.dayIndex)===di)clearWorkoutResumeState();
 }
+function clearWorkoutDayProgress(di){
+  (data.days[di]?.items||[]).forEach((_,i)=>localStorage.removeItem(key(di,i)));
+  clearAutoCalendarForProgramDay(di);
+}
+function completeWorkoutDayProgress(di=currentDay){
+  (data.days[di]?.items||[]).forEach((_,i)=>setDone(di,i));
+  markProgramDayComplete(di);
+  clearWorkoutResumeState();
+}
 function statsData(){
   let total=0,complete=0,daysComplete=0;
   data.days.forEach((d,di)=>{
@@ -2662,9 +2671,14 @@ function loadWorkoutResumeState(){
   try{return normalizeWorkoutResumeState(JSON.parse(localStorage.getItem(WORKOUT_RESUME_KEY)||'null'))}
   catch(e){return null}
 }
-function activeWorkoutResumeState(){return loadWorkoutResumeState();}
+function activeWorkoutResumeState(){
+  const state=loadWorkoutResumeState();
+  if(state)clearWorkoutDayProgress(state.dayIndex);
+  return state;
+}
 function saveWorkoutResumeState(){
   if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
+  clearWorkoutDayProgress(currentDay);
   const state=normalizeWorkoutResumeState({
     dayIndex:currentDay,
     currentExercise,
@@ -2739,7 +2753,6 @@ function currentWorkoutEntry(){
   return workoutContext?.items?.[currentExercise] || resolvedDayItems(currentDay,workoutContext?.difficulty)[currentExercise] || [];
 }
 function finishWorkoutDay(){
-  data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i));
   currentExercise=Math.max(0,data.days[currentDay].items.length-1);
   clearInterval(timer);
   workoutRunning=false;
@@ -3013,7 +3026,6 @@ function startNextExerciseOrRound(){
   }
   const max=(workoutContext?.items?.length||data.days[currentDay].items.length)-1;
   // Serie/kolo: nejdriv vsechny hlavni cviky, potom dalsi kolo.
-  if(workoutCurrentSet>=workoutTotalSets)setDone(currentDay,currentExercise);
   if(currentExercise<max){
     currentExercise++;
     beginCurrentExercise();
@@ -3162,7 +3174,6 @@ function restScreen(){
 }
 function doneNext(mark=true){
   setWorkoutHeaderPosition(false);
-  if(mark)setDone(currentDay,currentExercise);
   const max=data.days[currentDay].items.length-1;
   if(currentExercise<max){currentExercise++;showTrain();return;}
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
@@ -3170,9 +3181,8 @@ function doneNext(mark=true){
   const completedCount=completedItems.length;
   const workoutStartedAt=Number(workoutContext?.startedAt);
   const elapsedMinutes=workoutStartedAt>0 ? Math.max(1,Math.round((Date.now()-workoutStartedAt)/60000)) : null;
-  markProgramDayComplete(currentDay);
+  completeWorkoutDayProgress(currentDay);
   programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
-  clearWorkoutResumeState();
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="finishHero">
@@ -3606,7 +3616,7 @@ app.addEventListener('click',e=>{
   if(a==='resume-workout')return restoreWorkoutState(resumeForDay(Number(t.dataset.day)));
   if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
   if(a==='complete-rest-day'){setRestDone(Number(t.dataset.day));return home();}
-  if(a==='set-complete-manual'){if(workoutCurrentSet>=workoutTotalSets)setDone(currentDay,currentExercise); const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i)); workoutCurrentSet=1; return doneNext(false);}
+  if(a==='set-complete-manual'){const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} workoutCurrentSet=1; return doneNext(false);}
   if(a==='set-complete-auto')return advanceAutoPhase();
   if(a==='done-next')return doneNext(true);
   if(a==='done-next-nomark')return doneNext(false);
