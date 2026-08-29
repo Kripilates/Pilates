@@ -6,13 +6,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "frog_pumps_start_v01.png"
-HERO = BASE / "frog_pumps_hero_v01.png"
+START = BASE / "frog_pumps_start_v03.png"
+HERO = BASE / "frog_pumps_hero_v03.png"
 GUIDE = BASE / "frog_pumps_guide_card_v01.png"
 STEP = BASE / "frog_pumps_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "dd6db0cad91839ebc4e9f0a9b9430ab15c6d04e6936fa855858cf6733cbb00d9",
-    HERO: "7f4535b4d6ae3a8285d50eb06d33668e363b95c5fdbda3d025bcceb173e21d98",
+    START: "e3b920e15f9467ddf8b574e866d0ff6a582d901e312b5792c3c928dae9957dcd",
+    HERO: "bc810e45110ad248b01a189e54716bb37ac93884c48e0800cc4d1843913acedc",
 }
 
 BG = (244, 251, 250)
@@ -30,39 +30,39 @@ FONT_DIR = Path(r"C:\Windows\Fonts")
 
 GUIDE_HOW = [
     ("1", "Lehni si na záda, spoj plosky chodidel a nech kolena otevřená do stran."),
-    ("2", "Zpevni střed těla a s výdechem zvedni pánev do krátkého mostu. Nahoře aktivuj hýždě."),
-    ("3", "S nádechem vrať pánev kontrolovaně na podložku. Chodidla nech spojená a kolena otevřená."),
+    ("2", "Zpevni střed těla a s výdechem zvedni pánev jen nízko a kontrolovaně. Žebra nech stažená."),
+    ("3", "S nádechem vrať pánev pomalu na podložku. Chodidla nech spojená a kolena otevřená."),
 ]
 
 GUIDE_WATCH = (
-    "Nezvedej pánev příliš vysoko, neprohýbej bedra, nezavírej kolena a nerozděluj chodidla. "
+    "Nezvedej pánev jako vysoký most, neprohýbej bedra, nezavírej kolena a nerozděluj chodidla. "
     "Pohyb neprováděj švihem."
 )
 
 STEP_TEXTS = [
     (
         "KROK 1",
-        "START",
+        "VÝCHOZÍ POLOHA",
         "Lehni si na záda, spoj plosky chodidel a nech kolena otevřená do stran.",
         START,
     ),
     (
         "KROK 2",
-        "ZDVIH PÁNVE",
-        "Zpevni střed těla a s výdechem zvedni pánev do krátkého mostu. Nahoře aktivuj hýždě.",
+        "ZVEDNUTÍ PÁNVE",
+        "Zpevni střed těla a s výdechem zvedni pánev pouze nízko a kontrolovaně. Žebra nech stažená.",
         HERO,
     ),
     (
         "KROK 3",
         "KONTROLOVANÝ NÁVRAT",
-        "S nádechem vrať pánev kontrolovaně na podložku. Chodidla nech spojená a kolena otevřená.",
+        "S nádechem vrať pánev pomalu a kontrolovaně na podložku. Chodidla nech spojená a kolena otevřená.",
         START,
     ),
 ]
 
 STEP_BREATH = "Výdech při zvednutí pánve. Nádech při návratu dolů."
 STEP_WATCH = (
-    "Neprohýbej bedra, nezavírej kolena ani nerozděluj chodidla. "
+    "Nezvedej pánev příliš vysoko, neprohýbej bedra, nezavírej kolena ani nerozděluj chodidla. "
     "Hlava, ramena a paže zůstávají uvolněné na podložce."
 )
 
@@ -224,8 +224,8 @@ def build_guide():
     mini_y, mini_w, mini_h, gap = 675, 218, 146, 22
     xs = [34, 34 + mini_w + gap, 34 + 2 * (mini_w + gap)]
     labels = [
-        ("START", "Plosky spolu", START),
-        ("ZDVIH PÁNVE", "Krátký most", HERO),
+        ("START", "Pánev dole", START),
+        ("ZVEDNUTÍ", "Nízký zdvih pánve", HERO),
         ("NÁVRAT", "Kontrolovaně zpět", START),
     ]
     for index, (x0, (label, caption, source)) in enumerate(zip(xs, labels), 1):
@@ -247,7 +247,7 @@ def build_guide():
     info_y, box_w, box_h = 915, 218, 164
     info = [
         ("breath", "DECH", "Výdech při zvednutí. Nádech při návratu."),
-        ("focus", "ZAMĚŘ SE", "Pohyb veď z hýždí. Břicho drž aktivní."),
+        ("focus", "ZAMĚŘ SE", "Pohyb veď z hýždí. Žebra drž stažená."),
         ("repeat", "OPAKOVÁNÍ", "Podle dávky uvedené v tréninku."),
     ]
     for index, (x0, (kind, heading, body)) in enumerate(zip(xs, info), 1):
