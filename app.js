@@ -2386,18 +2386,24 @@ function programInfo(){
 function home(){
   setAppView('home');
   lastMode='home';setNav('home');
-  const programComplete=isProgramComplete(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),ln=latestNote();
+  const resumeState=loadWorkoutResumeState();
+  const programComplete=!resumeState&&isProgramComplete();
+  const n=resumeState?resumeState.dayIndex:nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),ln=latestNote();
   const isRestDay=!totalN;
+  const resumeExercise=resumeState?data.exercises[resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]]?.name:'';
   const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
   const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'▶ Cvič se mnou';
+  const actionHtml=resumeState
+    ? `<button class="primary cta" data-action="resume-workout" data-day="${n}">Pokračovat</button><button data-action="restart-workout" data-day="${n}">Začít znovu</button>`
+    : `<button class="primary cta" data-action="${ctaAction}"${programComplete?'':` data-day="${n}"`}>${ctaLabel}</button>`;
   app.innerHTML=`<div class="v22Home">
     <section class="v22HeroPanel">
-      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${programComplete?'Program dokončen':'Pokračuj v tréninku'}</h2></div></div>
+      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${programComplete?'Program dokončen':resumeState?'Rozdělaný trénink':'Pokračuj v tréninku'}</h2></div></div>
       <div class="todayCompact v22TodayCompact">
         <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-        <div><h3>${day.title}</h3><p class="muted">${isRestDay?'Regenerace je součást programu. Dnes nespouštíme trénink.':programWeekHint(n)}</p><div class="miniMeta">${isRestDay?'Den volna':`<b>${doneN}/${totalN}</b> cviků`}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
+        <div><h3>${day.title}</h3><p class="muted">${resumeState?`Pokračuj: ${esc(resumeExercise||'aktuální cvik')} • série ${resumeState.workoutCurrentSet} z ${resumeState.workoutTotalSets}`:isRestDay?'Regenerace je součást programu. Dnes nespouštíme trénink.':programWeekHint(n)}</p><div class="miniMeta">${isRestDay?'Den volna':`<b>${doneN}/${totalN}</b> cviků`}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
       </div>
-      <button class="primary cta" data-action="${ctaAction}"${programComplete?'':` data-day="${n}"`}>${ctaLabel}</button>
+      ${actionHtml}
     </section>
     <aside class="v22SidePanels">
       <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
