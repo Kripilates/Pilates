@@ -5295,3 +5295,49 @@ body.dark .programCompletionContent{
     margin-top:8px;
   }
 }
+.calCell.future{
+  opacity:.45;
+  cursor:not-allowed;
+}
+.resumeWorkoutCard,.resumeWorkoutChoice{
+  border-color:rgba(32,182,178,.28);
+  background:linear-gradient(145deg,#fff,var(--p2));
+}
+.resumeWorkoutCard .row,.resumeWorkoutChoice .row{
+  margin-bottom:0;
+}
+.workoutNoteList{
+  display:grid;
+  gap:10px;
+}
+.workoutNoteList article{
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:12px;
+}
+.workoutNoteList article div{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+.workoutNoteList article span{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:800;
+}
+.workoutNoteList article p{
+  margin:8px 0 0;
+  color:var(--text);
+  line-height:1.4;
+}
+@media(max-width:520px){
+  .workoutNoteList article div{
+    display:block;
+  }
+  .workoutNoteList article span{
+    display:block;
+    margin-top:3px;
+  }
+}

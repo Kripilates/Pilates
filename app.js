@@ -22,6 +22,10 @@ let screenWakeLock=null;
 let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
 let sideNoticeDone='', sideNoticeNext='';
+const WORKOUT_RESUME_KEY='pb40-workout-resume-v1';
+const restKey=d=>`pb40-rest-d${d}`;
+const autoLogMetaKey=d=>`pb40-log-auto-${d}`;
+const manualLogMetaKey=d=>`pb40-log-manual-${d}`;
 const WORKOUT_PREP_SECONDS=10;
 const WORKOUT_SWITCH_SECONDS=5;
 const WORKOUT_SERIES_REST_SECONDS=30;
@@ -180,6 +184,7 @@ function continueWorkoutFromDialog(){
 function exitWorkoutToDay(){
   document.querySelector('.workoutExitOverlay')?.remove();
   workoutExitDialogOpen=false;
+  saveWorkoutResumeState();
   clearInterval(timer);
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
@@ -344,14 +349,47 @@ function createWorkoutContext(di){
 }
 const key=(d,i)=>`pb40-d${d}-e${i}`; // SAME KEYS as V3_full: progress stays
 const done=(d,i)=>localStorage.getItem(key(d,i))==='1';
-const setDone=(d,i)=>{localStorage.setItem(key(d,i),'1');markToday();};
+const setDone=(d,i)=>{localStorage.setItem(key(d,i),'1');};
 const favKey=k=>`pb40-fav-${k}`;
 const isFav=k=>localStorage.getItem(favKey(k))==='1';
 const toggleFav=k=>localStorage.setItem(favKey(k),isFav(k)?'0':'1');
 const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const logKey=d=>`pb40-log-${d}`;
 const todayKey=()=>dateKey(new Date());
-function markToday(){localStorage.setItem(logKey(todayKey()),'1');}
+function calendarMeta(dayKey,source){
+  try{return JSON.parse(localStorage.getItem(source==='manual'?manualLogMetaKey(dayKey):autoLogMetaKey(dayKey))||'null')}
+  catch(e){return null}
+}
+function markCalendarDate(dayKey,source='manual',programDay=currentDay){
+  localStorage.setItem(logKey(dayKey),'1');
+  const metaKey=source==='manual'?manualLogMetaKey(dayKey):autoLogMetaKey(dayKey);
+  localStorage.setItem(metaKey,JSON.stringify({source,day:programDay,markedAt:new Date().toISOString()}));
+}
+function clearCalendarDate(dayKey){
+  localStorage.removeItem(logKey(dayKey));
+  localStorage.removeItem(autoLogMetaKey(dayKey));
+  localStorage.removeItem(manualLogMetaKey(dayKey));
+}
+function markToday(){markCalendarDate(todayKey(),'manual',currentDay);}
+function markProgramDayComplete(di=currentDay){
+  const day=data.days[di];
+  if(!day?.items?.length||!day.items.every((_,i)=>done(di,i)))return;
+  markCalendarDate(todayKey(),'auto',di);
+}
+function clearAutoCalendarForProgramDay(di){
+  const remove=[];
+  for(let i=0;i<localStorage.length;i++){
+    const storageKey=localStorage.key(i);
+    if(!storageKey||!storageKey.startsWith('pb40-log-auto-'))continue;
+    const dayKey=storageKey.replace('pb40-log-auto-','');
+    const meta=calendarMeta(dayKey,'auto');
+    if(meta&&Number(meta.day)===di)remove.push(dayKey);
+  }
+  remove.forEach(dayKey=>{
+    localStorage.removeItem(autoLogMetaKey(dayKey));
+    if(!localStorage.getItem(manualLogMetaKey(dayKey)))localStorage.removeItem(logKey(dayKey));
+  });
+}
 function hasLog(d){return localStorage.getItem(logKey(d))==='1';}
 function loggedDates(){
   const out=[];
@@ -364,6 +402,7 @@ function loggedDates(){
 function streak(){
   const set=new Set(loggedDates());
   let n=0,d=new Date();
+  if(!set.has(dateKey(d)))d.setDate(d.getDate()-1);
   while(set.has(dateKey(d))){n++;d.setDate(d.getDate()-1);} 
   return n;
 }
@@ -467,6 +506,14 @@ function normalizeWorkoutNotes(arr){
 function workoutNotes(){try{return normalizeWorkoutNotes(JSON.parse(localStorage.getItem(noteKey)||'[]'))}catch(e){return []}}
 function saveWorkoutNotes(arr){localStorage.setItem(noteKey,JSON.stringify(normalizeWorkoutNotes(arr)));}
 function latestNote(){const arr=workoutNotes();return arr.length?arr[arr.length-1]:null}
+function moodLabel(mood){
+  return mood==='good'?'Dobře':mood==='tough'?'Náročnější':mood==='pain'?'Příliš náročné':'Bez hodnocení';
+}
+function workoutNotesHistory(){
+  const arr=workoutNotes().filter(n=>n.text||n.mood).slice(-5).reverse();
+  if(!arr.length)return '<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><p class="muted compactEmpty">Zatím tu nejsou žádné poznámky po tréninku.</p></section>';
+  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div><b>${esc(n.date)}</b><span>Den ${Number(n.day)+1} • ${esc(moodLabel(n.mood))}</span></div><p>${n.text?esc(n.text):'Bez textové poznámky.'}</p></article>`).join('')}</div></section>`;
+}
 function saveWorkoutNote(){
   const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';
   const text=document.getElementById('finish-note')?.value?.trim()||'';
@@ -486,6 +533,7 @@ function czechCountLabel(value,one,few,many){
 }
 function coachHint(){
   const n=latestNote();
+  if(n&&n.mood==='pain')return 'Minule to bylo příliš náročné. Zkus dnes lehčí úroveň, menší rozsah nebo pomalejší tempo.';
   if(n&&n.mood==='tough')return 'Včera to bylo těžší. Dnes zmenši rozsah, ale nevynechávej úplně.';
   if(n&&n.mood==='good')return 'Minule ses cítila dobře. Drž techniku a klidně přidej o trochu větší soustředění.';
   if(streak()>=3)return 'Máš pěknou sérii. Teď hlavně nepřepálit tempo.';
@@ -511,11 +559,29 @@ function setNav(a){
 }
 function pct(di){
   const items=data.days[di].items;
-  if(!items.length)return 100;
+  if(!items.length)return restDone(di)?100:0;
   let n=0;items.forEach((_,i)=>{if(done(di,i))n++});
   return Math.round(n/items.length*100);
 }
 function countDone(di){let n=0;data.days[di].items.forEach((_,i)=>{if(done(di,i))n++});return n}
+function restDone(di){return localStorage.getItem(restKey(di))==='1';}
+function setRestDone(di){localStorage.setItem(restKey(di),'1');}
+function hasLaterProgramProgress(di){
+  return data.days.some((day,index)=>index>di&&(day.items.length?day.items.some((_,i)=>done(index,i)):restDone(index)));
+}
+function isProgramDayComplete(di){
+  const day=data.days[di];
+  if(!day)return false;
+  if(!day.items.length)return restDone(di)||hasLaterProgramProgress(di);
+  return pct(di)===100;
+}
+function resetDayProgress(di){
+  (data.days[di]?.items||[]).forEach((_,i)=>localStorage.removeItem(key(di,i)));
+  localStorage.removeItem(restKey(di));
+  clearAutoCalendarForProgramDay(di);
+  const resume=loadWorkoutResumeState();
+  if(resume&&Number(resume.dayIndex)===di)clearWorkoutResumeState();
+}
 function statsData(){
   let total=0,complete=0,daysComplete=0;
   data.days.forEach((d,di)=>{
@@ -525,14 +591,13 @@ function statsData(){
   return{total,complete,daysComplete,percent:total?Math.round(complete/total*100):0};
 }
 function isProgramComplete(){
-  const trainingDays=data.days.filter(day=>day.items.length);
-  return trainingDays.length>0&&data.days.every((day,di)=>!day.items.length||pct(di)===100);
+  return data.days.length>0&&data.days.every((_,di)=>isProgramDayComplete(di));
 }
 function resetProgramCycleProgress(){
   const progressKeys=[];
   for(let i=0;i<localStorage.length;i++){
     const storageKey=localStorage.key(i);
-    if(storageKey&&/^pb40-d\d+-e\d+$/.test(storageKey))progressKeys.push(storageKey);
+    if(storageKey&&(/^pb40-d\d+-e\d+$/.test(storageKey)||/^pb40-rest-d\d+$/.test(storageKey)||storageKey===WORKOUT_RESUME_KEY))progressKeys.push(storageKey);
   }
   progressKeys.forEach(storageKey=>localStorage.removeItem(storageKey));
   currentDay=0;
@@ -582,7 +647,7 @@ function showProgramCompletion(){
   scrollTop();
 }
 function nextDayIndex(){
-  let n=data.days.findIndex((d,i)=>d.items.length&&pct(i)<100);
+  let n=data.days.findIndex((_,i)=>!isProgramDayComplete(i));
   return n<0?Math.max(0,data.days.length-1):n;
 }
 function programWeekHint(dayIndex){
@@ -2177,10 +2242,16 @@ function exportProgress(){
 }
 function allowedBackupKey(k){
   return /^pb40-d\d+-e\d+$/.test(k) ||
+    /^pb40-rest-d\d+$/.test(k) ||
     /^pb40-log-\d{4}-\d{2}-\d{2}$/.test(k) ||
+    /^pb40-log-(auto|manual)-\d{4}-\d{2}-\d{2}$/.test(k) ||
     /^pb40-fav-[a-z0-9_-]+$/i.test(k) ||
+    k===WORKOUT_RESUME_KEY ||
     k===measureKey || k===noteKey || k===introKey || k===ONBOARDING_COMPLETED_KEY ||
     k===PROGRAM_DIFFICULTY_KEY || k===DIFFICULTY_MIGRATION_NOTICE_KEY || k===PROGRAM_LAYOUT_KEY;
+}
+function managedBackupKey(k){
+  return allowedBackupKey(k);
 }
 function cleanBackupValue(k,v){
   if(k===measureKey){
@@ -2193,7 +2264,20 @@ function cleanBackupValue(k,v){
   }
   if(k===PROGRAM_DIFFICULTY_KEY)return validDifficulty(String(v))||'medium';
   if(k===PROGRAM_LAYOUT_KEY)return String(v)===PROGRAM_LAYOUT_VERSION?PROGRAM_LAYOUT_VERSION:null;
-  if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-log-/.test(k) || /^pb40-fav-/.test(k) || k===introKey || k===ONBOARDING_COMPLETED_KEY){
+  if(k===WORKOUT_RESUME_KEY){
+    try{
+      const state=normalizeWorkoutResumeState(typeof v==='string'?JSON.parse(v):v);
+      return state?JSON.stringify(state):null;
+    }catch(e){return null;}
+  }
+  if(/^pb40-log-(auto|manual)-\d{4}-\d{2}-\d{2}$/.test(k)){
+    try{
+      const meta=typeof v==='string'?JSON.parse(v):v;
+      if(!meta||typeof meta!=='object')return null;
+      return JSON.stringify({source:cleanText(meta.source,20),day:Number(meta.day)||0,markedAt:cleanText(meta.markedAt,40)});
+    }catch(e){return null;}
+  }
+  if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-rest-d\d+$/.test(k) || /^pb40-log-\d{4}-\d{2}-\d{2}$/.test(k) || /^pb40-fav-/.test(k) || k===introKey || k===ONBOARDING_COMPLETED_KEY){
     return String(v)==='1'?'1':'0';
   }
   if(k===DIFFICULTY_MIGRATION_NOTICE_KEY)return String(v)==='1'?'1':'0';
@@ -2209,13 +2293,21 @@ function importProgressFile(file){
         throw new Error('bad backup');
       }
       let imported=0;
+      const cleanedItems=[];
       const importedLayoutVersion=String(payload.items[PROGRAM_LAYOUT_KEY]??'');
       Object.keys(payload.items).forEach(k=>{
         if(!allowedBackupKey(k))return;
         const clean=cleanBackupValue(k,payload.items[k]);
-        if(clean!==null){localStorage.setItem(importedProgressKey(k,importedLayoutVersion),clean);imported++;}
+        if(clean!==null){cleanedItems.push([importedProgressKey(k,importedLayoutVersion),clean]);imported++;}
       });
       if(!imported)throw new Error('empty backup');
+      const keysToClear=[];
+      for(let i=0;i<localStorage.length;i++){
+        const storageKey=localStorage.key(i);
+        if(storageKey&&managedBackupKey(storageKey))keysToClear.push(storageKey);
+      }
+      keysToClear.forEach(k=>localStorage.removeItem(k));
+      cleanedItems.forEach(([k,clean])=>localStorage.setItem(k,clean));
       migrateLegacyDifficulty();
       alert('Pokrok je načtený.');
       home();
@@ -2295,14 +2387,17 @@ function home(){
   setAppView('home');
   lastMode='home';setNav('home');
   const programComplete=isProgramComplete(),n=nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),ln=latestNote();
+  const isRestDay=!totalN;
+  const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
+  const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'▶ Cvič se mnou';
   app.innerHTML=`<div class="v22Home">
     <section class="v22HeroPanel">
       <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${programComplete?'Program dokončen':'Pokračuj v tréninku'}</h2></div></div>
       <div class="todayCompact v22TodayCompact">
         <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-        <div><h3>${day.title}</h3><p class="muted">${programWeekHint(n)}</p><div class="miniMeta"><b>${doneN}/${totalN}</b> cviků</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
+        <div><h3>${day.title}</h3><p class="muted">${isRestDay?'Regenerace je součást programu. Dnes nespouštíme trénink.':programWeekHint(n)}</p><div class="miniMeta">${isRestDay?'Den volna':`<b>${doneN}/${totalN}</b> cviků`}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
       </div>
-      <button class="primary cta" data-action="${programComplete?'days':'start-auto'}"${programComplete?'':` data-day="${n}"`}>${programComplete?'Zobrazit dokončený plán':'▶ Cvič se mnou'}</button>
+      <button class="primary cta" data-action="${ctaAction}"${programComplete?'':` data-day="${n}"`}>${ctaLabel}</button>
     </section>
     <aside class="v22SidePanels">
       <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${coachHint()}<br>Důležitá je pravidelnost.</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
@@ -2414,13 +2509,17 @@ function days(){
   setAppView('plan');
   lastMode='days';setNav('days');
   const programComplete=isProgramComplete();
+  const nextIndex=nextDayIndex();
+  const nextDay=data.days[nextIndex];
+  const nextAction=programComplete?'new-program-cycle':nextDay.items.length?'start-auto':'day';
+  const nextLabel=programComplete?'Začít nový 30denní cyklus':nextDay.items.length?'▶ Pokračovat v tréninku':'Zobrazit den volna';
   const groups=[
     {title:'1. etapa · Rozjezd',from:0,to:7},
     {title:'2. etapa · Budujeme sílu',from:7,to:14},
     {title:'3. etapa · Posouváme se dál',from:14,to:21},
     {title:'4. etapa · Finále',from:21,to:30}
   ].map(group=>({...group,days:data.days.slice(group.from,group.to).map((d,index)=>({d,di:group.from+index}))}));
-  app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${programComplete?'new-program-cycle':'start-auto'}"${programComplete?'':` data-day="${nextDayIndex()}"`}>${programComplete?'Začít nový 30denní cyklus':'▶ Pokračovat v tréninku'}</button></section>
+  app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${nextAction}"${programComplete?'':` data-day="${nextIndex}"`}>${nextLabel}</button></section>
   ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total,status=rest?'Regenerace':dn>0?`Splněno ${dn} z ${total} cviků`:'';return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${planDayTitle(d.title)}</h3>${status?`<p>${status}</p>`:''}<div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
   scrollTop();
 }
@@ -2460,14 +2559,15 @@ function day(di,opts={}){
   const selectedItems=resolvedDayItems(di);
   const stretch=resolvedDayStretch(di);
   const equipmentItems=stretch?[...selectedItems,stretch]:selectedItems;
+  const isRestDay=!day.items.length;
   app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
     <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${dayInfoGrid(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
-    ${day.items.length?`<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:'<p class="muted">Dnes volno.</p>'}
+    ${day.items.length?`${resumePrompt(di)}<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="start" data-day="${di}">Ruční režim</button><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
   </section>
-  <section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>
+  ${isRestDay?'':`<section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`}
   ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
@@ -2516,6 +2616,114 @@ function sideContinueText(label){
 function dayStretch(di=currentDay){
   const stretch=data.days?.[di]?.stretch;
   return Array.isArray(stretch) && stretch[0] && data.exercises[stretch[0]] ? stretch : null;
+}
+function normalizeWorkoutResumeState(state){
+  if(!state||typeof state!=='object')return null;
+  const dayIndex=Number(state.dayIndex);
+  if(!Number.isInteger(dayIndex)||dayIndex<0||dayIndex>=data.days.length)return null;
+  const context=state.workoutContext&&typeof state.workoutContext==='object'?state.workoutContext:createWorkoutContext(dayIndex);
+  const itemCount=(context.items||resolvedDayItems(dayIndex,context.difficulty)).length;
+  if(!itemCount)return null;
+  const exerciseIndex=Math.max(0,Math.min(itemCount-1,Number(state.currentExercise)||0));
+  const totalSets=Math.max(1,Number(state.workoutTotalSets)||Number(context.totalSets)||difficultySets(context.difficulty));
+  const currentSet=Math.max(1,Math.min(totalSets,Number(state.workoutCurrentSet)||1));
+  const phase=cleanText(state.workoutPhase||'prep',24)||'prep';
+  return {
+    version:1,
+    dayIndex,
+    currentExercise:exerciseIndex,
+    workoutCurrentSet:currentSet,
+    workoutTotalSets:totalSets,
+    workoutPhase:phase,
+    workoutLeft:Math.max(0,Number(state.workoutLeft)||0),
+    workoutFinalStretch:Boolean(state.workoutFinalStretch),
+    workoutAuto:state.workoutAuto!==false,
+    workoutPaused:Boolean(state.workoutPaused),
+    programWasCompleteAtWorkoutStart:Boolean(state.programWasCompleteAtWorkoutStart),
+    sideNoticeDone:cleanText(state.sideNoticeDone,40),
+    sideNoticeNext:cleanText(state.sideNoticeNext,40),
+    workoutContext:{
+      ...context,
+      dayIndex,
+      totalSets,
+      items:context.items||resolvedDayItems(dayIndex,context.difficulty),
+      stretch:context.stretch||resolvedDayStretch(dayIndex,context.difficulty)
+    },
+    savedAt:cleanText(state.savedAt,40)||new Date().toISOString()
+  };
+}
+function loadWorkoutResumeState(){
+  try{return normalizeWorkoutResumeState(JSON.parse(localStorage.getItem(WORKOUT_RESUME_KEY)||'null'))}
+  catch(e){return null}
+}
+function saveWorkoutResumeState(){
+  if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
+  const state=normalizeWorkoutResumeState({
+    dayIndex:currentDay,
+    currentExercise,
+    workoutCurrentSet,
+    workoutTotalSets,
+    workoutPhase,
+    workoutLeft,
+    workoutFinalStretch,
+    workoutAuto,
+    workoutPaused,
+    programWasCompleteAtWorkoutStart,
+    sideNoticeDone,
+    sideNoticeNext,
+    workoutContext,
+    savedAt:new Date().toISOString()
+  });
+  if(state)localStorage.setItem(WORKOUT_RESUME_KEY,JSON.stringify(state));
+}
+function clearWorkoutResumeState(){localStorage.removeItem(WORKOUT_RESUME_KEY);}
+function resumeForDay(di){
+  const state=loadWorkoutResumeState();
+  return state&&Number(state.dayIndex)===di?state:null;
+}
+function resumePrompt(di){
+  const state=resumeForDay(di);
+  if(!state)return '';
+  const dayTitle=esc(data.days[di]?.title||`Den ${di+1}`);
+  const ex=data.exercises[state.workoutContext?.items?.[state.currentExercise]?.[0]]?.name||'rozdělaný cvik';
+  return `<section class="card resumeWorkoutCard"><h2>Rozdělaný trénink</h2><p class="muted">${dayTitle} čeká na pokračování u cviku ${esc(ex)}, série ${state.workoutCurrentSet} z ${state.workoutTotalSets}.</p><div class="row"><button class="primary" data-action="resume-workout" data-day="${di}">Pokračovat</button><button data-action="restart-workout" data-day="${di}">Začít znovu</button></div></section>`;
+}
+function showWorkoutResumeChoice(di,opts={}){
+  const state=resumeForDay(di);
+  if(!state)return day(di);
+  if(!opts.skipRoute)setAppView('workout-resume',{day:di});
+  lastMode='day';
+  setNav('days');
+  app.innerHTML=`<section class="card resumeWorkoutChoice"><h2>Pokračovat v tréninku?</h2><p class="muted">Máš uložený rozdělaný trénink pro Den ${di+1}. Můžeš pokračovat přesně tam, kde jsi skončila, nebo začít tento trénink znovu.</p><div class="row"><button class="primary" data-action="resume-workout" data-day="${di}">Pokračovat</button><button data-action="restart-workout" data-day="${di}">Začít znovu</button></div></section>`;
+  scrollTop();
+}
+function restoreWorkoutState(state){
+  const saved=normalizeWorkoutResumeState(state);
+  if(!saved)return startTraining(nextDayIndex(),true,{forceRestart:true});
+  void unlockAudio();
+  clearInterval(timer);
+  currentDay=saved.dayIndex;
+  currentExercise=saved.currentExercise;
+  workoutCurrentSet=saved.workoutCurrentSet;
+  workoutTotalSets=saved.workoutTotalSets;
+  workoutPhase=saved.workoutPhase;
+  workoutLeft=saved.workoutLeft;
+  workoutFinalStretch=saved.workoutFinalStretch;
+  workoutAuto=saved.workoutAuto;
+  workoutPaused=saved.workoutPaused;
+  workoutContext=saved.workoutContext;
+  sideNoticeDone=saved.sideNoticeDone;
+  sideNoticeNext=saved.sideNoticeNext;
+  sideNoticeUntil=0;
+  workoutRunning=true;
+  programWasCompleteAtWorkoutStart=saved.programWasCompleteAtWorkoutStart;
+  programCompletedByCurrentWorkout=false;
+  setAppView('workout',{day:currentDay});
+  lastMode='train';
+  setNav('train');
+  showAutoTrain({resetScroll:true});
+  void requestWorkoutWakeLock();
+  resumeWorkoutTimer();
 }
 function currentWorkoutEntry(){
   if(workoutFinalStretch){
@@ -2585,9 +2793,15 @@ function openCurrentTraining(){
   if(isProgramComplete())return days();
   return startTraining(nextDayIndex(),true);
 }
-function startTraining(di,auto=true){
+function startTraining(di,auto=true,opts={}){
   if(maybeStartRequiredOnboarding())return;
   if(!getProgramDifficulty())return difficultyChooser('workout',di);
+  if(!data.days[di]?.items?.length)return day(di);
+  const resume=resumeForDay(di);
+  if(resume&&auto!==false&&opts.forceRestart!==true){
+    return showWorkoutResumeChoice(di);
+  }
+  if(opts.forceRestart===true)clearWorkoutResumeState();
   void unlockAudio();
   // v54/texty8: sjednocený trénink. Už nepoužíváme zvláštní ruční režim.
   clearInterval(timer);
@@ -2728,6 +2942,7 @@ function showAutoTrain(opts={}){
       headerPanel.innerHTML=workoutHeaderHtml;
     }
     const controls=existing.querySelector('.trainControls'); if(controls)controls.innerHTML=controlsHtml;
+    saveWorkoutResumeState();
     return;
   }
   const imgClass='bigimg';
@@ -2752,11 +2967,13 @@ function showAutoTrain(opts={}){
     ${workoutVisualHtml}
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
+  saveWorkoutResumeState();
   if(!existing||opts.resetScroll)scrollTop();
 }
 function tickAuto(){
   if(workoutPaused)return;
   workoutLeft--;
+  saveWorkoutResumeState();
   if(workoutLeft<=3&&workoutLeft>0)beep(760,130);
   if(workoutLeft<=0){
     if(workoutPhase==='roundRest')cue('go');
@@ -2946,14 +3163,9 @@ function doneNext(mark=true){
   const completedCount=completedItems.length;
   const workoutStartedAt=Number(workoutContext?.startedAt);
   const elapsedMinutes=workoutStartedAt>0 ? Math.max(1,Math.round((Date.now()-workoutStartedAt)/60000)) : null;
+  markProgramDayComplete(currentDay);
   programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
-  if(programCompletedByCurrentWorkout){
-    workoutRunning=false;
-    setWorkoutNavigationLocked(false);
-    workoutContext=null;
-    showProgramCompletion();
-    return;
-  }
+  clearWorkoutResumeState();
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="finishHero">
@@ -3164,8 +3376,8 @@ function calendar(year,month){
   const cells=[];
   for(let i=0;i<start;i++)cells.push('<div class="calCell empty"></div>');
   for(let d=1;d<=last.getDate();d++){
-    const dt=new Date(y,m,d), dk=dateKey(dt), isToday=isCurrentMonth&&dk===todayKey(), ok=hasLog(dk);
-    cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''}" data-action="calendar-day" data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
+    const dt=new Date(y,m,d), dk=dateKey(dt), isToday=isCurrentMonth&&dk===todayKey(), ok=hasLog(dk), future=dk>todayKey();
+    cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''} ${future?'future':''}" ${future?'disabled aria-disabled="true"':'data-action="calendar-day"'} data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
   }
   const logs=loggedDates();
   const todayLogged=hasLog(todayKey());
@@ -3229,7 +3441,7 @@ function showStats(){
   setAppView('stats');
   lastMode='stats';setNav('library');const s=statsData();
   app.innerHTML=`<section class="card myProgress"><h2>Můj pokrok</h2><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
-  <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>`;
+  <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>${workoutNotesHistory()}`;
 }
 function renderAppState(state){
   if(!state?.pb40App)return home();
@@ -3259,6 +3471,7 @@ function renderAppState(state){
       case 'progress': progressTracker(); break;
       case 'stats': showStats(); break;
       case 'workout': day(Number(state.day)||0); break;
+      case 'workout-resume': showWorkoutResumeChoice(Number(state.day)||0,{skipRoute:true}); break;
       default: home();
     }
   }finally{
@@ -3290,6 +3503,8 @@ app.addEventListener('error',e=>{
   const fallback=image.nextElementSibling;
   if(fallback)fallback.hidden=false;
 },true);
+window.addEventListener('beforeunload',saveWorkoutResumeState);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveWorkoutResumeState();});
 app.addEventListener('click',e=>{
   void unlockAudio();
   const t=e.target.closest('[data-action],.exercise[data-day],.exercise[data-ex]');
@@ -3351,8 +3566,14 @@ app.addEventListener('click',e=>{
   if(a==='delete-measure'){const arr=measurements();arr.splice(Number(t.dataset.index),1);saveMeasurements(arr);return progressTracker();}
   if(a==='calendar-prev'||a==='calendar-next')return calendar(Number(t.dataset.year),Number(t.dataset.month));
   if(a==='mark-today'){markToday();return calendar(Number(t.dataset.year),Number(t.dataset.month));}
-  if(a==='unmark-today'){localStorage.removeItem(logKey(todayKey()));return calendar(Number(t.dataset.year),Number(t.dataset.month));}
-  if(a==='calendar-day'){const k=logKey(t.dataset.date);localStorage.getItem(k)==='1'?localStorage.removeItem(k):localStorage.setItem(k,'1');const parts=String(t.dataset.date||'').split('-').map(Number);return calendar(parts[0],parts[1]-1);}
+  if(a==='unmark-today'){clearCalendarDate(todayKey());return calendar(Number(t.dataset.year),Number(t.dataset.month));}
+  if(a==='calendar-day'){
+    const date=t.dataset.date;
+    if(!date||date>todayKey())return;
+    hasLog(date)?clearCalendarDate(date):markCalendarDate(date,'manual',currentDay);
+    const parts=String(date||'').split('-').map(Number);
+    return calendar(parts[0],parts[1]-1);
+  }
   if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex,{replaceRoute:true});}
   if(a==='info'||t.dataset.ex){
     if(t.dataset.day!==undefined && t.dataset.day!==''){
@@ -3365,6 +3586,7 @@ app.addEventListener('click',e=>{
       clearInterval(timer);
       workoutPausedByDetail=!workoutPaused;
       workoutPaused=true;
+      saveWorkoutResumeState();
     }
     if(t.dataset.day!==undefined && t.dataset.day!=='') currentDay=Number(t.dataset.day);
     if(t.dataset.index!==undefined && t.dataset.index!=='') currentExercise=Number(t.dataset.index);
@@ -3374,6 +3596,9 @@ app.addEventListener('click',e=>{
   if(a==='day'||(t.classList.contains('exercise')&&t.dataset.day!==''))return day(Number(t.dataset.day));
   if(a==='start')return startTraining(Number(t.dataset.day),true);
   if(a==='start-auto')return startTraining(Number(t.dataset.day),true);
+  if(a==='resume-workout')return restoreWorkoutState(resumeForDay(Number(t.dataset.day)));
+  if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
+  if(a==='complete-rest-day'){setRestDone(Number(t.dataset.day));return home();}
   if(a==='set-complete-manual'){setDone(currentDay,currentExercise); const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i)); workoutCurrentSet=1; return doneNext(false);}
   if(a==='set-complete-auto')return advanceAutoPhase();
   if(a==='done-next')return doneNext(true);
@@ -3383,7 +3608,7 @@ app.addEventListener('click',e=>{
   if(a==='stop-auto')return showWorkoutExitDialog();
   if(a==='continue-workout')return continueWorkoutFromDialog();
   if(a==='confirm-stop-auto')return exitWorkoutToDay();
-  if(a==='reset-day'){data.days[Number(t.dataset.day)].items.forEach((_,i)=>localStorage.removeItem(key(Number(t.dataset.day),i)));return day(Number(t.dataset.day));}
+  if(a==='reset-day'){resetDayProgress(Number(t.dataset.day));return day(Number(t.dataset.day));}
   if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
   if(a==='rest')return restScreen();
   if(a==='train-current')return openCurrentTraining();
