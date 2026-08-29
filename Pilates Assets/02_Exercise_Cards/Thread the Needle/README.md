@@ -3,9 +3,9 @@
 Status: 🟢 COMPLETE
 
 ## Photos
-- [x] START — reuse Bird Dog START
+- [x] START — `thread_the_needle_start_v02.png`
 - [x] HERO
-- [x] END / not needed — uses START
+- [x] END / not needed — uses START v02
 
 ## Workflow
 START → HERO → START
@@ -19,9 +19,9 @@ START → HERO → START
 - [x] Approved
 
 ## Notes
-- START and END directly reuse `../Bird Dog/bird_dog_start_v01.png`
-- HERO uses `thread_the_needle_hero_v01.png`
-- no duplicate source START or END asset was created
+- START and END use `thread_the_needle_start_v02.png`
+- HERO uses corrected `thread_the_needle_hero_v02.png`
+- no separate END asset was created
 - modelka a prostředí podle MASTER
 - nové assety vznikají pouze v Pilates Assets
 - assets/exercises se zatím nemění

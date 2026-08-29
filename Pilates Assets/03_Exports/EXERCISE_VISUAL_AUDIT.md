@@ -38,7 +38,7 @@
 | `plank` | Forearm Plank | **KONTROLA** | Střed těla. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
 | `tap` | Plank Shoulder Taps | **KONTROLA** | Střed těla a ramena. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
 | `catcow` | Cat-Cow | **KONTROLA** | Páteř. | Cat-Cow | YES | START -- / HERO -- / GUIDE -- / STEP -- |
-| `thread` | Thread the Needle | **KONTROLA** | Horní záda. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
+| `thread` | Thread the Needle | **HOTOVO** | Horní záda. | Thread the Needle | YES | START OK / HERO OK / GUIDE OK / STEP OK |
 | `rollup` | Roll Up | **KONTROLA** | Břicho. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
 | `mermaid` | Mermaid Stretch | **KONTROLA** | Bok trupu. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
 | `sidekick` | Side Kick Series | **KONTROLA** | Bok hýždě. | -- | YES | START -- / HERO -- / GUIDE -- / STEP -- |
@@ -789,28 +789,36 @@ _No source folder found._
 
 ### Thread the Needle (`thread`)
 
-- Status: **KONTROLA**
+- Status: **HOTOVO**
 - Difficulty: not listed in data.js
 - Category/focus: Horní záda.
 - Default dose in data: not listed
 - Program usage: Day 17 stretch
-- Source folder: --
+- Source folder: `Pilates Assets/02_Exercise_Cards/Thread the Needle`
 
 **Images found in Pilates Assets**
 
-_No source folder found._
+| Type | Path | Exists | Size |
+|---|---|---|---|
+| START | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start_v02.png` | YES | `1536 x 1024` |
+| HERO | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero_v02.png` | YES | `1536 x 1024` |
+| GUIDE | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_guide_card_v01.png` | YES | `780 x 1688` |
+| STEP | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_step_by_step_v01.png` | YES | `780 x 2280` |
 
 **Actually used by app**
 
 | Source | Path | Exists | Size |
 |---|---|---|---|
-| data.js image | `assets/exercises/thread.jpg?v=50` | YES | `1536 x 1024` |
+| data.js image | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero_v02.png` | YES | `1536 x 1024` |
+| app.js START | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start_v02.png` | YES | `1536 x 1024` |
+| app.js HERO | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero_v02.png` | YES | `1536 x 1024` |
+| app.js END | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start_v02.png` | YES | `1536 x 1024` |
 
 **Issues found**
 
-- Missing folder in Pilates Assets/02_Exercise_Cards.
+- None for current Thread the Needle v02 deployment.
 
-**Recommended next step:** Review flagged differences visually and decide whether to rerender derived cards or unify source images.
+**Recommended next step:** None for Thread the Needle v02. Current START/HERO, Guide, Step and app references are complete.
 
 ### Roll Up (`rollup`)
 

@@ -1011,9 +1011,9 @@ const referenceExerciseAssets={
     ]
   },
   thread:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_step_by_step_v01.png',
     subtitle:'Horní záda • rotace páteře',
@@ -1025,7 +1025,6 @@ const referenceExerciseAssets={
     steps:[
       {title:'VÝCHOZÍ POLOHA',text:'Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a páteř drž neutrálně.',photo:'start'},
       {title:'HLAVNÍ POHYB',text:'S výdechem provleč jednu paži pod tělem. Rameno a hlavu nech jemně klesnout k podložce.',photo:'hero'},
-      {title:'PROTAŽENÍ',text:'Pánev drž nad koleny a dýchej do horní části zad. Netlač hlavu ani rameno silou dolů.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem se kontrolovaně vrať zpět na všechny čtyři a potom vystřídej stranu.',photo:'start'}
     ],
     info:{difficulty:'Lehké',focus:'Horní záda / páteř',knees:'Na všech čtyřech'},

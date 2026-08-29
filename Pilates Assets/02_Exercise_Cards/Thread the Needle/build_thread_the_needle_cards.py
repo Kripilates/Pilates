@@ -6,8 +6,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE.parent / "Bird Dog" / "bird_dog_start_v01.png"
-HERO = BASE / "thread_the_needle_hero_v01.png"
+START = BASE / "thread_the_needle_start_v02.png"
+HERO = BASE / "thread_the_needle_hero_v02.png"
 GUIDE = BASE / "thread_the_needle_guide_card_v01.png"
 STEP = BASE / "thread_the_needle_step_by_step_v01.png"
 
@@ -221,28 +221,29 @@ def build_step():
     steps = [
         ("START", START, "Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a páteř drž neutrálně."),
         ("HLAVNÍ POHYB", HERO, "S výdechem provleč jednu paži pod tělem. Rameno a hlavu nech jemně klesnout k podložce."),
-        ("PROTAŽENÍ", HERO, "Pánev drž nad koleny a dýchej do horní části zad. Netlač hlavu ani rameno silou dolů."),
         ("NÁVRAT", START, "S nádechem se kontrolovaně vrať zpět na všechny čtyři a potom vystřídej stranu."),
     ]
 
     y = 174
     for index, (title, source, text) in enumerate(steps, 1):
-        rounded(draw, (34, y, 746, y + 418))
+        card_height = 470
+        rounded(draw, (34, y, 746, y + card_height))
         paste_round(image, fit_image(source, (680, 300), crop=True), (50, y + 24, 730, y + 324), 22)
         draw.ellipse((62, y + 38, 104, y + 80), fill=TEAL)
         center_text(draw, (62, y + 38, 104, y + 80), str(index), F["small_b"], CARD)
         draw.text((62, y + 340), title, font=F["step_h"], fill=INK)
         draw_wrapped(draw, (62, y + 372), text, F["step_body"], MUTED, 650, 5)
-        y += 418
+        y += card_height
         if index < len(steps):
             center_text(draw, (0, y + 13, 780, y + 55), "↓", font("arialbd.ttf", 32), TEAL_D)
             y += 76
 
-    rounded(draw, (34, 2114, 746, 2240), 28, fill=CARD, outline=LINE, width=1)
-    draw.text((62, 2142), "Dech", font=F["h2"], fill=INK)
+    info_y = y + 28
+    rounded(draw, (34, info_y, 746, info_y + 126), 28, fill=CARD, outline=LINE, width=1)
+    draw.text((62, info_y + 28), "Dech", font=F["h2"], fill=INK)
     draw_wrapped(
         draw,
-        (62, 2186),
+        (62, info_y + 72),
         "Vydechni při rotaci pod trup. Nadechni se při návratu do výchozí pozice.",
         F["body"],
         MUTED,

@@ -110,9 +110,9 @@
 `assets/exercises/catcow.jpg`
 
 ## Thread the Needle (`thread`)
-![Thread the Needle](../../assets/exercises/thread.jpg)
+![Thread the Needle](../02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero_v02.png)
 
-`assets/exercises/thread.jpg`
+`Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero_v02.png`
 
 ## Roll Up (`rollup`)
 ![Roll Up](../../assets/exercises/rollup.jpg)
