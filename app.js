@@ -3013,7 +3013,7 @@ function startNextExerciseOrRound(){
   }
   const max=(workoutContext?.items?.length||data.days[currentDay].items.length)-1;
   // Serie/kolo: nejdriv vsechny hlavni cviky, potom dalsi kolo.
-  setDone(currentDay,currentExercise);
+  if(workoutCurrentSet>=workoutTotalSets)setDone(currentDay,currentExercise);
   if(currentExercise<max){
     currentExercise++;
     beginCurrentExercise();
@@ -3606,7 +3606,7 @@ app.addEventListener('click',e=>{
   if(a==='resume-workout')return restoreWorkoutState(resumeForDay(Number(t.dataset.day)));
   if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
   if(a==='complete-rest-day'){setRestDone(Number(t.dataset.day));return home();}
-  if(a==='set-complete-manual'){setDone(currentDay,currentExercise); const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i)); workoutCurrentSet=1; return doneNext(false);}
+  if(a==='set-complete-manual'){if(workoutCurrentSet>=workoutTotalSets)setDone(currentDay,currentExercise); const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} data.days[currentDay].items.forEach((_,i)=>setDone(currentDay,i)); workoutCurrentSet=1; return doneNext(false);}
   if(a==='set-complete-auto')return advanceAutoPhase();
   if(a==='done-next')return doneNext(true);
   if(a==='done-next-nomark')return doneNext(false);
