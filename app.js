@@ -1832,21 +1832,21 @@ const referenceExerciseAssets={
     }
   },
   chest_fly:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_step_by_step_v01.png',
     subtitle:'Hrudník • ramena',
     miniSteps:[
       {n:1,title:'START',caption:'Činky nad hrudníkem',photo:'start'},
-      {n:2,title:'OTEVŘENÍ',caption:'Paže do stran',photo:'hero'},
-      {n:3,title:'NÁVRAT',caption:'Stejným obloukem',photo:'start'}
+      {n:2,title:'OTEVŘENÍ',caption:'Paže kontrolovaně do stran',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Stejným obloukem vzhůru',photo:'start'}
     ],
     steps:[
-      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem, paže téměř natažené a lokty lehce pokrčené.',photo:'start'},
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem a lokty nech po celou dobu lehce pokrčené.',photo:'start'},
       {title:'OTEVŘENÍ PAŽÍ',text:'S nádechem otevírej paže kontrolovaně do stran po oblouku. Lokty nech mírně pokrčené a ramena drž daleko od uší.',photo:'hero'},
-      {title:'KONTROLOVANÝ NÁVRAT',text:'S výdechem vrať činky stejným obloukem zpět nad hrudník. Pohyb veď plynule bez švihu.',photo:'start'}
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S výdechem vrať činky stejným obloukem zpět nad hrudník. Zápěstí drž rovně a pohyb veď plynule bez švihu.',photo:'start'}
     ],
     info:{difficulty:'Lehké',focus:'Hrudník / ramena',knees:'Bez zátěže kolen'},
     breath:{inhale:'Při otevírání paží',exhale:'Při návratu nad hrudník',tempo:'Pomalu a kontrolovaně'},

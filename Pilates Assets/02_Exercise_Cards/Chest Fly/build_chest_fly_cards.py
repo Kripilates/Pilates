@@ -4,8 +4,8 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / 'Pilates Assets' / '02_Exercise_Cards' / 'Chest Fly'
-START = ROOT / 'Pilates Assets' / '02_Exercise_Cards' / 'Chest Press' / 'chest_press_hero_v01.png'
-HERO = FOLDER / 'chest_fly_hero_v01.png'
+START = FOLDER / 'chest_fly_start_v02.png'
+HERO = FOLDER / 'chest_fly_hero_v02.png'
 GUIDE = FOLDER / 'chest_fly_guide_card_v01.png'
 STEP = FOLDER / 'chest_fly_step_by_step_v01.png'
 
@@ -23,17 +23,17 @@ WARN_ICON = (199, 92, 84)
 FONT_DIR = Path(r'C:\Windows\Fonts')
 
 GUIDE_HOW = [
-    ('1', 'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem, paže téměř natažené.'),
-    ('2', 'S nádechem otevírej paže kontrolovaně do stran po oblouku. Lokty nech mírně pokrčené a ramena daleko od uší.'),
+    ('1', 'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem a lokty nech lehce pokrčené.'),
+    ('2', 'S nádechem otevírej paže kontrolovaně do stran po oblouku. Ramena drž daleko od uší a zápěstí rovně.'),
     ('3', 'S výdechem vrať činky stejným obloukem nad hrudník. Pohyb veď plynule a bez švihu.'),
 ]
-GUIDE_WATCH = 'Nepropínej lokty, nespouštěj paže příliš hluboko, nelámej zápěstí a nezvedej ramena k uším. Bedra a pánev drž stabilní.'
+GUIDE_WATCH = 'Lokty nepropínej, činky nespouštěj příliš hluboko a nezvedej ramena k uším. Bedra, pánev i chodidla drž stabilní.'
 STEP_TEXTS = [
-    ('KROK 1', 'VÝCHOZÍ POZICE', START, 'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem, paže téměř natažené a lokty lehce pokrčené.'),
+    ('KROK 1', 'VÝCHOZÍ POLOHA', START, 'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Činky drž nad hrudníkem a lokty nech po celou dobu lehce pokrčené.'),
     ('KROK 2', 'OTEVŘENÍ PAŽÍ', HERO, 'S nádechem otevírej paže kontrolovaně do stran po oblouku. Lokty nech mírně pokrčené a ramena drž daleko od uší.'),
-    ('KROK 3', 'KONTROLOVANÝ NÁVRAT', START, 'S výdechem vrať činky stejným obloukem zpět nad hrudník. Pohyb veď plynule bez švihu.'),
+    ('KROK 3', 'KONTROLOVANÝ NÁVRAT', START, 'S výdechem vrať činky stejným obloukem zpět nad hrudník. Zápěstí drž rovně a pohyb veď plynule bez švihu.'),
 ]
-STEP_WATCH = 'Nepropínej lokty, nespouštěj paže příliš hluboko, nelámej zápěstí a nezvedej ramena k uším. Bedra a pánev drž stabilní.'
+STEP_WATCH = 'Lokty nepropínej, činky nespouštěj příliš hluboko a nezvedej ramena k uším. Bedra, pánev i chodidla drž stabilní.'
 
 
 def sha256(path):
@@ -160,7 +160,7 @@ def build_guide():
 
     mini_y, mini_w, mini_h, gap = 675, 218, 146, 22
     xs = [34, 34 + mini_w + gap, 34 + 2 * (mini_w + gap)]
-    labels = [('START', 'Činky nad hrudníkem'), ('OTEVŘENÍ', 'Paže do stran'), ('NÁVRAT', 'Stejným obloukem')]
+    labels = [('START', 'Činky nad hrudníkem'), ('OTEVŘENÍ', 'Paže kontrolovaně do stran'), ('NÁVRAT', 'Stejným obloukem vzhůru')]
     for index, (x0, (label, caption), path) in enumerate(zip(xs, labels, [START, HERO, START]), 1):
         rounded(draw, (x0, mini_y, x0 + mini_w, mini_y + mini_h + 58), 22, CARD, LINE, 2)
         paste_round(image, fit_image(path, (mini_w - 22, mini_h)), (x0 + 11, mini_y + 10, x0 + mini_w - 11, mini_y + 10 + mini_h), 16)
