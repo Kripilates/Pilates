@@ -12,7 +12,7 @@ Status: HOTOVO
 - STEP BY STEP: frog_pumps_step_by_step_v01.png — aktualizováno na SOURCE v03; SHA-256 `582e0566639c95ffcafdab2555a4c27365b631608fd0c635705f4deb72d026f3`
 - EXPORT: SCHVÁLENO
 - QA: SCHVÁLENO
-- APP: beze změny v tomto úkolu
+- APP: NASAZENO pod kanonickým ID `frog`
 
 ## Workflow
 
@@ -20,4 +20,4 @@ START → HERO → START
 
 ## Notes
 
-START a HERO byly nahrazeny ručně schválenými v03 source obrázky v rozměru 1536 × 1024 px. START zobrazuje pánev dole, spojené plosky chodidel a otevřená kolena. HERO zobrazuje nízké kontrolované zvednutí pánve při stažených žebrech a bez vysokého klasického mostu. END používá přesně START v03 bez samostatného PNG. Guide Card a Step by Step v01 byly přegenerovány ze sekvence START → HERO → START. Aplikační soubory, program, dávky ani workout logika nebyly v tomto úkolu měněny.
+START a HERO byly nahrazeny ručně schválenými v03 source obrázky v rozměru 1536 × 1024 px. START zobrazuje pánev dole, spojené plosky chodidel a otevřená kolena. HERO zobrazuje nízké kontrolované zvednutí pánve při stažených žebrech a bez vysokého klasického mostu. END používá přesně START v03 bez samostatného PNG. Guide Card a Step by Step v01 byly přegenerovány ze sekvence START → HERO → START. Aplikace používá nové v03 assety přes kanonické ID `frog`; program, dávky ani workout logika nebyly měněny.
