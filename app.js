@@ -1136,9 +1136,9 @@ const referenceExerciseAssets={
     }
   },
   rainbow:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_end_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_end_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_step_by_step_v01.png',
     subtitle:'Hýždě • boky • stabilita pánve',
@@ -1148,9 +1148,9 @@ const referenceExerciseAssets={
       {n:3,title:'END',caption:'Překřiž doleva',photo:'end'}
     ],
     steps:[
-      {title:'START',text:'Začni na všech čtyřech. Pracovní nohu nech téměř nataženou nízko na pravé straně.',photo:'start'},
-      {title:'OBLOUK',text:'S výdechem zvedni téměř nataženou nohu plynulým obloukem přes střed. Pánev směřuje k podložce.',photo:'hero'},
-      {title:'END',text:'Kontrolovaně spusť nohu za opěrnou nohu na levou stranu a vrať se stejným obloukem zpět.',photo:'end'}
+      {title:'VÝCHOZÍ POLOHA',text:'Začni na všech čtyřech. Pracovní nohu nech téměř nataženou nízko na pravé straně.',photo:'start'},
+      {title:'OBLOUK NAHORU',text:'S výdechem zvedni stejnou pracovní nohu plynulým obloukem přes střed. Pánev směřuje k podložce.',photo:'hero'},
+      {title:'DOKONČENÍ OBLOUKU',text:'Kontrolovaně spusť stejnou pracovní nohu za opěrnou nohu na levou stranu a vrať se stejným obloukem zpět.',photo:'end'}
     ],
     info:{difficulty:'Střední',focus:'Hýždě / boky',knees:'Na všech čtyřech'},
     breath:{inhale:'Při návratu',exhale:'Při zvednutí přes střed',tempo:'Plynule bez švihu'},
