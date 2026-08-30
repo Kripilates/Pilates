@@ -5083,7 +5083,7 @@ body.dark .programCompletionContent{
   text-transform:capitalize;
 }
 .calendarMonthNav button{
-  min-height:38px;
+  min-height:44px;
   padding:7px 0;
   border-radius:14px;
   color:var(--p);
@@ -5111,7 +5111,7 @@ body.dark .programCompletionContent{
 }
 .calendarActions button{
   flex:1;
-  min-height:38px;
+  min-height:44px;
   padding:8px 9px!important;
   color:var(--muted);
   font-size:12.5px!important;
@@ -5257,6 +5257,9 @@ body.dark .programCompletionContent{
   width:100%;
   min-height:44px;
   box-shadow:none;
+}
+.fileImport{
+  min-height:44px;
 }
 .measurementPage .card{
   margin:9px 0;

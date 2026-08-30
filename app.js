@@ -506,13 +506,18 @@ function normalizeWorkoutNotes(arr){
 function workoutNotes(){try{return normalizeWorkoutNotes(JSON.parse(localStorage.getItem(noteKey)||'[]'))}catch(e){return []}}
 function saveWorkoutNotes(arr){localStorage.setItem(noteKey,JSON.stringify(normalizeWorkoutNotes(arr)));}
 function latestNote(){const arr=workoutNotes();return arr.length?arr[arr.length-1]:null}
+function formatDisplayDate(date){
+  const m=String(date||'').match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if(!m)return esc(date||'');
+  return `${Number(m[3])}. ${Number(m[2])}. ${m[1]}`;
+}
 function moodLabel(mood){
   return mood==='good'?'Dobře':mood==='tough'?'Náročnější':mood==='pain'?'Příliš náročné':'Bez hodnocení';
 }
 function workoutNotesHistory(){
   const arr=workoutNotes().filter(n=>n.text||n.mood).slice(-5).reverse();
   if(!arr.length)return '<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><p class="muted compactEmpty">Zatím tu nejsou žádné poznámky po tréninku.</p></section>';
-  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div><b>${esc(n.date)}</b><span>Den ${Number(n.day)+1} • ${esc(moodLabel(n.mood))}</span></div><p>${n.text?esc(n.text):'Bez textové poznámky.'}</p></article>`).join('')}</div></section>`;
+  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div><b>${formatDisplayDate(n.date)}</b><span>Den ${Number(n.day)+1} • ${esc(moodLabel(n.mood))}</span></div><p>${n.text?esc(n.text):'Bez textové poznámky.'}</p></article>`).join('')}</div></section>`;
 }
 function saveWorkoutNote(){
   const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';
