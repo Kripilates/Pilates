@@ -2230,7 +2230,7 @@ function exCard(k,dose,d,i){
   return `<article class="exercise v18exercise v22exercise ${isReal?'v22RealCard':''} ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
     <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}</span></div>
     <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}</div>
-    <div class="v22CardFoot">${mainFocus?`<span class="mainLabel">${esc(mainFocus)}</span>`:'<span></span>'}<b aria-hidden="true">›</b></div>
+    <div class="v22CardFoot">${mainFocus?`<span class="mainLabel">${esc(mainFocus)}</span>`:'<span></span>'}<b aria-hidden="true">Detail ›</b></div>
   </article>`;
 }
 

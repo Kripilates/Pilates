@@ -4942,24 +4942,27 @@ body.dark .programCompletionContent{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:8px;
   min-height:26px;
 }
 .v22DayExercises .v22CardFoot span{
+  flex:1 1 auto;
   min-width:0;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
-  color:var(--p);
+  color:var(--muted);
   font-size:12.5px;
-  font-weight:950;
+  font-weight:850;
 }
 .v22DayExercises .v22CardFoot b{
   flex:0 0 auto;
   color:var(--p);
-  font-size:27px;
+  font-size:13px;
   font-weight:950;
-  line-height:1;
+  line-height:1.1;
+  white-space:nowrap;
+  text-align:right;
 }
 @media(max-width:720px){
   .v22Home{
@@ -5031,14 +5034,15 @@ body.dark .programCompletionContent{
     display:none!important;
   }
   .v22DayExercises .v22CardFoot{
-    min-height:24px;
+    min-height:25px;
+    gap:7px;
   }
   .v22DayExercises .v22CardFoot span{
-    font-size:12px!important;
+    font-size:11.5px!important;
     letter-spacing:.01em;
   }
   .v22DayExercises .v22CardFoot b{
-    font-size:26px!important;
+    font-size:12.5px!important;
   }
 }
 @media(max-width:380px){
