@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "standing_oblique_crunch_start_v01.png"
-HERO = BASE / "standing_oblique_crunch_hero_v01.png"
-OPPOSITE = BASE / "standing_oblique_crunch_hero_opposite_v01.png"
+START = BASE / "standing_oblique_crunch_start_v02.png"
+HERO = BASE / "standing_oblique_crunch_hero_v02.png"
+OPPOSITE = BASE / "standing_oblique_crunch_hero_opposite_v02.png"
 GUIDE = BASE / "standing_oblique_crunch_guide_card_v01.png"
 STEP = BASE / "standing_oblique_crunch_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "97212871f561a8ec0f036715f51e7125f2cd482a2285fd414895cba85220d627",
-    HERO: "40baf545e2ae2c4a39ecb7684dd6d27e0cbf521fb95a275ab84c2bcd42016444",
-    OPPOSITE: "8823959b34c63686804442b35742f8019f8571445d3fd59b31b3a46d6e26f66c",
+    START: "e5ecc7c472c32522d740df76d9623b50896de9fad3702abca4bc075a0e6bee84",
+    HERO: "c355f0e3182d6cc26e1a48ea1e387e3ac343bc9f68968f58cd41d8c503279c46",
+    OPPOSITE: "d5b5edcc64ae1014c30f83651283cadbc9bc9123de8426b1bf28c9bfd266a76c",
 }
 
 BG = (244, 251, 250)
@@ -171,14 +171,14 @@ def build_guide():
     margins = {}
 
     rounded(draw, (34, 34, 746, 140))
-    draw.text((62, 49), "STANDING OBLIQUE CRUNCH", font=F["title"], fill=INK)
-    draw.text((62, 94), "Břicho • šikmé břišní svaly • střed těla", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 49), "BOČNÍ ZKRACOVAČKY VE STOJE", font=font("arialbd.ttf", 30), fill=INK)
+    draw.text((62, 94), "Střídavý pohyb pro pevnější pas", font=F["small_b"], fill=TEAL_D)
     _, desc_bottom = draw_wrapped(
-        draw, (62, 115), "Střídavě posiluje šikmé břišní svaly a stabilitu středu těla.",
+        draw, (62, 115), "Kontrolované zkracovačky ve stoje pro pas a střed těla.",
         F["tiny"], MUTED, 650, 2
     )
     margins["GUIDE DESCRIPTION"] = 140 - desc_bottom
-    x = pill(draw, (62, 148), "Břicho a střed těla", F["small_b"])
+    x = pill(draw, (62, 148), "Pas a střed těla", F["small_b"])
     pill(draw, (x, 148), "Bez pomůcky", F["small_b"])
 
     rounded(draw, (34, 196, 746, 653))
@@ -187,9 +187,9 @@ def build_guide():
     mini_y, mini_w, mini_h = 675, 218, 146
     xs = [34, 274, 514]
     labels = [
-        ("START", "Výchozí postoj", START),
-        ("PŘITAŽENÍ", "Koleno k lokti", HERO),
-        ("DRUHÁ STRANA", "Střídej strany", OPPOSITE),
+        ("START", "Výchozí poloha", START),
+        ("ÚKLON", "Koleno a trup k sobě", HERO),
+        ("DRUHÁ STRANA", "Pravidelně střídej", OPPOSITE),
     ]
     for index, (x0, (label, caption, source)) in enumerate(zip(xs, labels), 1):
         card_bottom = mini_y + mini_h + 74
@@ -205,9 +205,9 @@ def build_guide():
 
     info_y, box_w, box_h = 915, 218, 164
     info = [
-        ("breath", "DECH", "Dýchej plynule. Vydechni při přitažení kolena."),
-        ("focus", "ZAMĚŘ SE", "Pevný střed těla a kontrolovaný pohyb."),
-        ("repeat", "OPAKOVÁNÍ", "Střídavě podle dávky v tréninku."),
+        ("breath", "DECH", "Vydechni při přitažení kolena. Nadechni se při návratu."),
+        ("focus", "ZAMĚŘ SE", "Trup ukláněj ke zvednutému kolenu. Pánev drž stabilní."),
+        ("repeat", "OPAKOVÁNÍ", "Střídej pravou a levou stranu podle dávky v tréninku."),
     ]
     for index, (x0, (kind, heading, body)) in enumerate(zip(xs, info), 1):
         card_bottom = info_y + box_h
@@ -220,9 +220,9 @@ def build_guide():
     rounded(draw, (34, 1090, 746, 1412), 26)
     draw.text((62, 1120), "JAK PROVÉST", font=F["h2"], fill=INK)
     how = [
-        ("1", "Postav se vzpřímeně, chodidla přibližně na šířku boků. Ruce dej za hlavu a lokty nech otevřené."),
-        ("2", "Zpevni střed těla a zvedni jedno koleno do strany směrem k lokti na stejné straně. Trup lehce ukloň, ale nehrb se."),
-        ("3", "Vrať se kontrolovaně do stoje a proveď stejný pohyb na druhou stranu. Pokračuj střídavě."),
+        ("1", "Postav se vzpřímeně, chodidla nech přibližně na šířku boků a ruce polož lehce za hlavu."),
+        ("2", "S výdechem zvedni jedno koleno do strany a současně k němu kontrolovaně ukloň trup."),
+        ("3", "Vrať se do vzpřímené polohy a stejný pohyb proveď na druhou stranu."),
     ]
     y = 1165
     for number_value, body in how:
@@ -238,7 +238,7 @@ def build_guide():
     draw.text((92, 1457), "HLÍDEJ SI", font=F["h3"], fill=INK)
     _, watch_bottom = draw_wrapped(
         draw, (62, 1500),
-        "Netahej rukama za hlavu a nezavírej lokty dopředu. Pohyb veď kontrolovaně ze středu těla a neztrácej stabilitu stojné nohy.",
+        "Netahej rukama za hlavu, nezvedej ramena a neotáčej trup. Stojnou nohu nech lehce pokrčenou a pohyb prováděj bez švihu.",
         F["body"], INK, 640, 5
     )
     margins["GUIDE WATCH"] = ensure_bottom_margin("Guide watch", watch_bottom, 1618)
@@ -251,15 +251,15 @@ def build_step():
     draw = ImageDraw.Draw(image)
     rounded(draw, (34, 34, 746, 126))
     draw.text((62, 56), "Krok za krokem", font=F["step_title"], fill=INK)
-    draw.text((62, 98), "STANDING OBLIQUE CRUNCH", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 98), "BOČNÍ ZKRACOVAČKY VE STOJE", font=F["small_b"], fill=TEAL_D)
 
     steps = [
-        ("KROK 1", "VÝCHOZÍ POSTOJ",
-         "Postav se vzpřímeně, chodidla přibližně na šířku boků. Ruce dej za hlavu a lokty nech otevřené.", START),
-        ("KROK 2", "PŘITAŽENÍ KOLENA",
-         "Zpevni střed těla a zvedni koleno do strany směrem k lokti na stejné straně. Trup lehce ukloň.", HERO),
+        ("KROK 1", "VÝCHOZÍ POLOHA",
+         "Postav se vzpřímeně, chodidla nech přibližně na šířku boků a ruce polož lehce za hlavu. Lokty nech otevřené do stran.", START),
+        ("KROK 2", "ÚKLON K JEDNOMU KOLENU",
+         "S výdechem zvedni jedno koleno do strany a současně k němu ukloň trup. Pohyb veď z pasu a bez švihu.", HERO),
         ("KROK 3", "DRUHÁ STRANA",
-         "Vrať se do vzpřímeného stoje a pohyb zopakuj na druhou stranu. Pokračuj plynule střídavě.", OPPOSITE),
+         "Vrať se do vzpřímené polohy a pohyb zopakuj na druhou stranu. Pravou a levou stranu pravidelně střídej.", OPPOSITE),
     ]
     y, margins = 160, {}
     for step_label, heading, body, source in steps:
@@ -280,7 +280,7 @@ def build_step():
     draw.text((98, y + 28), "DECH", font=F["step_h"], fill=INK)
     next_y, breath_bottom = draw_wrapped(
         draw, (62, y + 78),
-        "Dýchej plynule. Vydechni při přitažení kolena, nadechni se při návratu do stoje.",
+        "Vydechni při přitažení kolena. Nadechni se při návratu do středu.",
         F["step_body"], INK, 650, 8
     )
     margins["STEP BREATH"] = y + 275 - breath_bottom
@@ -288,8 +288,8 @@ def build_step():
     draw.text((98, next_y + 12), "HLÍDEJ SI", font=F["step_h"], fill=INK)
     _, watch_bottom = draw_wrapped(
         draw, (62, next_y + 52),
-        "Netahej za hlavu, nezavírej lokty dopředu a nehrb záda. Stojnou nohu drž stabilní a pohyb prováděj bez švihu.",
-        F["step_body"], INK, 650, 5
+        "Netahej rukama za hlavu, nezvedej ramena a neotáčej trup. Ukláněj se vždy ke zvednutému kolenu a stojnou nohu nech lehce pokrčenou.",
+        F["body"], INK, 650, 5
     )
     margins["STEP WATCH"] = ensure_bottom_margin("Step watch", watch_bottom, y + 275)
     draw.text((54, 2240), "Pilates Body 40+", font=F["tiny"], fill=MUTED)

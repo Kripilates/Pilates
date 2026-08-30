@@ -4937,15 +4937,16 @@ body.dark .programCompletionContent{
   }
 }
 
-/* v59.111: compact mobile home exercise cards */
-.v22DayExercises .v22CardFoot{
+/* v59.130: readable exercise card detail row */
+.v22exercise .v22CardFoot{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:8px;
+  gap:12px;
   min-height:26px;
+  width:100%;
 }
-.v22DayExercises .v22CardFoot span{
+.v22exercise .v22CardFoot span{
   flex:1 1 auto;
   min-width:0;
   overflow:hidden;
@@ -4955,8 +4956,9 @@ body.dark .programCompletionContent{
   font-size:12.5px;
   font-weight:850;
 }
-.v22DayExercises .v22CardFoot b{
+.v22exercise .v22CardFoot b{
   flex:0 0 auto;
+  flex-shrink:0;
   color:var(--p);
   font-size:13px;
   font-weight:950;
@@ -5029,19 +5031,22 @@ body.dark .programCompletionContent{
     height:96px!important;
     margin-bottom:6px!important;
   }
+  .v22Home .v22DayExercises .v22PhotoWrap{
+    height:114px!important;
+  }
   .v22DayExercises .v22CardLabels,
   .v22DayExercises .v22Open{
     display:none!important;
   }
-  .v22DayExercises .v22CardFoot{
+  .v22exercise .v22CardFoot{
     min-height:25px;
-    gap:7px;
+    gap:10px;
   }
-  .v22DayExercises .v22CardFoot span{
+  .v22exercise .v22CardFoot span{
     font-size:11.5px!important;
     letter-spacing:.01em;
   }
-  .v22DayExercises .v22CardFoot b{
+  .v22exercise .v22CardFoot b{
     font-size:12.5px!important;
   }
 }
@@ -5052,6 +5057,9 @@ body.dark .programCompletionContent{
   }
   .v22DayExercises .v22PhotoWrap{
     height:88px!important;
+  }
+  .v22Home .v22DayExercises .v22PhotoWrap{
+    height:104px!important;
   }
 }
 

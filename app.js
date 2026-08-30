@@ -1386,21 +1386,21 @@ const referenceExerciseAssets={
     }
   },
   standing_oblique:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero_opposite_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero_opposite_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_step_by_step_v01.png',
-    subtitle:'Břicho • šikmé břišní svaly • střed těla',
-    miniSteps:[{n:1,title:'START',caption:'Výchozí postoj',photo:'start'},{n:2,title:'PŘITAŽENÍ',caption:'Koleno k lokti',photo:'hero'},{n:3,title:'DRUHÁ STRANA',caption:'Střídej strany',photo:'end'}],
+    subtitle:'Střídavý pohyb pro pevnější pas',
+    miniSteps:[{n:1,title:'START',caption:'Výchozí poloha',photo:'start'},{n:2,title:'ÚKLON',caption:'Koleno a trup k sobě',photo:'hero'},{n:3,title:'DRUHÁ STRANA',caption:'Pravidelně střídej',photo:'end'}],
     steps:[
-      {title:'VÝCHOZÍ POSTOJ',text:'Postav se vzpřímeně, chodidla přibližně na šířku boků. Ruce dej za hlavu a lokty nech otevřené.',photo:'start'},
-      {title:'PŘITAŽENÍ KOLENA',text:'Zpevni střed těla a zvedni koleno do strany směrem k lokti na stejné straně. Trup lehce ukloň.',photo:'hero'},
-      {title:'DRUHÁ STRANA',text:'Vrať se do vzpřímeného stoje a pohyb zopakuj na druhou stranu. Pokračuj plynule střídavě.',photo:'end'}
+      {title:'VÝCHOZÍ POLOHA',text:'Postav se vzpřímeně, chodidla nech přibližně na šířku boků a ruce polož lehce za hlavu. Lokty nech otevřené do stran.',photo:'start'},
+      {title:'ÚKLON K JEDNOMU KOLENU',text:'S výdechem zvedni jedno koleno do strany a současně k němu ukloň trup. Pohyb veď z pasu a bez švihu.',photo:'hero'},
+      {title:'DRUHÁ STRANA',text:'Vrať se do vzpřímené polohy a pohyb zopakuj na druhou stranu. Pravou a levou stranu pravidelně střídej.',photo:'end'}
     ],
-    info:{difficulty:'Střední',focus:'Břicho / šikmé břišní svaly',knees:'Stojná noha stabilní'},
-    breath:{inhale:'Při návratu do stoje',exhale:'Při přitažení kolena',tempo:'Plynule a střídavě'},
-    recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Netahej rukama za hlavu.','Lokty nech otevřené a nehrb záda.','Stojnou nohu drž stabilní.'],mistakes:['Tahání za hlavu.','Zavírání loktů dopředu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
+    info:{difficulty:'Střední',focus:'Pas / střed těla',knees:'Stojná noha stabilní'},
+    breath:{inhale:'Při návratu do středu',exhale:'Při přitažení kolena',tempo:'Plynule a střídavě'},
+    recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Trup ukláněj ke zvednutému kolenu.','Netahej rukama za hlavu a nezvedej ramena.','Stojnou nohu nech lehce pokrčenou.'],mistakes:['Tahání za hlavu.','Otáčení trupu místo čistého úklonu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
   },
   standing_side_bend:{
     start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v01.png',

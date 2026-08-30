@@ -44,7 +44,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Side Plank Reach | `Pilates Assets/02_Exercise_Cards/Side Plank Reach` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Sphinx Stretch | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Spine Stretch | `Pilates Assets/02_Exercise_Cards/Spine Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Standing Oblique Crunch | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Standing Oblique Crunch | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch` | `standing_oblique_crunch_start_v02.png` | `standing_oblique_crunch_hero_v02.png` + `standing_oblique_crunch_hero_opposite_v02.png` | `standing_oblique_crunch_guide_card_v01.png` | `standing_oblique_crunch_step_by_step_v01.png` | NE | COMPLETE | HERO opposite = `standing_oblique_crunch_hero_opposite_v02.png`; END = START v02 reuse; App nasazena pod kanonickym ID `standing_oblique` |
 | Standing Side Bend | `Pilates Assets/02_Exercise_Cards/Standing Side Bend` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Supine Twist | `Pilates Assets/02_Exercise_Cards/Supine Twist` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Swan Prep | `Pilates Assets/02_Exercise_Cards/Swan Prep` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
