@@ -3328,13 +3328,17 @@ main button:not(.primary):not(.active),
 .libraryBack .lineIcon{width:20px;height:20px}
 .libraryCategoryGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin-top:12px}
 .libraryCategoryTile,.libraryUtilityTile{
-  min-width:0;min-height:132px;padding:16px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:8px;
+  min-width:0;min-height:132px;padding:16px;
   border:1px solid var(--line);border-radius:17px;background:var(--card);color:var(--text);text-align:left;box-shadow:0 7px 20px var(--shadow)
 }
-.libraryCategoryTile>span,.libraryUtilityTile>span{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:13px;background:var(--tile-wash,var(--p2));color:var(--tile-accent,var(--p))}
-.libraryCategoryTile .lineIcon,.libraryUtilityTile .lineIcon{width:23px;height:23px}
+.libraryCategoryTile{position:relative;min-height:104px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;overflow:hidden}
+.libraryCategoryTile::before{content:"";position:absolute;left:0;top:15px;bottom:15px;width:3px;border-radius:0 999px 999px 0;background:var(--tile-accent,var(--p));opacity:.34}
+.libraryCategoryText{min-width:0;display:grid;gap:6px;padding-left:4px}
+.libraryCategoryChevron{color:var(--p);font-size:26px;line-height:1;font-weight:900}
+.libraryUtilityTile>span{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:13px;background:var(--tile-wash,var(--p2));color:var(--tile-accent,var(--p))}
+.libraryUtilityTile .lineIcon{width:23px;height:23px}
 .libraryCategoryTile strong,.libraryUtilityTile strong{font-size:16px;line-height:1.2}
-.libraryCategoryTile small,.libraryUtilityTile small{margin-top:auto;color:var(--muted);font-size:12px;font-weight:800}
+.libraryCategoryTile small,.libraryUtilityTile small{color:var(--muted);font-size:12px;font-weight:800}
 .libraryCategory-core{--tile-accent:#168f85;--tile-wash:rgba(30,150,138,.11)}
 .libraryCategory-glutes{--tile-accent:#cf5872;--tile-wash:rgba(240,83,119,.1)}
 .libraryCategory-legs{--tile-accent:#397fa1;--tile-wash:rgba(57,127,161,.1)}
@@ -3390,7 +3394,7 @@ body.dark .libraryExercisePhoto{background:#fff}
   .programFeature small{font-size:12px}
   .programSettings{margin-top:22px}
   .libraryCategoryGrid,.libraryUtilityGrid{gap:8px}
-  .libraryCategoryTile{min-height:116px;padding:13px}
+  .libraryCategoryTile{min-height:94px;padding:13px}
   .libraryCategoryTile strong,.libraryUtilityTile strong{font-size:15px}
   .libraryCategoryHead{align-items:flex-start}
   .libraryCategoryHead h2{font-size:27px}
@@ -3404,8 +3408,8 @@ body.dark .libraryExercisePhoto{background:#fff}
   .programFeatureWide .programFeatureIcon{width:44px;height:44px}
   .programFeature strong{font-size:15px}
   .programFeature small{font-size:11px}
-  .libraryCategoryTile{min-height:110px;padding:11px}
-  .libraryCategoryTile>span,.libraryUtilityTile>span{width:38px;height:38px}
+  .libraryCategoryTile{min-height:90px;padding:11px}
+  .libraryUtilityTile>span{width:38px;height:38px}
   .libraryUtilityTile{grid-template-columns:38px minmax(0,1fr);padding:12px}
   .libraryExerciseCard{grid-template-columns:108px minmax(0,1fr) 16px;gap:8px}
   .libraryExerciseMedia{width:108px}
