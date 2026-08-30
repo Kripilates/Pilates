@@ -16,11 +16,11 @@ Generated: 2026-07-20T06:30:19.359Z
 | Fire Hydrant | `Pilates Assets/02_Exercise_Cards/Fire Hydrant` | `fire_hydrant_start_v01.png` | `fire_hydrant_hero_v01.png` | `fire_hydrant_guide_card_v01.png` | `fire_hydrant_step_by_step_v01.png` | ANO | COMPLETE |  |
 | Forearm Plank | `Pilates Assets/02_Exercise_Cards/Forearm Plank` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Frog Pumps | `Pilates Assets/02_Exercise_Cards/Frog Pumps` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Glute Bridge | `Pilates Assets/02_Exercise_Cards/Glute Bridge` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images; other PNG: glute_bridge_guide_card_v1.png, glute_bridge_guide_card_v2.png, glute_bridge_guide_card_v3.png, glute_bridge_hero_v1.png, glute_bridge_start_v1.png, glute_bridge_step_by_step_v1.png, glute_bridge_step_by_step_v2.png |
+| Glute Bridge | `Pilates Assets/02_Exercise_Cards/Glute Bridge` | `glute_bridge_start_v02.png` | `glute_bridge_hero_v02.png` | `glute_bridge_guide_card_v3.png` | `glute_bridge_step_by_step_v2.png` | ANO | COMPLETE | Official reference exercise; END = START v02 reuse; Guide/Step rebuilt from v02 approved SOURCE |
 | Glute Bridge March | `Pilates Assets/02_Exercise_Cards/Glute Bridge March` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Hamstring Stretch | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Heel Taps | `Pilates Assets/02_Exercise_Cards/Heel Taps` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Hip March | `Pilates Assets/02_Exercise_Cards/Hip March` | NE | `hip_march_hero_v01.png` | `hip_march_guide_card_v01.png` | `hip_march_step_by_step_v01.png` | ANO | IN PROGRESS |  |
+| Hip March | `Pilates Assets/02_Exercise_Cards/Hip March` | `hip_march_start_v03.png` | `hip_march_hero_v03.png` | `hip_march_guide_card_v01.png` | `hip_march_step_by_step_v01.png` | ANO | COMPLETE | END = START v03 reuse; v03 source ručně schválené; App beze změny v tomto úkolu |
 | Hollow Hold | `Pilates Assets/02_Exercise_Cards/Hollow Hold` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Opener | `Pilates Assets/02_Exercise_Cards/Chest Opener` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Press | `Pilates Assets/02_Exercise_Cards/Chest Press` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |

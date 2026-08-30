@@ -19,6 +19,12 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- MASTER prostředí projektu Moovka bylo 2026-08-30 aktualizováno na široký záběr místnosti uložený jako `Pilates Assets/01_Master_Reference/master prostředí.png`. Tento soubor je jediný source of truth pro room / camera / perspective / light / floor / object placement / colors. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
+
+- Asset QA várka Dead Bug, Toe Tap, Glute Bridge a Hollow Hold: Dead Bug, Toe Tap a Hollow Hold už používaly aktuální schválené START/HERO ve stávajících Guide/Step exportech. Glute Bridge byl aktualizován na START/HERO v02; `glute_bridge_guide_card_v3.png` (780 × 1688) a `glute_bridge_step_by_step_v2.png` (780 × 2280) byly přegenerované bez změny aplikace.
+
+- Hip March používá nový asset balíček START v03 → HERO v03 → START v03. Schválené `_approved` source byly zkopírované do pracovních v03 souborů bitově identicky; Guide Card `hip_march_guide_card_v01.png` (780 × 1688) a Step by Step `hip_march_step_by_step_v01.png` (780 × 2280) byly přegenerované a vizuálně zkontrolované. Aplikace nebyla v tomto asset úkolu měněna.
+
 - Side Plank Reach používá schválenou sekvenci START v01 → HERO v01 → END v01; Guide Card a Step by Step v01 jsou vytvořené, ověřené a cvik je nasazený v aplikaci pod kanonickým ID `sideplank_reach` bez změny programových dávek.
 
 - Three-level program difficulty is implemented in `v59.74-dev` from the manually approved `00_CODEX/30_DAY_3_LEVEL_FINAL_SPEC.md`: `easy` uses 2 series, `medium` 3, and `hard` 3. The preference is stored in `pb40-program-difficulty-v1`; legacy progress migrates to `medium`, new users receive a first-entry chooser, and Plan/day detail expose the selector.

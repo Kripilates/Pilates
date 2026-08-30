@@ -1,7 +1,7 @@
 {
   "name": "Moovka",
   "short_name": "Moovka",
-  "start_url": "./index.html?v=54security1",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#fff7fa",

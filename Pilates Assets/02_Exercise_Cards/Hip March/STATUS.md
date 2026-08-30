@@ -8,32 +8,32 @@ Status: 🟢 HOTOVO
 - Střídavě se zvedá jedna noha do tabletop pozice.
 
 ## Photos
-- [x] START v02:
-  `hip_march_start_v02.png`
-- [x] HERO v02:
-  `hip_march_hero_v02.png`
-- [x] END = START, bez samostatného END PNG
+- [x] START v03:
+  `hip_march_start_v03.png`
+- [x] HERO v03:
+  `hip_march_hero_v03.png`
+- [x] END = START v03, bez samostatného END PNG
 
 ## Workflow
 START → HERO → START
 
 ## Guide Card
 - [x] Created:
-  `hip_march_guide_card_v02.png`
-- [x] Approved
+  `hip_march_guide_card_v01.png`
+- [x] QA done
 
 ## Step by Step
 - [x] Created:
-  `hip_march_step_by_step_v02.png`
-- [x] Approved
+  `hip_march_step_by_step_v01.png`
+- [x] QA done
 
 ## App
-- [x] START/HERO source nasazené v `app.js`
-- [x] Guide Card / Step by Step v02 evidované a schválené
-- [x] Detail cviku používá schválené v02 source obrázky
+- [ ] App nebyla v tomto asset úkolu měněna.
+- [ ] Nasazení v03 assetů do aplikace čeká na samostatné schválení.
 
 ## Notes
 - Finální workflow: START → HERO → START.
 - Hip March probíhá s pánví na podložce; nejde o Glute Bridge March.
 - Staré v01 podklady zobrazovaly Glute Bridge March a jsou pouze v legacy.
-- v02 source i karty jsou schválené a nasazené.
+- v03 START/HERO source jsou ručně schválené, pracovní kopie jsou bitově identické se schválenými soubory.
+- Guide Card a Step by Step v01 byly přegenerované ze SOURCE v03 a vizuálně zkontrolované.

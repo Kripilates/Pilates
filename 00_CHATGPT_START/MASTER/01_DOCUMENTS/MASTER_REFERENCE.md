@@ -107,12 +107,21 @@ Pokud identita neodpovídá MASTER tváři, obrázek se automaticky označí jak
 
 MASTER prostředí je jediný zdroj pravdy pro prostředí. Podložka není součást MASTER prostředí; je rekvizita konkrétního cviku stejně jako činky, odporová guma, míč nebo další pomůcky.
 
-- světlá chladnější místnost
+Aktivní MASTER environment source of truth:
+
+`Pilates Assets/01_Master_Reference/master prostředí.png`
+
+MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
+
+- široký záběr místnosti s větším odstupem kamery
+- bílé závěsy vlevo
 - palma vlevo
-- dřevěná police vpravo
-- bílé závěsy
 - světlá přírodní dřevěná podlaha
-- stejné rozmístění objektů
+- dřevěná police vpravo
+- světlá neutrální stěna
+- denní světlo zleva
+- charakteristické okenní stíny na stěně
+- stejné rozmístění a velikost objektů
 - žádná změna místnosti
 - žádná změna police
 - žádná změna palmy
@@ -124,6 +133,7 @@ MASTER prostředí je jediný zdroj pravdy pro prostředí. Podložka není sou�
 - stále stejná perspektiva
 - stále stejné ohnisko a kompozice
 - žádný zoom
+- žádná svévolná změna vzdálenosti prostředí při jednotlivých cvicích
 - žádná změna perspektivy
 
 ## LIGHT

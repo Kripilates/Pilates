@@ -4,8 +4,8 @@ const APP_VERSION='v59.112-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
-if(versionEl)versionEl.textContent=APP_VERSION;
-document.title='Moovka '+APP_VERSION;
+if(versionEl)versionEl.textContent='';
+document.title='Moovka';
 let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutContext=null;
@@ -1408,10 +1408,10 @@ const referenceExerciseAssets={
     recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Trup ukláněj ke zvednutému kolenu.','Netahej rukama za hlavu a nezvedej ramena.','Stojnou nohu nech lehce pokrčenou.'],mistakes:['Tahání za hlavu.','Otáčení trupu místo čistého úklonu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
   },
   standing_side_bend:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v01.png',
-    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v02.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v02.png',
+    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v02.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v02.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_step_by_step_v01.png',
     subtitle:'Pas • boční linie těla • mobilita',
@@ -2102,12 +2102,15 @@ const day1StepFiles={
   sideleg:['assets/exercises/sideleg_step1.jpg','assets/exercises/sideleg_step2.jpg','assets/exercises/sideleg_step3.jpg'],
   deadbug:['assets/exercises/deadbug_step1.jpg','assets/exercises/deadbug_step2.jpg','assets/exercises/deadbug_step3.jpg']
 };
+const verifiedMuscleImages={
+};
 function detailStepImage(k,n){
   const src = (day1StepFiles[k]||[])[n-1] || v22ImageSrc(k);
   return `<img loading="lazy" class="v20StepPhoto v22StepPhoto" src="${src}" alt="${data.exercises[k]?.name||'cvik'} krok ${n}">`;
 }
 function detailMuscleImage(k){
-  if(day1RealImages[k]) return `<img loading="lazy" class="v20MuscleImg" src="assets/exercises/day1_muscles.jpg" alt="Zapojené svaly">`;
+  const src=verifiedMuscleImages[k];
+  if(src) return `<img loading="lazy" class="v20MuscleImg" src="${src}" alt="Zapojené svaly">`;
   return '';
 }
 
@@ -2679,9 +2682,12 @@ function loadWorkoutResumeState(){
   catch(e){return null}
 }
 function activeWorkoutResumeState(){
-  const state=loadWorkoutResumeState();
-  if(state)clearWorkoutDayProgress(state.dayIndex);
-  return state;
+  return loadWorkoutResumeState();
+}
+function repairWorkoutResumeProgressConflict(state){
+  const saved=normalizeWorkoutResumeState(state);
+  if(saved)clearWorkoutDayProgress(saved.dayIndex);
+  return saved;
 }
 function saveWorkoutResumeState(){
   if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
@@ -2726,7 +2732,7 @@ function showWorkoutResumeChoice(di,opts={}){
   scrollTop();
 }
 function restoreWorkoutState(state){
-  const saved=normalizeWorkoutResumeState(state);
+  const saved=repairWorkoutResumeProgressConflict(state);
   if(!saved)return startTraining(nextDayIndex(),true,{forceRestart:true});
   void unlockAudio();
   clearInterval(timer);
@@ -2828,7 +2834,10 @@ function startTraining(di,auto=true,opts={}){
   if(resume&&auto!==false&&opts.forceRestart!==true){
     return showWorkoutResumeChoice(di);
   }
-  if(opts.forceRestart===true)clearWorkoutResumeState();
+  if(opts.forceRestart===true){
+    clearWorkoutResumeState();
+    clearWorkoutDayProgress(di);
+  }
   void unlockAudio();
   // v54/texty8: sjednocený automatický trénink.
   clearInterval(timer);
@@ -3148,41 +3157,8 @@ function skipAuto(){
 
 
 
-function showTrain(){
-  clearInterval(timer);
-  const items=workoutContext?.items||resolvedDayItems(currentDay,workoutContext?.difficulty);
-  if(!items.length){day(currentDay);return;}
-  const [k,dose]=items[currentExercise],ex=data.exercises[k];
-  const progress=Math.round((((workoutCurrentSet-1)*items.length + currentExercise)/(workoutTotalSets*items.length))*100);
-  const imgClass='bigimg';
-  renderTrainingScreen(`<section class="card fullTrain v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}">
-    <div class="trainTop2"><button data-action="day" data-day="${currentDay}">← Den</button><span class="dose">Den ${currentDay+1} • Série ${workoutCurrentSet} ze ${workoutTotalSets}</span></div>
-    <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
-    <h2 class="trainName">${ex.name}</h2>
-    <div class="trainDose">${prettyDose(dose||ex.dose)}</div>
-    <div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>
-    <button class="primary doneBtn" data-action="set-complete-manual">✓ Dokončeno</button>
-    <div class="row trainControls"><button data-action="prev">← Zpět</button>${isTimedDose(dose)?`<button data-action="rest">Pauza ${restSeconds(k,dose)} s</button>`:''}<button data-action="info" data-ex="${k}">Detail cviku</button></div>
-  </section>`);
-  scrollTop();
-}
-function restScreen(){
-  const [k,dose]=currentWorkoutEntry();
-  let left=restSeconds(k,dose);
-  app.innerHTML=`<section class="card restScreen">
-    <button data-action="train-current">← Cvik</button>
-    <h2>Pauza</h2>
-    <div class="restNumber" id="timer">${left}</div>
-    <p class="muted">Další cvik se otevře automaticky.</p>
-    <button class="primary bigbtn" data-action="done-next-nomark">Další cvik hned</button>
-  </section>`;
-  scrollTop();
-  timer=setInterval(()=>{left--;const el=document.getElementById('timer');if(el)el.textContent=left;if(left<=0){clearInterval(timer);doneNext(false)}},1000);
-}
 function doneNext(mark=true){
   setWorkoutHeaderPosition(false);
-  const max=data.days[currentDay].items.length-1;
-  if(currentExercise<max){currentExercise++;showTrain();return;}
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
   const dayTitle=data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
   const completedCount=completedItems.length;
@@ -3279,7 +3255,7 @@ function info(k,opts={}){
 
           <aside class="v20Aside">
             ${hasReference ? '' : `<section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>`}
-            ${hasReference?'':`<section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg||`<div class="bodyMap v19BodyMap"><div class="bodySilhouetteV2 ${muscleClass}"><span class="head"></span><span class="torso"></span><span class="arms"></span><span class="leftLeg"></span><span class="rightLeg"></span><span class="highlight h1"></span><span class="highlight h2"></span></div></div>`}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>`}
+            ${hasReference?'':muscleImg?`<section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>`:''}
             ${hasReference ? '' : `<section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>`}
             ${hasReference ? referenceRecommendations(k,meta,ex) : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
             <section class="v20Card v20Watch"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
@@ -3622,18 +3598,14 @@ app.addEventListener('click',e=>{
   if(a==='resume-workout')return restoreWorkoutState(resumeForDay(Number(t.dataset.day)));
   if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
   if(a==='complete-rest-day'){setRestDone(Number(t.dataset.day));return home();}
-  if(a==='set-complete-manual'){const max=data.days[currentDay].items.length-1; if(currentExercise<max){currentExercise++;return showTrain();} if(workoutCurrentSet<workoutTotalSets){workoutCurrentSet++;currentExercise=0;return showTrain();} workoutCurrentSet=1; return doneNext(false);}
   if(a==='set-complete-auto')return advanceAutoPhase();
-  if(a==='done-next')return doneNext(true);
-  if(a==='done-next-nomark')return doneNext(false);
   if(a==='toggle-auto'){workoutPaused=!workoutPaused;return showAutoTrain();}
   if(a==='skip-auto')return skipAuto();
   if(a==='stop-auto')return showWorkoutExitDialog();
   if(a==='continue-workout')return continueWorkoutFromDialog();
   if(a==='confirm-stop-auto')return exitWorkoutToDay();
   if(a==='reset-day'){resetDayProgress(Number(t.dataset.day));return day(Number(t.dataset.day));}
-  if(a==='prev'){if(currentExercise>0)currentExercise--;return showTrain();}
-  if(a==='rest')return restScreen();
+  if(a==='prev'){if(currentExercise>0)currentExercise--;return openCurrentTraining();}
   if(a==='train-current')return openCurrentTraining();
 });
 app.addEventListener('change',e=>{if(e.target&&e.target.id==='backup-file')importProgressFile(e.target.files[0]);});

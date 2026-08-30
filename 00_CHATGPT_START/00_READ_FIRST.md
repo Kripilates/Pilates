@@ -31,6 +31,10 @@ Při tvorbě obrázků nikdy nevycházej pouze z textu. Vždy pracuj s aktuáln�
 
 MASTER prostředí je jediná schválená referenční fotografie místnosti. Obsahuje místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost. Je uzamčeno a nesmí se měnit kamera, perspektiva, ohnisko, světlo, rozmístění objektů ani velikost objektů.
 
+Aktivní MASTER environment source of truth je `Pilates Assets/01_Master_Reference/master prostředí.png`.
+
+MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
+
 Podložka není součást MASTER prostředí. Podložka je rekvizita stejně jako činky, odporová guma, míč nebo další cvičební pomůcky. Přidává se až při generování konkrétního cviku.
 
 MASTER model určuje postavu, oblečení, vlasy a identitu. Mění se pouze poloha těla.

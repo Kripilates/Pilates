@@ -12,7 +12,6 @@
 .trainHint{font-size:13px;color:var(--muted);text-align:center;margin-top:8px}
 .doneBtn{width:100%;font-size:23px;padding:17px;margin-top:12px}
 .detailMini{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:12px;margin:12px 0}
-.restScreen{text-align:center;padding:18px}
 .restNumber{font-size:76px;line-height:1;font-weight:900;color:var(--p);margin:18px 0}
 .finishCard{text-align:center}
 .finishEmoji{font-size:54px;margin:10px 0}
