@@ -44,7 +44,7 @@ const PROGRAM_WEEK_HINTS=[
 let detailReturnDay=null, detailReturnExercise=null, detailReturnScroll=0;
 let onboardingSession=null;
 if(!data||!data.days||!data.exercises){
-  app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nenalezl se window.PB40_DATA v data.js.</p></section>';return;
+  app.innerHTML='<section class="card"><h2>Chyba načtení dat</h2><p class="muted">Nepodařilo se načíst data aplikace.</p></section>';return;
 }
 const $=id=>document.getElementById(id);
 function scrollTop(){
@@ -75,7 +75,7 @@ function showRootExitDialog(){
   app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay rootExitOverlay" role="dialog" aria-modal="true" aria-labelledby="rootExitTitle">
     <div class="workoutExitDialog">
       <h2 id="rootExitTitle">Ukončit aplikaci?</h2>
-      <p>Opravdu chceš opustit Moovka?</p>
+      <p>Opravdu chceš opustit Moovku?</p>
       <button class="primary" data-action="stay-in-app">Zůstat</button>
       <button class="workoutExitConfirm" data-action="confirm-exit-app">Ukončit</button>
     </div>
@@ -2242,7 +2242,7 @@ function exCard(k,dose,d,i){
 const introKey='pb40-intro-seen-v11';
 
 function exportProgress(){
-  const payload={version:'PB40-v60-difficulty1',exportedAt:new Date().toISOString(),items:{}};
+  const payload={version:'Moovka-v60-difficulty1',exportedAt:new Date().toISOString(),items:{}};
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(k&&(k.startsWith('pb40-')||k===ONBOARDING_COMPLETED_KEY)) payload.items[k]=localStorage.getItem(k);
@@ -2250,7 +2250,7 @@ function exportProgress(){
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download='pilates-body-40-zaloha-pokroku.json';
+  a.download='moovka-zaloha-pokroku.json';
   a.click();
   setTimeout(()=>URL.revokeObjectURL(a.href),500);
 }
@@ -2330,7 +2330,7 @@ function importProgressFile(file){
   reader.readAsText(file);
 }
 function backupPanel(){
-  return `<section class="card"><h2>Záloha pokroku</h2><p class="muted">Netlify nahrání ti pokrok obvykle nesmaže, pokud zůstane stejná adresa. Jistější je ale občas stáhnout zálohu.</p><div class="moreGrid"><button data-action="export-progress">⬇ Stáhnout zálohu</button><label class="fileImport">⬆ Načíst zálohu<input id="backup-file" type="file" accept="application/json"></label></div></section>`;
+  return `<section class="card"><h2>Záloha pokroku</h2><p class="muted">Záloha ti umožní přenést nebo obnovit svůj pokrok na tomto zařízení.</p><div class="moreGrid"><button data-action="export-progress">⬇ Stáhnout zálohu</button><label class="fileImport">⬆ Načíst zálohu<input id="backup-file" type="file" accept="application/json"></label></div></section>`;
 }
 
 function markIntroSeen(){localStorage.setItem(introKey,'1');}
@@ -2339,7 +2339,7 @@ function intro(){
   lastMode='intro';setNav('library');
   app.innerHTML=`<section class="introHero">
     <div class="introBadge">30 dní</div>
-    <h2>Vítej v Moovka</h2>
+    <h2>Vítej v Moovce</h2>
     <p>Jemný, ale poctivý plán pro zpevnění břicha, hýždí, stehen a lepší držení těla. Cvičíš doma, většinou 20–30 minut denně.</p>
     <button class="primary cta" data-action="intro-start">Začít program</button>
     <button data-action="home">Přeskočit na domů</button>
@@ -2424,7 +2424,6 @@ function home(){
     </section>
     <aside class="v22SidePanels">
       <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${tipText}</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
-      <section class="v22InfoCard v22Areas"><h3>Zaměřené oblasti</h3><img src="assets/exercises/day1_muscles.jpg" alt="Zaměřené oblasti"><div><span><i></i>Hlavní svaly</span><span><i class="secondary"></i>Vedlejší svaly</span></div></section>
     </aside>
     ${isRestDay?'':`<section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${resolvedDayItems(n).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>`}
   </div>`;
