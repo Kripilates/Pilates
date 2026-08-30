@@ -2385,7 +2385,7 @@ function programInfo(){
       <div class="trainingPrinciple"><span>${lineIcon('quality')}</span><div><h3>Kvalita před rychlostí</h3><p>Cvič pomalu a kontrolovaně.</p></div></div>
       <div class="trainingPrinciple"><span>${lineIcon('breathe')}</span><div><h3>Dýchej</h3><p>Nezadržuj dech.</p></div></div>
       <div class="trainingPrinciple"><span>${lineIcon('listen')}</span><div><h3>Poslouchej tělo</h3><p>Ostrá nebo kloubní bolest není v pořádku.</p></div></div>
-      <div class="trainingPrinciple"><span>${lineIcon('adjust')}</span><div><h3>Přizpůsob si cvik</h3><p>Zmenši rozsah nebo zvol lehčí variantu.</p></div></div>
+      <div class="trainingPrinciple"><span>${lineIcon('adjust')}</span><div><h3>Přizpůsob si cvik</h3><p>Zmenši rozsah pohybu nebo si dej krátkou pauzu.</p></div></div>
     </div>
     <aside class="trainingSafety">${lineIcon('shield')}<div><strong>Cvič bezpečně</strong><p>Při ostré nebo neobvyklé bolesti cvik přeruš. Při zdravotních potížích se poraď s lékařem nebo fyzioterapeutem.</p></div></aside>
   </section>
@@ -3307,12 +3307,12 @@ function lineIcon(name){
     info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/>',
     backup:'<path d="M12 3v11m0 0 4-4m-4 4-4-4"/><path d="M5 19h14"/>',
     moon:'<path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5z"/>',
-    core:'<path d="M8 4c1.5 2 1.6 4.2.5 6.2C7.4 12.4 8 17 12 20c4-3 4.6-7.6 3.5-9.8C14.4 8.2 14.5 6 16 4"/><path d="M9 12h6"/>',
-    glutes:'<path d="M7 5c-1 3-2 5-2 8 0 4 2.8 7 7 7s7-3 7-7c0-3-1-5-2-8"/><path d="M12 6v14"/>',
-    legs:'<path d="M8 3c0 5 1 8 3 11l-2 7m7-18c0 5-1 8-3 11l2 7"/>',
-    upper:'<path d="M5 10c2-4 4-5 7-5s5 1 7 5"/><path d="M4 13h16M8 13v7m8-7v7"/>',
-    back:'<path d="M9 4 6 9v9l6 3 6-3V9l-3-5"/><path d="M12 5v15"/>',
-    mobility:'<path d="M5 12h14M8 8l-4 4 4 4m8-8 4 4-4 4"/>',
+    core:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 3v3m0 12v3M3 12h3m12 0h3"/>',
+    glutes:'<path d="M5 15c2.1-4 4.4-6 7-6s4.9 2 7 6"/><path d="M7 18c1.4-2.2 3-3.3 5-3.3s3.6 1.1 5 3.3"/>',
+    legs:'<path d="M8 4v7l-2 5m10-12v7l2 5"/><path d="M5 20h5m4 0h5"/>',
+    upper:'<path d="M5 13h14"/><path d="M8 10v6m8-6v6"/><path d="M9 7c1.9-1.3 4.1-1.3 6 0"/>',
+    back:'<path d="M12 4v16"/><path d="M8 7c1.2-1 2.5-1.5 4-1.5S14.8 6 16 7"/><path d="M7 13c1.5 1 3.2 1.5 5 1.5s3.5-.5 5-1.5"/>',
+    mobility:'<path d="M7 8a7 7 0 0 1 10 0l1 1"/><path d="M18 5v4h-4"/><path d="M17 16a7 7 0 0 1-10 0l-1-1"/><path d="M6 19v-4h4"/>',
     heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>',
     all:'<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>',
     quality:'<path d="m5 13 4 4L19 7"/><path d="M4 4h16v16H4z"/>',
