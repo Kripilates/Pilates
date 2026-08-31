@@ -26,4 +26,4 @@ START → HERO → START
 - [x] Rozměry, RGB a vizuální layout ověřeny
 
 ## App
-- Nový balíček nebyl propojen do aplikace; data a PWA/cache zůstaly beze změny.
+- Nasazeno pod kanonickým ID `hip_march`; aktivní START/HERO/END a Guide/Step metadata používají tento schválený balíček.

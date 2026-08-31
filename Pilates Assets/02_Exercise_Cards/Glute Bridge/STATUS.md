@@ -26,4 +26,4 @@ START → HERO → START
 - [x] Oficiální referenční layout zachován
 
 ## App
-- Aplikace, data a PWA/cache nebyly v tomto assetovém úkolu změněny.
+- Nasazeno pod kanonickým ID `hip`; aktivní START/HERO/END a Guide/Step metadata používají tento schválený balíček.

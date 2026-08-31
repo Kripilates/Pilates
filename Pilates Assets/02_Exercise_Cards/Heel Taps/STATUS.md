@@ -25,4 +25,4 @@ START → HERO → START
 - [x] Rozměry, RGB a vizuální layout ověřeny
 
 ## App
-- Nový v03 balíček nebyl propojen do aplikace; data a PWA/cache zůstaly beze změny.
+- Nasazeno pod kanonickým ID `heeltaps`; aktivní START/HERO/END a Guide/Step metadata používají schválený v03 balíček.

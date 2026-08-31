@@ -28,4 +28,4 @@ START → MID → HERO → MID → START
 - [x] Rozměry, RGB, sekvence a vizuální layout ověřeny
 
 ## App
-- Nový balíček nebyl propojen do aplikace; data a PWA/cache zůstaly beze změny.
+- Nasazeno pod kanonickým ID `glute_bridge_march`; aplikace používá reuse START/MID, schválený HERO a nové Guide/Step metadata.

@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.112-dev';
+const APP_VERSION='v59.113-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -751,8 +751,11 @@ const masterCards={
 };
 const referenceExerciseAssets={
   hip:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v1.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v1.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_guide_card_v3.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_step_by_step_v2.png',
     guide:{
       breath:['Výdech při zvedání.','Nádech při návratu.'],
       focus:['Aktivuj hýždě a střed těla.','Neprohýbej bedra.'],
@@ -924,8 +927,11 @@ const referenceExerciseAssets={
     }
   },
   deadbug:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01_approved.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_step_by_step_v01.png',
     miniSteps:[
       {n:1,title:'START',caption:'Připrav střed',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
@@ -938,8 +944,11 @@ const referenceExerciseAssets={
     ]
   },
   toetap:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_hero.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start_v01_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_hero_v01_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start_v01_approved.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_guide_card_v1.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_step_by_step_v1.png',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy v 90/90',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Špička k podložce',photo:'hero'},
@@ -1141,10 +1150,11 @@ const referenceExerciseAssets={
     }
   },
   hip_march:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_guide_card_v02.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_step_by_step_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v03_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v03_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v03_approved.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_step_by_step_v01.png',
     subtitle:'Střed těla • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Výchozí',photo:'start'},
@@ -1165,9 +1175,10 @@ const referenceExerciseAssets={
     }
   },
   glute_bridge_march:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_start_v02.png',
-    mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_mid_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero_v01_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_guide_card_v02.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_step_by_step_v02.png',
     subtitle:'Hýždě • zadní stehna • stabilita pánve',
@@ -1366,9 +1377,9 @@ const referenceExerciseAssets={
     }
   },
   heeltaps:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v03_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v03_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v03_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_step_by_step_v01.png',
     subtitle:'Břicho • pas • střídavý dosah',
@@ -2383,7 +2394,7 @@ function programInfo(){
   </section>
   <section class="aboutProgramSection"><h2>Co tě čeká</h2>
     <div class="aboutFocusList">
-      <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v1.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png" alt="Russian Twist"><div><span class="aboutFocusAccent">${lineIcon('core')}</span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero_v01.png" alt="Mermaid"><div><span class="aboutFocusAccent">${lineIcon('mobility')}</span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
     </div>
