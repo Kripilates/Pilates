@@ -22,7 +22,7 @@ START → HERO → START
 - modelka a prostredi podle MODEL_MASTER
 - nove assety vznikaji pouze v Pilates Assets
 - assets/exercises se zatim nemeni
-- aktualni SOURCE: `glute_bridge_start_v02.png` + `glute_bridge_hero_v02.png`
+- aktuální schválený SOURCE: `glute_bridge_start_v02_approved.png` + `glute_bridge_hero_v02_approved.png`
 - END = START v02
 - Guide Card created: glute_bridge_guide_card_v1.png
 - Guide Card approval pending

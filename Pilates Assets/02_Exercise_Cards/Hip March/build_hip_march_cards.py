@@ -6,8 +6,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "hip_march_start_v03.png"
-HERO = BASE / "hip_march_hero_v03.png"
+START = BASE / "hip_march_start_v03_approved.png"
+HERO = BASE / "hip_march_hero_v03_approved.png"
 GUIDE = BASE / "hip_march_guide_card_v01.png"
 STEP = BASE / "hip_march_step_by_step_v01.png"
 EXPECTED_HASHES = {

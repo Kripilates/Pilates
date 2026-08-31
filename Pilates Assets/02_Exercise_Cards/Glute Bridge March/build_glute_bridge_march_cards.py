@@ -4,17 +4,18 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / "Pilates Assets" / "02_Exercise_Cards" / "Glute Bridge March"
+GLUTE_BRIDGE = ROOT / "Pilates Assets" / "02_Exercise_Cards" / "Glute Bridge"
 
-START = FOLDER / "glute_bridge_march_start_v02.png"
-MID = FOLDER / "glute_bridge_march_mid_v02.png"
-HERO = FOLDER / "glute_bridge_march_hero_v02.png"
+START = GLUTE_BRIDGE / "glute_bridge_start_v02_approved.png"
+MID = GLUTE_BRIDGE / "glute_bridge_hero_v02_approved.png"
+HERO = FOLDER / "glute_bridge_march_hero_v01_approved.png"
 GUIDE = FOLDER / "glute_bridge_march_guide_card_v02.png"
 STEP = FOLDER / "glute_bridge_march_step_by_step_v02.png"
 
 EXPECTED = {
-    START: "8e2d78da05c3977bb71b459c2a91c4cfc980836f2e5e1b189863e7032fb896e2",
-    MID: "06c457d35bcdc8dbb4aa5686e72b2c281d83f35f62ba6757da8c995d2c8d8b3b",
-    HERO: "41173419f08c3d13812bd671f00e8cefedae6fd4dfb5a8b08f2b878bac12cb1d",
+    START: "80c3b79399010b7aeee54e64304ee21b617bfca47e367fac67bf3419a408a25e",
+    MID: "961e86918b529a1eb94dab1fb551391970c88d8b7f076fae5030b5ae369d6ebd",
+    HERO: "6014cf5e3d068a2aab72d8d5ec39020ad61c903a00b1ec61592419b117890d52",
 }
 
 BG = (244, 251, 250)

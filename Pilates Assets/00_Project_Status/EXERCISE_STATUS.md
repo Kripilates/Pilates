@@ -10,17 +10,17 @@ Generated: 2026-07-20T06:30:19.359Z
 | Bridge Abduction | `Pilates Assets/02_Exercise_Cards/Bridge Abduction` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Cat-Cow | `Pilates Assets/02_Exercise_Cards/Cat-Cow` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images |
 | Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | `clamshell_start_v01.png` | `clamshell_hero_v01.png` | `clamshell_guide_card_v01.png` | `clamshell_step_by_step_v01.png` | ANO | COMPLETE |  |
-| Dead Bug | `Pilates Assets/02_Exercise_Cards/Dead Bug` | `dead_bug_start_v01.png` | `dead_bug_hero_v01.png` | `dead_bug_guide_card_v01.png` | `dead_bug_step_by_step_v01.png` | ANO | COMPLETE |  |
+| Dead Bug | `Pilates Assets/02_Exercise_Cards/Dead Bug` | `dead_bug_start_v01_approved.png` | `dead_bug_hero_v01_approved.png` | `dead_bug_guide_card_v01.png` | `dead_bug_step_by_step_v01.png` | ANO | COMPLETE | END = START; approved hashes verified; Guide/Step rebuilt; App unchanged |
 | Donkey Kick | `Pilates Assets/02_Exercise_Cards/Donkey Kick` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Figure Four Stretch | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Fire Hydrant | `Pilates Assets/02_Exercise_Cards/Fire Hydrant` | `fire_hydrant_start_v01.png` | `fire_hydrant_hero_v01.png` | `fire_hydrant_guide_card_v01.png` | `fire_hydrant_step_by_step_v01.png` | ANO | COMPLETE |  |
 | Forearm Plank | `Pilates Assets/02_Exercise_Cards/Forearm Plank` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Frog Pumps | `Pilates Assets/02_Exercise_Cards/Frog Pumps` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Glute Bridge | `Pilates Assets/02_Exercise_Cards/Glute Bridge` | `glute_bridge_start_v02.png` | `glute_bridge_hero_v02.png` | `glute_bridge_guide_card_v3.png` | `glute_bridge_step_by_step_v2.png` | ANO | COMPLETE | Official reference exercise; END = START v02 reuse; Guide/Step rebuilt from v02 approved SOURCE |
-| Glute Bridge March | `Pilates Assets/02_Exercise_Cards/Glute Bridge March` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Glute Bridge | `Pilates Assets/02_Exercise_Cards/Glute Bridge` | `glute_bridge_start_v02_approved.png` | `glute_bridge_hero_v02_approved.png` | `glute_bridge_guide_card_v3.png` | `glute_bridge_step_by_step_v2.png` | ANO | COMPLETE | Official template; END = START; exact approved reuse hashes verified; App unchanged |
+| Glute Bridge March | `Pilates Assets/02_Exercise_Cards/Glute Bridge March` | reuse `../Glute Bridge/glute_bridge_start_v02_approved.png` | `glute_bridge_march_hero_v01_approved.png` | `glute_bridge_march_guide_card_v02.png` | `glute_bridge_march_step_by_step_v02.png` | ANO | COMPLETE | MID reuses Glute Bridge HERO; START → MID → HERO → MID → START; App unchanged |
 | Hamstring Stretch | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Heel Taps | `Pilates Assets/02_Exercise_Cards/Heel Taps` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Hip March | `Pilates Assets/02_Exercise_Cards/Hip March` | `hip_march_start_v03.png` | `hip_march_hero_v03.png` | `hip_march_guide_card_v01.png` | `hip_march_step_by_step_v01.png` | ANO | COMPLETE | END = START v03 reuse; v03 source ručně schválené; App beze změny v tomto úkolu |
+| Heel Taps | `Pilates Assets/02_Exercise_Cards/Heel Taps` | `heel_taps_start_v03_approved.png` | `heel_taps_hero_v03_approved.png` | `heel_taps_guide_card_v01.png` | `heel_taps_step_by_step_v01.png` | ANO | COMPLETE | END = START; v03 approved hashes verified; Guide/Step rebuilt; App unchanged |
+| Hip March | `Pilates Assets/02_Exercise_Cards/Hip March` | `hip_march_start_v03_approved.png` | `hip_march_hero_v03_approved.png` | `hip_march_guide_card_v01.png` | `hip_march_step_by_step_v01.png` | ANO | COMPLETE | END = START; START reuses Glute Bridge START; exact hashes verified; App unchanged |
 | Hollow Hold | `Pilates Assets/02_Exercise_Cards/Hollow Hold` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Opener | `Pilates Assets/02_Exercise_Cards/Chest Opener` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Press | `Pilates Assets/02_Exercise_Cards/Chest Press` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
@@ -51,7 +51,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Swimming | `Pilates Assets/02_Exercise_Cards/Swimming` | `swimming_start_v01.png` | `swimming_hero_v01.png` | `swimming_guide_card_v01.png` | `swimming_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; alternating phase uses same HERO without mirrored or duplicate source |
 | The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | `hundred_start_v01.png` | `hundred_hero_v01.png` | `the_hundred_guide_card_v01.png` | `the_hundred_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; HERO represents working position for small arm pulses |
 | Thread the Needle | `Pilates Assets/02_Exercise_Cards/Thread the Needle` | `thread_the_needle_start_v02.png` | `thread_the_needle_hero_v02.png` | `thread_the_needle_guide_card_v01.png` | `thread_the_needle_step_by_step_v01.png` | NE | COMPLETE | END = START v02 reuse; App uses canonical ID `thread` |
-| Toe Tap | `Pilates Assets/02_Exercise_Cards/Toe Tap` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images; other PNG: toe_tap_guide_card_v1.png, toe_tap_hero.png, toe_tap_start.png, toe_tap_step_by_step_v1.png |
+| Toe Tap | `Pilates Assets/02_Exercise_Cards/Toe Tap` | `toe_tap_start_v01_approved.png` | `toe_tap_hero_v01_approved.png` | `toe_tap_guide_card_v1.png` | `toe_tap_step_by_step_v1.png` | ANO | COMPLETE | END = START; approved hashes verified; Guide/Step rebuilt; App unchanged |
 | Triceps Kickback | `Pilates Assets/02_Exercise_Cards/Triceps Kickback` | `triceps_kickback_start_v01.png` | `triceps_kickback_hero_v01.png` | `triceps_kickback_guide_card_v01.png` | `triceps_kickback_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; Step uses same HERO for movement control |
 | Wall Sit | `Pilates Assets/02_Exercise_Cards/Wall Sit` | NE | NE | NE | NE | NE | REMOVED | ODSTRANĚNO z aktivního programu; nezapočítávat mezi aktivní cviky ani čekající assety |
 

@@ -1,13 +1,13 @@
 # Exercise Image Index
 
-- Date: 2026-07-17 11:18
+- Date: 2026-08-31
 - Preview links are relative to this file in `Pilates Assets/03_Exports/`.
 - Preview priority: HERO, then START, then app image fallback.
 
 ## Glute Bridge (`hip`)
-![Glute Bridge](../02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v1.png)
+![Glute Bridge](../02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png)
 
-`Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero_v1.png`
+`Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero_v02_approved.png`
 
 ## Rumunský mrtvý tah (`rdl`)
 ![Rumunský mrtvý tah](../../assets/exercises/rdl.jpg)
@@ -30,14 +30,14 @@
 `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero_v01.png`
 
 ## Dead Bug (`deadbug`)
-![Dead Bug](../02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01.png)
+![Dead Bug](../02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01_approved.png)
 
-`Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero_v01.png`
+`Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero_v01_approved.png`
 
 ## Toe Taps (`toetap`)
-![Toe Taps](../02_Exercise_Cards/Toe%20Tap/toe_tap_hero.png)
+![Toe Taps](../02_Exercise_Cards/Toe%20Tap/toe_tap_hero_v01_approved.png)
 
-`Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_hero.png`
+`Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_hero_v01_approved.png`
 
 ## Reverse Crunch (`revcrunch`)
 ![Reverse Crunch](../02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero_v01.png)
@@ -144,10 +144,15 @@
 
 `assets/exercises/wall.jpg`
 
-## Glute Bridge March (`hip_march`)
-![Glute Bridge March](../02_Exercise_Cards/Hip%20March/hip_march_hero_v01.png)
+## Hip March (`hip_march`)
+![Hip March](../02_Exercise_Cards/Hip%20March/hip_march_hero_v03_approved.png)
 
-`Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero_v01.png`
+`Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero_v03_approved.png`
+
+## Glute Bridge March (`glute_bridge_march`)
+![Glute Bridge March](../02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero_v01_approved.png)
+
+`Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero_v01_approved.png`
 
 ## Rumunský mrtvý tah – pomalu (`rdl_slow`)
 ![Rumunský mrtvý tah – pomalu](../../assets/exercises/rdl_slow.jpg)
@@ -220,9 +225,9 @@
 `assets/exercises/revcrunch.jpg`
 
 ## Heel Taps (`heeltaps`)
-![Heel Taps](../../assets/exercises/toetap.jpg)
+![Heel Taps](../02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v03_approved.png)
 
-`assets/exercises/toetap.jpg`
+`Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero_v03_approved.png`
 
 ## Scissors (`scissors`)
 ![Scissors](../../assets/exercises/toetap_slow.jpg)

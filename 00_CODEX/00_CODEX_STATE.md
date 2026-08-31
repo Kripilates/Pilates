@@ -19,6 +19,11 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Dne 2026-08-31 byl dokončen nový assetový balíček pro Glute Bridge, Hip March, Dead Bug, Toe Tap, Glute Bridge March a Heel Taps. Všechny Guide Card exporty mají 780 × 1688 RGB a všechny Step by Step exporty 780 × 2280 RGB; proběhla kontrola rozměrů, SHA-256, source-hash invariance a vizuální QA.
+- SOURCE nebyl retušován ani generován. Dead Bug START byl pouze přejmenován na `dead_bug_start_v01_approved.png` se zachováním hashe `122b0849…`; Glute Bridge March HERO byl pouze přesunut z Toe Tap do správné složky se zachováním hashe `6014cf5e…`.
+- Reuse mapování: Glute Bridge START = Hip March START = Glute Bridge March START (`80c3b793…`); Glute Bridge HERO = Glute Bridge March MID (`961e8691…`); Hip March HERO = `7ed56193…`. Glute Bridge March používá sekvenci START → MID → HERO → MID → START.
+- Nové assetové balíčky zatím nebyly propojeny do aplikace. `app.js`, `data.js`, PWA a cache zůstaly beze změny. Commit ani push nebyl proveden.
+
 - MASTER prostředí projektu Moovka bylo 2026-08-30 aktualizováno na široký záběr místnosti uložený jako `Pilates Assets/01_Master_Reference/master prostředí.png`. Tento soubor je jediný source of truth pro room / camera / perspective / light / floor / object placement / colors. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 
 - Asset QA várka Dead Bug, Toe Tap, Glute Bridge a Hollow Hold: Dead Bug, Toe Tap a Hollow Hold už používaly aktuální schválené START/HERO ve stávajících Guide/Step exportech. Glute Bridge byl aktualizován na START/HERO v02; `glute_bridge_guide_card_v3.png` (780 × 1688) a `glute_bridge_step_by_step_v2.png` (780 × 2280) byly přegenerované bez změny aplikace.

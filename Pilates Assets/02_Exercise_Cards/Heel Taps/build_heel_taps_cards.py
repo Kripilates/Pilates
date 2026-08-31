@@ -6,13 +6,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "heel_taps_start_v02.png"
-HERO = BASE / "heel_taps_hero_v02.png"
+START = BASE / "heel_taps_start_v03_approved.png"
+HERO = BASE / "heel_taps_hero_v03_approved.png"
 GUIDE = BASE / "heel_taps_guide_card_v01.png"
 STEP = BASE / "heel_taps_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "92500921f8e76aff9af593c63e5580cf2d3f33d4d6ec629d0088a62dabe016ca",
-    HERO: "583f94cece17164aa981941cc5629c242f2b43dc4752742cf0d95c8b1364caf3",
+    START: "64a9d9eaf006a5e7d46625958c2e9bc39795d8bca098cf6c327dd6b25c504e48",
+    HERO: "9ead182ba5989fbeb3c088750cb3d4638f774e82db12b056b9eed7cf13b2b6e3",
 }
 BG = (244, 251, 250)
 CARD = (255, 255, 255)
@@ -62,6 +62,22 @@ STEP_BREATH = "Vydechuj při úklonu k patě. Nadechuj se při návratu přes st
 STEP_WATCH = (
     "Nezvedej ramena příliš vysoko, netahej hlavu dopředu a nešvihej trupem. Pánev a chodidla drž klidné."
 )
+
+TITLE = "DOTYKY PAT"
+SUBTITLE = "Střídavé úklony k patám"
+DESCRIPTION = "Posiluje pas a šikmé břišní svaly při stabilní pánvi."
+PILLS = ("Břicho a pas", "Bez pomůcky")
+GUIDE_MINI = [
+    ("START", "Lopatky zvednuté", START),
+    ("ÚKLON", "Ruka k pravé patě", HERO),
+    ("NÁVRAT", "Přes střed", START),
+]
+GUIDE_INFO = [
+    ("breath", "DECH", "Výdech při úklonu. Nádech při návratu."),
+    ("focus", "ZAMĚŘ SE", "Pánev drž stabilní. Pohyb je malý a kontrolovaný."),
+    ("repeat", "OPAKOVÁNÍ", "Střídej strany. Počet je celkem za obě."),
+]
+STEP_SUBTITLE = "DOTYKY PAT / Střídavé úklony k patám"
 
 def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -192,26 +208,21 @@ def build_guide():
     margins = {}
 
     rounded(draw, (34, 34, 746, 140))
-    draw.text((62, 49), "DOTYKY PAT", font=F["title"], fill=INK)
-    draw.text((62, 94), "Střídavé úklony k patám", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 49), TITLE, font=F["title"], fill=INK)
+    draw.text((62, 94), SUBTITLE, font=F["small_b"], fill=TEAL_D)
     _, desc_bottom = draw_wrapped(
-        draw, (62, 115), "Posiluje pas a šikmé břišní svaly při stabilní pánvi.",
+        draw, (62, 115), DESCRIPTION,
         F["tiny"], MUTED, 650, 2
     )
     margins["GUIDE DESCRIPTION"] = 140 - desc_bottom
-    x = pill(draw, (62, 148), "Břicho a pas", F["small_b"])
-    pill(draw, (x, 148), "Bez pomůcky", F["small_b"])
+    x = pill(draw, (62, 148), PILLS[0], F["small_b"])
+    pill(draw, (x, 148), PILLS[1], F["small_b"])
     rounded(draw, (34, 196, 746, 653))
     paste_round(image, fit_image(HERO, (680, 393)), (50, 218, 730, 611))
 
     mini_y, mini_w, mini_h, gap = 675, 218, 146, 22
     xs = [34, 274, 514]
-    labels = [
-        ("START", "Lopatky zvednuté", START),
-        ("ÚKLON", "Ruka k pravé patě", HERO),
-        ("NÁVRAT", "Přes střed", START),
-    ]
-    for index, (x0, (label, caption, source)) in enumerate(zip(xs, labels), 1):
+    for index, (x0, (label, caption, source)) in enumerate(zip(xs, GUIDE_MINI), 1):
         card_bottom = mini_y + mini_h + 74
         rounded(draw, (x0, mini_y, x0 + mini_w, card_bottom), 22)
         paste_round(image, fit_image(source, (mini_w - 22, mini_h)),
@@ -224,12 +235,7 @@ def build_guide():
         margins[f"GUIDE MINI {index}"] = card_bottom - caption_bottom
 
     info_y, box_w, box_h = 915, 218, 164
-    info = [
-        ("breath", "DECH", "Výdech při úklonu. Nádech při návratu."),
-        ("focus", "ZAMĚŘ SE", "Pánev drž stabilní. Pohyb je malý a kontrolovaný."),
-        ("repeat", "OPAKOVÁNÍ", "Střídej strany. Počet je celkem za obě."),
-    ]
-    for index, (x0, (kind, heading, body)) in enumerate(zip(xs, info), 1):
+    for index, (x0, (kind, heading, body)) in enumerate(zip(xs, GUIDE_INFO), 1):
         card_bottom = info_y + box_h
         rounded(draw, (x0, info_y, x0 + box_w, card_bottom), 22)
         draw_icon(draw, (x0 + 28, info_y + 30), kind)
@@ -263,7 +269,7 @@ def build_step():
     draw = ImageDraw.Draw(image)
     rounded(draw, (34, 34, 746, 126))
     draw.text((62, 56), "Krok za krokem", font=F["step_title"], fill=INK)
-    draw.text((62, 98), "DOTYKY PAT / Střídavé úklony k patám", font=F["small_b"], fill=TEAL_D)
+    draw.text((62, 98), STEP_SUBTITLE, font=F["small_b"], fill=TEAL_D)
 
     y, margins = 160, {}
     for step_label, heading, body, source in STEP_TEXTS:
