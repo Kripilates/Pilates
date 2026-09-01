@@ -3331,26 +3331,23 @@ main button:not(.primary):not(.active),
   border:0;border-radius:20px;background:var(--card);color:var(--text);text-align:left;box-shadow:0 7px 22px rgba(16,42,67,.055)
 }
 .libraryCategoryTile{
-  --tile-bg:#f3fbfa;--tile-blob:rgba(32,182,178,.13);--tile-blob-soft:rgba(240,83,119,.07);--blob-x:-36px;--blob-y:-36px;
+  --tile-bg:#f3fbfa;--tile-blob:rgba(32,182,178,.065);--blob-rotate:-8deg;
   position:relative;width:100%;min-width:0;min-height:112px;padding:17px 36px 16px 17px;display:flex;align-items:flex-end;overflow:hidden;
   border:0;border-radius:22px;background:var(--tile-bg);color:var(--text);text-align:left;box-shadow:0 8px 24px rgba(16,42,67,.035);isolation:isolate;
   transition:transform .18s ease,box-shadow .18s ease
 }
-.libraryCategoryTile::before,.libraryCategoryTile::after{content:"";position:absolute;z-index:-1;pointer-events:none}
-.libraryCategoryTile::before{width:98px;height:98px;top:var(--blob-y);right:var(--blob-x);left:var(--blob-left,auto);border-radius:50%;background:var(--tile-blob)}
-.libraryCategoryTile::after{width:100px;height:48px;right:var(--soft-right,-26px);bottom:var(--soft-bottom,-22px);left:var(--soft-left,auto);border-radius:58% 42% 64% 36%/62% 55% 45% 38%;background:var(--tile-blob-soft);transform:rotate(var(--soft-rotate,-12deg))}
+.libraryCategoryTile::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:68px;height:58px;top:11px;right:12px;border-radius:58% 42% 63% 37%/48% 56% 44% 52%;background:var(--tile-blob);transform:rotate(var(--blob-rotate))}
+.libraryCategoryTile::after{content:none}
 .libraryCategoryTile:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(16,42,67,.065)}
 .libraryCategoryTile:focus-visible{outline:2px solid var(--p);outline-offset:3px}
 .libraryCategoryText{position:relative;z-index:1;min-width:0;display:grid;gap:6px}
-.libraryCategoryChevron{position:absolute;z-index:1;right:14px;bottom:15px;color:var(--p);font-size:23px;line-height:1;font-weight:600;opacity:.78}
-.libraryCategory-core{--tile-bg:#f0faf9;--tile-blob:rgba(32,182,178,.14);--tile-blob-soft:rgba(240,83,119,.07)}
-.libraryCategory-glutes{--tile-bg:#fff6f8;--tile-blob:rgba(240,83,119,.13);--tile-blob-soft:rgba(32,182,178,.07);--blob-left:-35px;--blob-x:auto;--blob-y:-40px;--soft-right:-34px;--soft-rotate:14deg}
-.libraryCategory-legs{--tile-bg:#f4f9fb;--tile-blob:rgba(82,156,177,.12);--tile-blob-soft:rgba(32,182,178,.07);--blob-y:auto;--soft-bottom:auto;--soft-right:-28px;--soft-rotate:-18deg}
-.libraryCategory-legs::before{top:auto;right:-38px;bottom:-38px}
-.libraryCategory-upper{--tile-bg:#faf7fc;--tile-blob:rgba(139,117,174,.11);--tile-blob-soft:rgba(240,83,119,.065);--blob-left:-42px;--blob-x:auto;--blob-y:auto;--soft-right:-30px;--soft-bottom:-18px;--soft-rotate:8deg}
-.libraryCategory-upper::before{top:auto;bottom:-43px}
-.libraryCategory-back{--tile-bg:#f2faf6;--tile-blob:rgba(91,151,124,.12);--tile-blob-soft:rgba(32,182,178,.065);--blob-y:-42px;--soft-left:-30px;--soft-right:auto;--soft-rotate:-8deg}
-.libraryCategory-mobility{--tile-bg:#fff9f3;--tile-blob:rgba(222,159,112,.12);--tile-blob-soft:rgba(240,83,119,.06);--blob-left:-38px;--blob-x:auto;--blob-y:-42px;--soft-right:-32px;--soft-rotate:16deg}
+.libraryCategoryChevron{position:absolute;z-index:1;right:14px;bottom:15px;color:var(--p);font-size:19px;line-height:1;font-weight:500;opacity:.68}
+.libraryCategory-core{--tile-bg:#f0faf9;--tile-blob:rgba(32,182,178,.065);--blob-rotate:-8deg}
+.libraryCategory-glutes{--tile-bg:#fff6f8;--tile-blob:rgba(240,83,119,.06);--blob-rotate:9deg}
+.libraryCategory-legs{--tile-bg:#f4f9fb;--tile-blob:rgba(82,156,177,.06);--blob-rotate:-5deg}
+.libraryCategory-upper{--tile-bg:#faf7fc;--tile-blob:rgba(139,117,174,.055);--blob-rotate:7deg}
+.libraryCategory-back{--tile-bg:#f2faf6;--tile-blob:rgba(91,151,124,.06);--blob-rotate:-10deg}
+.libraryCategory-mobility{--tile-bg:#fff9f3;--tile-blob:rgba(222,159,112,.06);--blob-rotate:6deg}
 body.dark .libraryCategoryTile{background:var(--tile-bg-dark,#183238);color:var(--text);box-shadow:none}
 body.dark .libraryCategory-core,body.dark .libraryCategory-back{--tile-bg-dark:#173536}
 body.dark .libraryCategory-glutes,body.dark .libraryCategory-mobility{--tile-bg-dark:#362b31}
@@ -3435,7 +3432,7 @@ body.dark .libraryExercisePhoto{background:#fff}
   .libraryCategoryTile{min-height:100px;padding:12px 28px 12px 13px}
   .libraryCategoryTile strong{font-size:15.5px}
   .libraryCategoryTile small{font-size:11.5px}
-  .libraryCategoryChevron{right:10px;bottom:12px;font-size:21px}
+  .libraryCategoryChevron{right:10px;bottom:12px;font-size:18px}
   .libraryUtilityTile>span{width:38px;height:38px}
   .libraryUtilityTile{min-height:92px;grid-template-columns:38px minmax(0,1fr);padding:10px;column-gap:9px}
   .libraryExerciseCard{grid-template-columns:108px minmax(0,1fr) 16px;gap:8px}
