@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.113-dev';
+const APP_VERSION='v59.114-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -765,7 +765,8 @@ const referenceExerciseAssets={
       {title:'START',caption:'Výchozí',text:'Lehni si na záda, pokrč kolena a chodidla polož na šířku boků.',photo:'start'},
       {title:'HLAVNÍ POHYB',caption:'Zvedni',text:'S výdechem zvedni pánev. Aktivuj hýždě a drž střed těla pevný.',photo:'hero'},
       {title:'NÁVRAT',caption:'Pomalu zpět',text:'Pomalu a kontrolovaně polož pánev zpět do výchozí polohy.',photo:'start'}
-    ]
+    ],
+    breath:{exhale:'při zvednutí / zatlačení.'}
   },
   rdl:{
     start:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start_v01.png',
@@ -941,7 +942,8 @@ const referenceExerciseAssets={
       {title:'START',text:'Lehni si na záda. Ruce směřují vzhůru, kyčle a kolena jsou přibližně v 90° a střed těla je aktivní.',photo:'start'},
       {title:'HLAVNÍ POHYB',text:'S výdechem natahuj současně protilehlou ruku a nohu. Bedra zůstávají přitisknutá k podložce.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem vrať ruku i nohu zpět do startu a střídej strany.',photo:'start'}
-    ]
+    ],
+    breath:{exhale:'při záběru břicha.'}
   },
   toetap:{
     start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start_v01_approved.png',
@@ -958,7 +960,8 @@ const referenceExerciseAssets={
       {title:'START',text:'Lehni si na záda. Pánev je stabilní, bedra neutrální a obě nohy jsou v pozici 90/90.',photo:'start'},
       {title:'HLAVNÍ POHYB',text:'S výdechem pomalu pokládej špičku jedné nohy směrem k podložce. Pánev zůstává stabilní.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem vrať nohu zpět do výchozí pozice a střídej strany.',photo:'start'}
-    ]
+    ],
+    breath:{exhale:'při záběru břicha.'}
   },
   revcrunch:{
     start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start_v01.png',
@@ -1184,13 +1187,17 @@ const referenceExerciseAssets={
     subtitle:'Hýždě • zadní stehna • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev na podložce',photo:'start'},
-      {n:2,title:'POCHOD V MOSTU',caption:'Jedna noha v tabletop',photo:'hero'},
-      {n:3,title:'NÁVRAT',caption:'Stabilizuj most',photo:'mid'}
+      {n:2,title:'MOST',caption:'Zvedni pánev',photo:'mid'},
+      {n:3,title:'POCHOD V MOSTU',caption:'Jedna noha v tabletop',photo:'hero'},
+      {n:4,title:'STABILNÍ MOST',caption:'Vrať chodidlo',photo:'mid'},
+      {n:5,title:'NÁVRAT',caption:'Pánev na podložku',photo:'start'}
     ],
     steps:[
       {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech podél těla.',photo:'start'},
-      {title:'MOST A POCHOD',text:'Nejprve zvedni pánev do stabilního mostu. S výdechem zvedni jednu nohu do tabletop a pánev drž vodorovnou.',photo:'hero'},
-      {title:'STABILNÍ NÁVRAT',text:'Vrať chodidlo na podložku a stabilizuj most. Vystřídej nohy, potom polož pánev kontrolovaně dolů.',photo:'mid'}
+      {title:'ZVEDNUTÍ DO MOSTU',text:'Zvedni pánev do stabilního mostu. Chodidla nech pevně na podložce a pánev drž vodorovnou.',photo:'mid'},
+      {title:'POCHOD V MOSTU',text:'S výdechem zvedni jednu nohu do tabletop. Pánev drž stabilní a nenechávej ji klesat.',photo:'hero'},
+      {title:'STABILNÍ NÁVRAT',text:'Vrať chodidlo na podložku a znovu stabilizuj most. Potom vystřídej nohy.',photo:'mid'},
+      {title:'NÁVRAT NA PODLOŽKU',text:'Po dokončení polož pánev pomalu a kontrolovaně zpět na podložku.',photo:'start'}
     ],
     info:{difficulty:'Lehké',focus:'Hýždě / pánev',knees:'Šetrné ke kolenům'},
     breath:{inhale:'Při návratu',exhale:'Při zvednutí',tempo:'Pomalu a stabilně'},
