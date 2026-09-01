@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.114-dev';
+const APP_VERSION='v59.115-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -3360,7 +3360,7 @@ function library(){
 function exerciseLibrary(){
   setAppView('exercise-library');
   lastMode='library';setNav('library');
-  const categoryTiles=exerciseLibraryOrder.map(id=>{const c=exerciseLibraryCategories[id];return `<button class="libraryCategoryTile libraryCategory-${id}" type="button" data-action="library-category" data-category="${id}"><span class="libraryCategoryText"><strong>${c.title}</strong><small>${c.ids.filter(k=>data.exercises[k]).length} cviků</small></span><b class="libraryCategoryChevron" aria-hidden="true">›</b></button>`;}).join('');
+  const categoryTiles=exerciseLibraryOrder.map(id=>{const c=exerciseLibraryCategories[id],titleParts=c.title.split(' + '),titleMain=titleParts.shift(),titleAccent=titleParts.join(' + '),titleMarkup=titleAccent?`<span>${esc(titleMain)}</span> <span class="libraryCategoryTitleAccent">+ ${esc(titleAccent)}</span>`:`<span class="libraryCategoryTitleSingle">${esc(titleMain)}</span>`;return `<button class="libraryCategoryTile libraryCategory-${id}" type="button" data-action="library-category" data-category="${id}"><span class="libraryCategoryText"><strong>${titleMarkup}</strong><small>${c.ids.filter(k=>data.exercises[k]).length} cviků</small></span></button>`;}).join('');
   app.innerHTML=`<section class="exerciseLibrary"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Vyber partii</h2><span>Prohlédni si cviky a správnou techniku.</span></div><div class="libraryCategoryGrid">${categoryTiles}</div><div class="libraryUtilityGrid"><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="favorites"><span>${lineIcon('heart')}</span><strong>Oblíbené</strong><small>Tvoje uložené cviky</small></button><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="all"><span>${lineIcon('all')}</span><strong>Všechny cviky</strong><small>Celý katalog</small></button></div></section>`;
   scrollTop();
 }
