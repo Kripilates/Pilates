@@ -3355,7 +3355,7 @@ body.dark .libraryCategory-legs{--tile-bg-dark:#1e323a}
 body.dark .libraryCategory-upper{--tile-bg-dark:#302d3d}
 .libraryUtilityTile>span{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:13px;background:var(--tile-wash,var(--p2));color:var(--tile-accent,var(--p))}
 .libraryUtilityTile .lineIcon{width:23px;height:23px}
-.libraryCategoryTile strong{font-size:17px;line-height:1.18;font-weight:900}
+.libraryCategoryTile strong{color:var(--category-accent);font-size:17px;line-height:1.18;font-weight:900}
 .libraryCategoryTile small{color:var(--muted);font-size:12px;font-weight:700;line-height:1.2}
 .libraryUtilityTile strong{font-size:16px;line-height:1.2}
 .libraryUtilityTile small{color:var(--muted);font-size:12px;font-weight:800}
@@ -3419,6 +3419,11 @@ body.dark .libraryExercisePhoto{background:#fff}
   .libraryExerciseCard{grid-template-columns:116px minmax(0,1fr) 18px;min-height:104px;padding:8px;gap:9px}
   .libraryExerciseMedia{width:116px}
   .libraryExerciseText>strong{font-size:15px}
+  .exerciseLibrary:not(.libraryCategoryScreen){padding-bottom:0}
+  .exerciseLibrary:not(.libraryCategoryScreen) .libraryBack{margin-top:0;margin-bottom:3px}
+  .exerciseLibrary:not(.libraryCategoryScreen) .libraryIntro{padding:8px 2px 9px}
+  .exerciseLibrary:not(.libraryCategoryScreen) .libraryCategoryGrid{gap:7px;margin-top:7px}
+  .exerciseLibrary:not(.libraryCategoryScreen) .libraryUtilityGrid{gap:7px;margin-top:18px}
 }
 @media(max-width:360px){
   .programFeature{padding:11px;gap:8px}
