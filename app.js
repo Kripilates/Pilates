@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.115-dev';
+const APP_VERSION='v59.116-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -749,6 +749,12 @@ const day1RealImages={};
 
 const masterCards={
 };
+const exerciseDetailExhale=Object.freeze({
+  hip:'při zvednutí / zatlačení.',
+  deadbug:'při záběru břicha.',
+  toetap:'při záběru břicha.'
+});
+const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const referenceExerciseAssets={
   hip:{
     start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
@@ -766,7 +772,7 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',caption:'Zvedni',text:'S výdechem zvedni pánev. Aktivuj hýždě a drž střed těla pevný.',photo:'hero'},
       {title:'NÁVRAT',caption:'Pomalu zpět',text:'Pomalu a kontrolovaně polož pánev zpět do výchozí polohy.',photo:'start'}
     ],
-    breath:{exhale:'při zvednutí / zatlačení.'}
+    breath:{exhale:exerciseDetailExhale.hip}
   },
   rdl:{
     start:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start_v01.png',
@@ -943,7 +949,7 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',text:'S výdechem natahuj současně protilehlou ruku a nohu. Bedra zůstávají přitisknutá k podložce.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem vrať ruku i nohu zpět do startu a střídej strany.',photo:'start'}
     ],
-    breath:{exhale:'při záběru břicha.'}
+    breath:{exhale:exerciseDetailExhale.deadbug}
   },
   toetap:{
     start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start_v01_approved.png',
@@ -961,7 +967,7 @@ const referenceExerciseAssets={
       {title:'HLAVNÍ POHYB',text:'S výdechem pomalu pokládej špičku jedné nohy směrem k podložce. Pánev zůstává stabilní.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem vrať nohu zpět do výchozí pozice a střídej strany.',photo:'start'}
     ],
-    breath:{exhale:'při záběru břicha.'}
+    breath:{exhale:exerciseDetailExhale.toetap}
   },
   revcrunch:{
     start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start_v01.png',
@@ -1186,18 +1192,18 @@ const referenceExerciseAssets={
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_step_by_step_v02.png',
     subtitle:'Hýždě • zadní stehna • stabilita pánve',
     miniSteps:[
-      {n:1,title:'START',caption:'Pánev na podložce',photo:'start'},
-      {n:2,title:'MOST',caption:'Zvedni pánev',photo:'mid'},
-      {n:3,title:'POCHOD V MOSTU',caption:'Jedna noha v tabletop',photo:'hero'},
-      {n:4,title:'STABILNÍ MOST',caption:'Vrať chodidlo',photo:'mid'},
-      {n:5,title:'NÁVRAT',caption:'Pánev na podložku',photo:'start'}
+      {n:1,title:'START',caption:'Pánev na podložce',photo:gluteBridgeMarchFlow[0]},
+      {n:2,title:'MOST',caption:'Zvedni pánev',photo:gluteBridgeMarchFlow[1]},
+      {n:3,title:'POCHOD V MOSTU',caption:'Jedna noha v tabletop',photo:gluteBridgeMarchFlow[2]},
+      {n:4,title:'STABILNÍ MOST',caption:'Vrať chodidlo',photo:gluteBridgeMarchFlow[3]},
+      {n:5,title:'NÁVRAT',caption:'Pánev na podložku',photo:gluteBridgeMarchFlow[4]}
     ],
     steps:[
-      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech podél těla.',photo:'start'},
-      {title:'ZVEDNUTÍ DO MOSTU',text:'Zvedni pánev do stabilního mostu. Chodidla nech pevně na podložce a pánev drž vodorovnou.',photo:'mid'},
-      {title:'POCHOD V MOSTU',text:'S výdechem zvedni jednu nohu do tabletop. Pánev drž stabilní a nenechávej ji klesat.',photo:'hero'},
-      {title:'STABILNÍ NÁVRAT',text:'Vrať chodidlo na podložku a znovu stabilizuj most. Potom vystřídej nohy.',photo:'mid'},
-      {title:'NÁVRAT NA PODLOŽKU',text:'Po dokončení polož pánev pomalu a kontrolovaně zpět na podložku.',photo:'start'}
+      {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech podél těla.',photo:gluteBridgeMarchFlow[0]},
+      {title:'ZVEDNUTÍ DO MOSTU',text:'Zvedni pánev do stabilního mostu. Chodidla nech pevně na podložce a pánev drž vodorovnou.',photo:gluteBridgeMarchFlow[1]},
+      {title:'POCHOD V MOSTU',text:'S výdechem zvedni jednu nohu do tabletop. Pánev drž stabilní a nenechávej ji klesat.',photo:gluteBridgeMarchFlow[2]},
+      {title:'STABILNÍ NÁVRAT',text:'Vrať chodidlo na podložku a znovu stabilizuj most. Potom vystřídej nohy.',photo:gluteBridgeMarchFlow[3]},
+      {title:'NÁVRAT NA PODLOŽKU',text:'Po dokončení polož pánev pomalu a kontrolovaně zpět na podložku.',photo:gluteBridgeMarchFlow[4]}
     ],
     info:{difficulty:'Lehké',focus:'Hýždě / pánev',knees:'Šetrné ke kolenům'},
     breath:{inhale:'Při návratu',exhale:'Při zvednutí',tempo:'Pomalu a stabilně'},
