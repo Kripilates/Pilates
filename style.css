@@ -5430,7 +5430,7 @@ body.dark .programCompletionContent{
   object-position:center!important;
 }
 .referenceExerciseDetail .referenceGuideCard--combined{
-  padding:8px!important;
+  padding:6px!important;
   border:1px solid rgba(32,182,178,.28)!important;
   border-radius:16px!important;
   background:#fff!important;
@@ -5438,8 +5438,8 @@ body.dark .programCompletionContent{
 }
 .referenceExerciseDetail .referenceCombinedCard{
   display:grid;
-  grid-template-columns:minmax(0,33fr) minmax(0,67fr);
-  gap:9px;
+  grid-template-columns:minmax(0,27fr) minmax(0,73fr);
+  gap:7px;
   align-items:stretch;
   min-width:0;
 }
@@ -5447,7 +5447,7 @@ body.dark .programCompletionContent{
   display:grid!important;
   grid-template-columns:minmax(0,1fr)!important;
   grid-template-rows:repeat(4,auto);
-  gap:6px!important;
+  gap:5px!important;
   min-width:0;
 }
 .referenceExerciseDetail .referenceGuideCard--combined .referenceFlowStep{
@@ -5501,7 +5501,7 @@ body.dark .programCompletionContent{
 }
 .referenceExerciseDetail .referenceAnatomy--embedded h3{
   flex:0 0 auto;
-  margin:0 0 6px!important;
+  margin:0 0 4px!important;
 }
 .referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyFigures{
   flex:1 1 auto;
@@ -5522,6 +5522,25 @@ body.dark .programCompletionContent{
 }
 .referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyLabel{
   flex:0 0 auto;
-  margin:6px 0 0!important;
-  font-size:13px;
+  margin:4px 0 0!important;
+  font-size:12px;
+}
+
+@media (max-width:360px){
+  .referenceExerciseDetail .referenceGuideCard--combined{
+    padding:5px!important;
+  }
+  .referenceExerciseDetail .referenceCombinedCard{
+    grid-template-columns:minmax(0,28fr) minmax(0,72fr);
+    gap:6px;
+  }
+  .referenceExerciseDetail .referenceFlow--vertical{
+    gap:4px!important;
+  }
+  .referenceExerciseDetail .referenceAnatomy--embedded h3{
+    font-size:13px;
+  }
+  .referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyLabel{
+    font-size:11px;
+  }
 }
