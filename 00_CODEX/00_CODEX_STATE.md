@@ -19,11 +19,14 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Standing Side Bend / `standing_side_bend` je dokončený s approved START v03, HERO v03, HERO opposite v01 a anatomy v01. Guide Card v01 (780 × 1688 RGB) a Step by Step v01 (780 × 2280 RGB) byly reprodukované a vizuálně ověřené v sekvenci START → HERO 1 → START → HERO 2 → START; END je přesně START bez nového PNG. Anatomy `standing_side_bend_muscles_v01.png` je napojená pouze v detailu tohoto cviku. SOURCE ani anatomy PNG nebyly upravované.
+- Aplikace je `v59.117-dev`; `app.js` mapuje pouze `standing_side_bend` na nové approved assety a anatomy. Cache parametry, `data.js`, PWA, service worker, program, workout a dávky zůstaly beze změny. Commit ani push nebyl proveden.
+
 - Dne 2026-08-31 byl dokončen nový assetový balíček pro Glute Bridge, Hip March, Dead Bug, Toe Tap, Glute Bridge March a Heel Taps. Všechny Guide Card exporty mají 780 × 1688 RGB a všechny Step by Step exporty 780 × 2280 RGB; proběhla kontrola rozměrů, SHA-256, source-hash invariance a vizuální QA.
 - SOURCE nebyl retušován ani generován. Dead Bug START byl pouze přejmenován na `dead_bug_start_v01_approved.png` se zachováním hashe `122b0849…`; Glute Bridge March HERO byl pouze přesunut z Toe Tap do správné složky se zachováním hashe `6014cf5e…`.
 - Reuse mapování: Glute Bridge START = Hip March START = Glute Bridge March START (`80c3b793…`); Glute Bridge HERO = Glute Bridge March MID (`961e8691…`); Hip March HERO = `7ed56193…`. Glute Bridge March používá sekvenci START → MID → HERO → MID → START.
 - Všech šest balíčků je nasazeno v aplikaci přes `referenceExerciseAssets`: Glute Bridge `hip`, Hip March `hip_march`, Dead Bug `deadbug`, Toe Tap `toetap`, Glute Bridge March `glute_bridge_march` a Heel Taps `heeltaps`. Aktivní náhledy i dynamické START/HERO/END kroky používají schválené `_approved` soubory; Guide Card a Step by Step metadata ukazují na nové exporty.
-- Aplikace je `v59.113-dev`; cache `app.js` je `v=59142sixcards`. `data.js`, `style.css`, workout, programové dávky a PWA zůstaly beze změny. Commit ani push nebyl proveden.
+- Původní šestice assetových balíčků zůstává na stejném mapování; aktuální cache `app.js` je nadále `v=59149exercisedetailfix`. `data.js`, workout, programové dávky a PWA zůstaly beze změny.
 
 - MASTER prostředí projektu Moovka bylo 2026-08-30 aktualizováno na široký záběr místnosti uložený jako `Pilates Assets/01_Master_Reference/master prostředí.png`. Tento soubor je jediný source of truth pro room / camera / perspective / light / floor / object placement / colors. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 

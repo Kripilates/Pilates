@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.116-dev';
+const APP_VERSION='v59.117-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1432,23 +1432,25 @@ const referenceExerciseAssets={
     recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Trup ukláněj ke zvednutému kolenu.','Netahej rukama za hlavu a nezvedej ramena.','Stojnou nohu nech lehce pokrčenou.'],mistakes:['Tahání za hlavu.','Otáčení trupu místo čistého úklonu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
   },
   standing_side_bend:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v02.png',
-    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v03.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v03.png',
+    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v01.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v03.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_step_by_step_v01.png',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_muscles_v01.png',alt:'Šikmé břišní svaly'},
     subtitle:'Pas • boční linie těla • mobilita',
     miniSteps:[
-      {n:1,title:'START',caption:'Vzpřímený stoj',photo:'start'},
-      {n:2,title:'BOČNÍ ÚKLON',caption:'Jedna strana',photo:'hero'},
-      {n:3,title:'OPAČNÁ STRANA',caption:'Plynule vystřídej',photo:'opposite'}
+      {n:1,title:'VÝCHOZÍ POLOHA',caption:'START',photo:'start'},
+      {n:2,title:'ÚKLON NA JEDNU STRANU',caption:'HERO 1',photo:'hero'},
+      {n:3,title:'NÁVRAT DO STŘEDU',caption:'START',photo:'start'},
+      {n:4,title:'ÚKLON NA DRUHOU STRANU',caption:'HERO 2',photo:'opposite'}
     ],
     steps:[
       {title:'VÝCHOZÍ POLOHA',text:'Postav se vzpřímeně, chodidla dej přibližně na šířku boků. Ruce polož lehce za hlavu, lokty nech otevřené a ramena spusť od uší.',photo:'start'},
       {title:'ÚKLON NA JEDNU STRANU',text:'S výdechem se kontrolovaně ukloň do strany. Pánev drž stabilní, hrudník směřuje stále dopředu a hlava přirozeně navazuje na páteř.',photo:'hero'},
       {title:'NÁVRAT DO STŘEDU',text:'S nádechem se vrať do vzpřímeného postoje. Neprohýbej bedra a lokty nech otevřené.',photo:'start'},
-      {title:'ÚKLON NA OPAČNOU STRANU',text:'Stejným kontrolovaným pohybem se ukloň na opačnou stranu. Pánev neposouvej do protisměru a trup neotáčej.',photo:'opposite'}
+      {title:'OPAČNÁ STRANA',text:'Stejným kontrolovaným pohybem se ukloň na opačnou stranu. Pohyb veď pouze do strany, bez rotace a předklonu.',photo:'opposite'}
     ],
     info:{difficulty:'Lehké',focus:'Pas / boční linie těla',knees:'Přirozeně měkká'},
     breath:{inhale:'Při návratu do středu',exhale:'Do bočního úklonu',tempo:'Pomalu a kontrolovaně'},
@@ -2051,7 +2053,7 @@ function referenceGuideCard(k){
   const ex=data.exercises[k]||{};
   const stepData=referenceMiniSteps(ref);
   return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
-    <div class="referenceFlow">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b>${i<2?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
+    <div class="referenceFlow referenceFlow--${stepData.length}">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b>${i<stepData.length-1?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
   </section>`;
 }
 function referenceStepByStep(k){

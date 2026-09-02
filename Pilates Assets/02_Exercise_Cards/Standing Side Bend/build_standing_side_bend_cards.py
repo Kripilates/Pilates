@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "standing_side_bend_start_v02.png"
-HERO = BASE / "standing_side_bend_hero_v02.png"
-OPPOSITE = BASE / "standing_side_bend_hero_opposite_v02.png"
+START = BASE / "standing_side_bend_start_v03.png"
+HERO = BASE / "standing_side_bend_hero_v03.png"
+OPPOSITE = BASE / "standing_side_bend_hero_opposite_v01.png"
 GUIDE = BASE / "standing_side_bend_guide_card_v01.png"
 STEP = BASE / "standing_side_bend_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "e2431dde1a37bf5de3843c0ab6877424a0d48d47a626e6f3610b3bed864fc752",
-    HERO: "2818f0d6bf4b5ad2c132ae0211f7b8d1bc43b2fd2f79de5baa8e38a11ff58933",
-    OPPOSITE: "cbe67af988998684200508c5430cdcbd63f94e2f2a2de480092f36cb9fee8472",
+    START: "0ff503edaf87b8b121917f6698829d684a2ee778616c23acdf423fd39c19c99d",
+    HERO: "33cff0cf288d10f05ed1d2940de461cbafc04e2ebc628e4324e75f424a813d4d",
+    OPPOSITE: "d8b98de0afe35f8819996eaf002a81156cd06d5760328f0e3d261d59a20db7a4",
 }
 
 BG = (244, 251, 250)
@@ -50,8 +50,8 @@ F = {
     "small_b": font("arialbd.ttf", 17),
     "tiny": font("arial.ttf", 14),
     "step_title": font("arialbd.ttf", 38),
-    "step_h": font("arialbd.ttf", 24),
-    "step_body": font("arial.ttf", 23),
+    "step_h": font("arialbd.ttf", 22),
+    "step_body": font("arial.ttf", 18),
 }
 
 
@@ -159,8 +159,8 @@ def verify_sources():
         if not path.exists():
             raise FileNotFoundError(path)
         with Image.open(path) as image:
-            if image.size != (1536, 1024):
-                raise RuntimeError(f"Unexpected source size for {path.name}: {image.size}")
+            if image.size != (1536, 1024) or image.mode != "RGB":
+                raise RuntimeError(f"Unexpected source properties for {path.name}: {image.size} {image.mode}")
         if sha256(path) != expected_hash:
             raise RuntimeError(f"SHA mismatch for {path.name}")
 
@@ -184,32 +184,35 @@ def build_guide():
     rounded(draw, (34, 196, 746, 653))
     paste_round(image, contain_image(HERO, (680, 393), 8), (50, 218, 730, 611))
 
-    mini_y, mini_w, mini_h = 675, 218, 146
-    xs = [34, 274, 514]
-    labels = [
-        ("START", "Vzpřímený postoj", START),
-        ("ÚKLON", "Kontrolovaně do strany", HERO),
-        ("DRUHÁ STRANA", "Pravidelně střídej", OPPOSITE),
+    mini_w, mini_h = 338, 164
+    mini_positions = [(34, 675), (398, 675), (34, 854), (398, 854)]
+    phases = [
+        ("VÝCHOZÍ POLOHA", START),
+        ("ÚKLON NA JEDNU STRANU", HERO),
+        ("NÁVRAT DO STŘEDU", START),
+        ("ÚKLON NA DRUHOU STRANU", OPPOSITE),
     ]
-    for index, (x0, (label, caption, source)) in enumerate(zip(xs, labels), 1):
-        card_bottom = mini_y + mini_h + 74
-        rounded(draw, (x0, mini_y, x0 + mini_w, card_bottom), 22)
-        paste_round(image, contain_image(source, (mini_w - 22, mini_h), 4),
-                    (x0 + 11, mini_y + 10, x0 + mini_w - 11, mini_y + 10 + mini_h), 16)
-        draw.ellipse((x0 + 15, mini_y + 15, x0 + 43, mini_y + 43), fill=TEAL)
-        center_text(draw, (x0 + 15, mini_y + 15, x0 + 43, mini_y + 43), str(index), F["tiny"], CARD)
-        center_text(draw, (x0 + 5, mini_y + mini_h + 14, x0 + mini_w - 5, mini_y + mini_h + 40), label, F["small_b"], INK)
-        center_text(draw, (x0 + 8, mini_y + mini_h + 38, x0 + mini_w - 8, mini_y + mini_h + 57), caption, F["tiny"], MUTED)
-        caption_bottom = draw.textbbox((0, 0), caption, font=F["tiny"])[3] + mini_y + mini_h + 38
-        margins[f"GUIDE MINI {index}"] = card_bottom - caption_bottom
+    for index, ((x0, y0), (label, source)) in enumerate(zip(mini_positions, phases), 1):
+        card_bottom = y0 + mini_h
+        rounded(draw, (x0, y0, x0 + mini_w, card_bottom), 22)
+        paste_round(image, contain_image(source, (136, mini_h - 20), 4),
+                    (x0 + 10, y0 + 10, x0 + 146, card_bottom - 10), 16)
+        draw.ellipse((x0 + 16, y0 + 16, x0 + 44, y0 + 44), fill=TEAL)
+        center_text(draw, (x0 + 16, y0 + 16, x0 + 44, y0 + 44), str(index), F["tiny"], CARD)
+        _, label_bottom = draw_wrapped(
+            draw, (x0 + 160, y0 + 48), label, F["small_b"], INK, mini_w - 176, 4
+        )
+        margins[f"GUIDE MINI {index}"] = ensure_bottom_margin(
+            f"Guide mini {index}", label_bottom, card_bottom
+        )
 
-    info_y, box_w, box_h = 915, 218, 164
+    info_y, box_w, box_h = 1036, 218, 148
     info = [
         ("breath", "DECH", "Vydechni při úklonu. Nadechni se při návratu do středu."),
         ("focus", "ZAMĚŘ SE", "Pánev drž stabilní a trup ukláněj čistě do strany."),
         ("repeat", "OPAKOVÁNÍ", "Střídej pravou a levou stranu podle dávky v tréninku."),
     ]
-    for index, (x0, (kind, heading, body)) in enumerate(zip(xs, info), 1):
+    for index, (x0, (kind, heading, body)) in enumerate(zip([34, 274, 514], info), 1):
         card_bottom = info_y + box_h
         rounded(draw, (x0, info_y, x0 + box_w, card_bottom), 22)
         draw_icon(draw, (x0 + 28, info_y + 30), kind)
@@ -217,27 +220,28 @@ def build_guide():
         _, body_bottom = draw_wrapped(draw, (x0 + 18, info_y + 56), body, F["small"], INK, box_w - 36, 4)
         margins[f"GUIDE INFO {index}"] = ensure_bottom_margin(f"Guide info {index}", body_bottom, card_bottom)
 
-    rounded(draw, (34, 1090, 746, 1412), 26)
-    draw.text((62, 1120), "JAK PROVÉST", font=F["h2"], fill=INK)
+    rounded(draw, (34, 1200, 746, 1430), 26)
+    draw.text((62, 1222), "JAK PROVÉST", font=F["h2"], fill=INK)
     how = [
-        ("1", "Postav se vzpřímeně, chodidla nech přibližně na šířku boků a ruce polož lehce za hlavu."),
-        ("2", "S výdechem ukloň trup kontrolovaně do jedné strany. Pánev a chodidla drž stabilní."),
-        ("3", "Vrať se do vzpřímené polohy a stejný pohyb proveď na druhou stranu."),
+        ("1", "Postav se vzpřímeně, chodidla dej na šířku boků a ruce polož lehce za hlavu."),
+        ("2", "S výdechem se kontrolovaně ukloň na jednu stranu. Pánev drž stabilní."),
+        ("3", "S nádechem se vrať do vzpřímeného postoje bez prohnutí v bedrech."),
+        ("4", "Stejným kontrolovaným pohybem se ukloň na opačnou stranu."),
     ]
-    y = 1165
+    y = 1248
     for number_value, body in how:
         draw.ellipse((62, y + 2, 92, y + 32), fill=SOFT, outline=LINE, width=1)
         center_text(draw, (62, y + 2, 92, y + 32), number_value, F["small_b"], TEAL_D)
-        y, body_bottom = draw_wrapped(draw, (106, y), body, F["body"], INK, 590, 5)
-        margins[f"GUIDE STEP {number_value}"] = 1412 - body_bottom
-        y += 8
-    margins["GUIDE HOW"] = ensure_bottom_margin("Guide how", body_bottom, 1412)
+        y, body_bottom = draw_wrapped(draw, (102, y), body, F["small"], INK, 610, 2)
+        margins[f"GUIDE STEP {number_value}"] = 1430 - body_bottom
+        y += 1
+    margins["GUIDE HOW"] = ensure_bottom_margin("Guide how", body_bottom, 1430)
 
-    rounded(draw, (34, 1440, 746, 1618), 26, WARN, WARN_LINE, 2)
-    draw_icon(draw, (64, 1473), "warn", WARN_ICON)
-    draw.text((92, 1457), "HLÍDEJ SI", font=F["h3"], fill=INK)
+    rounded(draw, (34, 1446, 746, 1618), 26, WARN, WARN_LINE, 2)
+    draw_icon(draw, (64, 1479), "warn", WARN_ICON)
+    draw.text((92, 1463), "HLÍDEJ SI", font=F["h3"], fill=INK)
     _, watch_bottom = draw_wrapped(
-        draw, (62, 1500),
+        draw, (62, 1506),
         "Netahej rukama za hlavu, nezvedej ramena a neotáčej trup. Nepředkláněj se a nevystrkuj pánev do strany.",
         F["body"], INK, 640, 5
     )
@@ -255,43 +259,45 @@ def build_step():
 
     steps = [
         ("KROK 1", "VÝCHOZÍ POLOHA",
-         "Postav se vzpřímeně, chodidla nech přibližně na šířku boků a ruce polož lehce za hlavu. Lokty nech otevřené do stran.", START),
+         "Postav se vzpřímeně, chodidla dej přibližně na šířku boků. Ruce polož lehce za hlavu, lokty nech otevřené a ramena spusť od uší.", START),
         ("KROK 2", "ÚKLON DO STRANY",
-         "S výdechem ukloň trup kontrolovaně do jedné strany. Pánev drž stabilní a obě chodidla nech pevně na podložce.", HERO),
-        ("KROK 3", "DRUHÁ STRANA",
-         "Vrať se do vzpřímené polohy a pohyb zopakuj na druhou stranu. Pravou a levou stranu pravidelně střídej.", OPPOSITE),
+         "S výdechem se kontrolovaně ukloň do strany. Pánev drž stabilní, hrudník směřuje stále dopředu a hlava přirozeně navazuje na páteř.", HERO),
+        ("KROK 3", "NÁVRAT DO STŘEDU",
+         "S nádechem se vrať do vzpřímeného postoje. Neprohýbej bedra a lokty nech otevřené.", START),
+        ("KROK 4", "OPAČNÁ STRANA",
+         "Stejným kontrolovaným pohybem se ukloň na opačnou stranu. Pohyb veď pouze do strany, bez rotace a předklonu.", OPPOSITE),
     ]
-    y, margins = 160, {}
+    y, margins = 145, {}
     for step_label, heading, body, source in steps:
-        card_height = 595
+        card_height = 456
         card_bottom = y + card_height
         rounded(draw, (34, y, 746, card_bottom))
-        draw.rounded_rectangle((58, y + 24, 148, y + 54), radius=15, fill=SOFT, outline=LINE, width=1)
-        center_text(draw, (58, y + 24, 148, y + 54), step_label, F["small_b"], TEAL_D)
-        draw.text((62, y + 72), heading, font=F["step_h"], fill=INK)
-        image_bottom = y + 466
-        paste_round(image, contain_image(source, (656, 352), 6), (62, y + 114, 718, image_bottom))
-        _, body_bottom = draw_wrapped(draw, (62, image_bottom + 16), body, F["step_body"], INK, 656, 7)
+        draw.rounded_rectangle((58, y + 20, 148, y + 50), radius=15, fill=SOFT, outline=LINE, width=1)
+        center_text(draw, (58, y + 20, 148, y + 50), step_label, F["small_b"], TEAL_D)
+        draw.text((62, y + 66), heading, font=F["step_h"], fill=INK)
+        image_bottom = y + 350
+        paste_round(image, contain_image(source, (656, 240), 6), (62, y + 110, 718, image_bottom), 20)
+        _, body_bottom = draw_wrapped(draw, (62, image_bottom + 14), body, F["step_body"], INK, 650, 5)
         margins[step_label] = ensure_bottom_margin(step_label, body_bottom, card_bottom)
         y += card_height + 5
 
-    rounded(draw, (34, y, 746, y + 275), 28, WARN, WARN_LINE, 2)
-    draw_icon(draw, (66, y + 45), "breath")
-    draw.text((98, y + 28), "DECH", font=F["step_h"], fill=INK)
+    rounded(draw, (34, 1994, 746, 2218), 28, WARN, WARN_LINE, 2)
+    draw_icon(draw, (66, 2030), "breath")
+    draw.text((98, 2013), "DECH", font=F["step_h"], fill=INK)
     next_y, breath_bottom = draw_wrapped(
-        draw, (62, y + 78),
+        draw, (62, 2055),
         "Vydechni při úklonu. Nadechni se při návratu do vzpřímené polohy.",
-        F["step_body"], INK, 650, 8
+        F["step_body"], INK, 650, 5
     )
-    margins["STEP BREATH"] = y + 275 - breath_bottom
-    draw_icon(draw, (66, next_y + 29), "warn", WARN_ICON)
-    draw.text((98, next_y + 12), "HLÍDEJ SI", font=F["step_h"], fill=INK)
+    margins["STEP BREATH"] = 2218 - breath_bottom
+    draw_icon(draw, (66, next_y + 22), "warn", WARN_ICON)
+    draw.text((98, next_y + 5), "HLÍDEJ SI", font=F["step_h"], fill=INK)
     _, watch_bottom = draw_wrapped(
-        draw, (62, next_y + 52),
+        draw, (62, next_y + 43),
         "Netahej rukama za hlavu, nezvedej ramena a neotáčej trup. Ukláněj se čistě do strany, nepředkláněj se a nevystrkuj pánev.",
-        F["body"], INK, 650, 5
+        F["step_body"], INK, 650, 5
     )
-    margins["STEP WATCH"] = ensure_bottom_margin("Step watch", watch_bottom, y + 275)
+    margins["STEP WATCH"] = ensure_bottom_margin("Step watch", watch_bottom, 2218)
     draw.text((54, 2240), "Pilates Body 40+", font=F["tiny"], fill=MUTED)
 
     image.save(STEP)
@@ -306,10 +312,10 @@ def main():
         raise RuntimeError("Source image hash changed during export")
     for path, expected_size in ((GUIDE, (780, 1688)), (STEP, (780, 2280))):
         with Image.open(path) as image:
-            if image.size != expected_size:
-                raise RuntimeError(f"Unexpected export size for {path.name}: {image.size}")
-    print(f"Exported {GUIDE.name} 780x1688 SHA-256 {sha256(GUIDE)}")
-    print(f"Exported {STEP.name} 780x2280 SHA-256 {sha256(STEP)}")
+            if image.size != expected_size or image.mode != "RGB":
+                raise RuntimeError(f"Unexpected export properties for {path.name}: {image.size} {image.mode}")
+    print(f"Exported {GUIDE.name} 780x1688 RGB SHA-256 {sha256(GUIDE)}")
+    print(f"Exported {STEP.name} 780x2280 RGB SHA-256 {sha256(STEP)}")
     for label, margin in guide_margins.items():
         print(f"{label} bottom reserve: {margin}px")
     for label, margin in step_margins.items():

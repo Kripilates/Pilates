@@ -250,9 +250,9 @@
 `assets/exercises/mermaid.jpg`
 
 ## Standing Side Bend (`standing_side_bend`)
-![Standing Side Bend](../../assets/exercises/mermaid.jpg)
+![Standing Side Bend](../02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v03.png)
 
-`assets/exercises/mermaid.jpg`
+`Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero_v03.png`
 
 ## Leg Raises (`legraises`)
 ![Leg Raises](../../assets/exercises/hollow.jpg)
