@@ -1434,11 +1434,13 @@ const referenceExerciseAssets={
   standing_side_bend:{
     start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v03.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_v03.png',
-    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v01.png',
+    opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero_opposite_v02.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start_v03.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_step_by_step_v01.png',
-    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_muscles_v01.png',alt:'Šikmé břišní svaly'},
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_muscles_v01.png',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'},
+    preserveHeroRatio:true,
+    anatomyInGuide:true,
     subtitle:'Pas • boční linie těla • mobilita',
     miniSteps:[
       {n:1,title:'VÝCHOZÍ POLOHA',caption:'START',photo:'start'},
@@ -2045,15 +2047,34 @@ function referenceHeroBlock(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
   const ex=data.exercises[k]||{};
-  return `<div class="referenceTopHero"><img loading="lazy" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>`;
+  return `<div class="referenceTopHero ${ref.preserveHeroRatio?'referenceTopHero--contain':''}"><img loading="lazy" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>`;
+}
+function referenceAnatomyMarkup(anatomy,embedded=false){
+  if(!anatomy)return '';
+  const items=(Array.isArray(anatomy)?anatomy:anatomy.images||[anatomy])
+    .map(item=>typeof item==='string'?{src:item}:item)
+    .filter(item=>item&&item.src);
+  if(!items.length)return '';
+  const label=!Array.isArray(anatomy)&&anatomy.label ? `<p class="referenceAnatomyLabel">${esc(anatomy.label)}</p>` : '';
+  return `<section class="referenceAnatomy${embedded?' referenceAnatomy--embedded':''}" aria-label="Zapojené svaly">
+    <h3>Zapojené svaly</h3>
+    <div class="referenceAnatomyFigures referenceAnatomyFigures--${items.length>1?'dual':'single'}">
+      ${items.map(item=>`<img loading="lazy" src="${esc(item.src)}" alt="${esc(item.alt||'Zapojené svaly')}">`).join('')}
+    </div>
+    ${label}
+  </section>`;
 }
 function referenceGuideCard(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
   const ex=data.exercises[k]||{};
   const stepData=referenceMiniSteps(ref);
-  return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
-    <div class="referenceFlow referenceFlow--${stepData.length}">${stepData.map((s,i)=>`<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${s.title}"></div><b>${s.n}</b>${i<stepData.length-1?'<i aria-hidden="true">→</i>':''}</article>`).join('')}</div>
+  const combined=Boolean(ref.anatomyInGuide&&ref.anatomy);
+  const steps=stepData.map((s,i)=>combined
+    ? `<button type="button" class="referenceFlowStep${i===1?' active':''}" data-action="reference-phase" data-src="${esc(s.photo)}" data-alt="${esc(ex.name||'Cvik')} ${esc(s.title)}" aria-label="Fáze ${s.n}: ${esc(s.title)}" aria-pressed="${i===1?'true':'false'}"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"></div><b>${s.n}</b></button>`
+    : `<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"></div><b>${s.n}</b>${i<stepData.length-1?'<i aria-hidden="true">→</i>':''}</article>`).join('');
+  return `<section class="referenceGuideCard${combined?' referenceGuideCard--combined':''}" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
+    <div class="${combined?'referenceCombinedCard':''}"><div class="referenceFlow referenceFlow--${stepData.length}${combined?' referenceFlow--vertical':''}">${steps}</div>${combined?referenceAnatomyMarkup(ref.anatomy,true):''}</div>
   </section>`;
 }
 function referenceStepByStep(k){
@@ -2091,18 +2112,8 @@ function referenceCompactInfoPanel(k,meta){
 }
 function referenceAnatomyBlock(k){
   const ref=referenceExerciseAssets[k]||{};
-  const anatomy=ref.anatomy;
-  if(!anatomy)return '';
-  const items=(Array.isArray(anatomy)?anatomy:anatomy.images||[anatomy])
-    .map(item=>typeof item==='string'?{src:item}:item)
-    .filter(item=>item&&item.src);
-  if(!items.length)return '';
-  return `<section class="referenceAnatomy" aria-label="Zapojené svaly">
-    <h3>Zapojené svaly</h3>
-    <div class="referenceAnatomyFigures referenceAnatomyFigures--${items.length>1?'dual':'single'}">
-      ${items.map(item=>`<img loading="lazy" src="${esc(item.src)}" alt="${esc(item.alt||'Zapojené svaly')}">`).join('')}
-    </div>
-  </section>`;
+  if(ref.anatomyInGuide)return '';
+  return referenceAnatomyMarkup(ref.anatomy);
 }
 function referenceSafetyPoints(k,meta,ex){
   if(k==='rdl')return ['Drž záda rovná.','Pohyb veď z kyčlí, ne ze zad.','Kolena nech jen lehce pokrčená.'];
@@ -3538,6 +3549,18 @@ app.addEventListener('click',e=>{
   const a=t.dataset.action;
   if(a==='open-master-card')return openMasterCard(t.dataset.src,t.dataset.alt);
   if(a==='close-master-card'){t.closest('.masterLightbox')?.remove();return;}
+  if(a==='reference-phase'){
+    const hero=app.querySelector('.referenceTopHero img');
+    if(!hero||!t.dataset.src)return;
+    hero.src=t.dataset.src;
+    hero.alt=t.dataset.alt||hero.alt;
+    t.closest('.referenceFlow')?.querySelectorAll('[data-action="reference-phase"]').forEach(step=>{
+      const active=step===t;
+      step.classList.toggle('active',active);
+      step.setAttribute('aria-pressed',String(active));
+    });
+    return;
+  }
   if(a==='stay-in-app'){closeRootExitDialog();return;}
   if(a==='confirm-exit-app')return confirmRootExit();
   if(a==='new-program-cycle')return showProgramCycleDialog();

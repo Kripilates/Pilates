@@ -4894,6 +4894,14 @@ body.dark .programCompletionContent{
   display:block;
   border-radius:14px;
 }
+.referenceExerciseDetail .referenceAnatomyLabel{
+  margin:6px 0 0;
+  color:var(--text);
+  font-size:14px;
+  font-weight:800;
+  line-height:1.25;
+  text-align:center;
+}
 .referenceExerciseDetail .referenceRecommendations.referenceSafety{
   width:min(100%,430px);
   margin:0 auto!important;
@@ -5403,4 +5411,117 @@ body.dark .programCompletionContent{
     display:block;
     margin-top:3px;
   }
+}
+
+/* Optional reference detail layout: phases and anatomy in one compact card. */
+.referenceExerciseDetail .referenceTopHero--contain{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  aspect-ratio:3/2!important;
+  box-sizing:border-box;
+}
+.referenceExerciseDetail .referenceTopHero--contain img{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.referenceExerciseDetail .referenceGuideCard--combined{
+  padding:8px!important;
+  border:1px solid rgba(32,182,178,.28)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  overflow:hidden;
+}
+.referenceExerciseDetail .referenceCombinedCard{
+  display:grid;
+  grid-template-columns:minmax(0,33fr) minmax(0,67fr);
+  gap:9px;
+  align-items:stretch;
+  min-width:0;
+}
+.referenceExerciseDetail .referenceFlow--vertical{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:repeat(4,auto);
+  gap:6px!important;
+  min-width:0;
+}
+.referenceExerciseDetail .referenceGuideCard--combined .referenceFlowStep{
+  appearance:none;
+  position:relative;
+  display:block;
+  width:100%;
+  min-width:0;
+  min-height:0;
+  margin:0;
+  padding:0!important;
+  overflow:hidden;
+  border:1px solid rgba(202,224,224,.82)!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  cursor:pointer;
+}
+.referenceExerciseDetail .referenceGuideCard--combined .referenceFlowStep:nth-child(2){
+  border-color:rgba(202,224,224,.82)!important;
+}
+.referenceExerciseDetail .referenceGuideCard--combined .referenceFlowStep.active{
+  border-color:#20b6b2!important;
+  box-shadow:inset 0 0 0 1px #20b6b2!important;
+}
+.referenceExerciseDetail .referenceGuideCard--combined .referenceStepPhoto{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:3/2;
+  border:0!important;
+  background:#fff!important;
+}
+.referenceExerciseDetail .referenceGuideCard--combined .referenceStepPhoto img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.referenceExerciseDetail .referenceGuideCard--combined .referenceFlowStep b{
+  top:5px!important;
+  left:5px!important;
+}
+.referenceExerciseDetail .referenceAnatomy--embedded{
+  display:flex!important;
+  flex-direction:column;
+  width:auto!important;
+  min-width:0;
+  height:auto;
+  margin:0!important;
+  padding:0!important;
+}
+.referenceExerciseDetail .referenceAnatomy--embedded h3{
+  flex:0 0 auto;
+  margin:0 0 6px!important;
+}
+.referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyFigures{
+  flex:1 1 auto;
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+  border-radius:12px;
+  background:#fff;
+}
+.referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyFigures--single img{
+  width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  min-height:0;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:12px!important;
+}
+.referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyLabel{
+  flex:0 0 auto;
+  margin:6px 0 0!important;
+  font-size:13px;
 }
