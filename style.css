@@ -5430,7 +5430,7 @@ body.dark .programCompletionContent{
   object-position:center!important;
 }
 .referenceExerciseDetail .referenceGuideCard--combined{
-  padding:8px!important;
+  padding:6px!important;
   border:1px solid rgba(32,182,178,.28)!important;
   border-radius:16px!important;
   background:#fff!important;
@@ -5438,8 +5438,8 @@ body.dark .programCompletionContent{
 }
 .referenceExerciseDetail .referenceCombinedCard{
   display:grid;
-  grid-template-columns:minmax(0,33fr) minmax(0,67fr);
-  gap:9px;
+  grid-template-columns:minmax(0,27fr) minmax(0,73fr);
+  gap:7px;
   align-items:stretch;
   min-width:0;
 }
@@ -5447,7 +5447,7 @@ body.dark .programCompletionContent{
   display:grid!important;
   grid-template-columns:minmax(0,1fr)!important;
   grid-template-rows:repeat(4,auto);
-  gap:6px!important;
+  gap:5px!important;
   min-width:0;
 }
 .referenceExerciseDetail .referenceGuideCard--combined .referenceFlowStep{
@@ -5501,7 +5501,7 @@ body.dark .programCompletionContent{
 }
 .referenceExerciseDetail .referenceAnatomy--embedded h3{
   flex:0 0 auto;
-  margin:0 0 6px!important;
+  margin:0 0 4px!important;
 }
 .referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyFigures{
   flex:1 1 auto;
@@ -5522,6 +5522,187 @@ body.dark .programCompletionContent{
 }
 .referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyLabel{
   flex:0 0 auto;
-  margin:6px 0 0!important;
-  font-size:13px;
+  margin:4px 0 0!important;
+  font-size:12px;
+}
+
+@media (max-width:360px){
+  .referenceExerciseDetail .referenceGuideCard--combined{
+    padding:5px!important;
+  }
+  .referenceExerciseDetail .referenceCombinedCard{
+    grid-template-columns:minmax(0,28fr) minmax(0,72fr);
+    gap:6px;
+  }
+  .referenceExerciseDetail .referenceFlow--vertical{
+    gap:4px!important;
+  }
+  .referenceExerciseDetail .referenceAnatomy--embedded h3{
+    font-size:13px;
+  }
+  .referenceExerciseDetail .referenceAnatomy--embedded .referenceAnatomyLabel{
+    font-size:11px;
+  }
+}
+
+/* Standing Side Bend: hero, four phases, title, then anatomy and safety. */
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Grid{
+  display:grid!important;
+  width:min(100%,430px)!important;
+  margin:0 auto!important;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr)!important;
+  column-gap:8px!important;
+  row-gap:0!important;
+  align-items:stretch;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Main,
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Aside,
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceGuideCard--combined,
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceCombinedCard{
+  display:contents!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceTopHero{
+  grid-column:1/-1;
+  order:1;
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  aspect-ratio:3/2!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceTopHero img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceFlow--vertical{
+  grid-column:1/-1;
+  order:2;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  grid-template-rows:auto!important;
+  gap:4px!important;
+  width:100%;
+  margin:0!important;
+  padding:0!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceGuideCard--combined .referenceFlowStep{
+  border-radius:7px!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceGuideCard--combined .referenceFlowStep.active{
+  border-color:#20b6b2!important;
+  box-shadow:inset 0 0 0 1px #20b6b2!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20TitleRow{
+  grid-column:1/-1;
+  order:3;
+  width:100%!important;
+  margin:5px 0 0!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20TitleRow .eyebrow{
+  margin:0 0 3px!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20TitleRow h2{
+  margin:0!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referencePracticalLine{
+  grid-column:1/-1;
+  order:4;
+  width:100%!important;
+  margin:3px 0 6px!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceAnatomy--embedded{
+  grid-column:1;
+  order:5;
+  display:flex!important;
+  width:100%!important;
+  height:100%;
+  margin:0!important;
+  padding:7px!important;
+  border:1px solid rgba(32,182,178,.28)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  overflow:hidden;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceAnatomy--embedded .referenceAnatomyFigures{
+  min-height:132px;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceRecommendations.referenceSafety{
+  grid-column:2;
+  order:5;
+  display:flex!important;
+  flex-direction:column;
+  width:100%!important;
+  height:100%;
+  margin:0!important;
+  padding:7px!important;
+  border:1px solid rgba(32,182,178,.28)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  overflow:hidden;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceRecommendations.referenceSafety h3{
+  margin:0 0 5px!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceRecommendations.referenceSafety .checkList{
+  flex:1 1 auto;
+  gap:3px;
+  padding:7px 8px!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceRecommendations.referenceSafety .checkList li{
+  font-size:12px!important;
+  line-height:1.24!important;
+}
+.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceStepByStep{
+  margin-top:7px!important;
+}
+
+@media(max-width:720px){
+  body:has(.referenceExerciseDetail .referenceTopHero img[src*="standing_side_bend"])>header{
+    min-height:48px;
+    padding:5px 14px;
+  }
+  body:has(.referenceExerciseDetail .referenceTopHero img[src*="standing_side_bend"])>header .brandLogo{
+    height:34px;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Content{
+    padding-top:3px!important;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom))!important;
+  }
+  .workoutExerciseDetail.referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Content{
+    padding-bottom:calc(140px + env(safe-area-inset-bottom))!important;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20TopBar{
+    position:static!important;
+    width:min(100%,390px);
+    margin:0 auto!important;
+    padding:2px 0 3px!important;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20TopBar button{
+    padding:8px 10px;
+    font-size:13px;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Grid{
+    width:min(100%,390px)!important;
+  }
+}
+
+@media(max-width:340px){
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .v20Grid{
+    grid-template-columns:minmax(0,1fr)!important;
+    column-gap:0!important;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceAnatomy--embedded{
+    grid-column:1;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceAnatomy--embedded .referenceAnatomyFigures{
+    min-height:190px;
+  }
+  .referenceExerciseDetail:has(.referenceTopHero img[src*="standing_side_bend"]) .referenceRecommendations.referenceSafety{
+    grid-column:1;
+    order:6;
+    margin-top:6px!important;
+  }
 }
