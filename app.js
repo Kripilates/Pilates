@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.166-dev';
+const APP_VERSION='v59.167-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -2077,12 +2077,10 @@ function referenceGuideCard(k){
   if(!ref)return '';
   const ex=data.exercises[k]||{};
   const stepData=referenceMiniSteps(ref);
-  const combined=Boolean(ref.anatomyInGuide&&ref.anatomy);
-  const steps=stepData.map((s,i)=>combined
-    ? `<button type="button" class="referenceFlowStep${i===1?' active':''}" data-action="reference-phase" data-src="${esc(s.photo)}" data-alt="${esc(ex.name||'Cvik')} ${esc(s.title)}" aria-label="Fáze ${s.n}: ${esc(s.title)}" aria-pressed="${i===1?'true':'false'}"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"></div><b>${s.n}</b></button>`
-    : `<article class="referenceFlowStep"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"></div><b>${s.n}</b>${i<stepData.length-1?'<i aria-hidden="true">→</i>':''}</article>`).join('');
-  return `<section class="referenceGuideCard${combined?' referenceGuideCard--combined':''}" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
-    <div class="${combined?'referenceCombinedCard':''}"><div class="referenceFlow referenceFlow--${stepData.length}${combined?' referenceFlow--vertical':''}">${steps}</div>${combined?referenceAnatomyMarkup(ref.anatomy,true):''}</div>
+  const activeIndex=Math.max(0,stepData.findIndex(s=>s.photo===ref.hero));
+  const steps=stepData.map((s,i)=>`<button type="button" class="referenceFlowStep${i===activeIndex?' active':''}" data-action="reference-phase" data-src="${esc(s.photo)}" data-alt="${esc(ex.name||'Cvik')} ${esc(s.title)}" aria-label="Fáze ${s.n}: ${esc(s.title)}" aria-pressed="${i===activeIndex?'true':'false'}"><div class="referenceStepPhoto"><img loading="lazy" src="${s.photo}" alt="${esc(ex.name||'Cvik')} ${esc(s.title)}"></div><b>${s.n}</b></button>`).join('');
+  return `<section class="referenceGuideCard" aria-label="${esc(ex.name||'Cvik')} mini Guide Card">
+    <div class="referenceFlow referenceFlow--${stepData.length}">${steps}</div>
   </section>`;
 }
 function referenceStepByStep(k){
@@ -2120,7 +2118,6 @@ function referenceCompactInfoPanel(k,meta){
 }
 function referenceAnatomyBlock(k){
   const ref=referenceExerciseAssets[k]||{};
-  if(ref.anatomyInGuide)return '';
   return referenceAnatomyMarkup(ref.anatomy);
 }
 function referenceSafetyPoints(k,meta,ex){
@@ -2138,6 +2135,12 @@ function referenceRecommendations(k,meta,ex){
     <h3>Na co si dát pozor</h3>
     <ul class="checkList">${watch.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
   </section>`;
+}
+function referenceSupportGrid(k,meta,ex){
+  const anatomy=referenceAnatomyBlock(k);
+  const safety=referenceRecommendations(k,meta,ex);
+  if(!anatomy&&!safety)return '';
+  return `<div class="referenceSupportGrid${anatomy&&safety?'':' referenceSupportGrid--single'}">${anatomy}${safety}</div>`;
 }
 const day1StepFiles={
   hip:['assets/exercises/glute_bridge_step1.jpg','assets/exercises/glute_bridge_step2.jpg','assets/exercises/glute_bridge_step3.jpg'],
@@ -3294,7 +3297,7 @@ function info(k,opts={}){
               ${dose&&!hasReference?`<div class="v20Dose"><b>${prettyDose(dose)}</b><span>${doseUnit}</span></div>`:''}
             </div>
             ${hasReference ? referenceCompactInfoPanel(k,meta) : ''}
-            ${hasReference ? referenceAnatomyBlock(k) : ''}
+            ${hasReference ? referenceSupportGrid(k,meta,ex) : ''}
             ${hasReference ? '' : hasMasterCard ? detailMasterCard(k).replace('masterCardSection','masterCardSection masterCardHero') : `<section class="v20Card v20FlowCard"><div class="v20CardHead"><h3>Průběh cviku</h3><span>krok za krokem</span></div><div class="v20Flow">${steps.map((x,i)=>`<article class="${verifiedStepPhotos[k]?'':'v32TextStep'}"><div class="v20StepTitle"><b>${i+1}</b><strong>${x.title}</strong></div>${detailStepMedia(k,i+1)}<p>${x.text}</p></article>${i<2?'<div class="v20Arrow">→</div>':''}`).join('')}</div></section>`}
           </main>
 
@@ -3302,7 +3305,7 @@ function info(k,opts={}){
             ${hasReference ? '' : `<section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>`}
             ${hasReference?'':muscleImg?`<section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>`:''}
             ${hasReference ? '' : `<section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>`}
-            ${hasReference ? referenceRecommendations(k,meta,ex) : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
+            ${hasReference ? '' : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
             <section class="v20Card v20Watch"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
             <section class="v20Card v20Mistakes"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>`}
           </aside>

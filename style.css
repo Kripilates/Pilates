@@ -5706,3 +5706,218 @@ body.dark .programCompletionContent{
     margin-top:6px!important;
   }
 }
+
+/* v59.167: shared approved exercise-detail layout */
+.exerciseDetailPage.referenceExerciseDetail:has(.referenceTopHero) .v20Grid{
+  display:grid!important;
+  width:100%!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:0!important;
+}
+.exerciseDetailPage.referenceExerciseDetail:has(.referenceTopHero) .v20Main{
+  display:grid!important;
+  width:min(100%,430px)!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  gap:6px!important;
+  margin:0 auto!important;
+}
+.exerciseDetailPage.referenceExerciseDetail .v20Aside:empty{
+  display:none!important;
+  margin:0!important;
+}
+.referenceExerciseDetail .referenceTopHero,
+.referenceExerciseDetail .referenceTopHero--contain{
+  width:100%!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  aspect-ratio:3/2!important;
+  box-sizing:border-box;
+}
+.referenceExerciseDetail .referenceTopHero img,
+.referenceExerciseDetail .referenceTopHero--contain img{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.referenceExerciseDetail .referenceGuideCard{
+  width:100%!important;
+  margin:-1px 0 0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  overflow:visible!important;
+}
+.referenceExerciseDetail .referenceFlow{
+  display:grid!important;
+  gap:5px!important;
+  width:100%;
+  margin:0!important;
+  padding:0!important;
+  align-items:stretch;
+}
+.referenceExerciseDetail .referenceFlow--3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.referenceExerciseDetail .referenceFlow--4{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+.referenceExerciseDetail .referenceFlow--5{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+.referenceExerciseDetail .referenceFlowStep{
+  appearance:none;
+  position:relative;
+  display:block;
+  width:100%;
+  min-width:0;
+  min-height:44px;
+  margin:0;
+  padding:0!important;
+  overflow:hidden;
+  border:1px solid rgba(202,224,224,.82)!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  cursor:pointer;
+}
+.referenceExerciseDetail .referenceFlowStep:nth-child(2){
+  border-color:rgba(202,224,224,.82)!important;
+}
+.referenceExerciseDetail .referenceFlowStep.active{
+  border-color:#20b6b2!important;
+  box-shadow:inset 0 0 0 1px #20b6b2!important;
+}
+.referenceExerciseDetail .referenceStepPhoto{
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:3/2!important;
+  background:#fff!important;
+}
+.referenceExerciseDetail .referenceStepPhoto img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.referenceExerciseDetail .referenceFlowStep b{
+  top:5px!important;
+  left:5px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:8px;
+  width:100%;
+  margin:0;
+  order:4;
+  align-items:stretch;
+}
+.referenceExerciseDetail .referenceSupportGrid--single{
+  grid-template-columns:minmax(0,1fr);
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomy,
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety{
+  display:flex!important;
+  flex-direction:column;
+  width:100%!important;
+  min-width:0;
+  height:100%;
+  margin:0!important;
+  padding:8px!important;
+  overflow:hidden;
+  border:1px solid rgba(32,182,178,.28)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  box-sizing:border-box;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomy h3,
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations h3{
+  margin:0 0 6px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures{
+  flex:1 1 auto;
+  min-width:0;
+  min-height:150px;
+  overflow:hidden;
+  border-radius:12px;
+  background:#fff;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures img{
+  width:100%!important;
+  max-width:none!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:12px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures--dual{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:3px;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyLabel{
+  margin:5px 0 0!important;
+  font-size:12px;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList{
+  flex:1 1 auto;
+  gap:3px;
+  padding:8px 9px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList li{
+  font-size:12px!important;
+  line-height:1.24!important;
+}
+.referenceExerciseDetail .referenceStepByStep{
+  margin-top:7px!important;
+}
+@media(max-width:720px){
+  body:has(.referenceExerciseDetail)>header{
+    min-height:48px;
+    padding:5px 14px;
+  }
+  body:has(.referenceExerciseDetail)>header .brandLogo{
+    height:34px;
+  }
+  .referenceExerciseDetail .v20Content{
+    padding-top:3px!important;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom))!important;
+  }
+  .workoutExerciseDetail.referenceExerciseDetail .v20Content{
+    padding-bottom:calc(140px + env(safe-area-inset-bottom))!important;
+  }
+  .referenceExerciseDetail .v20TopBar{
+    position:static!important;
+    width:min(100%,390px);
+    margin:0 auto!important;
+    padding:2px 0 3px!important;
+  }
+  .referenceExerciseDetail .v20TopBar button{
+    padding:8px 10px;
+    font-size:13px;
+  }
+  .exerciseDetailPage.referenceExerciseDetail:has(.referenceTopHero) .v20Main{
+    width:min(100%,390px)!important;
+  }
+}
+@media(max-width:340px){
+  .referenceExerciseDetail .referenceSupportGrid{
+    gap:6px;
+  }
+  .referenceExerciseDetail .referenceSupportGrid .referenceAnatomy,
+  .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety{
+    padding:6px!important;
+    border-radius:14px!important;
+  }
+  .referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures{
+    min-height:138px;
+  }
+  .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList{
+    padding:7px!important;
+  }
+  .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList li{
+    padding-left:16px!important;
+    font-size:11px!important;
+  }
+}
