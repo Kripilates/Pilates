@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.157-dev';
+const APP_VERSION='v59.158-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1541,8 +1541,8 @@ const referenceExerciseAssets={
     start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v05_approved.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_step_by_step_v01.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_guide_card_v01.png?v=59159moovkafooter',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_step_by_step_v01.png?v=59159moovkafooter',
     anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png',alt:'Střed těla',label:'Střed těla'},
     subtitle:'Střed těla • kontrolovaná výdrž středu těla',
     miniSteps:[
