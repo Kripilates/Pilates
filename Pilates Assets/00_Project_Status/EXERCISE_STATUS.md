@@ -7,7 +7,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Bent Over Row | `Pilates Assets/02_Exercise_Cards/Bent Over Row` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Bicycle Crunch | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Bird Dog | `Pilates Assets/02_Exercise_Cards/Bird Dog` | `bird_dog_start_v01.png` | `bird_dog_hero_v01.png` | `bird_dog_guide_card_v01.png` | `bird_dog_step_by_step_v01.png` | ANO | COMPLETE |  |
-| Bridge Abduction | `Pilates Assets/02_Exercise_Cards/Bridge Abduction` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Bridge Abduction | `Pilates Assets/02_Exercise_Cards/Bridge Abduction` | `bridge_abduction_start.png` | `bridge_abduction_hero.png` | `bridge_abduction_guide_card_v01.png` | `bridge_abduction_step_by_step_v01.png` | NE | COMPLETE | END = START; final versionless SOURCE hashes verified; Guide/Step rebuilt; App deployed as `abduction` |
 | Cat-Cow | `Pilates Assets/02_Exercise_Cards/Cat-Cow` | NE | NE | NE | NE | ANO | IN PROGRESS | no standard *_v01 images |
 | Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | `clamshell_start_v01.png` | `clamshell_hero_v01.png` | `clamshell_guide_card_v01.png` | `clamshell_step_by_step_v01.png` | ANO | COMPLETE |  |
 | Dead Bug | `Pilates Assets/02_Exercise_Cards/Dead Bug` | `dead_bug_start_v01_approved.png` | `dead_bug_hero_v01_approved.png` | `dead_bug_guide_card_v01.png` | `dead_bug_step_by_step_v01.png` | ANO | COMPLETE | END = START; approved hashes verified; Guide/Step rebuilt; App deployed as `deadbug` |

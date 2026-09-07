@@ -85,9 +85,9 @@
 `assets/exercises/donkey.jpg`
 
 ## Bridge Abduction (`abduction`)
-![Bridge Abduction](../../assets/exercises/abduction.jpg)
+![Bridge Abduction](../02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_hero.png)
 
-`assets/exercises/abduction.jpg`
+`Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png`
 
 ## Plié Squat (`plie`)
 ![Plié Squat](../../assets/exercises/plie.jpg)

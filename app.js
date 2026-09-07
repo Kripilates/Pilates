@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.163-dev';
+const APP_VERSION='v59.164-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1215,11 +1215,11 @@ const referenceExerciseAssets={
     }
   },
   abduction:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_guide_card_v01.png?v=59168bridgeabductionfinal',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_step_by_step_v01.png?v=59168bridgeabductionfinal',
     subtitle:'Hýždě • boky • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Stabilní most',photo:'start'},

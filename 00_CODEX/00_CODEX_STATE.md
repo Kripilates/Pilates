@@ -19,6 +19,7 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Bridge Abduction / `abduction` používá finální bezverzové SOURCE `bridge_abduction_start.png` (`055f549c…`) a `bridge_abduction_hero.png` (`7a29dee2…`) se sekvencí START → HERO → START. Guide Card v01 a Step by Step v01 byly znovu exportované ze stejného builderu bez změny textů/layoutu; dávky, workout a PWA zůstaly beze změny. Cache parametry jsou `app.js?v=59168bridgeabductionfinal` a `data.js?v=59169bridgeabductionfinal`.
 - Toe Taps / `toetap` používá finální bezverzové SOURCE `toe_tap_start.png` (`18d1b521…`) a `toe_taps_hero.png` (`9c7120aa…`) se sekvencí START → HERO → START. Guide Card v1 a Step by Step v1 byly znovu exportované ze stejného builderu bez změny textů/layoutu; svalová karta, dávky, workout a PWA zůstaly beze změny. Cache parametry jsou `app.js?v=59166toetapfinal` a `data.js?v=59167toetapfinal`.
 - Heel Taps používá finální bezverzové SOURCE `heel_taps_start.png` (`b570f9e7…`) a `heel_taps_hero.png` (`919dfa2c…`) se sekvencí START → HERO → START. Existující Guide Card v01 a Step by Step v01 byly znovu exportované ze stejné šablony s novými fotografiemi; app mapování i náhled `heeltaps` používají nové SOURCE. Cache parametry jsou `app.js?v=59162heeltapsfinal` a `data.js?v=59163heeltapsfinal`. Program, dávky, workout, ostatní cviky a PWA zůstaly beze změny.
 - Hollow Hold používá finální bezverzový START `hollow_hold_start.png`, binárně totožný s aktuálním `glute_bridge_start.png` (`d3df1aee…`), a finální HERO `hollow_hold_hero.png` (`afeb196f…`) se sekvencí START → HERO → START. Existující Guide v01 a Step v01 byly pouze přerenderovány s novými fotografiemi; svalová karta „Střed těla“ zůstala beze změny.
@@ -211,8 +212,8 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_step_by_step_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/build_bicycle_crunch_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Bridge Abduction/STATUS.md`
-- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start_v01.png`
-- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png`
+- `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png`
 - `Pilates Assets/02_Exercise_Cards/Bridge Abduction/build_bridge_abduction_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_guide_card_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_step_by_step_v01.png`

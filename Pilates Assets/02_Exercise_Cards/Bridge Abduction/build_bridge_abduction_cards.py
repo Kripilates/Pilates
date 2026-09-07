@@ -6,14 +6,14 @@ import hashlib
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / "Pilates Assets" / "02_Exercise_Cards" / "Bridge Abduction"
 
-START = FOLDER / "bridge_abduction_start_v01.png"
-HERO = FOLDER / "bridge_abduction_hero_v01.png"
+START = FOLDER / "bridge_abduction_start.png"
+HERO = FOLDER / "bridge_abduction_hero.png"
 GUIDE = FOLDER / "bridge_abduction_guide_card_v01.png"
 STEP = FOLDER / "bridge_abduction_step_by_step_v01.png"
 
 EXPECTED = {
-    START: "06c457d35bcdc8dbb4aa5686e72b2c281d83f35f62ba6757da8c995d2c8d8b3b",
-    HERO: "72fd56bdc8122fc09b96be70bc66dfebe8f892d2cb73dfe7e27b19dd95a90b0e",
+    START: "055f549c5d818761806d0440267461420f4899e8876f5e0e1d5405ce2d90b156",
+    HERO: "7a29dee229e52350f8e76016c443eaa266c0f0962748641eec6f6e1ea03d671b",
 }
 
 BG = (244, 251, 250)
