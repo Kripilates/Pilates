@@ -4,10 +4,10 @@ Status: 🟢 COMPLETE / APP AKTUALIZOVÁNA
 
 ## Photos
 
-- [x] START: reuse `../Hollow Hold/hollow_hold_start_v05_approved.png`
-  - SHA-256: `0264a4314044f8fda865580095011d9db7e1fa8bd3c8a448f868a74f6f65e207`
-- [x] HERO: `glute_bridge_hero_v03_approved.png`
-  - SHA-256: `aeaaa7d2825337a1688bc23f77a127f36704418e04d9042cbe57ee1ff75b6afb`
+- [x] START: `glute_bridge_start.png`
+  - SHA-256: `d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f`
+- [x] HERO: `glute_bridge_hero.png`
+  - SHA-256: `055f549c5d818761806d0440267461420f4899e8876f5e0e1d5405ce2d90b156`
 - [x] END = přesně START, bez samostatného PNG
 
 ## Workflow
@@ -17,12 +17,12 @@ START → HERO → START
 ## Guide Card
 
 - [x] `glute_bridge_guide_card_v3.png` — 780 × 1688 RGB
-- SHA-256: `d38acca5f0a78ced321b0294ed8ababd4a408fbcd3ffc0700e788837bf8d42dd`
+- SHA-256: `d7d7dc91e126dd59254c32159aec21c5f134e5f1d3e8464f9dca039e79db79a8`
 
 ## Step by Step
 
 - [x] `glute_bridge_step_by_step_v2.png` — 780 × 2280 RGB
-- SHA-256: `d9df8c18aa64f96e896d4a3103fcdd0f6f9cb04427b24f583b57282cbb53c78b`
+- SHA-256: `0e3eb17daba1db19f1bc99d0641757dbb7241f3c71109b51b9e052327d8a4e4d`
 
 ## Muscle Card
 

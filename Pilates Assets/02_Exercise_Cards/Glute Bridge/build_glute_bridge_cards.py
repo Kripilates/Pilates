@@ -6,13 +6,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE.parent / "Hollow Hold" / "hollow_hold_start_v05_approved.png"
-HERO = BASE / "glute_bridge_hero_v03_approved.png"
+START = BASE / "glute_bridge_start.png"
+HERO = BASE / "glute_bridge_hero.png"
 GUIDE = BASE / "glute_bridge_guide_card_v3.png"
 STEP = BASE / "glute_bridge_step_by_step_v2.png"
 EXPECTED_HASHES = {
-    START: "0264a4314044f8fda865580095011d9db7e1fa8bd3c8a448f868a74f6f65e207",
-    HERO: "aeaaa7d2825337a1688bc23f77a127f36704418e04d9042cbe57ee1ff75b6afb",
+    START: "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+    HERO: "055f549c5d818761806d0440267461420f4899e8876f5e0e1d5405ce2d90b156",
 }
 
 BG = (244, 251, 250)

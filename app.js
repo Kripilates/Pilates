@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.158-dev';
+const APP_VERSION='v59.159-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -757,11 +757,11 @@ const exerciseDetailExhale=Object.freeze({
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const referenceExerciseAssets={
   hip:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v03_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_guide_card_v3.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_step_by_step_v2.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_guide_card_v3.png?v=59160glutefinal',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_step_by_step_v2.png?v=59160glutefinal',
     anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_muscles_v01.png',alt:'Hýžďové svaly',label:'Hýžďové svaly'},
     guide:{
       breath:['Výdech při zvedání.','Nádech při návratu.'],
@@ -2422,7 +2422,7 @@ function programInfo(){
   </section>
   <section class="aboutProgramSection"><h2>Co tě čeká</h2>
     <div class="aboutFocusList">
-      <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png" alt="Russian Twist"><div><span class="aboutFocusAccent">${lineIcon('core')}</span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero_v01.png" alt="Mermaid"><div><span class="aboutFocusAccent">${lineIcon('mobility')}</span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
     </div>
