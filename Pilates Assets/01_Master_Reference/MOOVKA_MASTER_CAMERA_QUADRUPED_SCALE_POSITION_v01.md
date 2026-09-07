@@ -1,26 +1,42 @@
 # MOOVKA MASTER CAMERA — QUADRUPED SCALE & POSITION v01
 
-Status: LOCKED for hands-and-knees category camera calibration.
+Status: LOCKED pro kalibraci kamerové třídy QUADRUPED / NA ČTYŘECH.
 
-Reference image: `MOOVKA_MASTER_CAMERA_QUADRUPED_SCALE_POSITION_v01_REFERENCE_ONLY.png`
+Referenční obrázek: `MOOVKA_MASTER_CAMERA_QUADRUPED_SCALE_POSITION_v01_REFERENCE_ONLY.png`
 
-## Locked
+## Závazné nastavení QUADRUPED
 
-- Landscape source: 1536 × 1024 px.
-- Camera is a true side view with natural perspective.
-- Scale and horizontal position are calibrated by the maximum Bird Dog envelope: one arm fully forward and the opposite leg fully backward.
-- Forward fingertips, ponytail, supporting hand and knee, rear foot, and toes remain fully visible with useful side margins.
-- The same 183 × 68 cm mat is used; it must not shrink to fit a compact tabletop pose.
-- Smaller quadruped poses use this same camera scale and placement; the model must not become smaller merely because limbs are closer to the body.
+- SOURCE má vždy 1536 × 1024 px, landscape.
+- Schválený QUADRUPED reference image je hlavní vizuální autorita pro kameru, perspektivu, pozici a velikost modelky.
+- Kamera je v bočním pohledu s přirozenou perspektivou.
+- Měřítko je kalibrováno podle maximální Bird Dog obálky: jedna paže plně dopředu a protilehlá noha plně dozadu.
+- Maximální pracovní obálka má cílově zabírat přibližně 80–85 % šířky snímku.
+- Ruka a prsty vpředu, vlasy nebo culík, opěrná ruka, koleno, zadní chodidlo a prsty musí zůstat celé viditelné.
+- Kompaktnější poloha na čtyřech nesmí způsobit změnu zoomu ani zmenšení či zvětšení modelky.
+- START a HERO stejného cviku musí mít stejnou kamerovou třídu, perspektivu a měřítko.
+- Procenta jsou pouze QA tolerance. Vizuální shoda se schváleným MASTER reference image má vždy přednost.
 
-## Not approved from the reference image
+## Společné MASTER CAMERA SCALE pravidlo
 
-- Final anatomy or exercise execution.
-- Face, hair, body, skin, outfit, mat texture, wall, color, and lighting details.
-- The reference image is not a deployable exercise asset.
+- Existují tři pevné kamerové třídy: LYING / QUADRUPED / STANDING.
+- Každý cvik musí použít odpovídající schválený MASTER CAMERA reference image.
+- Modelka má vyplnit dostupný snímek co nejvíce, ale bez ořezu těla, vlasů, prstů, chodidel, pomůcek nebo směru pohybu.
+- Kamera se nesmí přizpůsobovat množství prázdné stěny.
+- Kamera se nesmí svévolně přibližovat nebo oddalovat podle kompaktnosti konkrétní pózy.
+- START a HERO jednoho cviku musí zachovat stejnou kamerovou třídu, perspektivu a měřítko.
+- Procenta jsou kontrolní tolerance, nikoli náhrada obrazového MASTERU.
+- Při rozporu má schválený MASTER CAMERA REFERENCE IMAGE přednost.
 
-## Environment rule
+## Prostředí
 
-- Preserve the same empty Moovka studio architecture and real-world proportions.
-- No logo, plants, shelf, furniture, text, or decor.
+- Čisté minimalistické Moovka studio.
+- Světlá téměř bílá neutrální stěna s jemným přirozeným světelným gradientem nebo stínem zleva.
+- Bílá soklová lišta, světlá teple neutrální dřevěná podlaha a bílé průsvitné závěsy vlevo.
+- Žádné rostliny, police, nábytek, dekorace, text ani logo.
+- V exercise framingu nesmí být vidět strop.
+- Nesmí být vidět stropní světelná lišta ani recessed light cove.
 
+## Omezení reference
+
+- Reference určuje kameru, perspektivu, pozici a měřítko; není nasaditelným exercise assetem.
+- Konkrétní anatomické nedostatky reference nejsou schváleným vzorem provedení cviku.
