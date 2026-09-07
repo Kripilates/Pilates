@@ -1,10 +1,10 @@
 ﻿# OFICIÁLNÍ MASTER SYSTÉM
 
-Projekt Pilates Body 40+ používá pouze tyto čtyři závazné reference:
+Projekt Pilates Body 40+ používá tyto čtyři závazné identity/content reference:
 
 1. MASTER prostředí
-   Referenční fotografie místnosti.
-   Určuje kameru, perspektivu, světlo, podlahu, rozmístění objektů a barevnost.
+   Referenční fotografie a specifikace prázdného Moovka studia.
+   Určuje architekturu, světlo, podlahu, závěs a barevnost. Kameru a měřítko určují tři schválené MASTER CAMERA reference.
 
 2. MASTER model
    Referenční fotografie celé modelky.
@@ -22,8 +22,9 @@ Pro anatomické obrázky "Zapojené svaly" platí navíc povinný dokument `MAST
 Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md`.
 Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 
-Podložka není součást MASTER prostředí.
-Je rekvizitou konkrétního cviku stejně jako činky, odporová guma nebo míč.
+MASTER MAT je primární fyzická autorita měřítka SOURCE série: podložka má 183 × 68 cm a modelka měří 180 cm. Podložka se mezi cviky ani fázemi nikdy nezkracuje, neprodlužuje ani nerescaluje.
+
+MASTER CAMERA LYING / QUADRUPED / STANDING a MASTER MAT jsou další závazné fyzické autority pro framing, perspektivu, pozici a měřítko; nejsou volitelnými referencemi.
 
 Veškeré další historické názvy jsou považovány za neplatné.
 # MASTER PACK v2.0 Reference
@@ -39,7 +40,9 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 
 - MASTER model: jediná oficiální modelka projektu.
 - MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
-- MASTER prostředí: jediný zdroj pravdy pro místnost, světlo, kameru, perspektivu, podlahu, palmu, polici, dekorace a barevnost.
+- MASTER prostředí: `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png` a `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`, jediný zdroj pravdy pro prázdné studio, světlo, stěnu, podlahu, sokl, závěs a barevnost.
+- MASTER CAMERA: tři pevné kamerové třídy LYING / QUADRUPED / STANDING s příslušnými schválenými reference images v `Pilates Assets/01_Master_Reference`.
+- MASTER MAT: fyzická podložka 183 × 68 cm, primární scale authority pro velikost modelky, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky; modelka měří 180 cm.
 - MASTER anatomie: `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`, zamčený základ pro všechny anatomy assety "Zapojené svaly"; pravidla určuje `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
 - HERO referenční standard: referenční kvalita HERO fotografie.
 - EXERCISE_REFERENCE.png: anatomická reference konkrétního cviku, dodává se pro právě řešený cvik.
@@ -95,9 +98,9 @@ Pokud identita neodpovídá MASTER tváři, obrázek se automaticky označí jak
 
 ## MASTER OUTFIT
 
-- coral sport bra
-- anthracite leggings
-- barefoot
+- TOP: přesně `#F36F6A`; neodvozovat odstín z předchozí generace.
+- LEGÍNY: přesně `#252528`; neodvozovat odstín z předchozí generace.
+- Barefoot, pokud cvik výslovně nevyžaduje jinak.
 - žádné boty
 - žádné hodinky
 - žádné šperky
@@ -105,41 +108,49 @@ Pokud identita neodpovídá MASTER tváři, obrázek se automaticky označí jak
 
 ## MASTER prostředí
 
-MASTER prostředí je jediný zdroj pravdy pro prostředí. Podložka není součást MASTER prostředí; je rekvizita konkrétního cviku stejně jako činky, odporová guma, míč nebo další pomůcky.
+MASTER prostředí je jediný zdroj pravdy pro prostředí. Aktivní autoritou je dvojice:
 
-Aktivní MASTER environment source of truth:
+`Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png`
 
-`Pilates Assets/01_Master_Reference/master prostředí.png`
+`Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`
 
 MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 
-- široký záběr místnosti s větším odstupem kamery
-- bílé závěsy vlevo
-- palma vlevo
-- světlá přírodní dřevěná podlaha
-- dřevěná police vpravo
-- světlá neutrální stěna
-- denní světlo zleva
-- charakteristické okenní stíny na stěně
-- stejné rozmístění a velikost objektů
-- žádná změna místnosti
-- žádná změna police
-- žádná změna palmy
+- prázdné moderní studio
+- téměř bílá neutrální stěna, která nesmí působit šedě
+- světlá přírodní light-oak / warm-neutral podlaha
+- čistý bílý sokl
+- průsvitný bílý závěs pouze vlevo
+- měkké denní světlo zleva
+- na stěně je povolen pouze velmi jemný plynulý světelný gradient
+- žádné police, rostliny, knihy, vázy, dekorace, nábytek, obrazy, zrcadla, zásuvky/panely, logo ani text
+- žádný viditelný strop, ceiling light strip, recessed cove ani světelná architektonická lišta
+- žádné diagonální pruhy, stíny žaluzií, okenních rámů nebo závěsů ani tvrdé fleky světla
+- žádný CGI/waxy vzhled, fleky, špína nebo deformace
+- **NO VISIBLE SHADOW PATTERN ON WALL.**
+
+## MASTER MAT — PRIMARY SCALE AUTHORITY
+
+- Podložka má pevný reálný rozměr 183 × 68 cm; modelka měří 180 cm.
+- Podložka je fyzické měřítko celé SOURCE série a určuje velikost modelky, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky.
+- Pokud póza, modelka nebo kamera vůči podložce nesedí, opravuje se modelka nebo kamera. Podložka se nikdy nezkracuje, neprodlužuje ani jinak nerescaluje.
+- LYING sanity check: neutrální plně natažená 180cm modelka se musí head-to-toe vejít na 183cm podložku pouze s malou reálnou rezervou. Pokud se nevejde, měřítko obrazu je chybné.
 
 ## CAMERA
 
-- stále stejná výška
-- stále stejná vzdálenost
-- stále stejná perspektiva
-- stále stejné ohnisko a kompozice
-- žádný zoom
-- žádná svévolná změna vzdálenosti prostředí při jednotlivých cvicích
-- žádná změna perspektivy
+- Existují tři pevné kamerové třídy: LYING / QUADRUPED / STANDING.
+- Každý SOURCE musí použít odpovídající schválený MASTER CAMERA reference image.
+- LYING: 1536 × 1024 landscape, low true side view, maximum envelope = plně natažené nohy + paže plně za hlavou, QA tolerance 88–92 % šířky.
+- QUADRUPED: 1536 × 1024 landscape, true side view, maximum envelope = Bird Dog, QA tolerance 80–85 % šířky.
+- STANDING: 1536 × 1024 landscape, maximum envelope = stoj + paže plně nad hlavou + dvě malé 1kg činky, QA tolerance 88–92 % dostupné výšky.
+- Schválený camera reference image má vždy přednost před procentní QA tolerancí.
+- Menší nebo kompaktní póza nesmí způsobit zoom, změnu velikosti modelky ani změnu vzdálenosti kamery.
+- START, HERO a END jednoho cviku zachovávají stejnou camera class, perspektivu, měřítko a podložku; mezi fázemi není povolen žádný zoom.
 
 ## LIGHT
 
 - měkké denní světlo zleva
-- stejné stíny
+- pouze jemný plynulý světelný gradient; žádný viditelný stínový vzor na stěně
 - žádné večerní světlo
 - žádné teplé světlo
 - žádný grey wash
@@ -156,8 +167,8 @@ Styl projektu definuje barevnost, fotografický styl, osvětlení a celkový viz
 - ostrý, kvalitní výstup bez AI artefaktů
 - přirozený kontrast
 - přirozená saturace pleti
-- jasně viditelný coral-pink top
-- charcoal leggings se zachovaným detailem
+- top přesně `#F36F6A`
+- legíny přesně `#252528` se zachovaným detailem
 - fotografie musí působit jako jedna profesionální série
 
 ## NEVER CHANGE
@@ -167,8 +178,7 @@ Styl projektu definuje barevnost, fotografický styl, osvětlení a celkový viz
 - Hair
 - Body
 - Room
-- Shelf
-- Plant
+- Mat dimensions and physical scale
 - Lighting
 - Camera
 - Outfit
@@ -185,8 +195,13 @@ Styl projektu definuje barevnost, fotografický styl, osvětlení a celkový viz
 - Hand position
 - Foot position
 - Head rotation, only if required by exercise
-- Mat, only as exercise prop
 - Exercise props
+
+## POVINNÉ POSE REUSE
+
+Pokud existuje schválený nebo původní SOURCE obrázek cviku, je závaznou anatomickou a pózovou referencí. Zachovat joint angles, směr končetin, rotaci trupu, polohu rukou, polohu chodidel, gaze a přesnou fázi cviku. Nová póza se nevymýšlí podle textu, pokud obrazová reference existuje.
+
+Při sjednocení se mění pouze poloha těla podle původního obrázku. Modelka, obličej, vlasy, outfit, prostředí, podložka, camera class, perspektiva, světlo, white balance a barvy zůstávají zamčené.
 
 ## MASTER WORKFLOW
 
@@ -227,6 +242,9 @@ Před každým obrázkem musí ChatGPT automaticky ověřit:
 - že nevzniká Guide Card, Step by Step, Master Card, poster, infografika, UI, koláž ani grafický prvek
 - že výstup bude čistá source fotografie bez textu, ikon, čísel, rámečků, šipek, loga a UI
 - že bude použit MASTER model, MASTER tvář, MASTER prostředí, styl projektu a EXERCISE_REFERENCE
+- že bude použita odpovídající MASTER CAMERA class a pevná podložka 183 × 68 cm jako primary scale authority
+- že TOP bude přesně `#F36F6A` a LEGÍNY přesně `#252528`
+- že existující původní SOURCE bude použit jako povinná pose reference
 
 Bez PRE-GENERATION QA nesmí generování začít.
 
@@ -240,11 +258,15 @@ Kontrolovat vždy:
 - správnost cviku
 - identitu modelky
 - prostředí
+- zákaz viditelného shadow patternu na stěně
 - světlo
 - perspektivu
 - kameru
+- camera class a scale proti schválenému camera reference image
+- pevnou podložku 183 × 68 cm a měřítko 180cm modelky
 - oblečení
 - barvy
+- shodu START/HERO/END bez zoomu mezi fázemi
 - AI artefakty
 - celkový dojem jedné série
 
@@ -291,10 +313,14 @@ Každý prompt musí říkat:
 
 - Use MASTER model.
 - Use MASTER prostředí.
+- Use the correct approved MASTER CAMERA reference image.
+- Use the fixed 183 × 68 cm mat as the primary physical scale authority for the 180 cm model; never rescale the mat.
 - Use HERO reference quality standard for HERO quality.
-- Use EXERCISE_REFERENCE.png for anatomy.
+- Use the existing approved/original exercise SOURCE as the mandatory pose reference when available; otherwise use EXERCISE_REFERENCE.png for anatomy.
 - Keep the same model, face, hair, body, outfit, room, camera, light, perspective and floor.
-- Change only the body pose, required limb positions, mat and exercise props.
+- Keep TOP exactly `#F36F6A` and LEGGINGS exactly `#252528`.
+- Change only the body pose and required exercise props.
+- NO VISIBLE SHADOW PATTERN ON WALL.
 - Create only a clean source image.
 - No text, title, labels, icons, frames, UI, numbers or graphic elements.
 

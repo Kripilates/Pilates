@@ -206,18 +206,20 @@ Platné MASTER reference jsou pouze:
 - MASTER tvář
 - EXERCISE_REFERENCE konkrétního cviku
 
-MASTER prostředí je jediná schválená referenční fotografie místnosti. Obsahuje místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost. MASTER prostředí je uzamčeno.
+MASTER prostředí je jediná schválená autorita prázdného moderního Moovka studia: téměř bílá neutrální stěna, light-oak / warm-neutral podlaha, bílý sokl, průsvitný bílý závěs pouze vlevo a měkké denní světlo zleva. Aktivní autoritou je `MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`.
 
 Nesmí se měnit:
 
-- kamera
-- perspektiva
-- ohnisko
 - světlo
-- rozmístění objektů
-- velikost objektů
+- prázdné prostředí bez nábytku a dekorací
+- téměř bílá barva stěny
+- white balance a barvy
 
-Podložka není součást MASTER prostředí. Podložka je rekvizita stejně jako činky, odporová guma, míč nebo další cvičební pomůcky. Přidává se až při generování konkrétního cviku.
+Přísně zakázány jsou police, rostliny, knihy, vázy, dekorace, nábytek, obrazy, zrcadla, zásuvky/panely, logo/text, viditelný strop, ceiling light strip, recessed cove, světelná architektonická lišta a jakýkoli světelný nebo stínový vzor na stěně. **NO VISIBLE SHADOW PATTERN ON WALL.**
+
+Podložka 183 × 68 cm je PRIMARY SCALE AUTHORITY pro 180cm modelku, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky. Když měřítko nesedí, opravuje se modelka nebo kamera; podložka se nikdy nezkracuje, neprodlužuje ani nerescaluje.
+
+Kamera používá jednu ze tří pevných schválených tříd LYING / QUADRUPED / STANDING. Kompaktnost pózy nesmí měnit zoom. START, HERO a END jednoho cviku zachovávají stejnou camera class, perspektivu, měřítko a podložku.
 
 MASTER model určuje postavu, oblečení, vlasy a identitu. Mění se pouze poloha těla.
 
@@ -243,17 +245,18 @@ Nesmí se měnit:
 
 Oblečení:
 
-- korálově růžový top
-- antracitové legíny
-- bosé nohy
+- TOP přesně `#F36F6A`
+- LEGÍNY přesně `#252528`
+- barefoot, pokud cvik výslovně nevyžaduje jinak
 
 Smí se měnit pouze samotný cvik:
 
 - poloha těla
 - poloha rukou
 - poloha nohou
-- podložka
 - cvičební pomůcky
+
+Pokud existuje původní nebo schválený SOURCE obrázek cviku, je povinnou pózovou referencí. Zachovávají se joint angles, směr končetin, rotace trupu, poloha rukou a chodidel, gaze a fáze cviku; nová póza se nevymýšlí podle textu.
 
 Workflow obrázků:
 
@@ -278,6 +281,8 @@ QA obrázků probíhá vždy v pořadí:
 5. Anatomická správnost
 6. AI artefakty
 7. Celkový dojem jedné fotografické série
+
+PRE-GENERATION QA i POST-GENERATION QA jsou povinné a automatické. Kontrolují také vlasy bez copper/orange/red castu, přesné barvy outfitu, prostředí bez shadow patternu, pevné měřítko podložky, camera class, START/HERO/END consistency a AI artefakty. Neúspěšný výsledek není APPROVED a musí se opravit.
 
 Kontrolní otázka:
 

@@ -83,6 +83,14 @@ Musí být:
 
 Pokud některý bod neplatí, obrázek se nesmí vytvořit.
 
+5. Kontrola zamčených MASTER pravidel
+
+- existující schválený/původní SOURCE je povinná pose reference, pokud existuje
+- správná camera class LYING / QUADRUPED / STANDING
+- podložka 183 × 68 cm jako PRIMARY SCALE AUTHORITY pro 180cm modelku
+- TOP přesně `#F36F6A`, LEGÍNY přesně `#252528`
+- prázdné MASTER prostředí bez viditelného shadow patternu na stěně
+
 # 1. Účel projektu
 
 - Pilates Body 40+ je dlouhodobě vyvíjená aplikace.
@@ -161,44 +169,35 @@ Platné MASTER reference jsou pouze:
 - MASTER tvář
 - EXERCISE_REFERENCE
 
+Kameru, perspektivu, pozici a měřítko určují tři pevné MASTER CAMERA reference LYING / QUADRUPED / STANDING. Podložka 183 × 68 cm je primární fyzická autorita měřítka pro 180cm modelku, vzdálenost kamery a měřítko místnosti.
+
 Pro anatomické obrázky "Zapojené svaly" platí navíc `MASTER_ANATOMY.md` a zamčený `MOOVKA_MASTER_BODY_v01`.
 
 Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md` a `MOOVKA_MASTER_BODY_v01`. Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 
-MASTER prostředí je jediná schválená referenční fotografie místnosti.
+MASTER prostředí je jediná schválená autorita prázdného moderního Moovka studia.
 
 Obsahuje pouze:
 
 - místnost
-- kameru
-- perspektivu
 - světlo
 - podlahu
-- polici
-- dekorace
+- téměř bílou neutrální stěnu
+- bílý sokl
+- průsvitný bílý závěs pouze vlevo
 - barevnost
 
 MASTER prostředí je uzamčeno.
 
 Nesmí se měnit:
 
-- kamera
-- perspektiva
-- ohnisko
 - světlo
-- rozmístění objektů
-- velikost objektů
+- prázdné prostředí bez nábytku a dekorací
+- white balance a barvy
 
-Podložka není součást MASTER prostředí.
+Přísně zakázány jsou police, rostliny, knihy, vázy, dekorace, nábytek, obrazy, zrcadla, zásuvky/panely, logo/text, viditelný strop, ceiling light strip, recessed cove, světelná architektonická lišta, diagonální pruhy, stíny žaluzií, okenních rámů nebo závěsů a tvrdé fleky světla. **NO VISIBLE SHADOW PATTERN ON WALL.**
 
-Podložka je rekvizita stejně jako:
-
-- činky
-- odporová guma
-- míč
-- další cvičební pomůcky
-
-Podložka se přidává až při generování konkrétního cviku.
+Podložka má pevný rozměr 183 × 68 cm a nikdy se podle pózy nerescaluje. Pokud nesedí modelka nebo kamera vůči podložce, opravuje se modelka nebo kamera.
 
 MASTER model určuje:
 
@@ -208,6 +207,8 @@ MASTER model určuje:
 - identitu
 
 Mění se pouze poloha těla.
+
+Modelka je vždy stejná konkrétní žena cca 40 let, štíhlá a přirozeně zpevněná, ne kulturistická. Vlasy jsou dark blonde / light brown s jemnými světlejšími prameny, bez dark brunette, black, copper, orange nebo red castu. TOP je přesně `#F36F6A`, LEGÍNY přesně `#252528`, barefoot pokud cvik výslovně nevyžaduje jinak.
 
 MASTER tvář určuje:
 
@@ -222,6 +223,8 @@ MASTER tvář určuje:
 Nikdy se nesmí změnit identita.
 
 EXERCISE_REFERENCE určuje anatomii konkrétního cviku.
+
+Pokud existuje původní nebo schválený SOURCE obrázek cviku, je povinnou pózovou referencí. Zachovávají se joint angles, směr končetin, rotace trupu, poloha rukou a chodidel, gaze a fáze cviku. Nová póza se nevymýšlí podle textu.
 
 Nové obrázky musí působit jako fotografie ze stejného focení.
 
@@ -310,7 +313,10 @@ Schválený obrázek musí současně splnit:
 - stejná kamera
 - stejné světlo
 - stejná barevnost
-- podložka jako rekvizita konkrétního cviku
+- stejná fyzická podložka 183 × 68 cm bez rescalingu
+- správná MASTER CAMERA class a scale bez zoomu mezi START/HERO/END
+- žádný viditelný shadow pattern na stěně
+- TOP `#F36F6A` a LEGÍNY `#252528`
 - anatomická shoda s EXERCISE_REFERENCE
 - žádné rušivé AI artefakty
 
@@ -379,7 +385,7 @@ Inspirace:
 
 # 12. Dokumentace
 
-Tento dokument má vyšší prioritu než:
+Nejvyšší prioritu pro obrazový MASTER systém má `MASTER_REFERENCE.md`. Tento dokument je podpůrná projektová Bible. Dále podporuje:
 
 - DESIGN_STANDARD.md
 - CHATGPT_PROJECT_GUIDE.md
@@ -389,9 +395,7 @@ Tento dokument má vyšší prioritu než:
 - CODEX_WORKFLOW.md
 - REFERENCE_DETAIL_IMPLEMENTATION_PLAN.md
 
-V případě rozporu platí:
-
-PILATES_BODY_AI_BIBLE.md
+V případě rozporu platí `MASTER_REFERENCE.md` a jeho aktivní environment, camera a mat pravidla.
 
 # 13. Zásadní pravidlo projektu
 

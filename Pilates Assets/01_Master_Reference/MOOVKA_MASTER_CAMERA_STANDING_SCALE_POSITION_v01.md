@@ -10,9 +10,11 @@ Referenční obrázek: `MOOVKA_MASTER_CAMERA_STANDING_SCALE_POSITION_v01_REFEREN
 - Schválený STANDING reference image je hlavní vizuální autorita pro kameru, framing, pozici a přiblížení.
 - Měřítko je kalibrováno podle maximální standing obálky: postava ve stoje, obě paže plně natažené nad hlavou a dvě malé jednoruční činky.
 - Maximální pracovní obálka má cílově zabírat přibližně 88–92 % dostupné výšky snímku.
+- Stejná fyzická podložka 183 × 68 cm je primární autorita měřítka; modelka měří 180 cm.
+- Pokud póza, modelka nebo kamera vůči podložce nesedí, opravuje se modelka nebo kamera; podložka se nikdy nezkracuje, neprodlužuje ani nerescaluje.
 - Chodidla i nejvyšší poloha rukou a činek musí zůstat celé uvnitř obrazu s malou bezpečnou rezervou.
 - U menších standing pozic se modelka nesmí zmenšovat, posouvat dozadu ani svévolně měnit zoom.
-- START a HERO stejného cviku musí mít stejnou kamerovou třídu, perspektivu a měřítko.
+- START, HERO a END stejného cviku musí mít stejnou kamerovou třídu, perspektivu, měřítko a stejnou podložku; mezi fázemi není povolen žádný zoom.
 - Procenta jsou pouze QA tolerance. Vizuální shoda se schváleným MASTER reference image má vždy přednost.
 
 ## Společné MASTER CAMERA SCALE pravidlo
@@ -29,11 +31,12 @@ Referenční obrázek: `MOOVKA_MASTER_CAMERA_STANDING_SCALE_POSITION_v01_REFEREN
 ## Prostředí
 
 - Čisté minimalistické Moovka studio.
-- Světlá téměř bílá neutrální stěna s jemným přirozeným světelným gradientem nebo stínem zleva.
+- Světlá téměř bílá neutrální stěna, která nesmí působit šedě, pouze s jemným plynulým světelným gradientem zleva.
 - Bílá soklová lišta, světlá teple neutrální dřevěná podlaha a bílé průsvitné závěsy vlevo.
 - Žádné rostliny, police, nábytek, dekorace, text ani logo.
 - V exercise framingu nesmí být vidět strop.
 - Nesmí být vidět stropní světelná lišta ani recessed light cove.
+- **NO VISIBLE SHADOW PATTERN ON WALL.**
 
 ## Omezení reference
 

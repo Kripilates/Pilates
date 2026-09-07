@@ -39,7 +39,9 @@ Platný MASTER systém je MASTER.
 
 Používej:
 
-- MASTER prostředí pro místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost
+- MASTER prostředí pro prázdné studio, světlo, stěnu, podlahu, sokl, závěs a barevnost
+- odpovídající MASTER CAMERA LYING / QUADRUPED / STANDING pro kameru, perspektivu, pozici a měřítko
+- MASTER MAT 183 × 68 cm jako primární fyzickou autoritu měřítka 180cm modelky, kamery a místnosti
 - MASTER model pro postavu, oblečení, vlasy a identitu
 - MASTER tvář pro obličej, oči, nos, ústa, čelist, výraz a odstín pleti
 - EXERCISE_REFERENCE pro anatomii konkrétního cviku
@@ -76,9 +78,9 @@ Nesmí vzniknout dojem jiné ženy.
 
 Musí být stále stejné.
 
-- korálově růžový top
-- antracitové legíny
-- bosé nohy
+- TOP přesně `#F36F6A`
+- LEGÍNY přesně `#252528`
+- barefoot, pokud cvik výslovně nevyžaduje jinak
 
 Bez jakékoliv změny.
 
@@ -86,37 +88,44 @@ Bez jakékoliv změny.
 
 ## Prostředí
 
-MASTER prostředí je jediná schválená referenční fotografie místnosti. Obsahuje pouze místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost.
+MASTER prostředí je jediná schválená autorita prázdného moderního Moovka studia.
 
-Aktivní MASTER environment source of truth je `Pilates Assets/01_Master_Reference/master prostředí.png`.
+Aktivní MASTER environment source of truth je `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`.
 
 MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 
-MASTER prostředí je uzamčeno. Nesmí se měnit kamera, perspektiva, ohnisko, světlo, rozmístění objektů ani velikost objektů.
+MASTER prostředí je uzamčeno:
 
-Podložka není součást MASTER prostředí. Podložka je rekvizita stejně jako činky, odporová guma, míč nebo další cvičební pomůcky. Přidává se až při generování konkrétního cviku.
+- téměř bílá neutrální stěna, která nesmí působit šedě
+- světlá přírodní light-oak / warm-neutral podlaha
+- čistý bílý sokl
+- průsvitný bílý závěs pouze vlevo
+- měkké denní světlo zleva
+- pouze velmi jemný plynulý světelný gradient na stěně
+- žádné police, rostliny, knihy, vázy, dekorace, nábytek, obrazy, zrcadla, zásuvky/panely, logo ani text
+- žádný viditelný strop, ceiling light strip, recessed cove ani světelná architektonická lišta
+- žádné diagonální pruhy, stíny žaluzií, okenních rámů nebo závěsů ani tvrdé fleky světla
+- žádný CGI/waxy vzhled, fleky, špína nebo deformace
+- **NO VISIBLE SHADOW PATTERN ON WALL.**
 
-Stejné rozmístění všech objektů.
+## Podložka — primary scale authority
 
-Nic nepřesouvat.
-
-Žádný zoom ani svévolná změna vzdálenosti prostředí při jednotlivých cvicích.
+- Podložka má pevný reálný rozměr 183 × 68 cm a modelka měří 180 cm.
+- Určuje velikost modelky, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky.
+- Když póza, modelka nebo kamera vůči podložce nesedí, opravuje se modelka nebo kamera; podložka se nikdy nezkracuje, neprodlužuje ani nerescaluje.
+- LYING sanity check: neutrální plně natažená modelka se musí head-to-toe vejít na podložku pouze s malou reálnou rezervou.
 
 ---
 
 ## Kamera
 
-Musí být zachována.
+Existují tři pevné kamerové třídy a každá používá odpovídající schválený MASTER CAMERA reference image:
 
-Stejná výška.
+- LYING: low true side view; maximum envelope = plně natažené nohy + paže plně za hlavou; QA tolerance 88–92 % šířky.
+- QUADRUPED: true side view; maximum envelope = Bird Dog; QA tolerance 80–85 % šířky.
+- STANDING: maximum envelope = stoj + ruce plně nad hlavou + dvě malé 1kg činky; QA tolerance 88–92 % dostupné výšky.
 
-Stejná vzdálenost.
-
-Stejný úhel.
-
-Stejné ohnisko.
-
-Stejná kompozice.
+Schválený camera reference image má vždy přednost před procenty. Kompaktnější póza nesmí změnit zoom, velikost modelky ani vzdálenost kamery. START, HERO a END jednoho cviku zachovávají stejnou camera class, perspektivu, měřítko a podložku bez zoomu mezi fázemi.
 
 Fotografie musí působit jako pokračování stejného focení.
 
@@ -130,7 +139,7 @@ Stejný směr světla.
 
 Stejná intenzita.
 
-Stejné stíny.
+Žádný viditelný stínový vzor na stěně.
 
 Stejná barevná teplota.
 
@@ -144,7 +153,7 @@ Stejná barevná teplota.
 
 Stejná jako MASTER model.
 
-Lehce studená.
+Čistá neutrální až lehce warm-neutral.
 
 Přirozená.
 
@@ -165,10 +174,15 @@ Smí se změnit pouze:
 - poloha těla
 - poloha rukou
 - poloha nohou
-- podložka
 - cvičební pomůcky
 
 Nic dalšího.
+
+## Povinné pose reuse
+
+Pokud existuje schválený nebo původní SOURCE obrázek cviku, použije se jako závazná anatomická a pózová reference. Zachovat joint angles, směr končetin, rotaci trupu, polohu rukou, polohu chodidel, gaze a fázi cviku. Nevymýšlet novou pózu podle textu, pokud obrazová reference existuje.
+
+Při sjednocení se mění pouze poloha těla podle původní reference. Modelka, obličej, vlasy, outfit, prostředí, podložka, camera class, perspektiva, světlo, white balance a barvy zůstávají zamčené.
 
 ---
 
@@ -182,7 +196,7 @@ Pouze pokračuje ve stejném focení.
 
 Modelka se přesune do nové pozice.
 
-Fotoaparát zůstává stát.
+V rámci jednoho cviku a jeho zvolené camera class zůstává fotoaparát beze změny.
 
 Světlo zůstává stejné.
 
@@ -277,6 +291,19 @@ Musí zkontrolovat v pořadí:
 5. Anatomická správnost
 6. AI artefakty
 7. Celkový dojem jedné fotografické série
+
+Dále povinně kontrolovat:
+
+- správnost pózy proti původní obrazové referenci
+- vlasy bez copper/orange/red castu
+- TOP přesně `#F36F6A`
+- LEGÍNY přesně `#252528`
+- zákaz viditelného shadow patternu na stěně
+- pevnou podložku 183 × 68 cm a měřítko 180cm modelky
+- správnou camera class, scale a perspektivu
+- konzistenci START/HERO/END bez zoomu mezi fázemi
+
+POST-GENERATION QA probíhá automaticky bez čekání na uživatele. Pokud kterýkoli bod neprojde, výsledek není APPROVED a musí se opravit.
 
 Pokud je rozdíl viditelný na první pohled, obrázek není správný.
 
