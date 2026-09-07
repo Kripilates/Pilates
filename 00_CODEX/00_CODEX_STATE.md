@@ -19,6 +19,7 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Heel Taps používá finální bezverzové SOURCE `heel_taps_start.png` (`b570f9e7…`) a `heel_taps_hero.png` (`919dfa2c…`) se sekvencí START → HERO → START. Existující Guide Card v01 a Step by Step v01 byly znovu exportované ze stejné šablony s novými fotografiemi; app mapování i náhled `heeltaps` používají nové SOURCE. Cache parametry jsou `app.js?v=59162heeltapsfinal` a `data.js?v=59163heeltapsfinal`. Program, dávky, workout, ostatní cviky a PWA zůstaly beze změny.
 - Hollow Hold byl aktualizován na approved START/HERO v05 (`0264a431…` / `faa13bd8…`) se sekvencí START → HERO → START. Existující Guide v01 a Step v01 byly pouze přerenderovány s novými fotografiemi; svalová karta „Střed těla“ zůstala beze změny.
 - Glute Bridge nyní používá přesný reuse Hollow Hold START v05 a approved HERO v03 (`aeaaa7d2…`) se sekvencí START → HERO → START. Existující Guide v3 a Step v2 byly pouze přerenderovány s novými fotografiemi. Přibyla svalová karta `glute_bridge_muscles_v01.png` se zvýrazněnými hýžďovými svaly podle Moovka MASTER BODY standardu.
 - Mapování aplikace `hollow` a `hip` bylo cíleně aktualizováno na nové SOURCE a Glute Bridge anatomy; cache parametr `app.js` je `v=59158hollowgluteassets`. Program, dávky, workout, ostatní cviky a PWA nebyly změněny.
@@ -26,10 +27,10 @@ Aktuální rozpracované změny bez commitu:
 - Standing Side Bend / `standing_side_bend` je dokončený s approved START v03, HERO v03, HERO opposite v01 a anatomy v01. Guide Card v01 (780 × 1688 RGB) a Step by Step v01 (780 × 2280 RGB) byly reprodukované a vizuálně ověřené v sekvenci START → HERO 1 → START → HERO 2 → START; END je přesně START bez nového PNG. Anatomy `standing_side_bend_muscles_v01.png` je napojená pouze v detailu tohoto cviku. SOURCE ani anatomy PNG nebyly upravované.
 - Aplikace je `v59.117-dev`; `app.js` mapuje pouze `standing_side_bend` na nové approved assety a anatomy. Cache parametry, `data.js`, PWA, service worker, program, workout a dávky zůstaly beze změny. Commit ani push nebyl proveden.
 
-- Dne 2026-08-31 byl dokončen nový assetový balíček pro Glute Bridge, Hip March, Dead Bug, Toe Tap, Glute Bridge March a Heel Taps. Všechny Guide Card exporty mají 780 × 1688 RGB a všechny Step by Step exporty 780 × 2280 RGB; proběhla kontrola rozměrů, SHA-256, source-hash invariance a vizuální QA.
+- Dne 2026-08-31 byl dokončen tehdejší assetový balíček pro Glute Bridge, Hip March, Dead Bug, Toe Tap, Glute Bridge March a Heel Taps. Všechny Guide Card exporty mají 780 × 1688 RGB a všechny Step by Step exporty 780 × 2280 RGB; proběhla kontrola rozměrů, SHA-256, source-hash invariance a vizuální QA. Aktivní Heel Taps balíček byl následně nahrazen finálními bezverzovými SOURCE uvedenými výše.
 - SOURCE nebyl retušován ani generován. Dead Bug START byl pouze přejmenován na `dead_bug_start_v01_approved.png` se zachováním hashe `122b0849…`; Glute Bridge March HERO byl pouze přesunut z Toe Tap do správné složky se zachováním hashe `6014cf5e…`.
 - Reuse mapování: Glute Bridge START = Hip March START = Glute Bridge March START (`80c3b793…`); Glute Bridge HERO = Glute Bridge March MID (`961e8691…`); Hip March HERO = `7ed56193…`. Glute Bridge March používá sekvenci START → MID → HERO → MID → START.
-- Všech šest balíčků je nasazeno v aplikaci přes `referenceExerciseAssets`: Glute Bridge `hip`, Hip March `hip_march`, Dead Bug `deadbug`, Toe Tap `toetap`, Glute Bridge March `glute_bridge_march` a Heel Taps `heeltaps`. Aktivní náhledy i dynamické START/HERO/END kroky používají schválené `_approved` soubory; Guide Card a Step by Step metadata ukazují na nové exporty.
+- Všech šest balíčků je nasazeno v aplikaci přes `referenceExerciseAssets`: Glute Bridge `hip`, Hip March `hip_march`, Dead Bug `deadbug`, Toe Tap `toetap`, Glute Bridge March `glute_bridge_march` a Heel Taps `heeltaps`. Heel Taps používá finální bezverzové SOURCE; ostatní balíčky zachovávají vlastní aktuální schválené soubory. Guide Card a Step by Step metadata ukazují na příslušné exporty.
 - Původní šestice assetových balíčků zůstává na stejném mapování; aktuální cache `app.js` je nadále `v=59149exercisedetailfix`. `data.js`, workout, programové dávky a PWA zůstaly beze změny.
 
 - MASTER prostředí projektu Moovka bylo 2026-08-30 aktualizováno na široký záběr místnosti uložený jako `Pilates Assets/01_Master_Reference/master prostředí.png`. Tento soubor je jediný source of truth pro room / camera / perspective / light / floor / object placement / colors. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
@@ -70,7 +71,7 @@ Aktuální rozpracované změny bez commitu:
 
 - Inner Thigh Lift používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `inner_thigh`. Textový audit proběhne později hromadně.
 - Hollow Hold používá schválenou sekvenci START v01 → HERO v02 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `hollow`.
-- Heel Taps používá schválenou sekvenci START v01 → HERO v01 → START v01; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `heeltaps` jako střídavý stejnostranný dosah ruky k patě.
+- Heel Taps používá finální sekvenci `heel_taps_start.png` → `heel_taps_hero.png` → `heel_taps_start.png`; Guide Card a Step by Step v01 jsou aktualizované a cvik je nasazený v aplikaci pod ID `heeltaps` jako střídavý stejnostranný dosah ruky k patě.
 
 - Figure Four Stretch používá schválenou sestavu START v01 → MID v02 → HERO v02 → START v01; Guide Card a Step by Step v02 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `figure_four`.
 - Forearm Plank používá jeden schválený statický source pro START, HERO i END; Guide Card a Step by Step v01 jsou manuálně schválené a cvik je nasazený v aplikaci pod ID `plank`.
@@ -221,8 +222,8 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_step_by_step_v04.png`
 
 - `Pilates Assets/02_Exercise_Cards/Heel Taps/STATUS.md`
-- `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start_v01.png`
-- `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero_v01.png`
+- `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png`
+- `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png`
 - `Pilates Assets/02_Exercise_Cards/Heel Taps/build_heel_taps_cards.py`
 - `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_guide_card_v01.png`
 - `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_step_by_step_v01.png`

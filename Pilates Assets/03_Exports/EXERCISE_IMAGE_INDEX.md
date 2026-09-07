@@ -225,9 +225,9 @@
 `assets/exercises/revcrunch.jpg`
 
 ## Heel Taps (`heeltaps`)
-![Heel Taps](../02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v03_approved.png)
+![Heel Taps](../02_Exercise_Cards/Heel%20Taps/heel_taps_hero.png)
 
-`Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero_v03_approved.png`
+`Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png`
 
 ## Scissors (`scissors`)
 ![Scissors](../../assets/exercises/toetap_slow.jpg)

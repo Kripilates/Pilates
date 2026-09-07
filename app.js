@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.160-dev';
+const APP_VERSION='v59.161-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1391,9 +1391,9 @@ const referenceExerciseAssets={
     }
   },
   heeltaps:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v04_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v04_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v04_approved.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_step_by_step_v01.png',
     subtitle:'Břicho • pas • střídavý dosah',
