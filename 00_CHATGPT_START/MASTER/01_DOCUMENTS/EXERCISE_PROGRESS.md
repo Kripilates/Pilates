@@ -52,7 +52,7 @@ Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je p
 | Cvik | Ref | HERO | START | END | Guide | Step | Export | QA | App | Stav | Poznámka |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Bent Over Row | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v02 schválené; END = START v02 bez samostatného PNG; Guide Card a Step by Step v02 schválené; App nasazena jako `row`; aktivní cesty používají pouze Bent Over Row v02 soubory |
-| Bicycle Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 schválené; App nasazena přes `bicycle` |
+| Bicycle Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální SOURCE bez verzovacího čísla: `bicycle_crunch_start.png` → `bicycle_crunch_hero.png` → `bicycle_crunch_end.png`; Guide Card a Step by Step v01 aktualizovány beze změny textů/layoutu; app mapování přes `bicycle` |
 | Bird Dog | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Bridge Abduction | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválený reuse source z Glute Bridge March MID v02; HERO je schválený; END = START bez samostatného PNG; Guide Card a Step by Step jsou schválené; App nasazena jako kanonické ID `abduction`; schválená varianta je bez pomůcky |
 | Cat-Cow | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START, HERO/CAT fáze a END/COW fáze schválené; Guide Card a Step by Step schválené; App nasazena jako samostatný cvik `catcow`; EXERCISE_REFERENCE není uložená v MASTER balíčku |

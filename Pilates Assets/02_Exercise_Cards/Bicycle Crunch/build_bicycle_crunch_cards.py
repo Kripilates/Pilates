@@ -3,9 +3,9 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "bicycle_crunch_start_v02_approved.png"
-HERO = BASE / "bicycle_crunch_hero_v02_approved.png"
-END = BASE / "bicycle_crunch_end_v02_approved.png"
+START = BASE / "bicycle_crunch_start.png"
+HERO = BASE / "bicycle_crunch_hero.png"
+END = BASE / "bicycle_crunch_end.png"
 GUIDE = BASE / "bicycle_crunch_guide_card_v01.png"
 STEP = BASE / "bicycle_crunch_step_by_step_v01.png"
 

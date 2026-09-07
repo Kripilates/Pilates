@@ -3,9 +3,9 @@
 Status: HOTOVO
 
 ## Source Images
-- [x] START — bicycle_crunch_start_v01.png — SCHVÁLENO
-- [x] HERO — bicycle_crunch_hero_v01.png — SCHVÁLENO
-- [x] END — bicycle_crunch_end_v01.png — SCHVÁLENO
+- [x] START — `bicycle_crunch_start.png` — FINÁLNÍ / SCHVÁLENO
+- [x] HERO — `bicycle_crunch_hero.png` — FINÁLNÍ / SCHVÁLENO
+- [x] END — `bicycle_crunch_end.png` — FINÁLNÍ / SCHVÁLENO
 
 ## Workflow
 START → HERO → END
@@ -39,4 +39,4 @@ START → HERO → END
 - HERO: levý loket modelky směřuje k pravému kolenu, levá noha je natažená a trup je natočený směrem ke kameře.
 - END: pravý loket modelky směřuje k levému kolenu, pravá noha je natažená a trup je natočený od kamery.
 - Guide Card a Step by Step v01 jsou manuálně schválené.
-- Aplikace používá schválené Bicycle Crunch v01 source a karty.
+- Aplikace používá finální Bicycle Crunch SOURCE bez verzovacího čísla a stávající Guide/Step karty v01.
