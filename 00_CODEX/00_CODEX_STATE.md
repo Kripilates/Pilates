@@ -19,6 +19,10 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Hollow Hold byl aktualizován na approved START/HERO v05 (`0264a431…` / `faa13bd8…`) se sekvencí START → HERO → START. Existující Guide v01 a Step v01 byly pouze přerenderovány s novými fotografiemi; svalová karta „Střed těla“ zůstala beze změny.
+- Glute Bridge nyní používá přesný reuse Hollow Hold START v05 a approved HERO v03 (`aeaaa7d2…`) se sekvencí START → HERO → START. Existující Guide v3 a Step v2 byly pouze přerenderovány s novými fotografiemi. Přibyla svalová karta `glute_bridge_muscles_v01.png` se zvýrazněnými hýžďovými svaly podle Moovka MASTER BODY standardu.
+- Mapování aplikace `hollow` a `hip` bylo cíleně aktualizováno na nové SOURCE a Glute Bridge anatomy; cache parametr `app.js` je `v=59158hollowgluteassets`. Program, dávky, workout, ostatní cviky a PWA nebyly změněny.
+
 - Standing Side Bend / `standing_side_bend` je dokončený s approved START v03, HERO v03, HERO opposite v01 a anatomy v01. Guide Card v01 (780 × 1688 RGB) a Step by Step v01 (780 × 2280 RGB) byly reprodukované a vizuálně ověřené v sekvenci START → HERO 1 → START → HERO 2 → START; END je přesně START bez nového PNG. Anatomy `standing_side_bend_muscles_v01.png` je napojená pouze v detailu tohoto cviku. SOURCE ani anatomy PNG nebyly upravované.
 - Aplikace je `v59.117-dev`; `app.js` mapuje pouze `standing_side_bend` na nové approved assety a anatomy. Cache parametry, `data.js`, PWA, service worker, program, workout a dávky zůstaly beze změny. Commit ani push nebyl proveden.
 

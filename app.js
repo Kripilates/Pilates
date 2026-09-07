@@ -757,11 +757,12 @@ const exerciseDetailExhale=Object.freeze({
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const referenceExerciseAssets={
   hip:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v03_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_guide_card_v3.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_step_by_step_v2.png',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_muscles_v01.png',alt:'Hýžďové svaly',label:'Hýžďové svaly'},
     guide:{
       breath:['Výdech při zvedání.','Nádech při návratu.'],
       focus:['Aktivuj hýždě a střed těla.','Neprohýbej bedra.'],
@@ -1537,9 +1538,9 @@ const referenceExerciseAssets={
     }
   },
   hollow:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v04_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v04_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v04_approved.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v05_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v05_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_step_by_step_v01.png',
     anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png',alt:'Střed těla',label:'Střed těla'},

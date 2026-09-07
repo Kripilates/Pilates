@@ -1,41 +1,33 @@
 # Hollow Hold - STATUS
 
-Status: HOTOVO / APP NASAZENO
+Status: HOTOVO / APP AKTUALIZOVÁNA
 
 ## Assets
 
-- START: `hollow_hold_start_v02.png` - SCHVALENO
-- HERO: `hollow_hold_hero_v03.png` - SCHVALENO
-- END: START v02 / bez samostatneho END PNG
-- GUIDE CARD: `hollow_hold_guide_card_v01.png` - VYGENEROVANO
-- STEP BY STEP: `hollow_hold_step_by_step_v01.png` - VYGENEROVANO
-- EXPORT: HOTOVO
-- QA: HOTOVO - vizualni kontrola exportu
-- APP: NASAZENO - `data.js` pouziva HERO v03, detail pouziva START v02 / HERO v03 / START v02 a Guide/Step exporty v01
+- START: `hollow_hold_start_v05_approved.png` — SCHVÁLENO
+- HERO: `hollow_hold_hero_v05_approved.png` — SCHVÁLENO
+- END: přesně START v05 / bez samostatného END PNG
+- GUIDE CARD: `hollow_hold_guide_card_v01.png` — fotografie aktualizovány
+- STEP BY STEP: `hollow_hold_step_by_step_v01.png` — fotografie aktualizovány
+- SVALOVÁ KARTA: „Střed těla“ — beze změny
 
 ## Workflow
 
-START -> VYDRZ -> NAVRAT
-
-Obrazova sekvence:
-
-START v02 -> HERO v03 -> START v02
+START → HERO → START
 
 ## Source verification
 
-- START approved: 1536 x 1024 px, RGB, SHA-256 `31c92a55d25bf77119aed4f62daab5c87d92c10e5e42e76803463a82da954774`
-- START working copy: 1536 x 1024 px, RGB, SHA-256 `31c92a55d25bf77119aed4f62daab5c87d92c10e5e42e76803463a82da954774`
-- HERO approved: 1536 x 1024 px, RGB, SHA-256 `14cab55cf1cfc176bf894f2d02147d76810cd5684fda70b01c73dda885a91b3e`
-- HERO working copy: 1536 x 1024 px, RGB, SHA-256 `14cab55cf1cfc176bf894f2d02147d76810cd5684fda70b01c73dda885a91b3e`
+- START: 1536 × 1024 px, RGB, SHA-256 `0264a4314044f8fda865580095011d9db7e1fa8bd3c8a448f868a74f6f65e207`
+- HERO: 1536 × 1024 px, RGB, SHA-256 `faa13bd8f020df57ebd7a7373384086ab554ad986333466114ac104d404c3842`
+- SOURCE hashe po exportu zůstaly beze změny.
 
 ## Export verification
 
-- Guide Card: `hollow_hold_guide_card_v01.png`, 780 x 1688 px, RGB
-- Step by Step: `hollow_hold_step_by_step_v01.png`, 780 x 2280 px, RGB
+- Guide Card: `hollow_hold_guide_card_v01.png`, 780 × 1688 px, RGB, SHA-256 `cc2ab6a9dc6eab3df0b1256f132551609217ba9fa743e62cb38720fdfec2b90b`
+- Step by Step: `hollow_hold_step_by_step_v01.png`, 780 × 2280 px, RGB, SHA-256 `55758b03b2dca19847d364a18c1e898a1e5aa3db3f1234e05b096e37f7d6dbd2`
+- Původní layout, texty, typografie a struktura exportů nebyly měněny.
 
-## Notes
+## App
 
-- Schvalene SOURCE fotografie nebyly vizualne upravovany.
-- END pouziva presne START v02.
-- Builder pouziva pouze `hollow_hold_start_v02.png` a `hollow_hold_hero_v03.png`.
-- Texty zduraznuji pritisknuta bedra, nizke paze podel tela a rozdil obtiznosti podle vysky nohou.
+- Kanonické ID `hollow` používá START/HERO/END v05 a stávající Guide/Step exporty.
+- END používá přesně stejnou cestu jako START.
