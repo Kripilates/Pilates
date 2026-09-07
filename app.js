@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.165-dev';
+const APP_VERSION='v59.166-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -940,6 +940,7 @@ const referenceExerciseAssets={
     end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v02_approved.png?v=59170todayauditfix',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_guide_card_v01.png?v=59170todayauditfix',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_step_by_step_v01.png?v=59170todayauditfix',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     miniSteps:[
       {n:1,title:'START',caption:'Připrav střed',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
@@ -958,6 +959,7 @@ const referenceExerciseAssets={
     end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png?v=59170todayauditfix',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_guide_card_v1.png?v=59170todayauditfix',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_step_by_step_v1.png?v=59170todayauditfix',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     miniSteps:[
       {n:1,title:'START',caption:'Nohy v 90/90',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Špička k podložce',photo:'hero'},
@@ -1000,6 +1002,7 @@ const referenceExerciseAssets={
     end:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_end.png?v=59170todayauditfix',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_guide_card_v01.png?v=59170todayauditfix',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_step_by_step_v01.png?v=59170todayauditfix',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Břicho a šikmé břišní svaly',label:'Břicho a šikmé břišní svaly'},
     subtitle:'Břicho • pas • střídání stran',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy v tabletop',photo:'start'},
@@ -1185,12 +1188,13 @@ const referenceExerciseAssets={
     }
   },
   glute_bridge_march:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
-    mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero_v02_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero_v01_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start_v02_approved.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_guide_card_v02.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_step_by_step_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_start.png?v=59172todaypackfix',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_mid.png?v=59172todaypackfix',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero.png?v=59172todaypackfix',
+    end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_start.png?v=59172todaypackfix',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_guide_card_v02.png?v=59172todaypackfix',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_step_by_step_v02.png?v=59172todaypackfix',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_muscles_v01.png?v=59172todaypackfix',alt:'Hýžďové svaly',label:'Hýžďové svaly'},
     subtitle:'Hýždě • zadní stehna • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev na podložce',photo:gluteBridgeMarchFlow[0]},
@@ -1220,6 +1224,7 @@ const referenceExerciseAssets={
     end:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start.png?v=59170todayauditfix',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_guide_card_v01.png?v=59170todayauditfix',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_step_by_step_v01.png?v=59170todayauditfix',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_muscles_v01.png?v=59172todaypackfix',alt:'Hýžďové svaly',label:'Hýžďové svaly'},
     subtitle:'Hýždě • boky • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Stabilní most',photo:'start'},
