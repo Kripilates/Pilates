@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.117-dev';
+const APP_VERSION='v59.157-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -934,9 +934,9 @@ const referenceExerciseAssets={
     }
   },
   deadbug:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v01_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v01_approved.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v02_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v02_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v02_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_step_by_step_v01.png',
     miniSteps:[
@@ -952,9 +952,9 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.deadbug}
   },
   toetap:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start_v01_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_hero_v01_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start_v01_approved.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_start_v02_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_hero_v02_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_start_v02_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_guide_card_v1.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_step_by_step_v1.png',
     miniSteps:[
@@ -994,9 +994,9 @@ const referenceExerciseAssets={
     }
   },
   bicycle:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_end_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_start_v02_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_hero_v02_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_end_v02_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_step_by_step_v01.png',
     subtitle:'Břicho • pas • střídání stran',
@@ -1390,9 +1390,9 @@ const referenceExerciseAssets={
     }
   },
   heeltaps:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v03_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v03_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v03_approved.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v04_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero_v04_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start_v04_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_step_by_step_v01.png',
     subtitle:'Břicho • pas • střídavý dosah',
@@ -1537,11 +1537,12 @@ const referenceExerciseAssets={
     }
   },
   hollow:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v03.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v04_approved.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero_v04_approved.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start_v04_approved.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_step_by_step_v01.png',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png',alt:'Střed těla',label:'Střed těla'},
     subtitle:'Střed těla • kontrolovaná výdrž středu těla',
     miniSteps:[
       {n:1,title:'START',caption:'Chodidla na podložce',photo:'start'},

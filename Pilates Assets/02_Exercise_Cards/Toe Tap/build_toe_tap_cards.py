@@ -11,13 +11,13 @@ SPEC = spec_from_file_location("approved_card_builder", TEMPLATE_PATH)
 builder = module_from_spec(SPEC)
 SPEC.loader.exec_module(builder)
 
-builder.START = BASE / "toe_tap_start_v01_approved.png"
-builder.HERO = BASE / "toe_tap_hero_v01_approved.png"
+builder.START = BASE / "toe_taps_start_v02_approved.png"
+builder.HERO = BASE / "toe_taps_hero_v02_approved.png"
 builder.GUIDE = BASE / "toe_tap_guide_card_v1.png"
 builder.STEP = BASE / "toe_tap_step_by_step_v1.png"
 builder.EXPECTED_HASHES = {
-    builder.START: "48c99c3a95d05af7e5e2921929dd0b402e73dde35c06d868d4b97b654e005bb9",
-    builder.HERO: "c89052d47fa0d4557baa8fb0c441d897c7932bbeb83d200fb14200bffb74f232",
+    builder.START: "0611923827780d7b45c0d17fec59ff3def530c8a6a788ce633f90c01d3c299b9",
+    builder.HERO: "54af19361ba5854ebe36031ab33e123d6aa9c57fc6dacf9364aa1bf225d709c8",
 }
 builder.TITLE = "TOE TAP"
 builder.SUBTITLE = "Střídavé spouštění špičky"
