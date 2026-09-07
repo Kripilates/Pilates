@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "hollow_hold_start_v05_approved.png"
-HERO = BASE / "hollow_hold_hero_v05_approved.png"
+START = BASE / "hollow_hold_start.png"
+HERO = BASE / "hollow_hold_hero.png"
 GUIDE = BASE / "hollow_hold_guide_card_v01.png"
 STEP = BASE / "hollow_hold_step_by_step_v01.png"
 EXPECTED_FILE_HASHES = {
-    START: "0264a4314044f8fda865580095011d9db7e1fa8bd3c8a448f868a74f6f65e207",
-    HERO: "faa13bd8f020df57ebd7a7373384086ab554ad986333466114ac104d404c3842",
+    START: "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+    HERO: "afeb196fd1a616069fba6b165e8e52614c95074821828ccd020ded86faeaa140",
 }
-EXPECTED_HERO_PIXEL_HASH = "cb9ca47eaf1183e04e7d85e771ce7a10b342661398a47d1e8e00c696c77092e4"
+EXPECTED_HERO_PIXEL_HASH = "0dfec21b86d88634a72c03fc72a87d9652b613eda45ec9a074dbb60d9881946c"
 BG = (244, 251, 250)
 CARD = (255, 255, 255)
 INK = (38, 44, 47)

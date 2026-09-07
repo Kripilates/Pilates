@@ -21,7 +21,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Hamstring Stretch | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Heel Taps | `Pilates Assets/02_Exercise_Cards/Heel Taps` | `heel_taps_start.png` | `heel_taps_hero.png` | `heel_taps_guide_card_v01.png` | `heel_taps_step_by_step_v01.png` | ANO | COMPLETE | END = START; final versionless SOURCE hashes verified; Guide/Step rebuilt; App deployed as `heeltaps` |
 | Hip March | `Pilates Assets/02_Exercise_Cards/Hip March` | `hip_march_start_v03_approved.png` | `hip_march_hero_v03_approved.png` | `hip_march_guide_card_v01.png` | `hip_march_step_by_step_v01.png` | ANO | COMPLETE | END = START; START reuses Glute Bridge START; exact hashes verified; App deployed as `hip_march` |
-| Hollow Hold | `Pilates Assets/02_Exercise_Cards/Hollow Hold` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Hollow Hold | `Pilates Assets/02_Exercise_Cards/Hollow Hold` | `hollow_hold_start.png` | `hollow_hold_hero.png` | `hollow_hold_guide_card_v01.png` | `hollow_hold_step_by_step_v01.png` | ANO | COMPLETE | START binary-reuses current Glute Bridge START; END = START; final SOURCE hashes verified; Guide/Step rebuilt; App deployed as `hollow` |
 | Chest Opener | `Pilates Assets/02_Exercise_Cards/Chest Opener` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Chest Press | `Pilates Assets/02_Exercise_Cards/Chest Press` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Child's Pose | `Pilates Assets/02_Exercise_Cards/Child's Pose` | `childs_pose_start_v01.png` | `childs_pose_hero_v01.png` | `childs_pose_guide_card_v01.png` | `childs_pose_step_by_step_v01.png` | ANO | COMPLETE | END = START reuse; used as day 20 final stretch `40 s` |

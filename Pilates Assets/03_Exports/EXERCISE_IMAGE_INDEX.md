@@ -50,9 +50,9 @@
 `assets/exercises/sideplank.jpg`
 
 ## Hollow Hold (`hollow`)
-![Hollow Hold](../../assets/exercises/hollow.jpg)
+![Hollow Hold](../02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero.png)
 
-`assets/exercises/hollow.jpg`
+`Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_hero.png`
 
 ## Bent Over Row (`row`)
 ![Bent Over Row](../../assets/exercises/row.jpg)
