@@ -35,9 +35,9 @@
 `Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero_v01_approved.png`
 
 ## Toe Taps (`toetap`)
-![Toe Taps](../02_Exercise_Cards/Toe%20Tap/toe_tap_hero_v01_approved.png)
+![Toe Taps](../02_Exercise_Cards/Toe%20Tap/toe_taps_hero.png)
 
-`Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_hero_v01_approved.png`
+`Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.png`
 
 ## Reverse Crunch (`revcrunch`)
 ![Reverse Crunch](../02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero_v01.png)

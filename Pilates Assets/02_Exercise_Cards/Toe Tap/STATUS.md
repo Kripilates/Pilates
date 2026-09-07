@@ -3,10 +3,10 @@
 Status: 🟢 COMPLETE
 
 ## Photos
-- [x] START: `toe_tap_start_v01_approved.png`
-  - SHA-256: `48c99c3a95d05af7e5e2921929dd0b402e73dde35c06d868d4b97b654e005bb9`
-- [x] HERO: `toe_tap_hero_v01_approved.png`
-  - SHA-256: `c89052d47fa0d4557baa8fb0c441d897c7932bbeb83d200fb14200bffb74f232`
+- [x] START: `toe_tap_start.png`
+  - SHA-256: `18d1b5210a94236f9e630a64b48e3cc92d5c722e9eaa11123d82f4fb443a9f9c`
+- [x] HERO: `toe_taps_hero.png`
+  - SHA-256: `9c7120aa490af2f0c94dd864e0d2de91d89533005af2af183b2475cfd43a585f`
 - [x] END = přesně START, bez samostatného PNG
 
 ## Workflow
@@ -14,15 +14,15 @@ START → HERO → START
 
 ## Guide Card
 - [x] `toe_tap_guide_card_v1.png` — 780 × 1688 RGB
-- SHA-256: `4e8e703675d92028f31382dbfd6cf64d0976e9046e90f9a4b5d86c75e2c47894`
+- SHA-256: `0c9c7966beaf39f63dcccf3d623da3d8af303a2372bd5304080f04028b38c259`
 
 ## Step by Step
 - [x] `toe_tap_step_by_step_v1.png` — 780 × 2280 RGB
-- SHA-256: `6fb5788cd868146462d59b5b6392179ea0aed621fc0c5ee3a6294ca718cfeb8b`
+- SHA-256: `5efd4641b0a18e638f0450ce4c3e5a5651bb04a3da3b82c1286a6dc55d25f5bd`
 
 ## QA
 - [x] SOURCE hashe před a po exportu beze změny
-- [x] Rozměry, RGB a vizuální layout ověřeny
+- [x] Rozměry a RGB technicky ověřeny; původní texty a layout zachovány
 
 ## App
-- Nasazeno pod kanonickým ID `toetap`; aktivní START/HERO/END a Guide/Step metadata používají tento schválený balíček.
+- Nasazeno pod kanonickým ID `toetap`; aktivní START/HERO/END používají finální bezverzové SOURCE a Guide/Step metadata ukazují na aktualizované exporty.

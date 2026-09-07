@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.162-dev';
+const APP_VERSION='v59.163-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -953,11 +953,11 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.deadbug}
   },
   toetap:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_start_v02_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_hero_v02_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_start_v02_approved.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_guide_card_v1.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_step_by_step_v1.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_guide_card_v1.png?v=59166toetapfinal',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_step_by_step_v1.png?v=59166toetapfinal',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy v 90/90',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Špička k podložce',photo:'hero'},

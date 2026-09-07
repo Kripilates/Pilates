@@ -3,8 +3,8 @@
 Status: 🟢 COMPLETE
 
 ## Photos
-- [x] START (`toe_tap_start_v01_approved.png`)
-- [x] HERO (`toe_tap_hero_v01_approved.png`)
+- [x] START (`toe_tap_start.png`)
+- [x] HERO (`toe_taps_hero.png`)
 - [x] END = START
 
 ## Workflow
@@ -27,5 +27,5 @@ Slouží jako standard pro cviky vleže na zádech.
 
 ## Notes
 - SOURCE hashe jsou uvedené v `STATUS.md`.
-- Guide Card a Step by Step byly reprodukovány ze schválených `_approved` SOURCE.
-- Aplikace, data a PWA/cache nebyly v tomto assetovém úkolu změněny.
+- Guide Card a Step by Step byly reprodukovány z finálních bezverzových SOURCE.
+- Aplikace a data používají finální SOURCE; programová logika, dávky a PWA zůstaly beze změny.
