@@ -5708,6 +5708,64 @@ body.dark .programCompletionContent{
   }
 }
 
+/* v59.171: compact shared muscles + safety row */
+.referenceExerciseDetail .referenceSupportGrid{
+  align-items:start;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomy,
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety{
+  align-self:start;
+  height:auto!important;
+  min-height:0!important;
+  padding:6px 7px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomy h3,
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations h3{
+  margin:0 0 3px!important;
+  line-height:1.1;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures{
+  flex:0 0 116px;
+  width:100%;
+  height:116px!important;
+  min-height:0!important;
+  border-radius:10px;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures img{
+  border-radius:10px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomyLabel{
+  margin:3px 0 0!important;
+  line-height:1.18;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList{
+  flex:0 0 auto;
+  min-height:0!important;
+  margin:0!important;
+  gap:2px;
+  padding:5px 7px!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList li{
+  line-height:1.18!important;
+}
+.referenceExerciseDetail .referenceStepByStep{
+  margin-top:5px!important;
+}
+@media(max-width:340px){
+  .referenceExerciseDetail .referenceSupportGrid .referenceAnatomyFigures{
+    flex-basis:108px;
+    height:108px!important;
+    min-height:0!important;
+  }
+  .referenceExerciseDetail .referenceSupportGrid .referenceAnatomy,
+  .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety{
+    padding:5px 6px!important;
+  }
+  .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList{
+    padding:5px 6px!important;
+  }
+}
+
 /* v59.167: shared approved exercise-detail layout */
 .exerciseDetailPage.referenceExerciseDetail.referenceExerciseDetail:has(.referenceTopHero) .v20Grid{
   display:grid!important;
