@@ -4,31 +4,37 @@ Status: HOTOVO
 
 ## Source Images
 
-- START: ✅ MANUÁLNĚ SCHVÁLENO — `scissors_start_v01.png`
+- START: ✅ MANUÁLNĚ SCHVÁLENO — `scissors_start.png`
   - Rozměr: 1536 × 1024 px
-  - SHA-256: `0c63347400015112353a0f481f5dbb57c7538fbe8b937de8bea65a27b2eaffc7`
-- HERO: ✅ MANUÁLNĚ SCHVÁLENO — `scissors_hero_v01.png`
+  - SHA-256: `0b7674e1e317b6d925b148f8cc4c906036f404fd314c53949c2d992e2d92ed21`
+- HERO: ✅ MANUÁLNĚ SCHVÁLENO — `scissors_hero.png`
   - Rozměr: 1536 × 1024 px
-  - SHA-256: `fe73e44dd3d1192ca27096b961c00d51958a236fc9a7ead930d4c2bcf850fd66`
+  - SHA-256: `057fc14e74f4aaa37920227465ef95d766a8f9c3c97647bc3aa4d6da20e34945`
+- MID: ✅ MANUÁLNĚ SCHVÁLENO — `scissors_mid.png`
+  - Rozměr: 1536 × 1024 px
+  - SHA-256: `d2ba8031043856a4f33303a2d0ff4e3321052df8975c4ff15ae8da39936d5577`
 - END: ✅ používá START, bez samostatného PNG
 
 ## Workflow
 
-- Pohyb cviku: START → HERO → plynulé střídání → START
-- Instruktážní sekvence karet: START → HERO → HERO
-- Třetí krok používá stejný nezrcadlený HERO; nevytváří samostatný source.
+- Pohyb cviku: START → HERO ↔ MID → START
+- Instruktážní sekvence karet: START → HERO → MID
 - END používá START.
 
 ## Guide Card
 
 - [x] `scissors_guide_card_v01.png` — 780 × 1688 px
-- [x] SHA-256: `b1eac5e2a64f0a4b259ac77a1cd86c2f8425b60ea574cdb9d1e80b9eb2b0bd2f`
+- [x] SHA-256: `6a90ee4370a12a67822852f7a205b81a178dba4c9658fec2f36794120cd436f2`
 - [x] Technické a vizuální QA
 
 ## Step by Step
 
 - [x] `scissors_step_by_step_v01.png` — 780 × 2280 px
-- [x] SHA-256: `00900adb62755f585a2a63677d207d726310ed450f35e03edd7924d9314e2e9d`
+- [x] SHA-256: `60ee8b7ed7e1cc8a588743633c5e4340db85392657d22bc25fc64077f17d4d37`
+
+## Muscle Card
+
+- [x] Schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
 - [x] Technické a vizuální QA
 
 ## Stav
@@ -41,9 +47,8 @@ Status: HOTOVO
 
 ## Notes
 
-- START je binární reuse schváleného Leg Raises START v02.
-- HERO je samostatný schválený source.
+- START, HERO a MID jsou finální bezverzové schválené SOURCE.
 - Bezpečná Pilates varianta: hlava a ramena zůstávají na podložce, pánev je stabilní a natažené nohy se střídají bez švihu.
 - Programové dávky zůstávají 24× střídavě a 28× střídavě.
 - Aplikace používá schválené START/HERO, END = START, Guide Card a Step by Step.
-- Třetí instruktážní krok vysvětluje pokračující výměnu nohou a používá nezrcadlený HERO místo návratu obou nohou na podložku.
+- Třetí instruktážní krok používá schválený MID pro opačnou pracovní polohu.

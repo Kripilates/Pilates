@@ -6,16 +6,16 @@ ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / "Pilates Assets" / "02_Exercise_Cards" / "Glute Bridge March"
 GLUTE_BRIDGE = ROOT / "Pilates Assets" / "02_Exercise_Cards" / "Glute Bridge"
 
-START = GLUTE_BRIDGE / "glute_bridge_start_v02_approved.png"
-MID = GLUTE_BRIDGE / "glute_bridge_hero_v02_approved.png"
-HERO = FOLDER / "glute_bridge_march_hero_v01_approved.png"
+START = FOLDER / "glute_bridge_march_start.png"
+MID = FOLDER / "glute_bridge_march_mid.png"
+HERO = FOLDER / "glute_bridge_march_hero.png"
 GUIDE = FOLDER / "glute_bridge_march_guide_card_v02.png"
 STEP = FOLDER / "glute_bridge_march_step_by_step_v02.png"
 
 EXPECTED = {
-    START: "80c3b79399010b7aeee54e64304ee21b617bfca47e367fac67bf3419a408a25e",
-    MID: "961e86918b529a1eb94dab1fb551391970c88d8b7f076fae5030b5ae369d6ebd",
-    HERO: "6014cf5e3d068a2aab72d8d5ec39020ad61c903a00b1ec61592419b117890d52",
+    START: "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+    MID: "055f549c5d818761806d0440267461420f4899e8876f5e0e1d5405ce2d90b156",
+    HERO: "94026231a8f22ed70015f2bc10d1bd2c80d4b90683436560cf7e065388105a01",
 }
 
 BG = (244, 251, 250)
@@ -178,8 +178,8 @@ def build_guide():
 
     mini_y, mini_w, mini_h, gap = 675, 218, 146, 22
     xs = [34, 34 + mini_w + gap, 34 + 2 * (mini_w + gap)]
-    labels = [("START", "Pánev na podložce"), ("POCHOD V MOSTU", "Jedna noha v tabletop"), ("NÁVRAT", "Stabilizuj most")]
-    paths = [START, HERO, MID]
+    labels = [("START", "Pánev na podložce"), ("MOST", "Obě chodidla na podložce"), ("POCHOD V MOSTU", "Střídej pravou a levou nohu")]
+    paths = [START, MID, HERO]
     for i, (x0, (label, caption), path) in enumerate(zip(xs, labels, paths), 1):
         rounded(d, (x0, mini_y, x0 + mini_w, mini_y + mini_h + 58), 22, CARD, LINE, 2)
         paste_round(img, fit_image(path, (mini_w - 22, mini_h)), (x0 + 11, mini_y + 10, x0 + mini_w - 11, mini_y + 10 + mini_h), 16)

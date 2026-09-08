@@ -9,11 +9,12 @@ Status: HOTOVO
 
 ## Assets
 
-- START: ✅ `hundred_start_v01.png` (1536 × 1024 px, RGB, SHA-256 `f5b3609e3740d39d1971d2324d301c0839a0d91665618ef2b7dcf8f9fc1e65c8`)
-- HERO: ✅ `hundred_hero_v01.png` (1536 × 1024 px, RGB, SHA-256 `5cff0f379c471236ecc42f2eaf94b1977aefe275cfb13c58673b534cc6241080`)
+- START: ✅ `hundred_start.png` (1536 × 1024 px, RGB, SHA-256 `18d1b5210a94236f9e630a64b48e3cc92d5c722e9eaa11123d82f4fb443a9f9c`)
+- HERO: ✅ `hundred_hero.png` (1536 × 1024 px, RGB, SHA-256 `3c4b65792fe339ab0e84f1f555bee490b3b581e359511d220d77f907508f5e62`)
 - END: ✅ používá START reuse bez samostatného PNG
-- GUIDE CARD: ✅ `the_hundred_guide_card_v01.png` (780 × 1688 px, RGB, SHA-256 `73abd71d9baab9838589921c9a9ef2aabf73023c4f598b8fca53039a1c25519a`)
-- STEP BY STEP: ✅ `the_hundred_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `19e118def6e12d9d24c83f9a51d036dd3f03152b5b71ba6eb686ba9dcb631c15`)
+- GUIDE CARD: ✅ `the_hundred_guide_card_v01.png` (780 × 1688 px, RGB, SHA-256 `5f4a17dda5f2248c53a77b47dc910ad546b178914c22f320a52dbbe9f78e291f`)
+- STEP BY STEP: ✅ `the_hundred_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `8115230768d7affaa09163bbb67762576d6d93069ebc988ac4169d241f748b79`)
+- MUSCLE CARD: ✅ schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
 - EXPORT: ✅
 - QA: ✅ source reuse, rozměry, RGB, SHA-256, HERO reuse pro pulzy a app URL
 - APP: ✅ nasazeno pod kanonickým ID `hundred` ve verzi `v59.108-dev`
@@ -32,4 +33,4 @@ Step by Step používá obrazovou sekvenci START → HERO → HERO → START.
 
 ## Notes
 
-END přímo používá schválený START bez vytvoření duplicitního source assetu. Krok malých pulzů používá stejný HERO bez nového source; pracovní pohyb paží je vysvětlený textem. Programové zařazení a dávkování The Hundred zůstaly beze změny.
+END přímo používá finální bezverzový START bez vytvoření duplicitního source assetu. Krok malých pulzů používá stejný HERO bez nového source; pracovní pohyb paží je vysvětlený textem. Programové zařazení a dávkování The Hundred zůstaly beze změny.

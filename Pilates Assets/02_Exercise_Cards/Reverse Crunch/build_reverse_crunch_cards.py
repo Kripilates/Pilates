@@ -4,8 +4,8 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / 'Pilates Assets' / '02_Exercise_Cards' / 'Reverse Crunch'
-START = FOLDER / 'reverse_crunch_start_v01.png'
-HERO = FOLDER / 'reverse_crunch_hero_v01.png'
+START = FOLDER / 'reverse_crunch_start.png'
+HERO = FOLDER / 'reverse_crunch_hero.png'
 GUIDE = FOLDER / 'reverse_crunch_guide_card_v01.png'
 STEP = FOLDER / 'reverse_crunch_step_by_step_v01.png'
 BG=(244,251,250); CARD=(255,255,255); INK=(38,44,47); MUTED=(101,115,119); TEAL=(20,154,154); TEAL_D=(14,122,123); LINE=(210,232,230); SOFT=(231,247,246); WARN=(255,247,244); WARN_LINE=(242,220,216); WARN_ICON=(199,92,84)

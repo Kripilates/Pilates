@@ -4855,6 +4855,7 @@ body.dark .programCompletionContent{
 .referenceExerciseDetail .referencePracticalLine{
   width:min(100%,430px);
   margin:1px auto 7px!important;
+  order:3!important;
   color:#53666c;
   font-size:13px;
   font-weight:750;
@@ -5708,18 +5709,19 @@ body.dark .programCompletionContent{
 }
 
 /* v59.167: shared approved exercise-detail layout */
-.exerciseDetailPage.referenceExerciseDetail:has(.referenceTopHero) .v20Grid{
+.exerciseDetailPage.referenceExerciseDetail.referenceExerciseDetail:has(.referenceTopHero) .v20Grid{
   display:grid!important;
   width:100%!important;
   grid-template-columns:minmax(0,1fr)!important;
   gap:0!important;
 }
-.exerciseDetailPage.referenceExerciseDetail:has(.referenceTopHero) .v20Main{
+.exerciseDetailPage.referenceExerciseDetail.referenceExerciseDetail:has(.referenceTopHero) .v20Main{
   display:grid!important;
   width:min(100%,430px)!important;
   grid-template-columns:minmax(0,1fr)!important;
   gap:6px!important;
   margin:0 auto!important;
+  padding:0!important;
 }
 .exerciseDetailPage.referenceExerciseDetail .v20Aside:empty{
   display:none!important;
@@ -5897,13 +5899,19 @@ body.dark .programCompletionContent{
     padding:8px 10px;
     font-size:13px;
   }
-  .exerciseDetailPage.referenceExerciseDetail:has(.referenceTopHero) .v20Main{
+  .exerciseDetailPage.referenceExerciseDetail.referenceExerciseDetail:has(.referenceTopHero) .v20Main{
     width:min(100%,390px)!important;
   }
 }
 @media(max-width:340px){
   .referenceExerciseDetail .referenceSupportGrid{
     gap:6px;
+  }
+  .exerciseDetailPage.referenceExerciseDetail.referenceExerciseDetail:has(.referenceTopHero) .referenceSupportGrid>.referenceAnatomy,
+  .exerciseDetailPage.referenceExerciseDetail.referenceExerciseDetail:has(.referenceTopHero) .referenceSupportGrid>.referenceRecommendations.referenceSafety{
+    grid-column:auto!important;
+    order:initial!important;
+    margin:0!important;
   }
   .referenceExerciseDetail .referenceSupportGrid .referenceAnatomy,
   .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety{

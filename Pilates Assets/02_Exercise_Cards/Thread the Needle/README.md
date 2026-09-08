@@ -3,9 +3,9 @@
 Status: 🟢 COMPLETE
 
 ## Photos
-- [x] START — `thread_the_needle_start_v02.png`
+- [x] START — `thread_the_needle_start.png`
 - [x] HERO
-- [x] END / not needed — uses START v02
+- [x] END / not needed — uses START
 
 ## Workflow
 START → HERO → START
@@ -19,8 +19,8 @@ START → HERO → START
 - [x] Approved
 
 ## Notes
-- START and END use `thread_the_needle_start_v02.png`
-- HERO uses corrected `thread_the_needle_hero_v02.png`
+- START and END use `thread_the_needle_start.png`
+- HERO uses final `thread_the_needle_hero.png`
 - no separate END asset was created
 - modelka a prostředí podle MASTER
 - nové assety vznikají pouze v Pilates Assets

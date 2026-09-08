@@ -6,13 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "scissors_start_v01.png"
-HERO = BASE / "scissors_hero_v01.png"
+START = BASE / "scissors_start.png"
+HERO = BASE / "scissors_hero.png"
+MID = BASE / "scissors_mid.png"
 GUIDE = BASE / "scissors_guide_card_v01.png"
 STEP = BASE / "scissors_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "0c63347400015112353a0f481f5dbb57c7538fbe8b937de8bea65a27b2eaffc7",
-    HERO: "fe73e44dd3d1192ca27096b961c00d51958a236fc9a7ead930d4c2bcf850fd66",
+    START: "0b7674e1e317b6d925b148f8cc4c906036f404fd314c53949c2d992e2d92ed21",
+    HERO: "057fc14e74f4aaa37920227465ef95d766a8f9c3c97647bc3aa4d6da20e34945",
+    MID: "d2ba8031043856a4f33303a2d0ff4e3321052df8975c4ff15ae8da39936d5577",
 }
 
 BG = (244, 251, 250)
@@ -56,7 +58,7 @@ STEP_TEXTS = [
         "KROK 3",
         "STŘÍDEJ NOHY",
         "Plynule vystřídej nohy – horní spouštěj dolů a spodní současně zvedej vzhůru. Pánev drž stabilní.",
-        HERO,
+        MID,
     ),
 ]
 
@@ -214,7 +216,7 @@ def build_guide():
     labels = [
         ("START", "Nohy natažené", START),
         ("NŮŽKY", "Jedna noha výš", HERO),
-        ("STŘÍDEJ NOHY", "Plynule vyměň nohy", HERO),
+        ("STŘÍDEJ NOHY", "Plynule vyměň nohy", MID),
     ]
     for index, (x0, (label, caption, source)) in enumerate(zip(xs, labels), 1):
         card_bottom = mini_y + mini_h + 74

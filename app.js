@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.167-dev';
+const APP_VERSION='v59.170-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -973,10 +973,12 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.toetap}
   },
   revcrunch:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_guide_card_v01.png?v=59176sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_step_by_step_v01.png?v=59176sourcebatch',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     subtitle:'Spodní břicho • kontrola pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy v tabletop',photo:'start'},
@@ -1098,8 +1100,12 @@ const referenceExerciseAssets={
     }
   },
   bird:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_guide_card_v01.png?v=59181sourcebatch2',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_step_by_step_v01.png?v=59181sourcebatch2',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
@@ -1112,11 +1118,11 @@ const referenceExerciseAssets={
     ]
   },
   thread:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_guide_card_v01.png?v=59181sourcebatch2',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_step_by_step_v01.png?v=59181sourcebatch2',
     subtitle:'Horní záda • rotace páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
@@ -1163,11 +1169,12 @@ const referenceExerciseAssets={
     }
   },
   hip_march:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v03_approved.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero_v03_approved.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start_v03_approved.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_guide_card_v01.png?v=59176sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_step_by_step_v01.png?v=59176sourcebatch',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     subtitle:'Střed těla • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Výchozí',photo:'start'},
@@ -1192,16 +1199,14 @@ const referenceExerciseAssets={
     mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_mid.png?v=59172todaypackfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero.png?v=59172todaypackfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_start.png?v=59172todaypackfix',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_guide_card_v02.png?v=59172todaypackfix',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_guide_card_v02.png?v=59176sourcebatch',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_step_by_step_v02.png?v=59172todaypackfix',
     anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_muscles_v01.png?v=59172todaypackfix',alt:'Hýžďové svaly',label:'Hýžďové svaly'},
     subtitle:'Hýždě • zadní stehna • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev na podložce',photo:gluteBridgeMarchFlow[0]},
       {n:2,title:'MOST',caption:'Zvedni pánev',photo:gluteBridgeMarchFlow[1]},
-      {n:3,title:'POCHOD V MOSTU',caption:'Jedna noha v tabletop',photo:gluteBridgeMarchFlow[2]},
-      {n:4,title:'STABILNÍ MOST',caption:'Vrať chodidlo',photo:gluteBridgeMarchFlow[3]},
-      {n:5,title:'NÁVRAT',caption:'Pánev na podložku',photo:gluteBridgeMarchFlow[4]}
+      {n:3,title:'POCHOD V MOSTU',caption:'Střídej pravou a levou nohu',photo:gluteBridgeMarchFlow[2]}
     ],
     steps:[
       {title:'VÝCHOZÍ POZICE',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Paže nech podél těla.',photo:gluteBridgeMarchFlow[0]},
@@ -1270,11 +1275,11 @@ const referenceExerciseAssets={
     }
   },
   hamstring_supine:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_guide_card_v01.png?v=59176sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_step_by_step_v01.png?v=59176sourcebatch',
     subtitle:'Zadní strana stehna • jemné protažení',
     miniSteps:[
       {n:1,title:'START',caption:'Koleno pokrčené',photo:'start'},
@@ -1519,21 +1524,23 @@ const referenceExerciseAssets={
     }
   },
   scissors:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero.png',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_mid.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_guide_card_v01.png?v=59176sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_step_by_step_v01.png?v=59176sourcebatch',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     subtitle:'Spodní břicho • stehna • střídání nohou',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy natažené',photo:'start'},
       {n:2,title:'NŮŽKY',caption:'Jedna noha výš',photo:'hero'},
-      {n:3,title:'STŘÍDEJ NOHY',caption:'Plynule vyměň nohy',photo:'hero'}
+      {n:3,title:'STŘÍDEJ NOHY',caption:'Plynule vyměň nohy',photo:'mid'}
     ],
     steps:[
       {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, nohy natáhni a paže polož podél těla. Dlaně opři o podložku, pánev drž neutrálně a bedra pod kontrolou.',photo:'start'},
       {title:'NŮŽKOVÁ POLOHA',text:'Zpevni střed těla. Jednu nataženou nohu zvedni výš a druhou drž níže nad podložkou. Hlavu, ramena a pánev nech klidné.',photo:'hero'},
-      {title:'STŘÍDEJ NOHY',text:'Plynule vystřídej nohy – horní spouštěj dolů a spodní současně zvedej vzhůru. Pánev drž stabilní.',photo:'hero'}
+      {title:'STŘÍDEJ NOHY',text:'Plynule vystřídej nohy – horní spouštěj dolů a spodní současně zvedej vzhůru. Pánev drž stabilní.',photo:'mid'}
     ],
     info:{difficulty:'Střední',focus:'Spodní břicho / stehna',knees:'Bez zátěže kolen'},
     breath:{inhale:'Při kontrolovaném pohybu',exhale:'Při vystřídání nohou',tempo:'Pomalu a plynule'},
@@ -1570,11 +1577,12 @@ const referenceExerciseAssets={
     }
   },
   hundred:{
-    start:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/the_hundred_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/the_hundred_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/the_hundred_guide_card_v01.png?v=59181sourcebatch2',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/the_hundred_step_by_step_v01.png?v=59181sourcebatch2',
+    anatomy:{src:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_muscles_v01_approved.png?v=59172todaypackfix',alt:'Střed těla',label:'Střed těla'},
     subtitle:'Střed těla • dech • malé pulzy paží',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy v 90/90',photo:'start'},

@@ -6,13 +6,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "hip_march_start_v03_approved.png"
-HERO = BASE / "hip_march_hero_v03_approved.png"
+START = BASE / "hip_march_start.png"
+HERO = BASE / "hip_march_hero.png"
 GUIDE = BASE / "hip_march_guide_card_v01.png"
 STEP = BASE / "hip_march_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "80c3b79399010b7aeee54e64304ee21b617bfca47e367fac67bf3419a408a25e",
-    HERO: "7ed561935d0ef1052f5e853a2e13cc1fb2870631f9fb39bc7b5bd233a324853a",
+    START: "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+    HERO: "9a4488355a060b0105ed40e2b2d665ab3cedf332fde66b35ba12cce25f99fcbc",
 }
 
 BG = (244, 251, 250)

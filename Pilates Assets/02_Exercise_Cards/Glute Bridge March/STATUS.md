@@ -17,7 +17,8 @@ START → MID → HERO → MID → START
 
 ## Guide Card
 - [x] `glute_bridge_march_guide_card_v02.png` — 780 × 1688 RGB
-- SHA-256: `83e7dd2aa57433f5f5a3ddb7c81420a106ebfb5926d401e5c45e655abead2a7f`
+- Tři panely: START → MID / MOST → HERO / POCHOD V MOSTU
+- SHA-256: `533bba4461b3bd1cffd61a192af2b5049f59f2ed56aac45930093807eedf233c`
 
 ## Step by Step
 - [x] `glute_bridge_march_step_by_step_v02.png` — 780 × 2280 RGB
@@ -28,4 +29,4 @@ START → MID → HERO → MID → START
 - [x] Rozměry, RGB, sekvence a vizuální layout ověřeny
 
 ## App
-- Nasazeno pod kanonickým ID `glute_bridge_march`; aplikace používá reuse START/MID, schválený HERO a nové Guide/Step metadata.
+- Nasazeno pod kanonickým ID `glute_bridge_march`; Guide Card má tři odlišné obrazové fáze, Step by Step a runtime sekvence START → MID → HERO → MID → START zůstaly beze změny.

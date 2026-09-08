@@ -3,11 +3,10 @@
 Status: 🟢 COMPLETE
 
 ## Photos
-- [x] START: `hip_march_start_v03_approved.png`
-  - Reuse Glute Bridge START
-  - SHA-256: `80c3b79399010b7aeee54e64304ee21b617bfca47e367fac67bf3419a408a25e`
-- [x] HERO: `hip_march_hero_v03_approved.png`
-  - SHA-256: `7ed561935d0ef1052f5e853a2e13cc1fb2870631f9fb39bc7b5bd233a324853a`
+- [x] START: `hip_march_start.png`
+  - SHA-256: `d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f`
+- [x] HERO: `hip_march_hero.png`
+  - SHA-256: `9a4488355a060b0105ed40e2b2d665ab3cedf332fde66b35ba12cce25f99fcbc`
 - [x] END = přesně START, bez samostatného PNG
 
 ## Workflow
@@ -15,11 +14,14 @@ START → HERO → START
 
 ## Guide Card
 - [x] `hip_march_guide_card_v01.png` — 780 × 1688 RGB
-- SHA-256: `5f50009265ee2c0f8b7686932cd56e33b291e5f1f1c45735727c4242f4f3c1ae`
+- SHA-256: `acbe7b689f237d5f03d299e41fa9cb6614ebe4195b3fcf797a13a6908bb39e4f`
 
 ## Step by Step
 - [x] `hip_march_step_by_step_v01.png` — 780 × 2280 RGB
-- SHA-256: `6b52172fd9e68eb745194b2c5f4d778b8945240b13b2aa2411916c907350df56`
+- SHA-256: `e0eb13594cb8e381325aa15f9736ffdf417d8dd761dfb1a6edca8708e1bc94b4`
+
+## Muscle Card
+- [x] Schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
 
 ## QA
 - [x] SOURCE hashe před a po exportu beze změny

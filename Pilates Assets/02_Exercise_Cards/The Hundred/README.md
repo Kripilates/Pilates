@@ -21,10 +21,10 @@ Step by Step používá instruktážní sekvenci START → HERO → HERO → STA
 - [x] Approved
 
 ## Notes
-- START uses `hundred_start_v01.png`
-- HERO uses `hundred_hero_v01.png`
+- START uses `hundred_start.png`
+- HERO uses `hundred_hero.png`
 - END = START bez samostatného PNG
 - pulzy paží jsou vysvětlené textem, bez vytvoření dalšího source obrázku
 - modelka a prostředí podle MASTER
 - nové assety vznikají pouze v Pilates Assets
-- assets/exercises se zatím nemění
+- aplikace i knihovní náhled používají finální SOURCE v této složce

@@ -6,8 +6,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "thread_the_needle_start_v02.png"
-HERO = BASE / "thread_the_needle_hero_v02.png"
+START = BASE / "thread_the_needle_start.png"
+HERO = BASE / "thread_the_needle_hero.png"
 GUIDE = BASE / "thread_the_needle_guide_card_v01.png"
 STEP = BASE / "thread_the_needle_step_by_step_v01.png"
 
