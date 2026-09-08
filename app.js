@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.170-dev';
+const APP_VERSION='v59.171-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -854,8 +854,11 @@ const referenceExerciseAssets={
     }
   },
   clam:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start.png?v=59184sidebundle',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png?v=59184sidebundle',
+    end:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start.png?v=59184sidebundle',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_guide_card_v01.png?v=59184sidebundle',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_step_by_step_v01.png?v=59184sidebundle',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na boku',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Otevři koleno',photo:'hero'},
@@ -868,11 +871,11 @@ const referenceExerciseAssets={
     ]
   },
   sideleg:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_start_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_start.png?v=59184sidebundle',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_hero.png?v=59184sidebundle',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_start.png?v=59184sidebundle',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_guide_card_v01.png?v=59184sidebundle',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_step_by_step_v01.png?v=59184sidebundle',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na boku',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni nohu',photo:'hero'},
@@ -1475,11 +1478,11 @@ const referenceExerciseAssets={
     }
   },
   sidekick:{
-    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_end_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start.png?v=59184sidebundle',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero.png?v=59184sidebundle',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_end.png?v=59184sidebundle',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_guide_card_v01.png?v=59184sidebundle',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_step_by_step_v01.png?v=59184sidebundle',
     subtitle:'Hýždě • boky • střed těla',
     miniSteps:[
       {n:1,title:'START',caption:'Výchozí poloha',photo:'start'},

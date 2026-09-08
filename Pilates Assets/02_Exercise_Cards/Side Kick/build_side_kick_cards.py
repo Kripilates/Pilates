@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "side_kick_start_v02.png"
-HERO = BASE / "side_kick_hero_v02.png"
-END = BASE / "side_kick_end_v02.png"
+START = BASE / "side_kick_start.png"
+HERO = BASE / "side_kick_hero.png"
+END = BASE / "side_kick_end.png"
 GUIDE = BASE / "side_kick_guide_card_v01.png"
 STEP = BASE / "side_kick_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "401cbb7b18a1b3f603a3e5aa2a1606b0fca2dda538ed1bb8de12ba1fe6053d95",
-    HERO: "bad12e9a1f4730d92cc4c951cf0dca91a123fb15f16158ecc141d36dec75d797",
-    END: "af0ede0a58f3d16781bf934be37d4005c58dd17f3b4a5c648504953ba638ecf8",
+    START: "10373503c0f003e51861ff18c3d68f3901d34bfaed58dcd552f13a46bc6a7ddd",
+    HERO: "8d26f2be9cfff260b35a62412a795f87fa47ab4da6e64c4370825a7ecab59d44",
+    END: "8b67db28dc3ce683e9d29116e12d5f2b067aa975d36f848d10a64f00a6489237",
 }
 
 BG = (244, 251, 250)

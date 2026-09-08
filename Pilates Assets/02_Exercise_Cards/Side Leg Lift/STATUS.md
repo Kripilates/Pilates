@@ -4,9 +4,9 @@ Status: 🟢 COMPLETE
 
 ## Photos
 - [x] START Approved:
-  `side_leg_lift_start_v01.png`
+  `side_leg_start.png`
 - [x] HERO Approved:
-  `side_leg_lift_hero_v01.png`
+  `side_leg_lift_hero.png`
 - [x] END = START
 
 ## Workflow
@@ -30,3 +30,5 @@ START → HERO → START
 - Guide Card Approved.
 - Step by Step Approved.
 - Ready for App.
+- Muscle Card: OPEN — v `MASTER_ANATOMY.md` není schválený reuse pro gluteus medius/minimus.
+- App používá finální bezverzové SOURCE pod ID `sideleg`.

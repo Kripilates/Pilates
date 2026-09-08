@@ -4,9 +4,9 @@ Status: HOTOVO
 
 ## Source Images
 
-- START: ✅ SCHVÁLENO — `side_kick_start_v01.png`
-- HERO: ✅ SCHVÁLENO — `side_kick_hero_v01.png`
-- END: ✅ SCHVÁLENO — `side_kick_end_v01.png`
+- START: ✅ SCHVÁLENO — `side_kick_start.png`
+- HERO: ✅ SCHVÁLENO — `side_kick_hero.png`
+- END: ✅ SCHVÁLENO — `side_kick_end.png`
 
 ## Workflow
 
@@ -37,6 +37,8 @@ START → KOP DOPŘEDU → KOP DOZADU
 - END je samostatná poloha kopu dozadu, nikoli návrat do START.
 - Sekvence karet a dynamického detailu je START → HERO → END.
 - Schválená varianta je bez pomůcky.
+- Guide Card a Step by Step používají finální bezverzové SOURCE při zachované třípanelové struktuře.
+- Muscle Card: OPEN — v `MASTER_ANATOMY.md` není schválený reuse pro gluteus medius/minimus.
 - Den 18 používá dávky Lehká `8/8`, Střední `9/9`, Náročná `12/12`.
 - Den 25 používá dávky Lehká `10/10`, Střední `11/11`, Náročná `14/14`.
 - Série a workout logika zůstaly beze změny.
