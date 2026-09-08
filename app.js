@@ -2063,7 +2063,7 @@ function referenceHeroBlock(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
   const ex=data.exercises[k]||{};
-  return `<div class="referenceTopHero ${ref.preserveHeroRatio?'referenceTopHero--contain':''}"><img loading="lazy" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>`;
+  return `<div class="referenceTopHero ${ref.preserveHeroRatio?'referenceTopHero--contain':''}"><img loading="eager" fetchpriority="high" src="${ref.hero}" alt="${esc(ex.name||'Cvik')} - hlavní poloha"></div>`;
 }
 function referenceAnatomyMarkup(anatomy,embedded=false){
   if(!anatomy)return '';
