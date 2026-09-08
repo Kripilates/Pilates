@@ -23,7 +23,6 @@ START → HERO → START
 - Ready for App
 - source images approved
 - modelka a prostředí odpovídají MODEL_MASTER
-- anatomy approved
 - END is identical to START
 - Finální START a HERO používají shodné zmenšené měřítko modelky.
 - Guide Card a Step by Step byly aktualizovány z finálních SOURCE bez změny struktury.

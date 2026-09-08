@@ -34,7 +34,7 @@ Status: HOTOVO
 
 ## Muscle Card
 
-- [x] Schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
+- [x] Schválený core reuse `../_Muscle_Cards/core_muscles_v01.png`
 - [x] Technické a vizuální QA
 
 ## Stav

@@ -34,5 +34,5 @@ START → HERO → START
 - Step by Step v1 approval pending
 - Step by Step v2 created: glute_bridge_step_by_step_v2.png
 - Step by Step v2 approved as official Step by Step Template v2.0; fotografie aktualizovány na finální START/HERO bez verzovacího čísla a bez změny layoutu nebo textů
-- Svalová karta: `glute_bridge_muscles_v01.png`, zezadu zvýrazněné hýžďové svaly podle Moovka MASTER BODY standardu
+- Svalová karta: `../_Muscle_Cards/glutes_muscles_v01.png`, zezadu zvýrazněné hýžďové svaly podle Moovka MASTER BODY standardu
 - Reference Exercise 001: Glute Bridge

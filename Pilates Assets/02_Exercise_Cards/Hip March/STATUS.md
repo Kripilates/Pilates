@@ -21,7 +21,7 @@ START → HERO → START
 - SHA-256: `e0eb13594cb8e381325aa15f9736ffdf417d8dd761dfb1a6edca8708e1bc94b4`
 
 ## Muscle Card
-- [x] Schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
+- [x] Schválený core reuse `../_Muscle_Cards/core_muscles_v01.png`
 
 ## QA
 - [x] SOURCE hashe před a po exportu beze změny

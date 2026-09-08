@@ -10,7 +10,7 @@ Status: HOTOVO
 - END: používá START, samostatný PNG se nevytváří
 - GUIDE CARD: reverse_crunch_guide_card_v01.png — SCHVÁLENO
 - STEP BY STEP: reverse_crunch_step_by_step_v01.png — SCHVÁLENO
-- MUSCLE CARD: schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
+- MUSCLE CARD: schválený core reuse `../_Muscle_Cards/core_muscles_v01.png`
 - EXPORT: HOTOVO
 - QA: SCHVÁLENO
 - APP: NASAZENO

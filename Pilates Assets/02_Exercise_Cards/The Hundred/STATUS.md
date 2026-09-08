@@ -14,7 +14,7 @@ Status: HOTOVO
 - END: ✅ používá START reuse bez samostatného PNG
 - GUIDE CARD: ✅ `the_hundred_guide_card_v01.png` (780 × 1688 px, RGB, SHA-256 `5f4a17dda5f2248c53a77b47dc910ad546b178914c22f320a52dbbe9f78e291f`)
 - STEP BY STEP: ✅ `the_hundred_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `8115230768d7affaa09163bbb67762576d6d93069ebc988ac4169d241f748b79`)
-- MUSCLE CARD: ✅ schválený core reuse `../Heel Taps/heel_taps_muscles_v01_approved.png`
+- MUSCLE CARD: ✅ schválený core reuse `../_Muscle_Cards/core_muscles_v01.png`
 - EXPORT: ✅
 - QA: ✅ source reuse, rozměry, RGB, SHA-256, HERO reuse pro pulzy a app URL
 - APP: ✅ nasazeno pod kanonickým ID `hundred` ve verzi `v59.108-dev`

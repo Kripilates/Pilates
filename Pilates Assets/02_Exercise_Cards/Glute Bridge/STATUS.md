@@ -26,7 +26,7 @@ START → HERO → START
 
 ## Muscle Card
 
-- [x] `glute_bridge_muscles_v01.png` — 1536 × 1024 RGB
+- [x] `../_Muscle_Cards/glutes_muscles_v01.png` — 1536 × 1024 RGB
 - SHA-256: `1ad737546b298d8bfbcf02e984af0aaf0d5a76789d1d8ad36d79d9eb20f2a512`
 - Moovka MASTER BODY styl; zadní pohled se zvýrazněním hýžďových svalů.
 

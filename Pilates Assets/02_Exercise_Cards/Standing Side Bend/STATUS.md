@@ -11,7 +11,7 @@ Status: HOTOVO / ASSETY v03 + ANATOMIE v01 NASAZENE
 - END: presny navrat do START v03 bez samostatneho END PNG
 - GUIDE CARD: `standing_side_bend_guide_card_v01.png` - VYTVORENO A OVERENO
 - STEP BY STEP: `standing_side_bend_step_by_step_v01.png` - VYTVORENO A OVERENO
-- ZAPOJENE SVALY: `standing_side_bend_muscles_v01.png` - SCHVALENO A NASAZENO
+- ZAPOJENE SVALY: `../_Muscle_Cards/obliques_muscles_v01.png` - SCHVALENO A NASAZENO
 - EXPORT: HOTOVO
 - QA: HOTOVO - vizualni kontrola exportu
 - APP: NASAZENO POD ID `standing_side_bend` VCETNE ANATOMIE
