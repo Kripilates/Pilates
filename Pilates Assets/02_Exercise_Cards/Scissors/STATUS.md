@@ -34,7 +34,7 @@ Status: HOTOVO
 
 ## Muscle Card
 
-- [x] Schválený core reuse `../_Muscle_Cards/core_muscles_v01.png`
+- [x] Schválený core reuse `../Muscle_Cards/core_muscles_v01.png`
 - [x] Technické a vizuální QA
 
 ## Stav

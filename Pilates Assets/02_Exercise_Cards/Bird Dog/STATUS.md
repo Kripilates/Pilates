@@ -33,6 +33,6 @@ START → HERO → START
 - Guide Card approved
 - Step by Step approved
 - END používá START bez samostatného PNG
-- Schválený core anatomy reuse: `../_Muscle_Cards/core_muscles_v01.png`
+- Schválený core anatomy reuse: `../Muscle_Cards/core_muscles_v01.png`
 - Aplikace používá finální bezverzové SOURCE pod ID `bird`
 - Ready for App
