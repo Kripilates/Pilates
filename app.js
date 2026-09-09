@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.178-dev';
+const APP_VERSION='v59.179-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -817,11 +817,11 @@ const referenceExerciseAssets={
   },
   donkey:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start.png?v=59193visual5',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_hero.png?v=59193visual5',
+    end:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start.png?v=59193visual5',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_guide_card_v01.png?v=59193visual5',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_step_by_step_v01.png?v=59193visual5',
     subtitle:'Hýždě • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
@@ -957,11 +957,11 @@ const referenceExerciseAssets={
   },
   deadbug:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v02_approved.png?v=59170todayauditfix',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero_v02_approved.png?v=59170todayauditfix',
-    end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start_v02_approved.png?v=59170todayauditfix',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_guide_card_v01.png?v=59170todayauditfix',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_step_by_step_v01.png?v=59170todayauditfix',
+    start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start.png?v=59193visual5',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero.png?v=59193visual5',
+    end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start.png?v=59193visual5',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_guide_card_v01.png?v=59193visual5',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_step_by_step_v01.png?v=59193visual5',
     miniSteps:[
       {n:1,title:'START',caption:'Připrav střed',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
@@ -1074,10 +1074,11 @@ const referenceExerciseAssets={
   },
   childs_pose:{
     anatomy:sharedMuscleCards.mobility,
-    start:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_hero_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_start.png?v=59193visual5',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_hero.png?v=59193visual5',
+    end:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_start.png?v=59193visual5',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_guide_card_v01.png?v=59193visual5',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_step_by_step_v01.png?v=59193visual5',
     subtitle:'Uvolnění zad • mobilita kyčlí',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
@@ -1329,12 +1330,12 @@ const referenceExerciseAssets={
   },
   figure_four:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start_v01.png',
-    mid:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_mid_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_guide_card_v02.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_step_by_step_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59193visual5',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_mid.png?v=59193visual5',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_hero.png?v=59193visual5',
+    end:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59193visual5',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_guide_card_v02.png?v=59193visual5',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_step_by_step_v02.png?v=59193visual5',
     subtitle:'Hýždě • kyčle • protažení',
     miniSteps:[
       {n:1,title:'START',caption:'Chodidla na podložce',photo:'start'},
@@ -1927,11 +1928,11 @@ const referenceExerciseAssets={
   },
   knee_pushup:{
     anatomy:sharedMuscleCards.chest,
-    start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start.png?v=59193visual5',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero.png?v=59193visual5',
+    end:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start.png?v=59193visual5',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_guide_card_v01.png?v=59193visual5',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_step_by_step_v01.png?v=59193visual5',
     subtitle:'Paže • hrudník • střed těla',
     miniSteps:[
       {n:1,title:'START',caption:'Výchozí poloha',photo:'start'},
