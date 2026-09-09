@@ -6,15 +6,15 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "standing_oblique_crunch_start_v02.png"
-HERO = BASE / "standing_oblique_crunch_hero_v02.png"
-OPPOSITE = BASE / "standing_oblique_crunch_hero_opposite_v02.png"
+START = BASE / "standing_oblique_crunch_start.png"
+HERO = BASE / "standing_oblique_crunch_hero.png"
+OPPOSITE = BASE / "standing_oblique_crunch_end.png"
 GUIDE = BASE / "standing_oblique_crunch_guide_card_v01.png"
 STEP = BASE / "standing_oblique_crunch_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "e5ecc7c472c32522d740df76d9623b50896de9fad3702abca4bc075a0e6bee84",
-    HERO: "c355f0e3182d6cc26e1a48ea1e387e3ac343bc9f68968f58cd41d8c503279c46",
-    OPPOSITE: "d5b5edcc64ae1014c30f83651283cadbc9bc9123de8426b1bf28c9bfd266a76c",
+    START: "8dd03f9f937a76b379fb429a7fa514b2f13da1824a3a4ae1d0b24228cd6f674a",
+    HERO: "4fdca51e97a68cfb287bee75c1a8398e259ebdcc74778134911db3a147b967df",
+    OPPOSITE: "9e37cca0f98367c64c9006cf4d8caf1188deef58704e062d3b53cccb52e462ba",
 }
 
 BG = (244, 251, 250)
