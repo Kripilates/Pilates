@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.177-dev';
+const APP_VERSION='v59.178-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1048,21 +1048,21 @@ const referenceExerciseAssets={
 
   catcow:{
     anatomy:sharedMuscleCards.mobility,
-    start:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_step_by_step_v01.png',
     subtitle:'Mobilita páteře • uvolnění zad',
     miniSteps:[
       {n:1,title:'START',caption:'Neutrální záda',photo:'start'},
-      {n:2,title:'KOČKA',caption:'Vyhrb záda',photo:'hero'},
-      {n:3,title:'KRÁVA',caption:'Otevři hrudník',photo:'end'}
+      {n:2,title:'KRÁVA',caption:'Otevři hrudník',photo:'hero'},
+      {n:3,title:'KOČKA',caption:'Vyhrb záda',photo:'end'}
     ],
     steps:[
       {title:'VÝCHOZÍ POZICE',text:'Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a záda drž neutrálně.',photo:'start'},
-      {title:'KOČKA',text:'S výdechem podsadíš pánev, vyhrbíš záda a necháš hlavu přirozeně klesnout.',photo:'hero'},
-      {title:'KRÁVA',text:'S nádechem jemně otevři hrudník, prodluž páteř a pohyb veď bez propadnutí do beder.',photo:'end'}
+      {title:'KRÁVA',text:'S nádechem jemně otevři hrudník, prodluž páteř a pohyb veď bez propadnutí do beder.',photo:'hero'},
+      {title:'KOČKA',text:'S výdechem podsadíš pánev, vyhrbíš záda a necháš hlavu přirozeně klesnout.',photo:'end'}
     ],
     info:{difficulty:'Lehké',focus:'Páteř / záda',knees:'Šetrné ke kolenům'},
     breath:{inhale:'Do krávy',exhale:'Do kočky',tempo:'Plynule s dechem'},

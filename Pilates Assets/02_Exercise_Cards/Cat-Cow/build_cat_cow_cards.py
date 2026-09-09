@@ -5,9 +5,9 @@ import hashlib
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / "Pilates Assets" / "02_Exercise_Cards" / "Cat-Cow"
 
-START = FOLDER / "cat_cow_start_v01.png"
-HERO = FOLDER / "cat_cow_hero_v01.png"
-END = FOLDER / "cat_cow_end_v01.png"
+START = FOLDER / "cat_cow_start.png"
+HERO = FOLDER / "cat_cow_hero.png"
+END = FOLDER / "cat_cow_end.png"
 GUIDE = FOLDER / "cat_cow_guide_card_v01.png"
 STEP = FOLDER / "cat_cow_step_by_step_v01.png"
 
@@ -34,8 +34,8 @@ GUIDE_WATCH = "Nepropadej se mezi lopatkami, nezvedej ramena k uším a neprohý
 
 STEP_TEXTS = [
     ("KROK 1", "VÝCHOZÍ POZICE", START, "Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a záda drž neutrálně."),
-    ("KROK 2", "KOČKA", HERO, "S výdechem podsadíš pánev, vyhrbíš záda a necháš hlavu přirozeně klesnout."),
-    ("KROK 3", "KRÁVA", END, "S nádechem jemně otevři hrudník, prodluž páteř a pohyb veď bez propadnutí do beder."),
+    ("KROK 2", "KOČKA", END, "S výdechem podsadíš pánev, vyhrbíš záda a necháš hlavu přirozeně klesnout."),
+    ("KROK 3", "KRÁVA", HERO, "S nádechem jemně otevři hrudník, prodluž páteř a pohyb veď bez propadnutí do beder."),
 ]
 
 STEP_WATCH = "Pohyb veď plynule a bez švihu. Ramena drž daleko od uší a bedra neprohýbej silou."
@@ -179,7 +179,7 @@ def build_guide():
     mini_y, mini_w, mini_h, gap = 675, 218, 146, 22
     xs = [34, 34 + mini_w + gap, 34 + 2 * (mini_w + gap)]
     labels = [("START", "Neutrální záda"), ("KOČKA", "Vyhrb záda"), ("KRÁVA", "Otevři hrudník")]
-    paths = [START, HERO, END]
+    paths = [START, END, HERO]
     for i, (x0, (label, caption), path) in enumerate(zip(xs, labels, paths), 1):
         rounded(d, (x0, mini_y, x0 + mini_w, mini_y + mini_h + 58), 22, CARD, LINE, 2)
         paste_round(img, fit_image(path, (mini_w - 22, mini_h)), (x0 + 11, mini_y + 10, x0 + mini_w - 11, mini_y + 10 + mini_h), 16)
