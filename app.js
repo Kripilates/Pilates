@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.174-dev';
+const APP_VERSION='v59.175-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -756,14 +756,14 @@ const exerciseDetailExhale=Object.freeze({
 });
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const sharedMuscleCards=Object.freeze({
-  glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/glutes_muscles_v01.png?v=59188musclecardspath',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
-  thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59188musclecardspath',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
-  obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/obliques_muscles_v01.png?v=59188musclecardspath',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
-  core:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/core_muscles_v01.png?v=59188musclecardspath',alt:'Střed těla',label:'Střed těla'}),
-  back:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/back_shoulders_muscles_v02.png?v=59188musclecardspath',alt:'Záda a lopatky',label:'Záda a lopatky'}),
-  chest:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/chest_muscles_v01.png?v=59188musclecardspath',alt:'Hrudník',label:'Hrudník'}),
-  shoulders:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/shoulders_arms_muscles_v01.png?v=59188musclecardspath',alt:'Ramena a paže',label:'Ramena a paže'}),
-  mobility:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/Muscle_Cards/mobility_back_hips_muscles_v01.png?v=59188musclecardspath',alt:'Mobilita zad a kyčlí',label:'Mobilita zad a kyčlí'})
+  glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
+  thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
+  obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
+  core:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Střed těla',label:'Střed těla'}),
+  back:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/back_shoulders_muscles_v02.png?v=59189musclecardsnojekyll',alt:'Záda a lopatky',label:'Záda a lopatky'}),
+  chest:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/chest_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hrudník',label:'Hrudník'}),
+  shoulders:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/shoulders_arms_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Ramena a paže',label:'Ramena a paže'}),
+  mobility:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/mobility_back_hips_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Mobilita zad a kyčlí',label:'Mobilita zad a kyčlí'})
 });
 const referenceExerciseAssets={
   hip:{
