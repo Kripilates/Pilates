@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.180-dev';
+const APP_VERSION='v59.181-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -802,11 +802,11 @@ const referenceExerciseAssets={
   },
   hydrant:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59194firehydrant',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_hero.png?v=59194firehydrant',
-    end:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59194firehydrant',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_guide_card_v01.png?v=59194firehydrant',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_step_by_step_v01.png?v=59194firehydrant',
+    start:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59195visual4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_hero.png?v=59195visual4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59195visual4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_guide_card_v01.png?v=59195visual4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_step_by_step_v01.png?v=59195visual4',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni koleno',photo:'hero'},
@@ -846,11 +846,11 @@ const referenceExerciseAssets={
   },
   frog:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start_v03.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero_v03.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start_v03.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59195visual4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero.png?v=59195visual4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59195visual4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_guide_card_v01.png?v=59195visual4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_step_by_step_v01.png?v=59195visual4',
     subtitle:'Hýždě • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev dole',photo:'start'},
@@ -1645,11 +1645,11 @@ const referenceExerciseAssets={
   },
   inner_thigh:{
     anatomy:sharedMuscleCards.thighs,
-    start:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59195visual4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_hero.png?v=59195visual4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59195visual4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_guide_card_v01.png?v=59195visual4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_step_by_step_v01.png?v=59195visual4',
     subtitle:'Vnitřní stehna • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Spodní noha natažená',photo:'start'},
@@ -1825,11 +1825,11 @@ const referenceExerciseAssets={
   },
   plank:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start.png?v=59195visual4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start.png?v=59195visual4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start.png?v=59195visual4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_guide_card_v01.png?v=59195visual4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_step_by_step_v01.png?v=59195visual4',
     subtitle:'Střed těla • ramena • hýždě',
     miniSteps:[
       {n:1,title:'START',caption:'Lokty pod rameny',photo:'start'},
