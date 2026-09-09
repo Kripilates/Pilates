@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.181-dev';
+const APP_VERSION='v59.182-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1051,11 +1051,11 @@ const referenceExerciseAssets={
 
   catcow:{
     anatomy:sharedMuscleCards.mobility,
-    start:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png?v=59196sourcebatch4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png?v=59196sourcebatch4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png?v=59196sourcebatch4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_guide_card_v01.png?v=59196sourcebatch4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_step_by_step_v01.png?v=59196sourcebatch4',
     subtitle:'Mobilita páteře • uvolnění zad',
     miniSteps:[
       {n:1,title:'START',caption:'Neutrální záda',photo:'start'},
@@ -1129,11 +1129,11 @@ const referenceExerciseAssets={
   },
   bird:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_hero.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_guide_card_v01.png?v=59181sourcebatch2',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_step_by_step_v01.png?v=59181sourcebatch2',
+    start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png?v=59196sourcebatch4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_hero.png?v=59196sourcebatch4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png?v=59196sourcebatch4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_guide_card_v01.png?v=59196sourcebatch4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_step_by_step_v01.png?v=59196sourcebatch4',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Natáhni ruku a nohu',photo:'hero'},
@@ -1565,12 +1565,12 @@ const referenceExerciseAssets={
   },
   scissors:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero.png',
-    mid:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_mid.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_guide_card_v01.png?v=59176sourcebatch',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_step_by_step_v01.png?v=59176sourcebatch',
+    start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png?v=59196sourcebatch4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero.png?v=59196sourcebatch4',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_mid.png?v=59196sourcebatch4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png?v=59196sourcebatch4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_guide_card_v01.png?v=59196sourcebatch4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_step_by_step_v01.png?v=59196sourcebatch4',
     subtitle:'Spodní břicho • stehna • střídání nohou',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy natažené',photo:'start'},
@@ -1671,11 +1671,11 @@ const referenceExerciseAssets={
   },
   legraises:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59196sourcebatch4',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero.png?v=59196sourcebatch4',
+    end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59196sourcebatch4',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_guide_card_v01.png?v=59196sourcebatch4',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_step_by_step_v01.png?v=59196sourcebatch4',
     subtitle:'Spodní břicho • stabilita trupu',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy vzhůru',photo:'start'},
