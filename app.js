@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.176-dev';
+const APP_VERSION='v59.177-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -760,7 +760,7 @@ const sharedMuscleCards=Object.freeze({
   thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
   obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
   core:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Střed těla',label:'Střed těla'}),
-  back:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/back_shoulders_muscles_v02.png?v=59189musclecardsnojekyll',alt:'Záda a lopatky',label:'Záda a lopatky'}),
+  back:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/back_shoulders_muscles_v02.png?v=59191muscleviews',alt:'Záda a lopatky',label:'Záda a lopatky'}),
   chest:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/chest_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hrudník',label:'Hrudník'}),
   shoulders:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/shoulders_arms_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Ramena a paže',label:'Ramena a paže'}),
   mobility:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/mobility_back_hips_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Mobilita zad a kyčlí',label:'Mobilita zad a kyčlí'})
@@ -1277,9 +1277,9 @@ const referenceExerciseAssets={
   },
   rainbow:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_end_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_end.png',
     guideCard:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_guide_card_v01.png',
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_step_by_step_v01.png',
     subtitle:'Hýždě • boky • stabilita pánve',
