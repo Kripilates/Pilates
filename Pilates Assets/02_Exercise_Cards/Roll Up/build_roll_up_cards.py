@@ -8,13 +8,12 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 BASE = Path(__file__).resolve().parent
 START = BASE / "roll_up_start.png"
 HERO = BASE / "roll_up_hero.png"
-END = BASE / "roll_up_end.png"
+END = START
 GUIDE = BASE / "roll_up_guide_card_v01.png"
 STEP = BASE / "roll_up_step_by_step_v01.png"
 EXPECTED_HASHES = {
     START: "ecaf9158a51511e6e137c83a91e43f9279ff9bb1c75f3f14289028cb2ab82d8a",
     HERO: "feb6de94738905d116caa668476f6885ef2bc46274afae7e201f0d3946e5a552",
-    END: "742fcda9fdf4f0607afc335dd76788e413a19da8ce3df785a4cc3846ed300901",
 }
 
 BG = (244, 251, 250)

@@ -6,11 +6,11 @@ Status: HOTOVO
 
 - START: ✅ SCHVÁLENO — `roll_up_start.png`
 - HERO: ✅ SCHVÁLENO — `roll_up_hero.png`
-- END: ✅ SCHVÁLENO — `roll_up_end.png`
+- END: ✅ používá přesně START bez samostatného aktivního PNG
 
 ## Workflow
 
-START → HERO → END
+START → HERO → START
 
 ## Guide Card
 
@@ -33,8 +33,8 @@ START → HERO → END
 
 ## Notes
 
-- Použity pouze finální schválené bezverzové SOURCE START, HERO a END.
-- Sekvence karet je START → HERO → END.
+- Použity pouze finální schválené bezverzové SOURCE START a HERO; END je přesný reuse START.
+- Sekvence karet je START → HERO → START.
 - Kontrola katalogu, `data.js` a assetové struktury potvrdila jedno kanonické ID `rollup` bez duplicity.
 - Starý placeholder `assets/exercises/rollup.jpg?v=50` není aktivní.
 - Chybná duplicitní varianta `roll_up_hero_v01.png..png` byla odstraněna.

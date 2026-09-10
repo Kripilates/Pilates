@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.184-dev';
+const APP_VERSION='v59.185-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -908,11 +908,11 @@ const referenceExerciseAssets={
   },
   sideplank:{
     anatomy:sharedMuscleCards.obliques,
-    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start.png?v=59200rollupsideplank',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_hero.png?v=59200rollupsideplank',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start.png?v=59200rollupsideplank',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_guide_card_v01.png?v=59200rollupsideplank',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_step_by_step_v01.png?v=59200rollupsideplank',
     subtitle:'Střed těla • pas • ramena',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev na podložce',photo:'start'},
@@ -1801,11 +1801,11 @@ const referenceExerciseAssets={
   },
   rollup:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59199sourcebatch3',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero.png?v=59199sourcebatch3',
-    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_end.png?v=59199sourcebatch3',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png?v=59199sourcebatch3',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png?v=59199sourcebatch3',
+    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59200rollupsideplank',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero.png?v=59200rollupsideplank',
+    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59200rollupsideplank',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png?v=59200rollupsideplank',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png?v=59200rollupsideplank',
     subtitle:'Střed těla • kontrola páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na zádech',photo:'start'},

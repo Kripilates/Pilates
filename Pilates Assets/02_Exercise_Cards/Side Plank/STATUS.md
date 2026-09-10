@@ -4,14 +4,14 @@ Status: HOTOVO
 
 ## Source Images
 
-- START: ✅ SCHVÁLENO — `side_plank_start_v01.png`
-- HERO: ✅ SCHVÁLENO — `side_plank_hero_v01.png`
+- START: ✅ SCHVÁLENO — `side_plank_start.png`
+- HERO: ✅ SCHVÁLENO — `side_plank_hero.png`
 - END: ✅ používá START, bez samostatného END PNG
 
 ## Source SHA-256
 
-- START: `b396fd07c87a3911b9f815439d21060be9c245bbd0e80f793955cc248be19c48`
-- HERO: `3a2acf9202d930e5576775ae18fb40b3f1527355ad620f74a815dfac380a85db`
+- START: `67211c832812fde512f0847eb9a209d65aef918c411d269841204db87be7ba93`
+- HERO: `67d93f038db9c216bec4e1b0c7d7d9022d05a84c55e5efd2618e3e7577f8e9bb`
 
 ## Workflow
 

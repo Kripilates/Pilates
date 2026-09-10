@@ -19,6 +19,9 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Dne 2026-09-10 byly Roll Up (`rollup`) a Side Plank (`sideplank`) lokálně nasazeny s finálními bezverzovými SOURCE a sekvencí START → HERO → START. Guide/Step v01 zachovaly strukturu a byly aktualizovány pouze ve fotografických plochách. Verze/cache: `v59.185-dev`; `app.js?v=59200rollupsideplank`; `data.js?v=59200rollupsideplank`.
+- Swan Prep (`swan`) z tohoto požadovaného balíku zatím nasazen nebyl: ve workspace chybí nový standardizovaný START/HERO a dostupné v01 obsahují staré prostředí s rostlinami a policí. Side Plank Reach zůstává mimo scope a jeho lokální rozpracované soubory nebyly měněny.
+
 - Dne 2026-09-10 byly Roll Up (`rollup`), Sphinx Stretch (`sphinx`) a Spine Stretch (`spine`) lokálně sjednoceny na finální bezverzové SOURCE. Roll Up zachovává START → HERO → END; Sphinx používá jeden statický START pro START/HERO/END; Spine Stretch používá START → HERO → START.
 - Sphinx a Spine Guide/Step v01 byly aktualizovány pouze vloženými fotografiemi; Roll Up Guide/Step už odpovídaly finálním SOURCE. Program, dávky, názvy a workout logika zůstaly beze změny. Verze/cache: `v59.184-dev`; `app.js?v=59199sourcebatch3`; `data.js?v=59199sourcebatch3`.
 - Progress souhrn zůstává: 51 aktivních cviků, 51 HOTOVO, 0 ROZPRACOVÁNO, 0 ČEKÁ.
