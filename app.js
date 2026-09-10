@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.182-dev';
+const APP_VERSION='v59.183-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -802,11 +802,11 @@ const referenceExerciseAssets={
   },
   hydrant:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59195visual4',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_hero.png?v=59195visual4',
-    end:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59195visual4',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_guide_card_v01.png?v=59195visual4',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_step_by_step_v01.png?v=59195visual4',
+    start:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_step_by_step_v01.png?v=59198sourcebatch9',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
       {n:2,title:'HLAVNÍ POHYB',caption:'Zvedni koleno',photo:'hero'},
@@ -846,11 +846,11 @@ const referenceExerciseAssets={
   },
   frog:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59195visual4',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero.png?v=59195visual4',
-    end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59195visual4',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_guide_card_v01.png?v=59195visual4',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_step_by_step_v01.png?v=59195visual4',
+    start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Hýždě • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev dole',photo:'start'},
@@ -1333,12 +1333,12 @@ const referenceExerciseAssets={
   },
   figure_four:{
     anatomy:sharedMuscleCards.glutes,
-    start:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59193visual5',
-    mid:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_mid.png?v=59193visual5',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_hero.png?v=59193visual5',
-    end:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59193visual5',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_guide_card_v02.png?v=59193visual5',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_step_by_step_v02.png?v=59193visual5',
+    start:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59198sourcebatch9',
+    mid:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_mid.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_guide_card_v02.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_step_by_step_v02.png?v=59198sourcebatch9',
     subtitle:'Hýždě • kyčle • protažení',
     miniSteps:[
       {n:1,title:'START',caption:'Chodidla na podložce',photo:'start'},
@@ -1645,11 +1645,11 @@ const referenceExerciseAssets={
   },
   inner_thigh:{
     anatomy:sharedMuscleCards.thighs,
-    start:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59195visual4',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_hero.png?v=59195visual4',
-    end:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59195visual4',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_guide_card_v01.png?v=59195visual4',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_step_by_step_v01.png?v=59195visual4',
+    start:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Vnitřní stehna • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Spodní noha natažená',photo:'start'},
@@ -1671,11 +1671,11 @@ const referenceExerciseAssets={
   },
   legraises:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59196sourcebatch4',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero.png?v=59196sourcebatch4',
-    end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59196sourcebatch4',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_guide_card_v01.png?v=59196sourcebatch4',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_step_by_step_v01.png?v=59196sourcebatch4',
+    start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Spodní břicho • stabilita trupu',
     miniSteps:[
       {n:1,title:'START',caption:'Nohy vzhůru',photo:'start'},
@@ -1747,11 +1747,11 @@ const referenceExerciseAssets={
   },
   mermaid:{
     anatomy:sharedMuscleCards.obliques,
-    start:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Bok trupu • mobilita páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Vzpřímený sed',photo:'start'},
@@ -1773,11 +1773,11 @@ const referenceExerciseAssets={
   },
   plie:{
     anatomy:sharedMuscleCards.thighs,
-    start:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Hýždě • stehna • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Široký stoj',photo:'start'},
@@ -1799,11 +1799,11 @@ const referenceExerciseAssets={
   },
   rollup:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_end_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_end.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Střed těla • kontrola páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na zádech',photo:'start'},
@@ -1851,11 +1851,11 @@ const referenceExerciseAssets={
   },
   tap:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start.png?v=59198sourcebatch9',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_hero.png?v=59198sourcebatch9',
+    end:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start.png?v=59198sourcebatch9',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_guide_card_v01.png?v=59198sourcebatch9',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_step_by_step_v01.png?v=59198sourcebatch9',
     subtitle:'Střed těla • ramena • stabilita pánve',
     miniSteps:[
       {n:1,title:'START',caption:'Vysoký plank',photo:'start'},
@@ -2476,7 +2476,7 @@ function programInfo(){
   const programComplete=isProgramComplete();
   app.innerHTML=`<div class="programAboutPage">
   <section class="aboutHero">
-    <div class="aboutHeroMedia"><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start_v01.png" alt="Cvičení na podložce"></div>
+    <div class="aboutHeroMedia"><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start.png?v=59198sourcebatch9" alt="Cvičení na podložce"></div>
     <div class="aboutHeroContent">
       <h2>O programu</h2>
       <h3>30 dní pro silnější a pevnější tělo</h3>
@@ -2496,7 +2496,7 @@ function programInfo(){
     <div class="aboutFocusList">
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png" alt="Russian Twist"><div><span class="aboutFocusAccent">${lineIcon('core')}</span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
-      <article><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero_v01.png" alt="Mermaid"><div><span class="aboutFocusAccent">${lineIcon('mobility')}</span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero.png?v=59198sourcebatch9" alt="Mermaid"><div><span class="aboutFocusAccent">${lineIcon('mobility')}</span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
     </div>
   </section>
   <section class="trainingPrinciplesSection"><h2>Jak cvičit správně</h2>
@@ -3280,7 +3280,7 @@ function doneNext(mark=true){
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="finishHero">
-      <img class="finishHeroImage" src="Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start_v01.png" alt="Z\u00e1v\u011bre\u010dn\u00e9 prota\u017een\u00ed Mermaid Stretch">
+      <img class="finishHeroImage" src="Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png?v=59198sourcebatch9" alt="Z\u00e1v\u011bre\u010dn\u00e9 prota\u017een\u00ed Mermaid Stretch">
       <div class="finishHeroCopy">
         <p>Skv\u011bl\u00e1 pr\u00e1ce!</p>
         <h2>M\u00e1\u0161<br>hotovo!</h2>
