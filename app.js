@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.183-dev';
+const APP_VERSION='v59.184-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1697,9 +1697,11 @@ const referenceExerciseAssets={
   },
   spine:{
     anatomy:sharedMuscleCards.mobility,
-    start:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start.png?v=59199sourcebatch3',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_hero.png?v=59199sourcebatch3',
+    end:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start.png?v=59199sourcebatch3',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_guide_card_v01.png?v=59199sourcebatch3',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_step_by_step_v01.png?v=59199sourcebatch3',
     subtitle:'Záda • střed těla • mobilita páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Vzpřímený sed',photo:'start'},
@@ -1721,11 +1723,11 @@ const referenceExerciseAssets={
   },
   sphinx:{
     anatomy:sharedMuscleCards.mobility,
-    start:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start.png?v=59199sourcebatch3',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start.png?v=59199sourcebatch3',
+    end:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start.png?v=59199sourcebatch3',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_guide_card_v01.png?v=59199sourcebatch3',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_step_by_step_v01.png?v=59199sourcebatch3',
     subtitle:'Záda • hrudník • mobilita páteře',
     miniSteps:[
       {n:1,title:'NASTAVENÍ',caption:'Leh na břiše',photo:'start'},
@@ -1799,11 +1801,11 @@ const referenceExerciseAssets={
   },
   rollup:{
     anatomy:sharedMuscleCards.core,
-    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59198sourcebatch9',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero.png?v=59198sourcebatch9',
-    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_end.png?v=59198sourcebatch9',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png?v=59198sourcebatch9',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png?v=59198sourcebatch9',
+    start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59199sourcebatch3',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero.png?v=59199sourcebatch3',
+    end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_end.png?v=59199sourcebatch3',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_guide_card_v01.png?v=59199sourcebatch3',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_step_by_step_v01.png?v=59199sourcebatch3',
     subtitle:'Střed těla • kontrola páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na zádech',photo:'start'},

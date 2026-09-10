@@ -4,9 +4,9 @@ Status: HOTOVO
 
 ## Source Images
 
-- START: ✅ SCHVÁLENO — `roll_up_start_v01.png`
-- HERO: ✅ SCHVÁLENO — `roll_up_hero_v01.png`
-- END: ✅ SCHVÁLENO — `roll_up_end_v01.png`
+- START: ✅ SCHVÁLENO — `roll_up_start.png`
+- HERO: ✅ SCHVÁLENO — `roll_up_hero.png`
+- END: ✅ SCHVÁLENO — `roll_up_end.png`
 
 ## Workflow
 
@@ -33,7 +33,7 @@ START → HERO → END
 
 ## Notes
 
-- Použity pouze schválené source obrázky START, HERO a END v01.
+- Použity pouze finální schválené bezverzové SOURCE START, HERO a END.
 - Sekvence karet je START → HERO → END.
 - Kontrola katalogu, `data.js` a assetové struktury potvrdila jedno kanonické ID `rollup` bez duplicity.
 - Starý placeholder `assets/exercises/rollup.jpg?v=50` není aktivní.

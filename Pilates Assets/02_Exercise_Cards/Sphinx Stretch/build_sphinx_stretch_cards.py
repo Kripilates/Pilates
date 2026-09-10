@@ -6,13 +6,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageStat
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "sphinx_stretch_start_v01.png"
+START = BASE / "sphinx_stretch_start.png"
 HERO = START
 END = START
 GUIDE = BASE / "sphinx_stretch_guide_card_v01.png"
 STEP = BASE / "sphinx_stretch_step_by_step_v01.png"
 EXPECTED_HASHES = {
-    START: "546fcbcb471421c1da704464e1edace9563a3b6531f55a95f208c1b5fb0a52a2",
+    START: "ab11ddf082cf2e22018ee967a0b4baa719417713f9dbb8ffea1a8bc6787465aa",
 }
 
 BG = (244, 251, 250)

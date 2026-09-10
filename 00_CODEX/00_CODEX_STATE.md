@@ -19,6 +19,10 @@
 
 Aktuální rozpracované změny bez commitu:
 
+- Dne 2026-09-10 byly Roll Up (`rollup`), Sphinx Stretch (`sphinx`) a Spine Stretch (`spine`) lokálně sjednoceny na finální bezverzové SOURCE. Roll Up zachovává START → HERO → END; Sphinx používá jeden statický START pro START/HERO/END; Spine Stretch používá START → HERO → START.
+- Sphinx a Spine Guide/Step v01 byly aktualizovány pouze vloženými fotografiemi; Roll Up Guide/Step už odpovídaly finálním SOURCE. Program, dávky, názvy a workout logika zůstaly beze změny. Verze/cache: `v59.184-dev`; `app.js?v=59199sourcebatch3`; `data.js?v=59199sourcebatch3`.
+- Progress souhrn zůstává: 51 aktivních cviků, 51 HOTOVO, 0 ROZPRACOVÁNO, 0 ČEKÁ.
+
 - Dne 2026-09-08 byly Clamshell (`clam`), Side Leg Lift (`sideleg`) a Side Kick (`sidekick`) lokálně přepojeny na finální bezverzové SOURCE. Clamshell a Side Leg Lift používají END = START; Side Kick používá samostatný END. Guide/Step zachovaly tři panely, texty, layout a rozměry; změnily se pouze vložené fotografie.
 - Pro žádný z těchto tří cviků nebyl použit nepřesný anatomy reuse: schválená mapa gluteus medius/minimus v `MASTER_ANATOMY.md` chybí, takže Muscle Card zůstává `OPEN`. Verze/cache: `v59.171-dev`; `app.js?v=59184sidebundle`; `data.js?v=59184sidebundle`; `style.css` beze změny.
 - Dne 2026-09-08 byly The Hundred (`hundred`), Thread the Needle (`thread`) a Bird Dog (`bird`) lokálně přepojeny na finální bezverzové SOURCE se sekvencí START → HERO → START. Existující Guide/Step zachovaly počet panelů, texty, layout a rozměry; změnily se pouze vložené fotografie.
