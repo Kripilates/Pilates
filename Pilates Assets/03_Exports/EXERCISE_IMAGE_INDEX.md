@@ -7,11 +7,11 @@ Tento index už nevede samostatný paralelní seznam. Kanonická inventura všec
 ## Kontrolní stav
 
 - aktivní ID: 51
-- nové prostředí: 39
+- nové prostředí: 40
 - staré prostředí: 10
-- chybějící / nový cvik: 2
+- chybějící / nový cvik: 1
 - `swan` není aktivní
 - `dumbbell_pullover` je aktivní
-- `chest_opener` má fyzické bezverzové SOURCE, ale runtime mapování stále odkazuje na odstraněné verze
+- `chest_opener` používá bezverzové START/HERO v novém prostředí; END = START a runtime, Guide i Step jsou opravené
 
 Při další asset práci aktualizuj kanonickou tabulku, nikoli tento rozcestník.

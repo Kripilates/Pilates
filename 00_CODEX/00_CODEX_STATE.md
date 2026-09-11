@@ -3,11 +3,11 @@
 ## Aktuální stav — inventura obrazových karet 2026-09-11
 
 - Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program, `dumbbell_pullover` je aktivní.
-- Obrazové SOURCE: 39 nové prostředí, 10 staré prostředí k opravě, 2 chybějící/nefunkční aktivní bundle.
-- Muscle Card k doladění: 5. Guide/Step k aktualizaci: 11 cviků / 22 karet.
+- Obrazové SOURCE: 40 nové prostředí, 10 staré prostředí k opravě, 1 chybějící aktivní bundle (`dumbbell_pullover`).
+- Muscle Card k doladění: 5. Guide/Step k aktualizaci: 10 cviků / 20 karet.
 - Kanonická detailní tabulka: `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
-- NEXT TASK: vytvořit schválený bundle `dumbbell_pullover`; opravit runtime cesty `chest_opener`; poté postupně převést 10 cviků ze starého prostředí a aktualizovat jejich Guide/Step.
-- Žádná aplikace, program, mapping ani obrazový soubor nebyly v tomto auditním úkolu změněny.
+- NEXT TASK: vytvořit schválený bundle `dumbbell_pullover`; poté postupně převést 10 cviků ze starého prostředí a aktualizovat jejich Guide/Step.
+- Chest Opener (`chest_opener`) používá bezverzové `chest_opener_start.png` a `chest_opener_hero.png`; END = START. Guide/Step v04 byly znovu sestaveny bez změny layoutu a textů. Program, dávky, pořadí a workout logika zůstaly beze změny. Verze/cache: `v59.187-dev`; `app.js?v=59202chestopenerfix`; `data.js?v=59202chestopenerfix`.
 
 ## Historický log (může popisovat překonané stavy)
 

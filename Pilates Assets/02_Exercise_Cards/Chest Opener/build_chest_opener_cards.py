@@ -6,14 +6,14 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "chest_opener_start_v01.png"
-HERO = BASE / "chest_opener_hero_v04.png"
+START = BASE / "chest_opener_start.png"
+HERO = BASE / "chest_opener_hero.png"
 GUIDE = BASE / "chest_opener_guide_card_v04.png"
 STEP = BASE / "chest_opener_step_by_step_v04.png"
 
 EXPECTED = {
-    START: "a50beee63cd042eb71cdbb35035a9018254d72e00763332d91aeaf8e808dc277",
-    HERO: "665f68b1490f76480cea69c1c2cb89b858dae608b354f6541279f161a89f149b",
+    START: "ab5a7b2330678b5dbb3c52936b8b716c2842a5a10791bff6366765aa708690b4",
+    HERO: "4583691f3fd532642d0b592efaa480cc1d532e002ef807e9ba8053adc4032f1c",
 }
 
 BG = (244, 251, 250)

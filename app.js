@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.186-dev';
+const APP_VERSION='v59.187-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -1103,11 +1103,11 @@ const referenceExerciseAssets={
   },
   chest_opener:{
     anatomy:sharedMuscleCards.chest,
-    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_hero_v04.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_guide_card_v04.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_step_by_step_v04.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start.png?v=59202chestopenerfix',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_hero.png?v=59202chestopenerfix',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start.png?v=59202chestopenerfix',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_guide_card_v04.png?v=59202chestopenerfix',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_step_by_step_v04.png?v=59202chestopenerfix',
     subtitle:'Hrudník • ramena • držení těla',
     miniSteps:[
       {n:1,title:'START',caption:'Paže podél těla',photo:'start'},

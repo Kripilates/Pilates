@@ -7,13 +7,13 @@ Rozhodující MASTER prostředí: `Pilates Assets/01_Master_Reference/master pro
 ## Aktuální souhrn
 
 - AKTIVNÍ CVIKY CELKEM: **51**
-- 🟢 NOVÉ PROSTŘEDÍ: **39**
+- 🟢 NOVÉ PROSTŘEDÍ: **40**
 - 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **10**
-- 🔴 CHYBÍ / NOVÝ CVIK: **2**
+- 🔴 CHYBÍ / NOVÝ CVIK: **1**
 - MUSCLE CARD K DOLADĚNÍ: **5**
-- GUIDE/STEP K AKTUALIZACI: **11 cviků / 22 karet**
+- GUIDE/STEP K AKTUALIZACI: **10 cviků / 20 karet**
 
-Kontrolní rovnice: **39 + 10 + 2 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
+Kontrolní rovnice: **40 + 10 + 1 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
 
 ## Inventura 51 aktivních cviků
 
@@ -24,7 +24,7 @@ Kontrolní rovnice: **39 + 10 + 2 = 51**. Aktivní množina obsahuje `dumbbell_p
 | `bird` | Bird Dog | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `catcow` | Cat-Cow | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `chest_fly` | Rozpažování s činkami vleže | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start_v02.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero_v02.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start_v02.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
-| `chest_opener` | Chest Opener | 🔴 CHYBÍ / NOVÝ CVIK | `CHYBÍ` | `CHYBÍ` | `CHYBÍ` | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Přepojit runtime na existující bezverzové SOURCE a aktualizovat Guide + Step; nynější mapované SOURCE jsou 404. |
+| `chest_opener` | Chest Opener | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `chest_press` | Tlaky s činkami vleže | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
 | `childs_pose` | Pozice dítěte | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `clam` | Clamshell | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
@@ -83,11 +83,11 @@ Kontrolní rovnice: **39 + 10 + 2 = 51**. Aktivní množina obsahuje `dumbbell_p
 
 ### Guide + Step k aktualizaci po SOURCE
 
-`chest_fly`, `chest_opener`, `chest_press`, `press`, `raise`, `rdl`, `row`, `sideplank_reach`, `supine_twist`, `swimming`, `triceps_kickback`. U deseti cviků se starým prostředím se karty aktualizují až po novém SOURCE. `chest_opener` je navíc nutné znovu sestavit z fyzicky existujících bezverzových SOURCE, protože aktivní mapování stále míří na odstraněné verze.
+`chest_fly`, `chest_press`, `press`, `raise`, `rdl`, `row`, `sideplank_reach`, `supine_twist`, `swimming`, `triceps_kickback`. U těchto deseti cviků se starým prostředím se karty aktualizují až po novém SOURCE.
 
 ## Zjištěné rozpory
 
-- `chest_opener`: `app.js` odkazuje na odstraněné `chest_opener_start_v01.png` a `chest_opener_hero_v04.png`; ve složce fyzicky existují nové `chest_opener_start.png` a `chest_opener_hero.png`. Aktivní START/HERO/END proto nyní nejsou dostupné.
+- `chest_opener`: rozpor byl vyřešen; runtime používá existující bezverzové START/HERO, END znovu používá START a Guide/Step byly aktualizovány ze stejného bundle.
 - `dumbbell_pullover`: aktivní v programu, ale nemá SOURCE, Guide, Step ani Muscle Card.
 - `rdl`: Guide a Step fyzicky existují, ale nejsou uvedeny v `referenceExerciseAssets`; protože SOURCE patří do starého prostředí, oba jsou stejně vedeny k aktualizaci po SOURCE.
 - `clam`, `sidekick`, `sideleg`, `hamstring_supine` a `thread`: runtime zobrazuje sdílenou Muscle Card, ale stavové dokumenty nedokládají schválený přesný reuse.
