@@ -4,8 +4,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 BASE = Path(__file__).resolve().parent
-START = BASE / "bent_over_row_start_v02.png"
-HERO = BASE / "bent_over_row_hero_v02.png"
+START = BASE / "bent_over_row_start.png"
+HERO = BASE / "bent_over_row_hero.png"
 GUIDE = BASE / "bent_over_row_guide_card_v02.png"
 STEP = BASE / "bent_over_row_step_by_step_v02.png"
 

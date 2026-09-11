@@ -160,6 +160,19 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 - Commit: NE
 - Push: NE
 
+## SOURCE standardization batch — v59.191-dev — 2026-09-11
+
+- Na bezverzové schválené SOURCE byly přepojeny `chest_fly`, `chest_press`, `press`, `raise`, `rdl`, `row`, `supine_twist` a `triceps_kickback`; END u všech používá START.
+- `dumbbell_pullover`, `chest_opener` a `russian` už před tímto úkolem používaly aktuální bezverzové SOURCE a jejich Guide/Step nebyly zbytečně přegenerovány.
+- Guide Card a Step by Step byly aktualizovány pouze výměnou fotografických ploch pro osm přepojených cviků; `rdl` nyní navíc eviduje existující Guide/Step v runtime mapování.
+- `sideplank_reach` zůstává ROZPRACOVÁNO: chybí finálně schválená reach-through fáze a nový neúplný balík nebyl nasazen.
+- `swimming` zůstává K OPRAVĚ / OLD ENVIRONMENT.
+- Aktivní program: 51 ID; 49 NOVÉ PROSTŘEDÍ, 1 ROZPRACOVÁNO, 1 STARÉ PROSTŘEDÍ, 0 CHYBÍ. `dumbbell_pullover` zůstává aktivní, `swan` mimo aktivní program.
+- Muscle Card pro `dumbbell_pullover` zůstává OPEN: MASTER_ANATOMY neobsahuje schválený PNG pro přesný profil A04 + A09 / A07.
+- Verze/cache: `v59.191-dev`; `app.js?v=59206sourcebatch`; data a asset URL cíleného balíku používají `v=59206sourcebatch`.
+- Commit: NE
+- Push: NE
+
 ## Triceps Kickback completion — v59.109-dev
 
 - Triceps Kickback je dokončený pod kanonickým ID `triceps_kickback`.

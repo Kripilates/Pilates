@@ -1,5 +1,11 @@
 # MOOVKA – MUSCLE CARD MASTER
 
+## AUTORITATIVNÍ PROFILY CVIKŮ
+
+Jediným zdrojem pravdy pro PRIMARY/SECONDARY profily aktivních cviků je `MUSCLE_CARD_PROFILE_AUDIT.md`.
+
+Tento dokument definuje systém, taxonomii, tvorbu a evidenci schválených Muscle Cards. `app.js`, legacy Muscle Cards ani historické pracovní návrhy nejsou anatomickou autoritou.
+
 ## STATUS
 Nový Muscle Card systém od 2026-09-11.
 
@@ -226,7 +232,9 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 
 | FILE | PRIMARY | SECONDARY | CVIKY | STATUS |
 |---|---|---|---|---|
-| glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | `hip`, `frog`, `donkey`, `glute_bridge_march` | SCHVÁLENO |
+| core_primary_hip_flexors_secondary_muscles_v01.png | A01 Core | A03 Flexory kyčle | `deadbug`, `hip_march`, `hollow`, `legraises`, `scissors`, `toetap` | SCHVÁLENO |
+| glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | `hip`, `donkey`, `glute_bridge_march` | SCHVÁLENO |
+| deltoids_primary_triceps_secondary_muscles_v01.png | A05 Ramena | A07 Triceps | `press` | SCHVÁLENO |
 | quadriceps_primary_hamstrings_secondary_muscles_v01.png | A13 Quadriceps | A14 Hamstrings | žádný z aktuálních 51 profilů nemá tuto přesnou kombinaci; bez runtime přiřazení | SCHVÁLENO |
 | lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01/A02 dle konkrétního profilu | bude doplněno | ČEKÁ |
 

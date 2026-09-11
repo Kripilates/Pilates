@@ -4,8 +4,8 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / 'Pilates Assets' / '02_Exercise_Cards' / 'Chest Fly'
-START = FOLDER / 'chest_fly_start_v02.png'
-HERO = FOLDER / 'chest_fly_hero_v02.png'
+START = FOLDER / 'chest_fly_start.png'
+HERO = FOLDER / 'chest_fly_hero.png'
 GUIDE = FOLDER / 'chest_fly_guide_card_v01.png'
 STEP = FOLDER / 'chest_fly_step_by_step_v01.png'
 

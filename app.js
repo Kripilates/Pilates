@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.189-dev';
+const APP_VERSION='v59.191-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -756,7 +756,9 @@ const exerciseDetailExhale=Object.freeze({
 });
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const sharedMuscleCards=Object.freeze({
+  coreHipFlexors:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_primary_hip_flexors_secondary_muscles_v01.png?v=59205corehipflexors',alt:'Core a flexory kyčle',label:'Core • flexory kyčle'}),
   glutesHamstringsCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png?v=59204musclecardsapproved',alt:'Hýždě, hamstringy a střed těla',label:'Hýždě • hamstringy • střed těla'}),
+  deltoidsTriceps:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/deltoids_primary_triceps_secondary_muscles_v01.png?v=59205corehipflexors',alt:'Ramena a triceps',label:'Ramena • triceps'}),
   glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
   thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
   obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
@@ -788,8 +790,11 @@ const referenceExerciseAssets={
   },
   rdl:{
     anatomy:sharedMuscleCards.thighs,
-    start:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_hero_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_step_by_step_v01.png?v=59206sourcebatch',
     miniSteps:[
       {n:1,title:'START',caption:'Činky drž u stehen.',photo:'start'},
       {n:2,title:'HIP HINGE',caption:'Pánev dozadu.',photo:'hero'},
@@ -960,7 +965,7 @@ const referenceExerciseAssets={
     }
   },
   deadbug:{
-    anatomy:sharedMuscleCards.core,
+    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start.png?v=59193visual5',
     hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero.png?v=59193visual5',
     end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start.png?v=59193visual5',
@@ -979,7 +984,7 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.deadbug}
   },
   toetap:{
-    anatomy:sharedMuscleCards.core,
+    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png?v=59170todayauditfix',
@@ -1199,7 +1204,7 @@ const referenceExerciseAssets={
     }
   },
   hip_march:{
-    anatomy:sharedMuscleCards.core,
+    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start.png',
@@ -1360,11 +1365,11 @@ const referenceExerciseAssets={
   },
   row:{
     anatomy:sharedMuscleCards.back,
-    start:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_guide_card_v02.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_step_by_step_v02.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_guide_card_v02.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_step_by_step_v02.png?v=59206sourcebatch',
     subtitle:'Záda • lopatky • zadní ramena',
     miniSteps:[
       {n:1,title:'START',caption:'Činky pod rameny',photo:'start'},
@@ -1385,12 +1390,12 @@ const referenceExerciseAssets={
     }
   },
   press:{
-    anatomy:sharedMuscleCards.shoulders,
-    start:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_step_by_step_v01.png',
+    anatomy:sharedMuscleCards.deltoidsTriceps,
+    start:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/shoulder_press_step_by_step_v01.png?v=59206sourcebatch',
     subtitle:'Ramena • paže • stabilita trupu',
     miniSteps:[
       {n:1,title:'START',caption:'Činky u ramen',photo:'start'},
@@ -1412,11 +1417,11 @@ const referenceExerciseAssets={
   },
   raise:{
     anatomy:sharedMuscleCards.shoulders,
-    start:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_step_by_step_v01.png?v=59206sourcebatch',
     subtitle:'Ramena • stabilita trupu',
     miniSteps:[
       {n:1,title:'START',caption:'Činky podél těla',photo:'start'},
@@ -1588,7 +1593,7 @@ const referenceExerciseAssets={
     }
   },
   scissors:{
-    anatomy:sharedMuscleCards.core,
+    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png?v=59196sourcebatch4',
     hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero.png?v=59196sourcebatch4',
     mid:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_mid.png?v=59196sourcebatch4',
@@ -1615,7 +1620,7 @@ const referenceExerciseAssets={
     }
   },
   hollow:{
-    anatomy:sharedMuscleCards.core,
+    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start.png?v=59170todayauditfix',
@@ -1694,7 +1699,7 @@ const referenceExerciseAssets={
     }
   },
   legraises:{
-    anatomy:sharedMuscleCards.core,
+    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59198sourcebatch9',
@@ -1903,11 +1908,11 @@ const referenceExerciseAssets={
   },
   supine_twist:{
     anatomy:sharedMuscleCards.mobility,
-    start:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_step_by_step_v01.png?v=59206sourcebatch',
     subtitle:'Pas • záda • mobilita páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Kolena uprostřed',photo:'start'},
@@ -1984,11 +1989,11 @@ const referenceExerciseAssets={
   },
   chest_press:{
     anatomy:sharedMuscleCards.chest,
-    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_step_by_step_v01.png?v=59206sourcebatch',
     miniSteps:[
       {n:1,title:'START',caption:'Činky u hrudníku',photo:'start'},
       {n:2,title:'TLAK NAHORU',caption:'Činky nad hrudník',photo:'hero'},
@@ -2009,11 +2014,11 @@ const referenceExerciseAssets={
   },
   triceps_kickback:{
     anatomy:sharedMuscleCards.shoulders,
-    start:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_step_by_step_v01.png?v=59206sourcebatch',
     subtitle:'Triceps • zadní strana paží • činky',
     miniSteps:[
       {n:1,title:'START',caption:'Lokty u těla',photo:'start'},
@@ -2036,11 +2041,11 @@ const referenceExerciseAssets={
   },
   chest_fly:{
     anatomy:sharedMuscleCards.chest,
-    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start_v02.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_hero_v02.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start_v02.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start.png?v=59206sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_hero.png?v=59206sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start.png?v=59206sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_guide_card_v01.png?v=59206sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_step_by_step_v01.png?v=59206sourcebatch',
     subtitle:'Hrudník • ramena',
     miniSteps:[
       {n:1,title:'START',caption:'Činky nad hrudníkem',photo:'start'},
