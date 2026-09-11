@@ -1,4 +1,15 @@
-# CODEX STATE
+# 00_CODEX_STATE
+
+## Aktuální stav — inventura obrazových karet 2026-09-11
+
+- Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program, `dumbbell_pullover` je aktivní.
+- Obrazové SOURCE: 39 nové prostředí, 10 staré prostředí k opravě, 2 chybějící/nefunkční aktivní bundle.
+- Muscle Card k doladění: 5. Guide/Step k aktualizaci: 11 cviků / 22 karet.
+- Kanonická detailní tabulka: `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
+- NEXT TASK: vytvořit schválený bundle `dumbbell_pullover`; opravit runtime cesty `chest_opener`; poté postupně převést 10 cviků ze starého prostředí a aktualizovat jejich Guide/Step.
+- Žádná aplikace, program, mapping ani obrazový soubor nebyly v tomto auditním úkolu změněny.
+
+## Historický log (může popisovat překonané stavy)
 
 ## Projekt
 

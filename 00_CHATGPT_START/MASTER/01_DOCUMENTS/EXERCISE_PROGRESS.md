@@ -1,117 +1,101 @@
-# Pilates Body 40+ – Progress
+# EXERCISE PROGRESS — aktivní obrazové karty
 
-## Legenda
+Aktualizováno: 2026-09-11
+Režim: audit skutečně aktivních ID z `data.js` a aktivního mapování z `app.js`.
+Rozhodující MASTER prostředí: `Pilates Assets/01_Master_Reference/master prostředí.png` / `MOOVKA_MASTER_ENVIRONMENT_v02.png`.
 
-Pravidla:
+## Aktuální souhrn
 
-Reference = existuje schválená EXERCISE_REFERENCE.
+- AKTIVNÍ CVIKY CELKEM: **51**
+- 🟢 NOVÉ PROSTŘEDÍ: **39**
+- 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **10**
+- 🔴 CHYBÍ / NOVÝ CVIK: **2**
+- MUSCLE CARD K DOLADĚNÍ: **5**
+- GUIDE/STEP K AKTUALIZACI: **11 cviků / 22 karet**
 
-HERO / START / END = schválené zdrojové fotografie.
+Kontrolní rovnice: **39 + 10 + 2 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
 
-Guide = Guide Card.
+## Inventura 51 aktivních cviků
 
-Step = Step by Step.
+| ID | Cvik | SOURCE stav | START | HERO | END | Guide | Step | Muscle Card | Co zbývá |
+|---|---|---|---|---|---|---|---|---|---|
+| `abduction` | Roznožování v mostu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `bicycle` | Bicycle Crunch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `bird` | Bird Dog | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `catcow` | Cat-Cow | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `chest_fly` | Rozpažování s činkami vleže | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start_v02.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero_v02.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start_v02.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `chest_opener` | Chest Opener | 🔴 CHYBÍ / NOVÝ CVIK | `CHYBÍ` | `CHYBÍ` | `CHYBÍ` | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Přepojit runtime na existující bezverzové SOURCE a aktualizovat Guide + Step; nynější mapované SOURCE jsou 404. |
+| `chest_press` | Tlaky s činkami vleže | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `childs_pose` | Pozice dítěte | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `clam` | Clamshell | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
+| `deadbug` | Dead Bug | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `donkey` | Zanožování v kleku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `dumbbell_pullover` | Dumbbell Pullover | 🔴 CHYBÍ / NOVÝ CVIK | `CHYBÍ` | `CHYBÍ` | `CHYBÍ` | CHYBÍ | CHYBÍ | CHYBÍ | Vytvořit a schválit celý nový asset bundle včetně Muscle Card. |
+| `figure_four` | Protažení hýždí vleže | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `frog` | Frog Pumps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `glute_bridge_march` | Pochod v mostu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `hamstring_supine` | Jemné protažení zadní strany stehna | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
+| `heeltaps` | Heel Taps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `hip` | Most | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `hip_march` | Pochod vleže | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hip March/hip_march_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `hollow` | Hollow Hold | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `hundred` | Kmity pažemi vleže | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `hydrant` | Fire Hydrant | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `inner_thigh` | Zdvihy spodní nohy | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `knee_pushup` | Kliky na kolenou | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `legraises` | Leg Raises | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `mermaid` | Mermaid Stretch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `plank` | Prkno na předloktích | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — REUSE START | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `plie` | Plié Squat | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `press` | Tlaky s činkami nad hlavu | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `rainbow` | Rainbow Leg Raise | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `raise` | Lateral Raise | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `rdl` | Rumunský mrtvý tah | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `revcrunch` | Reverse Crunch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `rollup` | Rolování do sedu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `row` | Bent Over Row | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start_v02.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero_v02.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start_v02.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `russian` | Rotace trupu v sedu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_start_v01.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero_v01.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_start_v01.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `scissors` | Nůžky | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Scissors/scissors_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Scissors/scissors_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Scissors/scissors_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `sidekick` | Side Kick | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
+| `sideleg` | Unožování vleže na boku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
+| `sideplank` | Side Plank | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `sideplank_reach` | Boční prkno s rotací | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end_v01.png` — STARÉ PROSTŘEDÍ | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `sphinx` | Sphinx Stretch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — REUSE START | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `spine` | Protažení páteře v sedu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `standing_oblique` | Boční zkracovačky ve stoji | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `standing_side_bend` | Úklony do stran ve stoje | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `supine_twist` | Rotace páteře vleže | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `swimming` | Swimming | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `tap` | Plank Shoulder Taps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `thread` | Protažení s rotací v kleku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
+| `toetap` | Toe Taps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `triceps_kickback` | Triceps Kickback | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
 
-Export = všechny finální PNG fyzicky existují.
+## Fronta práce
 
-QA = výsledek prošel finální kontrolou a je označen jako SCHVÁLENO.
+### 🟠 SOURCE do nového prostředí
 
-App = jestli je cvik skutečně použitý v aplikaci.
+`chest_fly` (Rozpažování s činkami vleže), `chest_press` (Tlaky s činkami vleže), `press` (Tlaky s činkami nad hlavu), `raise` (Lateral Raise), `rdl` (Rumunský mrtvý tah), `row` (Bent Over Row), `sideplank_reach` (Boční prkno s rotací), `supine_twist` (Rotace páteře vleže), `swimming` (Swimming), `triceps_kickback` (Triceps Kickback).
 
-App hodnoty:
+### Muscle Card k doladění
 
-✅ obrázky jsou nasazené v aplikaci
+`clam` (Clamshell), `hamstring_supine` (Jemné protažení zadní strany stehna), `sidekick` (Side Kick), `sideleg` (Unožování vleže na boku), `thread` (Protažení s rotací v kleku). U těchto cviků existuje runtime reuse jedné z osmi sdílených karet, ale současná dokumentace výslovně nedokládá přesnou schválenou anatomickou shodu; proto nejsou vedeny jako definitivně hotové.
 
-🟡 připravené, ale ještě nejsou propojené
+### Guide + Step k aktualizaci po SOURCE
 
-❌ aplikace stále používá starý obrázek nebo fallback
+`chest_fly`, `chest_opener`, `chest_press`, `press`, `raise`, `rdl`, `row`, `sideplank_reach`, `supine_twist`, `swimming`, `triceps_kickback`. U deseti cviků se starým prostředím se karty aktualizují až po novém SOURCE. `chest_opener` je navíc nutné znovu sestavit z fyzicky existujících bezverzových SOURCE, protože aktivní mapování stále míří na odstraněné verze.
 
-Stav:
-HOTOVO
-ROZPRACOVÁNO
-ČEKÁ
+## Zjištěné rozpory
 
-# NEXT TASKS
+- `chest_opener`: `app.js` odkazuje na odstraněné `chest_opener_start_v01.png` a `chest_opener_hero_v04.png`; ve složce fyzicky existují nové `chest_opener_start.png` a `chest_opener_hero.png`. Aktivní START/HERO/END proto nyní nejsou dostupné.
+- `dumbbell_pullover`: aktivní v programu, ale nemá SOURCE, Guide, Step ani Muscle Card.
+- `rdl`: Guide a Step fyzicky existují, ale nejsou uvedeny v `referenceExerciseAssets`; protože SOURCE patří do starého prostředí, oba jsou stejně vedeny k aktualizaci po SOURCE.
+- `clam`, `sidekick`, `sideleg`, `hamstring_supine` a `thread`: runtime zobrazuje sdílenou Muscle Card, ale stavové dokumenty nedokládají schválený přesný reuse.
+- Dřívější souhrn `51 HOTOVO` vyjadřoval technickou úplnost před výměnou Swan Prep, nikoli shodu všech SOURCE s novým MASTER prostředím. Není aktuálním stavem.
 
-1. Dumbbell Pullover — vytvořit a ručně schválit START/HERO; následně Guide Card, Step by Step a finální assetové mapování
+## Metoda auditu
 
-
-## Souhrn
-
-Celkem aktivních cviků: 51
-Kompletně hotovo: 50
-Rozpracováno: 0
-Nezačato: 1
-
-Wall Sit: ODSTRANĚNO z aktivního programu, nezapočítává se mezi aktivní cviky.
-
-Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je použit jako závěrečný stretch ve dni 20; Dumbbell Pullover nahradil Swan Prep na stejných pozicích ve dnech 4, 11, 20 a 25 a vždy převzal jeho původní dávku.
-
-## Přehled
-
-| Cvik | Ref | HERO | START | END | Guide | Step | Export | QA | App | Stav | Poznámka |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| Bent Over Row | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v02 schválené; END = START v02 bez samostatného PNG; Guide Card a Step by Step v02 schválené; App nasazena jako `row`; aktivní cesty používají pouze Bent Over Row v02 soubory |
-| Bicycle Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální SOURCE bez verzovacího čísla: `bicycle_crunch_start.png` → `bicycle_crunch_hero.png` → `bicycle_crunch_end.png`; Guide Card a Step by Step v01 aktualizovány beze změny textů/layoutu; app mapování přes `bicycle` |
-| Bird Dog | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `bird_dog_start.png` a `bird_dog_hero.png`; END = START; Guide/Step v01 zachovaly 3panely a texty; core anatomy reuse z Heel Taps; app nasazena pod ID `bird` |
-| Bridge Abduction | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `bridge_abduction_start.png` (`055f549c…`) a `bridge_abduction_hero.png` (`7a29dee2…`); END = START; Guide/Step v01 aktualizované bez změny textů/layoutu; app nasazena jako `abduction`; schválená varianta je bez pomůcky |
-| Cat-Cow | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START, HERO/CAT fáze a END/COW fáze schválené; Guide Card a Step by Step schválené; App nasazena jako samostatný cvik `catcow`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Chest Opener | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO v04 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v04 manuálně schválené; Export a QA schválené; App nasazena přes `chest_opener` |
-| Chest Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO schválené; END = START; Guide Card a Step by Step schválené; anatomická reference byla při tvorbě použita, ale není fyzicky archivovaná; aplikace používá assets/exercises/chest_press.jpg a detailové reference Chest Press |
-| Rozpažování s činkami vleže | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a HERO v02 ručně schválené; END = START v02 bez samostatného PNG; Guide Card a Step by Step v01 přegenerované ze SOURCE v02; App nasazena pod kanonickým ID `chest_fly` |
-| Kliky na kolenou | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `knee_pushup` ve v59.98-dev |
-| Child's Pose | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START bez samostatného PNG; Guide Card a Step by Step schválené; App nasazena přes `childs_pose`; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální `clamshell_start.png` / `clamshell_hero.png`; END = START; Guide/Step aktualizované; App `clam`; Muscle Card OPEN bez schváleného anatomy reuse |
-| Dead Bug | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 `_approved` ověřeny přesnými SHA-256; END = START; Guide/Step v01 přegenerované, vizuálně ověřené a nasazené v aplikaci pod ID `deadbug` |
-| Donkey Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválená binární kopie Fire Hydrant START; HERO je schválený; END = START bez samostatného PNG; Guide Card a Step by Step jsou manuálně schválené; Export a QA schválené; App nasazena jako `donkey`; bez pomůcky; samostatné pravá/levá strana |
-| Dumbbell Pullover | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🟡 | ČEKÁ | Kanonické ID `dumbbell_pullover`; nahrazuje `swan` ve dnech 4, 11, 20 a 25 se zachováním původních dávek; do dodání schválených START/HERO používá standardní no-image fallback; bez placeholderu nebo reuse jiného cviku |
-| Figure Four Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v01, MID v02 a HERO v02 schválené; END = START v01 bez samostatného PNG; Guide Card a Step by Step v02 manuálně schválené; Export a QA schválené; App nasazena jako `figure_four`; samostatné strany bez průběžného střídání |
-| Fire Hydrant | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Forearm Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický časový cvik; START/HERO/END používají stejný schválený source bez samostatného HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `plank` |
-| Frog Pumps | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v03 ručně schválené; END = START v03 bez samostatného PNG; Guide Card a Step by Step v01 přegenerované ze SOURCE v03; App nasazena pod kanonickým ID `frog` |
-| Glute Bridge | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální SOURCE bez verzovacího čísla: `glute_bridge_start.png` `d3df1aee…` + `glute_bridge_hero.png` `055f549c…`; END = START; Guide v3 a Step v2 aktualizovány bez změny textů/layoutu; svalová karta `Muscle_Cards/glutes_muscles_v01.png`; app mapování pod ID `hip` aktualizováno |
-| Glute Bridge March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Bezverzové START/MID/HERO; runtime START → MID → HERO → MID → START; Guide Card obnovena na 3 panely START → MID → HERO, Step v02 beze změny; app ID `glute_bridge_march` |
-| Hamstring Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové START/HERO; END = START; Guide/Step v01 aktualizované; app ID `hamstring_supine`; schválená hamstring muscle mapa není v projektu dostupná |
-| Heel Taps | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `heel_taps_start.png` (`b570f9e7…`) a `heel_taps_hero.png` (`919dfa2c…`); END = START; Guide/Step v01 aktualizované ze SOURCE a app nasazena pod ID `heeltaps` |
-| Hip March | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové START/HERO; END = START; Guide/Step v01 aktualizované; schválený core anatomy reuse; app ID `hip_march` |
-| Hollow Hold | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální START `hollow_hold_start.png` je binární reuse Glute Bridge START (`d3df1aee…`); HERO `hollow_hold_hero.png` (`afeb196f…`); END = START; Guide/Step v01 aktualizované bez změny textů/layoutu; svalová karta „Střed těla“ beze změny; app ID `hollow` aktualizováno |
-| Inner Thigh Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01, Guide Card a Step by Step v01 manuálně schválené; END = START bez samostatného PNG; nasazeno v aplikaci pod ID `inner_thigh`; textový audit proběhne později hromadně |
-| Lateral Raise | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; Export a QA dokončené; App nasazena pod kanonickým ID `raise` |
-| Leg Raises | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v02 a HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena pod kanonickým ID `legraises` |
-| Mermaid Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 manuálně schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `mermaid`; starý placeholder není aktivní |
-| Plank Shoulder Taps | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v02 a HERO v01 manuálně schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `tap` jako střídavý cvik |
-| Plie Squat | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `plie`; kontrola duplicity bez nálezu |
-| Rainbow Leg Raise | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v02 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 přegenerované z v02 source; App nasazena přes `rainbow`; staré kandidáty se špatným úhlem jsou v `_LEGACY_WRONG_ANGLE_V01` |
-| Reverse Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové START/HERO; END = START; Guide/Step v01 aktualizované; schválený core anatomy reuse; app ID `revcrunch` |
-| Roll Up | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové `roll_up_start.png` a `roll_up_hero.png`; END = START; sekvence START → HERO → START; Guide/Step v01 aktualizovány pouze fotografií návratu; App `rollup` |
-| Romanian Deadlift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO schválené; END = START; Guide Card a Step by Step sestaveny; EXERCISE_REFERENCE není uložená v MASTER balíčku |
-| Russian Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 manuálně schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 schválené; App nasazena pod `russian` |
-| Scissors | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové START/HERO/MID; END = START; pracovní polohy HERO ↔ MID; Guide/Step v01 aktualizované; schválený core anatomy reuse; app ID `scissors` |
-| Shoulder Press | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `press`; pomůcka Činky |
-| Side Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální `side_kick_start.png` / `side_kick_hero.png` / `side_kick_end.png`; Guide/Step aktualizované bez změny struktury; App `sidekick`; Muscle Card OPEN bez schváleného anatomy reuse; dny 18 a 25 |
-| Side Leg Lift | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální `side_leg_start.png` / `side_leg_lift_hero.png`; END = START; Guide/Step aktualizované; App `sideleg`; Muscle Card OPEN bez schváleného anatomy reuse |
-| Side Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové `side_plank_start.png` a `side_plank_hero.png`; END = START; Guide/Step v01 aktualizovány pouze fotografiemi; App `sideplank`; sekvence START → HERO → START |
-| Side Plank Reach | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO/END v01 schválené; sekvence START → HERO → END; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `sideplank_reach`; starý placeholder není aktivní |
-| Sphinx Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický stretch; START/HERO/END používají finální bezverzový `sphinx_stretch_start.png`; Guide/Step v01 aktualizovány pouze fotografií; App `sphinx` |
-| Spine Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové `spine_stretch_start.png` a `spine_stretch_hero.png`; END = START; Guide/Step v01 aktualizovány pouze fotografiemi; App `spine` |
-| Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v02 schválené; sekvence START → úklon k jednomu kolenu → úklon na opačnou stranu; Guide Card a Step by Step v01 přegenerované ze SOURCE v02; App nasazena pod kanonickým ID `standing_oblique`; programové dávky beze změny |
-| Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v03, HERO v03 a HERO opposite v01 schválené; END = START v03; sekvence START → HERO 1 → START → HERO 2 → START; Guide Card a Step by Step v01 vytvořené a ověřené; anatomy v01 schválená a napojená pouze na `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
-| Supine Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `supine_twist` ve v59.101-dev; sekvence START → HERO → START |
-| Swan Prep | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🟡 | MIMO PROGRAM | START/HERO, Guide Card a Step by Step v01 zůstávají zachované pod ID `swan`, ale aktivní 30denní program jej od v59.186-dev nepoužívá |
-| Swimming | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; střídavý pohyb používá stejný HERO bez zrcadlení a opačná fáze je vysvětlena textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `swimming`; programové dávky beze změny |
-| The Hundred | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `hundred_start.png` a `hundred_hero.png`; END = START; pulzy paží zůstávají vysvětlené textem bez další fáze; Guide/Step v01 aktualizované pouze výměnou fotografií; core anatomy reuse; app ID `hundred` |
-| Thread the Needle | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `thread_the_needle_start.png` a `thread_the_needle_hero.png`; END = START; Guide/Step v01 aktualizované pouze výměnou fotografií; schválená anatomy mapa horních zad není dostupná; app ID `thread` |
-| Toe Tap | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `toe_tap_start.png` (`18d1b521…`) a `toe_taps_hero.png` (`9c7120aa…`); END = START; Guide/Step v1 aktualizované bez změny textů/layoutu a app nasazena pod ID `toetap` |
-| Triceps Kickback | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; Step by Step používá stejný HERO pro kontrolu pohybu bez další mezifáze; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `triceps_kickback`; programové dávky beze změny |
-| Wall Sit | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ODSTRANĚNO | Odstraněno z aktivního programu; nezapočítává se mezi aktivní cviky ani čekající assety. |
-
-## NEOVĚŘENO
-
-- žádné
-
-## Zdroj kontroly
-
-- `Pilates Assets/02_Exercise_Cards/`
-- `Pilates Assets/00_Project_Status/EXERCISE_STATUS.md`
-- `STATUS.md`, `README.md` a `README.txt` uvnitř složek cviků
-- `data.js` pouze pro ověření známých cviků aplikace
+- Aktivní ID: sjednocení všech `day.items[*][0]` a `day.stretch[0]` v aktuálním `data.js`.
+- Aktivní soubory: `referenceExerciseAssets` v aktuálním `app.js`, s kontrolou fyzické existence, PNG rozměrů/režimu a SHA-256.
+- NEW/OLD: aktuální MASTER byl zaveden 2026-08-30; stav byl ověřen proti následným source balíkům, Git historii souborů a schválením ve stavových dokumentech. Cviky bez doložené pozdější výměny zůstávají konzervativně ve skupině STARÉ PROSTŘEDÍ.
+- Prohlížečový vizuální runtime audit nebyl dostupný kvůli chybě Windows sandbox helperu; žádný stav proto nebyl povýšen na HOTOVO jen podle starého označení COMPLETE.
