@@ -1,4 +1,4 @@
-﻿> MASTER_SYSTEM_V2_ACTIVE
+> MASTER_SYSTEM_V2_ACTIVE
 >
 > Jediný platný MASTER systém projektu je `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
 > Tento dokument zůstává projektová Bible pro aplikaci, spolupráci a obecná pravidla, ale všechna pravidla pro MASTER model, MASTER tvář, MASTER prostředí, EXERCISE_REFERENCE, promptování obrázků a QA se řídí MASTER.
@@ -171,9 +171,9 @@ Platné MASTER reference jsou pouze:
 
 Kameru, perspektivu, pozici a měřítko určují tři pevné MASTER CAMERA reference LYING / QUADRUPED / STANDING. Podložka 183 × 68 cm je primární fyzická autorita měřítka pro 180cm modelku, vzdálenost kamery a měřítko místnosti.
 
-Pro anatomické obrázky "Zapojené svaly" platí navíc `MASTER_ANATOMY.md` a zamčený `MOOVKA_MASTER_BODY_v01`.
+Pro anatomické obrázky "Zapojené svaly" platí navíc `MASTER_ANATOMY.md` a zamčený `MOOVKA_MASTER_BODY_v02`.
 
-Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md` a `MOOVKA_MASTER_BODY_v01`. Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
+Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md` a `MOOVKA_MASTER_BODY_v02`. Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 
 MASTER prostředí je jediná schválená autorita prázdného moderního Moovka studia.
 

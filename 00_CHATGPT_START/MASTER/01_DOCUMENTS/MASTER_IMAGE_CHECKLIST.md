@@ -1,4 +1,4 @@
-﻿# MASTER IMAGE CHECKLIST
+# MASTER IMAGE CHECKLIST
 
 Status: ACTIVE CHECKLIST FOR MASTER
 
@@ -30,7 +30,7 @@ Status: ACTIVE CHECKLIST FOR MASTER
 
 □ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": načten MASTER_ANATOMY.md
 
-□ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": použit zamčený MOOVKA_MASTER_BODY_v01
+□ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": použit zamčený MOOVKA_MASTER_BODY_v02
 
 □ Stejný obličej
 

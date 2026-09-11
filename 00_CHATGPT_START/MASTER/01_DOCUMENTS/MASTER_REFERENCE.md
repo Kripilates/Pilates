@@ -1,4 +1,4 @@
-﻿# OFICIÁLNÍ MASTER SYSTÉM
+# OFICIÁLNÍ MASTER SYSTÉM
 
 Projekt Pilates Body 40+ používá tyto čtyři závazné identity/content reference:
 
@@ -18,7 +18,7 @@ Projekt Pilates Body 40+ používá tyto čtyři závazné identity/content refe
    Referenční fotografie nebo ilustrace konkrétního cviku.
    Určuje anatomicky správnou polohu těla.
 
-Pro anatomické obrázky "Zapojené svaly" platí navíc povinný dokument `MASTER_ANATOMY.md` a zamčený master `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`.
+Pro anatomické obrázky "Zapojené svaly" platí navíc povinný dokument `MASTER_ANATOMY.md` a zamčený master `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/MOOVKA_MASTER_BODY_v02.png`.
 Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md`.
 Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 
@@ -43,7 +43,7 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 - MASTER prostředí: `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png` a `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`, jediný zdroj pravdy pro prázdné studio, světlo, stěnu, podlahu, sokl, závěs a barevnost.
 - MASTER CAMERA: tři pevné kamerové třídy LYING / QUADRUPED / STANDING s příslušnými schválenými reference images v `Pilates Assets/01_Master_Reference`.
 - MASTER MAT: fyzická podložka 183 × 68 cm, primární scale authority pro velikost modelky, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky; modelka měří 180 cm.
-- MASTER anatomie: `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`, zamčený základ pro všechny anatomy assety "Zapojené svaly"; pravidla určuje `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
+- MASTER anatomie: `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/MOOVKA_MASTER_BODY_v02.png`, zamčený základ pro všechny anatomy assety "Zapojené svaly"; pravidla určuje `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
 - HERO referenční standard: referenční kvalita HERO fotografie.
 - EXERCISE_REFERENCE.png: anatomická reference konkrétního cviku, dodává se pro právě řešený cvik.
 
@@ -333,7 +333,7 @@ Po založení nového chatu musí ChatGPT:
 1. Načíst MASTER/01_DOCUMENTS/MASTER_REFERENCE.md.
 2. Načíst MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md.
 3. Načíst PILATES_BODY_AI_BIBLE.md.
-4. Při práci s anatomickými obrázky načíst MASTER_ANATOMY.md a MOOVKA_MASTER_BODY_v01.
+4. Při práci s anatomickými obrázky načíst MASTER_ANATOMY.md a MOOVKA_MASTER_BODY_v02.
 5. Načíst aktuální project guide pouze jako podpůrný kontext.
 6. Považovat MASTER za jediný zdroj pravdy pro MASTER pravidla.
 7. Nikdy nepřepisovat schválená MASTER pravidla vlastními návrhy.

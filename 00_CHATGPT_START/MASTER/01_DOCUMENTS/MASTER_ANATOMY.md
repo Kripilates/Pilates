@@ -1,178 +1,305 @@
-# MASTER_ANATOMY
+# MOOVKA – MUSCLE CARD MASTER
 
-Status: ACTIVE MASTER RULES FOR ANATOMY ASSETS
+## STATUS
+Nový Muscle Card systém od 2026-09-11.
 
-Tento dokument je zavazny pro vsechny anatomicke obrazky "Zapojene svaly" v projektu Moovka.
+Starší Muscle Cards jsou pouze pracovní/reference materiál.
+Pro nové a revidované Muscle Cards platí výhradně tento dokument.
 
-Pred jakoukoli tvorbou, upravou nebo nasazenim anatomickych obrazku musi byt nacten tento dokument a schvaleny master:
+---
 
-`Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`
+# 1. LOCKED MASTER BODY
 
-## Zamceny Anatomicky Master
+Základ všech Muscle Cards:
 
-Vychozi referenci je schvaleny `MOOVKA_MASTER_BODY_v01`.
+MOOVKA_MASTER_BODY_v02
 
-Obsahuje predni a zadni pohled stejne zenske anatomicke postavy.
+MASTER BODY je ZAMČENÝ.
 
-TENTO MASTER JE ZAMCENY.
+Při tvorbě Muscle Cards se NESMÍ změnit:
+- tělesné proporce
+- svalnatost
+- silueta
+- obličej
+- vlasy
+- oblečení
+- poloha postavy
+- FRONT/BACK
+- měřítko
+- kompozice
+- grayscale kresba
+- bílé pozadí
 
-Pri tvorbe jednotlivych anatomy assetu se nesmi svevolne:
+Muscle Card vzniká EDITACÍ tohoto MASTERU.
+Postava se nikdy znovu negeneruje.
 
-- menit postava,
-- menit oblicej,
-- menit vlasy,
-- menit proporce tela,
-- menit svalova kresba,
-- menit poza,
-- menit perspektiva,
-- menit velikost jednotlivych casti tela,
-- menit obleceni,
-- menit zakladni ilustrativni styl,
-- generovat podobna nova anatomicka postava.
+MASTER BODY představuje štíhlou, přirozeně ženskou,
+zpevněnou postavu bez kulturistické svalnatosti.
 
-Novy anatomy asset musi vznikat editaci nebo odvozenim ze schvaleneho masteru, nikoli novou interpretaci postavy.
+---
 
-MASTER BODY je zdroj pravdy.
+# 2. OBSAH FINÁLNÍ MUSCLE CARD
 
-## Vizualni Standard
+Finální Muscle Card obsahuje POUZE:
 
-Anatomicke obrazky urcene do aplikace maji:
+- MOOVKA_MASTER_BODY_v02
+- barevně označené relevantní svalové oblasti
+- čisté bílé pozadí
 
-- ciste bile pozadi,
-- svetly cernobily / grayscale zaklad postavy,
-- anatomickou kresbu zachovanou z MASTER BODY,
-- zapojene svaly zvyraznene ruzovou z vizualniho systemu Moovky,
-- zadne jine barevne dekorace.
+Uvnitř PNG NESMÍ být:
+- logo
+- název cviku
+- název svalů
+- A01–A16
+- legenda
+- text
+- ikony
+- rámečky
+- jiné grafické prvky
 
-Ruzova slouzi pouze pro zvyrazneni relevantnich svalu.
+Význam karty je evidován v názvu souboru a v tomto dokumentu.
 
-Asset nesmi obsahovat:
+---
 
-- nazev cviku,
-- ceske nazvy svalu,
-- latinske nazvy svalu,
-- legendu,
-- nadpis,
-- vysvetlovaci text,
-- logo,
-- znacku Moovka,
-- ramecky,
-- ikonky,
-- cisla,
-- sipky,
-- UI prvky,
-- dekorace.
+# 3. BARVY
 
-Vysledkem je pouze cista anatomicka ilustrace.
+## PRIMARY
+Hlavní zapojené svaly.
 
-## Predni A Zadni Pohled
+Moovka Pink:
+HEX #F05A78
+RGB 240 / 90 / 120
 
-Nepouzivej automaticky predni + zadni pohled pro kazdy cvik.
+Tato barva pochází přímo z finálního loga Moovka.
 
-Pouzij pouze pohled, ktery skutecne pomaha zobrazit relevantni svaly.
+## SECONDARY
+Významně zapojené pomocné nebo stabilizační svaly.
 
-- Pokud jsou vsechny dulezite svaly dobre viditelne zezadu, pouzij pouze zadni pohled.
-- Pokud jsou relevantni pouze zepredu, pouzij pouze predni pohled.
-- Predni + zadni pohled pouzij pouze tehdy, kdyz cvik skutecne zapojuje dulezite svalove oblasti, ktere nelze rozumne zobrazit jednim pohledem.
+Používá STEJNÝ odstín #F05A78, pouze ve světlejší intenzitě.
 
-Cil je co nejvetsi a nejcitelnejsi anatomie na mobilnim displeji, ne automaticky dve male postavy.
+Přesná intenzita SECONDARY bude zamčena po vizuálním testu
+první kombinované Muscle Card.
 
-## Zvyrazneni Svalu
+Zakázáno:
+- měnit odstín růžové mezi kartami
+- používat korálovou
+- používat jinou růžovou
+- generovat PRIMARY a SECONDARY jako dva různé barevné odstíny
 
-Pred vytvorenim assetu musi probehnout ANATOMY QA.
+Rozdíl PRIMARY / SECONDARY vzniká pouze intenzitou stejné barvy.
 
-Nezvyraznuj sval pouze proto, ze se behem cviku podili na stabilizaci.
+---
 
-Prioritou je zobrazit svalove skupiny, ktere jsou pro dany cvik skutecne vyznamne.
+# 4. ANATOMICKÉ OBLASTI
 
-Rozlisuj:
+A01 – Core / přímé břišní
+      rectus abdominis + vizuální oblast předního core
+      FRONT
 
-- PRIMARY: hlavni cilove svaly cviku.
-- SECONDARY: vyznamne spolupracujici svaly, pouze pokud jejich zobrazeni prinasi uzivatelce skutecnou hodnotu.
+A02 – Šikmé břišní
+      obliques
+      FRONT + boční přesah
 
-Nepreplnuj anatomii mnozstvim zvyraznenych svalu.
+A03 – Flexory kyčle
+      hip flexors / přední oblast kyčle a třísla
+      FRONT
 
-Pokud by sekundarni zvyrazneni zhorsilo srozumitelnost, zobraz pouze PRIMARY.
+A04 – Hrudník
+      pectoralis major
+      FRONT
 
-## Anatomicka Spravnost
+A05 – Ramena
+      deltoids
+      FRONT + BACK
 
-Kazdy anatomy asset musi pred schvalenim projit kontrolou:
+A06 – Biceps
+      biceps brachii
+      FRONT
 
-- odpovidaji zvyraznene svaly konkretnimu cviku?
-- neni zvyraznena nespravna svalova skupina?
-- neni nektera hlavni svalova skupina vynechana?
-- neni obrazek zavadejici?
-- odpovida pohled tomu, co chceme uzivatelce ukazat?
+A07 – Triceps
+      triceps brachii
+      BACK
 
-Priklad pro rumunsky mrtvy tah:
+A08 – Lopatková oblast
+      rhomboids / střední oblast mezi lopatkami
+      BACK
 
-- PRIMARY: hyzde, zadni strana stehen / hamstringy.
-- Predni kvadricepsy nesmi byt prezentovany jako hlavni cilove svaly RDL.
-- Vzprimovace patere lze povazovat za sekundarni zapojeni, ale jejich zvyrazneni neni povinne, pokud by anatomii zbytecne komplikovalo.
-- Preferovany pohled pro RDL je zadni pohled.
+A09 – Široký sval zad
+      latissimus dorsi
+      BACK
 
-## Text Patri Do UI
+A10 – Vzpřimovače páteře
+      erector spinae
+      BACK
 
-Veskere vysvetleni zapojenych svalu patri do HTML/UI aplikace.
+A11 – Hýždě
+      gluteus maximus
+      BACK
 
-Nikdy jej nevypaluj primo do PNG/WebP anatomy assetu.
+A12 – Boční hýždě
+      gluteus medius/minimus / hip abductors
+      BACK + boční přesah
 
-Duvody:
+A13 – Kvadricepsy
+      přední strana stehen
+      FRONT
 
-- text lze menit bez regenerace obrazku,
-- lepsi citelnost na mobilu,
-- lokalizace,
-- jednotny design,
-- opakovane pouziti stejneho anatomy assetu.
+A14 – Hamstringy
+      zadní strana stehen
+      BACK
 
-## Reuse Anatomy Assetu
+A15 – Adduktory
+      vnitřní strana stehen
+      FRONT
 
-Nevytvarej automaticky unikatni obrazek pro kazdy cvik.
+A16 – Lýtka
+      gastrocnemius / soleus oblast
+      BACK
 
-Pokud dva nebo vice cviku pouzivaji skutecne stejne anatomicke zvyrazneni, mohou sdilet stejny anatomy asset.
+---
 
-Pred vytvorenim noveho obrazku proved REUSE AUDIT.
+# 5. MASTER MASKS
 
-Kontroluj skutecnou anatomickou shodu, ne pouze podobny nazev cviku.
+Pro každou oblast vznikne jedna anatomicky schválená MASTER MASK:
 
-## Pre-Generation QA
+A01_CORE
+A02_OBLIQUES
+A03_HIP_FLEXORS
+A04_CHEST
+A05_DELTOIDS
+A06_BICEPS
+A07_TRICEPS
+A08_SCAPULAR
+A09_LATS
+A10_ERECTOR_SPINAE
+A11_GLUTE_MAX
+A12_LATERAL_GLUTES
+A13_QUADRICEPS
+A14_HAMSTRINGS
+A15_ADDUCTORS
+A16_CALVES
 
-Pred kazdym novym anatomy assetem musi byt potvrzeno:
+Po schválení MASTER MASK se její anatomické hranice ZAMKNOU.
 
-- [ ] nacten `MASTER_ANATOMY.md`
-- [ ] pouzit `MOOVKA_MASTER_BODY_v01`
-- [ ] MASTER postava se nemeni
-- [ ] urcen PRIMARY muscle target
-- [ ] pripadne urcen SECONDARY target
-- [ ] zvolen nejvhodnejsi pohled
-- [ ] proveden reuse audit
-- [ ] asset nebude obsahovat text ani UI
-- [ ] zvyrazneni odpovida anatomii cviku
+Stejný sval se pro další kartu znovu nekreslí.
 
-Pokud nektery bod neni jasny, negenerovat a nejprve vyresit nejasnost.
+---
 
-## Post-Generation QA
+# 6. POJMENOVÁNÍ MUSCLE CARDS
 
-Po vytvoreni kazdeho anatomy assetu kontrolovat:
+Muscle Cards se NEJMENUJÍ podle cviku.
 
-- [ ] stejna MASTER postava
-- [ ] stejne proporce
-- [ ] stejna svalova kresba
-- [ ] stejny grayscale styl
-- [ ] bile pozadi
-- [ ] zadny text
-- [ ] zadne logo
-- [ ] zadne UI
-- [ ] spravne svaly
-- [ ] zadne chybne zvyraznene svaly
-- [ ] vhodny pohled
-- [ ] dobra citelnost na mobilu
-- [ ] zadne artefakty nebo nahodne zmeny MASTERU
+Název popisuje anatomický obsah karty.
 
-Asset se nesmi oznacit jako APPROVED, pokud nektery bod neprojde.
+Formát:
 
-## Ochrana Pro Budouci Chaty
+[PRIMARY]_primary_[SECONDARY]_secondary_muscles_v01.png
 
-Pred jakoukoli tvorbou, upravou nebo nasazenim anatomickych obrazku musi byt nacten `MASTER_ANATOMY.md` a `MOOVKA_MASTER_BODY_v01`.
+Příklady:
 
-Anatomicky MASTER je zamceny a nesmi byt nahrazovan nove generovanou podobnou postavou.
+glutes_primary_hamstrings_core_secondary_muscles_v01.png
+
+lateral_glutes_primary_core_secondary_muscles_v01.png
+
+core_primary_hip_flexors_secondary_muscles_v01.png
+
+obliques_primary_core_secondary_muscles_v01.png
+
+chest_primary_triceps_shoulders_secondary_muscles_v01.png
+
+shoulders_primary_triceps_secondary_muscles_v01.png
+
+Pokud karta nemá SECONDARY:
+
+deltoids_primary_muscles_v01.png
+
+Jeden PNG může používat více cviků se stejným anatomickým
+PRIMARY/SECONDARY profilem.
+
+Nevytvářet duplicitní PNG pro jednotlivé cviky.
+
+---
+
+# 7. EVIDENCE KARET
+
+Každá vytvořená kombinace musí být zapsána před nasazením.
+
+| FILE | PRIMARY | SECONDARY | CVIKY | STATUS |
+|---|---|---|---|---|
+| glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | bude doplněno po auditu | ČEKÁ |
+| lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01/A02 dle konkrétního profilu | bude doplněno | ČEKÁ |
+
+STATUS:
+ČEKÁ
+VYTVOŘENO
+SCHVÁLENO
+
+SCHVÁLENO = anatomie, MASTER BODY i barevnost jsou zamčené.
+
+---
+
+# 8. PRAVIDLO PRO CVIKY
+
+Muscle Card neukazuje všechny svaly, které se při pohybu
+technicky nějak zapojují.
+
+Zobrazuje:
+
+PRIMARY
+= hlavní svaly / hlavní cílová oblast cviku
+
+SECONDARY
+= významné pomocné nebo stabilizační svaly, jejichž zapojení
+je užitečné uživatelce znát
+
+Nezvýrazňovat nevýznamné pomocné svaly.
+
+Účelem karty je pomoci uživatelce pochopit:
+- kde má cvik primárně pracovat
+- které další oblasti mohou významně pracovat
+- zda pocit v sekundární oblasti může být normální
+
+U mobility/stretch cviků označuje zvýraznění oblast,
+která se primárně nebo sekundárně protahuje/mobilizuje.
+
+---
+
+# 9. WORKFLOW
+
+1. MOOVKA_MASTER_BODY_v02 – SCHVÁLENO / LOCKED
+2. MASTER BODY MAP A01–A16
+3. vytvořit MASTER MASK jednotlivých oblastí
+4. QA každé masky
+5. schválenou masku zamknout
+6. sestavit anatomický profil všech 51 cviků
+7. najít identické profily
+8. vytvořit pouze unikátní Muscle Cards
+9. QA PRIMARY / SECONDARY / MASTER BODY
+10. zapsat kartu do evidence
+11. až potom předat hotová PNG + mapování Codexu
+
+Codex anatomii nevymýšlí a Muscle Cards nekreslí.
+Codex pouze zapojí již SCHVÁLENÉ PNG podle tohoto dokumentu.
+
+---
+
+# 10. LAYOUT APLIKACE
+
+ANATOMICKÝ OBSAH SE MĚNÍ, LAYOUT NE.
+
+Současný DOM, rozměry, CSS a pořadí detailu jsou zamčené.
+
+Nové Muscle Cards se musí přizpůsobit existujícímu
+rozložení aplikace, nikoli rozložení novým kartám.
+
+Neměnit:
+- detail renderer
+- HTML strukturu detailu
+- CSS layout
+- rozměry Muscle Card sekce
+- Guide Card
+- Step by Step
+- workout logiku
+
+Commit: NE
+Push: NE

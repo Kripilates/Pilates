@@ -1,7 +1,7 @@
-﻿> MASTER_SYSTEM_V2_ACTIVE
+> MASTER_SYSTEM_V2_ACTIVE
 >
 > V novém chatu načti nejdříve `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md` a `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`.
-> Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` a `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`.
+> Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` a `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/MOOVKA_MASTER_BODY_v02.png`.
 > Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 > Starší MASTER dokumentace je historická. Platí MASTER.
 
