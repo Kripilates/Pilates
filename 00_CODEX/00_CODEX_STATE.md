@@ -10,14 +10,16 @@
 
 ## Poslední dokončený commit
 
-- Hash: `c588f7f`
-- Message: `e`
+- Hash: `ea0074a`
+- Message: `a`
 - Stav vůči `origin/main`: lokální `main` je shodný s `origin/main`.
 - Push posledního commitu už je na `origin/main`.
 
 ## Aktuálně rozpracováno
 
 Aktuální rozpracované změny bez commitu:
+
+- Dumbbell Pullover (`dumbbell_pullover`) nahradil Swan Prep (`swan`) na stejných pozicích ve dnech 4, 11, 20 a 25 a vždy převzal přesnou původní dávku. Nový kanonický datový záznam používá jednu činku a standardní no-image fallback; schválené START/HERO zatím chybí. Swan Prep zůstává zachovaný v datech, dokumentaci a assetech, ale v aktivním 30denním programu už nemá žádný výskyt. Verze/cache: `v59.186-dev`; `app.js?v=59201dumbbellpullover`; `data.js?v=59201dumbbellpullover`. NEXT TASK: vytvořit a schválit Dumbbell Pullover START/HERO, poté Guide/Step a finální assetové mapování.
 
 - Dne 2026-09-10 byly Roll Up (`rollup`) a Side Plank (`sideplank`) lokálně nasazeny s finálními bezverzovými SOURCE a sekvencí START → HERO → START. Guide/Step v01 zachovaly strukturu a byly aktualizovány pouze ve fotografických plochách. Verze/cache: `v59.185-dev`; `app.js?v=59200rollupsideplank`; `data.js?v=59200rollupsideplank`.
 - Swan Prep (`swan`) z tohoto požadovaného balíku zatím nasazen nebyl: ve workspace chybí nový standardizovaný START/HERO a dostupné v01 obsahují staré prostředí s rostlinami a policí. Side Plank Reach zůstává mimo scope a jeho lokální rozpracované soubory nebyly měněny.

@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.185-dev';
+const APP_VERSION='v59.186-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -3387,8 +3387,8 @@ const exerciseLibraryCategories={
   core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird']},
   glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
   legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','sideleg','plie','hip_march','scissors','hip','abduction']},
-  upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','chest_fly','knee_pushup','plank','tap','sideplank','sideplank_reach']},
-  back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},
+  upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','chest_fly','knee_pushup','dumbbell_pullover','plank','tap','sideplank','sideplank_reach']},
+  back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','dumbbell_pullover','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},
   mobility:{title:'Mobilita + protažení',support:'Uvolnění, rozsah pohybu a klidný dech.',icon:'mobility',ids:['swan','standing_side_bend','spine','sphinx','mermaid','supine_twist','catcow','thread','childs_pose','chest_opener','figure_four','hamstring_supine']}
 };
 const exerciseLibraryOrder=['core','glutes','legs','upper','back','mobility'];

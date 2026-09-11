@@ -12,6 +12,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Clamshell | `Pilates Assets/02_Exercise_Cards/Clamshell` | `clamshell_start.png` | `clamshell_hero.png` | `clamshell_guide_card_v01.png` | `clamshell_step_by_step_v01.png` | NE | COMPLETE | END = START; Guide/Step refreshed; Muscle Card OPEN |
 | Dead Bug | `Pilates Assets/02_Exercise_Cards/Dead Bug` | `dead_bug_start_v01_approved.png` | `dead_bug_hero_v01_approved.png` | `dead_bug_guide_card_v01.png` | `dead_bug_step_by_step_v01.png` | ANO | COMPLETE | END = START; approved hashes verified; Guide/Step rebuilt; App deployed as `deadbug` |
 | Donkey Kick | `Pilates Assets/02_Exercise_Cards/Donkey Kick` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Dumbbell Pullover | `Pilates Assets/02_Exercise_Cards/Dumbbell Pullover` | PENDING | PENDING | PENDING | PENDING | NE | WAITING | App ID `dumbbell_pullover`; day 25; 30 / 30 / 35 s; standard no-image fallback; no placeholder reuse |
 | Figure Four Stretch | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
 | Fire Hydrant | `Pilates Assets/02_Exercise_Cards/Fire Hydrant` | `fire_hydrant_start_v01.png` | `fire_hydrant_hero_v01.png` | `fire_hydrant_guide_card_v01.png` | `fire_hydrant_step_by_step_v01.png` | ANO | COMPLETE |  |
 | Forearm Plank | `Pilates Assets/02_Exercise_Cards/Forearm Plank` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
@@ -47,7 +48,7 @@ Generated: 2026-07-20T06:30:19.359Z
 | Standing Oblique Crunch | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch` | `standing_oblique_crunch_start_v02.png` | `standing_oblique_crunch_hero_v02.png` + `standing_oblique_crunch_hero_opposite_v02.png` | `standing_oblique_crunch_guide_card_v01.png` | `standing_oblique_crunch_step_by_step_v01.png` | NE | COMPLETE | HERO opposite = `standing_oblique_crunch_hero_opposite_v02.png`; END = START v02 reuse; App nasazena pod kanonickym ID `standing_oblique` |
 | Standing Side Bend | `Pilates Assets/02_Exercise_Cards/Standing Side Bend` | `standing_side_bend_start_v03.png` | `standing_side_bend_hero_v03.png` + `standing_side_bend_hero_opposite_v01.png` | `standing_side_bend_guide_card_v01.png` | `standing_side_bend_step_by_step_v01.png` | NE | COMPLETE | END = START v03; START → HERO 1 → START → HERO 2 → START; shared anatomy `Muscle_Cards/obliques_muscles_v01.png` approved and wired by muscle area |
 | Supine Twist | `Pilates Assets/02_Exercise_Cards/Supine Twist` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
-| Swan Prep | `Pilates Assets/02_Exercise_Cards/Swan Prep` | NE | NE | NE | NE | NE | EMPTY | .gitkeep |
+| Swan Prep | `Pilates Assets/02_Exercise_Cards/Swan Prep` | `swan_prep_start_v01.png` | `swan_prep_hero_v01.png` | `swan_prep_guide_card_v01.png` | `swan_prep_step_by_step_v01.png` | ANO | INACTIVE | END = START; asset set retained, but `swan` is no longer active in the 30-day program |
 | Swimming | `Pilates Assets/02_Exercise_Cards/Swimming` | `swimming_start_v01.png` | `swimming_hero_v01.png` | `swimming_guide_card_v01.png` | `swimming_step_by_step_v01.png` | NE | COMPLETE | END = START reuse; alternating phase uses same HERO without mirrored or duplicate source |
 | The Hundred | `Pilates Assets/02_Exercise_Cards/The Hundred` | `hundred_start.png` | `hundred_hero.png` | `the_hundred_guide_card_v01.png` | `the_hundred_step_by_step_v01.png` | ANO | COMPLETE | END = START; HERO představuje pracovní pozici pro malé pulzy; core anatomy reuse z Heel Taps |
 | Thread the Needle | `Pilates Assets/02_Exercise_Cards/Thread the Needle` | `thread_the_needle_start.png` | `thread_the_needle_hero.png` | `thread_the_needle_guide_card_v01.png` | `thread_the_needle_step_by_step_v01.png` | NE | COMPLETE | END = START; odpovídající schválená anatomy mapa horních zad není dostupná; app ID `thread` |
@@ -58,9 +59,9 @@ Generated: 2026-07-20T06:30:19.359Z
 ## Summary
 
 - Active exercises: 51
-- COMPLETE: 51
+- COMPLETE: 50
 - IN PROGRESS: 0
-- EMPTY / WAITING: 0
+- EMPTY / WAITING: 1
 - MISSING: 0
 - Wall Sit: ODSTRANĚNO, mimo aktivní cviky
 
@@ -78,6 +79,7 @@ Generated: 2026-07-20T06:30:19.359Z
 - Clamshell
 - Dead Bug
 - Donkey Kick
+- Dumbbell Pullover
 - Figure Four Stretch
 - Fire Hydrant
 - Forearm Plank

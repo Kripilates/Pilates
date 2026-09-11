@@ -1,6 +1,6 @@
 # Swan Prep — STATUS
 
-Status: HOTOVO
+Status: HOTOVO — MIMO AKTIVNÍ PROGRAM
 
 ## Identity
 
@@ -16,8 +16,8 @@ Status: HOTOVO
 - STEP BY STEP: ✅ `swan_prep_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `9a36cd98f82bbe7f026f63886ee70609ed7ff453a7e4e5d62b6b808ed48316e8`)
 - EXPORT: ✅
 - QA: ✅ assetové a technické; opakované mobilní browser QA nasazení blokuje lokální chyba Codex browser runtime (`setup refresh had errors`)
-- APP: ✅ nasazeno pod kanonickým ID `swan` ve verzi `v59.105-dev`
+- APP: 🟡 datový a assetový záznam je zachovaný pod kanonickým ID `swan`, ale aktivní 30denní program jej od v59.186-dev nepoužívá
 
 ## Notes
 
-Schválená sekvence je START → HERO → START. Aplikace používá schválený HERO jako hlavní snímek, END odkazuje přesně na START a dynamický detail zpřístupňuje Guide Card i Step by Step podle stejné konvence jako ostatní dokončené cviky. Programové zařazení a dávkování zůstaly beze změny.
+Schválená sekvence je START → HERO → START. Assety, Guide Card, Step by Step i historické ID zůstávají zachované. Z aktivního programu byl Swan Prep odpojen ve dnech 4, 11, 20 a 25; na stejných pozicích jej nahradil `dumbbell_pullover` se zachováním původních dávek.

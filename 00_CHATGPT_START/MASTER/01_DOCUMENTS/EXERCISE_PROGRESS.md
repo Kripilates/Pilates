@@ -33,19 +33,19 @@ ROZPRACOVÁNO
 
 # NEXT TASKS
 
-1. žádné — asset knihovna aktivních cviků je dokončená
+1. Dumbbell Pullover — vytvořit a ručně schválit START/HERO; následně Guide Card, Step by Step a finální assetové mapování
 
 
 ## Souhrn
 
 Celkem aktivních cviků: 51
-Kompletně hotovo: 51
+Kompletně hotovo: 50
 Rozpracováno: 0
-Nezačato: 0
+Nezačato: 1
 
 Wall Sit: ODSTRANĚNO z aktivního programu, nezapočítává se mezi aktivní cviky.
 
-Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je použit jako závěrečný stretch ve dni 20.
+Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je použit jako závěrečný stretch ve dni 20; Dumbbell Pullover nahradil Swan Prep na stejných pozicích ve dnech 4, 11, 20 a 25 a vždy převzal jeho původní dávku.
 
 ## Přehled
 
@@ -64,6 +64,7 @@ Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je p
 | Clamshell | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální `clamshell_start.png` / `clamshell_hero.png`; END = START; Guide/Step aktualizované; App `clam`; Muscle Card OPEN bez schváleného anatomy reuse |
 | Dead Bug | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 `_approved` ověřeny přesnými SHA-256; END = START; Guide/Step v01 přegenerované, vizuálně ověřené a nasazené v aplikaci pod ID `deadbug` |
 | Donkey Kick | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START je schválená binární kopie Fire Hydrant START; HERO je schválený; END = START bez samostatného PNG; Guide Card a Step by Step jsou manuálně schválené; Export a QA schválené; App nasazena jako `donkey`; bez pomůcky; samostatné pravá/levá strana |
+| Dumbbell Pullover | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🟡 | ČEKÁ | Kanonické ID `dumbbell_pullover`; nahrazuje `swan` ve dnech 4, 11, 20 a 25 se zachováním původních dávek; do dodání schválených START/HERO používá standardní no-image fallback; bez placeholderu nebo reuse jiného cviku |
 | Figure Four Stretch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v01, MID v02 a HERO v02 schválené; END = START v01 bez samostatného PNG; Guide Card a Step by Step v02 manuálně schválené; Export a QA schválené; App nasazena jako `figure_four`; samostatné strany bez průběžného střídání |
 | Fire Hydrant | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | EXERCISE_REFERENCE není uložená v MASTER balíčku |
 | Forearm Plank | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Statický časový cvik; START/HERO/END používají stejný schválený source bez samostatného HERO/END PNG; Guide Card a Step by Step v01 manuálně schválené; App nasazena jako `plank` |
@@ -96,7 +97,7 @@ Programové zařazení: Side Kick je použit ve dnech 18 a 25; Child's Pose je p
 | Standing Oblique Crunch | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START a obě HERO strany v02 schválené; sekvence START → úklon k jednomu kolenu → úklon na opačnou stranu; Guide Card a Step by Step v01 přegenerované ze SOURCE v02; App nasazena pod kanonickým ID `standing_oblique`; programové dávky beze změny |
 | Standing Side Bend | ⛔ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START v03, HERO v03 a HERO opposite v01 schválené; END = START v03; sekvence START → HERO 1 → START → HERO 2 → START; Guide Card a Step by Step v01 vytvořené a ověřené; anatomy v01 schválená a napojená pouze na `standing_side_bend`; čistý boční úklon bez rotace a bez přitahování lokte ke koleni |
 | Supine Twist | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `supine_twist` ve v59.101-dev; sekvence START → HERO → START |
-| Swan Prep | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO, Guide Card a Step by Step v01 schválené; END = START bez samostatného PNG; App nasazena pod kanonickým ID `swan` ve v59.105-dev; sekvence START → HERO → START |
+| Swan Prep | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 🟡 | MIMO PROGRAM | START/HERO, Guide Card a Step by Step v01 zůstávají zachované pod ID `swan`, ale aktivní 30denní program jej od v59.186-dev nepoužívá |
 | Swimming | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | START/HERO v01 schválené; END = START bez samostatného PNG; střídavý pohyb používá stejný HERO bez zrcadlení a opačná fáze je vysvětlena textem; Guide Card a Step by Step v01 vytvořené a ověřené; App nasazena pod kanonickým ID `swimming`; programové dávky beze změny |
 | The Hundred | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `hundred_start.png` a `hundred_hero.png`; END = START; pulzy paží zůstávají vysvětlené textem bez další fáze; Guide/Step v01 aktualizované pouze výměnou fotografií; core anatomy reuse; app ID `hundred` |
 | Thread the Needle | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | HOTOVO | Finální bezverzové SOURCE `thread_the_needle_start.png` a `thread_the_needle_hero.png`; END = START; Guide/Step v01 aktualizované pouze výměnou fotografií; schválená anatomy mapa horních zad není dostupná; app ID `thread` |
