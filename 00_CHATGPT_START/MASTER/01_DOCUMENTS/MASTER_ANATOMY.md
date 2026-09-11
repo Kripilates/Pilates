@@ -226,8 +226,11 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 
 | FILE | PRIMARY | SECONDARY | CVIKY | STATUS |
 |---|---|---|---|---|
-| glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | bude doplněno po auditu | ČEKÁ |
+| glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | `hip`, `frog`, `donkey`, `glute_bridge_march` | SCHVÁLENO |
+| quadriceps_primary_hamstrings_secondary_muscles_v01.png | A13 Quadriceps | A14 Hamstrings | žádný z aktuálních 51 profilů nemá tuto přesnou kombinaci; bez runtime přiřazení | SCHVÁLENO |
 | lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01/A02 dle konkrétního profilu | bude doplněno | ČEKÁ |
+
+Schválené PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi nového systému zůstávají zamčené `MOOVKA_MASTER_BODY_v02.png` a `MASTER BODY MAP v02.png`.
 
 STATUS:
 ČEKÁ

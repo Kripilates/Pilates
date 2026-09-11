@@ -13,6 +13,7 @@ Status: HOTOVO
 - EXPORT: SCHVÁLENO
 - QA: SCHVÁLENO
 - APP: NASAZENO pod kanonickým ID `frog`
+- MUSCLE CARD: `../_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png` — SCHVÁLENO; PRIMARY A11, SECONDARY A14 + A01; SHA-256 `07e769d2c83c5c565bacdd491fe2e2fc519fe03381fc53a384e004383c5ad1e4`
 
 ## Workflow
 

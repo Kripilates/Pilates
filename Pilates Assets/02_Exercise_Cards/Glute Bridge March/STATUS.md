@@ -28,5 +28,10 @@ START → MID → HERO → MID → START
 - [x] SOURCE hashe před a po exportu beze změny
 - [x] Rozměry, RGB, sekvence a vizuální layout ověřeny
 
+## Muscle Card
+- [x] `../_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png` — 1371 × 1147 RGB
+- SHA-256: `07e769d2c83c5c565bacdd491fe2e2fc519fe03381fc53a384e004383c5ad1e4`
+- SCHVÁLENO: PRIMARY A11 Gluteus maximus; SECONDARY A14 Hamstrings + A01 Core.
+
 ## App
 - Nasazeno pod kanonickým ID `glute_bridge_march`; Guide Card má tři odlišné obrazové fáze, Step by Step a runtime sekvence START → MID → HERO → MID → START zůstaly beze změny.

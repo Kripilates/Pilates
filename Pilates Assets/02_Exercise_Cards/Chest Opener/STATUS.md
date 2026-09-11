@@ -1,6 +1,6 @@
 # Chest Opener — STATUS
 
-Status: HOTOVO
+Status: SOURCE / RUNTIME / GUIDE / STEP HOTOVO; MUSCLE CARD OPEN
 
 ## Assets
 
@@ -10,7 +10,7 @@ Status: HOTOVO
 - END: přesný reuse START / bez samostatného END PNG — SCHVÁLENO
 - GUIDE CARD: chest_opener_guide_card_v04.png — HOTOVO — 780 × 1688 RGB — SHA-256 `3e7333a8e83cd32bf0ad320bdec73be4382249123efdccefc84f53d98c2ce3d2`
 - STEP BY STEP: chest_opener_step_by_step_v04.png — HOTOVO — 780 × 2280 RGB — SHA-256 `2b8ba923576417cf6e64e5ba699f5e8ccfff9bbe13a14529e24a209b0466d363`
-- MUSCLE CARD: HOTOVO — existující schválené mapování beze změny
+- MUSCLE CARD: OPEN — dřívější shared PNG není v repozitáři; nový MASTER systém zatím neobsahuje schválenou náhradu
 - EXPORT: SCHVÁLENO
 - QA: SCHVÁLENO
 - APP: NASAZENO V PRACOVNÍM STROMU
@@ -21,4 +21,4 @@ START → HERO → START
 
 ## Notes
 
-Runtime ID `chest_opener` používá bezverzové SOURCE v novém MASTER prostředí. Detail a knihovní náhled používají schválený HERO, END znovu používá START. Guide Card a Step by Step v04 zachovaly původní layout, texty, rozměry a kompozici; aktualizované byly pouze vložené fotografie. Verze aplikace je `v59.187-dev`, cache klíč `59202chestopenerfix`.
+Runtime ID `chest_opener` používá bezverzové SOURCE v novém MASTER prostředí. Detail a knihovní náhled používají schválený HERO, END znovu používá START. Guide Card a Step by Step v04 zachovaly původní layout, texty, rozměry a kompozici; aktualizované byly pouze vložené fotografie. Verze aplikace je `v59.188-dev`; SOURCE/karty dál používají funkční cache klíč `59202chestopenerfix`. Nedoložené 404 anatomy mapování bylo odstraněno.

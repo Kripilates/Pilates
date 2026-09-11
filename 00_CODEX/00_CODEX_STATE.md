@@ -3,11 +3,11 @@
 ## Aktuální stav — inventura obrazových karet 2026-09-11
 
 - Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program, `dumbbell_pullover` je aktivní.
-- Obrazové SOURCE: 40 nové prostředí, 10 staré prostředí k opravě, 1 chybějící aktivní bundle (`dumbbell_pullover`).
-- Muscle Card k doladění: 5. Guide/Step k aktualizaci: 10 cviků / 20 karet.
+- Obrazové SOURCE: 41 nové prostředí, 10 staré prostředí k opravě, 0 chybějících aktivních bundle.
+- Muscle Card k doladění: 8. Guide/Step k aktualizaci: 10 cviků / 20 karet.
 - Kanonická detailní tabulka: `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
-- NEXT TASK: vytvořit schválený bundle `dumbbell_pullover`; poté postupně převést 10 cviků ze starého prostředí a aktualizovat jejich Guide/Step.
-- Chest Opener (`chest_opener`) používá bezverzové `chest_opener_start.png` a `chest_opener_hero.png`; END = START. Guide/Step v04 byly znovu sestaveny bez změny layoutu a textů. Program, dávky, pořadí a workout logika zůstaly beze změny. Verze/cache: `v59.187-dev`; `app.js?v=59202chestopenerfix`; `data.js?v=59202chestopenerfix`.
+- NEXT TASK: schválit přesnou Muscle Card pro `dumbbell_pullover`; SOURCE/runtime/Guide/Step tohoto cviku jsou hotové. Poté postupně převést 10 cviků ze starého prostředí a aktualizovat jejich Guide/Step.
+- Dumbbell Pullover (`dumbbell_pullover`) používá schválené bezverzové START/HERO, END = START; Guide/Step v01 jsou hotové. Muscle Card zůstává OPEN podle `MASTER_ANATOMY.md`. Chest Opener a Russian mají rovněž Muscle Card OPEN, protože jejich dřívější shared PNG už v repozitáři nejsou; nedoložená runtime mapování byla odstraněna. Russian (`russian`) používá bezverzové START/HERO, END = START a znovu sestavené Guide/Step v01. Chest Opener (`chest_opener`) zůstává správně napojený na bezverzové SOURCE a Guide/Step v04. Nová schválená Muscle Card `glutes_primary_hamstrings_core_secondary_muscles_v01.png` je nasazena pouze pro přesné profily `hip`, `frog`, `donkey` a `glute_bridge_march` (PRIMARY A11; SECONDARY A14 + A01). Schválená `quadriceps_primary_hamstrings_secondary_muscles_v01.png` zůstává bez runtime přiřazení, protože žádný aktivní profil přesně neodpovídá A13 + A14. Guide Cards těchto čtyř cviků už byly schválené a nebyly měněny. Program, dávky, pořadí, detailový layout a workout logika zůstaly beze změny. Verze/cache: `v59.189-dev`; `app.js?v=59204musclecardsapproved`; `data.js?v=59203sourcebundle`.
 
 ## Historický log (může popisovat překonané stavy)
 

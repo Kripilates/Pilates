@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.187-dev';
+const APP_VERSION='v59.189-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -756,6 +756,7 @@ const exerciseDetailExhale=Object.freeze({
 });
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const sharedMuscleCards=Object.freeze({
+  glutesHamstringsCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png?v=59204musclecardsapproved',alt:'Hýždě, hamstringy a střed těla',label:'Hýždě • hamstringy • střed těla'}),
   glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
   thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
   obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
@@ -767,7 +768,7 @@ const sharedMuscleCards=Object.freeze({
 });
 const referenceExerciseAssets={
   hip:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesHamstringsCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_start.png?v=59170todayauditfix',
@@ -819,7 +820,7 @@ const referenceExerciseAssets={
     ]
   },
   donkey:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesHamstringsCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start.png?v=59193visual5',
     hero:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_hero.png?v=59193visual5',
     end:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/donkey_kick_start.png?v=59193visual5',
@@ -845,7 +846,7 @@ const referenceExerciseAssets={
     }
   },
   frog:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesHamstringsCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
@@ -1102,7 +1103,6 @@ const referenceExerciseAssets={
     }
   },
   chest_opener:{
-    anatomy:sharedMuscleCards.chest,
     start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start.png?v=59202chestopenerfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_hero.png?v=59202chestopenerfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Opener/chest_opener_start.png?v=59202chestopenerfix',
@@ -1225,7 +1225,7 @@ const referenceExerciseAssets={
     }
   },
   glute_bridge_march:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesHamstringsCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_start.png?v=59172todaypackfix',
     mid:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_mid.png?v=59172todaypackfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge%20March/glute_bridge_march_hero.png?v=59172todaypackfix',
@@ -1537,13 +1537,37 @@ const referenceExerciseAssets={
       mistakes:['Houpání pánví nebo trupem.','Kopání švihem.','Prohýbání v bedrech.','Příliš velký rozsah pohybu dozadu.']
     }
   },
+  dumbbell_pullover:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Dumbbell%20Pullover/Dumbbell%20Pullover%20start.png?v=59203sourcebundle',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Dumbbell%20Pullover/Dumbbell%20Pullover%20hero.png?v=59203sourcebundle',
+    end:'Pilates%20Assets/02_Exercise_Cards/Dumbbell%20Pullover/Dumbbell%20Pullover%20start.png?v=59203sourcebundle',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Dumbbell%20Pullover/dumbbell_pullover_guide_card_v01.png?v=59203sourcebundle',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Dumbbell%20Pullover/dumbbell_pullover_step_by_step_v01.png?v=59203sourcebundle',
+    subtitle:'Záda • hrudník • stabilita středu těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činka nad hrudníkem',photo:'start'},
+      {n:2,title:'ZA HLAVU',caption:'Paže veď kontrolovaně',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Zpět nad hrudník',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, pokrč kolena a chodidla polož na podložku. Jednu činku drž oběma rukama nad hrudníkem, paže nech téměř natažené.',photo:'start'},
+      {title:'POHYB ZA HLAVU',text:'S nádechem veď činku kontrolovaně za hlavu. Bedra a pánev drž stabilní bez výrazného prohnutí.',photo:'hero'},
+      {title:'NÁVRAT',text:'S výdechem vrať činku stejnou dráhou nad hrudník.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Záda / hrudník',knees:'Chodidla na podložce'},
+    breath:{inhale:'Při pohybu za hlavu',exhale:'Při návratu',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci zad a hrudníku při stabilním středu těla.',
+      watch:['Bedra a pánev drž stabilní.','Žebra nezvedej vzhůru.','Činku spouštěj jen do bezpečného rozsahu.'],
+      mistakes:['Prohýbání beder.','Zvedání žeber.','Příliš hluboké spuštění činky.','Rychlý pohyb bez kontroly.']
+    }
+  },
   russian:{
-    anatomy:sharedMuscleCards.obliques,
-    start:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start.png?v=59203sourcebundle',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero.png?v=59203sourcebundle',
+    end:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start.png?v=59203sourcebundle',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_guide_card_v01.png?v=59203sourcebundle',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_step_by_step_v01.png?v=59203sourcebundle',
     subtitle:'Střed těla • šikmé břišní svaly',
     miniSteps:[
       {n:1,title:'START',caption:'Středová poloha',photo:'start'},
@@ -2497,7 +2521,7 @@ function programInfo(){
   <section class="aboutProgramSection"><h2>Co tě čeká</h2>
     <div class="aboutFocusList">
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/glute_bridge_hero.png" alt="Glute Bridge"><div><span class="aboutFocusAccent">${lineIcon('glutes')}</span><h3>Hýždě + zadní stehna</h3><p>Síla a zpevnění spodní části těla.</p></div></article>
-      <article><img src="Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero_v01.png" alt="Russian Twist"><div><span class="aboutFocusAccent">${lineIcon('core')}</span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
+      <article><img src="Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero.png?v=59203sourcebundle" alt="Russian Twist"><div><span class="aboutFocusAccent">${lineIcon('core')}</span><h3>Břicho + pas</h3><p>Stabilní střed těla.</p></div></article>
       <article><img src="Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero.png?v=59198sourcebatch9" alt="Mermaid"><div><span class="aboutFocusAccent">${lineIcon('mobility')}</span><h3>Mobilita + celé tělo</h3><p>Záda, ramena a pohyblivost.</p></div></article>
     </div>
   </section>

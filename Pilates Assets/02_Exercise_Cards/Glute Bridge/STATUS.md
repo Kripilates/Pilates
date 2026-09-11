@@ -26,9 +26,9 @@ START → HERO → START
 
 ## Muscle Card
 
-- [x] `../Muscle_Cards/glutes_muscles_v01.png` — 1536 × 1024 RGB
-- SHA-256: `1ad737546b298d8bfbcf02e984af0aaf0d5a76789d1d8ad36d79d9eb20f2a512`
-- Moovka MASTER BODY styl; zadní pohled se zvýrazněním hýžďových svalů.
+- [x] `../_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png` — 1371 × 1147 RGB
+- SHA-256: `07e769d2c83c5c565bacdd491fe2e2fc519fe03381fc53a384e004383c5ad1e4`
+- SCHVÁLENO: PRIMARY A11 Gluteus maximus; SECONDARY A14 Hamstrings + A01 Core.
 
 ## QA
 
