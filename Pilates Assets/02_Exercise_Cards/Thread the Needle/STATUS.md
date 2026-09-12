@@ -9,15 +9,15 @@ Status: HOTOVO
 
 ## Assets
 
-- START: ✅ `thread_the_needle_start.png` (1536 × 1024 px, RGB, SHA-256 `1a58b872d3f2e152707a5927bfce0f0e00e815164a9b22cb6d7c7249e6383f16`)
-- HERO: ✅ `thread_the_needle_hero.png` (1536 × 1024 px, RGB, SHA-256 `4ca8b27e93dbfb066ba91ca81f02a78a13235e11597ebb2ec80d57ffdd4c5542`)
+- START: ✅ `thread_the_needle_start.png` (1536 × 1024 px, RGB, SHA-256 `f790996cc66bd3e78f7705a9d9aef70180f5c61f1765c41f84139522509cbb04`)
+- HERO: ✅ `thread_the_needle_hero.png` (1536 × 1024 px, RGB, SHA-256 `e08939fd5cbeb2153d2b8e98b22c7bd985eab3fc4a708b28be2ad79893692ac6`)
 - END: ✅ používá přesně START bez samostatného PNG
-- GUIDE CARD: ✅ `thread_the_needle_guide_card_v01.png` (780 × 1688 px, RGB, SHA-256 `4efbfef27f99546f681bea3c589cba82f9b8333e0a231a26d6f833dd7fc8aa5d`)
-- STEP BY STEP: ✅ `thread_the_needle_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `74ada91037d39870d70378a9f391a21431880b976721261986b4d27ee254f763`)
+- GUIDE CARD: ✅ `thread_the_needle_guide_card_v01.png` (780 × 1688 px, RGB, SHA-256 `4e96517cb3017a818685a2919f839bd99aea238d273e34984fae7528b9f76cce`)
+- STEP BY STEP: ✅ `thread_the_needle_step_by_step_v01.png` (780 × 2280 px, RGB, SHA-256 `29bf578e15024ae1878cac0c2e8a37a1c111cab153a8186db9e81b0e8f79f3d8`)
 - MUSCLE CARD: odpovídající schválená mapa horních zad/hrudní páteře není v projektu dostupná; nebyl použit nepřesný reuse
 - EXPORT: ✅
 - QA: ✅ source reuse, rozměry, RGB, SHA-256 a app URL
-- APP: ✅ nasazeno pod kanonickým ID `thread`; aplikace používá START/HERO v02 a END = START v02
+- APP: ✅ lokálně nasazeno pod kanonickým ID `thread`; aktivní názvy a logika zůstaly beze změny, cache byla obnovena ve verzi `v59.193-dev`
 
 ## Workflow
 
@@ -27,4 +27,4 @@ Step by Step používá instruktážní sekvenci START → HERO → START.
 
 ## Notes
 
-START i END používají finální bezverzový `thread_the_needle_start.png`. HERO používá finální `thread_the_needle_hero.png`. Programové zařazení a dávkování Thread the Needle zůstaly beze změny.
+START i END používají finální bezverzový `thread_the_needle_start.png`. HERO používá nově nahrazený finální `thread_the_needle_hero.png`. Guide/Step zachovaly stávající strukturu a byly aktualizovány pouze fotografiemi. Programové zařazení a dávkování Thread the Needle zůstaly beze změny.

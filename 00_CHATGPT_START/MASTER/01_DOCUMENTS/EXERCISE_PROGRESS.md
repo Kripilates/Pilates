@@ -23,14 +23,14 @@ Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRON
 ## Aktuální souhrn
 
 - AKTIVNÍ CVIKY CELKEM: **51**
-- 🟢 NOVÉ PROSTŘEDÍ: **49**
-- 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **1** (`sideplank_reach`)
-- 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **1** (`swimming`)
+- 🟢 NOVÉ PROSTŘEDÍ: **51**
+- 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **0**
+- 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **0**
 - 🔴 CHYBÍ / NOVÝ CVIK: **0**
 - MUSCLE CARD K DOLADĚNÍ: **8**
-- GUIDE/STEP K AKTUALIZACI: **2 cviky / 4 karty** (`sideplank_reach`, `swimming`)
+- GUIDE/STEP K AKTUALIZACI: **0**
 
-Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
+Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
 
 ## Inventura 51 aktivních cviků
 
@@ -76,13 +76,13 @@ Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 | `sidekick` | Side Kick | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
 | `sideleg` | Unožování vleže na boku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
 | `sideplank` | Side Plank | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
-| `sideplank_reach` | Boční prkno s rotací | 🟡 FYZICKÉ UNVERSIONED SOURCE PŘÍTOMNÉ / APPROVAL + MAPPING K OVĚŘENÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png` — fyzicky existuje | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.png` — fyzicky existuje, schválení ověřit | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png` — fyzicky existuje | EXISTUJE, obsah po finálním SOURCE ověřit | EXISTUJE, obsah po finálním SOURCE ověřit | HOTOVO | Runtime stále odkazuje na neexistující `*_v01.png`; jde o známé podezření na mapping bug, nikoli důkaz chybějícího SOURCE. V tomto dokumentačním úkolu neopravovat. |
+| `sideplank_reach` | Boční prkno s rotací | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Bezverzové SOURCE jsou aktivní; Guide/Step byly aktualizovány pouze novými fotografiemi. |
 | `sphinx` | Sphinx Stretch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — REUSE START | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `spine` | Protažení páteře v sedu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `standing_oblique` | Boční zkracovačky ve stoji | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `standing_side_bend` | Úklony do stran ve stoje | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `supine_twist` | Rotace páteře vleže | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
-| `swimming` | Swimming | 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero_v01.png` — STARÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png` — REUSE START | K AKTUALIZACI PO SOURCE | K AKTUALIZACI PO SOURCE | HOTOVO | Předělat SOURCE do nového prostředí; poté aktualizovat Guide + Step. |
+| `swimming` | Swimming | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Bezverzové SOURCE jsou aktivní; Guide/Step byly aktualizovány pouze novými fotografiemi. |
 | `tap` | Plank Shoulder Taps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `thread` | Protažení s rotací v kleku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
 | `toetap` | Toe Taps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
@@ -90,41 +90,30 @@ Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 
 ## Fronta práce
 
-### 🟠 SOURCE do nového prostředí
+### SOURCE / mapping
 
-`swimming` (Swimming) — stále používá staré prostředí a čeká na schválený nový SOURCE.
-
-### 🟡 Rozpracováno
-
-`sideplank_reach` (Boční prkno s rotací) — unversioned START/HERO/END fyzicky
-existují, ale jejich final approval a obsah Guide/Step je potřeba potvrdit.
-Aktivní `app.js` stále odkazuje na staré `*_v01.png`; jde o známý mapping bug k
-samostatné opravě, nikoli o pokyn generovat nový obrázek.
+Žádný aktivní cvik nečeká na nový SOURCE ani opravu assetového mappingu.
 
 ### Muscle Card k doladění
 
 `chest_opener` (Chest Opener), `clam` (Clamshell), `dumbbell_pullover` (Dumbbell Pullover), `frog` (Frog Pumps), `hamstring_supine` (Jemné protažení zadní strany stehna), `sidekick` (Side Kick), `sideleg` (Unožování vleže na boku), `russian` (Rotace trupu v sedu), `thread` (Protažení s rotací v kleku). U části těchto cviků dříve existoval runtime reuse staré sdílené karty, ale nový MASTER systém zatím nedokládá schválený odpovídající PNG profil; proto jsou vedeny jako OPEN / k doladění. `frog` je navíc prokazatelný mapping mismatch: audit uvádí A11 + A01, zatímco runtime používá kartu A11 + A14/A01.
 
-### Guide + Step k aktualizaci po SOURCE
+### Guide + Step stav
 
-`sideplank_reach`, `swimming`. U prvního cviku se karty aktualizují až po dokončení celé schválené sekvence, u druhého po novém SOURCE.
+Žádné.
 
 ## Zjištěné rozpory
 
-- `sideplank_reach`: fyzicky existují unversioned START/HERO/END, ale runtime
-  stále používá neexistující versioned `*_v01.png`. Jde o mapping bug k
-  samostatnému ověření a opravě; dokumentace nesmí tento stav zaměnit za pokyn
-  generovat nový SOURCE.
 - `chest_opener`: SOURCE/runtime/Guide/Step jsou vyřešené; staré shared Muscle Card PNG už v repozitáři není, proto je anatomie podle nového MASTER systému OPEN a nedoložené mapování bylo odstraněno.
 - `dumbbell_pullover`: aktivní SOURCE, runtime, Guide a Step jsou hotové; Muscle Card zůstává OPEN, protože v novém MASTER systému zatím není schválený odpovídající PNG profil.
 - `rdl`: Guide a Step byly aktualizovány novými SOURCE a jejich existující v01 soubory jsou nyní výslovně uvedeny v `referenceExerciseAssets`.
 - `clam`, `sidekick`, `sideleg`, `hamstring_supine` a `thread`: runtime zobrazuje sdílenou Muscle Card, ale stavové dokumenty nedokládají schválený přesný reuse.
 - `frog`: runtime mapuje `glutesHamstringsCore`, ale autoritativní profil je A11 PRIMARY + A01 SECONDARY; oprava runtime patří do samostatného implementačního úkolu.
-- Dřívější souhrn `51 HOTOVO` vyjadřoval technickou úplnost před výměnou Swan Prep, nikoli shodu všech SOURCE s novým MASTER prostředím. Není aktuálním stavem.
+- Aktuální souhrn `51 HOTOVO` vyjadřuje technickou úplnost i dokončené SOURCE v novém MASTER prostředí pro všech 51 aktivních ID.
 
 ## Metoda auditu
 
 - Aktivní ID: sjednocení všech `day.items[*][0]` a `day.stretch[0]` v aktuálním `data.js`.
 - Aktivní soubory: `referenceExerciseAssets` v aktuálním `app.js`, s kontrolou fyzické existence, PNG rozměrů/režimu a SHA-256.
 - NEW/OLD: aktuální MASTER byl zaveden 2026-08-30; stav byl ověřen proti následným source balíkům, Git historii souborů a schválením ve stavových dokumentech. Cviky bez doložené pozdější výměny zůstávají konzervativně ve skupině STARÉ PROSTŘEDÍ.
-- Cílený lokální runtime audit tohoto SOURCE balíku ověřuje aktivní URL, knihovnu, detail a přepínání fází; `sideplank_reach` a `swimming` zůstávají záměrně mimo nasazovaný balík.
+- Cílený lokální runtime audit ověřuje aktivní URL, knihovnu, detail a přepínání fází pro `swimming`, `thread` a `sideplank_reach`.

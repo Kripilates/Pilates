@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.192-dev';
+const APP_VERSION='v59.193-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -940,11 +940,11 @@ const referenceExerciseAssets={
   },
   sideplank_reach:{
     anatomy:sharedMuscleCards.obliques,
-    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_end_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_start.png?v=59208sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_hero.png?v=59208sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_end.png?v=59208sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_guide_card_v01.png?v=59208sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_step_by_step_v01.png?v=59208sourcebatch',
     subtitle:'Střed těla • pas • stabilita ramene',
     miniSteps:[
       {n:1,title:'START',caption:'Stabilní boční prkno',photo:'start'},
@@ -1152,11 +1152,11 @@ const referenceExerciseAssets={
   },
   thread:{
     anatomy:sharedMuscleCards.back,
-    start:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_guide_card_v01.png?v=59181sourcebatch2',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_step_by_step_v01.png?v=59181sourcebatch2',
+    start:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png?v=59208sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero.png?v=59208sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png?v=59208sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_guide_card_v01.png?v=59208sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_step_by_step_v01.png?v=59208sourcebatch',
     subtitle:'Horní záda • rotace páteře',
     miniSteps:[
       {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
@@ -1178,11 +1178,11 @@ const referenceExerciseAssets={
   },
   swimming:{
     anatomy:sharedMuscleCards.back,
-    start:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png',
-    hero:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_hero_v01.png',
-    end:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start_v01.png',
-    guideCard:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_guide_card_v01.png',
-    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_step_by_step_v01.png',
+    start:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start.png?v=59208sourcebatch',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_hero.png?v=59208sourcebatch',
+    end:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start.png?v=59208sourcebatch',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_guide_card_v01.png?v=59208sourcebatch',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_step_by_step_v01.png?v=59208sourcebatch',
     subtitle:'Záda • hýždě • střed těla',
     miniSteps:[
       {n:1,title:'START',caption:'Leh na břiše',photo:'start'},

@@ -4,15 +4,15 @@ Status: HOTOVO
 
 ## Source Images
 
-- START: ✅ SCHVÁLENO — `side_plank_reach_start_v01.png`
-- HERO: ✅ SCHVÁLENO — `side_plank_reach_hero_v01.png`
-- END: ✅ SCHVÁLENO — `side_plank_reach_end_v01.png`
+- START: ✅ SCHVÁLENO — `side_plank_reach_start.png`
+- HERO: ✅ SCHVÁLENO — `side_plank_reach_hero.png`
+- END: ✅ SCHVÁLENO — `side_plank_reach_end.png`
 
 ## Source SHA-256
 
-- START: `aa5b80a1f8f31d8296bb4a4d1057c91a3788c940687b29bbb1b1afe254c68178`
-- HERO: `78867d9f7e57a5d37d78bfcfcf7d014973324dd79929f3b71a76f61cf67272b7`
-- END: `88f0ee1ea792e8ffb1b98d9bae31a4700310d9bd4d40746c8ef3a6caa96120ef`
+- START: `67d93f038db9c216bec4e1b0c7d7d9022d05a84c55e5efd2618e3e7577f8e9bb`
+- HERO: `c00dae126a2115794506d9329c7f07ab834a84f6b4096e1f7fe4fcb9c2c6f2ff`
+- END: `ff89936718328350ab3491b3f86f258244a0bd21c02aca55f43e824ce2fdbf2b`
 
 ## Workflow
 
@@ -33,12 +33,13 @@ START → HERO → END
 - Manuální SOURCE QA: ✅ SCHVÁLENO
 - Export: ✅ HOTOVO
 - Vizuální a technické QA: ✅ SCHVÁLENO
-- App: ✅ NASAZENO — kanonické ID `sideplank_reach`
+- App: ✅ LOKÁLNĚ NASAZENO — kanonické ID `sideplank_reach`, verze `v59.193-dev`
 - Celkový stav: HOTOVO
 
 ## Notes
 
-- Použity pouze schválené source obrázky START, HERO a END v01.
+- Použity pouze schválené bezverzové source obrázky START, HERO a END.
+- Guide/Step zachovaly stávající strukturu a byly aktualizovány pouze fotografiemi.
 - Karty i dynamický detail používají sekvenci START → HERO → END.
 - Programové dávky zůstaly beze změny: podle dne a obtížnosti `6/6` až `12/12`.
 - Starý placeholder `assets/exercises/sideplank_reach.jpg?v=50` není aktivní.
