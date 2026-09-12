@@ -1,5 +1,8 @@
 # Moovka - prioritní seznam oprav prostředí
 
+> **HISTORICAL PRIORITY LIST (2026-08-28).** Nepoužívat jako aktuální backlog.
+> Aktuální fronta je v `EXERCISE_PROGRESS.md` a `00_CODEX_STATE.md`.
+
 Datum: 2026-08-28
 
 ## OPRAVIT - VIDITELNĚ ROZBÍJÍ SÉRII

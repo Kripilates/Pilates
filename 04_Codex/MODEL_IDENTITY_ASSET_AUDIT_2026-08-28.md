@@ -1,5 +1,8 @@
 # MooVka – audit identity modelky a obličeje aktivních exercise assetů
 
+> **HISTORICAL AUDIT.** Závěry platí pouze pro stav uvedený datem v názvu.
+> Aktuální identitu určuje `MASTER_REFERENCE.md` a vizuální MASTER MODEL/FACE.
+
 Datum auditu: 2026-08-28  
 Rozsah: pouze aktivně používané fotografické exercise assety; Wall Sit je dle zadání vyloučen.  
 Charakter auditu: read-only vizuální posouzení identity modelky, obličeje, postavy, vlasů, očí/pohledu, pleti, outfitu a kontinuity START/HERO. Anatomie cviku, prostředí, rekvizity, kamera a barevnost místnosti nejsou hodnoceny.

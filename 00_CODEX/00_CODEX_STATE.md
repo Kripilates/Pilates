@@ -1,13 +1,15 @@
 # 00_CODEX_STATE
 
-## Aktuální stav — inventura obrazových karet 2026-09-11
+## Aktuální stav — image workflow a inventura 2026-09-12
 
 - Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program, `dumbbell_pullover` je aktivní.
-- Obrazové SOURCE: 41 nové prostředí, 10 staré prostředí k opravě, 0 chybějících aktivních bundle.
-- Muscle Card k doladění: 8. Guide/Step k aktualizaci: 10 cviků / 20 karet.
+- Obrazové SOURCE: 49 nové prostředí, 1 rozpracovaný/mapping k ověření (`sideplank_reach`), 1 staré prostředí k opravě (`swimming`), 0 prokázaně chybějících aktivních bundle.
+- Muscle Card k doladění: 9. Guide/Step k aktualizaci: 2 cviky / 4 karty.
 - Kanonická detailní tabulka: `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
-- NEXT TASK: schválit přesnou Muscle Card pro `dumbbell_pullover`; SOURCE/runtime/Guide/Step tohoto cviku jsou hotové. Poté postupně převést 10 cviků ze starého prostředí a aktualizovat jejich Guide/Step.
-- Dumbbell Pullover (`dumbbell_pullover`) používá schválené bezverzové START/HERO, END = START; Guide/Step v01 jsou hotové. Muscle Card zůstává OPEN podle `MASTER_ANATOMY.md`. Chest Opener a Russian mají rovněž Muscle Card OPEN, protože jejich dřívější shared PNG už v repozitáři nejsou; nedoložená runtime mapování byla odstraněna. Russian (`russian`) používá bezverzové START/HERO, END = START a znovu sestavené Guide/Step v01. Chest Opener (`chest_opener`) zůstává správně napojený na bezverzové SOURCE a Guide/Step v04. Nová schválená Muscle Card `glutes_primary_hamstrings_core_secondary_muscles_v01.png` je nasazena pouze pro přesné profily `hip`, `frog`, `donkey` a `glute_bridge_march` (PRIMARY A11; SECONDARY A14 + A01). Schválená `quadriceps_primary_hamstrings_secondary_muscles_v01.png` zůstává bez runtime přiřazení, protože žádný aktivní profil přesně neodpovídá A13 + A14. Guide Cards těchto čtyř cviků už byly schválené a nebyly měněny. Program, dávky, pořadí, detailový layout a workout logika zůstaly beze změny. Verze/cache: `v59.189-dev`; `app.js?v=59204musclecardsapproved`; `data.js?v=59203sourcebundle`.
+- Image workflow authority: `00_CHATGPT_START/MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md`.
+- `sideplank_reach`: fyzicky existují unversioned START/HERO/END, ale runtime stále odkazuje na staré neexistující `*_v01.png`; final approval a Guide/Step obsah je nutné ověřit. Jde o mapping bug k samostatnému úkolu, ne o pokyn generovat nový SOURCE.
+- NEXT TASK podle obrazové fronty: samostatně ověřit a opravit mapping `sideplank_reach`; následně převést `swimming` ze starého prostředí a aktualizovat jeho Guide/Step. Muscle Card OPEN úkoly se řídí přesnými profily v `MASTER_ANATOMY.md`.
+- Dumbbell Pullover (`dumbbell_pullover`) používá schválené bezverzové START/HERO, END = START; Guide/Step v01 jsou hotové. Muscle Card zůstává OPEN podle `MASTER_ANATOMY.md`. Chest Opener a Russian mají rovněž Muscle Card OPEN, protože jejich dřívější shared PNG už v repozitáři nejsou; nedoložená runtime mapování byla odstraněna. Russian (`russian`) používá bezverzové START/HERO, END = START a znovu sestavené Guide/Step v01. Chest Opener (`chest_opener`) zůstává správně napojený na bezverzové SOURCE a Guide/Step v04. Schválená Muscle Card `glutes_primary_hamstrings_core_secondary_muscles_v01.png` přesně odpovídá profilům `hip`, `donkey` a `glute_bridge_march` (PRIMARY A11; SECONDARY A14 + A01). `frog` ji v runtime nyní používá chybně, protože jeho autoritativní profil je A11 + A01; oprava mapování je samostatný implementační úkol. Schválená `quadriceps_primary_hamstrings_secondary_muscles_v01.png` zůstává bez runtime přiřazení, protože žádný aktivní profil přesně neodpovídá A13 + A14. Program, dávky, pořadí, detailový layout a workout logika zůstaly beze změny. Aktuální runtime verze/cache: `v59.192-dev`; `style.css?v=59187anatomyfit`; `data.js?v=59206sourcebatch`; `app.js?v=59207masterconsolidation`.
 
 ## Historický log (může popisovat překonané stavy)
 

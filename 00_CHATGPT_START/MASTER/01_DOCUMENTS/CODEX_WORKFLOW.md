@@ -1,4 +1,6 @@
-# Pilates Body 40+ - Codex Workflow
+# Moovka — Codex Workflow
+
+Aktualizováno: 2026-09-12
 
 ## Zakladni pravidla
 
@@ -11,14 +13,21 @@
 - Nezasahuj do `assets/exercises`, pokud k tomu neni vyslovny pokyn.
 - Nemen obrazky, pokud ukol neni primo o obrazcich.
 - Nemen `data.js`, pokud ukol neni primo o datech.
+- Před image úkolem načti `MASTER_REFERENCE.md`, `IMAGE_WORKFLOW.md`,
+  `MASTER_IMAGE_CHECKLIST.md` a `EXERCISE_PROGRESS.md`.
+- Než označíš SOURCE jako chybějící, ověř unversioned soubory, runtime mapping,
+  přesný case, cestu a reuse.
 
 ## Postup prace
 
-1. Nejprve uprav pouze jeden referencni pripad.
-2. Pockej na vizualni kontrolu.
-3. Teprve po schvaleni rozsirovat zmenu na dalsi cviky.
-4. Kazdy vetsi krok musi byt samostatny commit.
-5. Jeden ukol = jedna logicka zmena.
+1. Ověř skutečný stav repozitáře a přesný scope.
+2. U vizuálů proveď reuse/mapping audit před generováním.
+3. Implementuj jeden referenční případ nebo výslovně zadaný ohraničený balík.
+4. Proveď technické QA a požadované vizuální QA.
+5. Commituj pouze po výslovném pokynu.
+
+Související drobné změny lze seskupit do jednoho jasného balíku, aby se
+neplýtvalo Codex/Work běhy. To nesmí rozšířit uživatelem určený scope.
 
 ## Povinne overeni po kazde zmene
 
@@ -39,6 +48,8 @@ Po kazde uprave napis:
 - Nepresouvat slozky bez vyslovneho pokynu.
 - Neresit konflikty Gitu automaticky.
 - Pri konfliktu Gitu zastavit a vypsat stav.
+- Nevymýšlet anatomii Muscle Card; použít pouze schválený přesný profil z
+  `MASTER_ANATOMY.md` a `MUSCLE_CARD_PROFILE_AUDIT.md`.
 
 ## Git pravidla
 

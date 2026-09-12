@@ -289,6 +289,24 @@ která se primárně nebo sekundárně protahuje/mobilizuje.
 10. zapsat kartu do evidence
 11. až potom předat hotová PNG + mapování Codexu
 
+Po každé nově vytvořené nebo upravené Muscle Card se QA provádí automaticky,
+bez čekání na žádost uživatele. Kontroluje přesný PRIMARY/SECONDARY profil,
+anatomické hranice, MASTER BODY identitu, proporce, svalnatost, FRONT/BACK,
+kompozici, růžovou barvu, čisté pozadí, rozměry a absenci artefaktů.
+
+Výsledek je `PASS / SCHVÁLENO` nebo `FAIL / NESCHVÁLENO`. FAIL se nesmí předat
+Codexu k runtime mapování. Menší generativní odchylka je přípustná pouze tehdy,
+není-li při běžném pohledu patrná a nemění identitu, proporce, svalnatost,
+kompozici ani anatomii.
+
+## Jeden nebo dva pohledy
+
+- Použij jeden pohled, pokud sám úplně a přesně vysvětluje daný profil.
+- Použij FRONT + BACK, pokud jsou pro správné vysvětlení potřeba oba.
+- Karta se neupravuje jen proto, aby měla stejný počet postav jako jiná karta.
+- Aplikační wrapper musí zachovat poměr stran, `object-fit: contain`, bez ořezu
+  a bez natažení; layout detailu se kvůli počtu pohledů nemění.
+
 Codex anatomii nevymýšlí a Muscle Cards nekreslí.
 Codex pouze zapojí již SCHVÁLENÉ PNG podle tohoto dokumentu.
 

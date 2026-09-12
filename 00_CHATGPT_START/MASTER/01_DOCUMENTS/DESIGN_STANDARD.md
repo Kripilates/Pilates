@@ -1,4 +1,4 @@
-# Pilates Body 40+ - Design Standard v1.0
+# Moovka — Design Standard v1.0
 
 ## Referencni detail
 Glute Bridge je master template pro vsechny detaily cviku.

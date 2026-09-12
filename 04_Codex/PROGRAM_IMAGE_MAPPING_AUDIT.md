@@ -1,5 +1,8 @@
 ﻿# Program Image Mapping Audit
 
+> **HISTORICAL AUDIT.** Obsahuje tehdejší placeholdery a mappingy; nepoužívat jako
+> současný stav. Kanonická inventura je `EXERCISE_PROGRESS.md` v MASTER dokumentaci.
+
 Audit scope: current `data.js` program in `v59.27-dev`, days 1-30. This is a documentation-only audit; no app code, data, images, or assets were modified by this report generation.
 
 ## Method

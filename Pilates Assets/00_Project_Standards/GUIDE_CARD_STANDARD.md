@@ -1,5 +1,7 @@
 # Guide Card Standard
 
+Workflow authority: `00_CHATGPT_START/MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md`.
+
 Official template: Guide Card Template v1.0
 Reference file: `02_Exercise_Cards/Glute Bridge/glute_bridge_guide_card_v3.png`
 
@@ -14,6 +16,9 @@ Cil: po otevreni Guide Card musi uzivatel bez scrollovani videt:
 - Opakovani
 
 Guide Card musi byt citelna na beznem mobilnim displeji priblizne 390 × 844 px.
+
+Guide Card má výsledný rozměr 780 × 1688 px. Step by Step má 780 × 2280 px.
+Vznikají až po schválení všech potřebných SOURCE.
 
 Pri navrhu preferuj:
 - co nejvetsi hlavni fotografii
@@ -38,6 +43,11 @@ U dalsich cviku se meni pouze:
 - dech
 - zamereni
 - opakovani
+
+Počet panelů a jejich pořadí jsou vlastností schválené Guide Card, nikoli runtime
+sekvence. Při pouhé výměně SOURCE se struktura Guide Card ani Step by Step nemění.
+Historická karta může sloužit jako layout/movement reference, nikdy jako autorita
+identity modelky nebo prostředí.
 
 ## Reference Exercise 001
 Glute Bridge

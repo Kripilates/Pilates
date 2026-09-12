@@ -1,379 +1,339 @@
-﻿> MASTER_SYSTEM_V2_ACTIVE
->
-> Tento workflow je podřízen `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
-> Platný zdroj pravdy pro prostředí je MASTER prostředí. Platný zdroj pravdy pro modelku je MASTER model a MASTER tvář. EXERCISE_REFERENCE určuje anatomii konkrétního cviku.
+# MOOVKA — EXERCISE IMAGE CREATION + QA WORKFLOW
 
-# Pilates Body 40+ – IMAGE WORKFLOW v2.0
+Status: **ACTIVE WORKFLOW AUTHORITY**
+Verze: 3.0
+Aktualizováno: 2026-09-12
 
-## Účel
+Toto je jediná hlavní autorita pro tvorbu, opravy, QA, schvalování a nasazování
+exercise image assetů Moovka. Vizuální konstanty určuje `MASTER_REFERENCE.md`,
+rychlou kontrolu `MASTER_IMAGE_CHECKLIST.md` a aktuální stav jednotlivých cviků
+`EXERCISE_PROGRESS.md`.
 
-Tento dokument definuje jednotný způsob tvorby všech obrázků v projektu Pilates Body 40+.
+## 1. Pořadí zdrojů pravdy
 
-Je závazný pro všechny budoucí AI modely pracující na projektu.
+Před prací načti:
 
-Pokud je jakýkoliv MASTER pokyn v rozporu s MASTER, přednost má MASTER. Tento dokument zůstává podpůrný workflow dokument.
+1. `MASTER_REFERENCE.md` a odpovídající obrazové MASTER reference;
+2. tento workflow;
+3. `MASTER_IMAGE_CHECKLIST.md`;
+4. `EXERCISE_PROGRESS.md`;
+5. aktuální exercise složku, `data.js` a `referenceExerciseAssets` v `app.js`;
+6. při Muscle Card práci také `MASTER_ANATOMY.md` a
+   `MUSCLE_CARD_PROFILE_AUDIT.md`.
 
----
+Historický chat, archiv, starý Guide/Step ani jednotlivý `STATUS.md` nejsou
+autorita proti těmto souborům.
 
-# Hlavní filozofie
+## 2. Lifecycle assetu
 
-Cílem projektu není vytvářet jednotlivé hezké obrázky.
-
-Cílem je vytvořit jednu jednotnou profesionální fotografickou sérii.
-
-Uživatel musí mít pocit, že všechny fotografie vznikly během jednoho profesionálního focení.
-
-Ne jako různé AI rendery.
-
-Ne jako různé modelky.
-
-Ne jako různé místnosti.
-
-Ale jako jedno jediné focení.
-
----
-
-# MASTER SYSTEM
-
-Platný MASTER systém je MASTER.
-
-Používej:
-
-- MASTER prostředí pro prázdné studio, světlo, stěnu, podlahu, sokl, závěs a barevnost
-- odpovídající MASTER CAMERA LYING / QUADRUPED / STANDING pro kameru, perspektivu, pozici a měřítko
-- MASTER MAT 183 × 68 cm jako primární fyzickou autoritu měřítka 180cm modelky, kamery a místnosti
-- MASTER model pro postavu, oblečení, vlasy a identitu
-- MASTER tvář pro obličej, oči, nos, ústa, čelist, výraz a odstín pleti
-- EXERCISE_REFERENCE pro anatomii konkrétního cviku
-
-
----
-
-# Co se NESMÍ změnit
-
-## Modelka
-
-Musí být stále stejná osoba.
-
-Nesmí se měnit:
-
-- obličej
-- oči
-- nos
-- rty
-- čelist
-- vlasy
-- účes
-- barva vlasů
-- tón pleti
-- postava
-- proporce
-- výraz
-
-Nesmí vzniknout dojem jiné ženy.
-
----
-
-## Oblečení
-
-Musí být stále stejné.
-
-- TOP přesně `#F36F6A`
-- LEGÍNY přesně `#252528`
-- barefoot, pokud cvik výslovně nevyžaduje jinak
-
-Bez jakékoliv změny.
-
----
-
-## Prostředí
-
-MASTER prostředí je jediná schválená autorita prázdného moderního Moovka studia.
-
-Aktivní MASTER environment source of truth je `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`.
-
-MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
-
-MASTER prostředí je uzamčeno:
-
-- téměř bílá neutrální stěna, která nesmí působit šedě
-- světlá přírodní light-oak / warm-neutral podlaha
-- čistý bílý sokl
-- průsvitný bílý závěs pouze vlevo
-- měkké denní světlo zleva
-- pouze velmi jemný plynulý světelný gradient na stěně
-- žádné police, rostliny, knihy, vázy, dekorace, nábytek, obrazy, zrcadla, zásuvky/panely, logo ani text
-- žádný viditelný strop, ceiling light strip, recessed cove ani světelná architektonická lišta
-- žádné diagonální pruhy, stíny žaluzií, okenních rámů nebo závěsů ani tvrdé fleky světla
-- žádný CGI/waxy vzhled, fleky, špína nebo deformace
-- **NO VISIBLE SHADOW PATTERN ON WALL.**
-
-## Podložka — primary scale authority
-
-- Podložka má pevný reálný rozměr 183 × 68 cm a modelka měří 180 cm.
-- Určuje velikost modelky, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky.
-- Když póza, modelka nebo kamera vůči podložce nesedí, opravuje se modelka nebo kamera; podložka se nikdy nezkracuje, neprodlužuje ani nerescaluje.
-- LYING sanity check: neutrální plně natažená modelka se musí head-to-toe vejít na podložku pouze s malou reálnou rezervou.
-
----
-
-## Kamera
-
-Existují tři pevné kamerové třídy a každá používá odpovídající schválený MASTER CAMERA reference image:
-
-- LYING: low true side view; maximum envelope = plně natažené nohy + paže plně za hlavou; QA tolerance 88–92 % šířky.
-- QUADRUPED: true side view; maximum envelope = Bird Dog; QA tolerance 80–85 % šířky.
-- STANDING: maximum envelope = stoj + ruce plně nad hlavou + dvě malé 1kg činky; QA tolerance 88–92 % dostupné výšky.
-
-Schválený camera reference image má vždy přednost před procenty. Kompaktnější póza nesmí změnit zoom, velikost modelky ani vzdálenost kamery. START, HERO a END jednoho cviku zachovávají stejnou camera class, perspektivu, měřítko a podložku bez zoomu mezi fázemi.
-
-Fotografie musí působit jako pokračování stejného focení.
-
----
-
-## Světlo
-
-Musí zůstat stejné.
-
-Stejný směr světla.
-
-Stejná intenzita.
-
-Žádný viditelný stínový vzor na stěně.
-
-Stejná barevná teplota.
-
-Žádné večerní světlo.
-
-Žádné jiné počasí.
-
----
-
-## Barevnost
-
-Stejná jako MASTER model.
-
-Čistá neutrální až lehce warm-neutral.
-
-Přirozená.
-
-Bez oranžového nádechu.
-
-Bez žlutého světla.
-
-Bez dramatických kontrastů.
-
----
-
-# Co se mění
-
-Pouze samotný cvik.
-
-Smí se změnit pouze:
-
-- poloha těla
-- poloha rukou
-- poloha nohou
-- cvičební pomůcky
-
-Nic dalšího.
-
-## Povinné pose reuse
-
-Pokud existuje schválený nebo původní SOURCE obrázek cviku, použije se jako závazná anatomická a pózová reference. Zachovat joint angles, směr končetin, rotaci trupu, polohu rukou, polohu chodidel, gaze a fázi cviku. Nevymýšlet novou pózu podle textu, pokud obrazová reference existuje.
-
-Při sjednocení se mění pouze poloha těla podle původní reference. Modelka, obličej, vlasy, outfit, prostředí, podložka, camera class, perspektiva, světlo, white balance a barvy zůstávají zamčené.
-
----
-
-# Pravidlo jednoho focení
-
-Při tvorbě každého obrázku si AI musí představit následující situaci:
-
-Fotograf nefotí nový projekt.
-
-Pouze pokračuje ve stejném focení.
-
-Modelka se přesune do nové pozice.
-
-V rámci jednoho cviku a jeho zvolené camera class zůstává fotoaparát beze změny.
-
-Světlo zůstává stejné.
-
-Místnost zůstává stejná.
-
-Fotograf pouze zmáčkne spoušť znovu.
-
----
-
-# Workflow
-
-Každý cvik vzniká pouze tímto způsobem:
-
-START
-
+```text
+REFERENCE + reuse/mapping audit
 ↓
-
-HERO
-
+SOURCE candidate
 ↓
-
-END (pouze pokud se liší od START)
-
+automatic QA
 ↓
-
-Schválení
-
+user/final approval
 ↓
-
-Guide Card
-
+approved SOURCE
 ↓
-
-Schválení
-
+Guide Card → Step by Step → Muscle Card podle potřeby
 ↓
-
-Step by Step
-
+asset QA
 ↓
-
-Schválení
-
+runtime mapping
 ↓
+browser/app QA
+↓
+documentation update
+```
 
-Master Card
+Neschválený candidate se nesmí mapovat do runtime ani označit jako approved.
 
-Nikdy negenerovat Guide Card nebo Step by Step přímo.
+## 3. Preflight: nejdřív reuse a mapping
 
-Vždy musí vzniknout ze schválených zdrojových fotografií.
+Před generováním nebo editací:
 
----
+1. potvrď canonical exercise ID z aktuálního `data.js`;
+2. ověř, zda je ID aktivní v programu nebo jde o historical/inactive asset;
+3. zkontroluj `referenceExerciseAssets` a knihovní image mapping;
+4. prohlédni všechny fyzické soubory ve složce cviku;
+5. hledej aktuální unversioned SOURCE a případný schválený exact reuse;
+6. ověř case-sensitive cestu, příponu a URL encoding;
+7. rozliš skutečně chybějící SOURCE od rozbitého runtime mappingu;
+8. načti schválený paired SOURCE nebo EXERCISE_REFERENCE pro anatomii.
 
-# Zdrojové fotografie
+Centralizovaná aktivní sada EXERCISE_REFERENCE nyní v repozitáři není. Použij
+jen referenci výslovně schválenou pro konkrétní úkol nebo schválený paired SOURCE.
+Pokud podklad nestačí k přesnému určení pózy, negeneruj odhadovanou variantu.
 
-Zdrojové fotografie nesmí obsahovat:
+HTTP 404 nebo neexistující versioned cesta neznamená automaticky chybějící
+fotografii. Nejdřív ověř unversioned variantu. Aktuální známý příklad:
+`sideplank_reach` má v runtime podezřelé odkazy na
+`side_plank_reach_*_v01.png`, zatímco ve složce existují unversioned soubory.
+Tento dokument pouze eviduje mapping bug; neopravuje jej.
 
-- text
-- rámečky
-- čísla
-- grafiku
-- šipky
-- ikony
-- UI
+## 4. SOURCE naming a technický standard
 
-Pouze čistou fotografii cviku.
+Aktivní SOURCE je **unversioned**. Výchozí pattern:
 
----
+- `<exercise_slug>_start.png`
+- `<exercise_slug>_hero.png`
+- `<exercise_slug>_mid.png` pouze pokud je skutečně potřebný
+- `<exercise_slug>_end.png` pouze pokud je obrazově/anatomicky odlišný
 
-# Anatomie
+Jde o výchozí pattern pro nové SOURCE, ne o oprávnění hromadně přejmenovat již
+schválené aktivní soubory. Pokud inventura eviduje existující unversioned
+kanonický název odlišného tvaru, zachovej jej až do výslovného rename/migration
+úkolu a ověř přesný case i runtime cestu.
 
-Každý cvik musí být:
+Nevytvářej pro nové SOURCE suffixy `_v01`, `_v02` atd., pokud uživatel výslovně
+neschválí nový důvod. Verzování Guide, Step nebo Muscle Card souborů je oddělené
+a tímto pravidlem se neruší.
 
-- anatomicky správný
-- odpovídat Pilates
-- odpovídat skutečné biomechanice
+SOURCE standard:
 
-Pokud je cvik proveden špatně, fotografie se považuje za chybnou bez ohledu na její vzhled.
+- 1536 × 1024 px;
+- landscape 3:2;
+- RGB PNG;
+- čistá fotografie bez textu, loga, ikon, rámečků, čísel, šipek a UI.
 
----
+## 5. Význam fází a reuse
 
-# Kontrola konzistence
+- **START** — výchozí pozice.
+- **HERO** — hlavní anatomicky a vizuálně významná pracovní fáze.
+- **MID** — pouze další skutečně odlišná fáze nutná k pochopení pohybu.
+- **END** — pouze odlišná konečná fáze.
 
-Před schválením každého nového obrázku musí AI porovnat nový obrázek s MASTER.
+Pravidla:
 
-Musí zkontrolovat v pořadí:
+- `END = START` → runtime použije přesný START; nový END soubor nevzniká.
+- `HERO = START` → použije se přesný START; identická fyzická kopie nevzniká.
+- Reuse je povolen pouze při exact anatomical identity, ne proto, že je póza
+  pouze podobná.
+- Dynamická, rotační nebo stranově odlišná fáze musí mít odlišný SOURCE, pokud
+  je rozdíl pro techniku skutečně důležitý.
+- Runtime sekvence, Guide panely a Step kroky jsou tři oddělené struktury.
+  Počet panelů Guide ani Step se nikdy automaticky neodvozuje z runtime sekvence.
 
-1. MASTER model
-2. MASTER tvář
-3. MASTER prostředí
-4. EXERCISE_REFERENCE
-5. Anatomická správnost
-6. AI artefakty
-7. Celkový dojem jedné fotografické série
+## 6. Příprava a generování SOURCE
 
-Dále povinně kontrolovat:
+Pracuj vždy s jedním konkrétním assetem. Prompt nebo edit musí výslovně určit:
 
-- správnost pózy proti původní obrazové referenci
-- vlasy bez copper/orange/red castu
-- TOP přesně `#F36F6A`
-- LEGÍNY přesně `#252528`
-- zákaz viditelného shadow patternu na stěně
-- pevnou podložku 183 × 68 cm a měřítko 180cm modelky
-- správnou camera class, scale a perspektivu
-- konzistenci START/HERO/END bez zoomu mezi fázemi
+- canonical ID a fázi;
+- MASTER model + MASTER face;
+- MASTER environment;
+- správnou camera class: LYING, QUADRUPED, STANDING nebo SIDE FLOOR;
+- pevnou podložku 183 × 68 cm jako měřítko přibližně 180cm modelky;
+- schválený SOURCE/EXERCISE_REFERENCE pro přesnou pózu;
+- zamčený outfit a případné vybavení;
+- co jediného se smí změnit.
 
-POST-GENERATION QA probíhá automaticky bez čekání na uživatele. Pokud kterýkoli bod neprojde, výsledek není APPROVED a musí se opravit.
+Při opravě jedné chyby použij co nejvíce surgical edit. Neregeneruj zbytečně
+obličej, tělo, pozadí, podložku ani vybavení. Pokud izolovaná oprava bez
+generativního dopočítávání není spolehlivá a uživatel zakázal generativní zásah,
+zastav se a chybu popiš.
 
-Pokud je rozdíl viditelný na první pohled, obrázek není správný.
+## 7. Pair/sequence consistency
 
----
+START/HERO/MID/END jednoho cviku musí působit jako snímky jedné série. Mezi
+fázemi zůstávají stejné:
 
-# Kontrolní otázka
+- identita, obličej, věk a odstín pleti;
+- vlasy, head/body ratio, tělesné proporce a svalnatost;
+- outfit;
+- podložka, místnost, kamera, framing a model scale;
+- světlo, stíny, white balance a vybavení.
 
-Před dokončením každého obrázku si AI položí otázku:
+Mění se pouze tělesná pozice vyžadovaná pohybem.
 
-"Kdyby někdo viděl MASTER model, MASTER tvář, MASTER prostředí a tento nový obrázek vedle sebe, uvěřil by, že jde o stejnou modelku ve stejné sérii?"
+## 8. Exercise a anatomické QA
 
-Pokud odpověď není jednoznačně ANO,
+Každý SOURCE musí správně zobrazovat konkrétní fázi cviku. Kontroluj:
 
-obrázek není hotový.
+- klouby, úhly a návaznost končetin;
+- směr pohybu a stabilní části těla;
+- pravou/levou stranu a diagonal/alternating pairing;
+- počet a tvar rukou, prstů, nohou a chodidel;
+- fyzicky možné spojení těla;
+- bezpečnou Pilates techniku;
+- správné držení vybavení.
 
----
+U Bird Dog, Dead Bug a dalších střídavých cviků ověřuj explicitně správnou
+protilehlou nebo stejnostrannou dvojici podle definice cviku. Vizuálně hezký
+obrázek s chybnou anatomií je **FAIL**.
 
-# Hodnocení kvality obrázků
+## 9. Equipment consistency
 
-Při hodnocení nových obrázků ChatGPT nesmí automaticky schvalovat návrhy.
+- Používej schválené black hex dumbbells stejné rodiny a proporcí.
+- Dvě činky = přesně dvě samostatné činky, jedna v každé ruce.
+- Dumbbell Pullover = přesně jedna činka, obě ruce na center handle, nikoli na
+  koncových kotoučích.
+- Pomůcka se mezi fázemi nesmí generativně zvětšit, zmenšit ani změnit tvar.
+- U jiného vybavení platí schválený paired SOURCE/REFERENCE; nedoložené přesné
+  rozměry se nevymýšlejí.
 
-Každý obrázek musí být kriticky zhodnocen jako celek.
+## 10. Automatické QA po každém obrázku
 
-Hodnotí se zejména:
+Po **každém** nově vygenerovaném nebo upraveném exercise obrázku proběhne QA
+okamžitě, bez čekání na žádost uživatele.
 
-- anatomická správnost cviku,
-- konzistence s MASTER model,
-- konzistence s MASTER tvář,
-- shoda modelky,
-- prostředí,
-- kamera,
-- světlo,
-- barevnost,
-- kompozice,
-- profesionální dojem.
+Povinně zkontroluj:
 
-## Hodnoticí stupnice
+- A. exercise/anatomy
+- B. identity/face
+- C. age
+- D. hair
+- E. body proportions
+- F. muscularity
+- G. head size
+- H. outfit
+- I. equipment
+- J. camera/framing
+- K. model scale
+- L. mat
+- M. environment
+- N. wall/floor tone
+- O. light/white balance
+- P. artifacts/flecks
+- Q. photographic realism
+- R. consistency against paired SOURCE
+- S. consistency against corresponding MASTER/camera class
 
-10,0
-Referenční kvalita podle MASTER
+Generative quality musí být bez wax/CGI vzhledu, plastické pleti, fleků na kůži,
+obličeji, stěně, podlaze nebo podložce, deformovaných rukou/prstů/nohou,
+deformovaného vybavení, nesmyslných stínů, náhodných předmětů, změny architektury
+a perspektivních deformací.
 
-9,8–9,9
-Výjimečná kvalita
+Výsledek:
 
-9,5–9,7
-Produkční kvalita.
-Lze schválit.
+- **PASS / SCHVÁLENO** — splňuje celý checklist a může pokračovat k finálnímu
+  uživatelskému schválení;
+- **FAIL / NESCHVÁLENO** — nesmí být uložen/mapován jako approved.
 
-9,0–9,4
-Dobrý návrh.
-Neschvaluje se.
-Navrhují se další úpravy.
+Při FAIL:
 
-Pod 9,0
-Obrázek se přepracuje.
+1. pojmenuj konkrétní chybu;
+2. proveď nejmenší bezpečnou opravu nebo regeneraci;
+3. zopakuj celé automatické QA;
+4. opakuj do PASS nebo technického limitu nástroje;
+5. při limitu se zastav a přesně reportuj blocker.
 
-## Pravidlo projektu
+Projektová hranice schválení zůstává minimálně 9,5/10; číselné skóre nikdy
+nenahrazuje věcný PASS všech kritických bodů.
 
-Žádný obrázek nesmí být označen jako SCHVÁLENO, pokud nedosáhne minimálně hodnocení 9,5/10.
+## 11. Approval a integrita souboru
 
-ChatGPT má aktivně hledat nedostatky a navrhovat jejich odstranění.
+- Candidate není approved bez výslovného user/final approval.
+- Po schválení se používá přesný schválený soubor bez nevyžádaných pixelových
+  úprav, resize, cropu nebo přebarvení.
+- Pokud workflow nebo zadání poskytuje SHA-256, ověř hash před i po přesunu či
+  přejmenování.
+- Neodpovídající hash je blocker; nevytvářej přibližnou náhradu.
 
-Pokud existují objektivní důvody pro zlepšení, ChatGPT nesmí obrázek schválit jen proto, aby se práce urychlila.
+## 12. Guide Card a Step by Step
 
-Konzistence celé série má přednost před rychlostí dokončení projektu.
+Nejdřív musí být schválené všechny potřebné SOURCE fáze. Teprve potom vzniká:
 
----
+1. Guide Card;
+2. Step by Step.
 
-# Nejvyšší pravidlo projektu
+Standardní rozměry ověřené proti aktuálním schváleným Glute Bridge exportům:
 
-Konzistence celé série je důležitější než kvalita jednotlivého obrázku.
+- Guide Card: 780 × 1688 px, RGB PNG;
+- Step by Step: 780 × 2280 px, RGB PNG.
 
-Je lepší mít o něco méně efektní fotografii, která dokonale zapadne do série, než technicky krásný obrázek, který působí jako z jiného focení.
+Při pouhé výměně SOURCE zachovej existující schválený počet panelů/kroků,
+pořadí, texty, layout, typografii, ikony, rozměry a kompozici. Nahrazují se jen
+fotografie v existujících plochách. Guide/Step struktura se nesmí odvozovat z
+runtime sekvence.
+
+Historický Guide/Step smí být pose/movement reference, nikoli MASTER identity,
+modelky, prostředí, barvy nebo kamery.
+
+## 13. Muscle Cards — oddělený workflow
+
+Muscle Card není SOURCE fotografie ani součást Guide/Step PNG. Řídí se pouze:
+
+- `MASTER_ANATOMY.md`;
+- `MUSCLE_CARD_PROFILE_AUDIT.md`;
+- zamčenými `MOOVKA_MASTER_BODY_v02.png` a `MASTER_BODY_MAP_v02.png`.
+
+Anatomie se nesmí odvozovat podle podobného názvu cviku. Reuse je povolen jen
+pro přesně shodný schválený PRIMARY/SECONDARY profil. Pokud mapa neexistuje,
+stav je OPEN; nevyrábí se přibližná náhrada.
+
+Po každé vytvořené nebo upravené Muscle Card proběhne automatické QA anatomie,
+PRIMARY/SECONDARY, MASTER BODY, proporcí, svalnatosti, kompozice, barvy a
+technického formátu. Menší generativní odchylka je přijatelná pouze tehdy, když
+není při běžném pohledu patrná a nemění identitu, proporce, svalnatost,
+kompozici ani anatomii.
+
+## 14. Runtime deployment QA
+
+Při nasazení ověř:
+
+- canonical ID;
+- fyzický filename, příponu a přesný case;
+- knihovní HERO mapping;
+- `referenceExerciseAssets` mapping;
+- START/HERO/MID/END pořadí a exact reuse;
+- Guide, Step a Muscle Card reference;
+- že žádný active mapping neukazuje na historical/archived asset;
+- HTTP 200 všech nových aktivních URL a žádné 404;
+- žádný placeholder nebo broken image;
+- detail cviku a přepínání miniatur;
+- workout zobrazení a zachování workout logiky;
+- cache/version query pouze standardním způsobem projektu;
+- browser console bez nových chyb.
+
+Fyzický END se nevytváří jen proto, že runtime obsahuje návratovou fázi.
+
+## 15. Global library QA
+
+Aktivní program má 51 canonical IDs. `swan` je mimo aktivní program a do hlavní
+galerie nepatří. Pro globální vizuální audit používej pouze aktuální SOURCE,
+nikoli Guide/Step/Muscle/archiv:
+
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_ALL_01.png`
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_ALL_02.png`
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_ALL_03.png`
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_LYING.png`
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_QUADRUPED.png`
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_STANDING.png`
+- `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_SIDE_FLOOR.png`
+
+Galerie jsou QA exporty, nemění SOURCE a nejsou runtime assets. Hledej skutečné
+outliers identity, věku, svalnatosti, head size, vlasů, outfitu, camera/scale,
+podložky, prostředí, barevnosti a renderingu. Drobné přirozené rozdíly neopravuj
+jen kvůli pixelové uniformitě.
+
+## 16. Dokumentace po změně
+
+Po dokončení relevantně aktualizuj:
+
+- exercise `STATUS.md`, pokud je součástí workflow dané složky;
+- `EXERCISE_PROGRESS.md` jako canonical inventory;
+- stručný `Pilates Assets/00_Project_Status/EXERCISE_STATUS.md`, pokud se změnil
+  souhrn;
+- `00_CODEX/00_CODEX_STATE.md`, pokud se změnil runtime stav nebo další krok.
+
+`Pilates Assets/03_Exports/EXERCISE_IMAGE_INDEX.md` je pouze rozcestník a nesmí
+duplikovat celou inventuru.
+
+## 17. ChatGPT a Codex
+
+ChatGPT zajišťuje analýzu, vizuální QA, image workflow, plánování a rozhodnutí o
+PASS/FAIL. Codex zajišťuje repo audit, bezpečné souborové operace, technické QA,
+runtime mapping, dokumentaci a Guide/Step exporty podle schváleného workflow.
+
+Kvůli úspoře běhů se související práce sdružuje do dobře ohraničených balíků.
+Commit ani push se nedělá bez výslovného pokynu uživatele.
+
+## 18. Active versus historical
+
+- Active set se vždy odvozuje z aktuálního `data.js`, nikoli ze starého seznamu.
+- Historický asset se nestává runtime assetem jen proto, že fyzicky existuje.
+- `EXERCISE_PROGRESS.md` je canonical stavová inventura.
+- Historické logy se nemažou; musí být jasně označené jako historical a nesmí
+  přepisovat aktuální pravidla.

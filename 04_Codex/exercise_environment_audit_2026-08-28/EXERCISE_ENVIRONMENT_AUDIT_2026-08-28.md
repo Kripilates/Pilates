@@ -1,5 +1,9 @@
 # Moovka - audit prostředí exercise assetů
 
+> **HISTORICAL AUDIT (2026-08-28).** Versioned cesty, priority a vizuální závěry
+> níže popisují tehdejší stav. Aktuální pravidla a inventuru určují MASTER
+> dokumenty; tento soubor slouží pouze jako auditní evidence.
+
 Datum: 2026-08-28
 Režim: READ-ONLY / žádné generování / žádné úpravy fotografií
 

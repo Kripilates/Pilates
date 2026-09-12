@@ -1,8 +1,21 @@
 # ARCHIVE INDEX
 
 Archiv dokumentace vytvořen: 2026-07-16
+Aktualizováno: 2026-09-12
 
 Tento archiv obsahuje historické, duplicitní nebo nahrazené dokumenty. Aplikační soubory, obrázky a assets/exercises nebyly součástí úklidu.
+
+## Revize workflow 2026-09-12
+
+### 00_CHATGPT_START/MASTER/01_DOCUMENTS/REFERENCE_DETAIL_IMPLEMENTATION_PLAN.md
+
+Archivováno do:
+`05_Archive/Documentation_Workflow_Revision_2026-09-12/00_CHATGPT_START/MASTER/01_DOCUMENTS/REFERENCE_DETAIL_IMPLEMENTATION_PLAN.md`
+
+Důvod:
+Dokončený implementační plán popisoval pouze historický mezistav několika detailů.
+Aktuální společný detail určuje `DESIGN_STANDARD.md`; image workflow určuje
+`IMAGE_WORKFLOW.md`. Původní soubor zůstal beze změny zachovaný v archivu.
 
 ## Přesunuté dokumenty
 

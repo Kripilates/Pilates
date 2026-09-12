@@ -1,64 +1,61 @@
-> MASTER_SYSTEM_V2_ACTIVE
->
-> V novém chatu načti nejdříve `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md` a `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`.
-> Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` a `MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`.
-> Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
-> Starší MASTER dokumentace je historická. Platí MASTER.
+# MOOVKA — READ FIRST
 
-# READ FIRST – Pilates Body 40+
+Status: **ACTIVE ENTRY POINT**
+Aktualizováno: 2026-09-12
 
-Tento balíček je určen pro nové vlákno ChatGPT.
+Tento soubor je první zastávka pro nový ChatGPT/Codex kontext. Nezačínej tvorbu,
+opravu ani nasazení exercise assetů pouze z historie chatu.
 
-Nejdříve si přečti:
+## Povinné pořadí čtení
 
-1. `MASTER/01_DOCUMENTS/CHATGPT_PROJECT_GUIDE.md`
-2. `MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md`
-3. `MASTER/01_DOCUMENTS/PILATES_BODY_AI_BIBLE.md`
-4. `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`
-5. `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`
-6. `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` při jakékoli práci s anatomickými obrázky
+1. `MASTER/README.md` — mapa autorit a aktivních referencí.
+2. `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md` — zamčená modelka, tvář, outfit,
+   prostředí, podložka a camera classes.
+3. `MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md` — jediná hlavní autorita pro tvorbu,
+   opravy, QA, schvalování a nasazování exercise image assetů.
+4. `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md` — povinný kontrolní seznam
+   před a po každém novém nebo upraveném obrázku.
+5. `MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` — canonical detailní inventura
+   aktuálních 51 aktivních exercise IDs a jejich assetů.
+6. Při práci s Muscle Cards navíc:
+   - `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`
+   - `MASTER/01_DOCUMENTS/MUSCLE_CARD_PROFILE_AUDIT.md`
+   - `MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`
+   - `MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`
+7. Při runtime integraci také `../00_CODEX/00_CODEX_STATE.md`; jeho sekce
+   **Historický log** není autoritou proti aktuálnímu MASTERU a inventuře.
+8. Při globálním vizuálním QA použij galerie v
+   `../Pilates Assets/03_Exports/Visual_QA/`.
 
-Nezačínej od nuly.
+## Než vznikne nový obrázek
 
-MASTER je jediný platný MASTER systém.
+Vždy nejprve proveď reuse/mapping audit:
 
-Při tvorbě obrázků nikdy nevycházej pouze z textu. Vždy pracuj s aktuálními MASTER referencemi:
+1. ověř canonical exercise ID v aktuálním `data.js`;
+2. ověř aktivní mapping v `app.js`;
+3. prohlédni fyzické soubory ve složce cviku, zejména unversioned SOURCE;
+4. ověř přesný název, case, cestu a případný reuse;
+5. zkontroluj, zda nejde pouze o rozbitý runtime mapping;
+6. teprve potom rozhodni, zda SOURCE skutečně chybí.
 
-- MASTER prostředí
-- MASTER model
-- MASTER tvář
-- EXERCISE_REFERENCE konkrétního cviku
+`SOURCE NENALEZEN` nebo HTTP 404 automaticky neznamená, že se má generovat nový
+obrázek. Aktuální konkrétní příklad je `sideplank_reach`: runtime stále používá
+staré versioned názvy, zatímco ve složce existují unversioned kandidáti. Mapping
+se v dokumentačním úkolu neopravuje.
 
-MASTER prostředí je jediná schválená referenční fotografie místnosti. Obsahuje místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost. Je uzamčeno a nesmí se měnit kamera, perspektiva, ohnisko, světlo, rozmístění objektů ani velikost objektů.
+## Základní pravidla
 
-Aktivní MASTER environment source of truth je `MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s jeho specifikací.
+- Aktivní program má **51 canonical exercise IDs**.
+- `swan` je historický/inaktivní a do aktivního součtu nepatří.
+- `dumbbell_pullover` je aktivní.
+- Aktivní SOURCE používají unversioned názvy; `_v01`, `_v02` apod. nejsou
+  výchozí naming pro nové SOURCE.
+- SOURCE vzniká a schvaluje se před Guide Card a Step by Step.
+- Po každém vygenerovaném nebo upraveném obrázku probíhá automatické QA bez
+  čekání na vyžádání uživatelem.
+- Historické dokumenty a archiv nejsou autoritou proti souborům v `MASTER/`.
+- Pokud se dokumenty rozcházejí, platí pořadí autorit uvedené v `MASTER/README.md`.
 
-MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
-
-Podložka není součást MASTER prostředí. Podložka je rekvizita stejně jako činky, odporová guma, míč nebo další cvičební pomůcky. Přidává se až při generování konkrétního cviku.
-
-MASTER model určuje postavu, oblečení, vlasy a identitu. Mění se pouze poloha těla.
-
-MASTER tvář určuje obličej, oči, nos, ústa, čelist, výraz a odstín pleti. Identita se nikdy nesmí změnit.
-
-QA obrázků kontroluj vždy v pořadí:
-
-1. MASTER model
-2. MASTER tvář
-3. MASTER prostředí
-4. EXERCISE_REFERENCE
-5. Anatomická správnost
-6. AI artefakty
-7. Celkový dojem jedné fotografické série
-
-Nejdůležitější pravidlo:
-Nový obrázek nesmí být nová scéna ani nová modelka. Musí působit jako další fotografie ze stejné profesionální série.
-## Progress po načtení dokumentace
-
-Po načtení dokumentace vždy otevři:
-
-`MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`
-
-Podle něj zjisti aktuální stav projektu.
-
-Pokračuj od prvního rozpracovaného nebo plánovaného cviku, pokud uživatel neurčí jinak.
+Nejdůležitější pravidlo: nový obrázek musí působit jako další fotografie stejné
+modelky ve stejném Moovka studiu a současně musí anatomicky správně zobrazovat
+požadovanou fázi cviku.

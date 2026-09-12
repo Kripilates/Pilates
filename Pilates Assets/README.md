@@ -1,54 +1,27 @@
-> MASTER_SYSTEM_V2_ACTIVE
->
-> Pro obrázky a asset QA platí `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_REFERENCE.md`.
-> Platná environment reference je `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`. Všechny aktivní MASTER reference jsou soustředěné pod `00_CHATGPT_START/MASTER/`.
+# Pilates Assets — pracovní rozcestník
 
-# Pilates Assets
+Aktuální vstupní bod celého image workflow je
+`00_CHATGPT_START/00_READ_FIRST.md`. Autoritou jsou dokumenty v
+`00_CHATGPT_START/MASTER/`; pravidla v této složce jsou pouze pomocné šablony a
+nesmí jim odporovat.
 
-Sem ukladej vsechny nove podklady projektu. Stare obrazky v `assets/exercises` se zatim nemeni.
+## Struktura
 
-## 00_Project_Standards
-Design Bible, pravidla a checklisty.
+- `00_Project_Standards/` — kompatibilní šablony odkazující na MASTER pravidla.
+- `00_Project_Status/` — stručný stav, changelog, roadmap a architektonická rozhodnutí.
+- `02_Exercise_Cards/` — pracovní a schválené exercise SOURCE, Guide, Step a shared Muscle Cards.
+- `03_Exports/` — reporty a QA exporty; `Visual_QA/` není runtime zdroj.
+- `05_Archive/` — historické materiály; nejsou autoritou proti MASTERU.
 
-## 01_Master_Reference
-`MODEL_MASTER.png` nebo aktualni master reference: jedina schvalena modelka a prostredi.
+Kanonická detailní inventura 51 aktivních cviků je v
+`00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
 
-## 02_Exercise_Cards
-Kazdy cvik ma vlastni slozku.
+## Základní pravidla
 
-README.md kazdeho cviku slouzi jako kontrolni seznam stavu cviku.
-
-Guide Card se navrhuje primarne pro telefon podle pravidel v `00_Project_Standards/GUIDE_CARD_STANDARD.md`.
-
-## 03_Final_Exports
-Hotove obrazky pro aplikaci az po schvaleni cele nove knihovny.
-
-## 04_Codex
-Prompty, ukoly a technicke poznamky.
-
-## 05_Archive
-Starsi verze.
-
-## _INBOX
-Docasne uloziste schvalenych obrazku z ChatGPT.
-
-Workflow pro `SCHVÁLENO – <cvik> <typ>`:
-- vezmi jediny soubor z `_INBOX`
-- prejmenuj jej podle standardu projektu
-- presun jej do spravne slozky cviku
-- aktualizuj `README.md` daneho cviku
-- aktualizuj manifest, pokud existuje
-- vyprazdni `_INBOX`
-- zastav praci
-
-Workflow pro `SCHVÁLENO – CVIK`:
-- zkontroluj slozku cviku
-- pokud obsahuje vsechny povinne soubory, zmen v `README.md` status na `Status: 🟢 Complete`
-- pokud neco chybi, vypis chybejici polozky, nic nemen a zastav praci
-
-Pravidla:
-- nikdy nemazat nic z `assets/exercises`
-- nikdy neupravovat aplikaci
-- pracovat pouze uvnitr `Pilates Assets`
-- pokud je v `_INBOX` vice souboru nebo neni jasne, ktery pouzit, zastavit a zeptat se
-- pokud existuje soubor se stejnym nazvem, neprepisovat bez upozorneni
+- Aktivní exercise SOURCE jsou unversioned; přesný formát určuje `IMAGE_WORKFLOW.md`.
+- Před vytvořením obrázku se ověří reuse, fyzické soubory, mapping a case.
+- END = START ani HERO = START nevytváří nový fyzický obrázek.
+- Neschválený candidate se nenasazuje.
+- Guide/Step vznikají až ze schválených SOURCE a při výměně SOURCE nemění strukturu.
+- Muscle Cards se mapují jen podle přesného profilu z autoritativního anatomy auditu.
+- Historické auditní exporty jsou důkaz tehdejšího stavu, nikoli aktuální instrukce.

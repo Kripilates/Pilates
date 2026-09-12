@@ -1,7 +1,7 @@
 # MOOVKA – MUSCLE CARD PROFILE AUDIT
 
 Status: AUTHORITATIVE  
-Datum: 2026-09-11  
+Datum: 2026-09-12
 Aktivní cviky: 51
 
 ## Pravidla
@@ -93,4 +93,13 @@ Aktivní cviky: 51
 
 ## Runtime poznámka
 
-Při ověření dne 2026-09-11 obsahoval aktuální `data.js` navíc ID `swan`, které v dodané autoritativní tabulce není. Jeho anatomický profil ani runtime Muscle Card se bez autoritativního doplnění nemění.
+Při ověření dne 2026-09-12 obsahuje aktuální aktivní program přesně 51 ID z
+této tabulky. `dumbbell_pullover` je aktivní a `swan` je historický/inaktivní.
+Starší stavové záznamy, které uvádějí `swan` jako aktivní, nejsou proti této
+tabulce autoritou.
+
+Audit popisuje požadovaný anatomický profil, nikoli automaticky skutečné runtime
+mapování. Například `frog` má přesně A11 PRIMARY + A01 SECONDARY, takže nesmí
+sdílet kartu A11 PRIMARY + A14/A01 SECONDARY. Dokud neexistuje schválený přesný
+PNG profil, vede se jeho Muscle Card jako `OPEN / MAPPING K OPRAVĚ`; runtime se
+opravuje pouze v samostatném implementačním úkolu.

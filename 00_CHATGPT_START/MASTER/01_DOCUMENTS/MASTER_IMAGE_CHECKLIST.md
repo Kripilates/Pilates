@@ -1,99 +1,84 @@
-# MASTER IMAGE CHECKLIST
+# MOOVKA — MASTER IMAGE CHECKLIST
 
-Status: ACTIVE CHECKLIST FOR MASTER
+Status: **ACTIVE CHECKLIST**
+Aktualizováno: 2026-09-12
 
-□ PRE-GENERATION QA provedena
+Použij před generováním a znovu bezprostředně po každém novém nebo upraveném
+exercise obrázku. Podrobnosti jsou v `MASTER_REFERENCE.md` a `IMAGE_WORKFLOW.md`.
 
-□ Přesně jeden asset: START / HERO / END
+## Preflight
 
-□ Použit MASTER model
+- [ ] Potvrzen canonical ID a active/historical stav z aktuálního `data.js`.
+- [ ] Zkontrolován `app.js`, fyzické soubory, unversioned varianty, case a reuse.
+- [ ] Skutečně chybějící SOURCE je odlišen od mapping bugu nebo 404 staré cesty.
+- [ ] Určen přesně jeden asset: START / HERO / MID / END.
+- [ ] Je jasné, zda END/HERO přesně reuse START; nevzniká identická kopie.
+- [ ] Načten MASTER model, MASTER face, MASTER environment, camera class,
+  MASTER mat a EXERCISE_REFERENCE nebo schválený paired SOURCE.
+- [ ] Při Muscle Card práci načten `MASTER_ANATOMY.md` a
+  `MUSCLE_CARD_PROFILE_AUDIT.md`.
 
-□ Použita MASTER tvář: 00_CHATGPT_START/MASTER/02_REFERENCES/MODEL/MASTER_FACE.png
+## Modelka, tvář a vlasy
 
-□ Shoda s MASTER tváří
+- [ ] Stejná konkrétní dospělá žena s věkovým dojmem 30s–40s.
+- [ ] Obličej, hairline, oči, nos, ústa, čelist a odstín pleti odpovídají MASTER FACE.
+- [ ] Fit/toned ženská postava; žádný bodybuilding nebo skok ve svalnatosti.
+- [ ] Tělesné proporce a délka končetin odpovídají MASTER MODEL.
+- [ ] Head-to-body ratio je přirozené; hlava není generativně zvětšená.
+- [ ] Dark blonde/light brown vlasy se světlejšími prameny, přirozeným culíkem,
+  konzistentní délkou, objemem a vlnitostí; bez copper/orange/red castu.
 
-□ Použit MASTER prostředí
+## Outfit a vybavení
 
-□ Použita správná MASTER CAMERA class: LYING / QUADRUPED / STANDING
+- [ ] Stejný coral top podle MASTER (`#F36F6A`).
+- [ ] Stejné velmi tmavé high-waisted leggings (`#252528`).
+- [ ] Barefoot, bez bot, hodinek, šperků a náhodných doplňků.
+- [ ] Outfit nemění střih, materiál ani barvu mezi fázemi.
+- [ ] Vybavení má správný počet, velikost, tvar a držení.
+- [ ] Dvě činky = jedna v každé ruce; Dumbbell Pullover = jedna činka držená
+  oběma rukama na center handle.
 
-□ Použit příslušný schválený MASTER CAMERA reference image; obrazový MASTER má přednost před procentní tolerancí
+## Studio, kamera a měřítko
 
-□ Podložka 183 × 68 cm použita jako PRIMARY SCALE AUTHORITY pro 180cm modelku, kameru a místnost
+- [ ] Stejné čisté Moovka studio: téměř bílá stěna, světlá warm-neutral oak
+  podlaha, bílý sokl, případně bílé závěsy pouze vlevo.
+- [ ] Žádná palma, rostlina, police, cubby, knihy, ručníky, vázy, dekorace,
+  nábytek, logo ani text.
+- [ ] Žádný viditelný strop, ceiling/light strip nebo recessed cove v exercise SOURCE.
+- [ ] Žádné window-shadow pruhy, tvrdé fleky, špína nebo změna architektury.
+- [ ] Měkké denní světlo zleva a konzistentní white balance.
+- [ ] Správná class: LYING / QUADRUPED / STANDING / SIDE FLOOR.
+- [ ] SIDE FLOOR používá LYING reference pro fyzickou kameru a scale; nebyla
+  vymyšlena nová camera distance nebo výška.
+- [ ] Podložka 183 × 68 cm nebyla zkrácena, prodloužena ani nerescalována.
+- [ ] Modelka cca 180 cm má správné fyzické měřítko; pokrčená póza ji nezmenšila.
+- [ ] Celé vlasy, ruce, prsty, chodidla a vybavení jsou v obraze bez ořezu.
+- [ ] Pair zachovává stejnou kameru, perspektivu, framing a scale bez zoomu.
 
-□ Podložka nebyla zkrácena, prodloužena ani nerescalována podle pózy
+## Exercise/anatomy
 
-□ Použita EXERCISE_REFERENCE konkrétního cviku
+- [ ] Fáze odpovídá definici START / HERO / MID / END.
+- [ ] Klouby, končetiny, stabilní části těla a směr pohybu jsou správné.
+- [ ] Pravá/levá strana a alternating/diagonal pairing jsou správné.
+- [ ] Počet rukou, prstů, nohou a chodidel je správný.
+- [ ] Poloha je fyzicky možná, bezpečná a technicky správná.
+- [ ] Shoda s EXERCISE_REFERENCE nebo schváleným paired SOURCE je přesná.
 
-□ Pokud existuje původní/schválený SOURCE cviku, byl použit jako povinná pose reference
+## Generative quality
 
-□ Zachovány joint angles, směr končetin, rotace trupu, ruce, chodidla, gaze a fáze cviku
+- [ ] Fotorealistická čistá fotografie; žádný wax/CGI nebo plastická pleť.
+- [ ] Žádné fleky na těle, obličeji, stěně, podlaze ani podložce.
+- [ ] Žádné deformované prsty, končetiny, vybavení, perspektiva nebo stíny.
+- [ ] Žádné náhodné předměty, watermark, vignette nebo artefakty.
+- [ ] SOURCE má 1536 × 1024, landscape 3:2, RGB PNG a neobsahuje text ani UI.
 
-□ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": načten MASTER_ANATOMY.md
+## Pair a finální rozhodnutí
 
-□ Pokud vzniká nebo se upravuje anatomický obrázek "Zapojené svaly": použit zamčený MOOVKA_MASTER_BODY_v02
-
-□ Stejný obličej
-
-□ Stejné vlasy
-
-□ Stejná postava
-
-□ Stejný věkový dojem cca 40+
-
-□ Stejný odstín pleti
-
-□ TOP přesně `#F36F6A`
-
-□ LEGÍNY přesně `#252528`
-
-□ Barefoot, žádné boty
-
-□ Žádné hodinky ani šperky
-
-□ Stejná místnost podle MASTER prostředí
-
-□ Téměř bílá neutrální stěna nepůsobí šedě
-
-□ Prázdné studio bez polic, rostlin, knih, váz, dekorací, nábytku, obrazů, zrcadel, zásuvek/panelů, loga a textu
-
-□ Light-oak / warm-neutral podlaha, čistý bílý sokl a průsvitný bílý závěs pouze vlevo
-
-□ Měkké denní světlo zleva; pouze jemný plynulý světelný gradient
-
-□ **NO VISIBLE SHADOW PATTERN ON WALL.**
-
-□ Žádné diagonální pruhy, stíny žaluzií, okenních rámů či závěsů ani tvrdé fleky světla
-
-□ Žádný viditelný strop, ceiling light strip, recessed cove ani světelná architektonická lišta
-
-□ Stejná kamera
-
-□ Stejná perspektiva
-
-□ START / HERO / END mají stejnou camera class, perspektivu, měřítko a podložku bez zoomu mezi fázemi
-
-□ Stejná barevnost bez grey wash a bez globální desaturace
-
-□ Správná anatomie
-
-□ Správný Pilates cvik
-
-□ Správná pravá/levá strana, pokud je relevantní
-
-□ Žádné AI artefakty
-
-□ Žádný CGI/waxy vzhled, fleky, špína nebo deformace
-
-□ Výsledek působí jako fotografie ze stejného focení
-
-□ Čistá source fotografie bez textu, ikon, rámečků, UI a grafiky
-
-□ Hodnocení ≥9.5
-
-□ APPROVED pouze po automatické i manuální QA
-
-□ POST-GENERATION QA provedena automaticky bez čekání na uživatele
-
-□ Pokud SHODA S MASTER tvář neprojde, výsledek je REGENERATE
-
-Pokud neprojde MASTER model nebo MASTER tvář, výsledek je automaticky REGENERATE.
+- [ ] Identita, věk, vlasy, proporce, svalnatost, outfit, mat, room, camera,
+  light, white balance a equipment jsou mezi fázemi konzistentní.
+- [ ] Výsledek odpovídá příslušné camera class a celé Moovka sérii.
+- [ ] Automatické post-generation QA proběhlo bez vyžádání uživatelem.
+- [ ] Každý kritický bod prošel a skóre je alespoň 9,5/10.
+- [ ] Výsledek je označen **PASS / SCHVÁLENO**, nebo **FAIL / NESCHVÁLENO** s
+  konkrétním důvodem.
+- [ ] FAIL nebyl uložen ani mapován jako approved; po opravě proběhlo nové celé QA.

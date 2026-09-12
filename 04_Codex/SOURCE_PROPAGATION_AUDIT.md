@@ -1,5 +1,8 @@
 # SOURCE PROPAGATION AUDIT
 
+> **HISTORICAL AUDIT.** Tento soubor zachycuje stav a rozhodnutí z července 2026.
+> Aktuální SOURCE workflow a inventuru určují MASTER dokumenty.
+
 Updated: 2026-07-14T12:01:21
 
 Scope: audit mapping from approved/current SOURCE START/HERO images into derived runtime assets, Guide Cards and Step by Step cards. No new color correction, hair correction, image generation or layout redesign.

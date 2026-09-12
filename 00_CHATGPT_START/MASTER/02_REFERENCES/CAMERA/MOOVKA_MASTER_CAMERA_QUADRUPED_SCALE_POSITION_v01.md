@@ -20,7 +20,10 @@ Referenční obrázek: `MOOVKA_MASTER_CAMERA_QUADRUPED_SCALE_POSITION_v01_REFERE
 
 ## Společné MASTER CAMERA SCALE pravidlo
 
-- Existují tři pevné kamerové třídy: LYING / QUADRUPED / STANDING.
+- Existují tři samostatné locked camera reference: LYING / QUADRUPED / STANDING.
+- SIDE FLOOR je operační skupina bez samostatného camera PNG; pro fyzickou
+  výšku/distance kamery, perspektivu, podložku a model scale používá LYING
+  reference a pro přesnou boční pózu schválený paired SOURCE/EXERCISE_REFERENCE.
 - Každý cvik musí použít odpovídající schválený MASTER CAMERA reference image.
 - Modelka má vyplnit dostupný snímek co nejvíce, ale bez ořezu těla, vlasů, prstů, chodidel, pomůcek nebo směru pohybu.
 - Kamera se nesmí přizpůsobovat množství prázdné stěny.

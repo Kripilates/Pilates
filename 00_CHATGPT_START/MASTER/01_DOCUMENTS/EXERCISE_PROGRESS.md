@@ -1,14 +1,30 @@
 # EXERCISE PROGRESS — aktivní obrazové karty
 
-Aktualizováno: 2026-09-11
+Aktualizováno: 2026-09-12
 Režim: audit skutečně aktivních ID z `data.js` a aktivního mapování z `app.js`.
 Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`.
+
+## Jak číst stav
+
+- **SOURCE stav** hodnotí fyzickou existenci, schválení a prostředí SOURCE; není
+  totéž co funkční runtime cesta.
+- **Mapping/runtime problém** znamená, že SOURCE může fyzicky existovat, ale
+  `data.js` nebo `app.js` ukazuje na starý, chybně pojmenovaný nebo neexistující
+  soubor.
+- **MISSING SOURCE** se použije až po kontrole složky cviku, unversioned variant,
+  case, přípony, reuse a aktivního mappingu.
+- **END = START** a **HERO = START** jsou exact reuse, nikoli chybějící fáze;
+  samostatný duplicitní PNG se nevytváří.
+- **Guide/Step HOTOVO** popisuje existující schválenou strukturu. Při výměně
+  SOURCE se panely/kroky automaticky nemění.
+- **Muscle Card OPEN/K DOLADĚNÍ** znamená, že není doložen přesný schválený
+  PRIMARY/SECONDARY profil; nepoužívá se přibližná náhrada.
 
 ## Aktuální souhrn
 
 - AKTIVNÍ CVIKY CELKEM: **51**
 - 🟢 NOVÉ PROSTŘEDÍ: **49**
-- 🟡 ROZPRACOVÁNO: **1** (`sideplank_reach` — chybí schválená reach-through fáze)
+- 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **1** (`sideplank_reach`)
 - 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **1** (`swimming`)
 - 🔴 CHYBÍ / NOVÝ CVIK: **0**
 - MUSCLE CARD K DOLADĚNÍ: **8**
@@ -33,7 +49,7 @@ Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 | `donkey` | Zanožování v kleku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO — `glutes_primary_hamstrings_core_secondary_muscles_v01.png` | Nic v rozsahu obrazových karet. |
 | `dumbbell_pullover` | Dumbbell Pullover | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png` — REUSE START | HOTOVO | HOTOVO | OPEN | Schválit a zapojit přesnou Muscle Card podle MASTER_ANATOMY; SOURCE/runtime/Guide/Step jsou hotové. |
 | `figure_four` | Protažení hýždí vleže | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
-| `frog` | Frog Pumps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO — `glutes_primary_hamstrings_core_secondary_muscles_v01.png` | Nic v rozsahu obrazových karet. |
+| `frog` | Frog Pumps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN / MAPPING K OPRAVĚ | Autoritativní profil je A11 PRIMARY + A01 SECONDARY; runtime nyní používá nepřesnou A11 + A14/A01 kartu. V tomto dokumentačním úkolu runtime neměnit. |
 | `glute_bridge_march` | Pochod v mostu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO — `glutes_primary_hamstrings_core_secondary_muscles_v01.png` | Nic v rozsahu obrazových karet. |
 | `hamstring_supine` | Jemné protažení zadní strany stehna | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
 | `heeltaps` | Heel Taps | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
@@ -60,7 +76,7 @@ Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 | `sidekick` | Side Kick | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
 | `sideleg` | Unožování vleže na boku | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png` — REUSE START | HOTOVO | HOTOVO | K DOLADĚNÍ | Pouze doladit / schválit přesnou Muscle Card. |
 | `sideplank` | Side Plank | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
-| `sideplank_reach` | Boční prkno s rotací | 🟡 ROZPRACOVÁNO | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png` — připravená otevřená fáze | CHYBÍ SCHVÁLENÁ REACH-THROUGH FÁZE | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png` — připravená otevřená fáze, zatím nenasazovat | ČEKÁ NA KOMPLETNÍ SOURCE | ČEKÁ NA KOMPLETNÍ SOURCE | HOTOVO | Dokončit a schválit reach-through fázi; nevytvářet náhradu ani nepoužívat staré prostředí. |
+| `sideplank_reach` | Boční prkno s rotací | 🟡 FYZICKÉ UNVERSIONED SOURCE PŘÍTOMNÉ / APPROVAL + MAPPING K OVĚŘENÍ | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png` — fyzicky existuje | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.png` — fyzicky existuje, schválení ověřit | `Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png` — fyzicky existuje | EXISTUJE, obsah po finálním SOURCE ověřit | EXISTUJE, obsah po finálním SOURCE ověřit | HOTOVO | Runtime stále odkazuje na neexistující `*_v01.png`; jde o známé podezření na mapping bug, nikoli důkaz chybějícího SOURCE. V tomto dokumentačním úkolu neopravovat. |
 | `sphinx` | Sphinx Stretch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — REUSE START | `Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `spine` | Protažení páteře v sedu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `standing_oblique` | Boční zkracovačky ve stoji | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
@@ -80,11 +96,14 @@ Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 
 ### 🟡 Rozpracováno
 
-`sideplank_reach` (Boční prkno s rotací) — připravená START / otevřená fáze, ale chybí finálně schválená reach-through fáze; zatím nenasazovat.
+`sideplank_reach` (Boční prkno s rotací) — unversioned START/HERO/END fyzicky
+existují, ale jejich final approval a obsah Guide/Step je potřeba potvrdit.
+Aktivní `app.js` stále odkazuje na staré `*_v01.png`; jde o známý mapping bug k
+samostatné opravě, nikoli o pokyn generovat nový obrázek.
 
 ### Muscle Card k doladění
 
-`chest_opener` (Chest Opener), `clam` (Clamshell), `dumbbell_pullover` (Dumbbell Pullover), `hamstring_supine` (Jemné protažení zadní strany stehna), `sidekick` (Side Kick), `sideleg` (Unožování vleže na boku), `russian` (Rotace trupu v sedu), `thread` (Protažení s rotací v kleku). U části těchto cviků dříve existoval runtime reuse staré sdílené karty, ale nový MASTER systém zatím nedokládá schválený odpovídající PNG profil; proto jsou vedeny jako OPEN / k doladění.
+`chest_opener` (Chest Opener), `clam` (Clamshell), `dumbbell_pullover` (Dumbbell Pullover), `frog` (Frog Pumps), `hamstring_supine` (Jemné protažení zadní strany stehna), `sidekick` (Side Kick), `sideleg` (Unožování vleže na boku), `russian` (Rotace trupu v sedu), `thread` (Protažení s rotací v kleku). U části těchto cviků dříve existoval runtime reuse staré sdílené karty, ale nový MASTER systém zatím nedokládá schválený odpovídající PNG profil; proto jsou vedeny jako OPEN / k doladění. `frog` je navíc prokazatelný mapping mismatch: audit uvádí A11 + A01, zatímco runtime používá kartu A11 + A14/A01.
 
 ### Guide + Step k aktualizaci po SOURCE
 
@@ -92,10 +111,15 @@ Kontrolní rovnice: **49 + 1 + 1 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 
 ## Zjištěné rozpory
 
+- `sideplank_reach`: fyzicky existují unversioned START/HERO/END, ale runtime
+  stále používá neexistující versioned `*_v01.png`. Jde o mapping bug k
+  samostatnému ověření a opravě; dokumentace nesmí tento stav zaměnit za pokyn
+  generovat nový SOURCE.
 - `chest_opener`: SOURCE/runtime/Guide/Step jsou vyřešené; staré shared Muscle Card PNG už v repozitáři není, proto je anatomie podle nového MASTER systému OPEN a nedoložené mapování bylo odstraněno.
 - `dumbbell_pullover`: aktivní SOURCE, runtime, Guide a Step jsou hotové; Muscle Card zůstává OPEN, protože v novém MASTER systému zatím není schválený odpovídající PNG profil.
 - `rdl`: Guide a Step byly aktualizovány novými SOURCE a jejich existující v01 soubory jsou nyní výslovně uvedeny v `referenceExerciseAssets`.
 - `clam`, `sidekick`, `sideleg`, `hamstring_supine` a `thread`: runtime zobrazuje sdílenou Muscle Card, ale stavové dokumenty nedokládají schválený přesný reuse.
+- `frog`: runtime mapuje `glutesHamstringsCore`, ale autoritativní profil je A11 PRIMARY + A01 SECONDARY; oprava runtime patří do samostatného implementačního úkolu.
 - Dřívější souhrn `51 HOTOVO` vyjadřoval technickou úplnost před výměnou Swan Prep, nikoli shodu všech SOURCE s novým MASTER prostředím. Není aktuálním stavem.
 
 ## Metoda auditu

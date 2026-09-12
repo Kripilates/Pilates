@@ -1,6 +1,23 @@
 
 ---
 
+## AD-009
+Název:
+`IMAGE_WORKFLOW.md` je jediná autorita pro tvorbu, opravy, QA, schvalování a
+nasazování exercise image assetů.
+
+Status:
+Accepted
+
+Důsledky:
+- `MASTER_REFERENCE.md` určuje vizuální konstanty, nikoli paralelní workflow.
+- `EXERCISE_PROGRESS.md` je jediná detailní stavová inventura 51 aktivních ID.
+- Před generováním se vždy rozlišuje skutečně chybějící SOURCE od mapping bugu.
+- Aktivní SOURCE používá unversioned naming; historické názvy se nepřenášejí do
+  nových instrukcí.
+
+---
+
 ## AD-008
 Název:
 MASTER je jediný platný MASTER systém pro tvorbu a QA obrázků.

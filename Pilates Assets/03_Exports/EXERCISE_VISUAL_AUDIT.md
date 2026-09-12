@@ -1,5 +1,10 @@
 # Exercise Visual Audit
 
+> **HISTORICAL SNAPSHOT (2026-07-17).** Tento export zachycuje tehdejší stav
+> 57 položek a staré versioned/placeholder cesty. Není workflow ani aktuální
+> inventura. Pro současný stav použij `00_CHATGPT_START/00_READ_FIRST.md` a
+> `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
+
 - Audit date: 2026-07-17 11:18
 - Mode: audit/report only; this script did not change app files or image assets.
 - Scope: `data.js`, `app.js`, `Pilates Assets/02_Exercise_Cards/`, app image references in `assets/exercises/`.
