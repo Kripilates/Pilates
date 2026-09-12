@@ -90,7 +90,7 @@ Bez jakékoliv změny.
 
 MASTER prostředí je jediná schválená autorita prázdného moderního Moovka studia.
 
-Aktivní MASTER environment source of truth je `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`.
+Aktivní MASTER environment source of truth je `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`.
 
 MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 

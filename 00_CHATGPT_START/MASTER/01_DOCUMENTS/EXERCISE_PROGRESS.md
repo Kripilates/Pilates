@@ -2,7 +2,7 @@
 
 Aktualizováno: 2026-09-11
 Režim: audit skutečně aktivních ID z `data.js` a aktivního mapování z `app.js`.
-Rozhodující MASTER prostředí: `Pilates Assets/01_Master_Reference/master prostředí.png` / `MOOVKA_MASTER_ENVIRONMENT_v02.png`.
+Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`.
 
 ## Aktuální souhrn
 

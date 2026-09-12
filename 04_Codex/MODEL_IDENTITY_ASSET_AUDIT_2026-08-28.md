@@ -18,8 +18,8 @@ Charakter auditu: read-only vizuální posouzení identity modelky, obličeje, p
 
 ## Použité identity reference
 
-- `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_MODEL.png`
-- `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`
+- `00_CHATGPT_START/MASTER/02_REFERENCES/MODEL/MASTER_MODEL.png`
+- `00_CHATGPT_START/MASTER/02_REFERENCES/MODEL/MASTER_FACE.png`
 - Povinná doplňková reference: `C:/Users/Kristy/Documents/GitHub/Pilates/Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start_v02.png`
   - rozměry: **1536 × 1024 px**
   - režim/formát: **RGB PNG**

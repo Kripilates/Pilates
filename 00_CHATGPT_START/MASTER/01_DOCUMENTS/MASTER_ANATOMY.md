@@ -238,7 +238,7 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 | quadriceps_primary_hamstrings_secondary_muscles_v01.png | A13 Quadriceps | A14 Hamstrings | žádný z aktuálních 51 profilů nemá tuto přesnou kombinaci; bez runtime přiřazení | SCHVÁLENO |
 | lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01/A02 dle konkrétního profilu | bude doplněno | ČEKÁ |
 
-Schválené PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi nového systému zůstávají zamčené `MOOVKA_MASTER_BODY_v02.png` a `MASTER BODY MAP v02.png`.
+Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
 
 STATUS:
 ČEKÁ

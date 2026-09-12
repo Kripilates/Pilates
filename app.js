@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.191-dev';
+const APP_VERSION='v59.192-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -3064,7 +3064,7 @@ function showSeriesRest(){
     <div class="trainTop2 trainTop2--compact"><span class="dose">Den ${currentDay+1} \u2022 Pauza mezi s\u00e9riemi</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="workoutTransitionState" role="status" aria-live="polite">
-      <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_M_FINAL.svg" alt=""></div>
+      <div class="workoutBrandMark" aria-hidden="true"><img src="00_CHATGPT_START/MASTER/02_REFERENCES/BRAND/MooVka_M_FINAL.svg" alt=""></div>
       <p class="workoutTransitionEyebrow">S\u00e9rie ${completedSet} dokon\u010dena</p>
       <h2>Kr\u00e1tk\u00fd odpo\u010dinek</h2>
       <strong class="workoutTransitionCountdown" id="autoTimer">${formatCountdown(workoutLeft)}</strong>
@@ -3130,7 +3130,7 @@ function showAutoTrain(opts={}){
   const switchDetail=sideNoticeNext ? `${ex.name} \u2022 ${sideNoticeNext.toLowerCase()}` : ex.name;
   const workoutVisualHtml=isSideSwitch
     ? `<div class="workoutTransitionState sideSwitchState" role="status" aria-live="polite">
-        <div class="workoutBrandMark" aria-hidden="true"><img src="Pilates Assets/01_Master_Reference/MooVka_M_FINAL.svg" alt=""></div>
+        <div class="workoutBrandMark" aria-hidden="true"><img src="00_CHATGPT_START/MASTER/02_REFERENCES/BRAND/MooVka_M_FINAL.svg" alt=""></div>
         <p class="workoutTransitionEyebrow">Druh\u00e1 strana</p>
         <h2>P\u0159iprav se na druhou stranu</h2>
         <strong class="workoutTransitionCountdown" id="autoTimer">${workoutLeft}</strong>

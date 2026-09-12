@@ -1,7 +1,7 @@
 > MASTER_SYSTEM_V2_ACTIVE
 >
 > V novém chatu načti nejdříve `MASTER/01_DOCUMENTS/MASTER_REFERENCE.md` a `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md`.
-> Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` a `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/MOOVKA_MASTER_BODY_v02.png`.
+> Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md` a `MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`.
 > Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 > Starší MASTER dokumentace je historická. Platí MASTER.
 
@@ -31,7 +31,7 @@ Při tvorbě obrázků nikdy nevycházej pouze z textu. Vždy pracuj s aktuáln�
 
 MASTER prostředí je jediná schválená referenční fotografie místnosti. Obsahuje místnost, kameru, perspektivu, světlo, podlahu, polici, dekorace a barevnost. Je uzamčeno a nesmí se měnit kamera, perspektiva, ohnisko, světlo, rozmístění objektů ani velikost objektů.
 
-Aktivní MASTER environment source of truth je `Pilates Assets/01_Master_Reference/master prostředí.png`.
+Aktivní MASTER environment source of truth je `MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png` společně s jeho specifikací.
 
 MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 

@@ -2,7 +2,7 @@
 
 Before use:
 - Load `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
-- Use locked `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_BODY_v01.png`.
+- Use locked `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`.
 - Do not create a new similar anatomy body.
 
 Goal:

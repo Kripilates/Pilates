@@ -64,7 +64,7 @@ Aktuální rozpracované změny bez commitu:
 - Všech šest balíčků je nasazeno v aplikaci přes `referenceExerciseAssets`: Glute Bridge `hip`, Hip March `hip_march`, Dead Bug `deadbug`, Toe Tap `toetap`, Glute Bridge March `glute_bridge_march` a Heel Taps `heeltaps`. Toe Tap i Heel Taps používají své finální bezverzové SOURCE; ostatní balíčky zachovávají vlastní aktuální schválené soubory. Guide Card a Step by Step metadata ukazují na příslušné exporty.
 - Původní šestice assetových balíčků zůstává na stejném mapování; aktuální cache `app.js` je nadále `v=59149exercisedetailfix`. `data.js`, workout, programové dávky a PWA zůstaly beze změny.
 
-- MASTER prostředí projektu Moovka bylo 2026-08-30 aktualizováno na široký záběr místnosti uložený jako `Pilates Assets/01_Master_Reference/master prostředí.png`. Tento soubor je jediný source of truth pro room / camera / perspective / light / floor / object placement / colors. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
+- MASTER prostředí projektu Moovka je soustředěné v `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`. Tento soubor je jediný source of truth pro room / camera / perspective / light / floor / object placement / colors. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 
 - Asset QA várka Dead Bug, Toe Tap, Glute Bridge a Hollow Hold: Dead Bug, Toe Tap a Hollow Hold už používaly aktuální schválené START/HERO ve stávajících Guide/Step exportech. Glute Bridge byl aktualizován na START/HERO v02; `glute_bridge_guide_card_v3.png` (780 × 1688) a `glute_bridge_step_by_step_v2.png` (780 × 2280) byly přegenerované bez změny aplikace.
 
@@ -342,7 +342,7 @@ Pokud uživatel neurčí jinak, další práce má začít touto položkou.
 ## Moovka branding v59.78-dev
 
 - Aktivni znacka aplikace je `Moovka`.
-- Hlavicka pouziva finalni `Pilates Assets/01_Master_Reference/MooVka_logo_FINAL.svg`.
+- Workout brand mark používá finální `00_CHATGPT_START/MASTER/02_REFERENCES/BRAND/MooVka_M_FINAL.svg`.
 - Manifest, titulky a viditelne texty aplikace byly sjednoceny na `Moovka`.
 - Historicke dokumenty a existujici Guide Card / Step by Step PNG nebyly hromadne prepisovany.
 - Verze: `v59.78-dev`; cache: `style.css?v=5978moovka`, `app.js?v=5978moovka`.

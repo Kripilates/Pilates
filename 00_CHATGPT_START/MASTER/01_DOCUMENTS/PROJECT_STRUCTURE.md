@@ -10,8 +10,8 @@ This document defines the active long-term project structure for Pilates Body 40
 - `Pilates Assets/00_Project_Status/`
   Current status overview for individual exercises and image assets.
 
-- `Pilates Assets/01_Master_Reference/`
-  Immutable master references for the model, face identity, environment, and visual style.
+- `00_CHATGPT_START/MASTER/`
+  Jediný canonical kořen pro aktivní MASTER dokumentaci a referenční podklady.
 
 - `Pilates Assets/02_Exercise_Cards/`
   Source images and cards for individual exercises.

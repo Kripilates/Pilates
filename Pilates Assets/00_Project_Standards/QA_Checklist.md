@@ -63,7 +63,7 @@ Výsledek:
 
 # 2. SHODA S MASTER tvář
 
-Použít MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`.
+Použít MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MODEL/MASTER_FACE.png`.
 
 - [ ] shoda obličeje
 - [ ] tvar čelisti

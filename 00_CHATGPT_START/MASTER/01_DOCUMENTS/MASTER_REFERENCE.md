@@ -18,7 +18,7 @@ Projekt Pilates Body 40+ používá tyto čtyři závazné identity/content refe
    Referenční fotografie nebo ilustrace konkrétního cviku.
    Určuje anatomicky správnou polohu těla.
 
-Pro anatomické obrázky "Zapojené svaly" platí navíc povinný dokument `MASTER_ANATOMY.md` a zamčený master `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/MOOVKA_MASTER_BODY_v02.png`.
+Pro anatomické obrázky "Zapojené svaly" platí navíc povinný dokument `MASTER_ANATOMY.md` a zamčený master `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`.
 Před jakoukoli tvorbou, úpravou nebo nasazením anatomických obrázků musí být načten `MASTER_ANATOMY.md`.
 Anatomický MASTER je zamčený a nesmí být nahrazován nově generovanou podobnou postavou.
 
@@ -38,12 +38,12 @@ Nejvyšší prioritou je plná zpětná kompatibilita projektu. Žádné pravidl
 
 ## MASTER SOURCES
 
-- MASTER model: jediná oficiální modelka projektu.
-- MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MASTER_FACE.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
-- MASTER prostředí: `Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png` a `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`, jediný zdroj pravdy pro prázdné studio, světlo, stěnu, podlahu, sokl, závěs a barevnost.
-- MASTER CAMERA: tři pevné kamerové třídy LYING / QUADRUPED / STANDING s příslušnými schválenými reference images v `Pilates Assets/01_Master_Reference`.
-- MASTER MAT: fyzická podložka 183 × 68 cm, primární scale authority pro velikost modelky, vzdálenost kamery, měřítko místnosti a konzistenci mezi cviky; modelka měří 180 cm.
-- MASTER anatomie: `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/MOOVKA_MASTER_BODY_v02.png`, zamčený základ pro všechny anatomy assety "Zapojené svaly"; pravidla určuje `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
+- MASTER model: `00_CHATGPT_START/MASTER/02_REFERENCES/MODEL/MASTER_MODEL.png`, jediná oficiální modelka projektu.
+- MASTER tvář: `00_CHATGPT_START/MASTER/02_REFERENCES/MODEL/MASTER_FACE.png`, víceúhlová referenční karta obličeje modelky a oficiální součást MASTER model identity.
+- MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png` a `MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`, jediný zdroj pravdy pro prázdné studio, světlo, stěnu, podlahu, sokl, závěs a barevnost.
+- MASTER CAMERA: tři pevné kamerové třídy LYING / QUADRUPED / STANDING v `00_CHATGPT_START/MASTER/02_REFERENCES/CAMERA/`; každá obsahuje referenční PNG a doprovodnou specifikaci MD.
+- MASTER MAT: `00_CHATGPT_START/MASTER/02_REFERENCES/MAT/MASTER_MAT_183x68.jpg`, fyzická podložka 183 × 68 cm a primární scale authority; modelka měří 180 cm.
+- MASTER anatomie: `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`, zamčený základ pro všechny anatomy assety "Zapojené svaly"; pravidla určuje `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.
 - HERO referenční standard: referenční kvalita HERO fotografie.
 - EXERCISE_REFERENCE.png: anatomická reference konkrétního cviku, dodává se pro právě řešený cvik.
 
@@ -110,9 +110,9 @@ Pokud identita neodpovídá MASTER tváři, obrázek se automaticky označí jak
 
 MASTER prostředí je jediný zdroj pravdy pro prostředí. Aktivní autoritou je dvojice:
 
-`Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02.png`
+`00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`
 
-`Pilates Assets/01_Master_Reference/MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`
+`00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02_SPEC.md`
 
 MASTER environment updated 2026-08-30. Existing approved exercise assets are grandfathered; regeneration is required only when an asset is newly created or otherwise being regenerated/reworked.
 
