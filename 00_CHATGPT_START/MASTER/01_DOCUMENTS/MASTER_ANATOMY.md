@@ -236,7 +236,9 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 | glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | `hip`, `donkey`, `glute_bridge_march` | SCHVÁLENO |
 | deltoids_primary_triceps_secondary_muscles_v01.png | A05 Ramena | A07 Triceps | `press` | SCHVÁLENO |
 | quadriceps_primary_hamstrings_secondary_muscles_v01.png | A13 Quadriceps | A14 Hamstrings | žádný z aktuálních 51 profilů nemá tuto přesnou kombinaci; bez runtime přiřazení | SCHVÁLENO |
-| lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01/A02 dle konkrétního profilu | bude doplněno | ČEKÁ |
+| obliques_primary_core_secondary_muscles_v01.png | A02 Šikmé břišní | A01 Core | `heeltaps`, `russian` | SCHVÁLENO |
+| deltoids_primary_muscles_v01.png | A05 Ramena | — | `raise` | SCHVÁLENO |
+| lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01 Core | `clam`, `sideleg` | SCHVÁLENO |
 
 Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
 

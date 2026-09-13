@@ -308,6 +308,21 @@ outliers identity, věku, svalnatosti, head size, vlasů, outfitu, camera/scale,
 podložky, prostředí, barevnosti a renderingu. Drobné přirozené rozdíly neopravuj
 jen kvůli pixelové uniformitě.
 
+Galerie jsou generované soubory a nesmí se ručně editovat. Jejich jediným
+obrazovým zdrojem jsou aktuální canonical SOURCE přímo v
+`Pilates Assets/02_Exercise_Cards/<Exercise>/`. Aktivní ID se načítají z programu
+v `data.js` a přesné START/HERO/MID/HERO_OPPOSITE/END cesty z
+`referenceExerciseAssets` v `app.js`; historické kandidáty se nevybírají podle
+názvu ani stáří. END shodný se START se do galerie podruhé nevkládá.
+
+Po nahrazení SOURCE pod stejným canonical filename stačí spustit z kořene
+repozitáře `GENERATE_VISUAL_QA.bat`. Generátor
+`tools/generate_visual_qa.py` načte aktuální soubory, zvaliduje 51 aktivních ID,
+case cest, chybějící a nejednoznačné mappingy a přegeneruje celý obsah výše
+uvedených galerií. Volitelný watch režim lze spustit příkazem
+`python tools/generate_visual_qa.py --watch`. QA galerie nejsou runtime assets a
+aplikace je nikdy nenačítá.
+
 ## 16. Dokumentace po změně
 
 Po dokončení relevantně aktualizuj:

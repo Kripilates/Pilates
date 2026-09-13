@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.193-dev';
+const APP_VERSION='v59.194-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -759,6 +759,9 @@ const sharedMuscleCards=Object.freeze({
   coreHipFlexors:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_primary_hip_flexors_secondary_muscles_v01.png?v=59205corehipflexors',alt:'Core a flexory kyčle',label:'Core • flexory kyčle'}),
   glutesHamstringsCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png?v=59204musclecardsapproved',alt:'Hýždě, hamstringy a střed těla',label:'Hýždě • hamstringy • střed těla'}),
   deltoidsTriceps:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/deltoids_primary_triceps_secondary_muscles_v01.png?v=59205corehipflexors',alt:'Ramena a triceps',label:'Ramena • triceps'}),
+  obliquesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_primary_core_secondary_muscles_v01.png?v=59209muscleprofiles',alt:'Šikmé břišní svaly a střed těla',label:'Šikmé břišní svaly • střed těla'}),
+  deltoids:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/deltoids_primary_muscles_v01.png?v=59209muscleprofiles',alt:'Ramena',label:'Ramena'}),
+  lateralGlutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/lateral_glutes_primary_core_secondary_muscles_v01.png?v=59209muscleprofiles',alt:'Boční hýžďové svaly a střed těla',label:'Boční hýžďové svaly • střed těla'}),
   glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
   thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
   obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
@@ -877,7 +880,7 @@ const referenceExerciseAssets={
     }
   },
   clam:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.lateralGlutesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start.png?v=59184sidebundle',
     hero:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png?v=59184sidebundle',
     end:'Pilates%20Assets/02_Exercise_Cards/Clamshell/clamshell_start.png?v=59184sidebundle',
@@ -895,7 +898,7 @@ const referenceExerciseAssets={
     ]
   },
   sideleg:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.lateralGlutesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_start.png?v=59184sidebundle',
     hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_lift_hero.png?v=59184sidebundle',
     end:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/side_leg_start.png?v=59184sidebundle',
@@ -1416,7 +1419,7 @@ const referenceExerciseAssets={
     }
   },
   raise:{
-    anatomy:sharedMuscleCards.shoulders,
+    anatomy:sharedMuscleCards.deltoids,
     start:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Lateral%20Raise/lateral_raise_start.png?v=59206sourcebatch',
@@ -1442,7 +1445,7 @@ const referenceExerciseAssets={
     }
   },
   heeltaps:{
-    anatomy:sharedMuscleCards.obliques,
+    anatomy:sharedMuscleCards.obliquesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Heel%20Taps/heel_taps_start.png?v=59170todayauditfix',
@@ -1568,6 +1571,7 @@ const referenceExerciseAssets={
     }
   },
   russian:{
+    anatomy:sharedMuscleCards.obliquesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start.png?v=59203sourcebundle',
     hero:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_hero.png?v=59203sourcebundle',
     end:'Pilates%20Assets/02_Exercise_Cards/Russian%20Twist/russian_twist_start.png?v=59203sourcebundle',
