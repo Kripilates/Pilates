@@ -1,0 +1,28 @@
+{
+  "active_exercise_ids": 51,
+  "unique_source_files": 110,
+  "master_paths": [
+    "Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png",
+    "Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png"
+  ],
+  "master_metrics": {
+    "wall_L": 84.96685028076172,
+    "wall_a": 1.5718042850494385,
+    "wall_b": -1.2262225151062012,
+    "wall_L10": 79.4945068359375,
+    "wall_L90": 91.19391632080078,
+    "wall_highlight": 0.08516096854833315,
+    "floor_L": 78.64888000488281,
+    "floor_a": 6.12795352935791,
+    "floor_b": 10.833061218261719,
+    "floor_L10": 74.58975219726562,
+    "floor_L90": 91.92945098876953,
+    "floor_highlight": 0.00015417861972222573
+  },
+  "summary": {
+    "STRONG COLOR FIX": 13,
+    "MINOR COLOR FIX": 40,
+    "PASS": 57
+  }
+}

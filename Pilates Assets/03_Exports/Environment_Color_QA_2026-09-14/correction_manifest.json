@@ -1,0 +1,1274 @@
+[
+  {
+    "exercise_id": "hip",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold; excessive floor highlight",
+    "source_sha256": "48e96b5fa944b1b721cbc1be47c8903b7df78f92891e3f232d940b5e9ff602fd",
+    "candidate_sha256": "4173dfefff11e081dd5da6af8c96a1109a3c98794be3b83738653fb193555599",
+    "changed_pixels": 1310550,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.741,
+        0.617,
+        6.171
+      ],
+      "floor": [
+        -8.1,
+        3.91,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "hip",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold; excessive floor highlight",
+    "source_sha256": "a5ce2eb2bd25dfdb230bbe12d632ee96752c5a74886016bd53c08e1c72ba1f2c",
+    "candidate_sha256": "5d2bd89713d14e25f75bda89bfbf5a550a1bb98444bed2cb588b2e399480aa1c",
+    "changed_pixels": 1291037,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.568,
+        0.783,
+        3.927
+      ],
+      "floor": [
+        -8.1,
+        4.367,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "inner_thigh",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "77b4d779d586c6886b1f6f84be7991c0b494626c408f8da4c04f5e0e2906ed27",
+    "candidate_sha256": "9fe31f6a8aad05263b55ccd2f26c82b70e096500f80aca557112e492f0ad52db",
+    "changed_pixels": 1301540,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.706,
+        1.364,
+        5.38
+      ],
+      "floor": [
+        -8.066,
+        4.389,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "inner_thigh",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold; excessive floor highlight",
+    "source_sha256": "c94cf0b5aab5832b6e23daf6893a9092de99a2af0f14a68e2ff3eafcf45dea45",
+    "candidate_sha256": "e5448d5ec7a648479f6d94dfc88149d6517600a2f707f91d6606a578d294e458",
+    "changed_pixels": 1265871,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.077,
+        1.006,
+        5.829
+      ],
+      "floor": [
+        -7.427,
+        4.103,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "clam",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold; excessive floor highlight",
+    "source_sha256": "bf8e7c9ab7481557b2212ac3579a0d7aa833dfa3da2fa1cf40bbb778a73fdd39",
+    "candidate_sha256": "b3e1485f4c7eb69c8a58fa145572433d57496dbff1dd6609e9412a14d13053db",
+    "changed_pixels": 1294631,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.885,
+        0.856,
+        5.701
+      ],
+      "floor": [
+        -8.1,
+        3.805,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "standing_oblique",
+    "roles": "START",
+    "source": "Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "8dd03f9f937a76b379fb429a7fa514b2f13da1824a3a4ae1d0b24228cd6f674a",
+    "candidate_sha256": "013e6f7a7f285d0476be611877902d8b4cecbc386a57f461e47d24b1f11a6680",
+    "changed_pixels": 963751,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.322,
+        0.66,
+        8.1
+      ],
+      "floor": [
+        -3.403,
+        -0.344,
+        4.709
+      ]
+    }
+  },
+  {
+    "exercise_id": "hydrant",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "9c07dc7d308118049dc7f9587141df607719272a7372991c00510c5116f6e0f7",
+    "candidate_sha256": "33a92b2110a518a5bd41140bf82d89656d226b8a648addb22b469d92bf853f9b",
+    "changed_pixels": 1178042,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -4.574,
+        0.853,
+        4.764
+      ],
+      "floor": [
+        -8.1,
+        3.203,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "rdl",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "0d275f39fbff3c996f5781b91f184ff196f6ed79de072217c1a7a7ee6a055f1f",
+    "candidate_sha256": "f0c27bfe12d9f171493e109b61505cb7fab8c8ab1230532c08d485a1d0a5e3cb",
+    "changed_pixels": 1313957,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -6.021,
+        0.602,
+        3.114
+      ],
+      "floor": [
+        -8.1,
+        2.442,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "row",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "1e8e825d5aeef4ebd4ff490a9935739e572302c079a313849d8d675572cfe39c",
+    "candidate_sha256": "66471038fbff01e52db55ac867bfcbc5c3bfd0b5bec3b2dc04c0e4fe75c2a1eb",
+    "changed_pixels": 1278707,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -4.971,
+        0.396,
+        4.91
+      ],
+      "floor": [
+        -7.665,
+        1.997,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "row",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "cccf25786473cefab11fed89a5cbd579596b405edf522cf1db7c1cd2390936a6",
+    "candidate_sha256": "f9ce9620d91c6459758fdaaed8b53f57bdc3d3b1305b660493d6310b3f504857",
+    "changed_pixels": 1290974,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.789,
+        0.143,
+        4.391
+      ],
+      "floor": [
+        -5.269,
+        1.886,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "clam",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold; excessive floor highlight",
+    "source_sha256": "ac09cb19016b0a3d01e2c3e64ab90ab9388a317fd4cdd18dab75937dd314459a",
+    "candidate_sha256": "3e35f9b6c08685a49e42301415ab171711362b3e89c3c4f6629096e3a89a97a8",
+    "changed_pixels": 1278792,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.164,
+        0.622,
+        4.299
+      ],
+      "floor": [
+        -7.182,
+        3.655,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "rdl",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "a71abe8579ebb4504098de4e7d0bf5046e73ef7ced37988b03d438e18ff9b5e8",
+    "candidate_sha256": "8b0271b8a169e940ffdedf1dc77f74a7811f5cc5df228a4d0b8202fc20b10648",
+    "changed_pixels": 1296266,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -8.1,
+        1.04,
+        1.525
+      ],
+      "floor": [
+        -8.1,
+        2.874,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "sideleg",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png",
+    "status": "STRONG COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "f51c761db9b7e8cf1c87cf8baaa897d460e4e0b3ac2980fe7c9aaf128b61aa90",
+    "candidate_sha256": "d0c5908946926500209e4a55f4691390754832e1b21fbe9021b0bcbc632bb96c",
+    "changed_pixels": 1159737,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.487,
+        0.535,
+        5.684
+      ],
+      "floor": [
+        -7.519,
+        2.769,
+        8.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "standing_oblique",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "4fdca51e97a68cfb287bee75c1a8398e259ebdcc74778134911db3a147b967df",
+    "candidate_sha256": "e176f4ea3bc4ce20aafea86aa28b3ed32ce6c2c1092aa2e53b8f7e8b3ccc3be3",
+    "changed_pixels": 983584,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.01,
+        0.447,
+        5.823
+      ],
+      "floor": [
+        -3.541,
+        -0.376,
+        3.189
+      ]
+    }
+  },
+  {
+    "exercise_id": "standing_side_bend",
+    "roles": "END",
+    "source": "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "2bbb677da56ffd21e45defe92a4fbdd9db1c0bb2cbd52137be99f69c416a2264",
+    "candidate_sha256": "b891892efd97abe8fe115153f7c12cfcfe668a2136663ca3d25114b795c4278e",
+    "changed_pixels": 966561,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.969,
+        0.657,
+        5.347
+      ],
+      "floor": [
+        0.26,
+        -0.285,
+        3.183
+      ]
+    }
+  },
+  {
+    "exercise_id": "standing_side_bend",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "64ab7551f537a239827ebf502e60e6dacb75eccc6ad5ccf5a14d3c084f714f49",
+    "candidate_sha256": "bdf30828f629fcd5acdfc116d0257c1acc7301f0065ea0b2481ebc6ec25d9b7c",
+    "changed_pixels": 1000845,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.1,
+        0.779,
+        5.309
+      ],
+      "floor": [
+        -0.828,
+        -0.403,
+        4.283
+      ]
+    }
+  },
+  {
+    "exercise_id": "standing_side_bend",
+    "roles": "START",
+    "source": "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "c11ac4c7b5314973bbd2c8bc79dfb3949bdb4387706f571e650c3c62f9f80444",
+    "candidate_sha256": "8ac99d35d11ba9646fee9ba0001dac38d3a4bbea22b579bbd6283c0e8ef7c43e",
+    "changed_pixels": 993504,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.693,
+        0.509,
+        5.257
+      ],
+      "floor": [
+        0.295,
+        -0.358,
+        3.618
+      ]
+    }
+  },
+  {
+    "exercise_id": "thread",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "f790996cc66bd3e78f7705a9d9aef70180f5c61f1765c41f84139522509cbb04",
+    "candidate_sha256": "f4b736bdf67ed84802fcf21a65160cf13f52d71bc520133afaaeb1d327e8a2ac",
+    "changed_pixels": 1258983,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.335,
+        0.614,
+        2.177
+      ],
+      "floor": [
+        -5.767,
+        2.679,
+        6.216
+      ]
+    }
+  },
+  {
+    "exercise_id": "rollup",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "ecaf9158a51511e6e137c83a91e43f9279ff9bb1c75f3f14289028cb2ab82d8a",
+    "candidate_sha256": "f06c59f0cf6412214f65446ba45d2a150c124706dcd2dca02bf3e6742664a542",
+    "changed_pixels": 819380,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        1.359,
+        0.248,
+        5.141
+      ],
+      "floor": [
+        0.259,
+        -1.271,
+        -0.912
+      ]
+    }
+  },
+  {
+    "exercise_id": "hydrant",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "7feb5c34886bb9cf5ccf8eb5e77bee1b01ccbf2d7e68d080260e147042271136",
+    "candidate_sha256": "96eb2ad7a8a83514ae429e7f66a2f056a39fd747a2da085e7989df27fdf5754d",
+    "changed_pixels": 1103403,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.839,
+        0.435,
+        2.754
+      ],
+      "floor": [
+        -6.317,
+        2.079,
+        6.106
+      ]
+    }
+  },
+  {
+    "exercise_id": "sideleg",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "77862d69f6b90163394d43f47c7f164d25de6393457b17af13d58a5ccec4fe5b",
+    "candidate_sha256": "bb6fb54d6fb6bf0b1f2a9c825d50a05d1b8b6c988e59697cc0a98b84ee4a66e4",
+    "changed_pixels": 1043295,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.013,
+        0.63,
+        4.485
+      ],
+      "floor": [
+        -5.782,
+        1.803,
+        5.924
+      ]
+    }
+  },
+  {
+    "exercise_id": "sidekick",
+    "roles": "END",
+    "source": "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold; excessive floor highlight",
+    "source_sha256": "8b67db28dc3ce683e9d29116e12d5f2b067aa975d36f848d10a64f00a6489237",
+    "candidate_sha256": "8f119283d2bc7db6317358790a2c2286c8eccecab6b0992d4a070d28e6a3a23a",
+    "changed_pixels": 760270,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.033,
+        0.488,
+        4.794
+      ],
+      "floor": [
+        -4.403,
+        -2.109,
+        1.335
+      ]
+    }
+  },
+  {
+    "exercise_id": "triceps_kickback",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "27443eabf131b7d468b3a0bc52d54273790222ff0ed07c6f1bdd942df759615e",
+    "candidate_sha256": "22c8f385f789ffa6059dca6ee93da8a604a9b7f9637b5121b6ab5a653b62de11",
+    "changed_pixels": 974096,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.497,
+        0.404,
+        4.706
+      ],
+      "floor": [
+        -4.748,
+        -0.963,
+        -0.0
+      ]
+    }
+  },
+  {
+    "exercise_id": "rainbow",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold; excessive floor highlight",
+    "source_sha256": "8eb0298d62f9ebcc9b76ea428b9608882fa4dd28e5b5c1a6609eedd42e5b82c3",
+    "candidate_sha256": "0bb861a29f1bb70ae5669e94c181f08cbb228a4f4f75dd4c5befa53ff8868a24",
+    "changed_pixels": 1035689,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.98,
+        0.625,
+        3.568
+      ],
+      "floor": [
+        -5.052,
+        1.956,
+        5.418
+      ]
+    }
+  },
+  {
+    "exercise_id": "standing_oblique",
+    "roles": "END",
+    "source": "Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "9e37cca0f98367c64c9006cf4d8caf1188deef58704e062d3b53cccb52e462ba",
+    "candidate_sha256": "da12df126366488d842c42f184d9747875969f8059931f7d2e8fcb03b66ba848",
+    "changed_pixels": 1013150,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.459,
+        0.684,
+        4.485
+      ],
+      "floor": [
+        -3.88,
+        0.278,
+        4.304
+      ]
+    }
+  },
+  {
+    "exercise_id": "chest_press",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "c5a2ea5ad7eb82af066207a763aee9739902de8c9da796e0c1919ee51062f300",
+    "candidate_sha256": "78a42e1089b35064af0d9a00d09abdb64b429912d624a2766aa83aff0a806281",
+    "changed_pixels": 780174,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.731,
+        0.54,
+        4.477
+      ],
+      "floor": [
+        -1.98,
+        -2.333,
+        -0.57
+      ]
+    }
+  },
+  {
+    "exercise_id": "thread",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "e08939fd5cbeb2153d2b8e98b22c7bd985eab3fc4a708b28be2ad79893692ac6",
+    "candidate_sha256": "cef3803820498660c9779f77a29a04064fe65f5e792af06a5476d16b99acc590",
+    "changed_pixels": 1059520,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.889,
+        0.378,
+        0.774
+      ],
+      "floor": [
+        -5.666,
+        2.061,
+        5.306
+      ]
+    }
+  },
+  {
+    "exercise_id": "supine_twist",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "6b914d36fb491edd60f92a36c8ddf516f1ad5a4020d9cd3fe679ebe4c94019a2",
+    "candidate_sha256": "754f952d29bbbc740230677808a8a32a05d187cf6e3a5a09bf59ca0f7b0b55f9",
+    "changed_pixels": 957434,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.3,
+        0.394,
+        4.332
+      ],
+      "floor": [
+        -3.769,
+        0.084,
+        3.735
+      ]
+    }
+  },
+  {
+    "exercise_id": "press",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; wall too blue/cold",
+    "source_sha256": "67b23cf015eba77126720237ced0e2cf81271c41fd23b2bb28c7ca5a8e218ec0",
+    "candidate_sha256": "56ff0fd3d36b290b18bdb6ae5bc25d22ee346f1ac51309e9a3533c1f790d846a",
+    "changed_pixels": 1054237,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -4.042,
+        0.68,
+        3.699
+      ],
+      "floor": [
+        -6.307,
+        1.425,
+        5.107
+      ]
+    }
+  },
+  {
+    "exercise_id": "triceps_kickback",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "f8c7b168369e9918f8cd5a64bf48932f0614551702424643dd3143f06052c4ab",
+    "candidate_sha256": "b3cdf5a7cd6b264840393316a897d53ebd3ceb0ddeb498f720b762f6699c1a8c",
+    "changed_pixels": 1009573,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -4.516,
+        0.542,
+        4.218
+      ],
+      "floor": [
+        -5.929,
+        -0.987,
+        1.788
+      ]
+    }
+  },
+  {
+    "exercise_id": "chest_press",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "e38bc94b251a4c1f66c10d064638253b53309e9d1611085b3d1ffb9822f764e2",
+    "candidate_sha256": "78b2ac5ba2a5e1196764df836c4445345d4ff3c5f10ab8675f6741ed7bc62b54",
+    "changed_pixels": 800305,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.449,
+        0.676,
+        4.1
+      ],
+      "floor": [
+        -1.963,
+        -1.933,
+        -0.393
+      ]
+    }
+  },
+  {
+    "exercise_id": "swimming",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "95f80f2f9ea512d904f4ac9e34d1c40f1ca26de78418776a3c681362100b95b9",
+    "candidate_sha256": "2fd4a0f15603a15397a663a1aa5d5f3cdbf96fedf0468bb169474fdef2c2e696",
+    "changed_pixels": 1029373,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -4.375,
+        0.479,
+        -0.271
+      ],
+      "floor": [
+        -5.06,
+        2.267,
+        4.684
+      ]
+    }
+  },
+  {
+    "exercise_id": "plie",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "8fc0eb230223e4dbf91897f5392fb0044911f00c6bfa21583ef9013070708d36",
+    "candidate_sha256": "620e9188cc3ed2e4b8916434bfb91a895b5d91eb238d43ed98bf39a7e503c762",
+    "changed_pixels": 937030,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.194,
+        0.727,
+        3.898
+      ],
+      "floor": [
+        -1.784,
+        -1.167,
+        0.812
+      ]
+    }
+  },
+  {
+    "exercise_id": "rainbow",
+    "roles": "START",
+    "source": "Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; excessive floor highlight",
+    "source_sha256": "0f288a33b333138245aaa0f8e0eab655400dd2c3d5f1e1b6cb120a2340aae2b6",
+    "candidate_sha256": "2872688af808f1f0db0cb8fcbe63253b2b953228553bb1a3c0694d912957c82a",
+    "changed_pixels": 934937,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.941,
+        0.721,
+        2.233
+      ],
+      "floor": [
+        -3.845,
+        1.667,
+        4.614
+      ]
+    }
+  },
+  {
+    "exercise_id": "russian",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "d7c282785b5a6144bab43119ff2c83f9544ab57d60f905b44c04671b4ed9713b",
+    "candidate_sha256": "17c7608c3161262ab5b16f5bbe53ad0a59ac6735dd0456de36af21b3ca0da600",
+    "changed_pixels": 920121,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        0.419,
+        0.558,
+        3.794
+      ],
+      "floor": [
+        0.81,
+        -0.548,
+        3.204
+      ]
+    }
+  },
+  {
+    "exercise_id": "press",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "b7335b1325d430068af503b0841cf9c13b0190bf8365f18224735328bdd45eb4",
+    "candidate_sha256": "8db20d7304de9587672ee3ad2859d5582dea9dd0130776863a4ec761d9db20c1",
+    "changed_pixels": 1043524,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.314,
+        0.458,
+        2.374
+      ],
+      "floor": [
+        -5.156,
+        1.271,
+        4.472
+      ]
+    }
+  },
+  {
+    "exercise_id": "rainbow",
+    "roles": "END",
+    "source": "Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold; excessive floor highlight",
+    "source_sha256": "2bb48aeeab818c3062a1ee173d804d0bbb0f9dc2699816ecc11d8c3e07569931",
+    "candidate_sha256": "d18bc3d13d0f6b2b4e0d7098c89b3e1b68f0c149654996042dbab0e39101bcde",
+    "changed_pixels": 877444,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -4.139,
+        0.959,
+        0.677
+      ],
+      "floor": [
+        -4.605,
+        1.645,
+        3.703
+      ]
+    }
+  },
+  {
+    "exercise_id": "figure_four",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "4e36af09594982da2096ac31a68e3e86dee161b5abc750f7bad6a833830c4dce",
+    "candidate_sha256": "3d346c0939f36f3569c2d8cc6197c3d6a3ff4dab30dac457ba3fe8fa3e63bc55",
+    "changed_pixels": 875520,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -0.662,
+        0.655,
+        3.702
+      ],
+      "floor": [
+        -0.965,
+        -1.207,
+        1.888
+      ]
+    }
+  },
+  {
+    "exercise_id": "sidekick",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold; excessive floor highlight",
+    "source_sha256": "8d26f2be9cfff260b35a62412a795f87fa47ab4da6e64c4370825a7ecab59d44",
+    "candidate_sha256": "1266ea5596167a8ef4c2018c9b2db4a95fd628946f45f2d21c6f5ab56efe8304",
+    "changed_pixels": 772385,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.478,
+        0.489,
+        3.659
+      ],
+      "floor": [
+        -3.643,
+        -1.258,
+        1.565
+      ]
+    }
+  },
+  {
+    "exercise_id": "tap",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "be4c5f2c3e5d7a14a0faf9a68414bc15a5f7c55ca57e66d099fe329ad0930060",
+    "candidate_sha256": "70810aa99750a14a8f0e3c3d0d69cefa5f7d5674c256bd16c2dcde101a512c79",
+    "changed_pixels": 810174,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.111,
+        1.135,
+        3.467
+      ],
+      "floor": [
+        -0.885,
+        -0.168,
+        1.831
+      ]
+    }
+  },
+  {
+    "exercise_id": "catcow",
+    "roles": "END",
+    "source": "Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "d980189559e7342dcb9c23b3687a881ef3f9b99cce9ca1205018b658ca015756",
+    "candidate_sha256": "a84fba1faa8f3fd80d23dd209ecd2cc6f700ce1c06de150c65c083502ee7e6a0",
+    "changed_pixels": 843471,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.902,
+        0.241,
+        -0.354
+      ],
+      "floor": [
+        -4.788,
+        1.169,
+        4.1
+      ]
+    }
+  },
+  {
+    "exercise_id": "catcow",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "87b6c921cef39d365e21323ce04b5f2f23f28402a6f2f261f68def8a4026621c",
+    "candidate_sha256": "9bb66b23ad17fa918c05dad5e252c761f426605d9139c8e6cd928e2543a4d055",
+    "changed_pixels": 877075,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.396,
+        0.279,
+        -0.623
+      ],
+      "floor": [
+        -3.909,
+        1.655,
+        4.098
+      ]
+    }
+  },
+  {
+    "exercise_id": "supine_twist",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "397165010ce8a2ba92a31431477e02607cc38ed47b3290f67896e1f50577075e",
+    "candidate_sha256": "db886077cfaa590a507e116a491e731b06de031f33c5539f902d005e9ec66346",
+    "changed_pixels": 937288,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -3.535,
+        0.633,
+        3.373
+      ],
+      "floor": [
+        -4.212,
+        0.47,
+        3.53
+      ]
+    }
+  },
+  {
+    "exercise_id": "bird",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "1a58b872d3f2e152707a5927bfce0f0e00e815164a9b22cb6d7c7249e6383f16",
+    "candidate_sha256": "c9c29c3f161bd181d387942870ed4b42d101309f3ed9b5ee96d10a46f17339ef",
+    "changed_pixels": 808945,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.523,
+        0.147,
+        -0.523
+      ],
+      "floor": [
+        -5.055,
+        1.287,
+        3.744
+      ]
+    }
+  },
+  {
+    "exercise_id": "catcow",
+    "roles": "START",
+    "source": "Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "1a58b872d3f2e152707a5927bfce0f0e00e815164a9b22cb6d7c7249e6383f16",
+    "candidate_sha256": "c9c29c3f161bd181d387942870ed4b42d101309f3ed9b5ee96d10a46f17339ef",
+    "changed_pixels": 808945,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.523,
+        0.147,
+        -0.523
+      ],
+      "floor": [
+        -5.055,
+        1.287,
+        3.744
+      ]
+    }
+  },
+  {
+    "exercise_id": "childs_pose",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "1a58b872d3f2e152707a5927bfce0f0e00e815164a9b22cb6d7c7249e6383f16",
+    "candidate_sha256": "c9c29c3f161bd181d387942870ed4b42d101309f3ed9b5ee96d10a46f17339ef",
+    "changed_pixels": 808945,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.523,
+        0.147,
+        -0.523
+      ],
+      "floor": [
+        -5.055,
+        1.287,
+        3.744
+      ]
+    }
+  },
+  {
+    "exercise_id": "donkey",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "1a58b872d3f2e152707a5927bfce0f0e00e815164a9b22cb6d7c7249e6383f16",
+    "candidate_sha256": "c9c29c3f161bd181d387942870ed4b42d101309f3ed9b5ee96d10a46f17339ef",
+    "changed_pixels": 808945,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.523,
+        0.147,
+        -0.523
+      ],
+      "floor": [
+        -5.055,
+        1.287,
+        3.744
+      ]
+    }
+  },
+  {
+    "exercise_id": "donkey",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor too pale/cold",
+    "source_sha256": "7753402994688abc3a80054f331cdb7eabe603f1335d93bbacba7c250acf027c",
+    "candidate_sha256": "46693747f8ee4d9294e29365c2fdc958b4b114487acc1ad525dea92671aa09cb",
+    "changed_pixels": 789111,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -0.025,
+        0.346,
+        1.666
+      ],
+      "floor": [
+        -3.631,
+        0.504,
+        3.842
+      ]
+    }
+  },
+  {
+    "exercise_id": "dumbbell_pullover",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall tone differs",
+    "source_sha256": "d02df1c380d2a7d8b68050e1992437e7ec2439604e2bae87a459611c5d698cc9",
+    "candidate_sha256": "fd0abff6cad1e22133f84791c9563942368dc219fccc0de1aaccaa9c6143a0eb",
+    "changed_pixels": 831960,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -6.48,
+        1.037,
+        2.221
+      ],
+      "floor": [
+        -5.096,
+        -0.06,
+        0.52
+      ]
+    }
+  },
+  {
+    "exercise_id": "mermaid",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall too blue/cold",
+    "source_sha256": "1ae30978ddf4373a5498c77205e60c87ef0ac76e7287033c0867f65bc157d6fc",
+    "candidate_sha256": "c365bec8dee72c7afa8541734d13cc5c27cd9d9475987adb74c7ab56e09d215a",
+    "changed_pixels": 913972,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -2.431,
+        0.864,
+        3.185
+      ],
+      "floor": [
+        -0.886,
+        -0.478,
+        1.848
+      ]
+    }
+  },
+  {
+    "exercise_id": "chest_fly",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall tone differs",
+    "source_sha256": "26296bab461ca3087bf408a7de0e8851d511e98e8ae9b20ca5cb5c669d5f2e0c",
+    "candidate_sha256": "a493fc347ac5228c05b5cf4179805180514748b528130f9491761b24c8a28da2",
+    "changed_pixels": 843719,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -6.48,
+        1.303,
+        1.775
+      ],
+      "floor": [
+        -4.497,
+        -0.218,
+        0.501
+      ]
+    }
+  },
+  {
+    "exercise_id": "dumbbell_pullover",
+    "roles": "START/END",
+    "source": "Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "wall tone differs",
+    "source_sha256": "163d1e5334266ff63776782f0de71f2d0a2ece8c017fb7d79ec191efd1d835d2",
+    "candidate_sha256": "5963995d9243e38ee1b7c7cbab61aa8881efe9d2abb1d3e844da0f9ced78a0b7",
+    "changed_pixels": 814288,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -6.174,
+        1.272,
+        2.048
+      ],
+      "floor": [
+        -4.497,
+        -0.639,
+        -0.172
+      ]
+    }
+  },
+  {
+    "exercise_id": "bird",
+    "roles": "HERO",
+    "source": "Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png",
+    "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png",
+    "status": "MINOR COLOR FIX",
+    "reason": "floor tone differs",
+    "source_sha256": "f5924c8120ba5eb9abf8953b392e1ffd3552232d642f1943a795d2bd3d66038c",
+    "candidate_sha256": "98bdcf04431fbfaeae93ae19400837d49e8bfaa192dce2526f73a070c12fc8ec",
+    "changed_pixels": 768436,
+    "changed_outside_mask": 0,
+    "shifts_lab": {
+      "wall": [
+        -1.245,
+        0.14,
+        -0.435
+      ],
+      "floor": [
+        -4.763,
+        1.126,
+        3.535
+      ]
+    }
+  }
+]

@@ -1,0 +1,111 @@
+﻿exercise_id,exercise_name,roles,file,relative_path,width,height,mode,status,reason,score
+hip,Most,START/END,glute_bridge_start.png,Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold; excessive floor highlight,2.2564094066619873
+hip,Most,HERO,glute_bridge_hero.png,Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold; excessive floor highlight,2.189274708429972
+inner_thigh,Zdvihy spodní nohy,START/END,inner_thigh_lift_start.png,Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold,2.1712661584218345
+inner_thigh,Zdvihy spodní nohy,HERO,inner_thigh_lift_hero.png,Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png,1535,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold; excessive floor highlight,2.1548113028208413
+clam,Clamshell,START/END,clamshell_start.png,Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold; excessive floor highlight,1.9497137069702148
+standing_oblique,Boční zkracovačky ve stoji,START,standing_oblique_crunch_start.png,Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold,1.87605619430542
+hydrant,Fire Hydrant,HERO,fire_hydrant_hero.png,Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold,1.8068135579427083
+rdl,Rumunský mrtvý tah,HERO,romanian_deadlift_hero.png,Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold,1.7872036298116047
+row,Bent Over Row,HERO,bent_over_row_hero.png,Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold,1.7861208120981853
+row,Bent Over Row,START/END,bent_over_row_start.png,Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold,1.743426005045573
+clam,Clamshell,HERO,clamshell_hero.png,Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold; excessive floor highlight,1.705531358718872
+rdl,Rumunský mrtvý tah,START/END,romanian_deadlift_start.png,Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold,1.7045677502950032
+sideleg,Unožování vleže na boku,HERO,side_leg_lift_hero.png,Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png,1536,1024,RGB,STRONG COLOR FIX,floor too pale/cold; wall too blue/cold,1.663382927576701
+standing_oblique,Boční zkracovačky ve stoji,HERO,standing_oblique_crunch_hero.png,Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.617469882965088
+standing_side_bend,Úklony do stran ve stoje,END,standing_side_bend_end.png,Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.4852595329284668
+standing_side_bend,Úklony do stran ve stoje,HERO,standing_side_bend_hero.png,Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold,1.4748454093933105
+standing_side_bend,Úklony do stran ve stoje,START,standing_side_bend_start.png,Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold,1.460258960723877
+thread,Protažení s rotací v kleku,START/END,thread_the_needle_start.png,Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,1.4389038880666096
+rollup,Rolování do sedu,START/END,roll_up_start.png,Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.4279484748840332
+hydrant,Fire Hydrant,START/END,fire_hydrant_start.png,Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,1.413317600886027
+sideleg,Unožování vleže na boku,START/END,side_leg_start.png,Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold,1.3713042736053467
+sidekick,Side Kick,END,side_kick_end.png,Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold; excessive floor highlight,1.3317275047302246
+triceps_kickback,Triceps Kickback,HERO,triceps_kickback_hero.png,Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.3071608543395996
+rainbow,Rainbow Leg Raise,HERO,rainbow_leg_raise_hero.png,Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold; excessive floor highlight,1.2540559768676758
+standing_oblique,Boční zkracovačky ve stoji,END,standing_oblique_crunch_end.png,Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold,1.2459230422973633
+chest_press,Tlaky s činkami vleže,HERO,chest_press_hero.png,Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.2435102462768555
+thread,Protažení s rotací v kleku,HERO,thread_the_needle_hero.png,Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,1.2376316986819702
+supine_twist,Rotace páteře vleže,HERO,supine_twist_hero.png,Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold,1.2032437324523926
+press,Tlaky s činkami nad hlavu,START/END,shoulder_press_start.png,Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; wall too blue/cold,1.1932737443905375
+triceps_kickback,Triceps Kickback,START/END,triceps_kickback_start.png,Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.1715292930603027
+chest_press,Tlaky s činkami vleže,START/END,chest_press_start.png,Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.1389899253845215
+swimming,Swimming,START/END,swimming_start.png,Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,1.1270291746090568
+plie,Plié Squat,HERO,plie_squat_hero.png,Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.082756519317627
+rainbow,Rainbow Leg Raise,START,rainbow_leg_raise_start.png,Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; excessive floor highlight,1.0679901440938313
+russian,Rotace trupu v sedu,HERO,russian_twist_hero.png,Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.0539722442626953
+press,Tlaky s činkami nad hlavu,HERO,shoulder_press_hero.png,Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,1.0351618925730388
+rainbow,Rainbow Leg Raise,END,rainbow_leg_raise_end.png,Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold; excessive floor highlight,1.0312199009941971
+figure_four,Protažení hýždí vleže,HERO,figure_four_stretch_hero.png,Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,1.0282492637634277
+sidekick,Side Kick,HERO,side_kick_hero.png,Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold; excessive floor highlight,1.0164785385131836
+tap,Plank Shoulder Taps,HERO,plank_shoulder_taps_hero.png,Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,0.9629702568054199
+catcow,Cat-Cow,END,cat_cow_end.png,Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.9491722583770752
+catcow,Cat-Cow,HERO,cat_cow_hero.png,Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.9486417770385742
+supine_twist,Rotace páteře vleže,START/END,supine_twist_start.png,Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,0.9369635581970215
+bird,Bird Dog,START/END,bird_dog_start.png,Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.9059854795812731
+catcow,Cat-Cow,START,cat_cow_start.png,Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.9059854795812731
+childs_pose,Pozice dítěte,START/END,childs_pose_start.png,Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.9059854795812731
+donkey,Zanožování v kleku,START/END,donkey_kick_start.png,Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.9059854795812731
+donkey,Zanožování v kleku,HERO,donkey_kick_hero.png,Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor too pale/cold,0.8894007205963135
+dumbbell_pullover,Přítah činky za hlavu,HERO,Dumbbell Pullover hero.png,Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png,1536,1024,RGB,MINOR COLOR FIX,wall tone differs,0.8858410445538648
+mermaid,Mermaid Stretch,START/END,mermaid_stretch_start.png,Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png,1536,1024,RGB,MINOR COLOR FIX,wall too blue/cold,0.8846306800842285
+chest_fly,Rozpažování s činkami vleže,HERO,chest_fly_hero.png,Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.png,1536,1024,RGB,MINOR COLOR FIX,wall tone differs,0.8787695220558674
+dumbbell_pullover,Přítah činky za hlavu,START/END,Dumbbell Pullover start.png,Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png,1536,1024,RGB,MINOR COLOR FIX,wall tone differs,0.8514614702978034
+bird,Bird Dog,HERO,bird_dog_hero.png,Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png,1536,1024,RGB,MINOR COLOR FIX,floor tone differs,0.8501100540279626
+hundred,Kmity pažemi vleže,START/END,hundred_start.png,Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start.png,1536,1024,RGB,PASS,,0.8255939483642578
+raise,Lateral Raise,HERO,lateral_raise_hero.png,Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero.png,1536,1024,RGB,PASS,,0.8233880090704377
+swimming,Swimming,HERO,swimming_hero.png,Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero.png,1536,1024,RGB,PASS,,0.748401959737142
+rollup,Rolování do sedu,HERO,roll_up_hero.png,Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_hero.png,1536,1024,RGB,PASS,,0.7357174939494087
+raise,Lateral Raise,START/END,lateral_raise_start.png,Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.png,1536,1024,RGB,PASS,,0.7198826026705004
+hollow,Hollow Hold,HERO,hollow_hold_hero.png,Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_hero.png,1536,1024,RGB,PASS,,0.6947309199845195
+toetap,Toe Taps,HERO,toe_taps_hero.png,Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.png,1536,1024,RGB,PASS,,0.6664376258850098
+spine,Protažení páteře v sedu,START/END,spine_stretch_start.png,Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png,1536,1024,RGB,PASS,,0.6641443821006046
+scissors,Nůžky,START/END,scissors_start.png,Pilates Assets/02_Exercise_Cards/Scissors/scissors_start.png,1536,1024,RGB,PASS,,0.6490529378255209
+chest_opener,Chest Opener,START/END,chest_opener_start.png,Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png,1536,1024,RGB,PASS,,0.6359977620986772
+scissors,Nůžky,HERO,scissors_hero.png,Pilates Assets/02_Exercise_Cards/Scissors/scissors_hero.png,1536,1024,RGB,PASS,,0.6243944962819418
+deadbug,Dead Bug,HERO,dead_bug_hero.png,Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero.png,1536,1024,RGB,PASS,,0.6045699914296468
+russian,Rotace trupu v sedu,START/END,russian_twist_start.png,Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_start.png,1536,1024,RGB,PASS,,0.5892734527587891
+heeltaps,Heel Taps,HERO,heel_taps_hero.png,Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png,1536,1024,RGB,PASS,,0.588870127995809
+spine,Protažení páteře v sedu,HERO,spine_stretch_hero.png,Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.png,1536,1024,RGB,PASS,,0.5872128593462601
+scissors,Nůžky,MID,scissors_mid.png,Pilates Assets/02_Exercise_Cards/Scissors/scissors_mid.png,1536,1024,RGB,PASS,,0.580636739730835
+chest_opener,Chest Opener,HERO,chest_opener_hero.png,Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero.png,1536,1024,RGB,PASS,,0.5695356993812144
+revcrunch,Reverse Crunch,HERO,reverse_crunch_hero.png,Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero.png,1536,1024,RGB,PASS,,0.5593916575113932
+tap,Plank Shoulder Taps,START/END,plank_shoulder_taps_start.png,Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png,1536,1024,RGB,PASS,,0.5520498343574299
+sideplank_reach,Boční prkno s rotací,END,side_plank_reach_end.png,Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png,1536,1024,RGB,PASS,,0.5366532656465524
+hamstring_supine,Jemné protažení zadní strany stehna,START/END,hamstring_stretch_start.png,Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png,1536,1024,RGB,PASS,,0.5334439147627618
+revcrunch,Reverse Crunch,START/END,reverse_crunch_start.png,Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png,1536,1024,RGB,PASS,,0.5293866793314616
+toetap,Toe Taps,START/END,toe_tap_start.png,Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png,1536,1024,RGB,PASS,,0.5293866793314616
+plie,Plié Squat,START/END,plie_squat_start.png,Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png,1536,1024,RGB,PASS,,0.5252480506896973
+abduction,Roznožování v mostu,HERO,bridge_abduction_hero.png,Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png,1536,1024,RGB,PASS,,0.520666153359191
+deadbug,Dead Bug,START/END,dead_bug_start.png,Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_start.png,1536,1024,RGB,PASS,,0.5138974189758301
+mermaid,Mermaid Stretch,HERO,mermaid_stretch_hero.png,Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_hero.png,1536,1024,RGB,PASS,,0.5135560202936139
+legraises,Leg Raises,HERO,leg_raises_hero.png,Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero.png,1536,1024,RGB,PASS,,0.49337167577803226
+childs_pose,Pozice dítěte,HERO,childs_pose_hero.png,Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero.png,1536,1024,RGB,PASS,,0.4738629659016927
+hamstring_supine,Jemné protažení zadní strany stehna,HERO,hamstring_stretch_hero.png,Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_hero.png,1536,1024,RGB,PASS,,0.47383552614847924
+figure_four,Protažení hýždí vleže,START/END,figure_four_stretch_start.png,Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png,1536,1024,RGB,PASS,,0.46719786588396656
+glute_bridge_march,Pochod v mostu,START/END,glute_bridge_march_start.png,Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png,1536,1024,RGB,PASS,,0.46719786588396656
+hip_march,Pochod vleže,START/END,hip_march_start.png,Pilates Assets/02_Exercise_Cards/Hip March/hip_march_start.png,1536,1024,RGB,PASS,,0.46719786588396656
+hollow,Hollow Hold,START/END,hollow_hold_start.png,Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_start.png,1536,1024,RGB,PASS,,0.46719786588396656
+chest_fly,Rozpažování s činkami vleže,START/END,chest_fly_start.png,Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start.png,1536,1024,RGB,PASS,,0.44330261624194
+sideplank_reach,Boční prkno s rotací,HERO,side_plank_reach_hero.png,Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.png,1536,1024,RGB,PASS,,0.44209032271097415
+frog,Frog Pumps,START/END,frog_pumps_start.png,Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png,1536,1024,RGB,PASS,,0.43584653126496953
+hundred,Kmity pažemi vleže,HERO,hundred_hero.png,Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero.png,1536,1024,RGB,PASS,,0.43506431579589844
+sidekick,Side Kick,START,side_kick_start.png,Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.png,1536,1024,RGB,PASS,,0.434606839162941
+glute_bridge_march,Pochod v mostu,HERO,glute_bridge_march_hero.png,Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero.png,1536,1024,RGB,PASS,,0.43063879013061523
+legraises,Leg Raises,START/END,leg_raises_start.png,Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png,1536,1024,RGB,PASS,,0.4001032021619147
+knee_pushup,Kliky na kolenou,START/END,knee_push_up_start.png,Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png,1536,1024,RGB,PASS,,0.3847160157786207
+hip_march,Pochod vleže,HERO,hip_march_hero.png,Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero.png,1536,1024,RGB,PASS,,0.3742584682826903
+figure_four,Protažení hýždí vleže,MID,figure_four_stretch_mid.png,Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_mid.png,1536,1024,RGB,PASS,,0.36093346398570486
+knee_pushup,Kliky na kolenou,HERO,knee_push_up_hero.png,Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_hero.png,1536,1024,RGB,PASS,,0.35567768759650603
+sideplank,Side Plank,HERO,side_plank_hero.png,Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.png,1536,1024,RGB,PASS,,0.35441861431846033
+sideplank_reach,Boční prkno s rotací,START,side_plank_reach_start.png,Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png,1536,1024,RGB,PASS,,0.35441861431846033
+plank,Prkno na předloktích,START/HERO/END,forearm_plank_start.png,Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png,1536,1024,RGB,PASS,,0.342843515111974
+heeltaps,Heel Taps,START/END,heel_taps_start.png,Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png,1536,1024,RGB,PASS,,0.33571417275460597
+sideplank,Side Plank,START/END,side_plank_start.png,Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png,1536,1024,RGB,PASS,,0.3297488238587174
+sphinx,Sphinx Stretch,START/HERO/END,sphinx_stretch_start.png,Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png,1536,1024,RGB,PASS,,0.324187757543007
+abduction,Roznožování v mostu,START/END,bridge_abduction_start.png,Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png,1536,1024,RGB,PASS,,0.32194290502858103
+glute_bridge_march,Pochod v mostu,MID,glute_bridge_march_mid.png,Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_mid.png,1536,1024,RGB,PASS,,0.32194290502858103
+frog,Frog Pumps,HERO,frog_pumps_hero.png,Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.png,1536,1024,RGB,PASS,,0.29042255830975683
+bicycle,Bicycle Crunch,END,bicycle_crunch_end.png,Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png,1536,1024,RGB,PASS,,0.0
+bicycle,Bicycle Crunch,HERO,bicycle_crunch_hero.png,Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png,1536,1024,RGB,PASS,,0.0
+bicycle,Bicycle Crunch,START,bicycle_crunch_start.png,Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png,1536,1024,RGB,PASS,,0.0
