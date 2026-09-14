@@ -1,6 +1,6 @@
 # EXERCISE PROGRESS — aktivní obrazové karty
 
-Aktualizováno: 2026-09-12
+Aktualizováno: 2026-09-14
 Režim: audit skutečně aktivních ID z `data.js` a aktivního mapování z `app.js`.
 Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`.
 
@@ -27,7 +27,7 @@ Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRON
 - 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **0**
 - 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **0**
 - 🔴 CHYBÍ / NOVÝ CVIK: **0**
-- MUSCLE CARD K DOLADĚNÍ: **8**
+- MUSCLE CARD K DOLADĚNÍ: **9**
 - GUIDE/STEP K AKTUALIZACI: **0**
 
 Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
@@ -36,7 +36,7 @@ Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 
 | ID | Cvik | SOURCE stav | START | HERO | END | Guide | Step | Muscle Card | Co zbývá |
 |---|---|---|---|---|---|---|---|---|---|
-| `abduction` | Roznožování v mostu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `abduction` | Roznožování v mostu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO — `glutes_lateral_glutes_primary_core_secondary_muscles_v01.png` | Nic v rozsahu obrazových karet. |
 | `bicycle` | Bicycle Crunch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `bird` | Bird Dog | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `catcow` | Cat-Cow | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
@@ -65,7 +65,7 @@ Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 | `plank` | Prkno na předloktích | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — REUSE START | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `plie` | Plié Squat | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `press` | Tlaky s činkami nad hlavu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
-| `rainbow` | Rainbow Leg Raise | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
+| `rainbow` | Rainbow Leg Raise | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | HOTOVO — `glutes_lateral_glutes_primary_core_secondary_muscles_v01.png` | Nic v rozsahu obrazových karet. |
 | `raise` | Lateral Raise | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |
 | `rdl` | Rumunský mrtvý tah | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Runtime evidence Guide/Step doplněna; nic dalšího v rozsahu obrazových karet. |
 | `revcrunch` | Reverse Crunch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO | Nic v rozsahu obrazových karet. |

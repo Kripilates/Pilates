@@ -30,6 +30,11 @@ START → HERO → END
 ## App
 - [x] v02 deployed under canonical ID `rainbow`
 
+## Muscle Card
+- [x] `../_Muscle_Cards/glutes_lateral_glutes_primary_core_secondary_muscles_v01.png` — SCHVÁLENO / NASAZENO
+- PRIMARY A11 Gluteus maximus + A12 Lateral glutes; SECONDARY A01 Core
+- SHA-256: `86bf72f87ff7f76649ba0302e36cb0a30c78400526338c472f45cf55037fd437`
+
 ## Notes
 - Finální schválená sekvence používá přímý zadní úhel.
 - START: pracovní noha natažená nízko doprava.

@@ -13,6 +13,7 @@ Status: HOTOVO
 - EXPORT: HOTOVO
 - QA: SCHVÁLENO
 - APP: NASAZENO jako kanonické ID `abduction`
+- MUSCLE CARD: `../_Muscle_Cards/glutes_lateral_glutes_primary_core_secondary_muscles_v01.png` — SCHVÁLENO / NASAZENO; PRIMARY A11 + A12, SECONDARY A01; SHA-256 `86bf72f87ff7f76649ba0302e36cb0a30c78400526338c472f45cf55037fd437`
 
 ## Notes
 

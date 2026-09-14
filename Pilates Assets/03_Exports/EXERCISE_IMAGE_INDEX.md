@@ -1,6 +1,6 @@
 # EXERCISE IMAGE INDEX — aktivní runtime
 
-Aktualizováno: 2026-09-12
+Aktualizováno: 2026-09-14
 
 Tento index už nevede samostatný paralelní seznam. Kanonická inventura všech 51 aktivních ID, jejich skutečně mapovaných START/HERO/END souborů, Guide, Step a Muscle Card je v [EXERCISE_PROGRESS.md](../../00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md).
 
@@ -20,5 +20,6 @@ Tento index už nevede samostatný paralelní seznam. Kanonická inventura všec
 - `hip`, `donkey` a `glute_bridge_march` správně používají schválenou Muscle Card `glutes_primary_hamstrings_core_secondary_muscles_v01.png` (PRIMARY A11; SECONDARY A14 + A01)
 - `frog` má podle autoritativního auditu profil A11 + A01; jeho současné runtime mapování na A11 + A14/A01 je evidovaný mapping mismatch k samostatné opravě
 - `quadriceps_primary_hamstrings_secondary_muscles_v01.png` je schválená a uložená, ale bez runtime přiřazení, protože žádný aktivní profil přesně neodpovídá A13 + A14
+- `abduction` a `rainbow` používají schválenou Muscle Card `glutes_lateral_glutes_primary_core_secondary_muscles_v01.png` (PRIMARY A11 + A12; SECONDARY A01)
 
 Při další asset práci aktualizuj kanonickou tabulku, nikoli tento rozcestník.

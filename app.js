@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.194-dev';
+const APP_VERSION='v59.195-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -762,6 +762,7 @@ const sharedMuscleCards=Object.freeze({
   obliquesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_primary_core_secondary_muscles_v01.png?v=59209muscleprofiles',alt:'Šikmé břišní svaly a střed těla',label:'Šikmé břišní svaly • střed těla'}),
   deltoids:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/deltoids_primary_muscles_v01.png?v=59209muscleprofiles',alt:'Ramena',label:'Ramena'}),
   lateralGlutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/lateral_glutes_primary_core_secondary_muscles_v01.png?v=59209muscleprofiles',alt:'Boční hýžďové svaly a střed těla',label:'Boční hýžďové svaly • střed těla'}),
+  glutesLateralGlutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_lateral_glutes_primary_core_secondary_muscles_v01.png?v=59210muscleprofiles',alt:'Hýždě, boční hýžďové svaly a střed těla',label:'Hýždě • boční hýždě • střed těla'}),
   glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
   thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
   obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
@@ -1262,7 +1263,7 @@ const referenceExerciseAssets={
     }
   },
   abduction:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesLateralGlutesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start.png?v=59170todayauditfix',
@@ -1288,7 +1289,7 @@ const referenceExerciseAssets={
     }
   },
   rainbow:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesLateralGlutesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Rainbow%20Leg%20Raise/rainbow_leg_raise_end.png',
