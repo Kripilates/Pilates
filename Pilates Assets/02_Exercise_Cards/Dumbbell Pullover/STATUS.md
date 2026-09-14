@@ -1,11 +1,11 @@
-# Dumbbell Pullover — STATUS
+# Přítah činky za hlavu — STATUS
 
 Status: SOURCE / RUNTIME / GUIDE / STEP HOTOVO; MUSCLE CARD OPEN
 
 ## Identity
 
 - Kanonické ID aplikace: `dumbbell_pullover`
-- Zobrazovaný název: Dumbbell Pullover
+- Zobrazovaný název: Přítah činky za hlavu
 - Vybavení: jedna činka držená oběma rukama
 
 ## Program
