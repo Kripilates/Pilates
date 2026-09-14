@@ -240,6 +240,9 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 | deltoids_primary_muscles_v01.png | A05 Ramena | — | `raise` | SCHVÁLENO |
 | lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01 Core | `clam`, `sideleg` | SCHVÁLENO |
 | glutes_lateral_glutes_primary_core_secondary_muscles_v01.png | A11 Gluteus maximus + A12 Lateral glutes | A01 Core | `abduction`, `rainbow` | SCHVÁLENO / NASAZENO |
+| glutes_primary_core_secondary_muscles_v01.png | A11 Gluteus maximus | A01 Core | `frog` | SCHVÁLENO / NASAZENO |
+| glutes_lateral_glutes_primary_muscles_v01.png | A11 Gluteus maximus + A12 Lateral glutes | — | `figure_four` | SCHVÁLENO / NASAZENO |
+| hamstrings_primary_muscles_v01.png | A14 Hamstrings | — | `hamstring_supine` | SCHVÁLENO / NASAZENO |
 
 Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
 

@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.195-dev';
+const APP_VERSION='v59.196-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -763,6 +763,9 @@ const sharedMuscleCards=Object.freeze({
   deltoids:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/deltoids_primary_muscles_v01.png?v=59209muscleprofiles',alt:'Ramena',label:'Ramena'}),
   lateralGlutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/lateral_glutes_primary_core_secondary_muscles_v01.png?v=59209muscleprofiles',alt:'Boční hýžďové svaly a střed těla',label:'Boční hýžďové svaly • střed těla'}),
   glutesLateralGlutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_lateral_glutes_primary_core_secondary_muscles_v01.png?v=59210muscleprofiles',alt:'Hýždě, boční hýžďové svaly a střed těla',label:'Hýždě • boční hýždě • střed těla'}),
+  glutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_core_secondary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hýždě a střed těla',label:'Hýždě • střed těla'}),
+  glutesLateralGlutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_lateral_glutes_primary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hýždě a boční hýžďové svaly',label:'Hýždě • boční hýždě'}),
+  hamstrings:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/hamstrings_primary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hamstringy',label:'Hamstringy'}),
   glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
   thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
   obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
@@ -855,7 +858,7 @@ const referenceExerciseAssets={
     }
   },
   frog:{
-    anatomy:sharedMuscleCards.glutesHamstringsCore,
+    anatomy:sharedMuscleCards.glutesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
@@ -1315,7 +1318,7 @@ const referenceExerciseAssets={
     }
   },
   hamstring_supine:{
-    anatomy:sharedMuscleCards.thighs,
+    anatomy:sharedMuscleCards.hamstrings,
     start:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Stretch/hamstring_stretch_start.png',
@@ -1341,7 +1344,7 @@ const referenceExerciseAssets={
     }
   },
   figure_four:{
-    anatomy:sharedMuscleCards.glutes,
+    anatomy:sharedMuscleCards.glutesLateralGlutes,
     start:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_start.png?v=59198sourcebatch9',
     mid:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_mid.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Figure%20Four%20Stretch/figure_four_stretch_hero.png?v=59198sourcebatch9',
