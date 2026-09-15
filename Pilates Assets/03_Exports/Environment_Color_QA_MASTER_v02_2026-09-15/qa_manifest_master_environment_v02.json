@@ -1,0 +1,4834 @@
+{
+  "summary": {
+    "authority": "00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png",
+    "master_sha256": "5009beea26146d61d1f962de2bba59af58a56f30dc7fcb99cbe477986666ea9e",
+    "master_dimensions": "1536x1024",
+    "master_mode": "RGB",
+    "master_horizon_y": 710,
+    "master_wall_median_Lab": [
+      80.606,
+      1.374,
+      1.614
+    ],
+    "master_floor_median_Lab": [
+      76.252,
+      3.893,
+      9.389
+    ],
+    "active_exercise_ids": 51,
+    "active_source_files": 110,
+    "status_counts": {
+      "PASS": 0,
+      "MINOR COLOR FIX": 41,
+      "STRONG COLOR FIX": 69
+    },
+    "production_sources_changed": 0,
+    "changed_pixels_outside_environment_masks": 0,
+    "before_after_galleries": [
+      "QA_GALLERIES/before_after_01.jpg",
+      "QA_GALLERIES/before_after_02.jpg",
+      "QA_GALLERIES/before_after_03.jpg",
+      "QA_GALLERIES/before_after_04.jpg",
+      "QA_GALLERIES/before_after_05.jpg",
+      "QA_GALLERIES/before_after_06.jpg",
+      "QA_GALLERIES/before_after_07.jpg",
+      "QA_GALLERIES/before_after_08.jpg",
+      "QA_GALLERIES/before_after_09.jpg",
+      "QA_GALLERIES/before_after_10.jpg",
+      "QA_GALLERIES/before_after_11.jpg",
+      "QA_GALLERIES/before_after_12.jpg",
+      "QA_GALLERIES/before_after_13.jpg",
+      "QA_GALLERIES/before_after_14.jpg",
+      "QA_GALLERIES/before_after_15.jpg",
+      "QA_GALLERIES/before_after_16.jpg",
+      "QA_GALLERIES/before_after_17.jpg",
+      "QA_GALLERIES/before_after_18.jpg",
+      "QA_GALLERIES/before_after_19.jpg"
+    ],
+    "after_contact_sheets": [
+      "QA_GALLERIES/after_contact_sheet_01.jpg",
+      "QA_GALLERIES/after_contact_sheet_02.jpg",
+      "QA_GALLERIES/after_contact_sheet_03.jpg",
+      "QA_GALLERIES/after_contact_sheet_04.jpg",
+      "QA_GALLERIES/after_contact_sheet_05.jpg"
+    ]
+  },
+  "files": [
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png",
+      "exercise_ids": [
+        "hip"
+      ],
+      "roles": [
+        "hip:START",
+        "hip:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "38d74cdf7ee472b456cb545bba67696a3b925089cbbb9932300fafebe0cf03bb",
+      "candidate_sha256": "a7beacfc6ab6573ade9f75cffb8a91fe34f8b5494b2f3382d918167fc5733b55",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 768,
+      "mask_pixels": 1121177,
+      "wall_mask_pixels": 887189,
+      "floor_mask_pixels": 233988,
+      "changed_pixels": 1121177,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.847,
+        0.505,
+        -8.185
+      ],
+      "floor_source_median_Lab": [
+        81.648,
+        5.298,
+        6.712
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.626,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.012,
+        1.928
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png",
+      "exercise_ids": [
+        "hip"
+      ],
+      "roles": [
+        "hip:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "52dbbe56e6c424b333ea04daf37164760aab72b261312999c82bb26ce64a21b6",
+      "candidate_sha256": "eaa145f2d7217a7c2b460cd36127a5c42f667c4b7d7c6acfceea4f3ef12ea1e4",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 797,
+      "mask_pixels": 1080594,
+      "wall_mask_pixels": 871735,
+      "floor_mask_pixels": 208859,
+      "changed_pixels": 1080594,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.061,
+        0.301,
+        -7.691
+      ],
+      "floor_source_median_Lab": [
+        79.832,
+        6.223,
+        10.013
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.772,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.677,
+        -0.449
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png",
+      "exercise_ids": [
+        "rdl"
+      ],
+      "roles": [
+        "rdl:START",
+        "rdl:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "dd57f48952eefad6bf9a00343fdd247dffabe8c144cca4d80a8b45ba1b4f3667",
+      "candidate_sha256": "d2e31a7124f6bf997f9d16338e8acc6d145a0b1b39d78dd3b509e19374805dad",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 695,
+      "mask_pixels": 1232948,
+      "wall_mask_pixels": 866766,
+      "floor_mask_pixels": 366182,
+      "changed_pixels": 1232948,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        94.847,
+        0.417,
+        -2.039
+      ],
+      "floor_source_median_Lab": [
+        88.969,
+        4.614,
+        4.159
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.689,
+        2.63
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.519,
+        3.766
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.png",
+      "exercise_ids": [
+        "rdl"
+      ],
+      "roles": [
+        "rdl:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "16e8b9a2992310a6cab59bb1541f36302564f6fb7fe578d8bda9fd23b59498e2",
+      "candidate_sha256": "d3a014fddf1e3f2f7c7baa1b5bda81e90f1913725f7d8e43f0a8084ae83c6f14",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 694,
+      "mask_pixels": 1191483,
+      "wall_mask_pixels": 847491,
+      "floor_mask_pixels": 343992,
+      "changed_pixels": 1191483,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        91.683,
+        1.079,
+        -3.28
+      ],
+      "floor_source_median_Lab": [
+        87.222,
+        4.994,
+        3.789
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.212,
+        3.524
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.792,
+        4.032
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png",
+      "exercise_ids": [
+        "hydrant"
+      ],
+      "roles": [
+        "hydrant:START",
+        "hydrant:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "253f47ba096fe2d3edf9d10d0fde8169d66e6dbda1360fd2d161e3a4e4972a28",
+      "candidate_sha256": "f72819146aa0a95c9db0f09cff2b890d4c42710d113bfba15ec5abb32ce71fcf",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 755,
+      "mask_pixels": 1048842,
+      "wall_mask_pixels": 762824,
+      "floor_mask_pixels": 286018,
+      "changed_pixels": 1048842,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.412,
+        0.604,
+        -6.95
+      ],
+      "floor_source_median_Lab": [
+        79.132,
+        4.285,
+        6.264
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.554,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.14,
+        -0.283,
+        2.25
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png",
+      "exercise_ids": [
+        "hydrant"
+      ],
+      "roles": [
+        "hydrant:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "11cf871fec46ea7faed32bab63ebd9f791c5e3d7624907046899a31e6f00a7b4",
+      "candidate_sha256": "9a3c0ed62248116c61acf013069ffd6b5ebf5922577d080fc02769a179b25338",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 771,
+      "mask_pixels": 1029993,
+      "wall_mask_pixels": 763662,
+      "floor_mask_pixels": 266331,
+      "changed_pixels": 1029993,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.067,
+        0.909,
+        -8.506
+      ],
+      "floor_source_median_Lab": [
+        78.637,
+        4.929,
+        6.709
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.334,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.944,
+        -0.746,
+        1.93
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png",
+      "exercise_ids": [
+        "donkey"
+      ],
+      "roles": [
+        "donkey:START",
+        "donkey:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "4a52bc908cc5616bc94ea795a9aab08fd0bef91a575a5ca45040cdce8c6c0db8",
+      "candidate_sha256": "eb3fe426eb91a7a7e101e10547ccd8a788b6e8fa506148c32bccce298681ed8f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 758,
+      "mask_pixels": 1068158,
+      "wall_mask_pixels": 762624,
+      "floor_mask_pixels": 305534,
+      "changed_pixels": 1068158,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.602,
+        0.793,
+        -5.33
+      ],
+      "floor_source_median_Lab": [
+        77.247,
+        6.244,
+        11.872
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.418,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.394,
+        -1.693,
+        -1.787
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png",
+      "exercise_ids": [
+        "donkey"
+      ],
+      "roles": [
+        "donkey:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "5c4d772d492aee5d9bd9eef55fbd4328f62ed5db017f5a0b63d651b4ae463493",
+      "candidate_sha256": "af0f1aeddb67c8a2f1e1b9f7916e5fd5c58ca31b810e3e5cf863cad820508d09",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 779,
+      "mask_pixels": 1021595,
+      "wall_mask_pixels": 764897,
+      "floor_mask_pixels": 256698,
+      "changed_pixels": 1021595,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.078,
+        0.706,
+        -6.921
+      ],
+      "floor_source_median_Lab": [
+        75.911,
+        6.775,
+        13.15
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.481,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        0.135,
+        -2.075,
+        -2.707
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png",
+      "exercise_ids": [
+        "frog"
+      ],
+      "roles": [
+        "frog:START",
+        "frog:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "023676a06d9fd1d8a9d86f0aeb9cce86c273a6dbb7d3c7d48f570165a4387dcc",
+      "candidate_sha256": "888f2bbb4215215c4415ea9149a7c907b4e93827dcee61bce1ca0b2489b06661",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 755,
+      "mask_pixels": 1143991,
+      "wall_mask_pixels": 902898,
+      "floor_mask_pixels": 241093,
+      "changed_pixels": 1143991,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.975,
+        0.859,
+        0.238
+      ],
+      "floor_source_median_Lab": [
+        81.625,
+        4.931,
+        9.103
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.371,
+        0.991
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.748,
+        0.206
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.png",
+      "exercise_ids": [
+        "frog"
+      ],
+      "roles": [
+        "frog:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Frog Pumps/frog_pumps_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "090e68ecf8fac3e93f863b40380749d9b76ca672bfa211f56240785cd6333c14",
+      "candidate_sha256": "04a3e7d2eea42bda8f1c744361492de4d6f402d1d247e9944331e9282245ef42",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 700,
+      "mask_pixels": 1108582,
+      "wall_mask_pixels": 866586,
+      "floor_mask_pixels": 241996,
+      "changed_pixels": 1108582,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.23,
+        0.692,
+        -0.983
+      ],
+      "floor_source_median_Lab": [
+        80.364,
+        6.283,
+        10.532
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.491,
+        1.87
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.721,
+        -0.823
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png",
+      "exercise_ids": [
+        "clam"
+      ],
+      "roles": [
+        "clam:START",
+        "clam:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "3d4bfd626d4ce235c16e8eb451ad5e2106f183a5780c3bd0125f823c1ad6286d",
+      "candidate_sha256": "0bdebc927fb7526eaae98f8710a1054c082f7382db2fdcaab3a0b11f88546603",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 777,
+      "mask_pixels": 1090933,
+      "wall_mask_pixels": 783792,
+      "floor_mask_pixels": 307141,
+      "changed_pixels": 1090933,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.415,
+        0.998,
+        -8.573
+      ],
+      "floor_source_median_Lab": [
+        82.257,
+        4.905,
+        4.782
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.27,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.729,
+        3.317
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png",
+      "exercise_ids": [
+        "clam"
+      ],
+      "roles": [
+        "clam:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "e2f89da7cc6ca7884f4c619b275948fddb88f5fe08a57f658b25b8153c02394d",
+      "candidate_sha256": "7a356b8a915ff2644a1b7ba33b071e012ad893b95eed97f3167111e3d39fd0cc",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 785,
+      "mask_pixels": 1076914,
+      "wall_mask_pixels": 779073,
+      "floor_mask_pixels": 297841,
+      "changed_pixels": 1076914,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.035,
+        0.576,
+        -4.115
+      ],
+      "floor_source_median_Lab": [
+        86.406,
+        4.654,
+        4.108
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.574,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.548,
+        3.803
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png",
+      "exercise_ids": [
+        "sideleg"
+      ],
+      "roles": [
+        "sideleg:START",
+        "sideleg:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "60ea5bf79aae4648610220d4e9e0efad417cb0eae065429b312b391372f39e09",
+      "candidate_sha256": "0b54c7d7b1b0634b856cfaa9197bee6519fc7a5a8b3e31741bd91755708fb874",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 706,
+      "mask_pixels": 1107998,
+      "wall_mask_pixels": 739526,
+      "floor_mask_pixels": 368472,
+      "changed_pixels": 1107998,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.078,
+        0.505,
+        -5.437
+      ],
+      "floor_source_median_Lab": [
+        86.648,
+        4.345,
+        4.428
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.626,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.326,
+        3.572
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png",
+      "exercise_ids": [
+        "sideleg"
+      ],
+      "roles": [
+        "sideleg:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "969a636fdc053566eeb979d91536545f0dd35d54acd67e24f09bca76b86b03c7",
+      "candidate_sha256": "164536b1f27a97d3172dc8ab76ade7baea0abb4ab3bb46363ca9ecc0ce583e5f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 788,
+      "mask_pixels": 1038739,
+      "wall_mask_pixels": 729879,
+      "floor_mask_pixels": 308860,
+      "changed_pixels": 1038739,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.514,
+        0.805,
+        -5.208
+      ],
+      "floor_source_median_Lab": [
+        87.092,
+        4.486,
+        3.979
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.409,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.427,
+        3.896
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png",
+      "exercise_ids": [
+        "sideplank"
+      ],
+      "roles": [
+        "sideplank:START",
+        "sideplank:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "67211c832812fde512f0847eb9a209d65aef918c411d269841204db87be7ba93",
+      "candidate_sha256": "7e365031ec2ef8ece5d34db374eb6809e8b59adadfb79d899aacd250a37aac98",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 711,
+      "mask_pixels": 1001863,
+      "wall_mask_pixels": 797497,
+      "floor_mask_pixels": 204366,
+      "changed_pixels": 1001863,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.551,
+        0.725,
+        -1.957
+      ],
+      "floor_source_median_Lab": [
+        79.393,
+        8.167,
+        11.719
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.467,
+        2.571
+      ],
+      "floor_relative_shift_Lab": [
+        -1.244,
+        -3.078,
+        -1.677
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.png",
+      "exercise_ids": [
+        "sideplank"
+      ],
+      "roles": [
+        "sideplank:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Plank/side_plank_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "67d93f038db9c216bec4e1b0c7d7d9022d05a84c55e5efd2618e3e7577f8e9bb",
+      "candidate_sha256": "b3df269013931730cac59af97ede3fa21fcd98f23b0e33cbb565e526b3e2845f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 710,
+      "mask_pixels": 956362,
+      "wall_mask_pixels": 743608,
+      "floor_mask_pixels": 212754,
+      "changed_pixels": 956362,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.638,
+        0.727,
+        -1.468
+      ],
+      "floor_source_median_Lab": [
+        79.044,
+        8.239,
+        11.773
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.466,
+        2.219
+      ],
+      "floor_relative_shift_Lab": [
+        -1.106,
+        -3.129,
+        -1.716
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png",
+      "exercise_ids": [
+        "sideplank_reach"
+      ],
+      "roles": [
+        "sideplank_reach:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "67d93f038db9c216bec4e1b0c7d7d9022d05a84c55e5efd2618e3e7577f8e9bb",
+      "candidate_sha256": "b3df269013931730cac59af97ede3fa21fcd98f23b0e33cbb565e526b3e2845f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 710,
+      "mask_pixels": 956362,
+      "wall_mask_pixels": 743608,
+      "floor_mask_pixels": 212754,
+      "changed_pixels": 956362,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.638,
+        0.727,
+        -1.468
+      ],
+      "floor_source_median_Lab": [
+        79.044,
+        8.239,
+        11.773
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.466,
+        2.219
+      ],
+      "floor_relative_shift_Lab": [
+        -1.106,
+        -3.129,
+        -1.716
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.png",
+      "exercise_ids": [
+        "sideplank_reach"
+      ],
+      "roles": [
+        "sideplank_reach:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "c00dae126a2115794506d9329c7f07ab834a84f6b4096e1f7fe4fcb9c2c6f2ff",
+      "candidate_sha256": "b50196ca78a88dba782176341aec5d9520fc89207cde90a078b70b5366ba9f5e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 732,
+      "mask_pixels": 1031858,
+      "wall_mask_pixels": 813480,
+      "floor_mask_pixels": 218378,
+      "changed_pixels": 1031858,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.072,
+        1.859,
+        0.859
+      ],
+      "floor_source_median_Lab": [
+        76.699,
+        7.879,
+        12.722
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.349,
+        0.544
+      ],
+      "floor_relative_shift_Lab": [
+        -0.177,
+        -2.87,
+        -2.399
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png",
+      "exercise_ids": [
+        "sideplank_reach"
+      ],
+      "roles": [
+        "sideplank_reach:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "ff89936718328350ab3491b3f86f258244a0bd21c02aca55f43e824ce2fdbf2b",
+      "candidate_sha256": "7cea3bf05e78ed3c39253ddcaf6bbca1cf9340174833fc54fbec0ead293f0447",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 797,
+      "mask_pixels": 961105,
+      "wall_mask_pixels": 803432,
+      "floor_mask_pixels": 157673,
+      "changed_pixels": 961105,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.239,
+        0.905,
+        -1.968
+      ],
+      "floor_source_median_Lab": [
+        76.199,
+        8.382,
+        13.926
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.338,
+        2.58
+      ],
+      "floor_relative_shift_Lab": [
+        0.021,
+        -3.232,
+        -3.266
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_start.png",
+      "exercise_ids": [
+        "deadbug"
+      ],
+      "roles": [
+        "deadbug:START",
+        "deadbug:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "762e5d77b7c74d59c54c256ece05809ab039c8b0ddfa2de38b899440b1559723",
+      "candidate_sha256": "f226b7c994fa1c20f56fe813d0a500a026c1d358b8f5ebdda27e46e55687c0c1",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 797,
+      "mask_pixels": 1111316,
+      "wall_mask_pixels": 916144,
+      "floor_mask_pixels": 195172,
+      "changed_pixels": 1111316,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        82.128,
+        1.064,
+        -2.867
+      ],
+      "floor_source_median_Lab": [
+        77.724,
+        6.77,
+        10.047
+      ],
+      "wall_relative_shift_Lab": [
+        -0.603,
+        0.223,
+        3.227
+      ],
+      "floor_relative_shift_Lab": [
+        -0.583,
+        -2.071,
+        -0.473
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero.png",
+      "exercise_ids": [
+        "deadbug"
+      ],
+      "roles": [
+        "deadbug:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Dead Bug/dead_bug_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "a3881954b58d1a50671609516bd53f03c06bfb226cb95fa0ec055b9139b4aab6",
+      "candidate_sha256": "0b2f7d9aef8f4e204fe4f64d646cbe53e029296cf50257b08c6428198069acb3",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 797,
+      "mask_pixels": 1069895,
+      "wall_mask_pixels": 880448,
+      "floor_mask_pixels": 189447,
+      "changed_pixels": 1069895,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        81.174,
+        1.1,
+        -4.205
+      ],
+      "floor_source_median_Lab": [
+        77.295,
+        6.969,
+        9.044
+      ],
+      "wall_relative_shift_Lab": [
+        -0.225,
+        0.197,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.413,
+        -2.214,
+        0.248
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png",
+      "exercise_ids": [
+        "toetap"
+      ],
+      "roles": [
+        "toetap:START",
+        "toetap:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Toe Tap/toe_tap_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "18d1b5210a94236f9e630a64b48e3cc92d5c722e9eaa11123d82f4fb443a9f9c",
+      "candidate_sha256": "3dfbe466e953e4cd6fb3f1191f1d3fd8a1b7b8865d5c5280fc59a083a1281848",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 762,
+      "mask_pixels": 1117609,
+      "wall_mask_pixels": 860442,
+      "floor_mask_pixels": 257167,
+      "changed_pixels": 1117609,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.543,
+        1.019,
+        0.363
+      ],
+      "floor_source_median_Lab": [
+        80.758,
+        5.07,
+        8.456
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.255,
+        0.901
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.847,
+        0.672
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.png",
+      "exercise_ids": [
+        "toetap"
+      ],
+      "roles": [
+        "toetap:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Toe Tap/toe_taps_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "9c7120aa490af2f0c94dd864e0d2de91d89533005af2af183b2475cfd43a585f",
+      "candidate_sha256": "136bdc1cdf0a2f2d94e348f5e8bd7595462f00478c1cdb76a374ba53892bd72e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 737,
+      "mask_pixels": 1082731,
+      "wall_mask_pixels": 787494,
+      "floor_mask_pixels": 295237,
+      "changed_pixels": 1082731,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.789,
+        0.73,
+        -1.826
+      ],
+      "floor_source_median_Lab": [
+        80.74,
+        5.607,
+        7.567
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.463,
+        2.477
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.234,
+        1.312
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png",
+      "exercise_ids": [
+        "revcrunch"
+      ],
+      "roles": [
+        "revcrunch:START",
+        "revcrunch:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "18d1b5210a94236f9e630a64b48e3cc92d5c722e9eaa11123d82f4fb443a9f9c",
+      "candidate_sha256": "3dfbe466e953e4cd6fb3f1191f1d3fd8a1b7b8865d5c5280fc59a083a1281848",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 762,
+      "mask_pixels": 1117609,
+      "wall_mask_pixels": 860442,
+      "floor_mask_pixels": 257167,
+      "changed_pixels": 1117609,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.543,
+        1.019,
+        0.363
+      ],
+      "floor_source_median_Lab": [
+        80.758,
+        5.07,
+        8.456
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.255,
+        0.901
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.847,
+        0.672
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero.png",
+      "exercise_ids": [
+        "revcrunch"
+      ],
+      "roles": [
+        "revcrunch:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Reverse Crunch/reverse_crunch_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "49dfdd140c74aaaecff5e68768d4ecba9dcf00c68aee002f96698ab508a0a196",
+      "candidate_sha256": "681a2c876a33263f67e702f9d0a94e13c6f2159cb57844d70c02e9520b6ae52d",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 735,
+      "mask_pixels": 1092313,
+      "wall_mask_pixels": 844385,
+      "floor_mask_pixels": 247928,
+      "changed_pixels": 1092313,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.015,
+        1.033,
+        -0.13
+      ],
+      "floor_source_median_Lab": [
+        80.466,
+        5.857,
+        8.563
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.245,
+        1.256
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.414,
+        0.595
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png",
+      "exercise_ids": [
+        "bicycle"
+      ],
+      "roles": [
+        "bicycle:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "703fed20ee7037aa72ffecaf30dd9086341363c05ebfd6e3b77dd3269f623a6b",
+      "candidate_sha256": "d9a1ac5b6791d395c00bd48fc326fd83a13a5a71704d77be390f906fa41f0fbb",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 710,
+      "mask_pixels": 1086269,
+      "wall_mask_pixels": 810681,
+      "floor_mask_pixels": 275588,
+      "changed_pixels": 1086269,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.672,
+        1.24,
+        -1.593
+      ],
+      "floor_source_median_Lab": [
+        81.546,
+        6.573,
+        9.419
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.096,
+        2.309
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.93,
+        -0.021
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png",
+      "exercise_ids": [
+        "bicycle"
+      ],
+      "roles": [
+        "bicycle:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "93889f84f6fa815714ceeb7c5e7281c69220a1f9b579342ca8c921ac2ce679c7",
+      "candidate_sha256": "2fb1df04c98d3cde683eaab130f8f91c8b33133cdc63a6d7f82220a23933e0b5",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 736,
+      "mask_pixels": 1001307,
+      "wall_mask_pixels": 762321,
+      "floor_mask_pixels": 238986,
+      "changed_pixels": 1001307,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.148,
+        1.585,
+        -1.231
+      ],
+      "floor_source_median_Lab": [
+        78.247,
+        6.748,
+        12.349
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.152,
+        2.049
+      ],
+      "floor_relative_shift_Lab": [
+        -0.79,
+        -2.056,
+        -2.131
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png",
+      "exercise_ids": [
+        "bicycle"
+      ],
+      "roles": [
+        "bicycle:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "ba012bcfae8d6aef2758d0ad42343ba5542f090d1abc0db3e104dd3a1b8d69da",
+      "candidate_sha256": "0ef2435675ad9fb236e6e19c2a73c1feefab23455497dbf1ff871c9b61136362",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 771,
+      "mask_pixels": 1046068,
+      "wall_mask_pixels": 798236,
+      "floor_mask_pixels": 247832,
+      "changed_pixels": 1046068,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        83.255,
+        1.72,
+        0.865
+      ],
+      "floor_source_median_Lab": [
+        77.633,
+        7.032,
+        12.397
+      ],
+      "wall_relative_shift_Lab": [
+        -1.049,
+        -0.25,
+        0.539
+      ],
+      "floor_relative_shift_Lab": [
+        -0.547,
+        -2.26,
+        -2.166
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png",
+      "exercise_ids": [
+        "catcow"
+      ],
+      "roles": [
+        "catcow:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "9d4cded4f4f1bfd7fb286735f448f2dae60ff7864d183eb9429d541d58e95a2c",
+      "candidate_sha256": "6b7f2d92c744f2ffea51b2b8624f52ff291165ec86498bb67fab3a0f6134a477",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 706,
+      "mask_pixels": 1033846,
+      "wall_mask_pixels": 783529,
+      "floor_mask_pixels": 250317,
+      "changed_pixels": 1033846,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.938,
+        1.515,
+        -0.497
+      ],
+      "floor_source_median_Lab": [
+        84.942,
+        4.763,
+        6.435
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.102,
+        1.52
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.627,
+        2.127
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png",
+      "exercise_ids": [
+        "catcow"
+      ],
+      "roles": [
+        "catcow:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "ec3b49e1e85abd125791ddce66aef8816350444cb56653d868572e5106b0beca",
+      "candidate_sha256": "287e60d8c4355e73dbf2f68b985d8dbbd6844ddf2617f65c087bfbb586a58db4",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 745,
+      "mask_pixels": 1029575,
+      "wall_mask_pixels": 808210,
+      "floor_mask_pixels": 221365,
+      "changed_pixels": 1029575,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.33,
+        1.21,
+        -0.249
+      ],
+      "floor_source_median_Lab": [
+        83.362,
+        4.391,
+        6.104
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.118,
+        1.342
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.359,
+        2.365
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png",
+      "exercise_ids": [
+        "catcow"
+      ],
+      "roles": [
+        "catcow:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "0dd696918c9b8f14a3b376f8538bb3c105bad71341cfd3be7d122ddb22aba450",
+      "candidate_sha256": "514ab0b8d41b0b9d14e83a36b02ca130caaa98a37d8d57efe111a235760c7edc",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 747,
+      "mask_pixels": 1032209,
+      "wall_mask_pixels": 801275,
+      "floor_mask_pixels": 230934,
+      "changed_pixels": 1032209,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.924,
+        1.533,
+        -0.619
+      ],
+      "floor_source_median_Lab": [
+        84.599,
+        5.121,
+        6.316
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.115,
+        1.608
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.884,
+        2.213
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png",
+      "exercise_ids": [
+        "childs_pose"
+      ],
+      "roles": [
+        "childs_pose:START",
+        "childs_pose:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "9d4cded4f4f1bfd7fb286735f448f2dae60ff7864d183eb9429d541d58e95a2c",
+      "candidate_sha256": "6b7f2d92c744f2ffea51b2b8624f52ff291165ec86498bb67fab3a0f6134a477",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 706,
+      "mask_pixels": 1033846,
+      "wall_mask_pixels": 783529,
+      "floor_mask_pixels": 250317,
+      "changed_pixels": 1033846,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.938,
+        1.515,
+        -0.497
+      ],
+      "floor_source_median_Lab": [
+        84.942,
+        4.763,
+        6.435
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.102,
+        1.52
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.627,
+        2.127
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero.png",
+      "exercise_ids": [
+        "childs_pose"
+      ],
+      "roles": [
+        "childs_pose:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Child's Pose/childs_pose_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "ee55f6610090227719b2f9c0724843fbce72c60d006274547b3cec232acf68b8",
+      "candidate_sha256": "be0b2cf7192b37691131f353cc0306f6514cc5cfd3a7fd1f21ca5d05d27c3fd8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 767,
+      "mask_pixels": 1121350,
+      "wall_mask_pixels": 885896,
+      "floor_mask_pixels": 235454,
+      "changed_pixels": 1121350,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.787,
+        0.907,
+        -1.475
+      ],
+      "floor_source_median_Lab": [
+        76.862,
+        6.536,
+        9.683
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.336,
+        2.225
+      ],
+      "floor_relative_shift_Lab": [
+        -0.242,
+        -1.903,
+        -0.212
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png",
+      "exercise_ids": [
+        "chest_opener"
+      ],
+      "roles": [
+        "chest_opener:START",
+        "chest_opener:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "ab5a7b2330678b5dbb3c52936b8b716c2842a5a10791bff6366765aa708690b4",
+      "candidate_sha256": "05969e5f19a75946197c956c4beff003a544947f465e9847551031e04e8e06cb",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 699,
+      "mask_pixels": 1151257,
+      "wall_mask_pixels": 845358,
+      "floor_mask_pixels": 305899,
+      "changed_pixels": 1151257,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.569,
+        0.866,
+        -0.25
+      ],
+      "floor_source_median_Lab": [
+        79.14,
+        5.644,
+        10.086
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.366,
+        1.343
+      ],
+      "floor_relative_shift_Lab": [
+        -1.144,
+        -1.261,
+        -0.501
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero.png",
+      "exercise_ids": [
+        "chest_opener"
+      ],
+      "roles": [
+        "chest_opener:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "4583691f3fd532642d0b592efaa480cc1d532e002ef807e9ba8053adc4032f1c",
+      "candidate_sha256": "4d66ce08382d95db9d650bbde7e2cc3ae5f2fdb2a70db28cca5afd5076c053d1",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 699,
+      "mask_pixels": 1165128,
+      "wall_mask_pixels": 844568,
+      "floor_mask_pixels": 320560,
+      "changed_pixels": 1165128,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.155,
+        1.038,
+        -1.339
+      ],
+      "floor_source_median_Lab": [
+        80.745,
+        6.616,
+        9.783
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.242,
+        2.127
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.961,
+        -0.284
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png",
+      "exercise_ids": [
+        "bird"
+      ],
+      "roles": [
+        "bird:START",
+        "bird:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "9d4cded4f4f1bfd7fb286735f448f2dae60ff7864d183eb9429d541d58e95a2c",
+      "candidate_sha256": "6b7f2d92c744f2ffea51b2b8624f52ff291165ec86498bb67fab3a0f6134a477",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 706,
+      "mask_pixels": 1033846,
+      "wall_mask_pixels": 783529,
+      "floor_mask_pixels": 250317,
+      "changed_pixels": 1033846,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.938,
+        1.515,
+        -0.497
+      ],
+      "floor_source_median_Lab": [
+        84.942,
+        4.763,
+        6.435
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.102,
+        1.52
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.627,
+        2.127
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png",
+      "exercise_ids": [
+        "bird"
+      ],
+      "roles": [
+        "bird:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "a445a260343c75e4ec31d5ef3d2a078a589a3086c7b1f4acbc724d5d8f7c667c",
+      "candidate_sha256": "08c688edd158502a74c9d02f6b559cda2fb21a798743ceb3e0c35a3c37a82434",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 708,
+      "mask_pixels": 917287,
+      "wall_mask_pixels": 660219,
+      "floor_mask_pixels": 257068,
+      "changed_pixels": 917287,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.959,
+        1.53,
+        -0.624
+      ],
+      "floor_source_median_Lab": [
+        84.502,
+        4.983,
+        6.569
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.112,
+        1.611
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.785,
+        2.03
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png",
+      "exercise_ids": [
+        "thread"
+      ],
+      "roles": [
+        "thread:START",
+        "thread:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "1c016660524ba45d2157d490e80636d94318b8bf1641f01d9a62702f79b9bff3",
+      "candidate_sha256": "ff501d5a6c2d2fcb1163f589cfdb45076dc8bf17e0a571f479f34a94cf0f24d1",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 705,
+      "mask_pixels": 1157866,
+      "wall_mask_pixels": 842346,
+      "floor_mask_pixels": 315520,
+      "changed_pixels": 1157866,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.122,
+        0.654,
+        -3.144
+      ],
+      "floor_source_median_Lab": [
+        87.044,
+        3.944,
+        5.333
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.518,
+        3.426
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.036,
+        2.921
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png",
+      "exercise_ids": [
+        "thread"
+      ],
+      "roles": [
+        "thread:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Thread the Needle/thread_the_needle_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "142d1c29a55895db840f870c54385cb789274ef1d9a104635119d5b915c894f1",
+      "candidate_sha256": "5e96d3e86715ae51b34691f2901dd022b12255aa230a083c4b9b6e5c8ed90d4a",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 788,
+      "mask_pixels": 1157973,
+      "wall_mask_pixels": 882625,
+      "floor_mask_pixels": 275348,
+      "changed_pixels": 1157973,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.601,
+        1.092,
+        -2.32
+      ],
+      "floor_source_median_Lab": [
+        86.138,
+        3.947,
+        4.7
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.203,
+        2.833
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.039,
+        3.377
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png",
+      "exercise_ids": [
+        "swimming"
+      ],
+      "roles": [
+        "swimming:START",
+        "swimming:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Swimming/swimming_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "cc490aa68dfb3d9c4aabd0a842032a4c3565ae17d1fbe4e86b815b97abe6fba7",
+      "candidate_sha256": "6a81e78e169b061c467165943bb4de9b06d9d14ae4b6c7eceb173cfeb679563c",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 765,
+      "mask_pixels": 1197743,
+      "wall_mask_pixels": 906008,
+      "floor_mask_pixels": 291735,
+      "changed_pixels": 1197743,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.793,
+        1.024,
+        -1.095
+      ],
+      "floor_source_median_Lab": [
+        85.782,
+        3.451,
+        4.945
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.252,
+        1.951
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        0.319,
+        3.2
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero.png",
+      "exercise_ids": [
+        "swimming"
+      ],
+      "roles": [
+        "swimming:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Swimming/swimming_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "ecdca4c102578712bd9c50c200a12224ed8c5276f1df09e55735779e8f7dc04e",
+      "candidate_sha256": "3f93f44e803fd683cdecf06dc33bcd2c694c848bd5bdb9cd37765d10012f1579",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 796,
+      "mask_pixels": 1176027,
+      "wall_mask_pixels": 906220,
+      "floor_mask_pixels": 269807,
+      "changed_pixels": 1176027,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.272,
+        0.543,
+        -2.065
+      ],
+      "floor_source_median_Lab": [
+        80.914,
+        4.495,
+        7.109
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.598,
+        2.649
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.433,
+        1.642
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Hip March/hip_march_start.png",
+      "exercise_ids": [
+        "hip_march"
+      ],
+      "roles": [
+        "hip_march:START",
+        "hip_march:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Hip March/hip_march_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Hip March/hip_march_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+      "candidate_sha256": "98086f3c601b535469aa6e227e269e84e50f7b57eb881e37a389dcfa069213d8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 687,
+      "mask_pixels": 1112688,
+      "wall_mask_pixels": 842244,
+      "floor_mask_pixels": 270444,
+      "changed_pixels": 1112688,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.765,
+        0.872,
+        -1.329
+      ],
+      "floor_source_median_Lab": [
+        80.356,
+        6.931,
+        9.958
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.361,
+        2.119
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.188,
+        -0.409
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero.png",
+      "exercise_ids": [
+        "hip_march"
+      ],
+      "roles": [
+        "hip_march:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Hip March/hip_march_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "9a4488355a060b0105ed40e2b2d665ab3cedf332fde66b35ba12cce25f99fcbc",
+      "candidate_sha256": "eda611586445c0489c7b5d563fb1373da2613729d1d748dcfb1e74e3a8f636b8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 701,
+      "mask_pixels": 1044176,
+      "wall_mask_pixels": 802085,
+      "floor_mask_pixels": 242091,
+      "changed_pixels": 1044176,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.28,
+        0.871,
+        -1.221
+      ],
+      "floor_source_median_Lab": [
+        80.364,
+        6.745,
+        10.397
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.362,
+        2.042
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.053,
+        -0.726
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png",
+      "exercise_ids": [
+        "glute_bridge_march"
+      ],
+      "roles": [
+        "glute_bridge_march:START",
+        "glute_bridge_march:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+      "candidate_sha256": "98086f3c601b535469aa6e227e269e84e50f7b57eb881e37a389dcfa069213d8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 687,
+      "mask_pixels": 1112688,
+      "wall_mask_pixels": 842244,
+      "floor_mask_pixels": 270444,
+      "changed_pixels": 1112688,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.765,
+        0.872,
+        -1.329
+      ],
+      "floor_source_median_Lab": [
+        80.356,
+        6.931,
+        9.958
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.361,
+        2.119
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.188,
+        -0.409
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_mid.png",
+      "exercise_ids": [
+        "glute_bridge_march"
+      ],
+      "roles": [
+        "glute_bridge_march:MID"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_mid.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_mid.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "055f549c5d818761806d0440267461420f4899e8876f5e0e1d5405ce2d90b156",
+      "candidate_sha256": "f49f6a076b32ebfeae21bdd8bef9747f66939fc8e62a96c4db1e4cf2a9375a31",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 745,
+      "mask_pixels": 1067919,
+      "wall_mask_pixels": 797877,
+      "floor_mask_pixels": 270042,
+      "changed_pixels": 1067919,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.37,
+        0.908,
+        -1.947
+      ],
+      "floor_source_median_Lab": [
+        79.972,
+        6.315,
+        10.125
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.335,
+        2.564
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.744,
+        -0.53
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero.png",
+      "exercise_ids": [
+        "glute_bridge_march"
+      ],
+      "roles": [
+        "glute_bridge_march:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Glute Bridge March/glute_bridge_march_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "94026231a8f22ed70015f2bc10d1bd2c80d4b90683436560cf7e065388105a01",
+      "candidate_sha256": "ea2d7fa752ea9ab113e51a05b83a577f58a370bdcd8dd3eb50a0be1b7d73dbc9",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 745,
+      "mask_pixels": 1040316,
+      "wall_mask_pixels": 803354,
+      "floor_mask_pixels": 236962,
+      "changed_pixels": 1040316,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.475,
+        1.143,
+        -3.442
+      ],
+      "floor_source_median_Lab": [
+        79.055,
+        7.536,
+        10.856
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.166,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.11,
+        -2.623,
+        -1.056
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png",
+      "exercise_ids": [
+        "abduction"
+      ],
+      "roles": [
+        "abduction:START",
+        "abduction:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "055f549c5d818761806d0440267461420f4899e8876f5e0e1d5405ce2d90b156",
+      "candidate_sha256": "f49f6a076b32ebfeae21bdd8bef9747f66939fc8e62a96c4db1e4cf2a9375a31",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 745,
+      "mask_pixels": 1067919,
+      "wall_mask_pixels": 797877,
+      "floor_mask_pixels": 270042,
+      "changed_pixels": 1067919,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.37,
+        0.908,
+        -1.947
+      ],
+      "floor_source_median_Lab": [
+        79.972,
+        6.315,
+        10.125
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.335,
+        2.564
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.744,
+        -0.53
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png",
+      "exercise_ids": [
+        "abduction"
+      ],
+      "roles": [
+        "abduction:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "7a29dee229e52350f8e76016c443eaa266c0f0962748641eec6f6e1ea03d671b",
+      "candidate_sha256": "f2c2dd816db60f83fc0e6d52480812174dc3f522954ec2b1e417013612f4322f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 743,
+      "mask_pixels": 1063434,
+      "wall_mask_pixels": 811816,
+      "floor_mask_pixels": 251618,
+      "changed_pixels": 1063434,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.852,
+        1.245,
+        -2.484
+      ],
+      "floor_source_median_Lab": [
+        79.785,
+        6.907,
+        10.188
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.093,
+        2.951
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.17,
+        -0.575
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png",
+      "exercise_ids": [
+        "rainbow"
+      ],
+      "roles": [
+        "rainbow:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "0dc80d144c0e2f4d5166a3856979b0cc5e6272827ae7b6d7bd987320374a233d",
+      "candidate_sha256": "bf74192fe01b81aed6195cfd079027533390c4fec6bca034c413f3954ec28a54",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 796,
+      "mask_pixels": 1080158,
+      "wall_mask_pixels": 843894,
+      "floor_mask_pixels": 236264,
+      "changed_pixels": 1080158,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.435,
+        0.609,
+        -3.631
+      ],
+      "floor_source_median_Lab": [
+        83.061,
+        4.214,
+        5.461
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.551,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.231,
+        2.828
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png",
+      "exercise_ids": [
+        "rainbow"
+      ],
+      "roles": [
+        "rainbow:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "10ae2d347b82fa619c4e62fc20f27fdb8ab9cb45de1ded557a0283d89c2612b2",
+      "candidate_sha256": "37143ee3c1ac5f32741c20fe56dcfe276cfe3898503070e8da86899e1fda914e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 710,
+      "mask_pixels": 1077628,
+      "wall_mask_pixels": 831024,
+      "floor_mask_pixels": 246604,
+      "changed_pixels": 1077628,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.798,
+        0.896,
+        -4.913
+      ],
+      "floor_source_median_Lab": [
+        85.256,
+        3.968,
+        4.329
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.344,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.054,
+        3.644
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png",
+      "exercise_ids": [
+        "rainbow"
+      ],
+      "roles": [
+        "rainbow:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Rainbow Leg Raise/rainbow_leg_raise_end.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "f8fb1eee99d1154d7114b25b50922279593991c820f7ea7025818353f326af37",
+      "candidate_sha256": "ef1b56817b97553991e1b324628b9a7811680bbeede1f536e1b52d4131820e11",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 797,
+      "mask_pixels": 1102100,
+      "wall_mask_pixels": 872740,
+      "floor_mask_pixels": 229360,
+      "changed_pixels": 1102100,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.795,
+        0.748,
+        -2.048
+      ],
+      "floor_source_median_Lab": [
+        84.264,
+        4.391,
+        6.738
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.45,
+        2.637
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.359,
+        1.909
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png",
+      "exercise_ids": [
+        "hamstring_supine"
+      ],
+      "roles": [
+        "hamstring_supine:START",
+        "hamstring_supine:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "78992b6ba84722d70274f22b88d5114d796c54ee08ff80af0cf873562c394a25",
+      "candidate_sha256": "fd93aa988f320ed07966f0d1307288203f79e66de8adcc5c3b32a7e1a423074d",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 760,
+      "mask_pixels": 1074343,
+      "wall_mask_pixels": 856513,
+      "floor_mask_pixels": 217830,
+      "changed_pixels": 1074343,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        91.142,
+        0.672,
+        -0.849
+      ],
+      "floor_source_median_Lab": [
+        81.306,
+        5.463,
+        9.87
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.505,
+        1.774
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.13,
+        -0.346
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_hero.png",
+      "exercise_ids": [
+        "hamstring_supine"
+      ],
+      "roles": [
+        "hamstring_supine:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Hamstring Stretch/hamstring_stretch_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "9a3d7e113af68b8ebcada69a69003149e889ead21d9ac551cb4a4d3d8b04f621",
+      "candidate_sha256": "0cc6b272a16404ffce5f1107631c738b3fb5cd9b2a7f5286d680d1ceae395bf7",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 756,
+      "mask_pixels": 1085590,
+      "wall_mask_pixels": 862827,
+      "floor_mask_pixels": 222763,
+      "changed_pixels": 1085590,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.354,
+        0.679,
+        0.237
+      ],
+      "floor_source_median_Lab": [
+        79.982,
+        5.467,
+        11.144
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.5,
+        0.991
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.133,
+        -1.263
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png",
+      "exercise_ids": [
+        "figure_four"
+      ],
+      "roles": [
+        "figure_four:START",
+        "figure_four:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+      "candidate_sha256": "98086f3c601b535469aa6e227e269e84e50f7b57eb881e37a389dcfa069213d8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 687,
+      "mask_pixels": 1112688,
+      "wall_mask_pixels": 842244,
+      "floor_mask_pixels": 270444,
+      "changed_pixels": 1112688,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.765,
+        0.872,
+        -1.329
+      ],
+      "floor_source_median_Lab": [
+        80.356,
+        6.931,
+        9.958
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.361,
+        2.119
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.188,
+        -0.409
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_mid.png",
+      "exercise_ids": [
+        "figure_four"
+      ],
+      "roles": [
+        "figure_four:MID"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_mid.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_mid.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "73ee9bed7ac1ace90b06aefc6090269feb417c48a33bf93b6d3ca73bc5fa4232",
+      "candidate_sha256": "de90b2a1886053e5b2c133620a242292f6625b4a844b40b3b915aae4bad1e40b",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 750,
+      "mask_pixels": 1057884,
+      "wall_mask_pixels": 829215,
+      "floor_mask_pixels": 228669,
+      "changed_pixels": 1057884,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.336,
+        1.089,
+        -2.961
+      ],
+      "floor_source_median_Lab": [
+        81.969,
+        7.247,
+        10.094
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.205,
+        3.295
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.415,
+        -0.508
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png",
+      "exercise_ids": [
+        "figure_four"
+      ],
+      "roles": [
+        "figure_four:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Figure Four Stretch/figure_four_stretch_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "e29b8c233232061bfb013ef7d74e67e5f06ddbb963d795e5f2628c9818c6002e",
+      "candidate_sha256": "7f8b9040737a01a3dd7f62458447d90d940ac481921739fa3eedb3f675cc6145",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 745,
+      "mask_pixels": 1022905,
+      "wall_mask_pixels": 833351,
+      "floor_mask_pixels": 189554,
+      "changed_pixels": 1022905,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.634,
+        0.847,
+        -4.797
+      ],
+      "floor_source_median_Lab": [
+        79.757,
+        8.181,
+        8.956
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.379,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.088,
+        0.312
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start.png",
+      "exercise_ids": [
+        "row"
+      ],
+      "roles": [
+        "row:START",
+        "row:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "5dddb88e5a44582b1d6c09610b7da0cf9e88a1f88bd42aa12377c24d725116b6",
+      "candidate_sha256": "c95deaf71a6dc98d09d95b874fd061e613c64e5f5e6c00b2b359d1acb20a0042",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 693,
+      "mask_pixels": 1164114,
+      "wall_mask_pixels": 826555,
+      "floor_mask_pixels": 337559,
+      "changed_pixels": 1164114,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.873,
+        1.239,
+        -3.909
+      ],
+      "floor_source_median_Lab": [
+        83.716,
+        5.44,
+        3.905
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.097,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.114,
+        3.949
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero.png",
+      "exercise_ids": [
+        "row"
+      ],
+      "roles": [
+        "row:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Bent Over Row/bent_over_row_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "0547bcc9e6a67942a390aecdf269ab109eba137b062780a6da508d46585b8f13",
+      "candidate_sha256": "78deac675660833cbff5b4d2589d78b1f69998981281cdae5e4b4f0d238bcbf7",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 693,
+      "mask_pixels": 1175109,
+      "wall_mask_pixels": 844743,
+      "floor_mask_pixels": 330366,
+      "changed_pixels": 1175109,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.37,
+        1.24,
+        -4.482
+      ],
+      "floor_source_median_Lab": [
+        86.867,
+        5.348,
+        3.758
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.096,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.048,
+        4.055
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png",
+      "exercise_ids": [
+        "press"
+      ],
+      "roles": [
+        "press:START",
+        "press:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "59a882d0f9ed8ea5d4f3be7b28c2bd902479c0d0ebf7b756a1c5b848f59a61a1",
+      "candidate_sha256": "da8ff41a8543ddeefce61a838c6ba7a1f9cc0a2927b7818f1b97f0c6f75c241a",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 712,
+      "mask_pixels": 1158870,
+      "wall_mask_pixels": 848314,
+      "floor_mask_pixels": 310556,
+      "changed_pixels": 1158870,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.518,
+        0.818,
+        -5.196
+      ],
+      "floor_source_median_Lab": [
+        85.265,
+        4.904,
+        5.515
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.4,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.728,
+        2.79
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.png",
+      "exercise_ids": [
+        "press"
+      ],
+      "roles": [
+        "press:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Shoulder Press/shoulder_press_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "61868521dc755c187a2e1c33ab1448ac392d97744699addd5cb58a41116211a4",
+      "candidate_sha256": "456c2140348e7d6a99b42a40c7a772c2047503212897cc3d9d5ad52d9cb8ac8e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 713,
+      "mask_pixels": 1167879,
+      "wall_mask_pixels": 863310,
+      "floor_mask_pixels": 304569,
+      "changed_pixels": 1167879,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.359,
+        0.965,
+        -4.099
+      ],
+      "floor_source_median_Lab": [
+        83.309,
+        5.127,
+        6.08
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.294,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.888,
+        2.383
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.png",
+      "exercise_ids": [
+        "raise"
+      ],
+      "roles": [
+        "raise:START",
+        "raise:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "cdea7778ad8e2f2361119525ad5248701b3d55e91cec023a18300dc20a4d7841",
+      "candidate_sha256": "dd7d56653c2f13224260105eaa0aaf93311999f19c4dccd948c873d4dbca3625",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 723,
+      "mask_pixels": 997552,
+      "wall_mask_pixels": 852242,
+      "floor_mask_pixels": 145310,
+      "changed_pixels": 997552,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        91.258,
+        0.72,
+        -4.795
+      ],
+      "floor_source_median_Lab": [
+        83.189,
+        8.659,
+        10.474
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.471,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.432,
+        -0.781
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero.png",
+      "exercise_ids": [
+        "raise"
+      ],
+      "roles": [
+        "raise:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "a12091fb4533d8b5ca8e170c2a108b5032aa27ed1fb38a1f12ae085a38bbcc89",
+      "candidate_sha256": "9340ad6cf7fcd3d8064244bd0f589dcf4959ba07d8f3bcda99f82ee33048185a",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 716,
+      "mask_pixels": 1023603,
+      "wall_mask_pixels": 854461,
+      "floor_mask_pixels": 169142,
+      "changed_pixels": 1023603,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        91.379,
+        0.834,
+        -5.213
+      ],
+      "floor_source_median_Lab": [
+        80.873,
+        8.687,
+        10.536
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.389,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.452,
+        -0.825
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png",
+      "exercise_ids": [
+        "heeltaps"
+      ],
+      "roles": [
+        "heeltaps:START",
+        "heeltaps:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "b570f9e7df3323670d679dbdac97864b80a450dc608e57577da1b2374f40a6dc",
+      "candidate_sha256": "016530d921978ab6bc0e5feefbbc9cade5f7696ba61726e14cbb32988453e16a",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 737,
+      "mask_pixels": 1086165,
+      "wall_mask_pixels": 858828,
+      "floor_mask_pixels": 227337,
+      "changed_pixels": 1086153,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.441,
+        0.52,
+        -0.489
+      ],
+      "floor_source_median_Lab": [
+        76.424,
+        5.474,
+        10.503
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.614,
+        1.515
+      ],
+      "floor_relative_shift_Lab": [
+        -0.068,
+        -1.138,
+        -0.802
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png",
+      "exercise_ids": [
+        "heeltaps"
+      ],
+      "roles": [
+        "heeltaps:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Heel Taps/heel_taps_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "919dfa2c6288fc59040a70d94657ef359548669b057a86b68aa1b898daeea085",
+      "candidate_sha256": "fb5351961e579c6dcac09749a84372401c4505097b2c45bede061b95a7ef7b98",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 735,
+      "mask_pixels": 1065624,
+      "wall_mask_pixels": 849452,
+      "floor_mask_pixels": 216172,
+      "changed_pixels": 1065574,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.035,
+        0.548,
+        -1.581
+      ],
+      "floor_source_median_Lab": [
+        76.322,
+        5.035,
+        8.817
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.594,
+        2.301
+      ],
+      "floor_relative_shift_Lab": [
+        -0.028,
+        -0.822,
+        0.412
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png",
+      "exercise_ids": [
+        "standing_oblique"
+      ],
+      "roles": [
+        "standing_oblique:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "181d2519da5f3b8fb2a3a5575ff84622eda9faeebd113770624e851d6d34132e",
+      "candidate_sha256": "522b62989d49391992a96cf9624a8fcb5c0b126be4e706f7e0d192a5bd0a4d18",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 691,
+      "mask_pixels": 994440,
+      "wall_mask_pixels": 822332,
+      "floor_mask_pixels": 172108,
+      "changed_pixels": 994440,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.182,
+        0.832,
+        -9.468
+      ],
+      "floor_source_median_Lab": [
+        78.279,
+        4.648,
+        5.03
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.39,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.803,
+        -0.544,
+        3.139
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png",
+      "exercise_ids": [
+        "standing_oblique"
+      ],
+      "roles": [
+        "standing_oblique:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "ae3ad87ed6a51ebc4ae3bfb6e22ed0cf1ba58a81c773598c55edbc67172a696b",
+      "candidate_sha256": "3dce2d49d317b8303c822a8dd3c3c36494a3daa4456d52dc844cab47b4f15ad0",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 699,
+      "mask_pixels": 1124475,
+      "wall_mask_pixels": 826435,
+      "floor_mask_pixels": 298040,
+      "changed_pixels": 1124475,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.343,
+        0.69,
+        -8.082
+      ],
+      "floor_source_median_Lab": [
+        79.362,
+        3.149,
+        5.605
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.492,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.232,
+        0.536,
+        2.725
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png",
+      "exercise_ids": [
+        "standing_oblique"
+      ],
+      "roles": [
+        "standing_oblique:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "a05ef0cff713802ba8553a83e0dbefb18b6e626cd4ad28a0ff816bd25888a043",
+      "candidate_sha256": "b883e59110000b6178daa28870ceaabda8ddf337a74bd1a9e7b2c29413418d3d",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 710,
+      "mask_pixels": 1120673,
+      "wall_mask_pixels": 834676,
+      "floor_mask_pixels": 285997,
+      "changed_pixels": 1120673,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.201,
+        0.71,
+        -8.027
+      ],
+      "floor_source_median_Lab": [
+        79.485,
+        4.699,
+        6.564
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.478,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.28,
+        -0.58,
+        2.034
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png",
+      "exercise_ids": [
+        "standing_side_bend"
+      ],
+      "roles": [
+        "standing_side_bend:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "e4157f9e392e7768e946132f7ee3c44174bfe9ac93789662896e8304c5f485e9",
+      "candidate_sha256": "3d3e84577aebb8b28717cc2346eae4273a909dcd0c8ffac993d45a1d3ed7b463",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 707,
+      "mask_pixels": 1107083,
+      "wall_mask_pixels": 837845,
+      "floor_mask_pixels": 269238,
+      "changed_pixels": 1107083,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.09,
+        0.84,
+        -6.563
+      ],
+      "floor_source_median_Lab": [
+        76.535,
+        7.442,
+        7.123
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.384,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.112,
+        -2.555,
+        1.632
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png",
+      "exercise_ids": [
+        "standing_side_bend"
+      ],
+      "roles": [
+        "standing_side_bend:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "0213f3ccf124353f1d5f79a461d2274808b196b8c89fc85f89d2f27975f74ac2",
+      "candidate_sha256": "bd3c2a9d4399297e7dc1b1ceb35f4f1031f6e9acbabd5576f42e8531c4fd4ece",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 712,
+      "mask_pixels": 1060714,
+      "wall_mask_pixels": 835474,
+      "floor_mask_pixels": 225240,
+      "changed_pixels": 1060709,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.635,
+        0.435,
+        -6.805
+      ],
+      "floor_source_median_Lab": [
+        75.73,
+        8.092,
+        7.569
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.676,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        0.207,
+        -3.024,
+        1.31
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png",
+      "exercise_ids": [
+        "standing_side_bend"
+      ],
+      "roles": [
+        "standing_side_bend:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "fcd885d2a07a8c545ed71ae199a0127d015486743952d1339d111834e7d90da7",
+      "candidate_sha256": "d4d8e3bafe6f7010d2db0b2743044b30e45f3f34a7b5a8ed0f7225a8814ef0f7",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 711,
+      "mask_pixels": 1129337,
+      "wall_mask_pixels": 836950,
+      "floor_mask_pixels": 292387,
+      "changed_pixels": 1129333,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.363,
+        0.621,
+        -6.992
+      ],
+      "floor_source_median_Lab": [
+        75.275,
+        7.424,
+        8.257
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.542,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        0.387,
+        -2.542,
+        0.815
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.png",
+      "exercise_ids": [
+        "sidekick"
+      ],
+      "roles": [
+        "sidekick:START"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "10373503c0f003e51861ff18c3d68f3901d34bfaed58dcd552f13a46bc6a7ddd",
+      "candidate_sha256": "2aa06ed4a92341221e9883cd47ffee2951d31e6ed7c8d5c3f3f5ef7086439f36",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 790,
+      "mask_pixels": 1023634,
+      "wall_mask_pixels": 751193,
+      "floor_mask_pixels": 272441,
+      "changed_pixels": 1023634,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.325,
+        1.086,
+        -2.956
+      ],
+      "floor_source_median_Lab": [
+        81.1,
+        7.46,
+        11.188
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.207,
+        3.291
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.568,
+        -1.295
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png",
+      "exercise_ids": [
+        "sidekick"
+      ],
+      "roles": [
+        "sidekick:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "5383fcc28f67ae395e38bd585ab5b3b708534fe0c07425e65aa99ddc4c41cb9a",
+      "candidate_sha256": "6670788b571165062cdaaf5830b763b0f23c7ce6e7755a8618868673e6e695e8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 787,
+      "mask_pixels": 914088,
+      "wall_mask_pixels": 744707,
+      "floor_mask_pixels": 169381,
+      "changed_pixels": 914088,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.229,
+        0.984,
+        -5.234
+      ],
+      "floor_source_median_Lab": [
+        84.058,
+        7.992,
+        8.959
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.28,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.951,
+        0.31
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png",
+      "exercise_ids": [
+        "sidekick"
+      ],
+      "roles": [
+        "sidekick:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "94264392b9293e7295d08a5a373221ff4ac90bcce0737b598af313b91bebdbbb",
+      "candidate_sha256": "2a474bd4e3cf7dd7dbb53be946acc3d6d0d6a50c8416accb837ae01cc417aaa8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 787,
+      "mask_pixels": 833233,
+      "wall_mask_pixels": 726662,
+      "floor_mask_pixels": 106571,
+      "changed_pixels": 833233,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.034,
+        0.839,
+        -6.436
+      ],
+      "floor_source_median_Lab": [
+        85.31,
+        8.874,
+        8.714
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.385,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.587,
+        0.486
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png",
+      "exercise_ids": [
+        "dumbbell_pullover"
+      ],
+      "roles": [
+        "dumbbell_pullover:START",
+        "dumbbell_pullover:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "163d1e5334266ff63776782f0de71f2d0a2ece8c017fb7d79ec191efd1d835d2",
+      "candidate_sha256": "a46e6697acc8a7890d17a3c8480380c453b65320704750dac990c438b1123c57",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 792,
+      "mask_pixels": 1076650,
+      "wall_mask_pixels": 756729,
+      "floor_mask_pixels": 319921,
+      "changed_pixels": 1076650,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        93.47,
+        -0.238,
+        -4.534
+      ],
+      "floor_source_median_Lab": [
+        85.155,
+        7.29,
+        11.637
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        1.16,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.446,
+        -1.619
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png",
+      "exercise_ids": [
+        "dumbbell_pullover"
+      ],
+      "roles": [
+        "dumbbell_pullover:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "d02df1c380d2a7d8b68050e1992437e7ec2439604e2bae87a459611c5d698cc9",
+      "candidate_sha256": "b336db96813bc6187b16e2c6eb537fca93b01992cbd7f32589a7bdc393ca63d0",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 790,
+      "mask_pixels": 1083068,
+      "wall_mask_pixels": 769939,
+      "floor_mask_pixels": 313129,
+      "changed_pixels": 1083068,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        94.037,
+        0.131,
+        -4.44
+      ],
+      "floor_source_median_Lab": [
+        85.54,
+        6.579,
+        11.058
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.894,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.934,
+        -1.201
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_start.png",
+      "exercise_ids": [
+        "russian"
+      ],
+      "roles": [
+        "russian:START",
+        "russian:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "b0543e42a4ec238fff35c2105c8b84fb88545c5a5645740ed4d5c52ccf2748aa",
+      "candidate_sha256": "3d92c7e12eab0e5d45477edf1fdf7fe6837e44aa155029260a8d0dcf6bf8ae78",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 726,
+      "mask_pixels": 1111095,
+      "wall_mask_pixels": 873385,
+      "floor_mask_pixels": 237710,
+      "changed_pixels": 1111095,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.151,
+        0.817,
+        -3.193
+      ],
+      "floor_source_median_Lab": [
+        78.431,
+        7.128,
+        8.598
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.401,
+        3.461
+      ],
+      "floor_relative_shift_Lab": [
+        -0.863,
+        -2.329,
+        0.57
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero.png",
+      "exercise_ids": [
+        "russian"
+      ],
+      "roles": [
+        "russian:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Russian Twist/russian_twist_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "6f644bf823e9f5d99a6b1707b9e90ffcfd978b87478ad83f488b84f49b4b035e",
+      "candidate_sha256": "0bdaf3e735dfaa68ae6c8285414771cd26d95f1b7f394d25019e390ba69c2c2e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 754,
+      "mask_pixels": 1051638,
+      "wall_mask_pixels": 880575,
+      "floor_mask_pixels": 171063,
+      "changed_pixels": 1051638,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        83.543,
+        1.034,
+        -4.89
+      ],
+      "floor_source_median_Lab": [
+        77.698,
+        8.1,
+        8.239
+      ],
+      "wall_relative_shift_Lab": [
+        -1.163,
+        0.245,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.573,
+        -3.029,
+        0.828
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Scissors/scissors_start.png",
+      "exercise_ids": [
+        "scissors"
+      ],
+      "roles": [
+        "scissors:START",
+        "scissors:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Scissors/scissors_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Scissors/scissors_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "148e35da57bb9d998aedf38bdbc33f0567b50f39a9ba67f8dc426f89b5cb99ce",
+      "candidate_sha256": "bde7b721456b5388b470aac68d6a4bf5706b81889a132035ad3f543340c0f780",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 750,
+      "mask_pixels": 1143586,
+      "wall_mask_pixels": 882302,
+      "floor_mask_pixels": 261284,
+      "changed_pixels": 1143586,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        91.252,
+        0.417,
+        -3.137
+      ],
+      "floor_source_median_Lab": [
+        80.445,
+        5.678,
+        8.145
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.689,
+        3.421
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.285,
+        0.896
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Scissors/scissors_mid.png",
+      "exercise_ids": [
+        "scissors"
+      ],
+      "roles": [
+        "scissors:MID"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Scissors/scissors_mid.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Scissors/scissors_mid.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "d2ba8031043856a4f33303a2d0ff4e3321052df8975c4ff15ae8da39936d5577",
+      "candidate_sha256": "1eeda8a1918e31779eee200bcd24a91b21e1db5eba65fba8ef9c545594e2fedb",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 761,
+      "mask_pixels": 1082367,
+      "wall_mask_pixels": 835526,
+      "floor_mask_pixels": 246841,
+      "changed_pixels": 1082367,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        83.613,
+        1.416,
+        -1.726
+      ],
+      "floor_source_median_Lab": [
+        78.037,
+        6.588,
+        8.046
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        -0.031,
+        2.405
+      ],
+      "floor_relative_shift_Lab": [
+        -0.707,
+        -1.94,
+        0.967
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Scissors/scissors_hero.png",
+      "exercise_ids": [
+        "scissors"
+      ],
+      "roles": [
+        "scissors:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Scissors/scissors_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Scissors/scissors_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "057fc14e74f4aaa37920227465ef95d766a8f9c3c97647bc3aa4d6da20e34945",
+      "candidate_sha256": "b88316983fbddfaca9745505af0e99782aa6f1e61a44cf258f83005c47c5fddb",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 762,
+      "mask_pixels": 1087417,
+      "wall_mask_pixels": 834131,
+      "floor_mask_pixels": 253286,
+      "changed_pixels": 1087417,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        83.458,
+        1.576,
+        -0.008
+      ],
+      "floor_source_median_Lab": [
+        78.28,
+        6.094,
+        7.715
+      ],
+      "wall_relative_shift_Lab": [
+        -1.129,
+        -0.146,
+        1.168
+      ],
+      "floor_relative_shift_Lab": [
+        -0.803,
+        -1.584,
+        1.205
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_start.png",
+      "exercise_ids": [
+        "hollow"
+      ],
+      "roles": [
+        "hollow:START",
+        "hollow:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "d3df1aee9e5fe5bbce102e0ec93d6bde186f2fc24ed4097ecce0babb9b8e4e3f",
+      "candidate_sha256": "98086f3c601b535469aa6e227e269e84e50f7b57eb881e37a389dcfa069213d8",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 687,
+      "mask_pixels": 1112688,
+      "wall_mask_pixels": 842244,
+      "floor_mask_pixels": 270444,
+      "changed_pixels": 1112688,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        90.765,
+        0.872,
+        -1.329
+      ],
+      "floor_source_median_Lab": [
+        80.356,
+        6.931,
+        9.958
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.361,
+        2.119
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.188,
+        -0.409
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_hero.png",
+      "exercise_ids": [
+        "hollow"
+      ],
+      "roles": [
+        "hollow:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Hollow Hold/hollow_hold_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "29e2746374a8c5e57b13dbb423e13f4050e3cd901c54c97904aa8016d38bae74",
+      "candidate_sha256": "b51a6005a93475558dd70694f173e2283ac91be2bbc779412f8fc3a99ea94052",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 770,
+      "mask_pixels": 1099292,
+      "wall_mask_pixels": 840688,
+      "floor_mask_pixels": 258604,
+      "changed_pixels": 1099292,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        92.704,
+        0.461,
+        -3.233
+      ],
+      "floor_source_median_Lab": [
+        83.294,
+        6.144,
+        10.003
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.657,
+        3.49
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.621,
+        -0.442
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start.png",
+      "exercise_ids": [
+        "hundred"
+      ],
+      "roles": [
+        "hundred:START",
+        "hundred:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/The Hundred/hundred_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "5903945a4aa216bc287b94c19ed23a235024c3a8618c3539fdcddd49ce6efc8d",
+      "candidate_sha256": "090fc8753532a6ccf42138955949af1c2a230886a75b0b29991a08ae0b4e0db7",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 789,
+      "mask_pixels": 1185683,
+      "wall_mask_pixels": 897186,
+      "floor_mask_pixels": 288497,
+      "changed_pixels": 1185683,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.329,
+        1.107,
+        -2.225
+      ],
+      "floor_source_median_Lab": [
+        81.886,
+        4.78,
+        6.478
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.192,
+        2.764
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.638,
+        2.096
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero.png",
+      "exercise_ids": [
+        "hundred"
+      ],
+      "roles": [
+        "hundred:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/The Hundred/hundred_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "ad6673a96acdb003149ec41046866c6d6ac2e4b2a13cd17609a06e6575db99f7",
+      "candidate_sha256": "da7fcbfaaec723a7c3b6d47541d7a803e7a5cbdf06bcfd07c41214b30784ca04",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 751,
+      "mask_pixels": 1117466,
+      "wall_mask_pixels": 861486,
+      "floor_mask_pixels": 255980,
+      "changed_pixels": 1117466,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        83.151,
+        1.559,
+        -0.633
+      ],
+      "floor_source_median_Lab": [
+        81.471,
+        7.392,
+        8.653
+      ],
+      "wall_relative_shift_Lab": [
+        -1.008,
+        -0.134,
+        1.618
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.519,
+        0.53
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png",
+      "exercise_ids": [
+        "inner_thigh"
+      ],
+      "roles": [
+        "inner_thigh:START",
+        "inner_thigh:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "55ccc1c62e43d3bde2f026b43d55421255b484197f2bcefffc16917d43641d1b",
+      "candidate_sha256": "6315672553c5f2f4e35ced43b198ba8e5fbf066da3bc246525a3cb1c822c9658",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 703,
+      "mask_pixels": 1167630,
+      "wall_mask_pixels": 768407,
+      "floor_mask_pixels": 399223,
+      "changed_pixels": 1167630,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.789,
+        0.775,
+        -5.515
+      ],
+      "floor_source_median_Lab": [
+        82.772,
+        4.571,
+        7.272
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.431,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.488,
+        1.524
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png",
+      "exercise_ids": [
+        "inner_thigh"
+      ],
+      "roles": [
+        "inner_thigh:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "891258b48fb755324382b8bdda7596af1114c7cc71a6626e9378fd24e877f0ce",
+      "candidate_sha256": "d8f616649b95eddadea6af7497b8832bf098146b079bd4aa6fd61e6179805a50",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 773,
+      "mask_pixels": 1106438,
+      "wall_mask_pixels": 741524,
+      "floor_mask_pixels": 364914,
+      "changed_pixels": 1106438,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.139,
+        0.443,
+        -8.143
+      ],
+      "floor_source_median_Lab": [
+        79.886,
+        6.71,
+        11.097
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.67,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.028,
+        -1.229
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png",
+      "exercise_ids": [
+        "legraises"
+      ],
+      "roles": [
+        "legraises:START",
+        "legraises:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "65921706ad2ba918f267d94ba8fbd23dda86a95bfb69dfbb8d61afd91f10db17",
+      "candidate_sha256": "db89acf44af86c210405b8a96f361270532bf19835bbdda53abd1cbd4dbeada9",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 530,
+      "mask_pixels": 1135085,
+      "wall_mask_pixels": 709736,
+      "floor_mask_pixels": 425349,
+      "changed_pixels": 1135085,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        79.364,
+        1.537,
+        -0.861
+      ],
+      "floor_source_median_Lab": [
+        74.353,
+        6.774,
+        11.482
+      ],
+      "wall_relative_shift_Lab": [
+        0.492,
+        -0.118,
+        1.783
+      ],
+      "floor_relative_shift_Lab": [
+        0.752,
+        -2.075,
+        -1.506
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero.png",
+      "exercise_ids": [
+        "legraises"
+      ],
+      "roles": [
+        "legraises:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "54ce8c27f958f5b983693602ad0862510478939eda7091e015870e44f0060e93",
+      "candidate_sha256": "79549f186e8e078c13e077da582eb674fb8c511709c5f23406e97d765a273482",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 764,
+      "mask_pixels": 1075589,
+      "wall_mask_pixels": 847964,
+      "floor_mask_pixels": 227625,
+      "changed_pixels": 1075589,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        80.166,
+        1.397,
+        -0.885
+      ],
+      "floor_source_median_Lab": [
+        77.823,
+        7.551,
+        12.725
+      ],
+      "wall_relative_shift_Lab": [
+        0.174,
+        -0.017,
+        1.8
+      ],
+      "floor_relative_shift_Lab": [
+        -0.622,
+        -2.634,
+        -2.402
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png",
+      "exercise_ids": [
+        "spine"
+      ],
+      "roles": [
+        "spine:START",
+        "spine:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "6a431021c45bce007f9946fc2919d4037118d04c23f010d0e822c789ff7ef382",
+      "candidate_sha256": "ffbcac7177ca1ee81ec94e26a01adc7fb779c4da4cb167a0ba1a43a59410e72e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 736,
+      "mask_pixels": 1122713,
+      "wall_mask_pixels": 867726,
+      "floor_mask_pixels": 254987,
+      "changed_pixels": 1122713,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.901,
+        0.543,
+        -0.368
+      ],
+      "floor_source_median_Lab": [
+        82.641,
+        4.939,
+        9.011
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.598,
+        1.427
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.753,
+        0.272
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.png",
+      "exercise_ids": [
+        "spine"
+      ],
+      "roles": [
+        "spine:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Spine Stretch/spine_stretch_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "06531ea5e2c3796a4cacde7c400a1c7ee5b08b199ec465500a5076b664cdc418",
+      "candidate_sha256": "7b9c79a261b6b1a52f87f536b0396672e4065fa10f3b45b32cc29b3e9d2dfcc9",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 716,
+      "mask_pixels": 1081608,
+      "wall_mask_pixels": 798358,
+      "floor_mask_pixels": 283250,
+      "changed_pixels": 1081608,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        88.167,
+        0.694,
+        -0.855
+      ],
+      "floor_source_median_Lab": [
+        80.416,
+        5.103,
+        9.496
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.489,
+        1.778
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -0.871,
+        -0.077
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png",
+      "exercise_ids": [
+        "sphinx"
+      ],
+      "roles": [
+        "sphinx:START",
+        "sphinx:HERO",
+        "sphinx:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Sphinx Stretch/sphinx_stretch_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "fcad29f8c657327a9d11e7d2ddb48e6bc9dcec540ac88a871b07f961f0e17f98",
+      "candidate_sha256": "b24df722a53a3ae2825d6b7353848e4faaf47e97e28c88d5b47e50ffe014c7b0",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 768,
+      "mask_pixels": 1177421,
+      "wall_mask_pixels": 907222,
+      "floor_mask_pixels": 270199,
+      "changed_pixels": 1177421,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.899,
+        1.064,
+        -2.564
+      ],
+      "floor_source_median_Lab": [
+        80.397,
+        6.261,
+        10.947
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.223,
+        3.008
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.705,
+        -1.121
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png",
+      "exercise_ids": [
+        "mermaid"
+      ],
+      "roles": [
+        "mermaid:START",
+        "mermaid:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "a50e74bad93c001e36745d581b86ee8f30b472de9b2492d71d560b7039e8c6b8",
+      "candidate_sha256": "baacb08e608c333c3f4671774e14bfd8ee9a2acedb9fa078236818fcc35a9abe",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 730,
+      "mask_pixels": 1108095,
+      "wall_mask_pixels": 864927,
+      "floor_mask_pixels": 243168,
+      "changed_pixels": 1108095,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.372,
+        0.243,
+        -4.378
+      ],
+      "floor_source_median_Lab": [
+        80.498,
+        7.62,
+        9.843
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.814,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.684,
+        -0.326
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_hero.png",
+      "exercise_ids": [
+        "mermaid"
+      ],
+      "roles": [
+        "mermaid:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "2b17e9886867050df3ae96883004f47198e7d507f43da017720faa3e327b2da8",
+      "candidate_sha256": "1fc7556e85e771accd4726d3229e301721c099613178aa624950c27a6eeebe38",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 758,
+      "mask_pixels": 1084008,
+      "wall_mask_pixels": 877430,
+      "floor_mask_pixels": 206578,
+      "changed_pixels": 1084008,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.821,
+        0.801,
+        -3.659
+      ],
+      "floor_source_median_Lab": [
+        80.049,
+        7.987,
+        10.246
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.412,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.948,
+        -0.617
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png",
+      "exercise_ids": [
+        "plie"
+      ],
+      "roles": [
+        "plie:START",
+        "plie:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "1c1d88cbc0e7f614237f275473b450fbc3454c234c9b334a9b9b3f327ea6712c",
+      "candidate_sha256": "c1d9a8f033c329c996335094dffceaaa10c5febbb0cd7afed8775ef8814522d6",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 641,
+      "mask_pixels": 1117721,
+      "wall_mask_pixels": 764920,
+      "floor_mask_pixels": 352801,
+      "changed_pixels": 1117721,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.681,
+        0.638,
+        -4.339
+      ],
+      "floor_source_median_Lab": [
+        76.797,
+        7.081,
+        11.073
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.529,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.216,
+        -2.295,
+        -1.212
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png",
+      "exercise_ids": [
+        "plie"
+      ],
+      "roles": [
+        "plie:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Plie Squat/plie_squat_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "bcbc35a23b2b5f2a3f06ed400f2157a28101446b822808409fc038f6476244ca",
+      "candidate_sha256": "1dba0fffecd3a2bab63c51b58a4163de9fea7c9f499f35faaad1700bb096abdc",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 648,
+      "mask_pixels": 1089829,
+      "wall_mask_pixels": 800750,
+      "floor_mask_pixels": 289079,
+      "changed_pixels": 1089829,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.278,
+        0.708,
+        -5.853
+      ],
+      "floor_source_median_Lab": [
+        78.218,
+        8.314,
+        10.974
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.479,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.778,
+        -3.183,
+        -1.141
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png",
+      "exercise_ids": [
+        "rollup"
+      ],
+      "roles": [
+        "rollup:START",
+        "rollup:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "c887c1042757f6f37f76cdebd982182f70e015931659bb5df860433a5f402e0b",
+      "candidate_sha256": "b9add18f612f443a7ada5155d5c5cdafd5c7217e970ed69a6c5c825300286dd4",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 753,
+      "mask_pixels": 1121945,
+      "wall_mask_pixels": 902683,
+      "floor_mask_pixels": 219262,
+      "changed_pixels": 1121945,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        82.694,
+        1.202,
+        -6.271
+      ],
+      "floor_source_median_Lab": [
+        78.447,
+        8.419,
+        13.67
+      ],
+      "wall_relative_shift_Lab": [
+        -0.827,
+        0.123,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.869,
+        -3.259,
+        -3.082
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_hero.png",
+      "exercise_ids": [
+        "rollup"
+      ],
+      "roles": [
+        "rollup:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "feb6de94738905d116caa668476f6885ef2bc46274afae7e201f0d3946e5a552",
+      "candidate_sha256": "ac8704080942c96719e37ac3b0d0369d06b39069fce4ea198c78336183d13252",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 715,
+      "mask_pixels": 1085693,
+      "wall_mask_pixels": 845579,
+      "floor_mask_pixels": 240114,
+      "changed_pixels": 1085693,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        93.754,
+        0.417,
+        -2.53
+      ],
+      "floor_source_median_Lab": [
+        81.291,
+        7.286,
+        12.499
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.689,
+        2.984
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.443,
+        -2.239
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png",
+      "exercise_ids": [
+        "plank"
+      ],
+      "roles": [
+        "plank:START",
+        "plank:HERO",
+        "plank:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "c6978e701cfaf76dab7111aab8d70370380a8c7bba853296861352a820127c68",
+      "candidate_sha256": "2b667ce96a6a780f13267c2e1b069f3dec07abfc739253e7daf99ba522f9824f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 728,
+      "mask_pixels": 1053897,
+      "wall_mask_pixels": 818807,
+      "floor_mask_pixels": 235090,
+      "changed_pixels": 1053897,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.812,
+        0.43,
+        -2.188
+      ],
+      "floor_source_median_Lab": [
+        79.216,
+        7.204,
+        11.995
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.679,
+        2.738
+      ],
+      "floor_relative_shift_Lab": [
+        -1.174,
+        -2.384,
+        -1.876
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png",
+      "exercise_ids": [
+        "tap"
+      ],
+      "roles": [
+        "tap:START",
+        "tap:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "c5f9a762ef4701fd1bad7588d283d79729769738e53bc3c7d11854d594a71398",
+      "candidate_sha256": "0f32f3bdf9c0f60a04f4ebfe09c4afecfdf9d036aca733d0ecaeb3dacf6ed928",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 726,
+      "mask_pixels": 970411,
+      "wall_mask_pixels": 745490,
+      "floor_mask_pixels": 224921,
+      "changed_pixels": 970411,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.244,
+        0.052,
+        -4.157
+      ],
+      "floor_source_median_Lab": [
+        78.934,
+        7.339,
+        10.649
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.951,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.062,
+        -2.481,
+        -0.907
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png",
+      "exercise_ids": [
+        "tap"
+      ],
+      "roles": [
+        "tap:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Plank Shoulder Taps/plank_shoulder_taps_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "fd7e4948f6a0f597388f87c146cb76b41b26025ce7ee25aba1d00fa8b55e7528",
+      "candidate_sha256": "5143003d2ef33e6279ba7882d0af40b7bbc7c35b8566d868ea11548c70d844fd",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 725,
+      "mask_pixels": 955912,
+      "wall_mask_pixels": 736311,
+      "floor_mask_pixels": 219601,
+      "changed_pixels": 955912,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.872,
+        0.376,
+        -4.841
+      ],
+      "floor_source_median_Lab": [
+        78.737,
+        7.668,
+        10.697
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.718,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -0.984,
+        -2.718,
+        -0.941
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png",
+      "exercise_ids": [
+        "supine_twist"
+      ],
+      "roles": [
+        "supine_twist:START",
+        "supine_twist:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "db17aba43cf58d302f14f713dec7c87024568be7950b0821c4ec34ebc94b9699",
+      "candidate_sha256": "00fc9dfd65356ee8c2c457026d40a4dfceeacdd67a6cd8946fab17ff1aab3c3e",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 546,
+      "mask_pixels": 1171245,
+      "wall_mask_pixels": 719490,
+      "floor_mask_pixels": 451755,
+      "changed_pixels": 1171245,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.97,
+        0.706,
+        -4.716
+      ],
+      "floor_source_median_Lab": [
+        84.074,
+        5.518,
+        5.959
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.48,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.17,
+        2.47
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.png",
+      "exercise_ids": [
+        "supine_twist"
+      ],
+      "roles": [
+        "supine_twist:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Supine Twist/supine_twist_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "a796111e9494d8050670e9f1a38117f0a1caed0c4b85d92b3ba765d0bf468dfe",
+      "candidate_sha256": "2c54fda44aa2ec2284a336c3a3effc6459a944f8019f89da8c860a4fdd3fd67b",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 541,
+      "mask_pixels": 1179539,
+      "wall_mask_pixels": 722988,
+      "floor_mask_pixels": 456551,
+      "changed_pixels": 1179539,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.822,
+        0.886,
+        -5.575
+      ],
+      "floor_source_median_Lab": [
+        83.453,
+        5.977,
+        5.53
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.351,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.5,
+        2.779
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png",
+      "exercise_ids": [
+        "knee_pushup"
+      ],
+      "roles": [
+        "knee_pushup:START",
+        "knee_pushup:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "542a4176948792153069208ffea6b5a709e607b9e7f617373971a61ea3d64938",
+      "candidate_sha256": "e61b0c6c005c6fe48f90cad23ab15602794d71b43b84b33cd9587dc085e4d616",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 741,
+      "mask_pixels": 1059756,
+      "wall_mask_pixels": 814761,
+      "floor_mask_pixels": 244995,
+      "changed_pixels": 1059756,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        84.709,
+        1.039,
+        -0.13
+      ],
+      "floor_source_median_Lab": [
+        74.75,
+        6.09,
+        10.929
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.241,
+        1.256
+      ],
+      "floor_relative_shift_Lab": [
+        0.595,
+        -1.582,
+        -1.108
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_hero.png",
+      "exercise_ids": [
+        "knee_pushup"
+      ],
+      "roles": [
+        "knee_pushup:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_hero.environment_mask.png",
+      "status": "MINOR COLOR FIX",
+      "source_sha256": "da4bb980451fd63a45f206e91718ffe78e03fa59ab65ded0d96a849f4eb55bb2",
+      "candidate_sha256": "73ca27cca2df771c9b4287d9e56dd54a8a3c92061ca535e6d347ef2f96d2567d",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 726,
+      "mask_pixels": 1106035,
+      "wall_mask_pixels": 852762,
+      "floor_mask_pixels": 253273,
+      "changed_pixels": 1106035,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        85.882,
+        0.883,
+        -0.746
+      ],
+      "floor_source_median_Lab": [
+        76.193,
+        5.977,
+        10.23
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.353,
+        1.7
+      ],
+      "floor_relative_shift_Lab": [
+        0.023,
+        -1.5,
+        -0.605
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.png",
+      "exercise_ids": [
+        "chest_press"
+      ],
+      "roles": [
+        "chest_press:START",
+        "chest_press:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "6836b68bcec155bf5bb90703fb0a63f0d2d52c99a7f7d3c26b8568951117ff7d",
+      "candidate_sha256": "73f48d1fe81afa16819a6dca3a11d6f562ba66c816c27a469635e00ddeff26a6",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 794,
+      "mask_pixels": 901987,
+      "wall_mask_pixels": 766453,
+      "floor_mask_pixels": 135534,
+      "changed_pixels": 901987,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        86.708,
+        0.523,
+        -4.957
+      ],
+      "floor_source_median_Lab": [
+        82.406,
+        8.876,
+        11.668
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.613,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.588,
+        -1.641
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.png",
+      "exercise_ids": [
+        "chest_press"
+      ],
+      "roles": [
+        "chest_press:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "68a235be48f148282e9ddeeb0e68e786d35fe1dea07234757d0f2ccd6ec0a81c",
+      "candidate_sha256": "10c3900848f512cd559f0127e9ae62afc0df155e9ae6a92abc1fc43da7ff8c27",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 793,
+      "mask_pixels": 819657,
+      "wall_mask_pixels": 748807,
+      "floor_mask_pixels": 70850,
+      "changed_pixels": 819657,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.307,
+        0.755,
+        -5.726
+      ],
+      "floor_source_median_Lab": [
+        84.304,
+        9.064,
+        11.355
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.446,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.6,
+        -1.415
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.png",
+      "exercise_ids": [
+        "triceps_kickback"
+      ],
+      "roles": [
+        "triceps_kickback:START",
+        "triceps_kickback:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "04adc6445956fc047d04fab07db1e1d09215a2a1acbec472ae7f8140f6ed7e6b",
+      "candidate_sha256": "d202df88836efab8b24529dca99adabf5c13ae35c54b11325ad41c2d76f0ba5a",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 723,
+      "mask_pixels": 982087,
+      "wall_mask_pixels": 884083,
+      "floor_mask_pixels": 98004,
+      "changed_pixels": 982087,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        91.007,
+        0.751,
+        -5.731
+      ],
+      "floor_source_median_Lab": [
+        82.293,
+        8.923,
+        10.584
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.448,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.6,
+        -0.86
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.png",
+      "exercise_ids": [
+        "triceps_kickback"
+      ],
+      "roles": [
+        "triceps_kickback:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "92d46c6dc58058c0e339966979fe630b16ea062934079888de85c5a1e3e26bea",
+      "candidate_sha256": "f3b1a94c53f6cb8a2ac4abd8277fd90594e865a1d3e8249b48243beb62bb1b3f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 718,
+      "mask_pixels": 1068100,
+      "wall_mask_pixels": 876299,
+      "floor_mask_pixels": 191801,
+      "changed_pixels": 1068100,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        89.563,
+        0.947,
+        -6.263
+      ],
+      "floor_source_median_Lab": [
+        82.047,
+        8.71,
+        12.82
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.307,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -3.468,
+        -2.47
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start.png",
+      "exercise_ids": [
+        "chest_fly"
+      ],
+      "roles": [
+        "chest_fly:START",
+        "chest_fly:END"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "988dc8d1ec3e3fcf7db67db1adc2a07924dcdc33229a66a5b488f842d6f443bf",
+      "candidate_sha256": "4b9e95216f9462a80ab3f098aba9f513bd3e6d18a7d24301c758ee761f2fbacf",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 788,
+      "mask_pixels": 1113187,
+      "wall_mask_pixels": 779041,
+      "floor_mask_pixels": 334146,
+      "changed_pixels": 1113187,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        87.72,
+        0.422,
+        -3.28
+      ],
+      "floor_source_median_Lab": [
+        81.368,
+        6.052,
+        10.483
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        0.685,
+        3.524
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -1.555,
+        -0.787
+      ]
+    },
+    {
+      "source": "Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.png",
+      "exercise_ids": [
+        "chest_fly"
+      ],
+      "roles": [
+        "chest_fly:HERO"
+      ],
+      "candidate": "candidates/Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.png",
+      "mask": "masks/Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.environment_mask.png",
+      "status": "STRONG COLOR FIX",
+      "source_sha256": "26296bab461ca3087bf408a7de0e8851d511e98e8ae9b20ca5cb5c669d5f2e0c",
+      "candidate_sha256": "26a72d118566022851111e6d3cfd46f253f730b3c3bfae9f2ab126464a5c747f",
+      "dimensions": "1536x1024",
+      "mode": "RGB",
+      "format": "PNG",
+      "horizon_y": 788,
+      "mask_pixels": 1098701,
+      "wall_mask_pixels": 796879,
+      "floor_mask_pixels": 301822,
+      "changed_pixels": 1098701,
+      "changed_outside_environment_mask": 0,
+      "wall_source_median_Lab": [
+        94.386,
+        -0.333,
+        -3.946
+      ],
+      "floor_source_median_Lab": [
+        84.708,
+        6.79,
+        10.79
+      ],
+      "wall_relative_shift_Lab": [
+        -1.188,
+        1.229,
+        3.6
+      ],
+      "floor_relative_shift_Lab": [
+        -1.386,
+        -2.086,
+        -1.009
+      ]
+    }
+  ]
+}
