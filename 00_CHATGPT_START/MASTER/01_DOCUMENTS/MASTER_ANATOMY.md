@@ -230,22 +230,17 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 
 | FILE | PRIMARY | SECONDARY | CVIKY | STATUS |
 |---|---|---|---|---|
-| glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | `hip`, `donkey`, `glute_bridge_march` | SCHVÁLENO |
-| deltoids_primary_triceps_secondary_muscles_v01.png | A05 Ramena | A07 Triceps | `press` | SCHVÁLENO |
-| quadriceps_primary_hamstrings_secondary_muscles_v01.png | A13 Quadriceps | A14 Hamstrings | žádný z aktuálních 51 profilů nemá tuto přesnou kombinaci; bez runtime přiřazení | SCHVÁLENO |
-| obliques_primary_core_secondary_muscles_v01.png | A02 Šikmé břišní | A01 Core | `heeltaps`, `russian` | SCHVÁLENO |
-| deltoids_primary_muscles_v01.png | A05 Ramena | — | `raise` | SCHVÁLENO |
-| lateral_glutes_primary_core_secondary_muscles_v01.png | A12 Lateral glutes | A01 Core | `clam`, `sideleg` | SCHVÁLENO |
-| glutes_lateral_glutes_primary_core_secondary_muscles_v01.png | A11 Gluteus maximus + A12 Lateral glutes | A01 Core | `abduction`, `rainbow` | SCHVÁLENO / NASAZENO |
-| glutes_primary_core_secondary_muscles_v01.png | A11 Gluteus maximus | A01 Core | `frog` | SCHVÁLENO / NASAZENO |
-| glutes_lateral_glutes_primary_muscles_v01.png | A11 Gluteus maximus + A12 Lateral glutes | — | `figure_four` | SCHVÁLENO / NASAZENO |
-| hamstrings_primary_muscles_v01.png | A14 Hamstrings | — | `hamstring_supine` | SCHVÁLENO / NASAZENO |
+| back_primary_muscles_v01.png | Záda | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+| core_obliques_primary_muscles_v01.png | Core + šikmé břišní svaly | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+| core_primary_muscles_v01.png | Core | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+| core_primary_shoulders_secondary_muscles_v01.png | Core | Ramena | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+| glutes_primary_core_secondary_muscles_v01.png | Hýždě | Core | `frog` | SCHVÁLENO / NASAZENO |
+| glutes_primary_muscles_v01.png | Hýždě | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+| thighs_primary_muscles_v01.png | Stehna | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+### ZAMÍTNUTO / ODSTRANĚNO
 
-### NEJASNÉ — NEMAŽ
-
-Tyto fyzicky existující varianty nejsou v autoritativní evidenci jednoznačně
-označené jako schválené ani zamítnuté. Nejsou mapované v runtime a zůstávají
-beze změny do ručního rozhodnutí:
+Tyto tři starší varianty nepatří do definitivně schválené jednotné vizuální série,
+nejsou mapované v runtime a byly fyzicky odstraněny, aby nemohly být znovu použity:
 
 - `chest_primary_shoulders_triceps_secondary_muscles_v01.png`
 - `chest_primary_shoulders_triceps_secondary_muscles_v01(2).png`
@@ -253,13 +248,13 @@ beze změny do ručního rozhodnutí:
 
 ### Aktuální runtime použití
 
-- Fyzicky existujících Muscle Card PNG: **13**.
-- Schválených a aktivně mapovaných PNG: **9**.
-- Schválených PNG bez runtime přiřazení: **1** (`quadriceps_primary_hamstrings_secondary_muscles_v01.png`).
-- Nejasných, nemapovaných PNG: **3**.
-- Aktivních cviků s Muscle Card: **14**.
-- Aktivních cviků bez Muscle Card: **37**.
-- OPEN cviky: `bicycle`, `bird`, `catcow`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `deadbug`, `dumbbell_pullover`, `hip_march`, `hollow`, `hundred`, `hydrant`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `rdl`, `revcrunch`, `rollup`, `row`, `scissors`, `sidekick`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
+- Fyzicky existujících Muscle Card PNG: **7**.
+- Schválených a aktivně mapovaných PNG: **1**.
+- PNG nové jednotné série bez runtime přiřazení: **6**.
+- Nejasných Muscle Card PNG: **0**.
+- Aktivních cviků s Muscle Card: **1**.
+- Aktivních cviků bez Muscle Card: **50**.
+- OPEN cviky: `abduction`, `bicycle`, `bird`, `catcow`, `clam`, `deadbug`, `donkey`, `dumbbell_pullover`, `figure_four`, `glute_bridge_march`, `hamstring_supine`, `heeltaps`, `hip`, `hip_march`, `hollow`, `hundred`, `hydrant`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `press`, `rainbow`, `raise`, `rdl`, `revcrunch`, `rollup`, `row`, `russian`, `scissors`, `sidekick`, `sideleg`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
 
 
 Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.

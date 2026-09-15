@@ -4,10 +4,10 @@
 
 - Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program a `dumbbell_pullover` je aktivní.
 - Obrazové SOURCE: 51 nové prostředí, 0 rozpracovaných mappingů, 0 starých prostředí, 0 chybějících aktivních bundle.
-- Muscle Card knihovna: 13 fyzických PNG; 10 schválených, 3 `NEJASNÉ — NEMAŽ`.
-- Runtime Muscle Cards: 14 aktivních cviků s kartou, 37 aktivních cviků v bezpečném OPEN stavu bez karty.
+- Muscle Card knihovna: 7 fyzických PNG; 1 schválené a nasazené, 6 nové jednotné série s mapováním OPEN, 0 nejasných.
+- Runtime Muscle Cards: 1 aktivní cvik s kartou, 50 aktivních cviků v bezpečném OPEN stavu bez karty.
 - Osm mrtvých legacy definic a všechna jejich přiřazení byla odstraněna; runtime nemá žádnou cestu na neexistující Muscle Card PNG.
-- OPEN cviky: `bicycle`, `bird`, `catcow`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `deadbug`, `dumbbell_pullover`, `hip_march`, `hollow`, `hundred`, `hydrant`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `rdl`, `revcrunch`, `rollup`, `row`, `scissors`, `sidekick`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
+- OPEN cviky: `abduction`, `bicycle`, `bird`, `catcow`, `clam`, `deadbug`, `donkey`, `dumbbell_pullover`, `figure_four`, `glute_bridge_march`, `hamstring_supine`, `heeltaps`, `hip`, `hip_march`, `hollow`, `hundred`, `hydrant`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `press`, `rainbow`, `raise`, `rdl`, `revcrunch`, `rollup`, `row`, `russian`, `scissors`, `sidekick`, `sideleg`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
 - Kanonická detailní tabulka: `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
 - Image workflow authority: `00_CHATGPT_START/MASTER/01_DOCUMENTS/IMAGE_WORKFLOW.md`.
 - MASTER Muscle Card evidence: `00_CHATGPT_START/MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`.

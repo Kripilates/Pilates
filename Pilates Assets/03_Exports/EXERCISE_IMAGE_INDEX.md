@@ -11,9 +11,9 @@ Tento index už nevede samostatný paralelní seznam. Kanonická inventura všec
 - rozpracováno / mapping k ověření: 0
 - staré prostředí: 0
 - chybějící / nový cvik: 0
-- Muscle Card PNG fyzicky: 13 (10 schválených, 3 NEJASNÉ — NEMAŽ)
-- aktivní cviky s Muscle Card: 14
-- aktivní cviky bez Muscle Card: 37
+- Muscle Card PNG fyzicky: 7 (1 schválená a nasazená, 6 nové jednotné série s mapováním OPEN, 0 nejasných)
+- aktivní cviky s Muscle Card: 1
+- aktivní cviky bez Muscle Card: 50
 - `swan` není aktivní
 - `dumbbell_pullover` je aktivní; bezverzové START/HERO, END = START, runtime, Guide a Step jsou hotové; Muscle Card je OPEN
 - `chest_opener` používá bezverzové START/HERO v novém prostředí; END = START a runtime, Guide i Step jsou opravené
@@ -30,6 +30,6 @@ Při další asset práci aktualizuj kanonickou tabulku, nikoli tento rozcestní
 
 ## Muscle Card runtime po úklidu
 
-- OPEN cviky: `bicycle`, `bird`, `catcow`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `deadbug`, `dumbbell_pullover`, `hip_march`, `hollow`, `hundred`, `hydrant`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `rdl`, `revcrunch`, `rollup`, `row`, `scissors`, `sidekick`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
+- OPEN cviky: `abduction`, `bicycle`, `bird`, `catcow`, `clam`, `deadbug`, `donkey`, `dumbbell_pullover`, `figure_four`, `glute_bridge_march`, `hamstring_supine`, `heeltaps`, `hip`, `hip_march`, `hollow`, `hundred`, `hydrant`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `press`, `rainbow`, `raise`, `rdl`, `revcrunch`, `rollup`, `row`, `russian`, `scissors`, `sidekick`, `sideleg`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
 - Osm mrtvých legacy definic bylo odstraněno; žádná runtime cesta neukazuje na neexistující Muscle Card PNG.
-- Nejasné nemapované soubory: `chest_primary_shoulders_triceps_secondary_muscles_v01.png`, `chest_primary_shoulders_triceps_secondary_muscles_v01(2).png`, `plie_lower_body_primary_core_secondary_muscles_v01.png`.
+- ZAMÍTNUTO / ODSTRANĚNO: `chest_primary_shoulders_triceps_secondary_muscles_v01.png`, `chest_primary_shoulders_triceps_secondary_muscles_v01(2).png`, `plie_lower_body_primary_core_secondary_muscles_v01.png`; žádná z těchto variant není mapovaná v runtime.
