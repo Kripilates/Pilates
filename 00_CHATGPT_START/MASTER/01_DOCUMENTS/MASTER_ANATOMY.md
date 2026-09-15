@@ -241,18 +241,26 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 | glutes_lateral_glutes_primary_muscles_v01.png | A11 Gluteus maximus + A12 Lateral glutes | — | `figure_four` | SCHVÁLENO / NASAZENO |
 | hamstrings_primary_muscles_v01.png | A14 Hamstrings | — | `hamstring_supine` | SCHVÁLENO / NASAZENO |
 
-## Zamítnuté a odstraněné varianty
+### NEJASNÉ — NEMAŽ
 
-Následující varianty byly po vizuálním auditu zamítnuty, jejich PNG odstraněny
-a nesmí být znovu mapovány bez nové ručně schválené náhrady:
+Tyto fyzicky existující varianty nejsou v autoritativní evidenci jednoznačně
+označené jako schválené ani zamítnuté. Nejsou mapované v runtime a zůstávají
+beze změny do ručního rozhodnutí:
 
-- `core_primary_hip_flexors_secondary_muscles_v01.png` — PRIMARY zvýraznění
-  zasahovalo příliš nízko směrem k tříslům a kyčlím. Cviky `deadbug`,
-  `hip_march`, `hollow`, `legraises`, `scissors` a `toetap` jsou dočasně bez
-  Muscle Card a používají bezpečný runtime stav bez obrázku.
-- `lateral_glutes_primary_glutes_hip_flexors_obliques_secondary_muscles_v01.png`
-  — přední PRIMARY zvýraznění vytvářelo nevhodné nízké trojúhelníkové a
-  diagonální pokračování. Varianta nebyla mapována na žádný aktivní cvik.
+- `chest_primary_shoulders_triceps_secondary_muscles_v01.png`
+- `chest_primary_shoulders_triceps_secondary_muscles_v01(2).png`
+- `plie_lower_body_primary_core_secondary_muscles_v01.png`
+
+### Aktuální runtime použití
+
+- Fyzicky existujících Muscle Card PNG: **13**.
+- Schválených a aktivně mapovaných PNG: **9**.
+- Schválených PNG bez runtime přiřazení: **1** (`quadriceps_primary_hamstrings_secondary_muscles_v01.png`).
+- Nejasných, nemapovaných PNG: **3**.
+- Aktivních cviků s Muscle Card: **14**.
+- Aktivních cviků bez Muscle Card: **37**.
+- OPEN cviky: `bicycle`, `bird`, `catcow`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `deadbug`, `dumbbell_pullover`, `hip_march`, `hollow`, `hundred`, `hydrant`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `rdl`, `revcrunch`, `rollup`, `row`, `scissors`, `sidekick`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
+
 
 Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
 

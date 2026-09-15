@@ -1,6 +1,6 @@
 # Exercise Status
 
-Aktualizováno: 2026-09-14
+Aktualizováno: 2026-09-15
 
 ## Aktuální stav aktivního programu
 
@@ -9,8 +9,9 @@ Aktualizováno: 2026-09-14
 - 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **0**
 - 🟠 K OPRAVĚ – STARÉ PROSTŘEDÍ: **0**
 - 🔴 CHYBÍ / NOVÝ CVIK: **0**
-- Muscle Card k doladění: **9**
+- Muscle Card k doladění: **37**
 - Guide/Step k aktualizaci: **0**
+- Muscle Card runtime: **14 aktivních cviků s kartou / 37 bezpečně bez karty**.
 - Kontrola: **51 + 0 + 0 + 0 = 51**
 - `swan`: mimo aktivní program; nezapočítán.
 - `dumbbell_pullover`: aktivní; SOURCE/runtime/Guide/Step jsou hotové, Muscle Card je OPEN.
@@ -29,7 +30,7 @@ Aktualizováno: 2026-09-14
 - Rozpracováno: žádný assetový mapping.
 - Celý nový bundle: žádný chybějící SOURCE bundle.
 - Dokončeno: `chest_opener` používá bezverzové SOURCE v novém prostředí; runtime, Guide a Step jsou opravené.
-- Muscle Card k doladění: `chest_opener` (Chest Opener), `clam` (Clamshell), `dumbbell_pullover` (Přítah činky za hlavu), `sidekick` (Side Kick), `sideleg` (Unožování vleže na boku), `russian` (Rotace trupu v sedu), `thread` (Protažení s rotací v kleku).
+- Muscle Card k doladění: `bicycle`, `bird`, `catcow`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `deadbug`, `dumbbell_pullover`, `hip_march`, `hollow`, `hundred`, `hydrant`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `rdl`, `revcrunch`, `rollup`, `row`, `scissors`, `sidekick`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
 - Guide/Step k aktualizaci po SOURCE: žádné.
 
 Předchozí tabulka s technickým stavem COMPLETE byla nahrazena, protože nerozlišovala nové a staré MASTER prostředí a obsahovala zastaralé názvy souborů.

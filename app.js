@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.197-dev';
+const APP_VERSION='v59.198-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -765,14 +765,6 @@ const sharedMuscleCards=Object.freeze({
   glutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_core_secondary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hýždě a střed těla',label:'Hýždě • střed těla'}),
   glutesLateralGlutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_lateral_glutes_primary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hýždě a boční hýžďové svaly',label:'Hýždě • boční hýždě'}),
   hamstrings:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/hamstrings_primary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hamstringy',label:'Hamstringy'}),
-  glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hýžďové svaly',label:'Hýžďové svaly'}),
-  thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_hamstrings_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Stehna a zadní strana nohou',label:'Stehna a zadní strana nohou'}),
-  obliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Šikmé břišní svaly',label:'Šikmé břišní svaly'}),
-  core:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Střed těla',label:'Střed těla'}),
-  back:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/back_shoulders_muscles_v02.png?v=59191muscleviews',alt:'Záda a lopatky',label:'Záda a lopatky'}),
-  chest:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/chest_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Hrudník',label:'Hrudník'}),
-  shoulders:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/shoulders_arms_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Ramena a paže',label:'Ramena a paže'}),
-  mobility:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/mobility_back_hips_muscles_v01.png?v=59189musclecardsnojekyll',alt:'Mobilita zad a kyčlí',label:'Mobilita zad a kyčlí'})
 });
 const referenceExerciseAssets={
   hip:{
@@ -795,7 +787,6 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.hip}
   },
   rdl:{
-    anatomy:sharedMuscleCards.thighs,
     start:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_start.png?v=59206sourcebatch',
@@ -813,7 +804,6 @@ const referenceExerciseAssets={
     ]
   },
   hydrant:{
-    anatomy:sharedMuscleCards.glutes,
     start:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/fire_hydrant_start.png?v=59198sourcebatch9',
@@ -919,7 +909,6 @@ const referenceExerciseAssets={
     ]
   },
   sideplank:{
-    anatomy:sharedMuscleCards.obliques,
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start.png?v=59200rollupsideplank',
     hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_hero.png?v=59200rollupsideplank',
     end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank/side_plank_start.png?v=59200rollupsideplank',
@@ -945,7 +934,6 @@ const referenceExerciseAssets={
     }
   },
   sideplank_reach:{
-    anatomy:sharedMuscleCards.obliques,
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_start.png?v=59208sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_hero.png?v=59208sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_end.png?v=59208sourcebatch',
@@ -1007,7 +995,6 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.toetap}
   },
   revcrunch:{
-    anatomy:sharedMuscleCards.core,
     start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Crunch/reverse_crunch_start.png',
@@ -1033,7 +1020,6 @@ const referenceExerciseAssets={
     }
   },
   bicycle:{
-    anatomy:sharedMuscleCards.obliques,
     start:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Bicycle%20Crunch/bicycle_crunch_end.png?v=59170todayauditfix',
@@ -1060,7 +1046,6 @@ const referenceExerciseAssets={
   },
 
   catcow:{
-    anatomy:sharedMuscleCards.mobility,
     start:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png?v=59196sourcebatch4',
     hero:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png?v=59196sourcebatch4',
     end:'Pilates%20Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png?v=59196sourcebatch4',
@@ -1086,7 +1071,6 @@ const referenceExerciseAssets={
     }
   },
   childs_pose:{
-    anatomy:sharedMuscleCards.mobility,
     start:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_start.png?v=59193visual5',
     hero:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_hero.png?v=59193visual5',
     end:'Pilates%20Assets/02_Exercise_Cards/Child\'s%20Pose/childs_pose_start.png?v=59193visual5',
@@ -1137,7 +1121,6 @@ const referenceExerciseAssets={
     }
   },
   bird:{
-    anatomy:sharedMuscleCards.core,
     start:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png?v=59196sourcebatch4',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_hero.png?v=59196sourcebatch4',
     end:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_start.png?v=59196sourcebatch4',
@@ -1155,7 +1138,6 @@ const referenceExerciseAssets={
     ]
   },
   thread:{
-    anatomy:sharedMuscleCards.back,
     start:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png?v=59208sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_hero.png?v=59208sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Thread%20the%20Needle/thread_the_needle_start.png?v=59208sourcebatch',
@@ -1181,7 +1163,6 @@ const referenceExerciseAssets={
     }
   },
   swimming:{
-    anatomy:sharedMuscleCards.back,
     start:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start.png?v=59208sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_hero.png?v=59208sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Swimming/swimming_start.png?v=59208sourcebatch',
@@ -1367,7 +1348,6 @@ const referenceExerciseAssets={
     }
   },
   row:{
-    anatomy:sharedMuscleCards.back,
     start:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/bent_over_row_start.png?v=59206sourcebatch',
@@ -1471,7 +1451,6 @@ const referenceExerciseAssets={
     }
   },
   standing_oblique:{
-    anatomy:sharedMuscleCards.obliques,
     start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Standing%20Oblique%20Crunch/standing_oblique_crunch_end.png',
@@ -1489,7 +1468,6 @@ const referenceExerciseAssets={
     recommendations:{feel:'Práci šikmých břišních svalů a středu těla při stabilním postoji.',watch:['Trup ukláněj ke zvednutému kolenu.','Netahej rukama za hlavu a nezvedej ramena.','Stojnou nohu nech lehce pokrčenou.'],mistakes:['Tahání za hlavu.','Otáčení trupu místo čistého úklonu.','Švihový pohyb.','Ztráta stability stojné nohy.']}
   },
   standing_side_bend:{
-    anatomy:sharedMuscleCards.obliques,
     start:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_hero.png',
     opposite:'Pilates%20Assets/02_Exercise_Cards/Standing%20Side%20Bend/standing_side_bend_end.png',
@@ -1520,7 +1498,6 @@ const referenceExerciseAssets={
     }
   },
   sidekick:{
-    anatomy:sharedMuscleCards.glutes,
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_start.png?v=59184sidebundle',
     hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_hero.png?v=59184sidebundle',
     end:'Pilates%20Assets/02_Exercise_Cards/Side%20Kick/side_kick_end.png?v=59184sidebundle',
@@ -1648,7 +1625,6 @@ const referenceExerciseAssets={
     }
   },
   hundred:{
-    anatomy:sharedMuscleCards.core,
     start:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/The%20Hundred/hundred_start.png',
@@ -1675,7 +1651,6 @@ const referenceExerciseAssets={
     }
   },
   inner_thigh:{
-    anatomy:sharedMuscleCards.thighs,
     start:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Inner%20Thigh%20Lift/inner_thigh_lift_start.png?v=59198sourcebatch9',
@@ -1726,7 +1701,6 @@ const referenceExerciseAssets={
     }
   },
   spine:{
-    anatomy:sharedMuscleCards.mobility,
     start:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start.png?v=59199sourcebatch3',
     hero:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_hero.png?v=59199sourcebatch3',
     end:'Pilates%20Assets/02_Exercise_Cards/Spine%20Stretch/spine_stretch_start.png?v=59199sourcebatch3',
@@ -1752,7 +1726,6 @@ const referenceExerciseAssets={
     }
   },
   sphinx:{
-    anatomy:sharedMuscleCards.mobility,
     start:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start.png?v=59199sourcebatch3',
     hero:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start.png?v=59199sourcebatch3',
     end:'Pilates%20Assets/02_Exercise_Cards/Sphinx%20Stretch/sphinx_stretch_start.png?v=59199sourcebatch3',
@@ -1778,7 +1751,6 @@ const referenceExerciseAssets={
     }
   },
   mermaid:{
-    anatomy:sharedMuscleCards.obliques,
     start:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Mermaid%20Stretch/mermaid_stretch_start.png?v=59198sourcebatch9',
@@ -1804,7 +1776,6 @@ const referenceExerciseAssets={
     }
   },
   plie:{
-    anatomy:sharedMuscleCards.thighs,
     start:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Plie%20Squat/plie_squat_start.png?v=59198sourcebatch9',
@@ -1830,7 +1801,6 @@ const referenceExerciseAssets={
     }
   },
   rollup:{
-    anatomy:sharedMuscleCards.core,
     start:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59200rollupsideplank',
     hero:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_hero.png?v=59200rollupsideplank',
     end:'Pilates%20Assets/02_Exercise_Cards/Roll%20Up/roll_up_start.png?v=59200rollupsideplank',
@@ -1856,7 +1826,6 @@ const referenceExerciseAssets={
     }
   },
   plank:{
-    anatomy:sharedMuscleCards.core,
     start:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start.png?v=59195visual4',
     hero:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start.png?v=59195visual4',
     end:'Pilates%20Assets/02_Exercise_Cards/Forearm%20Plank/forearm_plank_start.png?v=59195visual4',
@@ -1882,7 +1851,6 @@ const referenceExerciseAssets={
     }
   },
   tap:{
-    anatomy:sharedMuscleCards.core,
     start:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Plank%20Shoulder%20Taps/plank_shoulder_taps_start.png?v=59198sourcebatch9',
@@ -1908,7 +1876,6 @@ const referenceExerciseAssets={
     }
   },
   supine_twist:{
-    anatomy:sharedMuscleCards.mobility,
     start:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Supine%20Twist/supine_twist_start.png?v=59206sourcebatch',
@@ -1935,7 +1902,6 @@ const referenceExerciseAssets={
     }
   },
   swan:{
-    anatomy:sharedMuscleCards.back,
     start:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_start_v01.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_hero_v01.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Swan%20Prep/swan_prep_start_v01.png',
@@ -1962,7 +1928,6 @@ const referenceExerciseAssets={
     }
   },
   knee_pushup:{
-    anatomy:sharedMuscleCards.chest,
     start:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start.png?v=59193visual5',
     hero:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_hero.png?v=59193visual5',
     end:'Pilates%20Assets/02_Exercise_Cards/Knee%20Push-Up/knee_push_up_start.png?v=59193visual5',
@@ -1989,7 +1954,6 @@ const referenceExerciseAssets={
     }
   },
   chest_press:{
-    anatomy:sharedMuscleCards.chest,
     start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Press/chest_press_start.png?v=59206sourcebatch',
@@ -2014,7 +1978,6 @@ const referenceExerciseAssets={
     }
   },
   triceps_kickback:{
-    anatomy:sharedMuscleCards.shoulders,
     start:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Triceps%20Kickback/triceps_kickback_start.png?v=59206sourcebatch',
@@ -2041,7 +2004,6 @@ const referenceExerciseAssets={
     }
   },
   chest_fly:{
-    anatomy:sharedMuscleCards.chest,
     start:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start.png?v=59206sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_hero.png?v=59206sourcebatch',
     end:'Pilates%20Assets/02_Exercise_Cards/Chest%20Fly/chest_fly_start.png?v=59206sourcebatch',
