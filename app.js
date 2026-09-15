@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.196-dev';
+const APP_VERSION='v59.197-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -756,7 +756,6 @@ const exerciseDetailExhale=Object.freeze({
 });
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const sharedMuscleCards=Object.freeze({
-  coreHipFlexors:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_primary_hip_flexors_secondary_muscles_v01.png?v=59205corehipflexors',alt:'Core a flexory kyčle',label:'Core • flexory kyčle'}),
   glutesHamstringsCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_hamstrings_core_secondary_muscles_v01.png?v=59204musclecardsapproved',alt:'Hýždě, hamstringy a střed těla',label:'Hýždě • hamstringy • střed těla'}),
   deltoidsTriceps:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/deltoids_primary_triceps_secondary_muscles_v01.png?v=59205corehipflexors',alt:'Ramena a triceps',label:'Ramena • triceps'}),
   obliquesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/obliques_primary_core_secondary_muscles_v01.png?v=59209muscleprofiles',alt:'Šikmé břišní svaly a střed těla',label:'Šikmé břišní svaly • střed těla'}),
@@ -972,7 +971,6 @@ const referenceExerciseAssets={
     }
   },
   deadbug:{
-    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start.png?v=59193visual5',
     hero:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_hero.png?v=59193visual5',
     end:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/dead_bug_start.png?v=59193visual5',
@@ -991,7 +989,6 @@ const referenceExerciseAssets={
     breath:{exhale:exerciseDetailExhale.deadbug}
   },
   toetap:{
-    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_taps_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Toe%20Tap/toe_tap_start.png?v=59170todayauditfix',
@@ -1211,7 +1208,6 @@ const referenceExerciseAssets={
     }
   },
   hip_march:{
-    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_hero.png',
     end:'Pilates%20Assets/02_Exercise_Cards/Hip%20March/hip_march_start.png',
@@ -1601,7 +1597,6 @@ const referenceExerciseAssets={
     }
   },
   scissors:{
-    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_start.png?v=59196sourcebatch4',
     hero:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_hero.png?v=59196sourcebatch4',
     mid:'Pilates%20Assets/02_Exercise_Cards/Scissors/scissors_mid.png?v=59196sourcebatch4',
@@ -1628,7 +1623,6 @@ const referenceExerciseAssets={
     }
   },
   hollow:{
-    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_hero.png?v=59170todayauditfix',
     end:'Pilates%20Assets/02_Exercise_Cards/Hollow%20Hold/hollow_hold_start.png?v=59170todayauditfix',
@@ -1707,7 +1701,6 @@ const referenceExerciseAssets={
     }
   },
   legraises:{
-    anatomy:sharedMuscleCards.coreHipFlexors,
     start:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Leg%20Raises/leg_raises_start.png?v=59198sourcebatch9',

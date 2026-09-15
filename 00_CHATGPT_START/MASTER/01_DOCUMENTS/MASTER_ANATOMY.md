@@ -207,8 +207,6 @@ glutes_primary_hamstrings_core_secondary_muscles_v01.png
 
 lateral_glutes_primary_core_secondary_muscles_v01.png
 
-core_primary_hip_flexors_secondary_muscles_v01.png
-
 obliques_primary_core_secondary_muscles_v01.png
 
 chest_primary_triceps_shoulders_secondary_muscles_v01.png
@@ -232,7 +230,6 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 
 | FILE | PRIMARY | SECONDARY | CVIKY | STATUS |
 |---|---|---|---|---|
-| core_primary_hip_flexors_secondary_muscles_v01.png | A01 Core | A03 Flexory kyčle | `deadbug`, `hip_march`, `hollow`, `legraises`, `scissors`, `toetap` | SCHVÁLENO |
 | glutes_primary_hamstrings_core_secondary_muscles_v01.png | A11 Gluteus maximus | A14 Hamstrings + A01 Core | `hip`, `donkey`, `glute_bridge_march` | SCHVÁLENO |
 | deltoids_primary_triceps_secondary_muscles_v01.png | A05 Ramena | A07 Triceps | `press` | SCHVÁLENO |
 | quadriceps_primary_hamstrings_secondary_muscles_v01.png | A13 Quadriceps | A14 Hamstrings | žádný z aktuálních 51 profilů nemá tuto přesnou kombinaci; bez runtime přiřazení | SCHVÁLENO |
@@ -243,6 +240,19 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 | glutes_primary_core_secondary_muscles_v01.png | A11 Gluteus maximus | A01 Core | `frog` | SCHVÁLENO / NASAZENO |
 | glutes_lateral_glutes_primary_muscles_v01.png | A11 Gluteus maximus + A12 Lateral glutes | — | `figure_four` | SCHVÁLENO / NASAZENO |
 | hamstrings_primary_muscles_v01.png | A14 Hamstrings | — | `hamstring_supine` | SCHVÁLENO / NASAZENO |
+
+## Zamítnuté a odstraněné varianty
+
+Následující varianty byly po vizuálním auditu zamítnuty, jejich PNG odstraněny
+a nesmí být znovu mapovány bez nové ručně schválené náhrady:
+
+- `core_primary_hip_flexors_secondary_muscles_v01.png` — PRIMARY zvýraznění
+  zasahovalo příliš nízko směrem k tříslům a kyčlím. Cviky `deadbug`,
+  `hip_march`, `hollow`, `legraises`, `scissors` a `toetap` jsou dočasně bez
+  Muscle Card a používají bezpečný runtime stav bez obrázku.
+- `lateral_glutes_primary_glutes_hip_flexors_obliques_secondary_muscles_v01.png`
+  — přední PRIMARY zvýraznění vytvářelo nevhodné nízké trojúhelníkové a
+  diagonální pokračování. Varianta nebyla mapována na žádný aktivní cvik.
 
 Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
 
