@@ -1,0 +1,20 @@
+{
+  "checked_sources": 23,
+  "pass": 13,
+  "outlier": 10,
+  "candidates": [
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/dumbbell_pullover/Dumbbell Pullover start.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/rdl/romanian_deadlift_hero.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/swimming/swimming_start.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/swimming/swimming_hero.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/sidekick/side_kick_start.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/sideleg/side_leg_start.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/row/bent_over_row_start.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/row/bent_over_row_hero.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/chest_fly/chest_fly_start.png",
+    "Pilates Assets/03_Exports/FINAL_TARGETED_ENVIRONMENT_OUTLIER_PASS/CANDIDATES/chest_fly/chest_fly_hero.png"
+  ],
+  "outside_mask_changed_pixels": 0,
+  "production_sources_changed": 0,
+  "qa_galleries": 10
+}

@@ -1,0 +1,18 @@
+﻿exercise_id,frame,source_path,width,height,floor_score,wall_score,total_score,floor_diagnosis,wall_diagnosis,rank
+chest_press,HERO,Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_hero.png,1536,1024,16.8376,13.4080,15.2943,TOO ORANGE,TOO COOL/BLUE,1
+sidekick,END,Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_end.png,1536,1024,14.8339,15.4084,15.0924,TOO PINK; TOO PALE,TOO COOL/BLUE,2
+triceps_kickback,HERO,Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_hero.png,1536,1024,14.8193,14.9997,14.9005,TOO ORANGE,TOO COOL/BLUE,3
+triceps_kickback,START/END,Pilates Assets/02_Exercise_Cards/Triceps Kickback/triceps_kickback_start.png,1536,1024,14.3672,14.6144,14.4784,TOO PINK; TOO PALE,TOO COOL/BLUE,4
+standing_oblique,START,Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_start.png,1536,1024,9.4150,20.3080,14.3168,TOO COOL; TOO GRAY,TOO COOL/BLUE,5
+chest_press,START/END,Pilates Assets/02_Exercise_Cards/Chest Press/chest_press_start.png,1536,1024,14.5694,12.1170,13.4658,TOO ORANGE,TOO COOL/BLUE,6
+rollup,START/END,Pilates Assets/02_Exercise_Cards/Roll Up/roll_up_start.png,1536,1024,12.8347,13.9133,13.3201,TOO ORANGE,TOO COOL/BLUE,7
+clam,START/END,Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_start.png,1536,1024,9.0987,18.2297,13.2077,TOO COOL,TOO COOL/BLUE,8
+raise,HERO,Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_hero.png,1536,1024,12.4190,13.9835,13.1230,TOO PINK,TOO COOL/BLUE,9
+raise,START/END,Pilates Assets/02_Exercise_Cards/Lateral Raise/lateral_raise_start.png,1536,1024,12.7746,13.2580,12.9921,TOO PINK,TOO COOL/BLUE,10
+inner_thigh,HERO,Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png,1536,1024,8.0175,17.6098,12.3340,PASS,TOO COOL/BLUE,13
+standing_oblique,HERO,Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_hero.png,1536,1024,7.0133,17.8763,11.9016,TOO COOL,TOO COOL/BLUE,17
+hip,START/END,Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_start.png,1536,1024,6.9796,17.8615,11.8764,PASS,TOO COOL/BLUE,18
+hip,HERO,Pilates Assets/02_Exercise_Cards/Glute Bridge/glute_bridge_hero.png,1536,1024,6.2062,17.5390,11.3060,PASS,TOO COOL/BLUE,27
+standing_oblique,END,Pilates Assets/02_Exercise_Cards/Standing Oblique Crunch/standing_oblique_crunch_end.png,1536,1024,5.3137,17.7812,10.9241,PASS,TOO COOL/BLUE,32
+hydrant,HERO,Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png,1536,1024,4.9674,18.0306,10.8458,PASS,TOO COOL/BLUE,33
+sideplank_reach,END,Pilates Assets/02_Exercise_Cards/Side Plank Reach/side_plank_reach_end.png,1536,1024,13.6519,7.2803,10.7847,TOO ORANGE,TOO COOL/BLUE,34

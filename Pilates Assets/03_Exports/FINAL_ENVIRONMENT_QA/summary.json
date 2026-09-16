@@ -1,0 +1,11 @@
+{
+  "pass1_deployed": 17,
+  "pass2_deployed": 10,
+  "changed_production_sources": 27,
+  "candidate_hash_equals_deployed": true,
+  "other_sources_changed": 0,
+  "gallery_sources": 110,
+  "active_exercise_ids": 51,
+  "gallery_pages": 10,
+  "overview": "Pilates Assets/03_Exports/FINAL_ENVIRONMENT_QA/FINAL_ENVIRONMENT_OVERVIEW.png"
+}

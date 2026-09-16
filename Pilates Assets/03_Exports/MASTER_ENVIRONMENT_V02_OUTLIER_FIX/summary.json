@@ -1,0 +1,33 @@
+{
+  "candidates": 17,
+  "pass": 36,
+  "minor": 64,
+  "significant_outliers": 10,
+  "remaining_failed_candidates": [],
+  "remaining_paths": [
+    "Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png",
+    "Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png",
+    "Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png",
+    "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png",
+    "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png"
+  ],
+  "newly_outlier_from_original_good": [
+    "Pilates Assets/02_Exercise_Cards/Donkey Kick/donkey_kick_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Side Kick/side_kick_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Side Leg Lift/side_leg_lift_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Romanian Deadlift/romanian_deadlift_start.png",
+    "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Dumbbell Pullover/Dumbbell Pullover hero.png",
+    "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_start.png",
+    "Pilates Assets/02_Exercise_Cards/Clamshell/clamshell_hero.png",
+    "Pilates Assets/02_Exercise_Cards/Standing Side Bend/standing_side_bend_end.png",
+    "Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png"
+  ],
+  "outside_mask_changed_pixels": 0,
+  "production_sources_changed": 0
+}
