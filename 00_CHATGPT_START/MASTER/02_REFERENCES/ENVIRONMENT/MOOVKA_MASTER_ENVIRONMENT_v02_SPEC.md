@@ -4,6 +4,18 @@ Status: LOCKED.
 
 Master image: `MOOVKA_MASTER_ENVIRONMENT_v02.png` (1536 × 1024 px).
 
+## Approved production baseline
+
+FINAL TARGETED ENVIRONMENT DEPLOYMENT: **APPROVED / PASS**.
+
+- 51 active exercises.
+- 110 unique production SOURCE images.
+- Final visual QA: 10/10 pages PASS.
+- The production environment library is visually unified.
+- No further automatic environment or color correction is required.
+- The current production SOURCE images are the approved environment baseline.
+- `MOOVKA_MASTER_ENVIRONMENT_v02` remains the sole authoritative environment reference for future SOURCE images.
+
 ## Locked environment
 
 - Empty modern exercise studio.
