@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.201-dev';
+const APP_VERSION='v59.202-dev';
 const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
   ...(day.items||[]).map(item=>item[0]),
   ...(day.stretch?.[0]?[day.stretch[0]]:[])
@@ -2561,6 +2561,7 @@ function programInfo(){
   scrollTop();
 }
 function home(){
+  if(maybeStartRequiredOnboarding())return;
   setAppView('home');
   lastMode='home';setNav('home');
   const resumeState=activeWorkoutResumeState();
