@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.202-dev';
+const APP_VERSION='v59.203-dev';
 const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
   ...(day.items||[]).map(item=>item[0]),
   ...(day.stretch?.[0]?[day.stretch[0]]:[])
@@ -299,6 +299,7 @@ function resolvedDayStretch(di,difficulty=effectiveProgramDifficulty()){
   return Array.isArray(stretch)&&stretch[0]&&data.exercises[stretch[0]]?[stretch[0],resolveDose(stretch[1],difficulty)]:null;
 }
 function hasLegacyProgramData(){
+  if(activeWorkoutResumeState())return true;
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(!k)continue;
