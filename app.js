@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.203-dev';
+const APP_VERSION='v59.204-dev';
 const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
   ...(day.items||[]).map(item=>item[0]),
   ...(day.stretch?.[0]?[day.stretch[0]]:[])
@@ -303,7 +303,7 @@ function hasLegacyProgramData(){
   for(let i=0;i<localStorage.length;i++){
     const k=localStorage.key(i);
     if(!k)continue;
-    if(/^pb40-d\d+-e\d+$/.test(k)||/^pb40-log-/.test(k)||/^pb40-fav-/.test(k)||k==='pb40-measurements'||k==='pb40-workout-notes')return true;
+    if(/^pb40-d\d+-e\d+$/.test(k)||/^pb40-rest-d\d+$/.test(k)||/^pb40-log-/.test(k)||/^pb40-fav-/.test(k)||k==='pb40-measurements'||k==='pb40-workout-notes')return true;
   }
   return false;
 }
