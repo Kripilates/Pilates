@@ -231,6 +231,8 @@ Každá vytvořená kombinace musí být zapsána před nasazením.
 | FILE | PRIMARY | SECONDARY | CVIKY | STATUS |
 |---|---|---|---|---|
 | back_primary_muscles_v01.png | Záda | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
+| chest_shoulders_arms_primary_muscles_v01.png | Neověřeno | Neověřeno | — | FYZICKY PŘÍTOMNÉ — APPROVAL/MAPPING OPEN |
+| core_back_primary_muscles_v01.png | Neověřeno | Neověřeno | — | FYZICKY PŘÍTOMNÉ — APPROVAL/MAPPING OPEN |
 | core_obliques_primary_muscles_v01.png | Core + šikmé břišní svaly | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
 | core_primary_muscles_v01.png | Core | — | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
 | core_primary_shoulders_secondary_muscles_v01.png | Core | Ramena | — | NOVÁ JEDNOTNÁ SÉRIE — MAPOVÁNÍ OPEN |
@@ -248,16 +250,20 @@ nejsou mapované v runtime a byly fyzicky odstraněny, aby nemohly být znovu po
 
 ### Aktuální runtime použití
 
-- Fyzicky existujících Muscle Card PNG: **7**.
+- Fyzicky existujících verzovaných Muscle Card PNG v repozitáři: **9**.
 - Schválených a aktivně mapovaných PNG: **1**.
-- PNG nové jednotné série bez runtime přiřazení: **6**.
+- Tracked PNG bez runtime přiřazení nebo bez doloženého finálního approval: **8**.
 - Nejasných Muscle Card PNG: **0**.
 - Aktivních cviků s Muscle Card: **1**.
 - Aktivních cviků bez Muscle Card: **50**.
 - OPEN cviky: `abduction`, `bicycle`, `bird`, `catcow`, `clam`, `deadbug`, `donkey`, `dumbbell_pullover`, `figure_four`, `glute_bridge_march`, `hamstring_supine`, `heeltaps`, `hip`, `hip_march`, `hollow`, `hundred`, `hydrant`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `press`, `rainbow`, `raise`, `rdl`, `revcrunch`, `rollup`, `row`, `russian`, `scissors`, `sidekick`, `sideleg`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
 
 
-Schválené runtime PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`. Zdrojovými referencemi systému jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png` a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
+Muscle Card PNG jsou uloženy v `Pilates Assets/02_Exercise_Cards/_Muscle_Cards/`.
+Necommitnuté pracovní kandidáty v této složce nelze považovat za schválenou
+knihovnu a do uvedeného počtu se nezapočítávají. Zdrojovými referencemi systému
+jsou zamčené `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MOOVKA_MASTER_BODY_v02.png`
+a `00_CHATGPT_START/MASTER/02_REFERENCES/ANATOMY/MASTER_BODY_MAP_v02.png`.
 
 STATUS:
 ČEKÁ

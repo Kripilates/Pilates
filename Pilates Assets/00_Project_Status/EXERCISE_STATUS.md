@@ -1,6 +1,6 @@
 # Exercise Status
 
-Aktualizováno: 2026-09-15
+Aktualizováno: 2026-09-17
 
 ## Aktuální stav aktivního programu
 
@@ -12,6 +12,9 @@ Aktualizováno: 2026-09-15
 - Muscle Card k doladění: `abduction`, `bicycle`, `bird`, `catcow`, `clam`, `deadbug`, `donkey`, `dumbbell_pullover`, `figure_four`, `glute_bridge_march`, `hamstring_supine`, `heeltaps`, `hip`, `hip_march`, `hollow`, `hundred`, `hydrant`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `press`, `rainbow`, `raise`, `rdl`, `revcrunch`, `rollup`, `row`, `russian`, `scissors`, `sidekick`, `sideleg`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
 - Guide/Step k aktualizaci: **0**
 - Muscle Card runtime: **1 aktivní cvik s kartou / 50 bezpečně bez karty**.
+- Muscle Card knihovna: **9 tracked PNG / 1 aktivně mapované / 8 bez runtime
+  přiřazení nebo bez doloženého finálního approval**. Necommitnuté pracovní
+  kandidáty nejsou součástí schváleného součtu.
 - Kontrola: **51 + 0 + 0 + 0 = 51**
 - `swan`: mimo aktivní program; nezapočítán.
 - `dumbbell_pullover`: aktivní; SOURCE/runtime/Guide/Step jsou hotové, Muscle Card je OPEN.

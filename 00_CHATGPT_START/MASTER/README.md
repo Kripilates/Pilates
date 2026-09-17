@@ -1,7 +1,7 @@
 # MOOVKA MASTER
 
 Status: **ACTIVE**
-Aktualizováno: 2026-09-12
+Aktualizováno: 2026-09-17
 
 Tato složka je jediný canonical kořen aktivní MASTER dokumentace a referencí.
 Historické podklady mohou být užitečné jako provenance, ale nejsou autoritou.
@@ -23,6 +23,8 @@ Historické podklady mohou být užitečné jako provenance, ale nejsou autorito
 
 Při rozporu specializovaný dokument rozhoduje pouze ve své oblasti. Historický
 log, jednotlivé `STATUS.md`, staré Guide/Step ani archiv nemohou přepsat MASTER.
+Stavové souhrny vždy ověř proti fyzickým souborům a aktuálnímu runtime; pokud se
+rozcházejí, neopakuj zastaralý souhrn a nejdřív sjednoť dokumentaci.
 
 ## Doporučené pořadí čtení
 

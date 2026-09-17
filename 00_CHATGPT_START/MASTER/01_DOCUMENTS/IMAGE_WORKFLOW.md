@@ -1,8 +1,8 @@
 # MOOVKA — EXERCISE IMAGE CREATION + QA WORKFLOW
 
 Status: **ACTIVE WORKFLOW AUTHORITY**
-Verze: 3.0
-Aktualizováno: 2026-09-12
+Verze: 3.1
+Aktualizováno: 2026-09-17
 
 Toto je jediná hlavní autorita pro tvorbu, opravy, QA, schvalování a nasazování
 exercise image assetů Moovka. Vizuální konstanty určuje `MASTER_REFERENCE.md`,
@@ -68,10 +68,10 @@ jen referenci výslovně schválenou pro konkrétní úkol nebo schválený pair
 Pokud podklad nestačí k přesnému určení pózy, negeneruj odhadovanou variantu.
 
 HTTP 404 nebo neexistující versioned cesta neznamená automaticky chybějící
-fotografii. Nejdřív ověř unversioned variantu. Aktuální známý příklad:
-`sideplank_reach` má v runtime podezřelé odkazy na
-`side_plank_reach_*_v01.png`, zatímco ve složce existují unversioned soubory.
-Tento dokument pouze eviduje mapping bug; neopravuje jej.
+fotografii. Nejdřív ověř unversioned variantu, fyzickou existenci souboru,
+aktuální `app.js` a URL. Konkrétní historický mapping bug se po opravě nesmí dál
+uvádět jako aktuální příklad; aktuální stav určuje runtime a
+`EXERCISE_PROGRESS.md`.
 
 ## 4. SOURCE naming a technický standard
 

@@ -1,6 +1,6 @@
 # EXERCISE IMAGE INDEX — aktivní runtime
 
-Aktualizováno: 2026-09-15
+Aktualizováno: 2026-09-17
 
 Tento index už nevede samostatný paralelní seznam. Kanonická inventura všech 51 aktivních ID, jejich skutečně mapovaných START/HERO/END souborů, Guide, Step a Muscle Card je v [EXERCISE_PROGRESS.md](../../00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md).
 
@@ -11,7 +11,7 @@ Tento index už nevede samostatný paralelní seznam. Kanonická inventura všec
 - rozpracováno / mapping k ověření: 0
 - staré prostředí: 0
 - chybějící / nový cvik: 0
-- Muscle Card PNG fyzicky: 7 (1 schválená a nasazená, 6 nové jednotné série s mapováním OPEN, 0 nejasných)
+- Muscle Card PNG tracked v repozitáři: 9 (1 schválená a nasazená, 8 bez runtime přiřazení nebo bez doloženého finálního approval, 0 nejasných)
 - aktivní cviky s Muscle Card: 1
 - aktivní cviky bez Muscle Card: 50
 - `swan` není aktivní
@@ -20,10 +20,12 @@ Tento index už nevede samostatný paralelní seznam. Kanonická inventura všec
 - `swimming`, `thread` a `sideplank_reach` používají finální bezverzové SOURCE; jejich Guide/Step byly aktualizovány pouze novými fotografiemi
 - `russian` používá bezverzové START/HERO; END = START a runtime, Guide i Step jsou opravené
 - `chest_fly`, `chest_press`, `press`, `raise`, `rdl`, `row`, `supine_twist` a `triceps_kickback` používají bezverzové START/HERO; END = START a Guide/Step byly aktualizovány
-- `hip`, `donkey` a `glute_bridge_march` správně používají schválenou Muscle Card `glutes_primary_hamstrings_core_secondary_muscles_v01.png` (PRIMARY A11; SECONDARY A14 + A01)
 - `frog` používá schválenou Muscle Card `glutes_primary_core_secondary_muscles_v01.png`.
-- `quadriceps_primary_hamstrings_secondary_muscles_v01.png` je schválená a uložená, ale bez runtime přiřazení, protože žádný aktivní profil přesně neodpovídá A13 + A14
-- `abduction` a `rainbow` používají schválenou Muscle Card `glutes_lateral_glutes_primary_core_secondary_muscles_v01.png` (PRIMARY A11 + A12; SECONDARY A01)
+- Žádný další aktivní cvik momentálně nemá runtime Muscle Card mapping.
+- Fyzicky přítomné tracked PNG bez runtime přiřazení zůstávají OPEN; samotná
+  existence souboru nedokládá approval ani oprávnění k anatomickému reuse.
+- Necommitnuté pracovní kandidáty ve složce `_Muscle_Cards` nejsou součástí
+  schválené knihovny ani tohoto součtu.
 
 Při další asset práci aktualizuj kanonickou tabulku, nikoli tento rozcestník.
 

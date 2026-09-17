@@ -1,7 +1,7 @@
 # MOOVKA — READ FIRST
 
 Status: **ACTIVE ENTRY POINT**
-Aktualizováno: 2026-09-12
+Aktualizováno: 2026-09-17
 
 Tento soubor je první zastávka pro nový ChatGPT/Codex kontext. Nezačínej tvorbu,
 opravu ani nasazení exercise assetů pouze z historie chatu.
@@ -39,9 +39,10 @@ Vždy nejprve proveď reuse/mapping audit:
 6. teprve potom rozhodni, zda SOURCE skutečně chybí.
 
 `SOURCE NENALEZEN` nebo HTTP 404 automaticky neznamená, že se má generovat nový
-obrázek. Aktuální konkrétní příklad je `sideplank_reach`: runtime stále používá
-staré versioned názvy, zatímco ve složce existují unversioned kandidáti. Mapping
-se v dokumentačním úkolu neopravuje.
+obrázek. Nejdřív ověř fyzické unversioned SOURCE, aktuální `app.js` a skutečnou
+URL. Starý versioned odkaz může být pouze mapping bug. Konkrétní příklady ve
+starších stavech a chatech nejsou autoritou; rozhoduje aktuální runtime a
+`EXERCISE_PROGRESS.md`.
 
 ## Základní pravidla
 

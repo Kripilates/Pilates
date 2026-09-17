@@ -1,10 +1,10 @@
 # 00_CODEX_STATE
 
-## Aktuální stav — image workflow a inventura 2026-09-15
+## Aktuální stav — image workflow a inventura 2026-09-17
 
 - Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program a `dumbbell_pullover` je aktivní.
 - Obrazové SOURCE: 51 nové prostředí, 0 rozpracovaných mappingů, 0 starých prostředí, 0 chybějících aktivních bundle.
-- Muscle Card knihovna: 7 fyzických PNG; 1 schválené a nasazené, 6 nové jednotné série s mapováním OPEN, 0 nejasných.
+- Muscle Card knihovna: 9 tracked PNG; 1 schválené a nasazené, 8 bez runtime přiřazení nebo bez doloženého finálního approval, 0 nejasných. Necommitnuté pracovní kandidáty se do schváleného součtu nezapočítávají.
 - Runtime Muscle Cards: 1 aktivní cvik s kartou, 50 aktivních cviků v bezpečném OPEN stavu bez karty.
 - Osm mrtvých legacy definic a všechna jejich přiřazení byla odstraněna; runtime nemá žádnou cestu na neexistující Muscle Card PNG.
 - OPEN cviky: `abduction`, `bicycle`, `bird`, `catcow`, `clam`, `deadbug`, `donkey`, `dumbbell_pullover`, `figure_four`, `glute_bridge_march`, `hamstring_supine`, `heeltaps`, `hip`, `hip_march`, `hollow`, `hundred`, `hydrant`, `chest_fly`, `chest_opener`, `chest_press`, `childs_pose`, `inner_thigh`, `knee_pushup`, `legraises`, `mermaid`, `plank`, `plie`, `press`, `rainbow`, `raise`, `rdl`, `revcrunch`, `rollup`, `row`, `russian`, `scissors`, `sidekick`, `sideleg`, `sideplank`, `sideplank_reach`, `sphinx`, `spine`, `standing_oblique`, `standing_side_bend`, `supine_twist`, `swimming`, `tap`, `thread`, `toetap`, `triceps_kickback`.
@@ -15,6 +15,10 @@
 - Aktuální runtime verze/cache: `v59.198-dev`; `style.css?v=59187anatomyfit`; `data.js?v=59211czechpullover`; `app.js?v=59214musclelibrarycleanup`.
 
 ## Historický log (může popisovat překonané stavy)
+
+Následující záznamy jsou provenance, nikoli aktivní instrukce ani aktuální
+inventura. Při rozporu vždy platí horní sekce tohoto souboru, MASTER dokumentace,
+fyzické soubory a aktuální runtime.
 
 ## Projekt
 

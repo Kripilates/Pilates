@@ -1,6 +1,6 @@
 # EXERCISE PROGRESS — aktivní obrazové karty
 
-Aktualizováno: 2026-09-15
+Aktualizováno: 2026-09-17
 Režim: audit skutečně aktivních ID z `data.js` a aktivního mapování z `app.js`.
 Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`.
 
@@ -27,7 +27,8 @@ Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRON
 - 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **0**
 - 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **0**
 - 🔴 CHYBÍ / NOVÝ CVIK: **0**
-- MUSCLE CARD K DOLADĚNÍ: **37**
+- UNIKÁTNÍ MUSCLE CARD PROFILY K DOLADĚNÍ: **37**
+- RUNTIME MUSCLE CARD: **1 aktivní cvik s kartou / 50 bezpečně bez karty**
 - GUIDE/STEP K AKTUALIZACI: **0**
 
 Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.

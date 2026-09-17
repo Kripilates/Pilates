@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.199-dev';
+const APP_VERSION='v59.200-dev';
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -756,7 +756,19 @@ const exerciseDetailExhale=Object.freeze({
 });
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const sharedMuscleCards=Object.freeze({
-  glutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_core_secondary_muscles_v01.png?v=59212muscleprofiles3',alt:'Hýždě a střed těla',label:'Hýždě • střed těla'}),
+  back:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/back_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Záda',label:'Záda'}),
+  backArms:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/back_arms_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Záda a paže',label:'Záda • paže'}),
+  chestBack:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/chest_back_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Prsa a záda',label:'Prsa • záda'}),
+  chestShouldersArms:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/chest_shoulders_arms_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Prsa, ramena a paže',label:'Prsa • ramena • paže'}),
+  core:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Břicho',label:'Břicho'}),
+  coreBack:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_back_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Břicho a záda',label:'Břicho • záda'}),
+  coreObliques:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_obliques_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Břicho a šikmé břišní svaly',label:'Břicho • šikmé'}),
+  coreShoulders:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/core_primary_shoulders_secondary_muscles_v01.png?v=59216musclemappingfinal',alt:'Břicho a ramena',label:'Břicho • ramena'}),
+  glutes:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Zadek',label:'Zadek'}),
+  glutesCore:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_primary_core_secondary_muscles_v01.png?v=59216musclemappingfinal',alt:'Zadek a břicho',label:'Zadek • břicho'}),
+  glutesThighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/glutes_thighs_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Zadek a stehna',label:'Zadek • stehna'}),
+  shouldersArms:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/shoulders_arms_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Ramena a paže',label:'Ramena • paže'}),
+  thighs:Object.freeze({src:'Pilates%20Assets/02_Exercise_Cards/_Muscle_Cards/thighs_primary_muscles_v01.png?v=59216musclemappingfinal',alt:'Stehna',label:'Stehna'}),
 });
 const referenceExerciseAssets={
   hip:{
@@ -837,7 +849,6 @@ const referenceExerciseAssets={
     }
   },
   frog:{
-    anatomy:sharedMuscleCards.glutesCore,
     start:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
     hero:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_hero.png?v=59198sourcebatch9',
     end:'Pilates%20Assets/02_Exercise_Cards/Frog%20Pumps/frog_pumps_start.png?v=59198sourcebatch9',
@@ -2008,6 +2019,64 @@ const referenceExerciseAssets={
     }
   }
 };
+const exerciseMuscleCardAssignments=Object.freeze({
+  abduction:'glutesThighs',
+  bicycle:'coreObliques',
+  bird:'coreBack',
+  catcow:'back',
+  chest_fly:'chestShouldersArms',
+  chest_opener:'chestShouldersArms',
+  chest_press:'chestShouldersArms',
+  childs_pose:'back',
+  clam:'glutes',
+  deadbug:'core',
+  donkey:'glutes',
+  dumbbell_pullover:'chestBack',
+  figure_four:'glutesThighs',
+  frog:'glutesThighs',
+  glute_bridge_march:'glutesCore',
+  hamstring_supine:'thighs',
+  heeltaps:'coreObliques',
+  hip:'glutes',
+  hip_march:'glutesCore',
+  hollow:'core',
+  hundred:'core',
+  hydrant:'glutes',
+  inner_thigh:'thighs',
+  knee_pushup:'chestShouldersArms',
+  legraises:'core',
+  mermaid:'coreObliques',
+  plank:'coreShoulders',
+  plie:'glutesThighs',
+  press:'shouldersArms',
+  rainbow:'glutes',
+  raise:'shouldersArms',
+  rdl:'glutesThighs',
+  revcrunch:'core',
+  rollup:'core',
+  row:'backArms',
+  russian:'coreObliques',
+  scissors:'core',
+  sidekick:'glutesThighs',
+  sideleg:'glutes',
+  sideplank:'coreShoulders',
+  sideplank_reach:'coreShoulders',
+  sphinx:'back',
+  spine:'back',
+  standing_oblique:'coreObliques',
+  standing_side_bend:'coreObliques',
+  supine_twist:'coreObliques',
+  swimming:'backArms',
+  tap:'glutesThighs',
+  thread:'back',
+  toetap:'core',
+  triceps_kickback:'shouldersArms',
+});
+Object.entries(exerciseMuscleCardAssignments).forEach(([exerciseId,cardKey])=>{
+  const detail=referenceExerciseAssets[exerciseId];
+  const card=sharedMuscleCards[cardKey];
+  if(detail&&card)detail.anatomy=card;
+});
 function detailMasterCard(k){
   const src=masterCards[k];
   if(!src) return '';
