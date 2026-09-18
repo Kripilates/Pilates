@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.204-dev';
+const APP_VERSION='v59.205-dev';
 const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
   ...(day.items||[]).map(item=>item[0]),
   ...(day.stretch?.[0]?[day.stretch[0]]:[])
@@ -3772,7 +3772,16 @@ app.addEventListener('click',e=>{
   if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
   if(a==='complete-rest-day'){setRestDone(Number(t.dataset.day));return home();}
   if(a==='set-complete-auto')return advanceAutoPhase();
-  if(a==='toggle-auto'){workoutPaused=!workoutPaused;return showAutoTrain();}
+  if(a==='toggle-auto'){
+    if(workoutPaused){
+      workoutPaused=false;
+      resumeWorkoutTimer();
+    }else{
+      workoutPaused=true;
+      clearInterval(timer);
+    }
+    return showAutoTrain();
+  }
   if(a==='skip-auto')return skipAuto();
   if(a==='stop-auto')return showWorkoutExitDialog();
   if(a==='continue-workout')return continueWorkoutFromDialog();
