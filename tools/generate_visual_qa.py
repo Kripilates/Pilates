@@ -112,7 +112,13 @@ def asset_blocks() -> dict[str, str]:
     start = text.find("const referenceExerciseAssets={")
     if start < 0:
         raise RuntimeError("referenceExerciseAssets nebyl v app.js nalezen")
-    end = text.find("\n};\nfunction detailMasterCard", start)
+    end_markers = (
+        "\n};\nconst exerciseMuscleCardAssignments",
+        "\n};\nfunction detailMasterCard",
+    )
+    end_candidates = [text.find(marker, start) for marker in end_markers]
+    end_candidates = [position for position in end_candidates if position >= 0]
+    end = min(end_candidates) if end_candidates else -1
     if end < 0:
         raise RuntimeError("Konec referenceExerciseAssets nebyl v app.js nalezen")
     section = text[start:end]

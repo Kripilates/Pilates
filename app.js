@@ -7,7 +7,12 @@ const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
 ]));
 const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>activeProgramExerciseIdSet.has(id)));
 const activeExerciseIdSet=new Set(activeExerciseIds);
-const LIBRARY_THUMBNAIL_VERSION='59217librarythumbs';
+const DEPLOYMENT_ID=document.querySelector('meta[name="moovka-deployment"]')?.content||'local-dev';
+function deploymentImageUrl(src){
+  if(!src)return '';
+  const path=String(src).split('?')[0];
+  return `${path}?v=${encodeURIComponent(DEPLOYMENT_ID)}`;
+}
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
 const primaryNav=document.querySelector('body > nav');
@@ -2085,6 +2090,11 @@ Object.entries(exerciseMuscleCardAssignments).forEach(([exerciseId,cardKey])=>{
   const card=sharedMuscleCards[cardKey];
   if(detail&&card)detail.anatomy=card;
 });
+Object.values(referenceExerciseAssets).forEach(detail=>{
+  ['start','hero','mid','opposite','end'].forEach(field=>{
+    if(detail?.[field])detail[field]=deploymentImageUrl(detail[field]);
+  });
+});
 function detailMasterCard(k){
   const src=masterCards[k];
   if(!src) return '';
@@ -2097,7 +2107,7 @@ function openMasterCard(src,alt){
   document.querySelector('.masterLightbox')?.remove();
   app.insertAdjacentHTML('beforeend',`<div class="masterLightbox" data-action="close-master-card" role="dialog" aria-modal="true" aria-label="${esc(alt||'Kompletní karta cviku')}"><button class="masterLightboxClose" type="button" data-action="close-master-card" aria-label="Zavřít">×</button><img src="${esc(src)}" alt="${esc(alt||'Kompletní karta cviku')}"></div>`);
 }
-function v22ImageSrc(k){return referenceExerciseAssets[k]?.hero || data.exercises[k]?.image || '';}
+function v22ImageSrc(k){return referenceExerciseAssets[k]?.hero || deploymentImageUrl(data.exercises[k]?.image) || '';}
 function noImageCue(text){
   return String(text||'')
     .replace(/\s+/g,' ')
@@ -2345,7 +2355,7 @@ function detailStepMedia(k,n){
   const ex=data.exercises[k];
   if(n===1){
     if(!ex.image)return `<figure class="v50StepFallback">${noImage(k,'v20StepPhoto v22StepPhoto')}<figcaption>Ukázka cviku</figcaption></figure>`;
-    return `<figure class="v50StepFallback"><img src="${ex.image}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Ukázka cviku</figcaption></figure>`;
+    return `<figure class="v50StepFallback"><img src="${deploymentImageUrl(ex.image)}" alt="${ex.name} - ukázka cviku" loading="lazy"><figcaption>Ukázka cviku</figcaption></figure>`;
   }
   return `<div class="v50StepIcon" aria-hidden="true">${n}</div>`;
 }
@@ -3499,7 +3509,7 @@ function libraryImageFallback(){
   return `<div class="libraryImageFallback"><img src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""><span>Správná technika</span></div>`;
 }
 function libraryExerciseMedia(k){
-  const src=activeExerciseIdSet.has(k)?`Pilates%20Assets/02_Exercise_Cards/_Library_Thumbnails/${encodeURIComponent(k)}.webp?v=${LIBRARY_THUMBNAIL_VERSION}`:'',name=data.exercises[k]?.name||'Cvik';
+  const src=activeExerciseIdSet.has(k)?deploymentImageUrl(`Pilates%20Assets/02_Exercise_Cards/_Library_Thumbnails/${encodeURIComponent(k)}.webp`):'',name=data.exercises[k]?.name||'Cvik';
   if(!src)return libraryImageFallback();
   return `<img class="libraryExercisePhoto" loading="lazy" src="${esc(src)}" alt="${esc(name)}"><div class="libraryImageFallback" hidden><img src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt=""><span>Správná technika</span></div>`;
 }
