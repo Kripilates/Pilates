@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.205-dev';
+const APP_VERSION='v59.206-dev';
 const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
   ...(day.items||[]).map(item=>item[0]),
   ...(day.stretch?.[0]?[day.stretch[0]]:[])
@@ -2196,6 +2196,17 @@ function referenceGuideCard(k){
     <div class="referenceFlow referenceFlow--${stepData.length}">${steps}</div>
   </section>`;
 }
+function selectReferencePhase(step){
+  const hero=app.querySelector('.referenceTopHero img');
+  if(!hero||!step?.dataset.src)return;
+  hero.src=step.dataset.src;
+  hero.alt=step.dataset.alt||hero.alt;
+  step.closest('.referenceFlow')?.querySelectorAll('[data-action="reference-phase"]').forEach(item=>{
+    const active=item===step;
+    item.classList.toggle('active',active);
+    item.setAttribute('aria-pressed',String(active));
+  });
+}
 function referenceStepByStep(k){
   const ref=referenceExerciseAssets[k];
   if(!ref)return '';
@@ -2214,14 +2225,23 @@ function referenceEquipmentLabel(item){
   const labels={dumbbells:'Činky',mat:'Podložka',chair:'Židle',wall:'Zeď'};
   return labels[item] || String(item||'').trim();
 }
+function normalizeBreathInstruction(label,text){
+  const instruction=String(text||'').trim();
+  if(!instruction)return '';
+  const leadingCue=label==='Nádech'
+    ? /^(?:nádech|nadechni|s nádechem)\s*/i
+    : /^(?:výdech|vydechni|s výdechem)\s*/i;
+  const normalized=instruction.replace(leadingCue,'').trim();
+  return normalized ? normalized.charAt(0).toLocaleLowerCase('cs-CZ')+normalized.slice(1) : '';
+}
 function referencePracticalInfo(k,meta,ex){
   const ref=referenceExerciseAssets[k]||{};
   const equipment=[...(ref.equipment||[]),...(ex.equipment||[])]
     .map(referenceEquipmentLabel)
     .filter(Boolean);
   const uniqueEquipment=[...new Set(equipment)];
-  const exhale=String(ref.breath?.exhale||meta.breath||'').trim();
-  const breath=exhale ? `Výdech ${exhale.replace(/^při/i,'při')}` : '';
+  const exhale=normalizeBreathInstruction('Výdech',ref.breath?.exhale||meta.breath);
+  const breath=exhale ? `Výdech ${exhale}` : '';
   return [...uniqueEquipment,breath].filter(Boolean).join(' • ');
 }
 function referenceCompactInfoPanel(k,meta){
@@ -3418,7 +3438,7 @@ function info(k,opts={}){
           <aside class="v20Aside">
             ${hasReference ? '' : `<section class="v20Card v20InfoCard"><h3>Informace o cviku</h3><dl class="v20InfoList"><div><dt>Obtížnost</dt><dd>${meta.diff}</dd></div><div><dt>Zaměření</dt><dd>${meta.area}</dd></div><div><dt>Kolena</dt><dd>${meta.knee}</dd></div></dl></section>`}
             ${hasReference?'':muscleImg?`<section class="v20Card v20Muscle"><h3>Zapojené svaly</h3>${muscleImg}<ul class="dotList"><li>${meta.area}</li><li>${ex.feel||'střed těla a stabilita'}</li><li>${meta.knee}</li></ul></section>`:''}
-            ${hasReference ? '' : `<section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${meta.breath}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>`}
+            ${hasReference ? '' : `<section class="v20Card v20Breath"><h3>Dech & tempo</h3><div class="v20BreathRow"><span>↥</span><p><b>Nádech</b>ve výchozí pozici</p></div><div class="v20BreathRow"><span>↧</span><p><b>Výdech</b>${normalizeBreathInstruction('Výdech',meta.breath)}</p></div><div class="v20BreathRow"><span>◷</span><p><b>Tempo</b>${meta.tempo}</p></div></section>`}
             ${hasReference ? '' : `<section class="v20Card v20Feel"><h3>Co bys měla cítit</h3><p>Práci v hýždích, stabilní střed těla a klidný, kontrolovaný pohyb bez bolesti.</p></section>
             <section class="v20Card v20Watch"><h3>Na co si dát pozor</h3><ul class="checkList"><li>Zatlačuj přes paty, ne přes špičky.</li><li>Drž pánev v jedné linii a neprohýbej se v bedrech.</li><li>Ramena zůstávají na zemi, krk je uvolněný.</li><li>Aktivuj břišní svaly po celou dobu.</li></ul></section>
             <section class="v20Card v20Mistakes"><h3>Nejčastější chyby</h3><ul class="xList">${meta.mistakes.map(x=>`<li>${x}</li>`).join('')}<li>Zvedání příliš vysoko a ztráta kontroly.</li><li>Zatínání krku a ramen.</li></ul></section>`}
@@ -3674,15 +3694,7 @@ app.addEventListener('click',e=>{
   if(a==='open-master-card')return openMasterCard(t.dataset.src,t.dataset.alt);
   if(a==='close-master-card'){t.closest('.masterLightbox')?.remove();return;}
   if(a==='reference-phase'){
-    const hero=app.querySelector('.referenceTopHero img');
-    if(!hero||!t.dataset.src)return;
-    hero.src=t.dataset.src;
-    hero.alt=t.dataset.alt||hero.alt;
-    t.closest('.referenceFlow')?.querySelectorAll('[data-action="reference-phase"]').forEach(step=>{
-      const active=step===t;
-      step.classList.toggle('active',active);
-      step.setAttribute('aria-pressed',String(active));
-    });
+    selectReferencePhase(t);
     return;
   }
   if(a==='stay-in-app'){closeRootExitDialog();return;}
@@ -3747,7 +3759,17 @@ app.addEventListener('click',e=>{
     const parts=String(date||'').split('-').map(Number);
     return calendar(parts[0],parts[1]-1);
   }
-  if(a==='fav'){toggleFav(t.dataset.ex);return info(t.dataset.ex,{replaceRoute:true});}
+  if(a==='fav'){
+    const selectedPhase=[...app.querySelectorAll('[data-action="reference-phase"]')]
+      .findIndex(step=>step.getAttribute('aria-pressed')==='true');
+    toggleFav(t.dataset.ex);
+    info(t.dataset.ex,{replaceRoute:true});
+    if(selectedPhase>=0){
+      const phase=app.querySelectorAll('[data-action="reference-phase"]')[selectedPhase];
+      if(phase)selectReferencePhase(phase);
+    }
+    return;
+  }
   if(a==='info'||t.dataset.ex){
     if(t.dataset.day!==undefined && t.dataset.day!==''){
       detailReturnDay=Number(t.dataset.day);

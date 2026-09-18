@@ -4618,6 +4618,15 @@ body.dark .programCompletionContent{
   max-width:100%;
 }
 
+/* v59.206: short landscape workouts stay in normal document flow */
+@media (orientation:landscape) and (max-height:430px){
+  .autoTrain.v53CleanTrain .trainControls,
+  .autoTrain.v50Train .trainControls{
+    position:static;
+    bottom:auto!important;
+  }
+}
+
 /* Workout UX fix 2: stable mobile header and controls */
 @media(max-width:560px){
   .autoTrain.v53CleanTrain .trainTop2,
