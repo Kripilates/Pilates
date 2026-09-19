@@ -158,7 +158,8 @@ def sha256(path: Path) -> str:
 
 def discover() -> Discovery:
     data = read_program()
-    active_ids = active_ids_in_program_order(data)
+    active_ids = [exercise_id for exercise_id in data["exercises"] if exercise_id != "swan"]
+    program_ids = active_ids_in_program_order(data)
     blocks = asset_blocks()
     missing: list[str] = []
     ambiguous: list[str] = []
@@ -167,9 +168,10 @@ def discover() -> Discovery:
     skipped_other_duplicates = 0
 
     if len(active_ids) != 51:
-        ambiguous.append(f"Aktivní program má {len(active_ids)} ID místo očekávaných 51")
-    if "swan" in active_ids:
-        ambiguous.append("Neaktivní swan se neočekávaně objevil v programu")
+        ambiguous.append(f"Aktivní katalog má {len(active_ids)} ID místo očekávaných 51")
+    for exercise_id in program_ids:
+        if exercise_id not in active_ids:
+            ambiguous.append(f"Program používá neaktivní nebo neznámé ID: {exercise_id}")
 
     mapped_classes = set(POSE_CLASS_BY_ID)
     active_set = set(active_ids)

@@ -1,11 +1,7 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
 const APP_VERSION='v59.206-dev';
-const activeProgramExerciseIdSet=new Set(data.days.flatMap(day=>[
-  ...(day.items||[]).map(item=>item[0]),
-  ...(day.stretch?.[0]?[day.stretch[0]]:[])
-]));
-const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>activeProgramExerciseIdSet.has(id)));
+const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>id!=='swan'));
 const activeExerciseIdSet=new Set(activeExerciseIds);
 const DEPLOYMENT_ID=document.querySelector('meta[name="moovka-deployment"]')?.content||'local-dev';
 function deploymentImageUrl(src){
