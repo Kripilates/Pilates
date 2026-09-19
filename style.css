@@ -3525,8 +3525,8 @@ body.dark .aboutHeroMedia:after{background:linear-gradient(90deg,var(--card) 0,r
 }
 @media(max-width:380px){.aboutHero{min-height:590px}.aboutHeroContent{min-height:590px;padding-inline:15px}.aboutHeroContent h3{font-size:36px}.aboutHeroContent>p{width:68%;font-size:13px}.aboutProgramFacts>div{grid-template-columns:17px minmax(0,1fr);padding-inline:6px}.aboutProgramFacts .lineIcon{width:16px;height:16px}.aboutHeroActions{width:76%}.aboutProgramSection,.trainingPrinciplesSection{padding-inline:15px}.trainingPrinciple p{font-size:12px}}
 /* v59.88: compact image and 2x2 principles pass */
-.aboutHero{min-height:470px}
-.aboutHeroContent{min-height:470px;padding:28px 30px}
+.aboutHero{min-height:420px}
+.aboutHeroContent{min-height:420px;padding:28px 30px}
 .aboutHeroContent h2{margin-bottom:14px}
 .aboutHeroContent>p{margin:13px 0 18px}
 .aboutProgramFacts>div{min-height:55px;padding:8px}
@@ -3556,8 +3556,8 @@ body.dark .aboutHeroMedia:after{background:linear-gradient(90deg,var(--card) 0,r
 .trainingSafety strong{font-size:12px;text-transform:uppercase;letter-spacing:.025em}
 .trainingSafety p{margin-top:2px;font-size:11.5px;line-height:1.35}
 @media(max-width:700px){
-  .aboutHero{min-height:560px}
-  .aboutHeroContent{min-height:560px;padding:21px 18px}
+  .aboutHero{min-height:510px}
+  .aboutHeroContent{min-height:510px;padding:21px 18px}
   .aboutHeroContent h2{margin-bottom:15px}
   .aboutHeroContent>p{margin:12px 0 18px}
   .aboutProgramFacts>div{min-height:58px;padding-block:7px}
@@ -3570,8 +3570,8 @@ body.dark .aboutHeroMedia:after{background:linear-gradient(90deg,var(--card) 0,r
   .trainingPrinciple>span{width:34px;height:34px;margin-bottom:7px}
 }
 @media(max-width:380px){
-  .aboutHero{min-height:545px}
-  .aboutHeroContent{min-height:545px;padding-inline:15px}
+  .aboutHero{min-height:495px}
+  .aboutHeroContent{min-height:495px;padding-inline:15px}
   .aboutProgramFacts>div{min-height:56px}
   .aboutFocusList article{min-height:112px}
   .aboutFocusList article>img{min-height:112px}

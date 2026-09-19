@@ -2564,7 +2564,6 @@ function programInfo(){
       </div>
       <div class="aboutHeroActions">
         <button class="primary aboutPrimaryCta" data-action="${programComplete?'days':'start-auto'}"${programComplete?'':` data-day="${nextDayIndex()}"`}>${programComplete?'Zobrazit dokončený plán':'Pokračovat v tréninku'}</button>
-        <button class="onboardingReplayButton aboutSecondaryAction" data-action="show-onboarding">Zobrazit úvodní průvodce</button>
       </div>
     </div>
   </section>
