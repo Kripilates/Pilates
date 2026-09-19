@@ -6,36 +6,24 @@
   <meta name="moovka-deployment" content="local-dev">
   <title>Moovka</title>
   <link rel="manifest" href="manifest.json?v=local-dev">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=local-dev">
   <link rel="stylesheet" href="style.css?v=local-dev">
   <meta name="theme-color" content="#20b6b2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 <body>
 <header><div class="brandLockup"><img class="brandLogo" src="Pilates%20Assets/01_Master_Reference/MooVka_logo_FINAL.svg" alt="Moovka"><p id="app-version" class="appVersion"></p></div><strong class="brandBadge" aria-live="polite"></strong></header>
 <nav><button id="nav-home" class="active"><span>⌂</span>Domů</button><button id="nav-days"><span>☑</span>Plán</button><button id="nav-calendar"><span>▦</span>Kalendář</button><button id="nav-library"><span>☰</span>Moje Moovka</button><button id="nav-favs">♡ Oblíbené</button><button id="nav-stats">↗ Můj pokrok</button><button id="nav-progress">◎ Měření</button><button id="nav-dark">🌙</button></nav>
 <main id="app"><section class="card"><h2>Načítám aplikaci…</h2><p class="muted">Aplikaci se nepodařilo načíst. Zkus stránku obnovit.</p></section></main>
-<script>
-// v54: odstraňuje jen service workery a cache patřící této Pilates aplikaci.
-(function(){
-  try {
-    var appPath = location.origin + location.pathname.replace(/\/[^\/]*$/, '/');
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function(regs){
-        regs.forEach(function(reg){
-          if (reg.scope && reg.scope.indexOf(appPath) === 0) reg.unregister();
-        });
-      }).catch(function(){});
-    }
-    if ('caches' in window) {
-      caches.keys().then(function(keys){
-        keys.forEach(function(key){
-          if (/^(PB40|pb40|pilates)/i.test(key)) caches.delete(key);
-        });
-      }).catch(function(){});
-    }
-  } catch(e) {}
-})();
-</script>
 <script src="data.js?v=local-dev"></script>
 <script src="app.js?v=local-dev"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js?v=local-dev', { scope: './', updateViaCache: 'none' })
+      .catch(function (error) { console.warn('Moovka offline režim není dostupný:', error); });
+  });
+}
+</script>
 </body>
 </html>

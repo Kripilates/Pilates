@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -32,8 +33,8 @@ def copy_runtime_tree(source: Path, destination: Path) -> None:
 
 
 def build(output_dir: Path, cache_dir: Path, deployment_id: str) -> None:
-    if not deployment_id.strip():
-        raise RuntimeError("Deployment ID nesmí být prázdné")
+    if not re.fullmatch(r"[A-Za-z0-9._-]+", deployment_id):
+        raise RuntimeError("Deployment ID obsahuje nepovolené znaky nebo je prázdné")
     if output_dir == REPO or REPO not in output_dir.parents:
         raise RuntimeError(f"Nebezpečný output adresář: {output_dir}")
     if output_dir.exists():
@@ -56,6 +57,19 @@ def build(output_dir: Path, cache_dir: Path, deployment_id: str) -> None:
     if "local-dev" not in content:
         raise RuntimeError("index.html neobsahuje očekávaný local-dev token")
     index.write_text(content.replace("local-dev", deployment_id), encoding="utf-8", newline="\n")
+
+    manifest = output_dir / "manifest.json"
+    manifest_content = manifest.read_text(encoding="utf-8")
+    if "local-dev" not in manifest_content:
+        raise RuntimeError("manifest.json neobsahuje očekávaný icon cache token")
+    manifest.write_text(manifest_content.replace("local-dev", deployment_id), encoding="utf-8", newline="\n")
+
+    worker = output_dir / "sw.js"
+    worker_content = worker.read_text(encoding="utf-8")
+    marker = "__MOOVKA_DEPLOYMENT_ID__"
+    if worker_content.count(marker) != 1:
+        raise RuntimeError("sw.js neobsahuje právě jeden deployment marker")
+    worker.write_text(worker_content.replace(marker, deployment_id), encoding="utf-8", newline="\n")
 
     thumbnail_dir = output_dir / "Pilates Assets" / "02_Exercise_Cards" / "_Library_Thumbnails"
     generated, reused, outputs = generate(thumbnail_dir, cache_dir)
