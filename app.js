@@ -3142,11 +3142,10 @@ function showAutoTrain(opts={}){
   const doseClass=`${doseLabel.length>7?' compactWorkoutDose--long':''}${info.side&&info.timed?' compactWorkoutDose--timedSide':''}`;
   const phaseText=phaseLabel();
   const hasTimerLayout=isTimedActive || workoutPhase==='roundRest';
-  const seriesLabel=workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : `S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}`;
-  const statusLabel=workoutPaused ? 'Pauza' : (workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : (workoutPhase==='switch'&&sideSlotText ? sideSlotText : (statusShowsCurrentSide ? sideLabel : (sideSlotText || (workoutPhase==='work'&&!info.timed ? seriesLabel : phaseText)))));
+  const statusLabel=workoutPaused ? 'Pauza' : (workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : (workoutPhase==='switch'&&sideSlotText ? sideSlotText : (statusShowsCurrentSide ? sideLabel : (sideSlotText || (workoutPhase==='work'&&!info.timed ? '' : phaseText)))));
   const timerContent=`<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>`;
   const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
-  const statusHtml=(workoutPhase==='prep'&&!workoutPaused)||statusLabel===seriesLabel ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
+  const statusHtml=(workoutPhase==='prep'&&!workoutPaused)||!statusLabel ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
   const workoutHeaderHtml=isSideSwitch
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2></div>`
     : hasTimerLayout
@@ -3182,7 +3181,7 @@ function showAutoTrain(opts={}){
         <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SWITCH_SECONDS)*100))}%"></i></div>
         <small>${switchDetail}</small>
       </div>`
-    : `<div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div><div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
+    : `<div class="trainImageSlot"><div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div>${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
@@ -3513,7 +3512,7 @@ function libraryExerciseCard(k,categoryId){
   const ex=data.exercises[k],meta=exMeta(k);
   if(!ex)return '';
   const category=exerciseLibraryCategories[categoryId];
-  const tags=(category?[category.title,meta.area]:[meta.area,meta.diff]).filter((tag,index,list)=>tag&&list.indexOf(tag)===index).slice(0,2);
+  const tags=(category?[category.title,meta.area]:[meta.area]).filter((tag,index,list)=>tag&&list.indexOf(tag)===index).slice(0,2);
   return `<button class="libraryExerciseCard" type="button" data-action="info" data-ex="${esc(k)}" aria-label="Otevřít detail cviku ${esc(ex.name)}"><span class="libraryExerciseMedia">${libraryExerciseMedia(k)}</span><span class="libraryExerciseText"><strong>${esc(ex.name)}</strong><span class="libraryExerciseTags">${tags.map(tag=>`<span>${esc(tag)}</span>`).join('')}</span></span><span class="libraryExerciseChevron">${lineIcon('chevron')}</span></button>`;
 }
 function library(){

@@ -6080,10 +6080,11 @@ body.dark .programCompletionContent{
   max-width:78px;
   overflow:visible;
 }
-.autoTrain .workoutDetailLinkRow{display:flex;justify-content:flex-end;min-width:0;margin:0 0 2px}
-.autoTrain .workoutDetailLinkRow button{
-  min-height:32px;
-  padding:4px 2px;
+.autoTrain .trainImageSlot{border-radius:22px;background:var(--card)}
+.autoTrain .trainImageSlot .workoutDetailLinkRow{display:flex;justify-content:flex-end;align-items:center;min-width:0;margin:0;padding:0 10px}
+.autoTrain .trainImageSlot .workoutDetailLinkRow button{
+  min-height:30px;
+  padding:4px 2px!important;
   border:0;
   border-radius:0;
   background:transparent;
@@ -6095,7 +6096,6 @@ body.dark .programCompletionContent{
   text-decoration-color:rgba(32,182,178,.45);
   text-underline-offset:3px;
 }
-.autoTrain .workoutDetailLinkRow + .trainImageSlot{margin-top:1px!important}
 .autoTrain.v53CleanTrain .trainControls button,
 .autoTrain.v50Train .trainControls button{
   height:48px;
