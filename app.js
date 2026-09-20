@@ -3466,6 +3466,7 @@ const exerciseLibraryCategories={
   mobility:{title:'Mobilita + protažení',support:'Uvolnění, rozsah pohybu a klidný dech.',icon:'mobility',ids:['swan','standing_side_bend','spine','sphinx','mermaid','supine_twist','catcow','thread','childs_pose','chest_opener','figure_four','hamstring_supine']}
 };
 const exerciseLibraryOrder=['core','glutes','legs','upper','back','mobility'];
+let exerciseLibraryReturnScroll=0;
 function lineIcon(name){
   const paths={
     stats:'<path d="M5 19V10M12 19V5M19 19v-7"/><path d="M3 19h18"/>',
@@ -3526,27 +3527,20 @@ function library(){
   app.innerHTML=`<section class="programDashboard myMoovka"><div class="programDashboardIntro"><p>Moje Moovka</p><h2>Osobní centrum</h2><span>Pokrok, měření a tvoje uložené cviky na jednom místě.</span></div><div class="programFeatureGrid myMoovkaGrid"><button class="programFeature programFeatureWide" type="button" data-action="stats"><span class="programFeatureIcon">${lineIcon('stats')}</span><span><strong>Můj pokrok</strong><small>${s.percent}% programu · ${s.daysComplete} hotových dní · ${s.complete} cviků</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="progress"><span class="programFeatureIcon">${lineIcon('measure')}</span><span><strong>Měření pokroku</strong><small>${lastMeasure||'Poslední měření je uložené'}${arr.length?` · ${arr.length} ${arr.length===1?'záznam':'záznamů'}`:''}</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="library-list"><span class="programFeatureIcon">${lineIcon('library')}</span><span><strong>Knihovna cviků</strong><small>Technika a detail všech cviků</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button><button class="programFeature" type="button" data-action="library-category" data-category="favorites"><span class="programFeatureIcon coralAccent">${lineIcon('heart')}</span><span><strong>Uložené cviky</strong><small>${favCount?`${favCount} ${favCount===1?'uložený cvik':'uložených cviků'}`:'Zatím žádné uložené cviky'}</small></span><span class="programFeatureArrow">${lineIcon('chevron')}</span></button></div><section class="programSettings myMoovkaSettings"><h3>Nastavení cvičení</h3><div class="profileDifficulty"><span>${lineIcon('levels')}</span><div><strong>Úroveň programu</strong><small>${difficultyLabel(diff)} · ${diff==='easy'?'2 série':diff==='medium'?'3 série · doporučená':'3 série'}</small></div></div>${difficultyControl('profile')}</section><section class="programSettings myMoovkaInfo"><h3>Další nastavení</h3><button class="programSettingRow" type="button" data-action="program-info"><span>${lineIcon('info')}</span><strong>O Moovce</strong><i>${lineIcon('chevron')}</i></button><button class="programSettingRow" type="button" data-action="toggle-theme" role="switch" aria-checked="${dark}"><span>${lineIcon('moon')}</span><strong>Tmavý režim</strong><i class="programSwitch ${dark?'on':''}" aria-hidden="true"><b></b></i></button></section></section>`;
   scrollTop();
 }
-function exerciseLibrary(){
-  setAppView('exercise-library');
+function exerciseLibrary(filter='all',restoreScroll=false){
+  if(filter!=='all'&&filter!=='favorites'&&!exerciseLibraryCategories[filter])filter='all';
+  setAppView('exercise-library',{filter});
   lastMode='library';setNav('library');
-  const categoryTiles=exerciseLibraryOrder.map(id=>{const c=exerciseLibraryCategories[id],titleParts=c.title.split(' + '),titleMain=titleParts.shift(),titleAccent=titleParts.join(' + '),titleMarkup=titleAccent?`<span>${esc(titleMain)}</span> <span class="libraryCategoryTitleAccent">+ ${esc(titleAccent)}</span>`:`<span class="libraryCategoryTitleSingle">${esc(titleMain)}</span>`;return `<button class="libraryCategoryTile libraryCategory-${id}" type="button" data-action="library-category" data-category="${id}"><span class="libraryCategoryText"><strong>${titleMarkup}</strong><small>${c.ids.filter(k=>activeExerciseIdSet.has(k)).length} cviků</small></span></button>`;}).join('');
-  app.innerHTML=`<section class="exerciseLibrary"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Vyber partii</h2><span>Prohlédni si cviky a správnou techniku.</span></div><div class="libraryCategoryGrid">${categoryTiles}</div><div class="libraryUtilityGrid"><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="favorites"><span>${lineIcon('heart')}</span><strong>Oblíbené</strong><small>Tvoje uložené cviky</small></button><button class="libraryUtilityTile" type="button" data-action="library-category" data-category="all"><span>${lineIcon('all')}</span><strong>Všechny cviky</strong><small>Celý katalog</small></button></div></section>`;
-  scrollTop();
+  const keys=filter==='all'?activeExerciseIds:filter==='favorites'?activeExerciseIds.filter(k=>isFav(k)):activeExerciseIds.filter(k=>exerciseLibraryCategories[filter].ids.includes(k));
+  const filters=[['all','Vše'],...exerciseLibraryOrder.map(id=>[id,exerciseLibraryCategories[id].title]),['favorites','Oblíbené']];
+  const filterButtons=filters.map(([id,label])=>`<button class="libraryFilter${filter===id?' selected':''}" type="button" data-action="library-filter" data-filter="${id}" aria-pressed="${filter===id}">${esc(label)}</button>`).join('');
+  const content=keys.length?`<div class="libraryCatalogGrid">${keys.map(k=>libraryExerciseCard(k,filter)).join('')}</div>`:`<div class="libraryEmptyState">${lineIcon('heart')}<h3>Zatím tu nemáš žádný oblíbený cvik.</h3><p>Oblíbené si uložíš v detailu cviku.</p></div>`;
+  app.innerHTML=`<section class="exerciseLibrary libraryCatalogScreen"><button class="libraryBack" type="button" data-action="library">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Všechny cviky</h2><span>Prohlédni si cviky a správnou techniku.</span></div><div class="libraryFilterBar" role="group" aria-label="Filtrovat cviky">${filterButtons}</div><p class="libraryResultCount">${keys.length} ${keys.length===1?'cvik':'cviků'}</p>${content}</section>`;
+  if(restoreScroll)requestAnimationFrame(()=>window.scrollTo({top:exerciseLibraryReturnScroll,behavior:'auto'}));
+  else scrollTop();
 }
-function exerciseLibraryCategory(categoryId,routeView='exercise-library-category'){
-  const special=categoryId==='favorites'||categoryId==='all';
-  const category=exerciseLibraryCategories[categoryId];
-  if(!special&&!category)return exerciseLibrary();
-  setAppView(routeView,routeView==='exercise-library-category'?{category:categoryId}:{});
-  lastMode='library';setNav('library');
-  const keys=categoryId==='favorites'?activeExerciseIds.filter(k=>isFav(k)):categoryId==='all'?activeExerciseIds:category.ids.filter(k=>activeExerciseIdSet.has(k));
-  const title=categoryId==='favorites'?'Oblíbené':categoryId==='all'?'Všechny cviky':category.title;
-  const support=categoryId==='favorites'?'Cviky, ke kterým se chceš vracet.':categoryId==='all'?'Kompletní knihovna techniky cviků.':category.support;
-  const content=keys.length?`<div class="libraryCatalogGrid">${keys.map(k=>libraryExerciseCard(k,categoryId)).join('')}</div>`:`<div class="libraryEmptyState">${lineIcon('heart')}<h3>Zatím tu nemáš žádný oblíbený cvik.</h3><p>Oblíbené si uložíš v detailu cviku.</p></div>`;
-  app.innerHTML=`<section class="exerciseLibrary libraryCategoryScreen"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět do knihovny</span></button><div class="libraryCategoryHead"><div><p>Knihovna cviků</p><h2>${title}</h2><span>${support}</span></div><b>${keys.length} ${keys.length===1?'cvik':'cviků'}</b></div>${content}</section>`;
-  scrollTop();
-}
-function favs(){return exerciseLibraryCategory('favorites','favourites');}
+function exerciseLibraryCategory(categoryId){return exerciseLibrary(categoryId);}
+function favs(){return exerciseLibrary('favorites');}
 function calendar(year,month){
   setAppView('calendar');
   lastMode='calendar';setNav('calendar');
@@ -3651,9 +3645,9 @@ function renderAppState(state){
       case 'calendar': calendar(); break;
       case 'program': programInfo(); break;
       case 'library': library(); break;
-      case 'exercise-library': exerciseLibrary(); break;
-      case 'exercise-library-category': exerciseLibraryCategory(state.category); break;
-      case 'favourites': favs(); break;
+      case 'exercise-library': exerciseLibrary(state.filter||'all',true); break;
+      case 'exercise-library-category': exerciseLibrary(state.category||'all',true); break;
+      case 'favourites': exerciseLibrary('favorites',true); break;
       case 'progress': progressTracker(); break;
       case 'stats': showStats(); break;
       case 'workout': day(Number(state.day)||0); break;
@@ -3748,6 +3742,7 @@ app.addEventListener('click',e=>{
   if(a==='library')return library();
   if(a==='library-list')return exerciseLibrary();
   if(a==='library-category')return exerciseLibraryCategory(t.dataset.category);
+  if(a==='library-filter')return exerciseLibrary(t.dataset.filter);
   if(a==='toggle-theme'){
     const dark=document.body.classList.toggle('dark');
     localStorage.setItem('dark',dark?'1':'0');
@@ -3776,6 +3771,7 @@ app.addEventListener('click',e=>{
     return;
   }
   if(a==='info'||t.dataset.ex){
+    if(t.closest('.libraryCatalogScreen'))exerciseLibraryReturnScroll=window.scrollY||0;
     if(t.dataset.day!==undefined && t.dataset.day!==''){
       detailReturnDay=Number(t.dataset.day);
       detailReturnExercise=t.dataset.index!==undefined && t.dataset.index!=='' ? Number(t.dataset.index) : null;

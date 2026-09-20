@@ -3326,6 +3326,11 @@ main button:not(.primary):not(.active),
 .programSwitch.on b{transform:translateX(20px)}
 .libraryBack{min-height:42px;margin:4px 0 8px;padding:8px 4px;display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;color:var(--p);font-size:14px}
 .libraryBack .lineIcon{width:20px;height:20px}
+.libraryFilterBar{max-width:100%;margin:2px 0 5px;padding:2px 0 7px;display:flex;gap:7px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
+.libraryFilter{flex:0 0 auto;min-height:40px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font-size:13px;font-weight:800;white-space:nowrap;box-shadow:none}
+.libraryFilter.selected{border-color:var(--p);background:var(--p2);color:var(--p)}
+.libraryFilter:focus-visible{outline:2px solid var(--p);outline-offset:2px}
+.libraryResultCount{margin:2px 2px 12px;color:var(--muted);font-size:12px;font-weight:800}
 .libraryCategoryGrid{width:min(100%,660px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:12px}
 .libraryUtilityTile{
   min-width:0;min-height:100px;padding:15px;
@@ -5237,11 +5242,17 @@ body.dark .programCompletionContent{
 .myMoovkaSettings,
 .myMoovkaInfo{
   margin-top:16px;
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--card);
+  box-shadow:0 8px 24px var(--shadow);
 }
 .myMoovkaSettings h3,
 .myMoovkaInfo h3{
   padding-bottom:7px;
 }
+.myMoovkaInfo .programSettingRow:last-child{border-bottom:0}
 .profileDifficulty{
   display:grid;
   grid-template-columns:30px minmax(0,1fr);
