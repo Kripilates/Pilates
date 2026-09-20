@@ -6007,3 +6007,92 @@ body.dark .programCompletionContent{
     font-size:11px!important;
   }
 }
+
+/* Mobile UI polish: the same plan, detail and workout components on every screen. */
+.brandLogo{height:clamp(36px,10vw,40px)!important}
+.weekBlock .stageHead{margin-bottom:14px}
+.weekBlock .stageHead h2{white-space:nowrap}
+@media(max-width:360px){
+  .weekBlock .stageHead{flex-wrap:wrap;gap:5px}
+  .weekBlock .stageHead h2{max-width:100%;width:100%}
+  .weekBlock .stageHead .pill{margin:0 0 0 auto}
+}
+
+.referenceExerciseDetail .referenceSupportGrid{align-items:stretch!important}
+.referenceExerciseDetail .referenceSupportGrid .referenceAnatomy,
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety{
+  align-self:stretch!important;
+  height:auto!important;
+}
+.referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList{
+  flex:0 0 auto;
+  padding:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+}
+
+@media(max-width:620px){
+  .dayInfoGrid{
+    grid-template-columns:minmax(0,1fr);
+    gap:10px;
+    margin:12px 0 8px;
+    padding:12px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--card);
+  }
+  .dayInfoGrid .dayInfoLeft{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    min-width:0;
+  }
+  .dayInfoGrid .daySummary{flex:1 1 190px;margin:0}
+  .dayInfoGrid .difficultyControl{margin:0}
+  .dayInfoGrid .dayInfoRight{padding-top:9px;border-top:1px solid var(--line)}
+  .dayInfoGrid .dayEquipmentInline{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+  .dayInfoGrid .dayEquipmentInline .eyebrow{margin:0}
+}
+
+.autoTrain.v53CleanTrain .workoutHeaderPanel,
+.autoTrain.v50Train .workoutHeaderPanel{overflow:visible!important}
+.autoTrain.v53CleanTrain .workoutHeaderPanel--timed,
+.autoTrain.v50Train .workoutHeaderPanel--timed{
+  grid-template-columns:minmax(0,1fr) 78px!important;
+  column-gap:8px;
+}
+.autoTrain.v53CleanTrain .workoutTimerSlot,
+.autoTrain.v50Train .workoutTimerSlot{
+  width:78px;
+  min-width:78px;
+  max-width:78px;
+  overflow:visible;
+}
+.autoTrain .workoutDetailLinkRow{display:flex;justify-content:flex-end;min-width:0;margin:0 0 2px}
+.autoTrain .workoutDetailLinkRow button{
+  min-height:32px;
+  padding:4px 2px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+  text-decoration:underline;
+  text-decoration-color:rgba(32,182,178,.45);
+  text-underline-offset:3px;
+}
+.autoTrain .workoutDetailLinkRow + .trainImageSlot{margin-top:1px!important}
+.autoTrain.v53CleanTrain .trainControls button,
+.autoTrain.v50Train .trainControls button{
+  height:48px;
+  min-height:48px!important;
+  padding:8px 5px!important;
+  border-radius:16px!important;
+  font-size:clamp(12px,3.1vw,14px)!important;
+  line-height:1.1!important;
+}
+.autoTrain .trainControls .lineIcon,
+.autoTrain .trainControls .controlIcon{width:16px;height:16px;flex:0 0 16px}

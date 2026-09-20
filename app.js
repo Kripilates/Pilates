@@ -2726,9 +2726,9 @@ function days(){
   const nextAction=programComplete?'new-program-cycle':nextDay.items.length?'start-auto':'day';
   const nextLabel=programComplete?'Začít nový 30denní cyklus':nextDay.items.length?'▶ Pokračovat v tréninku':'Zobrazit den volna';
   const groups=[
-    {title:'1. etapa · Rozjezd',from:0,to:7},
-    {title:'2. etapa · Budujeme sílu',from:7,to:14},
-    {title:'3. etapa · Posouváme se dál',from:14,to:21},
+    {title:'1. etapa · Začínáme',from:0,to:7},
+    {title:'2. etapa · Síla',from:7,to:14},
+    {title:'3. etapa · Formování',from:14,to:21},
     {title:'4. etapa · Finále',from:21,to:30}
   ].map(group=>({...group,days:data.days.slice(group.from,group.to).map((d,index)=>({d,di:group.from+index}))}));
   app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${nextAction}"${programComplete?'':` data-day="${nextIndex}"`}>${nextLabel}</button></section>
@@ -3146,14 +3146,14 @@ function showAutoTrain(opts={}){
   const statusLabel=workoutPaused ? 'Pauza' : (workoutFinalStretch ? 'Z\u00c1V\u011aRE\u010cN\u00c9 PROTA\u017dEN\u00cd' : (workoutPhase==='switch'&&sideSlotText ? sideSlotText : (statusShowsCurrentSide ? sideLabel : (sideSlotText || (workoutPhase==='work'&&!info.timed ? seriesLabel : phaseText)))));
   const timerContent=`<div class="restBlock compactTimer"><div class="timerCircle restOnly" style="background:${timerCircleStyle()}"><span id="autoTimer">${workoutLeft}</span></div></div>`;
   const workoutHeaderClass=`workoutHeaderPanel ${hasTimerLayout?'workoutHeaderPanel--timed':'workoutHeaderPanel--center'}`;
-  const statusHtml=(workoutPhase==='prep'&&!workoutPaused) ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
+  const statusHtml=(workoutPhase==='prep'&&!workoutPaused)||statusLabel===seriesLabel ? '' : `<div class="workoutPhaseText">${statusLabel}</div>`;
   const workoutHeaderHtml=isSideSwitch
-    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="workoutPhaseText">${seriesLabel}</div></div>`
+    ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2></div>`
     : hasTimerLayout
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
-    : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div><div class="workoutPhaseText">${seriesLabel}</div></div>`;
+    : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
-  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button><button data-action="info" data-ex="${k}">${lineIcon('info')}Detail cviku</button>`;
+  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0') && (existing.dataset.workoutPhase==='switch')===(workoutPhase==='switch');
   if(canPatchExisting){
@@ -3182,7 +3182,7 @@ function showAutoTrain(opts={}){
         <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SWITCH_SECONDS)*100))}%"></i></div>
         <small>${switchDetail}</small>
       </div>`
-    : `<div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
+    : `<div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div><div class="trainImageSlot">${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
