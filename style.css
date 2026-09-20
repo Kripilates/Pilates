@@ -5391,6 +5391,11 @@ body.dark .programCompletionContent{
   opacity:.45;
   cursor:not-allowed;
 }
+.calendarGrid{grid-template-columns:repeat(7,minmax(0,1fr))}
+.calendarGrid .calCell{position:relative;width:100%;min-height:0;padding:0!important;overflow:hidden;line-height:1}
+.calendarGrid .calCell.trained span{transform:translateY(-4px)}
+.calendarGrid .calCell b{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:clamp(11px,2.8vw,15px);line-height:1}
+.v22HeroPanel .resumeSeriesCount{white-space:nowrap}
 .resumeWorkoutCard,.resumeWorkoutChoice{
   border-color:rgba(32,182,178,.28);
   background:linear-gradient(145deg,#fff,var(--p2));

@@ -2598,7 +2598,7 @@ function home(){
   const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
   const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'▶ Cvič se mnou';
   const heroTitle=programComplete?'Program dokončen':resumeState?'Rozdělaný trénink':isRestDay?'Den pro regeneraci':'Pokračuj v tréninku';
-  const dayDescription=resumeState?`Pokračuj: ${esc(resumeExercise||'aktuální cvik')} • série ${resumeState.workoutCurrentSet} z ${resumeState.workoutTotalSets}`:isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':programWeekHint(n);
+  const dayDescription=resumeState?`${esc(resumeExercise||'aktuální cvik')} • <span class="resumeSeriesCount">${resumeState.workoutCurrentSet}/${resumeState.workoutTotalSets} série</span>`:isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':programWeekHint(n);
   const tipText=isRestDay?'Dnes je na řadě regenerace. Dej si volno nebo lehkou procházku a zítra pokračujeme.':`${coachHint()}<br>Důležitá je pravidelnost.`;
   const actionHtml=resumeState
     ? `<button class="primary cta" data-action="resume-workout" data-day="${n}">Pokračovat</button><button data-action="restart-workout" data-day="${n}">Začít znovu</button>`
@@ -3619,7 +3619,7 @@ function saveMeasureFromForm(){
 function showStats(){
   setAppView('stats');
   lastMode='stats';setNav('library');const s=statsData();
-  app.innerHTML=`<section class="card myProgress"><h2>Můj pokrok</h2><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
+  app.innerHTML=`<section class="card myProgress"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><h2>Můj pokrok</h2><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
   <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>${workoutNotesHistory()}`;
 }
 function renderAppState(state){
