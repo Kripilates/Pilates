@@ -2633,7 +2633,6 @@ function home(){
     </section>
     <section class="homeFocusSection" aria-labelledby="homeFocusTitle"><div class="homeSectionHead"><p>Pro tebe</p><h2 id="homeFocusTitle">Vyber si trénink</h2></div><div class="homeFocusRail">${focusCards}</div></section>
     <section class="homeProgressSection" aria-labelledby="homeProgressTitle"><div class="homeSectionHead"><p>30denní program</p><h2 id="homeProgressTitle">Tvůj pokrok</h2></div><button class="homeProgramProgress" type="button" data-action="stats"><span><strong>${summary.percent} % programu</strong><small>${summary.daysComplete} ${completedTrainingLabel}</small></span><b aria-hidden="true">→</b></button></section>
-    <div class="homeSecondaryNav" role="navigation" aria-label="Další možnosti"><button type="button" data-action="library-list">Knihovna cviků</button><button type="button" data-action="stats">Můj pokrok</button><button type="button" data-action="days">Celý plán</button></div>
     ${ln?.text?`<section class="homeUserNote"><small>Poslední poznámka</small><p>${esc(ln.text)}</p></section>`:''}
   </div>`;
   scrollTop();

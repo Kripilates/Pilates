@@ -5638,23 +5638,6 @@ body.dark .programCompletionContent{
   color:var(--danger);
   font-size:18px;
 }
-.homeSecondaryNav{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:8px;
-}
-.homeSecondaryNav button{
-  min-width:0;
-  min-height:46px;
-  padding:9px 8px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:var(--soft);
-  color:var(--text);
-  font-size:13px;
-  overflow-wrap:anywhere;
-  box-shadow:none;
-}
 .homeUserNote{
   padding:11px 13px;
   border:1px solid var(--line);
@@ -5679,7 +5662,6 @@ body.dark .programCompletionContent{
   .homeHeroContent{padding:16px}
   .homeHeroContent h2{font-size:27px}
   .homeFocusCard{flex-basis:80vw}
-  .homeSecondaryNav button{padding-inline:5px;font-size:11.5px}
 }
 .resumeWorkoutCard,.resumeWorkoutChoice{
   border-color:rgba(32,182,178,.28);
