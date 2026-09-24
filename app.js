@@ -2593,30 +2593,33 @@ function home(){
   lastMode='home';setNav('home');
   const resumeState=activeWorkoutResumeState();
   const programComplete=!resumeState&&isProgramComplete();
-  const n=resumeState?resumeState.dayIndex:nextDayIndex(),day=data.days[n],doneN=countDone(n),totalN=day.items.length,p=pct(n),ln=latestNote();
+  const n=resumeState?resumeState.dayIndex:nextDayIndex(),day=data.days[n],totalN=day.items.length,ln=latestNote(),summary=statsData();
   const isRestDay=!totalN;
+  const dayFocus=planDayTitle(day.title);
   const resumeExercise=resumeState?data.exercises[resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]]?.name:'';
   const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
-  const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'▶ Cvič se mnou';
-  const heroTitle=programComplete?'Program dokončen':resumeState?'Rozdělaný trénink':isRestDay?'Den pro regeneraci':'Pokračuj v tréninku';
-  const dayDescription=resumeState?`${esc(resumeExercise||'aktuální cvik')} • <span class="resumeSeriesCount">${resumeState.workoutCurrentSet}/${resumeState.workoutTotalSets} série</span>`:isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':programWeekHint(n);
-  const tipText=isRestDay?'Dnes je na řadě regenerace. Dej si volno nebo lehkou procházku a zítra pokračujeme.':`${coachHint()}<br>Důležitá je pravidelnost.`;
+  const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'Začít trénink';
+  const heroEyebrow=programComplete?'30denní program':resumeState?'Rozdělaný trénink':`Den ${n+1}`;
+  const heroTitle=programComplete?'Program dokončen':isRestDay?'Den volna':dayFocus;
+  const heroDetail=programComplete?'Všechny dny máš hotové.':resumeState?`${esc(resumeExercise||'Aktuální cvik')} • <span class="resumeSeriesCount">${resumeState.workoutCurrentSet}/${resumeState.workoutTotalSets} série</span>`:isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':`${estimatedWorkoutMinutes(n)} min • ${esc(dayFocus)}`;
   const actionHtml=resumeState
     ? `<button class="primary cta" data-action="resume-workout" data-day="${n}">Pokračovat</button><button data-action="restart-workout" data-day="${n}">Začít znovu</button>`
     : `<button class="primary cta" data-action="${ctaAction}"${programComplete?'':` data-day="${n}"`}>${ctaLabel}</button>`;
-  app.innerHTML=`<div class="v22Home">
-    <section class="v22HeroPanel">
-      <div class="helloRow"><div><p class="eyebrow">${programComplete?'30denní program':'Dnes'}</p><h2>${heroTitle}</h2></div></div>
-      <div class="todayCompact v22TodayCompact">
-        <div class="ring" style="--val:${p*3.6}deg"><span>${p}%</span></div>
-        <div><h3>${day.title}</h3><p class="muted">${dayDescription}</p><div class="miniMeta">${isRestDay?'Den volna':`<b>${doneN}/${totalN}</b> cviků`}</div><div class="progress"><div class="bar" style="width:${p}%"></div></div></div>
-      </div>
-      ${actionHtml}
+  const completedTrainingLabel=czechCountLabel(summary.daysComplete,'dokončený trénink','dokončené tréninky','dokončených tréninků');
+  app.innerHTML=`<div class="homeDashboard">
+    <section class="v22HeroPanel homeMainCard">
+      <p class="eyebrow">${heroEyebrow}</p>
+      <h2>${heroTitle}</h2>
+      <p class="homeMainDetail">${heroDetail}</p>
+      <div class="homeMainActions">${actionHtml}</div>
     </section>
-    <aside class="v22SidePanels">
-      <section class="v22InfoCard"><h3>💡 Tip pro dnešek</h3><p>${tipText}</p>${ln?.text?`<small>Poslední poznámka: ${esc(ln.text)}</small>`:''}</section>
-    </aside>
-    ${isRestDay?'':`<section class="v22DayExercises"><div class="topLine"><h2>Cviky dne</h2><button data-action="days">Celý plán</button></div><div class="libraryGrid v22ExerciseGrid">${resolvedDayItems(n).map(([k,dose],i)=>exCard(k,dose,n,i)).join('')}</div></section>`}
+    <button class="homeProgramProgress" type="button" data-action="stats"><span><small>Tvůj pokrok</small><strong>${summary.percent} % programu</strong></span><b>${summary.daysComplete} ${completedTrainingLabel}</b></button>
+    <div class="homeQuickEntries" aria-label="Rychlé odkazy">
+      <button type="button" data-action="library-list">Knihovna cviků</button>
+      <button type="button" data-action="stats">Můj pokrok</button>
+    </div>
+    ${ln?.text?`<section class="homeUserNote"><small>Poslední poznámka</small><p>${esc(ln.text)}</p></section>`:''}
+    <button class="homeFullPlan" type="button" data-action="days">Celý plán</button>
   </div>`;
   scrollTop();
 }
