@@ -579,6 +579,19 @@ function pct(di){
   return Math.round(n/items.length*100);
 }
 function countDone(di){let n=0;data.days[di].items.forEach((_,i)=>{if(done(di,i))n++});return n}
+function planDisplayProgress(di){
+  const items=data.days?.[di]?.items||[];
+  const total=items.length;
+  const stored=countDone(di);
+  if(!total)return {done:restDone(di)?0:stored,total,percent:restDone(di)?100:0};
+  const resume=resumeForDay(di);
+  if(!resume)return {done:stored,total,percent:Math.round(stored/total*100)};
+  const inferred=resume.workoutFinalStretch
+    ? total
+    : Math.min(total,Math.max(0,(Math.max(1,Number(resume.workoutCurrentSet)||1)-1)*total+Math.max(0,Number(resume.currentExercise)||0)));
+  const doneCount=Math.max(stored,stored<total?Math.min(total-1,inferred):inferred);
+  return {done:doneCount,total,percent:Math.round(doneCount/total*100)};
+}
 function restDone(di){return localStorage.getItem(restKey(di))==='1';}
 function setRestDone(di){localStorage.setItem(restKey(di),'1');}
 function hasLaterProgramProgress(di){
@@ -2752,7 +2765,7 @@ function days(){
     {title:'4. etapa · Finále',from:21,to:30}
   ].map(group=>({...group,days:data.days.slice(group.from,group.to).map((d,index)=>({d,di:group.from+index}))}));
   app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${nextAction}"${programComplete?'':` data-day="${nextIndex}"`}>${nextLabel}</button></section>
-  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,dn=countDone(di),pc=pct(di),rest=!total,status=rest?'Regenerace':dn>0?`Splněno ${dn} z ${total} cviků`:'';return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${planDayTitle(d.title)}</h3>${status?`<p>${status}</p>`:''}<div class="progress"><div class="bar" style="width:${rest?100:pc}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
+  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,display=planDisplayProgress(di),pc=pct(di),rest=!total,status=rest?'Regenerace':display.done>0?`Splněno ${display.done} z ${total} cviků`:'';return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${planDayTitle(d.title)}</h3>${status?`<p>${status}</p>`:''}<div class="progress"><div class="bar" style="width:${rest?100:display.percent}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
   scrollTop();
 }
 
