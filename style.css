@@ -3330,6 +3330,8 @@ main button:not(.primary):not(.active),
 .libraryFilter{flex:0 0 auto;min-height:40px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font-size:13px;font-weight:800;white-space:nowrap;box-shadow:none}
 .libraryFilter.selected{border-color:var(--p);background:var(--p2);color:var(--p)}
 .libraryFilter:focus-visible{outline:2px solid var(--p);outline-offset:2px}
+.libraryFavoritesEntry{margin:2px 0 9px;display:inline-flex;align-items:center;gap:7px}
+.libraryFavoritesEntry .lineIcon{width:18px;height:18px}
 .libraryResultCount{margin:2px 2px 12px;color:var(--muted);font-size:12px;font-weight:800}
 .libraryCategoryGrid{width:min(100%,660px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:12px}
 .libraryUtilityTile{

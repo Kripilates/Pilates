@@ -3530,11 +3530,13 @@ function exerciseLibrary(filter='all',restoreScroll=false){
   if(filter!=='all'&&filter!=='favorites'&&!exerciseLibraryCategories[filter])filter='all';
   setAppView('exercise-library',{filter});
   lastMode='library';setNav('library');
-  const keys=filter==='all'?activeExerciseIds:filter==='favorites'?activeExerciseIds.filter(k=>isFav(k)):activeExerciseIds.filter(k=>exerciseLibraryCategories[filter].ids.includes(k));
-  const filters=[['all','Vše'],...exerciseLibraryOrder.map(id=>[id,exerciseLibraryCategories[id].title]),['favorites','Oblíbené']];
+  const favoriteKeys=activeExerciseIds.filter(k=>isFav(k));
+  const keys=filter==='all'?activeExerciseIds:filter==='favorites'?favoriteKeys:activeExerciseIds.filter(k=>exerciseLibraryCategories[filter].ids.includes(k));
+  const filters=[['all','Vše'],...exerciseLibraryOrder.map(id=>[id,exerciseLibraryCategories[id].title])];
   const filterButtons=filters.map(([id,label])=>`<button class="libraryFilter${filter===id?' selected':''}" type="button" data-action="library-filter" data-filter="${id}" aria-pressed="${filter===id}">${esc(label)}</button>`).join('');
-  const content=keys.length?`<div class="libraryCatalogGrid">${keys.map(k=>libraryExerciseCard(k,filter)).join('')}</div>`:`<div class="libraryEmptyState">${lineIcon('heart')}<h3>Zatím tu nemáš žádný oblíbený cvik.</h3><p>Oblíbené si uložíš v detailu cviku.</p></div>`;
-  app.innerHTML=`<section class="exerciseLibrary libraryCatalogScreen"><button class="libraryBack" type="button" data-action="library">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Všechny cviky</h2><span>Prohlédni si cviky a správnou techniku.</span></div><div class="libraryFilterBar" role="group" aria-label="Filtrovat cviky">${filterButtons}</div><p class="libraryResultCount">${keys.length} ${keys.length===1?'cvik':'cviků'}</p>${content}</section>`;
+  const favoritesEntry=`<button class="libraryFilter libraryFavoritesEntry${filter==='favorites'?' selected':''}" type="button" data-action="library-filter" data-filter="favorites" aria-pressed="${filter==='favorites'}">${lineIcon('heart')}<span>Oblíbené cviky (${favoriteKeys.length})</span></button>`;
+  const content=keys.length?`<div class="libraryCatalogGrid">${keys.map(k=>libraryExerciseCard(k,filter)).join('')}</div>`:`<div class="libraryEmptyState">${lineIcon('heart')}<h3>Zatím nemáš žádné oblíbené cviky.</h3><p>Ulož si je pomocí ♡ v detailu cviku.</p></div>`;
+  app.innerHTML=`<section class="exerciseLibrary libraryCatalogScreen"><button class="libraryBack" type="button" data-action="library">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Všechny cviky</h2><span>Prohlédni si cviky a správnou techniku.</span></div>${favoritesEntry}<div class="libraryFilterBar" role="group" aria-label="Filtrovat cviky">${filterButtons}</div><p class="libraryResultCount">${keys.length} ${keys.length===1?'cvik':'cviků'}</p>${content}</section>`;
   if(restoreScroll)requestAnimationFrame(()=>window.scrollTo({top:exerciseLibraryReturnScroll,behavior:'auto'}));
   else scrollTop();
 }
