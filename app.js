@@ -2400,16 +2400,6 @@ function estimatedWorkoutMinutes(di,difficulty=effectiveProgramDifficulty()){
   }
   return Math.max(5,Math.round(totalSeconds/300)*5);
 }
-function daySummary(di){
-  const difficulty=effectiveProgramDifficulty();
-  const items=resolvedDayItems(di,difficulty);
-  if(!items.length)return '';
-  const counts={};
-  items.forEach(([k])=>{const a=exMeta(k).area;counts[a]=(counts[a]||0)+1;});
-  const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
-  const minutes=estimatedWorkoutMinutes(di,difficulty);
-  return `<div class="daySummary"><div class="dayInfoMetric"><small>ČAS</small><strong>${minutes} min</strong></div><div class="dayInfoMetric"><small>ZAMĚŘENÍ</small><strong>${main}</strong></div></div>`;
-}
 function cardMainFocus(ex){
   const focus=String(ex?.focus||'').replace(/\.$/,'').trim();
   if(!focus)return '';
@@ -2763,10 +2753,10 @@ function dayEquipmentSection(items){
 }
 function dayEquipmentInline(items){
   const gear=dayEquipment(items);
-  return `<div class="dayEquipmentInline"><p class="eyebrow">PŘIPRAV SI</p><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
+  return `<div class="dayEquipmentInline"><span class="dayEquipmentLabel">Připrav si:</span><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
-function dayInfoGrid(di,items){
-  return `<div class="dayInfoGrid"><div class="dayInfoMetrics">${daySummary(di)}${difficultyControl('day',di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
+function dayCompactInfo(di,items){
+  return `<div class="dayCompactInfo"><p class="dayTimeDifficulty">${estimatedWorkoutMinutes(di)} min <span aria-hidden="true">·</span> ${esc(difficultyLabel())} obtížnost</p>${dayEquipmentInline(items)}</div>`;
 }
 function day(di,opts={}){
   if(maybeStartRequiredOnboarding())return;
@@ -2781,7 +2771,7 @@ function day(di,opts={}){
   app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
     <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
-    ${dayInfoGrid(di,equipmentItems)}
+    ${dayCompactInfo(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
     ${day.items.length?`${resumePrompt(di)}<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
   </section>
@@ -2911,9 +2901,8 @@ function resumeForDay(di){
 function resumePrompt(di){
   const state=resumeForDay(di);
   if(!state)return '';
-  const dayTitle=esc(data.days[di]?.title||`Den ${di+1}`);
   const ex=data.exercises[state.workoutContext?.items?.[state.currentExercise]?.[0]]?.name||'rozdělaný cvik';
-  return `<section class="card resumeWorkoutCard"><h2>Rozdělaný trénink</h2><p class="muted">${dayTitle} čeká na pokračování u cviku ${esc(ex)}, série ${state.workoutCurrentSet} z ${state.workoutTotalSets}.</p><div class="row"><button class="primary" data-action="resume-workout" data-day="${di}">Pokračovat</button><button data-action="restart-workout" data-day="${di}">Začít znovu</button></div></section>`;
+  return `<section class="card resumeWorkoutCard"><h2>Rozdělaný trénink</h2><p class="muted resumeWorkoutSummary">${esc(ex)} <span class="resumeSeriesCount">· ${state.workoutCurrentSet}/${state.workoutTotalSets} série</span></p><div class="row"><button class="primary" data-action="resume-workout" data-day="${di}">Pokračovat</button><button data-action="restart-workout" data-day="${di}">Začít znovu</button></div></section>`;
 }
 function showWorkoutResumeChoice(di,opts={}){
   const state=resumeForDay(di);
