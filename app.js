@@ -2577,6 +2577,22 @@ function programInfo(){
   </div>`;
   scrollTop();
 }
+const homeFocusCards=Object.freeze([
+  Object.freeze({label:'Břicho + pas',exerciseId:'bicycle'}),
+  Object.freeze({label:'Hýždě',exerciseId:'hip'}),
+  Object.freeze({label:'Nohy',exerciseId:'plie'}),
+  Object.freeze({label:'Horní část + paže',exerciseId:'press'})
+]);
+function showHomeFocusComingSoon(){
+  document.querySelector('.homeFocusComingSoon')?.remove();
+  app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay homeFocusComingSoon" role="dialog" aria-modal="true" aria-labelledby="homeFocusComingSoonTitle">
+    <div class="workoutExitDialog">
+      <h2 id="homeFocusComingSoonTitle">Připravujeme</h2>
+      <p>Trénink pro tuto partii pro tebe právě připravujeme.</p>
+      <button class="primary" data-action="close-home-focus-coming-soon">Rozumím</button>
+    </div>
+  </div>`);
+}
 function home(){
   if(maybeStartRequiredOnboarding())return;
   setAppView('home');
@@ -2588,28 +2604,37 @@ function home(){
   const dayFocus=planDayTitle(day.title);
   const resumeExercise=resumeState?data.exercises[resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]]?.name:'';
   const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
-  const ctaLabel=programComplete?'Zobrazit dokončený plán':isRestDay?'✓ Dokončit den volna':'Začít trénink';
-  const heroEyebrow=programComplete?'30denní program':resumeState?'Rozdělaný trénink':`Den ${n+1}`;
+  const ctaLabel=resumeState?'Pokračovat →':programComplete?'Zobrazit dokončený plán →':isRestDay?'✓ Dokončit den volna':'Začít trénink →';
+  const heroEyebrow=resumeState?'ROZDĚLANÝ TRÉNINK':programComplete?'30DENNÍ PROGRAM':`DEN ${n+1}`;
   const heroTitle=programComplete?'Program dokončen':isRestDay?'Den volna':dayFocus;
-  const heroDetail=programComplete?'Všechny dny máš hotové.':resumeState?`${esc(resumeExercise||'Aktuální cvik')} • <span class="resumeSeriesCount">${resumeState.workoutCurrentSet}/${resumeState.workoutTotalSets} série</span>`:isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':`${estimatedWorkoutMinutes(n)} min • ${esc(dayFocus)}`;
+  const visibleHeroTitle=resumeState?(resumeExercise||'Aktuální cvik'):heroTitle;
+  const heroDetail=resumeState?`<span class="resumeSeriesCount">${resumeState.workoutCurrentSet}/${resumeState.workoutTotalSets} série</span>`:programComplete?'Všechny dny máš hotové.':isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':`${estimatedWorkoutMinutes(n)} min`;
   const actionHtml=resumeState
-    ? `<button class="primary cta" data-action="resume-workout" data-day="${n}">Pokračovat</button><button data-action="restart-workout" data-day="${n}">Začít znovu</button>`
+    ? `<button class="primary cta" data-action="resume-workout" data-day="${n}">${ctaLabel}</button><button class="homeHeroSecondary" data-action="restart-workout" data-day="${n}">Začít znovu</button>`
     : `<button class="primary cta" data-action="${ctaAction}"${programComplete?'':` data-day="${n}"`}>${ctaLabel}</button>`;
+  const fallbackExerciseId=resolvedDayItems(n)?.[0]?.[0]||'';
+  const heroExerciseId=resumeState?(resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]||fallbackExerciseId):(!programComplete&&!isRestDay?fallbackExerciseId:'');
+  const heroPhotoSrc=heroExerciseId?deploymentImageUrl(v22ImageSrc(heroExerciseId)):'';
+  const heroPhoto=heroPhotoSrc?`<img class="homeHeroPhoto" loading="eager" fetchpriority="high" src="${esc(heroPhotoSrc)}" alt="${esc(data.exercises[heroExerciseId]?.name||visibleHeroTitle)}">`:'';
+  const focusCards=homeFocusCards.map(({label,exerciseId})=>{
+    const src=deploymentImageUrl(v22ImageSrc(exerciseId));
+    return `<button class="homeFocusCard" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme">${src?`<img loading="lazy" src="${esc(src)}" alt="">`:''}<span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
+  }).join('');
   const completedTrainingLabel=czechCountLabel(summary.daysComplete,'dokončený trénink','dokončené tréninky','dokončených tréninků');
   app.innerHTML=`<div class="homeDashboard">
-    <section class="v22HeroPanel homeMainCard">
-      <p class="eyebrow">${heroEyebrow}</p>
-      <h2>${heroTitle}</h2>
-      <p class="homeMainDetail">${heroDetail}</p>
-      <div class="homeMainActions">${actionHtml}</div>
+    <section class="homePhotoHero${heroPhoto?' hasPhoto':' homePhotoHero--brand'}">
+      ${heroPhoto}
+      <div class="homeHeroContent">
+        <p class="eyebrow">${heroEyebrow}</p>
+        <h2>${esc(visibleHeroTitle)}</h2>
+        <p class="homeMainDetail">${heroDetail}</p>
+        <div class="homeMainActions">${actionHtml}</div>
+      </div>
     </section>
-    <button class="homeProgramProgress" type="button" data-action="stats"><span><small>Tvůj pokrok</small><strong>${summary.percent} % programu</strong></span><b>${summary.daysComplete} ${completedTrainingLabel}</b></button>
-    <div class="homeQuickEntries" aria-label="Rychlé odkazy">
-      <button type="button" data-action="library-list">Knihovna cviků</button>
-      <button type="button" data-action="stats">Můj pokrok</button>
-    </div>
+    <section class="homeFocusSection" aria-labelledby="homeFocusTitle"><div class="homeSectionHead"><p>Pro tebe</p><h2 id="homeFocusTitle">Vyber si trénink</h2></div><div class="homeFocusRail">${focusCards}</div></section>
+    <section class="homeProgressSection" aria-labelledby="homeProgressTitle"><div class="homeSectionHead"><p>30denní program</p><h2 id="homeProgressTitle">Tvůj pokrok</h2></div><button class="homeProgramProgress" type="button" data-action="stats"><span><strong>${summary.percent} % programu</strong><small>${summary.daysComplete} ${completedTrainingLabel}</small></span><b aria-hidden="true">→</b></button></section>
+    <div class="homeSecondaryNav" role="navigation" aria-label="Další možnosti"><button type="button" data-action="library-list">Knihovna cviků</button><button type="button" data-action="stats">Můj pokrok</button><button type="button" data-action="days">Celý plán</button></div>
     ${ln?.text?`<section class="homeUserNote"><small>Poslední poznámka</small><p>${esc(ln.text)}</p></section>`:''}
-    <button class="homeFullPlan" type="button" data-action="days">Celý plán</button>
   </div>`;
   scrollTop();
 }
@@ -3700,6 +3725,11 @@ app.addEventListener('click',e=>{
   if(a==='dismiss-program-completion'){programCompletedByCurrentWorkout=false;return home();}
   if(a==='history-back'){history.back();return;}
   if(a==='home')return home();
+  if(a==='home-focus-coming-soon')return showHomeFocusComingSoon();
+  if(a==='close-home-focus-coming-soon'){
+    t.closest('.homeFocusComingSoon')?.remove();
+    return;
+  }
   if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}
   if(a==='choose-difficulty'){
     if(!setProgramDifficulty(t.dataset.difficulty))return;
