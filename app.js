@@ -2580,7 +2580,7 @@ function programInfo(){
 const homeFocusCards=Object.freeze([
   Object.freeze({label:'Břicho + pas',exerciseId:'bicycle'}),
   Object.freeze({label:'Hýždě',exerciseId:'hip'}),
-  Object.freeze({label:'Nohy',exerciseId:'plie'}),
+  Object.freeze({label:'Nohy',exerciseId:'rdl'}),
   Object.freeze({label:'Horní část + paže',exerciseId:'press'})
 ]);
 function showHomeFocusComingSoon(){
