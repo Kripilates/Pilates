@@ -11,6 +11,7 @@ function deploymentImageUrl(src){
 }
 const versionEl=document.getElementById('app-version');
 const brandBadge=document.querySelector('.brandBadge');
+const brandHome=document.getElementById('brand-home');
 const primaryNav=document.querySelector('body > nav');
 if(versionEl)versionEl.textContent='';
 document.title='Moovka';
@@ -3825,6 +3826,7 @@ $('nav-stats').onclick=showStats;
 const progressNav=document.getElementById('nav-progress'); if(progressNav) progressNav.onclick=progressTracker;
 const favNav=document.getElementById('nav-favs'); if(favNav) favNav.onclick=favs;
 $('nav-dark').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('dark',document.body.classList.contains('dark')?'1':'0')};
+if(brandHome)brandHome.onclick=()=>workoutRunning?showWorkoutExitDialog():home();
 /* v50: service worker registration removed to prevent stale PWA cache. */
 window.addEventListener('popstate',event=>{
   if(workoutRunning){
