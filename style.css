@@ -6085,8 +6085,8 @@ body.dark .programCompletionContent{
   max-width:78px;
   overflow:visible;
 }
-.autoTrain .trainImageSlot{border-radius:22px;background:var(--card)}
-.autoTrain .trainImageSlot .workoutDetailLinkRow{display:flex;justify-content:flex-end;align-items:center;min-width:0;margin:0;padding:0 10px}
+.autoTrain .trainImageSlot{display:grid;grid-template-rows:auto auto;gap:0;border:1px solid var(--line);border-radius:22px;background:var(--card);overflow:hidden}
+.autoTrain .trainImageSlot .workoutDetailLinkRow{display:flex;justify-content:flex-end;align-items:center;min-width:0;margin:0;padding:1px 10px 0}
 .autoTrain .trainImageSlot .workoutDetailLinkRow button{
   min-height:30px;
   padding:4px 2px!important;
@@ -6100,6 +6100,18 @@ body.dark .programCompletionContent{
   text-decoration:underline;
   text-decoration-color:rgba(32,182,178,.45);
   text-underline-offset:3px;
+}
+.autoTrain.v53CleanTrain .trainImageSlot .bigimg,
+.autoTrain.v50Train .trainImageSlot .bigimg{
+  width:100%;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:3/2;
+  margin:0!important;
+  border:0!important;
+  border-radius:0!important;
+  object-fit:contain!important;
+  object-position:center!important;
 }
 .autoTrain.v53CleanTrain .trainControls button,
 .autoTrain.v50Train .trainControls button{
