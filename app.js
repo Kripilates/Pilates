@@ -2793,15 +2793,20 @@ function day(di,opts={}){
   const stretch=resolvedDayStretch(di);
   const equipmentItems=stretch?[...selectedItems,stretch]:selectedItems;
   const isRestDay=!day.items.length;
+  const hasResume=Boolean(resumeForDay(di));
+  const trainingActions=hasResume
+    ? resumePrompt(di)
+    : `<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button>`;
   app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
     <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${dayCompactInfo(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
-    ${day.items.length?`${resumePrompt(di)}<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button><div class="compactActions"><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
+    ${day.items.length?trainingActions:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
   </section>
   ${isRestDay?'':`<section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`}
-  ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
+  ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}
+  ${isRestDay?'':`<div class="dayResetAction"><button data-action="reset-day" data-day="${di}">Vynulovat den</button></div>`}`;
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
       const card=document.querySelector(`.exercise[data-day="${di}"][data-index="${detailReturnExercise}"]`);
