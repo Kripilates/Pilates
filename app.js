@@ -2580,8 +2580,8 @@ function programInfo(){
 const homeFocusCards=Object.freeze([
   Object.freeze({label:'Břicho + pas',exerciseId:'bicycle'}),
   Object.freeze({label:'Hýždě',exerciseId:'hip'}),
-  Object.freeze({label:'Nohy',exerciseId:'rdl'}),
-  Object.freeze({label:'Horní část + paže',exerciseId:'press'})
+  Object.freeze({label:'Nohy',exerciseId:'scissors'}),
+  Object.freeze({label:'Horní část + paže',exerciseId:'triceps_kickback'})
 ]);
 function showHomeFocusComingSoon(){
   document.querySelector('.homeFocusComingSoon')?.remove();
@@ -2618,7 +2618,7 @@ function home(){
   const heroPhoto=heroPhotoSrc?`<img class="homeHeroPhoto" loading="eager" fetchpriority="high" src="${esc(heroPhotoSrc)}" alt="${esc(data.exercises[heroExerciseId]?.name||visibleHeroTitle)}">`:'';
   const focusCards=homeFocusCards.map(({label,exerciseId})=>{
     const src=deploymentImageUrl(v22ImageSrc(exerciseId));
-    return `<button class="homeFocusCard" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme">${src?`<img loading="lazy" src="${esc(src)}" alt="">`:''}<span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
+    return `<button class="homeFocusCard homeFocusCard--${esc(exerciseId)}" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme">${src?`<img loading="lazy" src="${esc(src)}" alt="">`:''}<span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
   }).join('');
   const completedTrainingLabel=czechCountLabel(summary.daysComplete,'dokončený trénink','dokončené tréninky','dokončených tréninků');
   app.innerHTML=`<div class="homeDashboard">
@@ -3862,9 +3862,8 @@ window.addEventListener('popstate',event=>{
     return;
   }
   if(pendingWorkoutExitDay!==null){
-    const exitDay=pendingWorkoutExitDay;
     pendingWorkoutExitDay=null;
-    day(exitDay);
+    home();
     return;
   }
   if(onboardingSession?.required&&event.state?.appView!=='onboarding'){

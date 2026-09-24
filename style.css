@@ -6310,6 +6310,7 @@ body.dark .programCompletionContent{
     width:min(100%,390px)!important;
   }
 }
+
 @media(max-width:340px){
   .referenceExerciseDetail .referenceSupportGrid{
     gap:6px;
@@ -6334,6 +6335,29 @@ body.dark .programCompletionContent{
   .referenceExerciseDetail .referenceSupportGrid .referenceRecommendations.referenceSafety .checkList li{
     padding-left:16px!important;
     font-size:11px!important;
+  }
+}
+
+/* v59.92: compact centered mobile app header */
+@media(max-width:720px){
+  body>header{
+    position:sticky;
+    min-height:50px;
+    padding:5px 12px!important;
+    justify-content:flex-end;
+  }
+  body>header .brandHome{
+    position:absolute;
+    left:50%;
+    top:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:40px;
+    transform:translate(-50%,-50%);
+  }
+  body>header .brandHome:active{
+    transform:translate(-50%,-50%);
   }
 }
 
@@ -6413,3 +6437,61 @@ body.dark .programCompletionContent{
 }
 .autoTrain .trainControls .lineIcon,
 .autoTrain .trainControls .controlIcon{width:16px;height:16px;flex:0 0 16px}
+
+/* v59.91: mobile workout transition and viewport stability */
+@media(max-width:720px){
+  /* Keep the side-switch shell compact without changing its content or timer. */
+  .autoTrain[data-workout-phase="switch"].fullTrain{
+    min-height:0!important;
+    height:auto;
+    padding-bottom:calc(18px + env(safe-area-inset-bottom))!important;
+  }
+  .autoTrain[data-workout-phase="switch"] .sideSwitchState{
+    min-height:0!important;
+    margin:3px 0 6px!important;
+    padding:10px 14px!important;
+    gap:6px!important;
+  }
+  .autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutBrandMark{
+    width:72px!important;
+    margin:0 auto 4px!important;
+  }
+  .autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutTransitionCountdown{
+    margin:8px 0 7px!important;
+  }
+  .autoTrain[data-workout-phase="switch"] .sideSwitchState .workoutTransitionProgress{
+    margin-bottom:7px!important;
+  }
+
+  /* The fixed navigation needs a reserve, but not the old extra page-height. */
+  main:has(.autoTrain){
+    min-height:calc(100dvh - 65px);
+    padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;
+  }
+  main:has(.myProgress),
+  main:has(.calendarCard){
+    min-height:calc(100dvh - 65px);
+    padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;
+  }
+}
+/* v59.93: Home body-focus cards use part-first crops while preserving SOURCE assets. */
+.homeFocusCard--bicycle img{
+  object-position:50% 43%;
+  transform:scale(1.42);
+  transform-origin:50% 43%;
+}
+.homeFocusCard--hip img{
+  object-position:54% 58%;
+  transform:scale(1.5);
+  transform-origin:54% 58%;
+}
+.homeFocusCard--scissors img{
+  object-position:54% 73%;
+  transform:scale(1.45);
+  transform-origin:54% 73%;
+}
+.homeFocusCard--triceps_kickback img{
+  object-position:54% 35%;
+  transform:scale(1.5);
+  transform-origin:54% 35%;
+}
