@@ -2407,7 +2407,7 @@ function daySummary(di){
   items.forEach(([k])=>{const a=exMeta(k).area;counts[a]=(counts[a]||0)+1;});
   const main=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(x=>x[0]).slice(0,3).join(' • ');
   const minutes=estimatedWorkoutMinutes(di,difficulty);
-  return `<div class="daySummary"><span>⏱ ${minutes} min</span><span>🎯 ${main}</span></div>`;
+  return `<div class="daySummary"><div class="dayInfoMetric"><small>ČAS</small><strong>${minutes} min</strong></div><div class="dayInfoMetric"><small>ZAMĚŘENÍ</small><strong>${main}</strong></div></div>`;
 }
 function cardMainFocus(ex){
   const focus=String(ex?.focus||'').replace(/\.$/,'').trim();
@@ -2707,7 +2707,9 @@ function difficultyChooser(next='plan',dayIndex=0,opts={}){
 }
 function difficultyControl(view,dayIndex=0){
   const current=effectiveProgramDifficulty();
-  return `<details class="difficultyControl"><summary>Obtížnost: <b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary><div class="difficultyMenu" role="group" aria-label="Změnit obtížnost">${DIFFICULTY_VALUES.map(value=>`<button class="${value===current?'selected':''}" data-action="set-difficulty" data-difficulty="${value}" data-view="${view}" data-day="${dayIndex}"><b>${difficultyLabel(value)}</b><small>${value==='easy'?'2 série':value==='medium'?'3 série · doporučená':'3 série'}</small></button>`).join('')}</div></details>`;
+  const dayInfo=view==='day';
+  const summary=dayInfo?`<summary><small>OBTÍŽNOST</small><b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary>`:`<summary>Obtížnost: <b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary>`;
+  return `<details class="difficultyControl${dayInfo?' dayInfoMetric dayInfoDifficulty':''}">${summary}<div class="difficultyMenu" role="group" aria-label="Změnit obtížnost">${DIFFICULTY_VALUES.map(value=>`<button class="${value===current?'selected':''}" data-action="set-difficulty" data-difficulty="${value}" data-view="${view}" data-day="${dayIndex}"><b>${difficultyLabel(value)}</b><small>${value==='easy'?'2 série':value==='medium'?'3 série · doporučená':'3 série'}</small></button>`).join('')}</div></details>`;
 }
 function difficultyMigrationNotice(){
   if(localStorage.getItem(DIFFICULTY_MIGRATION_NOTICE_KEY)!=='1')return '';
@@ -2760,7 +2762,7 @@ function dayEquipmentInline(items){
   return `<div class="dayEquipmentInline"><p class="eyebrow">PŘIPRAV SI</p><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
 function dayInfoGrid(di,items){
-  return `<div class="dayInfoGrid"><div class="dayInfoLeft">${daySummary(di)}${difficultyControl('day',di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
+  return `<div class="dayInfoGrid"><div class="dayInfoMetrics">${daySummary(di)}${difficultyControl('day',di)}</div><div class="dayInfoRight">${dayEquipmentInline(items)}</div></div>`;
 }
 function day(di,opts={}){
   if(maybeStartRequiredOnboarding())return;
@@ -3621,7 +3623,7 @@ function saveMeasureFromForm(){
 function showStats(){
   setAppView('stats');
   lastMode='stats';setNav('library');const s=statsData();
-  app.innerHTML=`<section class="card myProgress"><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><h2>Můj pokrok</h2><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
+  app.innerHTML=`<section class="card myProgress"><div class="myProgressHeader"><h2>Můj pokrok</h2><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button></div><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
   <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>${workoutNotesHistory()}`;
 }
 function renderAppState(state){
