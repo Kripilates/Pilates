@@ -3643,7 +3643,7 @@ function progressTracker(){
     ${sparkChart(arr,'hips','Boky','cm')}
     ${sparkChart(arr,'thigh','Stehno','cm')}
   </section>`:'';
-  app.innerHTML=`<div class="measurementPage"><section class="card measurementIntro"><h2>Měření pokroku</h2>
+  app.innerHTML=`<div class="measurementPage"><section class="card measurementIntro"><div class="myProgressHeader"><h2>Měření pokroku</h2><button class="libraryBack" type="button" data-action="stats">${lineIcon('backArrow')}<span>Zpět</span></button></div>
     <p class="muted">Stačí jednou týdně. U těla sleduj trend, ne jedno číslo.</p>
   </section>
   ${summary}
