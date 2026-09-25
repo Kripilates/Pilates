@@ -2625,7 +2625,7 @@ function home(){
   const resumeExercise=resumeState?data.exercises[resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]]?.name:'';
   const ctaAction=programComplete?'days':isRestDay?'complete-rest-day':'start-auto';
   const ctaLabel=resumeState?'Pokračovat →':programComplete?'Zobrazit dokončený plán →':isRestDay?'✓ Dokončit den volna':'Začít trénink →';
-  const heroEyebrow=resumeState?'ROZDĚLANÝ TRÉNINK':programComplete?'30DENNÍ PROGRAM':`DEN ${n+1}`;
+  const heroEyebrow=resumeState?'POKRAČUJ V TRÉNINKU':programComplete?'30DENNÍ PROGRAM':`DEN ${n+1}`;
   const heroTitle=programComplete?'Program dokončen':isRestDay?'Den volna':dayFocus;
   const visibleHeroTitle=resumeState?(resumeExercise||'Aktuální cvik'):heroTitle;
   const heroDetail=resumeState?`<span class="resumeSeriesCount">${resumeState.workoutCurrentSet}/${resumeState.workoutTotalSets} série</span>`:programComplete?'Všechny dny máš hotové.':isRestDay?'Regenerace je součást programu. Dej si volno nebo lehkou procházku.':`${estimatedWorkoutMinutes(n)} min`;
@@ -2636,6 +2636,9 @@ function home(){
   const heroExerciseId=resumeState?(resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]||fallbackExerciseId):(!programComplete&&!isRestDay?fallbackExerciseId:'');
   const heroPhotoSrc=heroExerciseId?deploymentImageUrl(v22ImageSrc(heroExerciseId)):'';
   const heroPhoto=heroPhotoSrc?`<img class="homeHeroPhoto${resumeState?' homeHeroPhoto--resume':''}" loading="eager" fetchpriority="high" src="${esc(heroPhotoSrc)}" alt="${esc(data.exercises[heroExerciseId]?.name||visibleHeroTitle)}">`:'';
+  const heroCopy=resumeState
+    ? `<div class="homeResumeMeta"><p class="eyebrow">${heroEyebrow}</p><p class="homeMainDetail">${heroDetail}</p></div><h2>${esc(visibleHeroTitle)}</h2>`
+    : `<p class="eyebrow">${heroEyebrow}</p><h2>${esc(visibleHeroTitle)}</h2><p class="homeMainDetail">${heroDetail}</p>`;
   const focusCards=homeFocusCards.map(({label,image})=>{
     const src=deploymentImageUrl(image);
     return `<button class="homeFocusCard" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
@@ -2645,9 +2648,7 @@ function home(){
     <section class="homePhotoHero${heroPhoto?' hasPhoto':' homePhotoHero--brand'}">
       ${heroPhoto}
       <div class="homeHeroContent">
-        <p class="eyebrow">${heroEyebrow}</p>
-        <h2>${esc(visibleHeroTitle)}</h2>
-        <p class="homeMainDetail">${heroDetail}</p>
+        ${heroCopy}
         <div class="homeMainActions${resumeState?' homeMainActions--resume':''}">${actionHtml}</div>
       </div>
     </section>
@@ -2800,7 +2801,7 @@ function dayEquipmentInline(items){
   return `<div class="dayEquipmentInline"><span class="dayEquipmentLabel">Připrav si:</span><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
 function dayCompactInfo(di,items){
-  return `<div class="dayCompactInfo"><p class="dayTimeDifficulty">${estimatedWorkoutMinutes(di)} min <span aria-hidden="true">·</span> ${esc(difficultyLabel())} obtížnost</p>${dayEquipmentInline(items)}</div>`;
+  return `<div class="dayCompactInfo"><div class="dayTimeDifficulty"><span>${estimatedWorkoutMinutes(di)} min</span><span>${esc(difficultyLabel())} obtížnost</span></div>${dayEquipmentInline(items)}</div>`;
 }
 function day(di,opts={}){
   if(maybeStartRequiredOnboarding())return;
@@ -2950,7 +2951,7 @@ function resumePrompt(di){
   const state=resumeForDay(di);
   if(!state)return '';
   const ex=data.exercises[state.workoutContext?.items?.[state.currentExercise]?.[0]]?.name||'rozdělaný cvik';
-  return `<section class="card resumeWorkoutCard"><h2>Rozdělaný trénink</h2><p class="muted resumeWorkoutSummary">${esc(ex)} <span class="resumeSeriesCount">· ${state.workoutCurrentSet}/${state.workoutTotalSets} série</span></p><div class="row"><button class="primary" data-action="resume-workout" data-day="${di}">Pokračovat</button><button data-action="restart-workout" data-day="${di}">Začít znovu</button></div></section>`;
+  return `<section class="card resumeWorkoutCard"><h2>Pokračuj v tréninku</h2><p class="muted resumeWorkoutSummary">${esc(ex)} <span class="resumeSeriesCount">· ${state.workoutCurrentSet}/${state.workoutTotalSets} série</span></p><div class="row"><button class="primary" data-action="resume-workout" data-day="${di}">Pokračovat</button><button data-action="restart-workout" data-day="${di}">Začít znovu</button></div></section>`;
 }
 function showWorkoutResumeChoice(di,opts={}){
   const state=resumeForDay(di);

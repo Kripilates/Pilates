@@ -2182,34 +2182,43 @@ main button:not(.primary):not(.active),
   padding:8px 11px;
 }
 .dayCompactInfo{
-  margin:10px 0 6px;
-  display:grid;
-  gap:8px;
+  margin:10px 0 5px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:7px;
 }
 .dayTimeDifficulty{
-  margin:0;
-  color:var(--muted);
-  font-size:14px;
-  font-weight:800;
-  line-height:1.4;
-  overflow-wrap:anywhere;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px;
+  min-width:0;
 }
 .dayTimeDifficulty span{
-  padding:0 3px;
-  color:var(--p);
+  padding:6px 9px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--text);
+  font-size:13px;
+  font-weight:850;
+  line-height:1.2;
+  white-space:nowrap;
 }
 .dayCompactInfo .dayEquipmentInline{
   margin:0;
   display:flex;
   flex-wrap:wrap;
   align-items:center;
-  gap:6px 7px;
+  gap:5px 6px;
   min-width:0;
 }
 .dayEquipmentLabel{
   color:var(--muted);
-  font-size:13px;
-  font-weight:800;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.01em;
   white-space:nowrap;
 }
 .dayCompactInfo .dayEquipmentList{
@@ -2218,7 +2227,7 @@ main button:not(.primary):not(.active),
 }
 .dayCompactInfo .dayEquipmentList span{
   font-size:13px;
-  padding:6px 9px;
+  padding:6px 8px;
 }
 .v53CleanTrain .prepDoseBox,
 .v50Train .prepDoseBox{
@@ -5483,6 +5492,22 @@ body.dark .programCompletionContent{
 .homePhotoHero.hasPhoto .homeHeroContent .eyebrow{
   color:rgba(255,255,255,.82);
 }
+.homeResumeMeta{
+  width:100%;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.homeResumeMeta .eyebrow,
+.homeResumeMeta .homeMainDetail{
+  margin:0;
+  white-space:nowrap;
+}
+.homeResumeMeta .homeMainDetail{
+  flex:0 0 auto;
+}
 .homeMainDetail{
   margin:0;
   color:var(--muted);
@@ -5763,28 +5788,33 @@ body.dark .programCompletionContent{
   transition:width .22s ease;
 }
 .dayHero .resumeWorkoutCard{
-  margin:12px 0 0;
-  padding:14px;
-  border-color:rgba(32,182,178,.24);
-  background:
-    linear-gradient(135deg,rgba(32,182,178,.1),rgba(232,93,117,.07)),
-    var(--card);
-  box-shadow:none;
+  margin:10px 0 0;
+  padding:11px 12px!important;
+  border-color:var(--line);
+  border-radius:18px;
+  background:var(--card);
+  box-shadow:0 5px 14px rgba(17,94,89,.06);
 }
 .dayHero .resumeWorkoutCard h2{
-  font-size:20px;
+  margin:0;
+  font-size:18px;
+  line-height:1.2;
+}
+.dayHero .resumeWorkoutCard .row{
+  margin-top:9px;
 }
 .resumeWorkoutCard .row,.resumeWorkoutChoice .row{
   margin-bottom:0;
 }
 .resumeWorkoutSummary{
-  margin:6px 0 0;
+  margin:3px 0 0;
+  font-size:14px;
   line-height:1.4;
   overflow-wrap:anywhere;
 }
 .resumeWorkoutSummary .resumeSeriesCount{white-space:nowrap}
 @media(max-width:430px){
-  .dayHero .resumeWorkoutCard{padding:12px}
+  .dayHero .resumeWorkoutCard{padding:10px!important}
   .dayHero .resumeWorkoutCard .row{gap:7px}
   .dayHero .resumeWorkoutCard .row button{flex:1 1 120px}
 }
