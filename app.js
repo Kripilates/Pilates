@@ -434,6 +434,22 @@ function loggedDates(){
   }
   return out.sort();
 }
+function completedWorkoutElapsedMinutes(){
+  let total=0;
+  for(let i=0;i<localStorage.length;i++){
+    const storageKey=localStorage.key(i);
+    if(!storageKey?.startsWith('pb40-log-auto-'))continue;
+    const elapsedMinutes=Number(calendarMeta(storageKey.replace('pb40-log-auto-',''),'auto')?.elapsedMinutes);
+    if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)total+=elapsedMinutes;
+  }
+  return Math.round(total);
+}
+function formatElapsedMinutes(totalMinutes){
+  const minutes=Math.max(0,Math.round(Number(totalMinutes)||0));
+  if(minutes<60)return `${minutes} min`;
+  const hours=Math.floor(minutes/60),remainder=minutes%60;
+  return remainder?`${hours} h ${remainder} min`:`${hours} h`;
+}
 function streak(){
   const set=new Set(loggedDates());
   let n=0,d=new Date();
@@ -3718,9 +3734,9 @@ function saveMeasureFromForm(){
 
 function showStats(){
   setAppView('stats');
-  lastMode='stats';setNav('library');const s=statsData();
+  lastMode='stats';setNav('library');const s=statsData(),elapsedTime=formatElapsedMinutes(completedWorkoutElapsedMinutes());
   app.innerHTML=`<section class="card myProgress"><div class="myProgressHeader"><h2>Můj pokrok</h2><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button></div><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
-  <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>${workoutNotesHistory()}`;
+  <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${elapsedTime}</b><span class="muted">odcvičeno</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>${workoutNotesHistory()}`;
 }
 function renderAppState(state){
   if(!state?.pb40App)return home();

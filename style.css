@@ -5382,8 +5382,17 @@ body.dark .programCompletionContent{
   margin:0 0 8px;
 }
 .myProgressStats{
-  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
   margin:12px 0 10px!important;
+}
+.myProgressStats .statBox{
+  min-width:0;
+  padding-right:6px;
+  padding-left:6px;
+}
+.myProgressStats .statBox b{
+  font-size:clamp(16px,5.4vw,22px);
+  white-space:nowrap;
 }
 .myProgressActions{
   margin-top:8px!important;
