@@ -5507,7 +5507,8 @@ body.dark .programCompletionContent{
   min-height:0;
   padding:14px 18px 16px;
   justify-content:flex-start;
-  background:#102a43;
+  background:var(--card);
+  border-top:1px solid var(--line);
 }
 .homePhotoHero--resume .homeHeroContent h2{
   margin:4px 0 0;
@@ -5612,6 +5613,28 @@ body.dark .programCompletionContent{
   background:rgba(255,255,255,.15);
   color:#fff;
   backdrop-filter:blur(8px);
+}
+.homePhotoHero--resume.hasPhoto .homeHeroContent,
+.homePhotoHero--resume.hasPhoto .homeHeroContent h2{
+  color:var(--text);
+}
+.homePhotoHero--resume.hasPhoto .homeHeroContent .eyebrow{
+  color:var(--p);
+}
+.homePhotoHero--resume.hasPhoto .homeResumeMeta .homeMainDetail{
+  padding:5px 9px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--p2);
+  color:var(--p);
+  font-size:13px;
+  line-height:1;
+}
+.homePhotoHero--resume.hasPhoto .homeHeroSecondary{
+  border-color:var(--line);
+  background:var(--soft);
+  color:var(--text);
+  backdrop-filter:none;
 }
 
 /* Contextual button hierarchy: align peer actions without flattening standalone CTAs. */
