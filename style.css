@@ -6500,6 +6500,20 @@ body.dark .programCompletionContent{
 .autoTrain .trainControls .lineIcon,
 .autoTrain .trainControls .controlIcon{width:16px;height:16px;flex:0 0 16px}
 
+/* Bottom navigation: subtle separation from light page content. */
+@media(max-width:820px){
+  body>nav{
+    background:rgba(246,251,251,.98);
+    border-top-color:rgba(32,182,178,.18);
+    box-shadow:0 -5px 18px rgba(16,42,67,.055);
+  }
+  body.dark>nav{
+    background:rgba(16,37,42,.98);
+    border-top-color:rgba(80,221,215,.16);
+    box-shadow:0 -5px 18px rgba(0,0,0,.18);
+  }
+}
+
 /* v59.91: mobile workout transition and viewport stability */
 @media(max-width:720px){
   /* Keep the side-switch shell compact without changing its content or timer. */
