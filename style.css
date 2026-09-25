@@ -5698,19 +5698,6 @@ body.dark .programCompletionContent{
   overflow-wrap:anywhere;
 }
 .resumeWorkoutSummary .resumeSeriesCount{white-space:nowrap}
-.dayResetAction{
-  display:flex;
-  justify-content:center;
-  margin:3px 0 12px;
-  padding:2px 0 4px;
-}
-.dayResetAction button{
-  min-height:40px;
-  border-color:transparent;
-  background:transparent;
-  color:var(--danger);
-  box-shadow:none;
-}
 @media(max-width:430px){
   .dayHero .resumeWorkoutCard{padding:12px}
   .dayHero .resumeWorkoutCard .row{gap:7px}
@@ -6474,24 +6461,7 @@ body.dark .programCompletionContent{
     padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;
   }
 }
-/* v59.93: Home body-focus cards use part-first crops while preserving SOURCE assets. */
-.homeFocusCard--bicycle img{
-  object-position:50% 43%;
-  transform:scale(1.42);
-  transform-origin:50% 43%;
-}
-.homeFocusCard--hip img{
-  object-position:54% 58%;
-  transform:scale(1.5);
-  transform-origin:54% 58%;
-}
-.homeFocusCard--scissors img{
-  object-position:54% 73%;
-  transform:scale(1.45);
-  transform-origin:54% 73%;
-}
-.homeFocusCard--triceps_kickback img{
-  object-position:54% 35%;
-  transform:scale(1.5);
-  transform-origin:54% 35%;
+/* v59.94: one bottom-navigation reserve only; main keeps the safe-area spacing. */
+@media(max-width:720px){
+  body{padding-bottom:0!important}
 }
