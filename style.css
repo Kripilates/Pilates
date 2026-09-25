@@ -5445,6 +5445,10 @@ body.dark .programCompletionContent{
   object-position:center;
   background:var(--card);
 }
+.homeHeroPhoto--resume{
+  object-fit:contain;
+  object-position:center;
+}
 .homeHeroContent{
   position:relative;
   z-index:2;

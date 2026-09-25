@@ -2635,7 +2635,7 @@ function home(){
   const fallbackExerciseId=resolvedDayItems(n)?.[0]?.[0]||'';
   const heroExerciseId=resumeState?(resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]||fallbackExerciseId):(!programComplete&&!isRestDay?fallbackExerciseId:'');
   const heroPhotoSrc=heroExerciseId?deploymentImageUrl(v22ImageSrc(heroExerciseId)):'';
-  const heroPhoto=heroPhotoSrc?`<img class="homeHeroPhoto" loading="eager" fetchpriority="high" src="${esc(heroPhotoSrc)}" alt="${esc(data.exercises[heroExerciseId]?.name||visibleHeroTitle)}">`:'';
+  const heroPhoto=heroPhotoSrc?`<img class="homeHeroPhoto${resumeState?' homeHeroPhoto--resume':''}" loading="eager" fetchpriority="high" src="${esc(heroPhotoSrc)}" alt="${esc(data.exercises[heroExerciseId]?.name||visibleHeroTitle)}">`:'';
   const focusCards=homeFocusCards.map(({label,image})=>{
     const src=deploymentImageUrl(image);
     return `<button class="homeFocusCard" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;

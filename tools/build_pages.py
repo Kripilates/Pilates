@@ -18,6 +18,7 @@ RUNTIME_DIRECTORIES = (
     Path("assets"),
     Path("Pilates Assets/01_Master_Reference"),
     Path("Pilates Assets/02_Exercise_Cards"),
+    Path("Pilates Assets/04_Home"),
     Path("00_CHATGPT_START/MASTER/02_REFERENCES/BRAND"),
 )
 
