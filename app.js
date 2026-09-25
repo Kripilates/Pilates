@@ -2648,7 +2648,7 @@ function home(){
         <p class="eyebrow">${heroEyebrow}</p>
         <h2>${esc(visibleHeroTitle)}</h2>
         <p class="homeMainDetail">${heroDetail}</p>
-        <div class="homeMainActions">${actionHtml}</div>
+        <div class="homeMainActions${resumeState?' homeMainActions--resume':''}">${actionHtml}</div>
       </div>
     </section>
     <section class="homeFocusSection" aria-labelledby="homeFocusTitle"><div class="homeSectionHead"><p>Pro tebe</p><h2 id="homeFocusTitle">Vyber si trénink</h2></div><div class="homeFocusRail">${focusCards}</div></section>
@@ -2772,7 +2772,7 @@ function days(){
     {title:'4. etapa · Finále',from:21,to:30}
   ].map(group=>({...group,days:data.days.slice(group.from,group.to).map((d,index)=>({d,di:group.from+index}))}));
   app.innerHTML=`${difficultyMigrationNotice()}<section class="card planIntro"><div class="planDifficultyHead"><h2>Plán na 30 dní</h2>${difficultyControl('plan')}</div><p class="muted">${programComplete?'Program je dokončený. Výsledky v historii, kalendáři a měřeních zůstávají uložené.':'Vyber den nebo pokračuj tam, kde máš rozcvičeno. Hotové dny se propisují do pokroku i kalendáře.'}</p><button class="primary cta" data-action="${nextAction}"${programComplete?'':` data-day="${nextIndex}"`}>${nextLabel}</button></section>
-  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,display=planDisplayProgress(di),pc=pct(di),rest=!total,status=rest?'Regenerace':pc===100?`Splněno ${total} z ${total} cviků`:display.done>0?`Splněno ${display.done} z ${display.total}`:'';return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${planDayTitle(d.title)}</h3>${status?`<p>${status}</p>`:''}<div class="progress"><div class="bar" style="width:${rest?100:display.percent}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
+  ${groups.map(group=>{const active=group.days.filter(({d})=>d.items.length);return `<section class="card weekBlock"><div class="topLine stageHead"><h2>${group.title}</h2><span class="pill">${active.filter(({di})=>pct(di)===100).length}/${active.length} hotovo</span></div><div class="dayGrid">${group.days.map(({d,di})=>{const total=d.items.length,display=planDisplayProgress(di),pc=pct(di),rest=!total,status=rest?'Regenerace':pc===100?`Splněno ${display.total} z ${display.total}`:display.done>0?`Splněno ${display.done} z ${display.total}`:'';return `<article class="dayCard ${pc===100&&total?'complete':''} ${rest?'restDay':''}" data-action="day" data-day="${di}"><div class="dayNum">${di+1}</div><div class="dayInfo"><h3>${planDayTitle(d.title)}</h3>${status?`<p>${status}</p>`:''}<div class="progress"><div class="bar" style="width:${rest?100:display.percent}%"></div></div></div><div class="dayState">${rest?'☁':pc===100?'✓':'›'}</div></article>`;}).join('')}</div></section>`;}).join('')}`;
   scrollTop();
 }
 

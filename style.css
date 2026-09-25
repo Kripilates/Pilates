@@ -5447,7 +5447,7 @@ body.dark .programCompletionContent{
 }
 .homeHeroPhoto--resume{
   object-fit:contain;
-  object-position:center;
+  object-position:center top;
 }
 .homeHeroContent{
   position:relative;
@@ -5497,6 +5497,26 @@ body.dark .programCompletionContent{
   margin:0;
   padding:11px 17px;
 }
+.homeMainActions--resume{
+  flex-wrap:nowrap;
+  align-items:stretch;
+}
+.homeMainActions--resume .cta,
+.homeMainActions--resume button{
+  flex:1 1 0;
+  width:0;
+  min-width:0;
+  height:48px;
+  min-height:48px;
+  padding:11px 10px;
+  border-radius:20px;
+  font-size:15px;
+  line-height:1.2;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
 .homeHeroSecondary{
   border-color:var(--line);
   background:var(--soft);
@@ -5509,6 +5529,57 @@ body.dark .programCompletionContent{
   color:#fff;
   backdrop-filter:blur(8px);
 }
+
+/* Contextual button hierarchy: align peer actions without flattening standalone CTAs. */
+.introHero>button{
+  width:100%;
+  min-height:50px;
+  margin:0;
+  padding:11px 16px;
+  border-radius:22px;
+  font-size:16px;
+  line-height:1.2;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.introHero>p+button{margin-top:14px}
+.introHero>button+button{margin-top:8px}
+.resumeWorkoutCard .row,
+.resumeWorkoutChoice .row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.resumeWorkoutCard .row button,
+.resumeWorkoutChoice .row button{
+  width:100%;
+  min-width:0;
+  min-height:46px;
+  padding:10px 12px;
+  border-radius:20px;
+  font-size:15px;
+  line-height:1.2;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.programCycleOverlay button[data-action="confirm-new-program-cycle"],
+.calendarActions button[data-action="unmark-today"],
+.measurementPage button[data-action="delete-measure"]{
+  border-color:rgba(232,93,117,.32)!important;
+  background:rgba(232,93,117,.08)!important;
+  color:var(--danger)!important;
+  box-shadow:none!important;
+}
+.measurementPage button[data-action="delete-measure"]{min-height:44px}
+.onboardingTop{min-height:44px}
+.onboardingClose,
+.libraryBack,
+.libraryFilter,
+.finishNoteToggle{min-height:44px}
+.referenceExerciseDetail .v20TopBar button{min-height:44px!important}
 .homeFocusSection,
 .homeProgressSection{
   min-width:0;
