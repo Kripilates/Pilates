@@ -5205,6 +5205,7 @@ body.dark .programCompletionContent{
     padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;
   }
   .calendarCard{
+    margin-top:45px!important;
     margin-bottom:6px!important;
     padding-bottom:12px!important;
   }
