@@ -5491,10 +5491,10 @@ body.dark .programCompletionContent{
   min-height:0;
   display:flex;
   flex-direction:column;
-  overflow:visible;
-  border:0;
-  background:transparent;
-  box-shadow:none;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--card);
+  box-shadow:0 14px 36px var(--shadow);
 }
 .homePhotoHero--resume.hasPhoto::after{
   content:none;
@@ -5506,21 +5506,21 @@ body.dark .programCompletionContent{
   height:auto;
   aspect-ratio:3/2;
   display:block;
-  border:1px solid var(--line);
-  border-radius:24px;
-  box-shadow:0 14px 36px var(--shadow);
+  border:0;
+  border-radius:0;
+  box-shadow:none;
 }
 .homePhotoHero--resume .homeHeroContent{
   position:relative;
   z-index:2;
   min-height:0;
-  margin-top:-24px;
+  margin-top:0;
   padding:14px 18px 16px;
   justify-content:flex-start;
-  border:1px solid var(--line);
-  border-radius:24px;
+  border:0;
+  border-radius:0;
   background:var(--card);
-  box-shadow:0 10px 24px var(--shadow);
+  box-shadow:none;
 }
 .homePhotoHero--resume .homeHeroContent h2{
   margin:4px 0 0;
