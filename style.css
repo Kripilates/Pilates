@@ -5228,6 +5228,10 @@ body.dark .programCompletionContent{
   font-size:14px;
   line-height:1.35;
 }
+.calendarMotivationCard .calendarTimeSummary{
+  margin-top:2px;
+  font-size:13px;
+}
 @media(max-width:720px){
   body:has(.calendarCard) main{
     min-height:0!important;

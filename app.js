@@ -171,6 +171,7 @@ function showWorkoutExitDialog(){
   workoutExitDialogOpen=true;
   workoutExitWasPaused=workoutPaused;
   if(!workoutPaused){
+    pauseActiveWorkoutTime();
     workoutPaused=true;
     clearInterval(timer);
   }
@@ -188,6 +189,7 @@ function continueWorkoutFromDialog(){
   workoutExitDialogOpen=false;
   armWorkoutHistoryGuard();
   workoutPaused=workoutExitWasPaused;
+  resumeActiveWorkoutTime();
   resumeWorkoutTimer();
 }
 function exitWorkoutToDay(){
@@ -352,10 +354,30 @@ function createWorkoutContext(di){
     dayIndex:di,
     difficulty,
     startedAt:Date.now(),
+    activeElapsedMs:0,
+    activeSince:null,
     totalSets:difficultySets(difficulty),
     items:resolvedDayItems(di,difficulty),
     stretch:resolvedDayStretch(di,difficulty)
   };
+}
+function activeWorkoutElapsedMs(at=Date.now()){
+  if(!workoutContext)return 0;
+  const accumulated=Math.max(0,Number(workoutContext.activeElapsedMs)||0);
+  const activeSince=Number(workoutContext.activeSince);
+  return Number.isFinite(activeSince)&&activeSince>0
+    ? accumulated+Math.max(0,at-activeSince)
+    : accumulated;
+}
+function pauseActiveWorkoutTime(at=Date.now()){
+  if(!workoutContext)return 0;
+  workoutContext.activeElapsedMs=activeWorkoutElapsedMs(at);
+  workoutContext.activeSince=null;
+  return workoutContext.activeElapsedMs;
+}
+function resumeActiveWorkoutTime(at=Date.now()){
+  if(!workoutContext||!workoutRunning||workoutPaused||document.visibilityState!=='visible')return;
+  if(!(Number(workoutContext.activeSince)>0))workoutContext.activeSince=at;
 }
 const key=(d,i)=>`pb40-d${d}-e${i}`; // SAME KEYS as V3_full: progress stays
 const done=(d,i)=>localStorage.getItem(key(d,i))==='1';
@@ -370,10 +392,13 @@ function calendarMeta(dayKey,source){
   try{return JSON.parse(localStorage.getItem(source==='manual'?manualLogMetaKey(dayKey):autoLogMetaKey(dayKey))||'null')}
   catch(e){return null}
 }
-function markCalendarDate(dayKey,source='manual',programDay=currentDay){
+function markCalendarDate(dayKey,source='manual',programDay=currentDay,completion={}){
   localStorage.setItem(logKey(dayKey),'1');
   const metaKey=source==='manual'?manualLogMetaKey(dayKey):autoLogMetaKey(dayKey);
-  localStorage.setItem(metaKey,JSON.stringify({source,day:programDay,markedAt:new Date().toISOString()}));
+  const elapsedMinutes=Number(completion?.elapsedMinutes);
+  const meta={source,day:programDay,markedAt:new Date().toISOString()};
+  if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)meta.elapsedMinutes=Math.round(elapsedMinutes);
+  localStorage.setItem(metaKey,JSON.stringify(meta));
 }
 function clearCalendarDate(dayKey){
   localStorage.removeItem(logKey(dayKey));
@@ -381,10 +406,10 @@ function clearCalendarDate(dayKey){
   localStorage.removeItem(manualLogMetaKey(dayKey));
 }
 function markToday(){markCalendarDate(todayKey(),'manual',currentDay);}
-function markProgramDayComplete(di=currentDay){
+function markProgramDayComplete(di=currentDay,completion={}){
   const day=data.days[di];
   if(!day?.items?.length||!day.items.every((_,i)=>done(di,i)))return;
-  markCalendarDate(todayKey(),'auto',di);
+  markCalendarDate(todayKey(),'auto',di,completion);
 }
 function clearAutoCalendarForProgramDay(di){
   const remove=[];
@@ -621,9 +646,9 @@ function clearWorkoutDayProgress(di){
   (data.days[di]?.items||[]).forEach((_,i)=>localStorage.removeItem(key(di,i)));
   clearAutoCalendarForProgramDay(di);
 }
-function completeWorkoutDayProgress(di=currentDay){
+function completeWorkoutDayProgress(di=currentDay,completion={}){
   (data.days[di]?.items||[]).forEach((_,i)=>setDone(di,i));
-  markProgramDayComplete(di);
+  markProgramDayComplete(di,completion);
   clearWorkoutResumeState();
 }
 function statsData(){
@@ -2489,7 +2514,10 @@ function cleanBackupValue(k,v){
     try{
       const meta=typeof v==='string'?JSON.parse(v):v;
       if(!meta||typeof meta!=='object')return null;
-      return JSON.stringify({source:cleanText(meta.source,20),day:Number(meta.day)||0,markedAt:cleanText(meta.markedAt,40)});
+      const cleanMeta={source:cleanText(meta.source,20),day:Number(meta.day)||0,markedAt:cleanText(meta.markedAt,40)};
+      const elapsedMinutes=Number(meta.elapsedMinutes);
+      if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)cleanMeta.elapsedMinutes=Math.round(elapsedMinutes);
+      return JSON.stringify(cleanMeta);
     }catch(e){return null;}
   }
   if(/^pb40-d\d+-e\d+$/.test(k) || /^pb40-rest-d\d+$/.test(k) || /^pb40-log-\d{4}-\d{2}-\d{2}$/.test(k) || /^pb40-fav-/.test(k) || k===introKey || k===ONBOARDING_COMPLETED_KEY){
@@ -2895,6 +2923,7 @@ function normalizeWorkoutResumeState(state){
   const totalSets=Math.max(1,Number(state.workoutTotalSets)||Number(context.totalSets)||difficultySets(context.difficulty));
   const currentSet=Math.max(1,Math.min(totalSets,Number(state.workoutCurrentSet)||1));
   const phase=cleanText(state.workoutPhase||'prep',24)||'prep';
+  const activeElapsedMs=Math.max(0,Number(context.activeElapsedMs)||0);
   return {
     version:1,
     dayIndex,
@@ -2912,6 +2941,8 @@ function normalizeWorkoutResumeState(state){
     workoutContext:{
       ...context,
       dayIndex,
+      activeElapsedMs,
+      activeSince:null,
       totalSets,
       items:context.items||resolvedDayItems(dayIndex,context.difficulty),
       stretch:context.stretch||resolvedDayStretch(dayIndex,context.difficulty)
@@ -2934,6 +2965,11 @@ function repairWorkoutResumeProgressConflict(state){
 function saveWorkoutResumeState(){
   if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
   clearWorkoutDayProgress(currentDay);
+  const resumeContext={
+    ...workoutContext,
+    activeElapsedMs:activeWorkoutElapsedMs(),
+    activeSince:null
+  };
   const state=normalizeWorkoutResumeState({
     dayIndex:currentDay,
     currentExercise,
@@ -2947,7 +2983,7 @@ function saveWorkoutResumeState(){
     programWasCompleteAtWorkoutStart,
     sideNoticeDone,
     sideNoticeNext,
-    workoutContext,
+    workoutContext:resumeContext,
     savedAt:new Date().toISOString()
   });
   if(state)localStorage.setItem(WORKOUT_RESUME_KEY,JSON.stringify(state));
@@ -2997,6 +3033,7 @@ function restoreWorkoutState(state){
   lastMode='train';
   setNav('train');
   showAutoTrain({resetScroll:true});
+  resumeActiveWorkoutTime();
   void requestWorkoutWakeLock();
   resumeWorkoutTimer();
 }
@@ -3009,6 +3046,7 @@ function currentWorkoutEntry(){
 function finishWorkoutDay(){
   currentExercise=Math.max(0,data.days[currentDay].items.length-1);
   clearInterval(timer);
+  pauseActiveWorkoutTime();
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
   workoutPaused=false;
@@ -3043,6 +3081,7 @@ function beginCurrentExercise(){
   workoutPaused=false;
   workoutPhase='prep';
   workoutLeft=WORKOUT_PREP_SECONDS;
+  resumeActiveWorkoutTime();
   startWorkoutTimer(true);
 }
 function shouldRunWorkoutTimer(){
@@ -3056,6 +3095,7 @@ function openCurrentTraining(){
     const resumeTimer=workoutPausedByDetail;
     workoutPausedByDetail=false;
     if(resumeTimer)workoutPaused=false;
+    resumeActiveWorkoutTime();
     showAutoTrain();
     void requestWorkoutWakeLock();
     if(resumeTimer&&shouldRunWorkoutTimer()){
@@ -3402,9 +3442,9 @@ function doneNext(mark=true){
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
   const dayTitle=data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
   const completedCount=completedItems.length;
-  const workoutStartedAt=Number(workoutContext?.startedAt);
-  const elapsedMinutes=workoutStartedAt>0 ? Math.max(1,Math.round((Date.now()-workoutStartedAt)/60000)) : null;
-  completeWorkoutDayProgress(currentDay);
+  const activeElapsedMs=activeWorkoutElapsedMs();
+  const elapsedMinutes=Math.max(1,Math.round(activeElapsedMs/60000));
+  completeWorkoutDayProgress(currentDay,{elapsedMinutes});
   programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
@@ -3615,12 +3655,22 @@ function calendar(year,month){
     cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''} ${future?'future':''}" ${future?'disabled aria-disabled="true"':'data-action="calendar-day"'} data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
   }
   const monthPrefix=`${y}-${String(m+1).padStart(2,'0')}-`;
-  const monthDayCount=loggedDates().filter(dayKey=>dayKey.startsWith(monthPrefix)).length;
+  const monthDayKeys=loggedDates().filter(dayKey=>dayKey.startsWith(monthPrefix));
+  const monthDayCount=monthDayKeys.length;
+  const timedMonthEntries=monthDayKeys.map(dayKey=>Number(calendarMeta(dayKey,'auto')?.elapsedMinutes)).filter(minutes=>Number.isFinite(minutes)&&minutes>0);
+  const monthElapsedMinutes=timedMonthEntries.reduce((total,minutes)=>total+minutes,0);
   const displayedMonthName=now.toLocaleDateString('cs-CZ',{month:'long'}).replace(/^./,char=>char.toLocaleUpperCase('cs-CZ'));
   const todayLogged=hasLog(todayKey());
   const trainingCountLabel=czechCountLabel(monthDayCount,'trénink','tréninky','tréninků');
   const todayAction=todayLogged?'unmark-today':'mark-today';
   const todayActionLabel=todayLogged?'Odebrat dnešek':'Označit dnešek';
+  const monthTimeSummary=monthDayCount===0
+    ? 'Celkem 0 min'
+    : timedMonthEntries.length===monthDayCount
+      ? `Celkem ${monthElapsedMinutes} min`
+      : timedMonthEntries.length
+        ? `Zaznamenáno ${monthElapsedMinutes} min · ${timedMonthEntries.length} z ${monthDayCount} s časem`
+        : 'Čas starších tréninků není uložen.';
   app.innerHTML=`<section class="card calendarCard"><h2>Kalendář cvičení</h2>
     <div class="calendarMonthNav"><button data-action="calendar-prev" data-year="${prev.getFullYear()}" data-month="${prev.getMonth()}" aria-label="Předchozí měsíc">‹</button><strong>${monthName(now)}</strong><button data-action="calendar-next" data-year="${next.getFullYear()}" data-month="${next.getMonth()}" ${isCurrentMonth?'disabled aria-disabled="true"':''} aria-label="Následující měsíc">›</button></div>
     <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
@@ -3629,7 +3679,7 @@ function calendar(year,month){
   </section>
   <section class="calendarMotivationCard" aria-label="Souhrn měsíce">
     <div class="calendarMotivationNumber" aria-hidden="true">${monthDayCount}</div>
-    <div><h3>${esc(displayedMonthName)}</h3><p>${monthDayCount} ${trainingCountLabel}</p></div>
+    <div><h3>${esc(displayedMonthName)}</h3><p>${monthDayCount} ${trainingCountLabel}</p><p class="calendarTimeSummary">${monthTimeSummary}</p></div>
   </section>`;
   scrollTop();
 }
@@ -3742,8 +3792,18 @@ app.addEventListener('error',e=>{
   const fallback=image.nextElementSibling;
   if(fallback)fallback.hidden=false;
 },true);
-window.addEventListener('beforeunload',saveWorkoutResumeState);
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveWorkoutResumeState();});
+window.addEventListener('beforeunload',()=>{
+  pauseActiveWorkoutTime();
+  saveWorkoutResumeState();
+});
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='hidden'){
+    pauseActiveWorkoutTime();
+    saveWorkoutResumeState();
+  }else if(isWorkoutScreenActive()){
+    resumeActiveWorkoutTime();
+  }
+});
 app.addEventListener('click',e=>{
   void unlockAudio();
   const t=e.target.closest('[data-action],.exercise[data-day],.exercise[data-ex]');
@@ -3845,6 +3905,7 @@ app.addEventListener('click',e=>{
     if(workoutRunning){
       clearInterval(timer);
       workoutPausedByDetail=!workoutPaused;
+      pauseActiveWorkoutTime();
       workoutPaused=true;
       saveWorkoutResumeState();
     }
@@ -3862,8 +3923,10 @@ app.addEventListener('click',e=>{
   if(a==='toggle-auto'){
     if(workoutPaused){
       workoutPaused=false;
+      resumeActiveWorkoutTime();
       resumeWorkoutTimer();
     }else{
+      pauseActiveWorkoutTime();
       workoutPaused=true;
       clearInterval(timer);
     }
