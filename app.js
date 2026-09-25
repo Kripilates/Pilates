@@ -3616,21 +3616,20 @@ function calendar(year,month){
   }
   const monthPrefix=`${y}-${String(m+1).padStart(2,'0')}-`;
   const monthDayCount=loggedDates().filter(dayKey=>dayKey.startsWith(monthPrefix)).length;
+  const displayedMonthName=now.toLocaleDateString('cs-CZ',{month:'long'}).replace(/^./,char=>char.toLocaleUpperCase('cs-CZ'));
   const todayLogged=hasLog(todayKey());
-  const dayCountLabel=monthDayCount===1?'odcvičený den':'odcvičených dní';
-  const motivationDayLabel=monthDayCount===1?'den':monthDayCount>=2&&monthDayCount<=4?'dny':'dní';
+  const trainingCountLabel=czechCountLabel(monthDayCount,'trénink','tréninky','tréninků');
   const todayAction=todayLogged?'unmark-today':'mark-today';
   const todayActionLabel=todayLogged?'Odebrat dnešek':'Označit dnešek';
   app.innerHTML=`<section class="card calendarCard"><h2>Kalendář cvičení</h2>
     <div class="calendarMonthNav"><button data-action="calendar-prev" data-year="${prev.getFullYear()}" data-month="${prev.getMonth()}" aria-label="Předchozí měsíc">‹</button><strong>${monthName(now)}</strong><button data-action="calendar-next" data-year="${next.getFullYear()}" data-month="${next.getMonth()}" ${isCurrentMonth?'disabled aria-disabled="true"':''} aria-label="Následující měsíc">›</button></div>
-    <p class="calendarSummaryText">${monthDayCount} ${dayCountLabel}</p>
     <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
     <div class="calendarGrid">${cells.join('')}</div>
     <div class="row calendarActions"><button data-action="${todayAction}" data-year="${y}" data-month="${m}">${todayActionLabel}</button></div>
   </section>
-  <section class="calendarMotivationCard" aria-label="Měsíční motivace">
+  <section class="calendarMotivationCard" aria-label="Souhrn měsíce">
     <div class="calendarMotivationNumber" aria-hidden="true">${monthDayCount}</div>
-    <div><h3>${monthDayCount} ${motivationDayLabel} pro sebe</h3><p>Tento měsíc už máš odcvičeno ${monthDayCount}×.</p></div>
+    <div><h3>${esc(displayedMonthName)}</h3><p>${monthDayCount} ${trainingCountLabel}</p></div>
   </section>`;
   scrollTop();
 }
