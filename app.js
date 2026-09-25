@@ -3475,10 +3475,6 @@ function doneNext(mark=true){
       <button class="primary finishSaveButton" data-action="save-workout-note">Ulo\u017eit a dom\u016f</button>
     </div>
   </section>`;
-  if(brandBadge){
-    brandBadge.textContent=`Den ${currentDay+1} dokon\u010den`;
-    brandBadge.classList.add('workoutPositionBadge');
-  }
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
   workoutContext=null;
@@ -3664,13 +3660,7 @@ function calendar(year,month){
   const trainingCountLabel=czechCountLabel(monthDayCount,'trénink','tréninky','tréninků');
   const todayAction=todayLogged?'unmark-today':'mark-today';
   const todayActionLabel=todayLogged?'Odebrat dnešek':'Označit dnešek';
-  const monthTimeSummary=monthDayCount===0
-    ? 'Celkem 0 min'
-    : timedMonthEntries.length===monthDayCount
-      ? `Celkem ${monthElapsedMinutes} min`
-      : timedMonthEntries.length
-        ? `Zaznamenáno ${monthElapsedMinutes} min · ${timedMonthEntries.length} z ${monthDayCount} s časem`
-        : 'Čas starších tréninků není uložen.';
+  const monthTimeSummary=timedMonthEntries.length?`Celkem ${monthElapsedMinutes} min`:'';
   app.innerHTML=`<section class="card calendarCard"><h2>Kalendář cvičení</h2>
     <div class="calendarMonthNav"><button data-action="calendar-prev" data-year="${prev.getFullYear()}" data-month="${prev.getMonth()}" aria-label="Předchozí měsíc">‹</button><strong>${monthName(now)}</strong><button data-action="calendar-next" data-year="${next.getFullYear()}" data-month="${next.getMonth()}" ${isCurrentMonth?'disabled aria-disabled="true"':''} aria-label="Následující měsíc">›</button></div>
     <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
@@ -3679,7 +3669,7 @@ function calendar(year,month){
   </section>
   <section class="calendarMotivationCard" aria-label="Souhrn měsíce">
     <div class="calendarMotivationNumber" aria-hidden="true">${monthDayCount}</div>
-    <div><h3>${esc(displayedMonthName)}</h3><p>${monthDayCount} ${trainingCountLabel}</p><p class="calendarTimeSummary">${monthTimeSummary}</p></div>
+    <div><h3>${esc(displayedMonthName)}</h3><p>${monthDayCount} ${trainingCountLabel}</p>${monthTimeSummary?`<p class="calendarTimeSummary">${monthTimeSummary}</p>`:''}</div>
   </section>`;
   scrollTop();
 }
