@@ -527,7 +527,7 @@ function moodLabel(mood){
 function workoutNotesHistory(){
   const arr=workoutNotes().filter(n=>n.text||n.mood).slice(-5).reverse();
   if(!arr.length)return '<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><p class="muted compactEmpty">Zatím tu nejsou žádné poznámky po tréninku.</p></section>';
-  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div><b>${formatDisplayDate(n.date)}</b><span>Den ${Number(n.day)+1} • ${esc(moodLabel(n.mood))}</span></div><p>${n.text?esc(n.text):'Bez textové poznámky.'}</p></article>`).join('')}</div></section>`;
+  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div><b>${formatDisplayDate(n.date)}</b><span>Den ${Number(n.day)+1} • ${esc(moodLabel(n.mood))}</span></div>${n.text?`<p>${esc(n.text)}</p>`:''}</article>`).join('')}</div></section>`;
 }
 function saveWorkoutNote(){
   const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';

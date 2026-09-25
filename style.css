@@ -5344,7 +5344,7 @@ body.dark .programCompletionContent{
 }
 .myProgressMain{
   color:var(--p)!important;
-  font-size:26px!important;
+  font-size:22px!important;
   font-weight:900;
   margin:0 0 8px;
 }
@@ -5709,6 +5709,9 @@ body.dark .programCompletionContent{
 .homeFocusSection,
 .homeProgressSection{
   min-width:0;
+}
+.homeFocusSection + .homeProgressSection{
+  margin-top:-8px;
 }
 .homeSectionHead{
   margin:0 2px 11px;
