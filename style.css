@@ -5490,31 +5490,28 @@ body.dark .programCompletionContent{
 .homePhotoHero--resume.hasPhoto::after{
   content:none;
 }
+.homePhotoHero--resume .homeHeroPhoto--resume{
+  bottom:auto;
+  height:auto;
+  aspect-ratio:3/2;
+  -webkit-mask-image:linear-gradient(180deg,
+    #000 0%,
+    #000 90%,
+    rgba(0,0,0,.98) 94%,
+    rgba(0,0,0,.9) 97%,
+    rgba(0,0,0,.55) 99%,
+    rgba(0,0,0,.18) 100%);
+  mask-image:linear-gradient(180deg,
+    #000 0%,
+    #000 90%,
+    rgba(0,0,0,.98) 94%,
+    rgba(0,0,0,.9) 97%,
+    rgba(0,0,0,.55) 99%,
+    rgba(0,0,0,.18) 100%);
+}
 .homePhotoHero--resume .homeHeroContent{
   padding:clamp(16px,4.6vw,22px);
   background:transparent;
-}
-.homePhotoHero--resume .homeHeroContent::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:0;
-  height:clamp(180px,55%,220px);
-  pointer-events:none;
-  background:linear-gradient(180deg,
-    rgba(8,28,42,0) 0%,
-    rgba(8,28,42,0) 12%,
-    rgba(8,28,42,.04) 30%,
-    rgba(8,28,42,.12) 46%,
-    rgba(8,28,42,.26) 62%,
-    rgba(8,28,42,.44) 80%,
-    rgba(8,28,42,.62) 100%);
-}
-.homePhotoHero--resume .homeHeroContent>*{
-  position:relative;
-  z-index:1;
 }
 .homePhotoHero--resume .homeHeroContent h2{
   margin:4px 0 0;
@@ -5622,27 +5619,27 @@ body.dark .programCompletionContent{
 }
 .homePhotoHero--resume.hasPhoto .homeHeroContent,
 .homePhotoHero--resume.hasPhoto .homeHeroContent h2{
-  color:#fff;
-  text-shadow:0 2px 10px rgba(8,28,42,.72);
+  color:var(--text);
+  text-shadow:none;
 }
 .homePhotoHero--resume.hasPhoto .homeHeroContent .eyebrow{
-  color:rgba(255,255,255,.9);
+  color:var(--p);
 }
 .homePhotoHero--resume.hasPhoto .homeResumeMeta .homeMainDetail{
   padding:5px 9px;
-  border:1px solid rgba(255,255,255,.42);
+  border:1px solid var(--line);
   border-radius:999px;
-  background:rgba(8,28,42,.2);
-  color:#fff;
+  background:var(--p2);
+  color:var(--p);
   font-size:13px;
   line-height:1;
-  backdrop-filter:blur(6px);
+  backdrop-filter:none;
 }
 .homePhotoHero--resume.hasPhoto .homeHeroSecondary{
-  border-color:rgba(255,255,255,.46);
-  background:rgba(255,255,255,.14);
-  color:#fff;
-  backdrop-filter:blur(8px);
+  border-color:var(--line);
+  background:var(--soft);
+  color:var(--text);
+  backdrop-filter:none;
 }
 
 /* Contextual button hierarchy: align peer actions without flattening standalone CTAs. */
