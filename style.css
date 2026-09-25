@@ -5496,18 +5496,24 @@ body.dark .programCompletionContent{
   aspect-ratio:3/2;
   -webkit-mask-image:linear-gradient(180deg,
     #000 0%,
-    #000 90%,
-    rgba(0,0,0,.98) 94%,
-    rgba(0,0,0,.9) 97%,
-    rgba(0,0,0,.55) 99%,
-    rgba(0,0,0,.18) 100%);
+    #000 65%,
+    rgba(0,0,0,.98) 71%,
+    rgba(0,0,0,.92) 77%,
+    rgba(0,0,0,.78) 83%,
+    rgba(0,0,0,.55) 89%,
+    rgba(0,0,0,.3) 94%,
+    rgba(0,0,0,.1) 98%,
+    transparent 100%);
   mask-image:linear-gradient(180deg,
     #000 0%,
-    #000 90%,
-    rgba(0,0,0,.98) 94%,
-    rgba(0,0,0,.9) 97%,
-    rgba(0,0,0,.55) 99%,
-    rgba(0,0,0,.18) 100%);
+    #000 65%,
+    rgba(0,0,0,.98) 71%,
+    rgba(0,0,0,.92) 77%,
+    rgba(0,0,0,.78) 83%,
+    rgba(0,0,0,.55) 89%,
+    rgba(0,0,0,.3) 94%,
+    rgba(0,0,0,.1) 98%,
+    transparent 100%);
 }
 .homePhotoHero--resume .homeHeroContent{
   padding:clamp(16px,4.6vw,22px);
@@ -5520,6 +5526,9 @@ body.dark .programCompletionContent{
 }
 .homePhotoHero--resume .homeMainActions{
   margin-top:12px;
+}
+.homePhotoHero--resume .homeResumeMeta{
+  transform:translateY(-10px);
 }
 .homeHeroContent{
   position:relative;
