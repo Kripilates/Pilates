@@ -5449,6 +5449,16 @@ body.dark .programCompletionContent{
   object-fit:contain;
   object-position:center top;
 }
+.homePhotoHero.hasPhoto:has(.homeHeroPhoto--resume)::after{
+  background:linear-gradient(180deg,
+    rgba(8,28,42,0) 16%,
+    rgba(8,28,42,.06) 24%,
+    rgba(8,28,42,.34) 36%,
+    rgba(8,28,42,.58) 48%,
+    rgba(8,28,42,.76) 64%,
+    rgba(8,28,42,.88) 82%,
+    rgba(8,28,42,.92) 100%);
+}
 .homeHeroContent{
   position:relative;
   z-index:2;
