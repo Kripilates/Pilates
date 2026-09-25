@@ -5460,13 +5460,13 @@ body.dark .programCompletionContent{
 }
 .homePhotoHero.hasPhoto:has(.homeHeroPhoto--resume)::after{
   background:linear-gradient(180deg,
-    rgba(8,28,42,0) 14%,
-    rgba(8,28,42,.08) 22%,
-    rgba(8,28,42,.5) 32%,
-    rgba(8,28,42,.7) 44%,
-    rgba(8,28,42,.8) 60%,
-    rgba(8,28,42,.9) 80%,
-    rgba(8,28,42,.94) 100%);
+    rgba(8,28,42,0) 43%,
+    rgba(8,28,42,.16) 45%,
+    rgba(8,28,42,.52) 47.5%,
+    rgba(8,28,42,.66) 50%,
+    rgba(8,28,42,.72) 60%,
+    rgba(8,28,42,.82) 76%,
+    rgba(8,28,42,.88) 100%);
 }
 .homeHeroContent{
   position:relative;
