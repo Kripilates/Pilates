@@ -2801,7 +2801,17 @@ function dayEquipmentInline(items){
   return `<div class="dayEquipmentInline"><span class="dayEquipmentLabel">Připrav si:</span><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
 function dayCompactInfo(di,items){
-  return `<div class="dayCompactInfo"><div class="dayTimeDifficulty"><span>${estimatedWorkoutMinutes(di)} min</span><span>${esc(difficultyLabel())} obtížnost</span></div>${dayEquipmentInline(items)}</div>`;
+  const gear=dayEquipment(items).map(item=>esc(item)).join(' · ');
+  return `<div class="dayCompactInfo" aria-label="Informace o tréninku">
+    <div class="dayInfoBlock">
+      <span class="dayInfoIcon">${lineIcon('clock')}</span>
+      <span class="dayInfoCopy"><small>TRVÁNÍ</small><strong>${estimatedWorkoutMinutes(di)} min</strong></span>
+    </div>
+    <div class="dayInfoBlock">
+      <span class="dayInfoIcon">${lineIcon('equipment')}</span>
+      <span class="dayInfoCopy"><small>VYBAVENÍ</small><strong>${gear}</strong></span>
+    </div>
+  </div>`;
 }
 function day(di,opts={}){
   if(maybeStartRequiredOnboarding())return;
