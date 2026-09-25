@@ -5490,6 +5490,10 @@ body.dark .programCompletionContent{
 .homePhotoHero--resume.hasPhoto::after{
   content:none;
 }
+.homePhotoHero.homePhotoHero--resume{
+  --resume-bottom-trim:4px;
+  min-height:calc(clamp(340px,88vw,460px) - var(--resume-bottom-trim));
+}
 .homePhotoHero--resume .homeHeroPhoto--resume{
   bottom:auto;
   height:auto;
@@ -5517,6 +5521,7 @@ body.dark .programCompletionContent{
 }
 .homePhotoHero--resume .homeHeroContent{
   padding:clamp(16px,4.6vw,22px);
+  padding-bottom:calc(clamp(16px,4.6vw,22px) - var(--resume-bottom-trim));
   background:transparent;
 }
 .homePhotoHero--resume .homeHeroContent h2{
@@ -5850,11 +5855,13 @@ body.dark .programCompletionContent{
   .homeDashboard{gap:20px}
   .homeHeroContent{padding:18px}
   .homePhotoHero{min-height:clamp(330px,92vw,390px)}
+  .homePhotoHero.homePhotoHero--resume{min-height:calc(clamp(330px,92vw,390px) - var(--resume-bottom-trim))}
   .homeFocusCard{flex-basis:78vw}
   .homeProgramProgress{padding:13px 14px}
 }
 @media(max-width:340px){
   .homePhotoHero{min-height:320px}
+  .homePhotoHero.homePhotoHero--resume{min-height:calc(320px - var(--resume-bottom-trim))}
   .homeHeroContent{padding:16px}
   .homeHeroContent h2{font-size:27px}
   .homeFocusCard{flex-basis:80vw}
