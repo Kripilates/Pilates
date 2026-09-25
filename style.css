@@ -6512,6 +6512,21 @@ body.dark .programCompletionContent{
     border-top-color:rgba(80,221,215,.16);
     box-shadow:0 -5px 18px rgba(0,0,0,.18);
   }
+  body:not(.dark)>nav button:not(.active){
+    background:#e8f7f5;
+    border-color:#b8ddda;
+    color:var(--text);
+  }
+  body.dark>nav button:not(.active){
+    background:#18343a;
+    border-color:#35575e;
+    color:var(--text);
+  }
+  body>nav button.active{
+    background:var(--p);
+    border-color:var(--p);
+    color:#fff;
+  }
 }
 
 /* v59.91: mobile workout transition and viewport stability */
