@@ -2217,12 +2217,12 @@ function img(k,c='thumb',extra=''){
 // Pilot only: approved Standing Side Bend frames on the active workout screen.
 const workoutImagePilotConfig=Object.freeze({
   exerciseId:'standing_side_bend',
-  fadeMs:400,
+  fadeMs:100,
   sequence:Object.freeze([
-    Object.freeze({photo:'start',duration:550}),
-    Object.freeze({photo:'hero',duration:1100}),
-    Object.freeze({photo:'start',duration:550}),
-    Object.freeze({photo:'opposite',duration:1100})
+    Object.freeze({photo:'start',duration:600}),
+    Object.freeze({photo:'hero',duration:1200}),
+    Object.freeze({photo:'start',duration:600}),
+    Object.freeze({photo:'opposite',duration:1200})
   ])
 });
 let workoutImagePilotRun=0;
@@ -2298,17 +2298,16 @@ async function syncWorkoutImagePilot(k){
     next.classList.remove('is-active');
     next.style.zIndex='3';
     void next.offsetWidth;
-    current.style.transition=`opacity ${workoutImagePilotConfig.fadeMs}ms ease`;
     next.style.transition=`opacity ${workoutImagePilotConfig.fadeMs}ms ease`;
-    current.classList.remove('is-active');
     next.classList.add('is-active');
     root.dataset.pilotFrame=nextStep.photo;
     workoutImagePilotTimer(()=>{
       if(run!==workoutImagePilotRun)return;
       current.style.transition='none';
+      current.classList.remove('is-active');
       current.style.zIndex='1';
       next.style.zIndex='2';
-    },workoutImagePilotConfig.fadeMs);
+    },workoutImagePilotConfig.fadeMs+50);
     activeSlot=nextSlot;
     workoutImagePilotTimer(advance,nextStep.duration);
   };
