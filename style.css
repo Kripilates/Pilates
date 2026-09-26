@@ -6762,58 +6762,6 @@ body.dark .programCompletionContent{
   object-fit:contain!important;
   object-position:center!important;
 }
-.autoTrain .workoutImagePilot{
-  position:relative;
-  width:100%;
-  aspect-ratio:3/2;
-  overflow:hidden;
-  background:#fff;
-  cursor:pointer;
-}
-.autoTrain .workoutImagePilotBase,
-.autoTrain .workoutImagePilotFrame{
-  position:absolute;
-  inset:0;
-  display:block;
-  width:100%;
-  height:100%;
-  margin:0;
-  border:0;
-  border-radius:0;
-  object-fit:contain;
-  object-position:center;
-  background:#fff;
-  pointer-events:none;
-}
-.autoTrain .workoutImagePilotBase{
-  z-index:1;
-}
-.autoTrain .workoutImagePilotFrame{
-  z-index:2;
-  opacity:0;
-  -webkit-mask-image:
-    radial-gradient(ellipse 16% 26% at 44% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
-    radial-gradient(ellipse 16% 26% at 56% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
-    radial-gradient(ellipse 15% 30% at 50% 49%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
-    radial-gradient(ellipse 13% 32% at 50% 72%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%);
-  mask-image:
-    radial-gradient(ellipse 16% 26% at 44% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
-    radial-gradient(ellipse 16% 26% at 56% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
-    radial-gradient(ellipse 15% 30% at 50% 49%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
-    radial-gradient(ellipse 13% 32% at 50% 72%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%);
-  -webkit-mask-composite:source-over,source-over,source-over,source-over;
-  mask-composite:add,add,add,add;
-  -webkit-mask-repeat:no-repeat;
-  mask-repeat:no-repeat;
-}
-.autoTrain .workoutImagePilotFrame.is-active{
-  opacity:1;
-}
-@media(prefers-reduced-motion:reduce){
-  .autoTrain .workoutImagePilotFrame{
-    transition:none!important;
-  }
-}
 .autoTrain.v53CleanTrain .trainControls button,
 .autoTrain.v50Train .trainControls button{
   height:48px;

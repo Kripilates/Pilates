@@ -171,7 +171,6 @@ function showWorkoutExitDialog(){
   workoutExitDialogOpen=true;
   workoutExitWasPaused=workoutPaused;
   if(!workoutPaused){
-    stopWorkoutImagePilot();
     pauseActiveWorkoutTime();
     workoutPaused=true;
     clearInterval(timer);
@@ -192,12 +191,10 @@ function continueWorkoutFromDialog(){
   workoutPaused=workoutExitWasPaused;
   resumeActiveWorkoutTime();
   resumeWorkoutTimer();
-  void syncWorkoutImagePilot(currentWorkoutEntry()?.[0]);
 }
 function exitWorkoutToDay(){
   document.querySelector('.workoutExitOverlay')?.remove();
   workoutExitDialogOpen=false;
-  stopWorkoutImagePilot();
   saveWorkoutResumeState();
   clearInterval(timer);
   workoutRunning=false;
@@ -2214,119 +2211,6 @@ function img(k,c='thumb',extra=''){
   return `<img loading="lazy" class="${c}" ${extra} src="${src}" alt="${ex.name}">`;
 }
 
-// Pilot only: approved Standing Side Bend frames on the active workout screen.
-const workoutImagePilotConfig=Object.freeze({
-  exerciseId:'standing_side_bend',
-  fadeMs:100,
-  sequence:Object.freeze([
-    Object.freeze({photo:'start',duration:600}),
-    Object.freeze({photo:'hero',duration:1200}),
-    Object.freeze({photo:'start',duration:600}),
-    Object.freeze({photo:'opposite',duration:1200})
-  ])
-});
-let workoutImagePilotRun=0;
-let workoutImagePilotPreload=null;
-const workoutImagePilotTimers=new Set();
-function workoutImagePilotUrls(){
-  const ref=referenceExerciseAssets[workoutImagePilotConfig.exerciseId];
-  return Object.fromEntries(['start','hero','opposite'].map(photo=>[photo,deploymentImageUrl(ref?.[photo]||'')]));
-}
-function stopWorkoutImagePilot(){
-  workoutImagePilotRun++;
-  workoutImagePilotTimers.forEach(id=>clearTimeout(id));
-  workoutImagePilotTimers.clear();
-}
-function workoutImagePilotTimer(callback,delay){
-  const id=setTimeout(()=>{
-    workoutImagePilotTimers.delete(id);
-    callback();
-  },delay);
-  workoutImagePilotTimers.add(id);
-  return id;
-}
-function preloadWorkoutImagePilot(){
-  if(workoutImagePilotPreload)return workoutImagePilotPreload;
-  const urls=Object.values(workoutImagePilotUrls());
-  workoutImagePilotPreload=Promise.all(urls.map(src=>new Promise(resolve=>{
-    const image=new Image();
-    image.onload=()=>resolve(true);
-    image.onerror=()=>resolve(false);
-    image.src=src;
-  }))).then(results=>results.every(Boolean));
-  return workoutImagePilotPreload;
-}
-function workoutImagePilotReduced(){
-  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches===true;
-}
-function workoutImagePilotCanRun(k){
-  return k===workoutImagePilotConfig.exerciseId && workoutRunning && !workoutPaused && !workoutFinalStretch && ['prep','work','left','right'].includes(workoutPhase) && document.visibilityState==='visible' && !workoutImagePilotReduced();
-}
-function workoutImagePilotMarkup(k){
-  const ex=data.exercises[k];
-  const src=workoutImagePilotUrls().start;
-  if(!src)return noImage(k,'bigimg','data-action="info" data-ex="'+k+'"');
-  return `<div class="workoutImagePilot" data-workout-image-pilot="${k}" data-action="info" data-ex="${k}" role="img" aria-label="${esc(ex.name)}"><img class="workoutImagePilotBase" src="${src}" alt="" aria-hidden="true"><img class="workoutImagePilotFrame" src="${src}" alt="" aria-hidden="true"><img class="workoutImagePilotFrame" src="${src}" alt="" aria-hidden="true"></div>`;
-}
-async function syncWorkoutImagePilot(k){
-  stopWorkoutImagePilot();
-  const root=document.querySelector(`[data-workout-image-pilot="${workoutImagePilotConfig.exerciseId}"]`);
-  if(!root||!workoutImagePilotCanRun(k))return;
-  const run=workoutImagePilotRun;
-  const loaded=await preloadWorkoutImagePilot();
-  if(!loaded||run!==workoutImagePilotRun||!root.isConnected||!workoutImagePilotCanRun(k))return;
-  const frames=[...root.querySelectorAll('.workoutImagePilotFrame')];
-  if(frames.length!==2)return;
-  const urls=workoutImagePilotUrls();
-  let sequenceIndex=0;
-  let activeSlot=null;
-  frames.forEach(frame=>{
-    frame.src=urls.start;
-    frame.style.transition='none';
-    frame.classList.remove('is-active');
-    frame.style.zIndex='2';
-  });
-  root.dataset.pilotFrame='start';
-  const advance=()=>{
-    if(run!==workoutImagePilotRun||!root.isConnected||!workoutImagePilotCanRun(k))return;
-    sequenceIndex=(sequenceIndex+1)%workoutImagePilotConfig.sequence.length;
-    const nextStep=workoutImagePilotConfig.sequence[sequenceIndex];
-    const current=activeSlot===null?null:frames[activeSlot];
-    if(nextStep.photo==='start'){
-      if(current){
-        current.style.transition=`opacity ${workoutImagePilotConfig.fadeMs}ms ease`;
-        current.classList.remove('is-active');
-        workoutImagePilotTimer(()=>{
-          if(run!==workoutImagePilotRun)return;
-          current.style.transition='none';
-          current.style.zIndex='2';
-        },workoutImagePilotConfig.fadeMs+50);
-      }
-      activeSlot=null;
-      root.dataset.pilotFrame='start';
-      workoutImagePilotTimer(advance,nextStep.duration);
-      return;
-    }
-    const nextSlot=activeSlot===0?1:0;
-    const next=frames[nextSlot];
-    next.src=urls[nextStep.photo];
-    next.style.transition='none';
-    next.classList.remove('is-active');
-    next.style.zIndex='3';
-    void next.offsetWidth;
-    next.style.transition=`opacity ${workoutImagePilotConfig.fadeMs}ms ease`;
-    next.classList.add('is-active');
-    root.dataset.pilotFrame=nextStep.photo;
-    workoutImagePilotTimer(()=>{
-      if(run!==workoutImagePilotRun)return;
-      next.style.zIndex='2';
-    },workoutImagePilotConfig.fadeMs+50);
-    activeSlot=nextSlot;
-    workoutImagePilotTimer(advance,nextStep.duration);
-  };
-  workoutImagePilotTimer(advance,workoutImagePilotConfig.sequence[0].duration);
-}
-
 function detailHeroImage(k){
   const src = v22ImageSrc(k);
   if(!src)return noImage(k,'v20HeroPhoto v22HeroPhoto');
@@ -3176,7 +3060,6 @@ function currentWorkoutEntry(){
   return workoutContext?.items?.[currentExercise] || resolvedDayItems(currentDay,workoutContext?.difficulty)[currentExercise] || [];
 }
 function finishWorkoutDay(){
-  stopWorkoutImagePilot();
   currentExercise=Math.max(0,data.days[currentDay].items.length-1);
   clearInterval(timer);
   pauseActiveWorkoutTime();
@@ -3328,7 +3211,6 @@ function currentInstruction(ex,dose){
 }
 function setProgressText(){return `Série ${workoutCurrentSet} ze ${workoutTotalSets} • Cvik ${currentExercise+1}/${data.days[currentDay].items.length}`;}
 function showSeriesRest(){
-  stopWorkoutImagePilot();
   const dayObj=data.days[currentDay];
   const completedSet=Math.max(1,workoutCurrentSet-1);
   const progress=Math.min(100, Math.round((completedSet*dayObj.items.length/Math.max(1,dayObj.items.length*workoutTotalSets))*100));
@@ -3350,10 +3232,10 @@ function showSeriesRest(){
 }
 function showAutoTrain(opts={}){
   const dayObj=data.days[currentDay];
-  if(!dayObj.items.length){stopWorkoutImagePilot();day(currentDay);return;}
+  if(!dayObj.items.length){day(currentDay);return;}
   if(workoutPhase==='roundRest')return showSeriesRest();
   const [k,dose]=currentWorkoutEntry(),ex=data.exercises[k],info=sideInfo(dose);
-  if(!ex){stopWorkoutImagePilot();day(currentDay);return;}
+  if(!ex){day(currentDay);return;}
   const totalItems=dayObj.items.length*workoutTotalSets;
   const doneItems=workoutFinalStretch ? totalItems : (workoutCurrentSet-1)*dayObj.items.length + currentExercise;
   const progress=Math.min(100, Math.round((doneItems/Math.max(1,totalItems))*100));
@@ -3393,7 +3275,6 @@ function showAutoTrain(opts={}){
     }
     const controls=existing.querySelector('.trainControls'); if(controls)controls.innerHTML=controlsHtml;
     saveWorkoutResumeState();
-    void syncWorkoutImagePilot(k);
     return;
   }
   const imgClass='bigimg';
@@ -3410,7 +3291,7 @@ function showAutoTrain(opts={}){
         <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SWITCH_SECONDS)*100))}%"></i></div>
         <small>${switchDetail}</small>
       </div>`
-    : `<div class="trainImageSlot"><div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div>${k===workoutImagePilotConfig.exerciseId&&!workoutImagePilotReduced()?workoutImagePilotMarkup(k):img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
+    : `<div class="trainImageSlot"><div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div>${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
@@ -3419,7 +3300,6 @@ function showAutoTrain(opts={}){
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
   saveWorkoutResumeState();
-  void syncWorkoutImagePilot(k);
   if(!existing||opts.resetScroll)scrollTop();
 }
 function tickAuto(){
@@ -3919,18 +3799,15 @@ app.addEventListener('error',e=>{
   if(fallback)fallback.hidden=false;
 },true);
 window.addEventListener('beforeunload',()=>{
-  stopWorkoutImagePilot();
   pauseActiveWorkoutTime();
   saveWorkoutResumeState();
 });
 document.addEventListener('visibilitychange',()=>{
   if(document.visibilityState==='hidden'){
-    stopWorkoutImagePilot();
     pauseActiveWorkoutTime();
     saveWorkoutResumeState();
   }else if(isWorkoutScreenActive()){
     resumeActiveWorkoutTime();
-    void syncWorkoutImagePilot(currentWorkoutEntry()?.[0]);
   }
 });
 app.addEventListener('click',e=>{
@@ -4032,7 +3909,6 @@ app.addEventListener('click',e=>{
     }
 // Když otevřeš detail během tréninku, časovač se zastaví a nic tě samo nevrátí zpět.
     if(workoutRunning){
-      stopWorkoutImagePilot();
       clearInterval(timer);
       workoutPausedByDetail=!workoutPaused;
       pauseActiveWorkoutTime();
