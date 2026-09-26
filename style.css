@@ -6791,8 +6791,18 @@ body.dark .programCompletionContent{
 .autoTrain .workoutImagePilotFrame{
   z-index:2;
   opacity:0;
-  -webkit-mask-image:radial-gradient(ellipse 34% 68% at 50% 50%,#000 0%,#000 82%,rgba(0,0,0,.92) 87%,rgba(0,0,0,.62) 93%,rgba(0,0,0,.24) 97%,transparent 100%);
-  mask-image:radial-gradient(ellipse 34% 68% at 50% 50%,#000 0%,#000 82%,rgba(0,0,0,.92) 87%,rgba(0,0,0,.62) 93%,rgba(0,0,0,.24) 97%,transparent 100%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 16% 26% at 44% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+    radial-gradient(ellipse 16% 26% at 56% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+    radial-gradient(ellipse 15% 30% at 50% 49%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+    radial-gradient(ellipse 13% 32% at 50% 72%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 16% 26% at 44% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+    radial-gradient(ellipse 16% 26% at 56% 24%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+    radial-gradient(ellipse 15% 30% at 50% 49%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%),
+    radial-gradient(ellipse 13% 32% at 50% 72%,#000 0%,#000 70%,rgba(0,0,0,.96) 76%,rgba(0,0,0,.78) 84%,rgba(0,0,0,.48) 91%,rgba(0,0,0,.18) 96%,transparent 100%);
+  -webkit-mask-composite:source-over,source-over,source-over,source-over;
+  mask-composite:add,add,add,add;
   -webkit-mask-repeat:no-repeat;
   mask-repeat:no-repeat;
 }
