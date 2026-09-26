@@ -6762,6 +6762,37 @@ body.dark .programCompletionContent{
   object-fit:contain!important;
   object-position:center!important;
 }
+.autoTrain .workoutImagePilot{
+  position:relative;
+  width:100%;
+  aspect-ratio:3/2;
+  overflow:hidden;
+  background:#fff;
+  cursor:pointer;
+}
+.autoTrain .workoutImagePilotFrame{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  margin:0;
+  border:0;
+  border-radius:0;
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
+  opacity:0;
+  pointer-events:none;
+}
+.autoTrain .workoutImagePilotFrame.is-active{
+  opacity:1;
+}
+@media(prefers-reduced-motion:reduce){
+  .autoTrain .workoutImagePilotFrame{
+    transition:none!important;
+  }
+}
 .autoTrain.v53CleanTrain .trainControls button,
 .autoTrain.v50Train .trainControls button{
   height:48px;
