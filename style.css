@@ -6770,6 +6770,7 @@ body.dark .programCompletionContent{
   background:#fff;
   cursor:pointer;
 }
+.autoTrain .workoutImagePilotBase,
 .autoTrain .workoutImagePilotFrame{
   position:absolute;
   inset:0;
@@ -6782,8 +6783,18 @@ body.dark .programCompletionContent{
   object-fit:contain;
   object-position:center;
   background:#fff;
-  opacity:0;
   pointer-events:none;
+}
+.autoTrain .workoutImagePilotBase{
+  z-index:1;
+}
+.autoTrain .workoutImagePilotFrame{
+  z-index:2;
+  opacity:0;
+  -webkit-mask-image:radial-gradient(ellipse 34% 68% at 50% 50%,#000 0%,#000 82%,rgba(0,0,0,.92) 87%,rgba(0,0,0,.62) 93%,rgba(0,0,0,.24) 97%,transparent 100%);
+  mask-image:radial-gradient(ellipse 34% 68% at 50% 50%,#000 0%,#000 82%,rgba(0,0,0,.92) 87%,rgba(0,0,0,.62) 93%,rgba(0,0,0,.24) 97%,transparent 100%);
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
 }
 .autoTrain .workoutImagePilotFrame.is-active{
   opacity:1;

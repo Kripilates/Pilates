@@ -2264,9 +2264,9 @@ function workoutImagePilotCanRun(k){
 }
 function workoutImagePilotMarkup(k){
   const ex=data.exercises[k];
-  const src=v22ImageSrc(k);
+  const src=workoutImagePilotUrls().start;
   if(!src)return noImage(k,'bigimg','data-action="info" data-ex="'+k+'"');
-  return `<div class="workoutImagePilot" data-workout-image-pilot="${k}" data-action="info" data-ex="${k}" role="img" aria-label="${esc(ex.name)}"><img class="workoutImagePilotFrame is-active" src="${src}" alt="" aria-hidden="true"><img class="workoutImagePilotFrame" src="${src}" alt="" aria-hidden="true"></div>`;
+  return `<div class="workoutImagePilot" data-workout-image-pilot="${k}" data-action="info" data-ex="${k}" role="img" aria-label="${esc(ex.name)}"><img class="workoutImagePilotBase" src="${src}" alt="" aria-hidden="true"><img class="workoutImagePilotFrame" src="${src}" alt="" aria-hidden="true"><img class="workoutImagePilotFrame" src="${src}" alt="" aria-hidden="true"></div>`;
 }
 async function syncWorkoutImagePilot(k){
   stopWorkoutImagePilot();
@@ -2279,18 +2279,34 @@ async function syncWorkoutImagePilot(k){
   if(frames.length!==2)return;
   const urls=workoutImagePilotUrls();
   let sequenceIndex=0;
-  let activeSlot=0;
-  frames[0].src=urls.start;
-  frames[0].classList.add('is-active');
-  frames[0].style.zIndex='2';
-  frames[1].classList.remove('is-active');
-  frames[1].style.zIndex='1';
+  let activeSlot=null;
+  frames.forEach(frame=>{
+    frame.src=urls.start;
+    frame.style.transition='none';
+    frame.classList.remove('is-active');
+    frame.style.zIndex='2';
+  });
   root.dataset.pilotFrame='start';
   const advance=()=>{
     if(run!==workoutImagePilotRun||!root.isConnected||!workoutImagePilotCanRun(k))return;
     sequenceIndex=(sequenceIndex+1)%workoutImagePilotConfig.sequence.length;
     const nextStep=workoutImagePilotConfig.sequence[sequenceIndex];
-    const current=frames[activeSlot];
+    const current=activeSlot===null?null:frames[activeSlot];
+    if(nextStep.photo==='start'){
+      if(current){
+        current.style.transition=`opacity ${workoutImagePilotConfig.fadeMs}ms ease`;
+        current.classList.remove('is-active');
+        workoutImagePilotTimer(()=>{
+          if(run!==workoutImagePilotRun)return;
+          current.style.transition='none';
+          current.style.zIndex='2';
+        },workoutImagePilotConfig.fadeMs+50);
+      }
+      activeSlot=null;
+      root.dataset.pilotFrame='start';
+      workoutImagePilotTimer(advance,nextStep.duration);
+      return;
+    }
     const nextSlot=activeSlot===0?1:0;
     const next=frames[nextSlot];
     next.src=urls[nextStep.photo];
@@ -2303,9 +2319,6 @@ async function syncWorkoutImagePilot(k){
     root.dataset.pilotFrame=nextStep.photo;
     workoutImagePilotTimer(()=>{
       if(run!==workoutImagePilotRun)return;
-      current.style.transition='none';
-      current.classList.remove('is-active');
-      current.style.zIndex='1';
       next.style.zIndex='2';
     },workoutImagePilotConfig.fadeMs+50);
     activeSlot=nextSlot;
