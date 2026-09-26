@@ -568,7 +568,7 @@ function moodLabel(mood){
 function workoutNotesHistory(){
   const arr=workoutNotes().filter(n=>n.text||n.mood).slice(-5).reverse();
   if(!arr.length)return '<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><p class="muted compactEmpty">Zatím tu nejsou žádné poznámky po tréninku.</p></section>';
-  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div><b>${formatDisplayDate(n.date)}</b><span>Den ${Number(n.day)+1} • ${esc(moodLabel(n.mood))}</span></div>${n.text?`<p>${esc(n.text)}</p>`:''}</article>`).join('')}</div></section>`;
+  return `<section class="card workoutNotesHistory"><h2>Poslední poznámky</h2><div class="workoutNoteList">${arr.map(n=>`<article><div class="workoutNoteMeta"><b>${formatDisplayDate(n.date)}</b><span class="workoutNoteDay">Den ${Number(n.day)+1}</span><span class="workoutNoteMood">${esc(moodLabel(n.mood))}</span></div>${n.text?`<p>${esc(n.text)}</p>`:''}</article>`).join('')}</div></section>`;
 }
 function saveWorkoutNote(){
   const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';
@@ -3735,8 +3735,8 @@ function saveMeasureFromForm(){
 function showStats(){
   setAppView('stats');
   lastMode='stats';setNav('library');const s=statsData(),elapsedTime=formatElapsedMinutes(completedWorkoutElapsedMinutes());
-  app.innerHTML=`<section class="card myProgress"><div class="myProgressHeader"><h2>Můj pokrok</h2><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button></div><p class="muted myProgressMain">${s.percent}% programu</p><div class="progress"><div class="bar" style="width:${s.percent}%"></div></div>
-  <div class="statGrid myProgressStats"><div class="statBox"><b>${s.daysComplete}</b><span class="muted">hotových dní</span></div><div class="statBox"><b>${s.complete}</b><span class="muted">cviků</span></div><div class="statBox"><b>${elapsedTime}</b><span class="muted">odcvičeno</span></div></div><div class="row myProgressActions"><button data-action="progress">Měření pokroku</button></div></section>${workoutNotesHistory()}`;
+  app.innerHTML=`<section class="card myProgress"><div class="myProgressHeader"><h2>Můj pokrok</h2><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button></div><div class="myProgressProgram"><strong><b>${s.percent}</b><span>%</span></strong><small>programu</small></div><div class="progress" aria-label="Dokončeno ${s.percent} % programu"><div class="bar" style="width:${s.percent}%"></div></div>
+  <div class="myProgressStats" aria-label="Statistiky programu"><div><b>${s.daysComplete}</b><span>hotových dní</span></div><div><b>${s.complete}</b><span>cviků</span></div><div><b>${elapsedTime}</b><span>odcvičeno</span></div></div><div class="row myProgressActions"><button data-action="progress"><span>${lineIcon('measure')}Měření pokroku</span>${lineIcon('chevron')}</button></div></section>${workoutNotesHistory()}`;
 }
 function renderAppState(state){
   if(!state?.pb40App)return home();

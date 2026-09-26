@@ -5375,32 +5375,106 @@ body.dark .programCompletionContent{
 .myProgressHeader .libraryBack{
   flex:0 0 auto;
 }
-.myProgressMain{
-  color:var(--p)!important;
-  font-size:22px!important;
+.myProgress{
+  background:linear-gradient(145deg,var(--card) 52%,var(--soft));
+}
+.myProgressProgram{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+  margin:13px 0 2px;
+  color:var(--p);
+}
+.myProgressProgram strong{
+  display:flex;
+  align-items:baseline;
+  line-height:.9;
+}
+.myProgressProgram strong b{
+  font-size:clamp(36px,10vw,44px);
+  letter-spacing:-.055em;
+}
+.myProgressProgram strong span{
+  margin-left:2px;
+  font-size:20px;
   font-weight:900;
-  margin:0 0 8px;
+}
+.myProgressProgram small{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:800;
+}
+.myProgress>.progress{
+  height:9px;
+  margin:9px 0 14px;
+  background:#f4d9e5;
 }
 .myProgressStats{
+  display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr))!important;
-  margin:12px 0 10px!important;
+  gap:0;
+  margin:0 0 12px!important;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--card);
 }
-.myProgressStats .statBox{
+.myProgressStats>div{
+  position:relative;
   min-width:0;
-  padding-right:6px;
-  padding-left:6px;
+  padding:13px 6px 12px;
+  text-align:center;
 }
-.myProgressStats .statBox b{
+.myProgressStats>div+div::before{
+  content:"";
+  position:absolute;
+  top:12px;
+  bottom:12px;
+  left:0;
+  width:1px;
+  background:var(--line);
+}
+.myProgressStats b,
+.myProgressStats span{
+  display:block;
+}
+.myProgressStats b{
+  color:var(--p);
   font-size:clamp(16px,5.4vw,22px);
+  line-height:1.05;
   white-space:nowrap;
 }
+.myProgressStats span{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:clamp(10px,3vw,12px);
+  font-weight:800;
+  line-height:1.15;
+}
 .myProgressActions{
-  margin-top:8px!important;
+  margin-top:0!important;
 }
 .myProgressActions button{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
   width:100%;
   min-height:44px;
+  padding:11px 14px;
+  border-color:var(--line);
+  background:var(--p2);
+  color:var(--text);
   box-shadow:none;
+}
+.myProgressActions button>span{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.myProgressActions button svg{
+  width:18px;
+  height:18px;
 }
 .fileImport{
   min-height:44px;
@@ -5958,37 +6032,64 @@ body.dark .programCompletionContent{
 }
 .workoutNoteList{
   display:grid;
-  gap:10px;
+  gap:0;
+}
+.workoutNotesHistory{
+  width:min(100%,720px);
+  margin-right:auto;
+  margin-left:auto;
+  padding:14px 16px;
+  box-shadow:0 8px 22px rgba(17,94,89,.07);
+}
+.workoutNotesHistory h2{
+  margin-bottom:7px;
+  font-size:18px;
 }
 .workoutNoteList article{
-  background:var(--soft);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:12px;
+  padding:10px 0;
+  border-top:1px solid var(--line);
 }
-.workoutNoteList article div{
+.workoutNoteList article:first-child{
+  border-top:0;
+}
+.workoutNoteMeta{
   display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:flex-start;
+  align-items:center;
+  gap:7px;
+  min-width:0;
 }
-.workoutNoteList article span{
+.workoutNoteMeta b{
+  margin-right:auto;
+  font-size:14px;
+}
+.workoutNoteMeta span{
   color:var(--muted);
-  font-size:13px;
+  font-size:12px;
   font-weight:800;
 }
+.workoutNoteMood{
+  padding:4px 8px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--p2);
+  color:var(--p)!important;
+  white-space:nowrap;
+}
 .workoutNoteList article p{
-  margin:8px 0 0;
+  margin:7px 0 0;
   color:var(--text);
-  line-height:1.4;
+  font-size:14px;
+  line-height:1.38;
 }
 @media(max-width:520px){
-  .workoutNoteList article div{
-    display:block;
+  .workoutNoteMeta{
+    flex-wrap:wrap;
   }
-  .workoutNoteList article span{
-    display:block;
-    margin-top:3px;
+  .workoutNoteMeta b{
+    flex:1 0 100%;
+  }
+  .workoutNoteDay{
+    margin-right:auto;
   }
 }
 
