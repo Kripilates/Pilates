@@ -6038,37 +6038,43 @@ body.dark .programCompletionContent{
   width:min(100%,720px);
   margin-right:auto;
   margin-left:auto;
-  padding:14px 16px;
+  padding:13px 16px;
   box-shadow:0 8px 22px rgba(17,94,89,.07);
 }
 .workoutNotesHistory h2{
-  margin-bottom:7px;
+  margin-bottom:4px;
   font-size:18px;
 }
 .workoutNoteList article{
-  padding:10px 0;
+  padding:8px 0;
   border-top:1px solid var(--line);
 }
 .workoutNoteList article:first-child{
   border-top:0;
 }
+.workoutNoteDate{
+  display:block;
+  margin-bottom:4px;
+  font-size:14px;
+  line-height:1.2;
+}
 .workoutNoteMeta{
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap:7px;
   min-width:0;
-}
-.workoutNoteMeta b{
-  margin-right:auto;
-  font-size:14px;
 }
 .workoutNoteMeta span{
   color:var(--muted);
   font-size:12px;
   font-weight:800;
 }
+.workoutNoteDay{
+  margin-right:auto;
+}
 .workoutNoteMood{
-  padding:4px 8px;
+  padding:3px 8px;
   border:1px solid var(--line);
   border-radius:999px;
   background:var(--p2);
@@ -6076,21 +6082,10 @@ body.dark .programCompletionContent{
   white-space:nowrap;
 }
 .workoutNoteList article p{
-  margin:7px 0 0;
+  margin:6px 0 0;
   color:var(--text);
   font-size:14px;
   line-height:1.38;
-}
-@media(max-width:520px){
-  .workoutNoteMeta{
-    flex-wrap:wrap;
-  }
-  .workoutNoteMeta b{
-    flex:1 0 100%;
-  }
-  .workoutNoteDay{
-    margin-right:auto;
-  }
 }
 
 /* Optional reference detail layout: phases and anatomy in one compact card. */
