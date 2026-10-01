@@ -703,14 +703,10 @@ function showProgramCompletion(){
   const summary=statsData();
   const programDays=data.days.length;
   const completedWorkouts=summary.daysComplete;
-  if(brandBadge){
-    brandBadge.textContent='Program dokončen';
-    brandBadge.classList.add('programCompletionBadge');
-  }
   app.innerHTML=`<section class="programCompletionExperience" aria-labelledby="programCompletionTitle">
     <div class="programCompletionProgress" role="progressbar" aria-label="Dokončený program" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="programCompletionHero">
-      <img src="Pilates%20Assets/01_Master_Reference/MODEL_MASTER.png.png" alt="Modelka Moovka po dokončení programu">
+      <img src="Pilates%20Assets/04_Home/Program_Completion/program_completion_hero.png" alt="Modelka Moovka po dokončení programu">
       <div class="programCompletionHeroCopy">
         <div class="programCompletionStats" aria-label="Souhrn dokončeného programu">
           <div><b>${programDays}</b><strong>DNÍ</strong></div>

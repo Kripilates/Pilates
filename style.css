@@ -4343,16 +4343,6 @@ body:has(.programCompletionExperience)>header{
   border-bottom:0;
   background:rgba(255,255,255,.96);
 }
-.brandBadge.programCompletionBadge{
-  padding:0;
-  border-radius:0;
-  background:transparent;
-  color:var(--p);
-  box-shadow:none;
-  font-size:clamp(.8rem,2.5vw,1rem);
-  font-weight:900;
-  white-space:nowrap;
-}
 main:has(.programCompletionExperience){
   max-width:none;
   padding:0;
@@ -4397,9 +4387,9 @@ main:has(.programCompletionExperience){
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:64% 30%;
-  transform:scale(1.32);
-  transform-origin:62% 22%;
+  object-position:50% 26%;
+  transform:scale(1.2);
+  transform-origin:0 10%;
 }
 .programCompletionHero::before,
 .programCompletionHero::after{content:none!important}
@@ -4525,9 +4515,9 @@ body.dark .programCompletionContent{
     flex-basis:61%;
   }
   .programCompletionHero img{
-    object-position:61% 28%;
-    transform:translateX(30%) scale(1.58);
-    transform-origin:62% 18%;
+    object-position:50% 26%;
+    transform:scale(1.2);
+    transform-origin:0 10%;
   }
   .programCompletionHeroCopy{
     left:26px;
@@ -4595,6 +4585,9 @@ body.dark .programCompletionContent{
   }
 }
 @media(max-width:360px){
+  .programCompletionHero img{
+    transform:scale(1.24);
+  }
   .programCompletionHeroCopy{
     left:18px;
     width:48%;
@@ -4610,6 +4603,11 @@ body.dark .programCompletionContent{
   }
   .programCompletionHeroCopy h1{
     font-size:54px;
+  }
+}
+@media(min-width:361px) and (max-width:390px){
+  .programCompletionHero img{
+    transform:scale(1.25);
   }
 }
 /* v59.108: workout UX fix 1 */
