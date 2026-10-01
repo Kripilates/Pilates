@@ -2676,9 +2676,15 @@ function home(){
   const heroExerciseId=resumeState?(resumeState.workoutContext?.items?.[resumeState.currentExercise]?.[0]||fallbackExerciseId):(!programComplete&&!isRestDay?fallbackExerciseId:'');
   const heroPhotoSrc=heroExerciseId?deploymentImageUrl(v22ImageSrc(heroExerciseId)):'';
   const heroPhoto=heroPhotoSrc?`<img class="homeHeroPhoto${resumeState?' homeHeroPhoto--resume':''}" loading="eager" fetchpriority="high" src="${esc(heroPhotoSrc)}" alt="${esc(data.exercises[heroExerciseId]?.name||visibleHeroTitle)}">`:'';
+  const homeEquipmentItems=!resumeState&&!programComplete&&!isRestDay
+    ? [...resolvedDayItems(n),...(resolvedDayStretch(n)?[resolvedDayStretch(n)]:[])]
+    : [];
+  const heroEquipment=!resumeState&&!programComplete&&!isRestDay
+    ? `<p class="homeMainEquipment">${homeEquipmentSummary(homeEquipmentItems)}</p>`
+    : '';
   const heroCopy=resumeState
     ? `<div class="homeResumeMeta"><p class="eyebrow">${heroEyebrow}</p><p class="homeMainDetail">${heroDetail}</p></div><h2>${esc(visibleHeroTitle)}</h2>`
-    : `<p class="eyebrow">${heroEyebrow}</p><h2>${esc(visibleHeroTitle)}</h2><p class="homeMainDetail">${heroDetail}</p>`;
+    : `<p class="eyebrow">${heroEyebrow}</p><h2>${esc(visibleHeroTitle)}</h2><p class="homeMainDetail">${heroDetail}</p>${heroEquipment}`;
   const focusCards=homeFocusCards.map(({label,image})=>{
     const src=deploymentImageUrl(image);
     return `<button class="homeFocusCard" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
@@ -2831,6 +2837,11 @@ function dayEquipment(items){
     (exercise?.equipment||[]).forEach(item=>gear.add(equipmentLabels[item]||item));
   });
   return [...gear];
+}
+function homeEquipmentSummary(items){
+  const gear=dayEquipment(items);
+  if(!gear.length)return 'Bez pomůcek';
+  return `Pomůcky: ${gear.map(item=>esc(item.charAt(0).toLocaleLowerCase('cs-CZ')+item.slice(1))).join(' · ')}`;
 }
 function dayEquipmentSection(items){
   const gear=dayEquipment(items);

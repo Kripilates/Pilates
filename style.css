@@ -4610,6 +4610,11 @@ body.dark .programCompletionContent{
     transform:scale(1.25);
   }
 }
+@media(min-width:341px) and (max-width:560px){
+  .programCompletionHero img{
+    transform-origin:50% 10%;
+  }
+}
 /* v59.108: workout UX fix 1 */
 @media(max-width:720px){
   .workoutExerciseDetail .v20TopBar {
@@ -5698,6 +5703,16 @@ body.dark .programCompletionContent{
   overflow-wrap:anywhere;
 }
 .homePhotoHero.hasPhoto .homeMainDetail{color:rgba(255,255,255,.9)}
+.homeMainEquipment{
+  margin:4px 0 0;
+  max-width:100%;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+  line-height:1.3;
+  overflow-wrap:anywhere;
+}
+.homePhotoHero.hasPhoto .homeMainEquipment{color:rgba(255,255,255,.86)}
 .homeMainActions{
   width:100%;
   margin-top:16px;
