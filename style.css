@@ -3354,8 +3354,20 @@ main button:not(.primary):not(.active),
 .programSwitch b{width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(16,42,67,.2);transition:transform .2s ease}
 .programSwitch.on{background:var(--p)}
 .programSwitch.on b{transform:translateX(20px)}
-.libraryBack{min-height:42px;margin:4px 0 8px;padding:8px 4px;display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;color:var(--p);font-size:14px}
+.libraryBack{min-height:44px;margin:4px 0 8px;padding:8px 4px;display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;border:0;background:transparent;color:var(--p);font-size:14px;font-weight:800;text-align:left;box-shadow:none}
 .libraryBack .lineIcon{width:20px;height:20px}
+.v20TopBar .appBackButton,
+.referenceExerciseDetail .v20TopBar .appBackButton{
+  min-height:44px;
+  margin:0;
+  padding:8px 4px;
+  border:0;
+  background:transparent;
+  color:var(--p);
+  font-size:14px;
+  font-weight:800;
+  box-shadow:none;
+}
 .libraryFilterBar{max-width:100%;margin:2px 0 5px;padding:2px 0 7px;display:flex;gap:7px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
 .libraryFilter{flex:0 0 auto;min-height:40px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font-size:13px;font-weight:800;white-space:nowrap;box-shadow:none}
 .libraryFilter.selected{border-color:var(--p);background:var(--p2);color:var(--p)}

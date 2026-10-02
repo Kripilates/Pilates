@@ -3537,7 +3537,7 @@ function info(k,opts={}){
   const detailMoveLabel=workoutRunning ? workoutMovementLabel(k,dose,doseInfo) : '';
   const detailSideLabel=detailMoveLabel ? `<div class="sidePlainText detailSideText">${detailMoveLabel}</div>` : '';
   const muscleClass = meta.area.includes('Hýždě') ? 'glutes' : meta.area.includes('Core') ? 'core' : meta.area.includes('Záda') ? 'upper' : 'mobility';
-  const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : `<button data-action="history-back">← Zpět</button>`;
+  const back=workoutRunning ? `<button data-action="train-current">← Zpět ke cviku</button>` : `<button class="libraryBack appBackButton" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button>`;
   const muscleImg=detailMuscleImage(k);
   const hasReference=Boolean(referenceExerciseAssets[k]);
   const hasMasterCard=Boolean(masterCards[k])&&!hasReference;
@@ -3668,7 +3668,7 @@ function exerciseLibrary(filter='all',restoreScroll=false){
   const filterButtons=filters.map(([id,label])=>`<button class="libraryFilter${filter===id?' selected':''}" type="button" data-action="library-filter" data-filter="${id}" aria-pressed="${filter===id}">${esc(label)}</button>`).join('');
   const favoritesEntry=`<button class="libraryFilter libraryFavoritesEntry${filter==='favorites'?' selected':''}" type="button" data-action="library-filter" data-filter="favorites" aria-pressed="${filter==='favorites'}">${lineIcon('heart')}<span>Oblíbené cviky (${favoriteKeys.length})</span></button>`;
   const content=keys.length?`<div class="libraryCatalogGrid">${keys.map(k=>libraryExerciseCard(k,filter)).join('')}</div>`:`<div class="libraryEmptyState">${lineIcon('heart')}<h3>Zatím nemáš žádné oblíbené cviky.</h3><p>Ulož si je pomocí ♡ v detailu cviku.</p></div>`;
-  app.innerHTML=`<section class="exerciseLibrary libraryCatalogScreen"><button class="libraryBack" type="button" data-action="library">${lineIcon('backArrow')}<span>Zpět na Moje Moovka</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Všechny cviky</h2><span>Prohlédni si cviky a správnou techniku.</span></div>${favoritesEntry}<div class="libraryFilterBar" role="group" aria-label="Filtrovat cviky">${filterButtons}</div><p class="libraryResultCount">${keys.length} ${keys.length===1?'cvik':'cviků'}</p>${content}</section>`;
+  app.innerHTML=`<section class="exerciseLibrary libraryCatalogScreen"><button class="libraryBack appBackButton" type="button" data-action="library">${lineIcon('backArrow')}<span>Zpět</span></button><div class="libraryIntro"><p>Knihovna cviků</p><h2>Všechny cviky</h2><span>Prohlédni si cviky a správnou techniku.</span></div>${favoritesEntry}<div class="libraryFilterBar" role="group" aria-label="Filtrovat cviky">${filterButtons}</div><p class="libraryResultCount">${keys.length} ${keys.length===1?'cvik':'cviků'}</p>${content}</section>`;
   if(restoreScroll)requestAnimationFrame(()=>window.scrollTo({top:exerciseLibraryReturnScroll,behavior:'auto'}));
   else scrollTop();
 }
@@ -3781,7 +3781,7 @@ function progressTracker(){
     ${sparkChart(arr,'hips','Boky','cm')}
     ${sparkChart(arr,'thigh','Stehno','cm')}
   </section>`:'';
-  app.innerHTML=`<div class="measurementPage"><section class="card measurementIntro"><div class="myProgressHeader"><h2>Měření pokroku</h2><button class="libraryBack" type="button" data-action="stats">${lineIcon('backArrow')}<span>Zpět</span></button></div>
+  app.innerHTML=`<div class="measurementPage"><section class="card measurementIntro"><button class="libraryBack appBackButton" type="button" data-action="stats">${lineIcon('backArrow')}<span>Zpět</span></button><div class="myProgressHeader"><h2>Měření pokroku</h2></div>
     <p class="muted">Stačí jednou týdně. U těla sleduj trend, ne jedno číslo.</p>
   </section>
   ${summary}
@@ -3813,7 +3813,7 @@ function saveMeasureFromForm(){
 function showStats(){
   setAppView('stats');
   lastMode='stats';setNav('library');const s=statsData(),elapsedTime=formatElapsedMinutes(completedWorkoutElapsedMinutes());
-  app.innerHTML=`<section class="card myProgress"><div class="myProgressHeader"><h2>Můj pokrok</h2><button class="libraryBack" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button></div><div class="myProgressProgram"><strong><b>${s.percent}</b><span>%</span></strong><small>programu</small></div><div class="progress" aria-label="Dokončeno ${s.percent} % programu"><div class="bar" style="width:${s.percent}%"></div></div>
+  app.innerHTML=`<section class="card myProgress"><button class="libraryBack appBackButton" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><div class="myProgressHeader"><h2>Můj pokrok</h2></div><div class="myProgressProgram"><strong><b>${s.percent}</b><span>%</span></strong><small>programu</small></div><div class="progress" aria-label="Dokončeno ${s.percent} % programu"><div class="bar" style="width:${s.percent}%"></div></div>
   <div class="myProgressStats" aria-label="Statistiky programu"><div><b>${s.daysComplete}</b><span>hotových dní</span></div><div><b>${s.complete}</b><span>cviků</span></div><div><b>${elapsedTime}</b><span>odcvičeno</span></div></div><div class="row myProgressActions"><button data-action="progress"><span>${lineIcon('measure')}Měření pokroku</span>${lineIcon('chevron')}</button></div></section>${workoutNotesHistory()}`;
 }
 function renderAppState(state){
