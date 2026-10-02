@@ -4388,16 +4388,23 @@ main:has(.programCompletionExperience){
   height:100%;
   object-fit:cover;
   object-position:50% 26%;
-  transform:scale(1.2);
+  transform:scale(1.37);
   transform-origin:0 10%;
 }
-.programCompletionHero::before,
+.programCompletionHero::before{
+  content:"";
+  position:absolute;
+  inset:0 42% 0 0;
+  z-index:1;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 12% 54%,rgba(255,167,191,.16) 0%,rgba(255,184,202,.08) 38%,rgba(255,203,216,.03) 62%,rgba(255,220,228,0) 82%);
+}
 .programCompletionHero::after{content:none!important}
 .programCompletionHeroCopy{
   position:absolute;
   z-index:2;
-  left:clamp(24px,7vw,54px);
-  top:35%;
+  left:clamp(14px,5vw,44px);
+  top:calc(35% + 18px);
   width:min(48%,350px);
   transform:translateY(-50%);
   text-align:left;
@@ -4408,8 +4415,8 @@ main:has(.programCompletionExperience){
   align-items:center;
   gap:26px;
   width:min(100%,300px);
-  margin:0 0 28px;
-  transform:translateX(10px);
+  margin:0 auto 12px;
+  transform:none;
 }
 .programCompletionStats div,
 .programCompletionStats b,
@@ -4426,7 +4433,7 @@ main:has(.programCompletionExperience){
 }
 .programCompletionStats b{
   color:var(--p);
-  font-size:clamp(58px,11vw,84px);
+  font-size:clamp(60px,11vw,86px);
   line-height:.82;
   font-weight:900;
   letter-spacing:-.055em;
@@ -4440,11 +4447,13 @@ main:has(.programCompletionExperience){
   letter-spacing:.02em;
 }
 .programCompletionHeroCopy h1{
+  width:100%;
   max-width:340px;
   margin:0;
   color:#071d3c;
-  font:900 clamp(66px,12vw,96px)/.88 Arial,system-ui,sans-serif;
+  font:900 clamp(68px,12vw,98px)/.88 Arial,system-ui,sans-serif;
   letter-spacing:-.065em;
+  text-align:center;
 }
 .programCompletionHeroCopy h1 span{color:#071d3c}
 .programCompletionContent{
@@ -4452,6 +4461,11 @@ main:has(.programCompletionExperience){
   padding:34px 24px 18px;
   text-align:center;
   background:linear-gradient(180deg,#f8feff 0%,#effafa 100%);
+}
+.programCompletionContinue{
+  width:min(100%,580px);
+  margin:0 auto;
+  text-align:center;
 }
 .programCompletionContinue h2{
   margin:0 0 14px;
@@ -4516,30 +4530,30 @@ body.dark .programCompletionContent{
   }
   .programCompletionHero img{
     object-position:50% 26%;
-    transform:scale(1.2);
-    transform-origin:0 10%;
+    transform:scale(1.37);
+    transform-origin:48% 10%;
   }
   .programCompletionHeroCopy{
-    left:26px;
-    top:37%;
+    left:16px;
+    top:calc(37% + 18px);
     width:54%;
   }
   .programCompletionStats{
     gap:12px;
-    margin-bottom:23px;
+    margin-bottom:64px;
   }
   .programCompletionStats i{
     height:54px;
   }
   .programCompletionStats b{
-    font-size:50px;
+    font-size:54px;
   }
   .programCompletionStats strong{
     margin-top:8px;
     font-size:.8rem;
   }
   .programCompletionHeroCopy h1{
-    font-size:48px;
+    font-size:52px;
     line-height:.86;
     letter-spacing:-.055em;
     white-space:nowrap;
@@ -4586,33 +4600,33 @@ body.dark .programCompletionContent{
 }
 @media(max-width:360px){
   .programCompletionHero img{
-    transform:scale(1.24);
+    transform:scale(1.4);
   }
   .programCompletionHeroCopy{
-    left:18px;
+    left:8px;
     width:48%;
   }
   .programCompletionStats{
     gap:13px;
   }
   .programCompletionStats b{
-    font-size:50px;
+    font-size:52px;
   }
   .programCompletionStats strong{
     font-size:.74rem;
   }
   .programCompletionHeroCopy h1{
-    font-size:54px;
+    font-size:50px;
   }
 }
-@media(min-width:361px) and (max-width:390px){
-  .programCompletionHero img{
-    transform:scale(1.25);
+@media(max-width:340px){
+  .programCompletionHeroCopy h1{
+    font-size:48px;
   }
 }
-@media(min-width:341px) and (max-width:560px){
+@media(min-width:361px) and (max-width:391px){
   .programCompletionHero img{
-    transform-origin:50% 10%;
+    transform:scale(1.41);
   }
 }
 /* v59.108: workout UX fix 1 */

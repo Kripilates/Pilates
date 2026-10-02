@@ -718,8 +718,8 @@ function showProgramCompletion(){
     </div>
     <div class="programCompletionContent">
       <div class="programCompletionContinue">
-        <h2>Chceš pokračovat?</h2>
-        <p>Začni znovu od 1. dne.<br>Tvoje dokončené tréninky zůstávají v kalendáři.</p>
+        <h2>Chceš začít znovu?</h2>
+        <p>Začni nový cyklus od 1. dne.<br>Tvoje dokončené tréninky zůstávají v kalendáři.</p>
       </div>
       <button class="primary programCompletionPrimary" data-action="new-program-cycle">Začít nový cyklus</button>
       <button class="programCompletionDismiss" data-action="dismiss-program-completion">Teď ne</button>
