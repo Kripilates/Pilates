@@ -2804,7 +2804,11 @@ function difficultyChooser(next='plan',dayIndex=0,opts={}){
 function difficultyControl(view,dayIndex=0){
   const current=effectiveProgramDifficulty();
   const dayInfo=view==='day';
-  const summary=dayInfo?`<summary><small>OBTÍŽNOST</small><b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary>`:`<summary>Obtížnost: <b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary>`;
+  const summary=dayInfo
+    ? `<summary><small>OBTÍŽNOST</small><b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary>`
+    : view==='profile'
+      ? '<summary>Změnit úroveň<span aria-hidden="true">▾</span></summary>'
+      : `<summary>Obtížnost: <b>${difficultyLabel(current)}</b><span aria-hidden="true">▾</span></summary>`;
   return `<details class="difficultyControl${dayInfo?' dayInfoMetric dayInfoDifficulty':''}">${summary}<div class="difficultyMenu" role="group" aria-label="Změnit obtížnost">${DIFFICULTY_VALUES.map(value=>`<button class="${value===current?'selected':''}" data-action="set-difficulty" data-difficulty="${value}" data-view="${view}" data-day="${dayIndex}"><b>${difficultyLabel(value)}</b><small>${value==='easy'?'2 série':value==='medium'?'3 série · doporučená':'3 série'}</small></button>`).join('')}</div></details>`;
 }
 function difficultyMigrationNotice(){

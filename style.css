@@ -2185,21 +2185,21 @@ main button:not(.primary):not(.active),
   margin:10px 0 4px;
   padding:9px 0;
   display:grid;
-  grid-template-columns:minmax(96px,.72fr) minmax(0,1.28fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   align-items:center;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
 .dayInfoBlock{
   min-width:0;
-  display:grid;
-  grid-template-columns:30px minmax(0,1fr);
+  display:flex;
   align-items:center;
+  justify-content:center;
   gap:8px;
+  padding-inline:8px;
 }
 .dayInfoBlock+.dayInfoBlock{
-  margin-left:13px;
-  padding-left:13px;
+  margin-left:0;
   border-left:1px solid var(--line);
 }
 .dayInfoIcon{
@@ -2218,8 +2218,10 @@ main button:not(.primary):not(.active),
 }
 .dayInfoCopy{
   min-width:0;
+  max-width:calc(100% - 38px);
   display:grid;
   gap:2px;
+  text-align:center;
 }
 .dayInfoCopy small{
   color:var(--muted);
@@ -2265,12 +2267,11 @@ main button:not(.primary):not(.active),
     padding:8px 0;
   }
   .dayInfoBlock{
-    grid-template-columns:27px minmax(0,1fr);
     gap:7px;
+    padding-inline:7px;
   }
   .dayInfoBlock+.dayInfoBlock{
-    margin-left:9px;
-    padding-left:9px;
+    margin-left:0;
   }
   .dayInfoIcon{
     width:27px;
@@ -3534,7 +3535,7 @@ body.dark .sideSwitchState{
 .aboutHero{position:relative;min-height:500px;overflow:hidden;margin:10px 0 16px;border:1px solid var(--line);border-radius:28px;background:var(--card);box-shadow:0 14px 38px var(--shadow)}
 .aboutHeroMedia{position:absolute;inset:0 0 0 auto;width:58%;overflow:hidden;background:var(--soft)}
 .aboutHeroMedia:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--card) 0,rgba(255,255,255,.82) 18%,rgba(255,255,255,0) 62%)}
-.aboutHeroMedia img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 50%}
+.aboutHeroMedia img{width:100%;height:100%;display:block;object-fit:cover;object-position:50% 50%;transform:scale(1.08);transform-origin:50% 100%}
 .aboutHeroContent{position:relative;z-index:1;min-height:500px;padding:34px 30px;display:flex;flex-direction:column;justify-content:center}
 .aboutHeroContent h2{align-self:flex-start;margin:0 0 18px;padding:7px 12px;border-radius:999px;background:var(--p2);color:var(--p);font-size:12px;letter-spacing:.07em;text-transform:uppercase}
 .aboutHeroContent h3{width:55%;margin:0;color:var(--text);font-size:clamp(34px,4.6vw,52px);line-height:1.04;letter-spacing:-.035em}
@@ -5889,6 +5890,7 @@ body.dark .programCompletionContent{
   padding:11px 10px;
   border-radius:20px;
   font-size:15px;
+  font-weight:900;
   line-height:1.2;
   white-space:nowrap;
   display:inline-flex;
@@ -5915,14 +5917,22 @@ body.dark .programCompletionContent{
 .homePhotoHero--resume.hasPhoto .homeHeroContent .eyebrow{
   color:var(--p);
 }
+.homePhotoHero--resume.hasPhoto .homeResumeMeta .eyebrow,
 .homePhotoHero--resume.hasPhoto .homeResumeMeta .homeMainDetail{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:25px;
   padding:5px 9px;
   border:1px solid var(--line);
   border-radius:999px;
   background:var(--p2);
   color:var(--p);
-  font-size:13px;
+  font-size:12px;
+  font-weight:900;
   line-height:1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   backdrop-filter:none;
 }
 .homePhotoHero--resume.hasPhoto .homeHeroSecondary{
@@ -7008,4 +7018,23 @@ body.dark .programCompletionContent{
 /* v59.94: one bottom-navigation reserve only; main keeps the safe-area spacing. */
 @media(max-width:720px){
   body{padding-bottom:0!important}
+}
+
+/* Active workout: use the space released by the hidden bottom navigation. */
+@media(max-width:720px){
+  main:has(> .autoTrain:not(.workoutTransitionScreen)){
+    min-height:0;
+    padding-bottom:10px!important;
+  }
+  .autoTrain.v53CleanTrain.fullTrain:not(.workoutTransitionScreen),
+  .autoTrain.v50Train.fullTrain:not(.workoutTransitionScreen){
+    min-height:0;
+    padding-bottom:12px!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainImageSlot{
+    width:calc(100% + 20px);
+    max-width:none;
+    margin-inline:-10px;
+  }
 }
