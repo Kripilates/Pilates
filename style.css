@@ -141,6 +141,9 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
 /* Day detail: matching compact navigation and completion badges. */
 .dayHeroNavRow .dayHeroNavBadge,
 .dayHeroNavRow .dayHeroStatusBadge{
+  appearance:none;
+  box-sizing:border-box;
+  flex:0 0 auto;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -149,7 +152,7 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   margin:0;
   padding:0 10px;
   border:1px solid var(--line);
-  border-radius:999px;
+  border-radius:12px;
   background:var(--bg);
   font-size:13px;
   font-weight:900;
@@ -2954,16 +2957,6 @@ main button:not(.primary):not(.active),
 }
 
 /* v59.54: compact active workout chrome */
-.brandBadge.workoutPositionBadge{
-  padding:7px 10px;
-  border:1px solid var(--line);
-  background:var(--soft);
-  color:var(--p);
-  box-shadow:none;
-  font-size:15px;
-  line-height:1;
-  white-space:nowrap;
-}
 .v53CleanTrain .trainTop2--compact,
 .v50Train .trainTop2--compact{
   justify-content:center!important;
@@ -7064,21 +7057,51 @@ body.dark .programCompletionContent{
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainTop2--compact,
   .autoTrain.v50Train:not(.workoutTransitionScreen) .trainTop2--compact{
     min-height:42px!important;
-    padding:9px 12px!important;
+    padding:8px 12px!important;
   }
-  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainProgressLabel small,
-  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainProgressLabel small{
-    font-size:clamp(.9rem,3.8vw,1rem)!important;
-    line-height:1.2!important;
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainProgressLabel,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainProgressLabel{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:center!important;
+    gap:10px;
+    color:var(--text);
+    text-align:left!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .workoutStatusPrimary,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .workoutStatusPrimary{
+    color:var(--text)!important;
+    font-size:clamp(18px,4.8vw,20px)!important;
+    font-weight:900!important;
+    line-height:1.15!important;
+    white-space:nowrap;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .workoutStatusSecondary,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .workoutStatusSecondary{
+    color:var(--muted)!important;
+    font-size:clamp(13px,3.5vw,15px)!important;
+    font-weight:850!important;
+    line-height:1.15!important;
+    white-space:nowrap;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .workoutStatusPrimary--stretch,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .workoutStatusPrimary--stretch{
+    font-size:clamp(13px,3.6vw,16px)!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainProgressLabel:has(.workoutStatusPrimary--stretch),
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainProgressLabel:has(.workoutStatusPrimary--stretch){
+    grid-template-columns:minmax(0,1fr);
+    gap:2px;
+    text-align:center!important;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen)>.progress,
   .autoTrain.v50Train:not(.workoutTransitionScreen)>.progress{
     height:11px!important;
     margin:7px 2px 8px!important;
   }
-  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainControls,
-  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainControls{
-    margin:8px 0 0!important;
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls,
+  .autoTrain.v50Train:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls{
+    margin:clamp(10px,calc(45dvh - 314px),68px) 0 0!important;
     padding-top:0;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,

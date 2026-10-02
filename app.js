@@ -117,13 +117,6 @@ function closeProgramCycleDialog(){
 }
 function setWorkoutHeaderPosition(active=false){
   if(!brandBadge)return;
-  const total=data.days?.[currentDay]?.items?.length||0;
-  if(active&&total){
-    const position=workoutFinalStretch?total:Math.min(total,currentExercise+1);
-    brandBadge.textContent=`Cvik ${position} z ${total}`;
-    brandBadge.classList.add('workoutPositionBadge');
-    return;
-  }
   brandBadge.textContent='';
   brandBadge.classList.remove('workoutPositionBadge','programCompletionBadge');
 }
@@ -3285,10 +3278,15 @@ function showAutoTrain(opts={}){
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
   const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button>`;
+  const workoutPosition=Math.min(dayObj.items.length,currentExercise+1);
+  const topLabel=workoutFinalStretch
+    ? `<strong class="workoutStatusPrimary workoutStatusPrimary--stretch">ZÁVĚREČNÉ PROTAŽENÍ</strong><small class="workoutStatusSecondary">Den ${currentDay+1} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
+    : `<strong class="workoutStatusPrimary">Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</strong><small class="workoutStatusSecondary">Cvik ${workoutPosition} z ${dayObj.items.length}</small>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0') && (existing.dataset.workoutPhase==='switch')===(workoutPhase==='switch');
   if(canPatchExisting){
     existing.dataset.workoutPhase=workoutPhase;
+    const progressLabel=existing.querySelector('.trainProgressLabel'); if(progressLabel)progressLabel.innerHTML=topLabel;
     const bar=existing.querySelector('.progress .bar'); if(bar)bar.style.width=`${progress}%`;
     const headerPanel=existing.querySelector('.workoutHeaderPanel');
     if(headerPanel){
@@ -3300,9 +3298,6 @@ function showAutoTrain(opts={}){
     return;
   }
   const imgClass='bigimg';
-  const topLabel=workoutFinalStretch
-    ? `<strong>ZÁVĚREČNÉ PROTAŽENÍ</strong><small>Den ${currentDay+1} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
-    : `<small>Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</small>`;
   const switchDetail=sideNoticeNext ? `${ex.name} \u2022 ${sideNoticeNext.toLowerCase()}` : ex.name;
   const workoutVisualHtml=isSideSwitch
     ? `<div class="workoutTransitionState sideSwitchState" role="status" aria-live="polite">
