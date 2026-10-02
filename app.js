@@ -3679,6 +3679,9 @@ function calendarDetailDate(dayKey){
   if(!year||!month||!day)return esc(dayKey);
   return new Date(year,month-1,day).toLocaleDateString('cs-CZ',{day:'numeric',month:'numeric',year:'numeric'});
 }
+function calendarExerciseStartSrc(exerciseId){
+  return referenceExerciseAssets[String(exerciseId||'')]?.start||'';
+}
 function calendarWorkoutRecordHtml(record,index,total){
   const storedDayNumber=Number(record?.programDayNumber);
   const legacyDay=Number(record?.day);
@@ -3697,7 +3700,10 @@ function calendarWorkoutRecordHtml(record,index,total){
     : [];
   const exerciseHtml=hasSnapshot
     ? `<div class="calendarDetailExercises"><h4>Cviky</h4>${exercises.length
-      ? `<ol>${exercises.map(exercise=>`<li>${esc(exercise.name||exercise.id)}</li>`).join('')}</ol>`
+      ? `<div class="calendarExerciseList">${exercises.map(exercise=>{
+        const src=calendarExerciseStartSrc(exercise.id);
+        return `<div class="calendarExerciseRow${src?'':' calendarExerciseRow--textOnly'}">${src?`<img class="calendarExerciseThumb" loading="lazy" src="${esc(src)}" alt="" aria-hidden="true">`:''}<span>${esc(exercise.name||exercise.id)}</span></div>`;
+      }).join('')}</div>`
       : '<p class="calendarDetailLegacy">U tohoto záznamu nebyly uloženy žádné cviky.</p>'}</div>`
     : '<p class="calendarDetailLegacy">Detail cviků není u tohoto staršího záznamu uložen.</p>';
   return `<section class="calendarWorkoutRecord">${total>1?`<p class="calendarWorkoutIndex">Trénink ${index+1}</p>`:''}${dayLabel?`<h3>${dayLabel}</h3>`:''}${timeHtml}${exerciseHtml}</section>`;
