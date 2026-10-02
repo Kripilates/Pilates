@@ -1,6 +1,6 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
-const APP_VERSION='v59.206-dev';
+const APP_VERSION='v59.207-dev';
 const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>id!=='swan'));
 const activeExerciseIdSet=new Set(activeExerciseIds);
 const DEPLOYMENT_ID=document.querySelector('meta[name="moovka-deployment"]')?.content||'local-dev';
@@ -388,42 +388,53 @@ const toggleFav=k=>localStorage.setItem(favKey(k),isFav(k)?'0':'1');
 const dateKey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const logKey=d=>`pb40-log-${d}`;
 const todayKey=()=>dateKey(new Date());
-function calendarMeta(dayKey,source){
-  try{return JSON.parse(localStorage.getItem(source==='manual'?manualLogMetaKey(dayKey):autoLogMetaKey(dayKey))||'null')}
+function calendarMeta(dayKey){
+  try{return JSON.parse(localStorage.getItem(autoLogMetaKey(dayKey))||'null')}
   catch(e){return null}
 }
-function markCalendarDate(dayKey,source='manual',programDay=currentDay,completion={}){
+function calendarWorkoutRecordsFromMeta(meta){
+  if(!meta||typeof meta!=='object')return [];
+  if(Array.isArray(meta.workouts))return meta.workouts.filter(record=>record&&typeof record==='object');
+  return [meta];
+}
+function calendarWorkoutRecords(dayKey){return calendarWorkoutRecordsFromMeta(calendarMeta(dayKey));}
+function storeAutoCalendarRecords(dayKey,records){
+  const clean=records.filter(record=>record&&typeof record==='object');
+  if(!clean.length){
+    localStorage.removeItem(autoLogMetaKey(dayKey));
+    if(!localStorage.getItem(manualLogMetaKey(dayKey)))localStorage.removeItem(logKey(dayKey));
+    return;
+  }
+  const latest=clean[clean.length-1];
+  const elapsedMinutes=clean.reduce((total,record)=>{
+    const minutes=Number(record.elapsedMinutes);
+    return total+(Number.isFinite(minutes)&&minutes>0?minutes:0);
+  },0);
+  const meta={...latest,source:'auto',workouts:clean};
+  if(elapsedMinutes>0)meta.elapsedMinutes=Math.round(elapsedMinutes);
+  else delete meta.elapsedMinutes;
   localStorage.setItem(logKey(dayKey),'1');
-  const metaKey=source==='manual'?manualLogMetaKey(dayKey):autoLogMetaKey(dayKey);
+  localStorage.setItem(autoLogMetaKey(dayKey),JSON.stringify(meta));
+}
+function markCalendarDate(dayKey,programDay=currentDay,completion={}){
+  localStorage.setItem(logKey(dayKey),'1');
   const elapsedMinutes=Number(completion?.elapsedMinutes);
-  const meta={source,day:programDay,markedAt:new Date().toISOString()};
-  if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)meta.elapsedMinutes=Math.round(elapsedMinutes);
-  localStorage.setItem(metaKey,JSON.stringify(meta));
+  const record={source:'auto',day:programDay,markedAt:new Date().toISOString()};
+  if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)record.elapsedMinutes=Math.round(elapsedMinutes);
+  if(Number.isInteger(Number(completion?.programDayNumber)))record.programDayNumber=Number(completion.programDayNumber);
+  if(typeof completion?.programDayTitle==='string'&&completion.programDayTitle.trim())record.programDayTitle=completion.programDayTitle.trim();
+  if(Array.isArray(completion?.exercises)){
+    record.exercises=completion.exercises.map(exercise=>({
+      id:String(exercise?.id||''),
+      name:String(exercise?.name||'')
+    })).filter(exercise=>exercise.id&&exercise.name);
+  }
+  storeAutoCalendarRecords(dayKey,[...calendarWorkoutRecords(dayKey),record]);
 }
-function clearCalendarDate(dayKey){
-  localStorage.removeItem(logKey(dayKey));
-  localStorage.removeItem(autoLogMetaKey(dayKey));
-  localStorage.removeItem(manualLogMetaKey(dayKey));
-}
-function markToday(){markCalendarDate(todayKey(),'manual',currentDay);}
 function markProgramDayComplete(di=currentDay,completion={}){
   const day=data.days[di];
   if(!day?.items?.length||!day.items.every((_,i)=>done(di,i)))return;
-  markCalendarDate(todayKey(),'auto',di,completion);
-}
-function clearAutoCalendarForProgramDay(di){
-  const remove=[];
-  for(let i=0;i<localStorage.length;i++){
-    const storageKey=localStorage.key(i);
-    if(!storageKey||!storageKey.startsWith('pb40-log-auto-'))continue;
-    const dayKey=storageKey.replace('pb40-log-auto-','');
-    const meta=calendarMeta(dayKey,'auto');
-    if(meta&&Number(meta.day)===di)remove.push(dayKey);
-  }
-  remove.forEach(dayKey=>{
-    localStorage.removeItem(autoLogMetaKey(dayKey));
-    if(!localStorage.getItem(manualLogMetaKey(dayKey)))localStorage.removeItem(logKey(dayKey));
-  });
+  markCalendarDate(todayKey(),di,completion);
 }
 function hasLog(d){return localStorage.getItem(logKey(d))==='1';}
 function loggedDates(){
@@ -439,8 +450,10 @@ function completedWorkoutElapsedMinutes(){
   for(let i=0;i<localStorage.length;i++){
     const storageKey=localStorage.key(i);
     if(!storageKey?.startsWith('pb40-log-auto-'))continue;
-    const elapsedMinutes=Number(calendarMeta(storageKey.replace('pb40-log-auto-',''),'auto')?.elapsedMinutes);
-    if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)total+=elapsedMinutes;
+    calendarWorkoutRecords(storageKey.replace('pb40-log-auto-','')).forEach(record=>{
+      const elapsedMinutes=Number(record.elapsedMinutes);
+      if(Number.isFinite(elapsedMinutes)&&elapsedMinutes>0)total+=elapsedMinutes;
+    });
   }
   return Math.round(total);
 }
@@ -654,13 +667,11 @@ function isProgramDayComplete(di){
 function resetDayProgress(di){
   (data.days[di]?.items||[]).forEach((_,i)=>localStorage.removeItem(key(di,i)));
   localStorage.removeItem(restKey(di));
-  clearAutoCalendarForProgramDay(di);
   const resume=loadWorkoutResumeState();
   if(resume&&Number(resume.dayIndex)===di)clearWorkoutResumeState();
 }
 function clearWorkoutDayProgress(di){
   (data.days[di]?.items||[]).forEach((_,i)=>localStorage.removeItem(key(di,i)));
-  clearAutoCalendarForProgramDay(di);
 }
 function completeWorkoutDayProgress(di=currentDay,completion={}){
   (data.days[di]?.items||[]).forEach((_,i)=>setDone(di,i));
@@ -3463,11 +3474,19 @@ function skipAuto(){
 function doneNext(mark=true){
   setWorkoutHeaderPosition(false);
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
+  const completedStretch=workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty);
   const dayTitle=data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
   const completedCount=completedItems.length;
   const activeElapsedMs=activeWorkoutElapsedMs();
   const elapsedMinutes=Math.max(1,Math.round(activeElapsedMs/60000));
-  completeWorkoutDayProgress(currentDay,{elapsedMinutes});
+  const exerciseSnapshot=[...completedItems,...(completedStretch?[completedStretch]:[])]
+    .map(([id])=>({id,name:data.exercises[id]?.name||id}));
+  completeWorkoutDayProgress(currentDay,{
+    elapsedMinutes,
+    programDayNumber:currentDay+1,
+    programDayTitle:dayTitle,
+    exercises:exerciseSnapshot
+  });
   programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
@@ -3655,6 +3674,48 @@ function exerciseLibrary(filter='all',restoreScroll=false){
 }
 function exerciseLibraryCategory(categoryId){return exerciseLibrary(categoryId);}
 function favs(){return exerciseLibrary('favorites');}
+function calendarDetailDate(dayKey){
+  const [year,month,day]=String(dayKey||'').split('-').map(Number);
+  if(!year||!month||!day)return esc(dayKey);
+  return new Date(year,month-1,day).toLocaleDateString('cs-CZ',{day:'numeric',month:'numeric',year:'numeric'});
+}
+function calendarWorkoutRecordHtml(record,index,total){
+  const storedDayNumber=Number(record?.programDayNumber);
+  const legacyDay=Number(record?.day);
+  const dayNumber=Number.isInteger(storedDayNumber)&&storedDayNumber>0
+    ? storedDayNumber
+    : Number.isInteger(legacyDay)&&legacyDay>=0?legacyDay+1:null;
+  const dayTitle=typeof record?.programDayTitle==='string'?record.programDayTitle.trim():'';
+  const dayLabel=dayNumber?`Den ${dayNumber}${dayTitle?` · ${esc(dayTitle)}`:''}`:(dayTitle?esc(dayTitle):'');
+  const elapsedMinutes=Number(record?.elapsedMinutes);
+  const timeHtml=Number.isFinite(elapsedMinutes)&&elapsedMinutes>0
+    ? `<p class="calendarDetailTime">${Math.round(elapsedMinutes)} ${czechCountLabel(Math.round(elapsedMinutes),'minuta','minuty','minut')}</p>`
+    : '';
+  const hasSnapshot=Array.isArray(record?.exercises);
+  const exercises=hasSnapshot
+    ? record.exercises.filter(exercise=>exercise&&typeof exercise==='object'&&(exercise.name||exercise.id))
+    : [];
+  const exerciseHtml=hasSnapshot
+    ? `<div class="calendarDetailExercises"><h4>Cviky</h4>${exercises.length
+      ? `<ol>${exercises.map(exercise=>`<li>${esc(exercise.name||exercise.id)}</li>`).join('')}</ol>`
+      : '<p class="calendarDetailLegacy">U tohoto záznamu nebyly uloženy žádné cviky.</p>'}</div>`
+    : '<p class="calendarDetailLegacy">Detail cviků není u tohoto staršího záznamu uložen.</p>';
+  return `<section class="calendarWorkoutRecord">${total>1?`<p class="calendarWorkoutIndex">Trénink ${index+1}</p>`:''}${dayLabel?`<h3>${dayLabel}</h3>`:''}${timeHtml}${exerciseHtml}</section>`;
+}
+function showCalendarDayDetail(dayKey){
+  if(!hasLog(dayKey))return;
+  document.querySelector('.calendarDetailOverlay')?.remove();
+  const records=calendarWorkoutRecords(dayKey);
+  const recordsHtml=records.length
+    ? records.map((record,index)=>calendarWorkoutRecordHtml(record,index,records.length)).join('')
+    : '<section class="calendarWorkoutRecord"><p class="calendarDetailLegacy">Detail cviků není u tohoto staršího záznamu uložen.</p></section>';
+  app.insertAdjacentHTML('beforeend',`<div class="calendarDetailOverlay" role="dialog" aria-modal="true" aria-labelledby="calendarDetailTitle">
+    <div class="calendarDetailSheet">
+      <div class="calendarDetailHeader"><div><span>Odcvičený den</span><h2 id="calendarDetailTitle">${calendarDetailDate(dayKey)}</h2></div><button type="button" data-action="close-calendar-detail" aria-label="Zavřít detail">×</button></div>
+      <div class="calendarDetailRecords">${recordsHtml}</div>
+    </div>
+  </div>`);
+}
 function calendar(year,month){
   setAppView('calendar');
   lastMode='calendar';setNav('calendar');
@@ -3671,28 +3732,32 @@ function calendar(year,month){
   for(let i=0;i<start;i++)cells.push('<div class="calCell empty"></div>');
   for(let d=1;d<=last.getDate();d++){
     const dt=new Date(y,m,d), dk=dateKey(dt), isToday=isCurrentMonth&&dk===todayKey(), ok=hasLog(dk), future=dk>todayKey();
-    cells.push(`<button class="calCell ${ok?'trained':''} ${isToday?'today':''} ${future?'future':''}" ${future?'disabled aria-disabled="true"':'data-action="calendar-day"'} data-date="${dk}"><span>${d}</span>${ok?'<b>✓</b>':''}</button>`);
+    const classes=`calCell ${ok?'trained':''} ${isToday?'today':''} ${future?'future':''}`;
+    const content=`<span>${d}</span>${ok?'<b>✓</b>':''}`;
+    cells.push(ok
+      ? `<button class="${classes}" type="button" data-action="calendar-day-detail" data-date="${dk}" aria-label="Zobrazit dokončené tréninky ${calendarDetailDate(dk)}">${content}</button>`
+      : `<div class="${classes}" aria-hidden="true">${content}</div>`);
   }
   const monthPrefix=`${y}-${String(m+1).padStart(2,'0')}-`;
   const monthDayKeys=loggedDates().filter(dayKey=>dayKey.startsWith(monthPrefix));
   const monthDayCount=monthDayKeys.length;
-  const timedMonthEntries=monthDayKeys.map(dayKey=>Number(calendarMeta(dayKey,'auto')?.elapsedMinutes)).filter(minutes=>Number.isFinite(minutes)&&minutes>0);
+  const monthWorkoutRecords=monthDayKeys.flatMap(dayKey=>calendarWorkoutRecords(dayKey));
+  const monthWorkoutCount=monthWorkoutRecords.length;
+  const timedMonthEntries=monthWorkoutRecords
+    .map(record=>Number(record.elapsedMinutes))
+    .filter(minutes=>Number.isFinite(minutes)&&minutes>0);
   const monthElapsedMinutes=timedMonthEntries.reduce((total,minutes)=>total+minutes,0);
   const displayedMonthName=now.toLocaleDateString('cs-CZ',{month:'long'}).replace(/^./,char=>char.toLocaleUpperCase('cs-CZ'));
-  const todayLogged=hasLog(todayKey());
-  const trainingCountLabel=czechCountLabel(monthDayCount,'trénink','tréninky','tréninků');
-  const todayAction=todayLogged?'unmark-today':'mark-today';
-  const todayActionLabel=todayLogged?'Odebrat dnešek':'Označit dnešek';
+  const trainingCountLabel=czechCountLabel(monthWorkoutCount,'odcvičený trénink','odcvičené tréninky','odcvičených tréninků');
   const monthTimeSummary=timedMonthEntries.length?`Celkem ${monthElapsedMinutes} min`:'';
   app.innerHTML=`<section class="card calendarCard"><h2>Kalendář cvičení</h2>
     <div class="calendarMonthNav"><button data-action="calendar-prev" data-year="${prev.getFullYear()}" data-month="${prev.getMonth()}" aria-label="Předchozí měsíc">‹</button><strong>${monthName(now)}</strong><button data-action="calendar-next" data-year="${next.getFullYear()}" data-month="${next.getMonth()}" ${isCurrentMonth?'disabled aria-disabled="true"':''} aria-label="Následující měsíc">›</button></div>
     <div class="weekHead"><span>Po</span><span>Út</span><span>St</span><span>Čt</span><span>Pá</span><span>So</span><span>Ne</span></div>
     <div class="calendarGrid">${cells.join('')}</div>
-    <div class="row calendarActions"><button data-action="${todayAction}" data-year="${y}" data-month="${m}">${todayActionLabel}</button></div>
   </section>
   <section class="calendarMotivationCard" aria-label="Souhrn měsíce">
-    <div class="calendarMotivationNumber" aria-hidden="true">${monthDayCount}</div>
-    <div><h3>${esc(displayedMonthName)}</h3><p>${monthDayCount} ${trainingCountLabel}</p>${monthTimeSummary?`<p class="calendarTimeSummary">${monthTimeSummary}</p>`:''}</div>
+    <div class="calendarMotivationNumber" aria-hidden="true">${monthWorkoutCount}</div>
+    <div><h3>${esc(displayedMonthName)}</h3><p>${monthWorkoutCount} ${trainingCountLabel}</p>${monthTimeSummary?`<p class="calendarTimeSummary">${monthTimeSummary}</p>`:''}</div>
   </section>`;
   scrollTop();
 }
@@ -3887,15 +3952,8 @@ app.addEventListener('click',e=>{
   }
   if(a==='delete-measure'){const arr=measurements();arr.splice(Number(t.dataset.index),1);saveMeasurements(arr);return progressTracker();}
   if(a==='calendar-prev'||a==='calendar-next')return calendar(Number(t.dataset.year),Number(t.dataset.month));
-  if(a==='mark-today'){markToday();return calendar(Number(t.dataset.year),Number(t.dataset.month));}
-  if(a==='unmark-today'){clearCalendarDate(todayKey());return calendar(Number(t.dataset.year),Number(t.dataset.month));}
-  if(a==='calendar-day'){
-    const date=t.dataset.date;
-    if(!date||date>todayKey())return;
-    hasLog(date)?clearCalendarDate(date):markCalendarDate(date,'manual',currentDay);
-    const parts=String(date||'').split('-').map(Number);
-    return calendar(parts[0],parts[1]-1);
-  }
+  if(a==='calendar-day-detail')return showCalendarDayDetail(t.dataset.date);
+  if(a==='close-calendar-detail'){document.querySelector('.calendarDetailOverlay')?.remove();return;}
   if(a==='fav'){
     const selectedPhase=[...app.querySelectorAll('[data-action="reference-phase"]')]
       .findIndex(step=>step.getAttribute('aria-pressed')==='true');
