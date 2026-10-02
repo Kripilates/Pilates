@@ -7028,8 +7028,15 @@ body.dark .programCompletionContent{
   }
   .autoTrain.v53CleanTrain.fullTrain:not(.workoutTransitionScreen),
   .autoTrain.v50Train.fullTrain:not(.workoutTransitionScreen){
-    min-height:0;
+    min-height:min(80dvh,calc(100dvh - 110px - env(safe-area-inset-bottom)))!important;
+    display:flex;
+    flex-direction:column;
     padding-bottom:12px!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainControls,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainControls{
+    margin-top:auto!important;
+    padding-top:12px;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,
   .autoTrain.v50Train:not(.workoutTransitionScreen) .trainImageSlot{
