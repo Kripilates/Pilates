@@ -2894,7 +2894,7 @@ function day(di,opts={}){
     ? resumePrompt(di)
     : `<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button>`;
   app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
-    <div class="topLine"><button data-action="home">&larr; Domů</button><span class="pill">${countDone(di)}/${day.items.length||0} hotovo</span></div>
+    <div class="topLine dayHeroNavRow"><button class="dayHeroNavBadge" type="button" data-action="home">${lineIcon('backArrow')}<span>Domů</span></button><span class="pill dayHeroStatusBadge">${countDone(di)}/${day.items.length||0} hotovo</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${dayCompactInfo(di,equipmentItems)}
     <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>

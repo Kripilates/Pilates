@@ -137,6 +137,35 @@ main{max-width:1360px}.v22Home{display:grid;grid-template-columns:minmax(0,1fr) 
   margin:8px auto 10px;padding:8px 16px;border-radius:999px;
   background:#e8fbf8;border:1px solid var(--line);font-weight:900;color:var(--p);
 }
+
+/* Day detail: matching compact navigation and completion badges. */
+.dayHeroNavRow .dayHeroNavBadge,
+.dayHeroNavRow .dayHeroStatusBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:32px;
+  height:32px;
+  margin:0;
+  padding:0 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--bg);
+  font-size:13px;
+  font-weight:900;
+  line-height:1;
+  white-space:nowrap;
+}
+.dayHeroNavRow .dayHeroNavBadge{
+  gap:5px;
+  color:var(--text);
+  box-shadow:none;
+}
+.dayHeroNavRow .dayHeroNavBadge .lineIcon{
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+}
 .repBox{
   margin:16px auto 12px; padding:16px 22px; max-width:420px; border-radius:20px;
   background:#f2fffc; border:1px solid var(--line); text-align:center; box-shadow:none;
@@ -7020,7 +7049,7 @@ body.dark .programCompletionContent{
   body{padding-bottom:0!important}
 }
 
-/* Active workout: use the space released by the hidden bottom navigation. */
+/* Active workout: larger real content with natural vertical flow. */
 @media(max-width:720px){
   main:has(> .autoTrain:not(.workoutTransitionScreen)){
     min-height:0;
@@ -7028,20 +7057,34 @@ body.dark .programCompletionContent{
   }
   .autoTrain.v53CleanTrain.fullTrain:not(.workoutTransitionScreen),
   .autoTrain.v50Train.fullTrain:not(.workoutTransitionScreen){
-    min-height:min(80dvh,calc(100dvh - 110px - env(safe-area-inset-bottom)))!important;
-    display:flex;
-    flex-direction:column;
+    min-height:0!important;
+    display:block;
     padding-bottom:12px!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainTop2--compact,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainTop2--compact{
+    min-height:42px!important;
+    padding:9px 12px!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainProgressLabel small,
+  .autoTrain.v50Train:not(.workoutTransitionScreen) .trainProgressLabel small{
+    font-size:clamp(.9rem,3.8vw,1rem)!important;
+    line-height:1.2!important;
+  }
+  .autoTrain.v53CleanTrain:not(.workoutTransitionScreen)>.progress,
+  .autoTrain.v50Train:not(.workoutTransitionScreen)>.progress{
+    height:11px!important;
+    margin:7px 2px 8px!important;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainControls,
   .autoTrain.v50Train:not(.workoutTransitionScreen) .trainControls{
-    margin-top:auto!important;
-    padding-top:12px;
+    margin:8px 0 0!important;
+    padding-top:0;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,
   .autoTrain.v50Train:not(.workoutTransitionScreen) .trainImageSlot{
-    width:calc(100% + 20px);
+    width:calc(100% + 28px);
     max-width:none;
-    margin-inline:-10px;
+    margin-inline:-14px;
   }
 }
