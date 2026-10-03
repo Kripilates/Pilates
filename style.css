@@ -4341,7 +4341,11 @@ body.dark .finishExperience .moodRow button.selected{color:#fff}
   .finishExperience{margin:0 auto;border-radius:0}
   .finishCompletionProgress{height:6px;margin:7px 18px 0}
   .finishHero{height:clamp(310px,40.5vh,342px)}
-  .finishHeroImage{object-position:50% 52%}
+  .finishHeroImage{
+    object-position:50% 52%;
+    transform:scale(1.18);
+    transform-origin:50% 50%;
+  }
   .finishHeroCopy{left:22px;bottom:7px;width:72%}
   .finishHeroCopy p{margin-bottom:5px;font-size:17px}
   .finishHeroCopy h2{font-size:48px}
@@ -7101,7 +7105,7 @@ body.dark .programCompletionContent{
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls,
   .autoTrain.v50Train:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls{
-    margin:clamp(10px,calc(45dvh - 314px),68px) 0 0!important;
+    margin:clamp(10px,calc(45dvh - 328px),54px) 0 0!important;
     padding-top:0;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,
@@ -7109,5 +7113,22 @@ body.dark .programCompletionContent{
     width:calc(100% + 28px);
     max-width:none;
     margin-inline:-14px;
+  }
+}
+
+/* Active exercise detail: return CTA follows the content instead of covering it. */
+@media(max-width:720px){
+  .workoutExerciseDetail .v20Content,
+  .workoutExerciseDetail.referenceExerciseDetail .v20Content{
+    padding-bottom:calc(24px + env(safe-area-inset-bottom))!important;
+  }
+  .workoutExerciseDetail .workoutDetailReturn{
+    position:static;
+    left:auto;
+    bottom:auto;
+    z-index:auto;
+    width:min(calc(100% - 32px),360px);
+    margin:16px auto calc(16px + env(safe-area-inset-bottom));
+    transform:none;
   }
 }
