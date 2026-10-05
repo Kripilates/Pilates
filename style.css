@@ -4342,12 +4342,12 @@ body.dark .finishExperience .moodRow button.selected{color:#fff}
   .finishCompletionProgress{height:6px;margin:7px 18px 0}
   .finishHero{height:clamp(310px,40.5vh,342px)}
   .finishHeroImage{
-    object-position:50% 52%;
-    transform:scale(1.18);
+    object-position:12% 52%;
+    transform:scale(1.27);
     transform-origin:50% 50%;
   }
-  .finishHeroCopy{left:22px;bottom:7px;width:72%}
-  .finishHeroCopy p{margin-bottom:5px;font-size:17px}
+  .finishHeroCopy{left:22px;bottom:52px;width:72%}
+  .finishHeroCopy p{margin-bottom:21px;font-size:17px}
   .finishHeroCopy h2{font-size:48px}
   .finishContent{padding:0 18px 12px}
   .finishDayMeta{margin-bottom:6px;font-size:.75rem}
