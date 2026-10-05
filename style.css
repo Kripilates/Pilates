@@ -7105,7 +7105,7 @@ body.dark .programCompletionContent{
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls,
   .autoTrain.v50Train:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls{
-    margin:24px 0 0!important;
+    margin:14px 0 0!important;
     padding-top:0;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,
