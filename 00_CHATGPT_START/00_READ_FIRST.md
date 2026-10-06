@@ -1,10 +1,24 @@
 # MOOVKA — READ FIRST
 
 Status: **ACTIVE ENTRY POINT**
-Aktualizováno: 2026-09-17
+Aktualizováno: 2026-10-06
 
 Tento soubor je první zastávka pro nový ChatGPT/Codex kontext. Nezačínej tvorbu,
 opravu ani nasazení exercise assetů pouze z historie chatu.
+
+## CRITICAL: NEW CHAT / NEW THREAD CONTINUITY
+
+Nová ChatGPT/Codex větev **není nový vizuální projekt**. Automaticky v ní
+zůstávají platné všechny aktuální MASTER autority, `IMAGE_WORKFLOW.md`,
+`MASTER_IMAGE_CHECKLIST.md`, camera classes, model↔mat scale, approval stav
+existujících assetů, command semantics a povinný cyklus:
+
+**GENERATE/EDIT → AUTOMATIC VISIBLE QA → PASS/FAIL → STOP**
+
+Nová větev nesmí začít vytvářet exercise images pouze podle obecného popisu
+projektu nebo historie chatu. Před první image operací musí načíst aktuální
+MASTER dokumentaci v níže uvedeném pořadí a aktivní obrazové reference, které
+určují daný typ obrázku.
 
 ## Povinné pořadí čtení
 

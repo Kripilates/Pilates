@@ -1,8 +1,8 @@
 # MOOVKA — EXERCISE IMAGE CREATION + QA WORKFLOW
 
 Status: **ACTIVE WORKFLOW AUTHORITY**
-Verze: 3.1
-Aktualizováno: 2026-09-17
+Verze: 3.2
+Aktualizováno: 2026-10-06
 
 Toto je jediná hlavní autorita pro tvorbu, opravy, QA, schvalování a nasazování
 exercise image assetů Moovka. Vizuální konstanty určuje `MASTER_REFERENCE.md`,
@@ -23,6 +23,30 @@ Před prací načti:
 
 Historický chat, archiv, starý Guide/Step ani jednotlivý `STATUS.md` nejsou
 autorita proti těmto souborům.
+
+### CRITICAL: ACTIVE MASTER REFERENCES
+
+Při **každém** novém vytvoření nebo opravě START/HERO/MID/END exercise obrázku
+musí být aktuální obrazové MASTER reference použity jako aktivní vizuální
+autorita už při samotné generaci nebo editaci. Povinně se řiď aktuálními MASTER
+FACE, MASTER MODEL, MASTER ENVIRONMENT, příslušným CAMERA MASTEREM, MASTER MAT a
+dalšími explicitně určenými reference assety pro daný typ obrázku.
+
+Nestačí slovní popis MASTERU, paměť ChatGPT, předchozí chatový kontext, poslední
+generovaný exercise obrázek ani starší schválený exercise asset. Pokud je
+aktuální obrazová MASTER reference dostupná, má přednost před textovou
+aproximací.
+
+Platí hierarchie:
+
+**CURRENT MASTER REFERENCE > approved paired SOURCE > current generated image > chat history / text inference**
+
+Starší exercise obrázek ani předchozí generace nesmí přebít aktuální MASTER.
+Pokud se MASTER v průběhu projektu změnil, starší vizuální řešení se nesmí vrátit
+jen proto, že se nachází v historii chatu. Zakázaný drift zahrnuje zejména návrat
+starého prostředí nebo odstraněné světelné lišty, jinou modelku či tvář, mladší
+nebo svalnatější postavu, jiný outfit, jinou barvu či velikost podložky, změnu
+camera class nebo model↔mat scale a jiné wall/floor tones.
 
 ## 2. Lifecycle assetu
 
@@ -72,6 +96,23 @@ fotografii. Nejdřív ověř unversioned variantu, fyzickou existenci souboru,
 aktuální `app.js` a URL. Konkrétní historický mapping bug se po opravě nesmí dál
 uvádět jako aktuální příklad; aktuální stav určuje runtime a
 `EXERCISE_PROGRESS.md`.
+
+### Povinný PRE-GENERATION GATE
+
+Před každým příkazem `vytvoř` nebo `oprav` interně ověř:
+
+1. Který canonical exercise a která fáze se právě tvoří?
+2. Který CAMERA MASTER platí?
+3. Který MASTER FACE a MASTER MODEL platí?
+4. Který MASTER ENVIRONMENT platí?
+5. Který MASTER MAT platí?
+6. Jaký model↔mat scale platí?
+7. Které části aktuálního obrázku jsou LOCKED/PASS a nesmí se při `oprav` změnit?
+8. Jaká konkrétní změna je povolena?
+
+Pokud některá potřebná MASTER autorita není jednoznačně určená, negeneruj
+naslepo. Nejdřív zjisti správnou autoritu. Tento gate je interní pracovní
+kontrola; uživatel nemusí před každým obrázkem znovu potvrzovat MASTER pravidla.
 
 ## 4. SOURCE naming a technický standard
 
@@ -134,6 +175,13 @@ obličej, tělo, pozadí, podložku ani vybavení. Pokud izolovaná oprava bez
 generativního dopočítávání není spolehlivá a uživatel zakázal generativní zásah,
 zastav se a chybu popiš.
 
+Při příkazu `oprav` je poslední obrázek pracovní základ, ale **CURRENT MASTER**
+zůstává vizuální autoritou. Všechny části označené jako LOCKED/PASS se nesmí
+svévolně změnit. Pokud uživatel řekne například `kameru nech, oprav jen modelku`,
+zůstávají camera/framing, pose, environment, mat, lighting a všechny ostatní
+PASS části LOCKED. Změní-li generátor přesto některou LOCKED část, následné QA
+musí výsledek označit jako FAIL.
+
 ## 7. Pair/sequence consistency
 
 START/HERO/MID/END jednoho cviku musí působit jako snímky jedné série. Mezi
@@ -178,6 +226,14 @@ obrázek s chybnou anatomií je **FAIL**.
 Po **každém** nově vygenerovaném nebo upraveném exercise obrázku proběhne QA
 okamžitě, bez čekání na žádost uživatele.
 
+Image operace není dokončená návratem obrázku z generátoru. Bezprostředně musí
+následovat:
+
+**IMAGE OUTPUT → AUTOMATIC VISIBLE QA → PASS/FAIL → STOP**
+
+Je zakázané skončit odpověď pouze zobrazením obrázku. Uživatel nikdy nemá být
+nucen napsat `QA`.
+
 Povinně zkontroluj:
 
 - A. exercise/anatomy
@@ -214,10 +270,12 @@ Výsledek:
 Při FAIL:
 
 1. pojmenuj konkrétní chybu;
-2. proveď nejmenší bezpečnou opravu nebo regeneraci;
-3. zopakuj celé automatické QA;
-4. opakuj do PASS nebo technického limitu nástroje;
-5. při limitu se zastav a přesně reportuj blocker.
+2. výsledek označ jako **FAIL / NESCHVÁLENO**;
+3. zastav se a čekej na explicitní uživatelský příkaz `oprav`;
+4. teprve po tomto příkazu proveď nejmenší povolenou surgical edit nebo
+   regeneraci a zopakuj celé automatické QA.
+
+Po FAIL se nesmí automaticky pokračovat další opravou ani generací.
 
 Projektová hranice schválení zůstává minimálně 9,5/10; číselné skóre nikdy
 nenahrazuje věcný PASS všech kritických bodů.
