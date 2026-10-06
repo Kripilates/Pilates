@@ -2088,6 +2088,28 @@ const referenceExerciseAssets={
       watch:['Lokty nech mírně pokrčené.','Ramena drž daleko od uší.','Bedra a pánev drž stabilní.'],
       mistakes:['Propnutí loktů.','Příliš hluboké spuštění paží.','Zalomení zápěstí.','Švih nebo zvedání ramen k uším.']
     }
+  },
+  seated_knee_circles:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_step_by_step_v01.png',
+    subtitle:'Břicho • střed těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Stabilní sed',photo:'start'},
+      {n:2,title:'KROUŽENÍ',caption:'Nohy vedou kruh',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kolena zpět k tělu',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Sedni si, opři ruce za tělem a lehce se zakloň. Zpevni střed těla a drž trup stabilní.',photo:'start'},
+      {title:'ZVEDNUTÍ NOHOU',text:'Zvedni obě chodidla nad podložku a drž kolena u sebe. Obě nohy pracují společně.',photo:'start'},
+      {title:'KRUH NOHAMA',text:'Veď obě nohy kontrolovaně dopředu a dolů a pokračuj plynulou kruhovou dráhou.',photo:'hero'},
+      {title:'NÁVRAT',text:'Dokonči kruh a vrať kolena zpět k tělu bez rozhoupání trupu.',photo:'start'}
+    ],
+    recommendations:{
+      watch:['Trup drž co nejstabilnější.','Obě nohy veď po kruhu společně.','Nepoužívej švih ani rozhoupání těla.']
+    }
   }
 };
 const exerciseMuscleCardAssignments=Object.freeze({
@@ -2128,6 +2150,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   row:'backArms',
   russian:'coreObliques',
   scissors:'core',
+  seated_knee_circles:'core',
   sidekick:'glutesThighs',
   sideleg:'glutes',
   sideplank:'coreShoulders',
@@ -3589,7 +3612,7 @@ function info(k,opts={}){
 }
 const exerciseLibraryCategories={
   core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird']},
-  glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
+  glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','kneeling_hip_extension','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
   legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','sideleg','plie','hip_march','scissors','hip','abduction']},
   upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','chest_fly','knee_pushup','dumbbell_pullover','plank','tap','sideplank','sideplank_reach']},
   back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','dumbbell_pullover','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},
