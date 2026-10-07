@@ -37,6 +37,8 @@ let sideNoticeUntil=0;
 let sideNoticeDone='', sideNoticeNext='';
 const WORKOUT_RESUME_KEY='pb40-workout-resume-v1';
 const SPECIAL_HISTORY_KEY='pb40-special-history-v1';
+const SPECIAL_RESUME_KEY='pb40-special-resume-v1';
+const SPECIAL_VARIANT_ORDER=Object.freeze(['A','B','C']);
 const restKey=d=>`pb40-rest-d${d}`;
 const autoLogMetaKey=d=>`pb40-log-auto-${d}`;
 const manualLogMetaKey=d=>`pb40-log-manual-${d}`;
@@ -178,7 +180,7 @@ function showWorkoutExitDialog(){
   app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay" role="dialog" aria-modal="true" aria-labelledby="workoutExitTitle">
     <div class="workoutExitDialog">
       <h2 id="workoutExitTitle">Ukončit trénink?</h2>
-      <p>${isSpecialWorkout()?'Průběh tohoto Spešlu se po ukončení neukládá.':'Průběh zůstane uložený a můžeš se vrátit přesně tam, kde končíš.'}</p>
+      <p>Průběh zůstane uložený a můžeš se vrátit přesně tam, kde končíš.</p>
       <button class="primary" data-action="continue-workout">Pokračovat v tréninku</button>
       <button class="workoutExitConfirm" data-action="confirm-stop-auto">Ukončit trénink</button>
     </div>
@@ -196,7 +198,7 @@ function exitWorkoutToDay(){
   document.querySelector('.workoutExitOverlay')?.remove();
   workoutExitDialogOpen=false;
   const specialCategory=workoutContext?.specialCategory||'';
-  if(!isSpecialWorkout())saveWorkoutResumeState();
+  saveWorkoutResumeState();
   clearInterval(timer);
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
@@ -386,6 +388,53 @@ function specialWorkoutHistory(){
   }catch(e){return []}
 }
 function saveSpecialWorkoutHistory(history){localStorage.setItem(SPECIAL_HISTORY_KEY,JSON.stringify(history.slice(-100)));}
+function nextSpecialVariant(categoryId){
+  const history=specialWorkoutHistory().filter(record=>record.category===categoryId&&SPECIAL_VARIANT_ORDER.includes(record.variant));
+  const last=history.length?history[history.length-1].variant:'';
+  const index=SPECIAL_VARIANT_ORDER.indexOf(last);
+  return SPECIAL_VARIANT_ORDER[(index+1+SPECIAL_VARIANT_ORDER.length)%SPECIAL_VARIANT_ORDER.length];
+}
+function normalizeSpecialResumeState(state){
+  if(!state||typeof state!=='object')return null;
+  const categoryId=cleanText(state.category,40);
+  const variantId=cleanText(state.variant,4);
+  const selected=specialWorkout(categoryId,variantId);
+  if(!selected||!SPECIAL_VARIANT_ORDER.includes(variantId))return null;
+  const difficulty=validDifficulty(state.difficulty)?state.difficulty:effectiveProgramDifficulty();
+  const items=resolvedSpecialItems(categoryId,variantId,difficulty);
+  if(!items.length||items.some(([id])=>!data.exercises[id]))return null;
+  const itemCount=items.length;
+  const totalSets=Math.max(1,Number(state.workoutTotalSets)||difficultySets(difficulty));
+  const currentExercise=Math.max(0,Math.min(itemCount-1,Number(state.currentExercise)||0));
+  const currentSet=Math.max(1,Math.min(totalSets,Number(state.workoutCurrentSet)||1));
+  return {
+    version:1,category:categoryId,variant:variantId,currentExercise,workoutCurrentSet:currentSet,
+    workoutTotalSets:totalSets,workoutPhase:cleanText(state.workoutPhase||'prep',24)||'prep',
+    workoutLeft:Math.max(0,Number(state.workoutLeft)||0),workoutFinalStretch:false,
+    workoutAuto:state.workoutAuto!==false,workoutPaused:Boolean(state.workoutPaused),
+    sideNoticeDone:cleanText(state.sideNoticeDone,40),sideNoticeNext:cleanText(state.sideNoticeNext,40),
+    workoutContext:{kind:'special',specialCategory:categoryId,specialVariant:variantId,
+      title:selected.category.title,difficulty,startedAt:Number(state.workoutContext?.startedAt)||Date.now(),
+      activeElapsedMs:Math.max(0,Number(state.activeElapsedMs??state.workoutContext?.activeElapsedMs)||0),activeSince:null,
+      totalSets,items,stretch:null},
+    savedAt:cleanText(state.savedAt,40)||new Date().toISOString()
+  };
+}
+function loadSpecialWorkoutResumeState(){
+  try{return normalizeSpecialResumeState(JSON.parse(localStorage.getItem(SPECIAL_RESUME_KEY)||'null'))}
+  catch(e){return null}
+}
+function saveSpecialWorkoutResumeState(){
+  if(!isSpecialWorkout()||!workoutRunning||!workoutContext)return;
+  const state=normalizeSpecialResumeState({
+    category:workoutContext.specialCategory,variant:workoutContext.specialVariant,
+    currentExercise,workoutCurrentSet,workoutTotalSets,workoutPhase,workoutLeft,workoutAuto,
+    workoutPaused,sideNoticeDone,sideNoticeNext,difficulty:workoutContext.difficulty,
+    activeElapsedMs:activeWorkoutElapsedMs(),workoutContext,savedAt:new Date().toISOString()
+  });
+  if(state)localStorage.setItem(SPECIAL_RESUME_KEY,JSON.stringify(state));
+}
+function clearSpecialWorkoutResumeState(){localStorage.removeItem(SPECIAL_RESUME_KEY);}
 function activeWorkoutElapsedMs(at=Date.now()){
   if(!workoutContext)return 0;
   const accumulated=Math.max(0,Number(workoutContext.activeElapsedMs)||0);
@@ -2808,12 +2857,12 @@ function showSpecialCategory(categoryId,opts={}){
   if(!category)return home();
   if(!opts.skipRoute)setAppView('special-category',{category:categoryId},{replace:Boolean(opts.replaceRoute)});
   lastMode='special';setNav('home');
-  const difficulty=effectiveProgramDifficulty();
-  const variants=Object.entries(category.variants).map(([variantId,variant])=>{
-    const items=variant.items.map(([id,dose],index)=>`<li><span>${index+1}. ${esc(data.exercises[id]?.name||id)}</span><b>${esc(resolveDose(dose,difficulty))}</b></li>`).join('');
-    return `<article class="specialVariantCard"><div class="specialVariantHead"><div><p>Varianta ${variantId}</p><h2>${esc(category.title)}</h2></div><span>${difficultySets(difficulty)} série</span></div><ol>${items}</ol><button class="primary" data-action="start-special" data-category="${categoryId}" data-variant="${variantId}">Začít Spešl ${variantId}</button></article>`;
-  }).join('');
-  app.innerHTML=`<div class="specialWorkoutPage"><div class="specialWorkoutTop"><button class="libraryBack appBackButton" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><div><p class="eyebrow">Spešl tréninky</p><h1>${esc(category.title)}</h1><small>Obtížnost: ${esc(difficultyLabel(difficulty))}</small></div></div><div class="specialVariantGrid">${variants}</div></div>`;
+  const resume=loadSpecialWorkoutResumeState();
+  const variantId=resume?.category===categoryId?resume.variant:nextSpecialVariant(categoryId);
+  const difficulty=resume?.category===categoryId?resume.workoutContext.difficulty:effectiveProgramDifficulty();
+  const variant=category.variants[variantId]||category.variants[SPECIAL_VARIANT_ORDER[0]];
+  const items=variant.items.map(([id,dose],index)=>`<li><span>${index+1}. ${esc(data.exercises[id]?.name||id)}</span><b>${esc(resolveDose(dose,difficulty))}</b></li>`).join('');
+  app.innerHTML=`<div class="specialWorkoutPage"><div class="specialWorkoutTop"><button class="libraryBack appBackButton" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><div><p class="eyebrow">Spešl tréninky</p><h1>${esc(category.title)}</h1><small>Obtížnost: ${esc(difficultyLabel(difficulty))}</small></div></div><article class="specialVariantCard specialWorkoutPlan"><div class="specialVariantHead"><div><h2>${esc(category.title)}</h2></div><span>8 cviků · ${difficultySets(difficulty)} série</span></div><ol>${items}</ol><button class="primary" data-action="start-special" data-category="${categoryId}" data-variant="${variantId}">Začít trénink</button></article></div>`;
   scrollTop();
 }
 function home(){
@@ -3153,7 +3202,7 @@ function repairWorkoutResumeProgressConflict(state){
   return saved;
 }
 function saveWorkoutResumeState(){
-  if(isSpecialWorkout())return;
+  if(isSpecialWorkout())return saveSpecialWorkoutResumeState();
   if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
   clearWorkoutDayProgress(currentDay);
   const resumeContext={
@@ -3221,6 +3270,35 @@ function restoreWorkoutState(state){
   programWasCompleteAtWorkoutStart=saved.programWasCompleteAtWorkoutStart;
   programCompletedByCurrentWorkout=false;
   setAppView('workout',{day:currentDay});
+  lastMode='train';
+  setNav('train');
+  showAutoTrain({resetScroll:true});
+  resumeActiveWorkoutTime();
+  void requestWorkoutWakeLock();
+  resumeWorkoutTimer();
+}
+function restoreSpecialWorkoutState(state){
+  const saved=normalizeSpecialResumeState(state);
+  if(!saved)return showSpecialCategory(state?.category||'core');
+  void unlockAudio();
+  clearInterval(timer);
+  currentExercise=saved.currentExercise;
+  workoutCurrentSet=saved.workoutCurrentSet;
+  workoutTotalSets=saved.workoutTotalSets;
+  workoutPhase=saved.workoutPhase;
+  workoutLeft=saved.workoutLeft;
+  workoutFinalStretch=false;
+  workoutAuto=saved.workoutAuto;
+  workoutPaused=saved.workoutPaused;
+  workoutContext=saved.workoutContext;
+  sideNoticeDone=saved.sideNoticeDone;
+  sideNoticeNext=saved.sideNoticeNext;
+  sideNoticeUntil=0;
+  workoutRunning=true;
+  currentDay=0;
+  programWasCompleteAtWorkoutStart=false;
+  programCompletedByCurrentWorkout=false;
+  setAppView('special-workout',{category:saved.category,variant:saved.variant});
   lastMode='train';
   setNav('train');
   showAutoTrain({resetScroll:true});
@@ -3333,6 +3411,8 @@ function startTraining(di,auto=true,opts={}){
 }
 function startSpecialTraining(categoryId,variantId){
   if(maybeStartRequiredOnboarding())return;
+  const existingResume=loadSpecialWorkoutResumeState();
+  if(existingResume?.category===categoryId&&existingResume.variant===variantId)return restoreSpecialWorkoutState(existingResume);
   const selected=specialWorkout(categoryId,variantId);
   if(!selected)return showSpecialCategory(categoryId);
   const difficulty=effectiveProgramDifficulty();
@@ -3350,7 +3430,7 @@ function startSpecialTraining(categoryId,variantId){
   workoutCurrentSet=1;
   workoutContext={
     kind:'special',specialCategory:categoryId,specialVariant:variantId,
-    title:selected.variant.title,difficulty,startedAt:Date.now(),activeElapsedMs:0,activeSince:null,
+    title:selected.category.title,difficulty,startedAt:Date.now(),activeElapsedMs:0,activeSince:null,
     totalSets:difficultySets(difficulty),items,stretch:null
   };
   workoutTotalSets=workoutContext.totalSets;
@@ -3421,7 +3501,7 @@ function showSeriesRest(){
   const progress=Math.min(100, Math.round((completedSet*dayObj.items.length/Math.max(1,dayObj.items.length*workoutTotalSets))*100));
   const restProgress=Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SERIES_REST_SECONDS)*100));
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain seriesRestScreen workoutTransitionScreen" data-current-day="${currentDay}" data-current-index="${currentExercise}">
-    <div class="trainTop2 trainTop2--compact"><span class="dose">${isSpecialWorkout()?`Spešl ${workoutContext.specialVariant}`:`Den ${currentDay+1}`} \u2022 Pauza mezi s\u00e9riemi</span></div>
+    <div class="trainTop2 trainTop2--compact"><span class="dose">${isSpecialWorkout()?'Spešl trénink':`Den ${currentDay+1}`} \u2022 Pauza mezi s\u00e9riemi</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="workoutTransitionState" role="status" aria-live="polite">
       <div class="workoutBrandMark" aria-hidden="true"><img src="00_CHATGPT_START/MASTER/02_REFERENCES/BRAND/MooVka_M_FINAL.svg" alt=""></div>
@@ -3472,7 +3552,7 @@ function showAutoTrain(opts={}){
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
   const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button>`;
   const workoutPosition=Math.min(dayObj.items.length,currentExercise+1);
-  const workoutScopeLabel=isSpecialWorkout()?`Spešl ${workoutContext.specialVariant}`:`Den ${currentDay+1}`;
+  const workoutScopeLabel=isSpecialWorkout()?'Spešl trénink':`Den ${currentDay+1}`;
   const topLabel=workoutFinalStretch
     ? `<strong class="workoutStatusPrimary workoutStatusPrimary--stretch">ZÁVĚREČNÉ PROTAŽENÍ</strong><small class="workoutStatusSecondary">${workoutScopeLabel} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
     : `<strong class="workoutStatusPrimary">${workoutScopeLabel} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</strong><small class="workoutStatusSecondary">Cvik ${workoutPosition} z ${dayObj.items.length}</small>`;
@@ -3683,6 +3763,7 @@ function doneNext(mark=true){
       elapsedMinutes,exercises:exerciseSnapshot,mood:'',text:''
     };
     saveSpecialWorkoutHistory([...specialWorkoutHistory(),record]);
+    clearSpecialWorkoutResumeState();
     pendingSpecialCompletion=record;
     programCompletedByCurrentWorkout=false;
   }else{
@@ -3704,7 +3785,7 @@ function doneNext(mark=true){
       </div>
     </div>
     <div class="finishContent">
-      <p class="finishDayMeta">${specialContext?`Spešl ${esc(specialContext.specialVariant)} \u2022 ${esc(dayTitle)}`:`Den ${currentDay+1} \u2022 ${esc(dayTitle)}`}</p>
+      <p class="finishDayMeta">${specialContext?`Spešl trénink \u2022 ${esc(dayTitle)}`:`Den ${currentDay+1} \u2022 ${esc(dayTitle)}`}</p>
       <div class="finishSummary" aria-label="Souhrn tr\u00e9ninku">
         <div><b>${completedCount}</b><span>${czechCountLabel(completedCount,'cvik','cviky','cvik\u016f')}</span></div>
         <div><b>${workoutTotalSets}</b><span>${czechCountLabel(workoutTotalSets,'s\u00e9rie','s\u00e9rie','s\u00e9ri\u00ed')}</span></div>
@@ -4050,7 +4131,12 @@ function renderAppState(state){
       case 'progress': progressTracker(); break;
       case 'stats': showStats(); break;
       case 'special-category': showSpecialCategory(state.category,{skipRoute:true}); break;
-      case 'special-workout': showSpecialCategory(state.category,{skipRoute:true}); break;
+      case 'special-workout': {
+        const specialResume=loadSpecialWorkoutResumeState();
+        if(specialResume&&specialResume.category===state.category&&specialResume.variant===state.variant)restoreSpecialWorkoutState(specialResume);
+        else showSpecialCategory(state.category,{skipRoute:true});
+        break;
+      }
       case 'workout': day(Number(state.day)||0); break;
       case 'workout-resume': showWorkoutResumeChoice(Number(state.day)||0,{skipRoute:true}); break;
       default: home();
