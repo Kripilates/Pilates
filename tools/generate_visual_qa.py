@@ -38,10 +38,10 @@ OUTPUT_NAMES = (
 # Camera/pose grouping is presentation metadata only. SOURCE paths always come
 # from referenceExerciseAssets in app.js and are never duplicated here.
 POSE_CLASS_BY_ID = {
-    **{key: "LYING" for key in "hip figure_four deadbug toetap revcrunch hollow supine_twist chest_fly dumbbell_pullover rollup abduction frog hamstring_supine chest_press glute_bridge_march hip_march heeltaps bicycle sphinx swimming hundred scissors russian legraises spine".split()},
+    **{key: "LYING" for key in "hip figure_four deadbug toetap revcrunch hollow supine_twist chest_fly dumbbell_pullover rollup abduction frog hamstring_supine chest_press glute_bridge_march hip_march heeltaps bicycle sphinx swimming hundred scissors russian legraises spine double_leg_stretch reverse_plank straight_leg_ball_squeeze bridge_band".split()},
     **{key: "QUADRUPED" for key in "hydrant bird plank donkey kneeling_hip_extension bear_hover rainbow tap knee_pushup thread catcow childs_pose".split()},
     **{key: "SIDE_FLOOR" for key in "sideleg clam inner_thigh sideplank mermaid sidekick sideplank_reach".split()},
-    **{key: "STANDING" for key in "rdl row press raise triceps_kickback chest_opener standing_side_bend plie standing_oblique".split()},
+    **{key: "STANDING" for key in "rdl row press raise triceps_kickback chest_opener standing_side_bend plie standing_oblique band_pull_apart calf_raise standing_hamstring_curl_band".split()},
 }
 
 FIELD_TO_ROLE = {
@@ -148,6 +148,10 @@ def decode_source_path(raw: str) -> tuple[Path, Path]:
     return relative, REPO / relative
 
 
+def is_pending_asset_block(block: str) -> bool:
+    return re.search(r"(?m)^    pending:true,?$", block) is not None
+
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -186,6 +190,13 @@ def discover() -> Discovery:
         values: dict[str, list[str]] = {field: [] for field in ROLE_ORDER}
         for match in field_pattern.finditer(block):
             values[match.group(1)].append(match.group(2))
+        if is_pending_asset_block(block):
+            defined_sources = [field for field, candidates in values.items() if candidates]
+            if defined_sources:
+                ambiguous.append(
+                    f"{exercise_id}: pending asset nesmí současně definovat SOURCE ({', '.join(defined_sources)})"
+                )
+            continue
         for required in ("start", "hero"):
             if len(values[required]) != 1:
                 ambiguous.append(

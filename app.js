@@ -2177,6 +2177,24 @@ const referenceExerciseAssets={
     breath:{inhale:'Při návratu',exhale:'Při protažení',tempo:'Pomalu a plynule'},
     recommendations:{feel:'Stabilní střed těla a kontrolovaný rozsah pohybu.',watch:['Bedra drž stabilní.','Pohyb neuspěchej.'],mistakes:['Prohnutí v bedrech.','Švihání pažemi nebo nohama.']}
   },
+  reverse_plank:{
+    pending:true
+  },
+  standing_hamstring_curl_band:{
+    pending:true
+  },
+  calf_raise:{
+    pending:true
+  },
+  straight_leg_ball_squeeze:{
+    pending:true
+  },
+  bridge_band:{
+    pending:true
+  },
+  band_pull_apart:{
+    pending:true
+  },
   bear_hover:{
     start:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_hero.png',

@@ -12,7 +12,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from generate_visual_qa import REPO, asset_blocks, decode_source_path, discover, exact_case_exists
+from generate_visual_qa import REPO, asset_blocks, decode_source_path, discover, exact_case_exists, is_pending_asset_block
 
 
 DEFAULT_OUTPUT = REPO / "_site" / "Pilates Assets" / "02_Exercise_Cards" / "_Library_Thumbnails"
@@ -56,6 +56,9 @@ def generate(output_dir: Path, cache_dir: Path) -> tuple[int, int, list[Path]]:
     if problems:
         raise RuntimeError("Canonical SOURCE inventory není jednoznačný:\n- " + "\n- ".join(problems))
     blocks = asset_blocks()
+    pending_ids = {
+        exercise_id for exercise_id, block in blocks.items() if is_pending_asset_block(block)
+    }
     hero_by_id = {}
     hero_pattern = re.compile(r"(?m)^    hero:'((?:\\'|[^'])*)',?$")
     for exercise_id in inventory.active_ids:
@@ -67,12 +70,17 @@ def generate(output_dir: Path, cache_dir: Path) -> tuple[int, int, list[Path]]:
             if not source.is_file() or not exact_case_exists(relative):
                 raise RuntimeError(f"{exercise_id}: canonical HERO neexistuje s přesným case: {relative}")
             hero_by_id[exercise_id] = source
-    missing_heroes = [exercise_id for exercise_id in inventory.active_ids if exercise_id not in hero_by_id]
+    missing_heroes = [
+        exercise_id
+        for exercise_id in inventory.active_ids
+        if exercise_id not in hero_by_id and exercise_id not in pending_ids
+    ]
     if missing_heroes:
         raise RuntimeError("Chybí canonical HERO: " + ", ".join(missing_heroes))
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    expected_names = {f"{exercise_id}.webp" for exercise_id in inventory.active_ids}
+    renderable_ids = [exercise_id for exercise_id in inventory.active_ids if exercise_id in hero_by_id]
+    expected_names = {f"{exercise_id}.webp" for exercise_id in renderable_ids}
     for stale in output_dir.glob("*.webp"):
         if stale.name not in expected_names:
             stale.unlink()
@@ -80,7 +88,7 @@ def generate(output_dir: Path, cache_dir: Path) -> tuple[int, int, list[Path]]:
     generated = 0
     reused = 0
     outputs: list[Path] = []
-    for exercise_id in inventory.active_ids:
+    for exercise_id in renderable_ids:
         source = hero_by_id[exercise_id]
         source_hash = digest(source)
         cached = cache_dir / exercise_id / f"{source_hash}.webp"
