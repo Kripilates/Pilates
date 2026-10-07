@@ -13,7 +13,7 @@ Historické podklady mohou být užitečné jako provenance, ale nejsou autorito
 | Vizuální identita, outfit, studio, podložka, camera classes | `01_DOCUMENTS/MASTER_REFERENCE.md` |
 | Tvorba, opravy, QA, schvalování a nasazení exercise image assetů | `01_DOCUMENTS/IMAGE_WORKFLOW.md` |
 | Povinný kontrolní seznam jednoho obrázku | `01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md` |
-| Aktuální stav 51 aktivních cviků a jejich assetů | `01_DOCUMENTS/EXERCISE_PROGRESS.md` |
+| Aktuální stav dynamické ACTIVE množiny cviků a jejich assetů | `01_DOCUMENTS/EXERCISE_PROGRESS.md` |
 | Muscle Card systém a tvorba | `01_DOCUMENTS/MASTER_ANATOMY.md` |
 | PRIMARY/SECONDARY profil každého aktivního cviku | `01_DOCUMENTS/MUSCLE_CARD_PROFILE_AUDIT.md` |
 | Detail aplikace | `01_DOCUMENTS/DESIGN_STANDARD.md` |
@@ -56,8 +56,9 @@ rozcházejí, neopakuj zastaralý souhrn a nejdřív sjednoť dokumentaci.
 
 ## Aktivní versus historické
 
-- Aktivní program: 51 canonical IDs z aktuálního `data.js`.
-- `swan`: historický/inaktivní.
+- ACTIVE runtime katalog: dynamická množina z `data.js` a
+  `exercise-lifecycle.js`, bez pevného expected count.
+- Program smí odkazovat pouze na ACTIVE; `swan` je historický/INACTIVE.
 - `dumbbell_pullover`: aktivní.
 - Canonical detailní inventura: `01_DOCUMENTS/EXERCISE_PROGRESS.md`.
 - QA contact sheets: `Pilates Assets/03_Exports/Visual_QA/`; nejsou runtime assety.

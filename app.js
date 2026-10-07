@@ -1,7 +1,10 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
 const APP_VERSION='v59.207-dev';
-const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>id!=='swan'));
+const exerciseLifecycle=window.MOOVKA_EXERCISE_LIFECYCLE;
+if(!exerciseLifecycle||!Array.isArray(exerciseLifecycle.draft)||!Array.isArray(exerciseLifecycle.inactive))throw new Error('Chybí platný exercise lifecycle');
+const nonRuntimeExerciseIds=new Set([...(exerciseLifecycle.draft||[]),...(exerciseLifecycle.inactive||[])]);
+const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>!nonRuntimeExerciseIds.has(id)));
 const activeExerciseIdSet=new Set(activeExerciseIds);
 const DEPLOYMENT_ID=document.querySelector('meta[name="moovka-deployment"]')?.content||'local-dev';
 function deploymentImageUrl(src){
@@ -917,6 +920,31 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích, aktivní střed těla a stabilní pánev bez tlaku v bedrech.',
       watch:['Pánev drž stabilní a vodorovnou.','Břicho nech aktivní a ramena daleko od uší.','Pohyb veď z kyčle bez švihu.'],
       mistakes:['Prohýbání beder.','Vytáčení pánve.','Zvedání nohy příliš vysoko.','Švihání nohou místo kontrolovaného pohybu.']
+    }
+  },
+  kneeling_hip_extension:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_step_by_step_v01.png',
+    subtitle:'Hýždě • extenze kyčlí',
+    miniSteps:[
+      {n:1,title:'START',caption:'Sed na patách',photo:'start'},
+      {n:2,title:'VYSOKÝ KLEK',caption:'Pánev vpřed a vzhůru',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně na paty',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Sedni si na paty, trup drž vzpřímeně a ruce polož na stehna. Zpevni střed těla.',photo:'start'},
+      {title:'VYSOKÝ KLEK',text:'S výdechem aktivuj hýždě a veď pánev dopředu a vzhůru. Pohyb dokonči s pánví přibližně nad koleny.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať pánev pomalu na paty. Žebra drž dole, bedra neutrální a pohyb veď bez švihu.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / kyčle',knees:'Klek na podložce'},
+    breath:{inhale:'Při návratu na paty',exhale:'Při zdvihu do vysokého kleku',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci v hýždích při plynulé extenzi kyčlí a stabilním středu těla.',
+      watch:['Pohyb veď z kyčlí a pánev vynášej dopředu a vzhůru.','Žebra drž dole, core aktivní a bedra neutrální.','Nevytahuj hrudník, nezakláněj se a nepoužívej švih.'],
+      mistakes:['Prohýbání beder.','Vytahování žeber.','Zaklánění trupu.','Švih místo práce hýždí.']
     }
   },
   frog:{
@@ -2089,6 +2117,7 @@ const referenceExerciseAssets={
       mistakes:['Propnutí loktů.','Příliš hluboké spuštění paží.','Zalomení zápěstí.','Švih nebo zvedání ramen k uším.']
     }
   },
+<<<<<<< HEAD
   double_leg_stretch:{
     start:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_hero.png',
@@ -2109,12 +2138,61 @@ const referenceExerciseAssets={
     info:{difficulty:'Střední',focus:'Střed těla',knees:'Bez tlaku na kolena'},
     breath:{inhale:'Při návratu',exhale:'Při protažení',tempo:'Pomalu a plynule'},
     recommendations:{feel:'Stabilní střed těla a kontrolovaný rozsah pohybu.',watch:['Bedra drž stabilní.','Pohyb neuspěchej.'],mistakes:['Prohnutí v bedrech.','Švihání pažemi nebo nohama.']}
+=======
+  bear_hover:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_step_by_step_v01.png',
+    subtitle:'Břicho • stabilita trupu',
+    miniSteps:[
+      {n:1,title:'START',caption:'Tabletop',photo:'start'},
+      {n:2,title:'NÍZKÝ HOVER',caption:'Kolena pár cm nad podložkou',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'start'}
+    ],
+    steps:[
+      {title:'TABLETOP',text:'Začni na všech čtyřech. Dlaně polož pod ramena, kolena pod kyčle a páteř drž neutrální.',photo:'start'},
+      {title:'NÍZKÝ HOVER',text:'Opři špičky, zpevni břicho a zvedni obě kolena jen několik centimetrů nad podložku.',photo:'hero'},
+      {title:'STABILNÍ VÝDRŽ A NÁVRAT',text:'Pánev drž nízko, záda neutrální a plynule dýchej. Potom obě kolena kontrolovaně vrať na podložku.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Břicho / stabilita',knees:'Nízký hover'},
+    breath:{inhale:'Plynule během výdrže',exhale:'Při zvednutí kolen',tempo:'Klidně bez švihu'},
+    recommendations:{
+      feel:'Aktivní břicho a stabilní trup při rovnoměrné opoře o obě dlaně a obě špičky.',
+      watch:['Kolena drž jen několik centimetrů nad podložkou.','Pánev nech nízko a záda neutrální.','Váhu rozlož mezi dlaně a špičky a plynule dýchej.'],
+      mistakes:['Zvedání pánve do stříšky.','Prohýbání beder.','Přenesení celé váhy do ramen.','Zadržování dechu.']
+    }
+  },
+  seated_knee_circles:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Seated%20Knee%20Circles/seated_knee_circles_step_by_step_v01.png',
+    subtitle:'Břicho • střed těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Stabilní sed',photo:'start'},
+      {n:2,title:'KROUŽENÍ',caption:'Nohy vedou kruh',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kolena zpět k tělu',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Sedni si, opři ruce za tělem a lehce se zakloň. Zpevni střed těla a drž trup stabilní.',photo:'start'},
+      {title:'ZVEDNUTÍ NOHOU',text:'Zvedni obě chodidla nad podložku a drž kolena u sebe. Obě nohy pracují společně.',photo:'start'},
+      {title:'KRUH NOHAMA',text:'Veď obě nohy kontrolovaně dopředu a dolů a pokračuj plynulou kruhovou dráhou.',photo:'hero'},
+      {title:'NÁVRAT',text:'Dokonči kruh a vrať kolena zpět k tělu bez rozhoupání trupu.',photo:'start'}
+    ],
+    recommendations:{
+      watch:['Trup drž co nejstabilnější.','Obě nohy veď po kruhu společně.','Nepoužívej švih ani rozhoupání těla.']
+    }
+>>>>>>> e1453d94a01a3248925e5e19419ae75e47f8afe2
   }
 };
 const exerciseMuscleCardAssignments=Object.freeze({
   abduction:'glutesThighs',
   bicycle:'coreObliques',
   bird:'coreBack',
+  bear_hover:'core',
   catcow:'back',
   chest_fly:'chestShouldersArms',
   chest_opener:'chestShouldersArms',
@@ -2137,6 +2215,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   hydrant:'glutes',
   inner_thigh:'thighs',
   knee_pushup:'chestShouldersArms',
+  kneeling_hip_extension:'glutes',
   legraises:'core',
   mermaid:'coreObliques',
   plank:'coreShoulders',
@@ -2150,6 +2229,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   row:'backArms',
   russian:'coreObliques',
   scissors:'core',
+  seated_knee_circles:'core',
   sidekick:'glutesThighs',
   sideleg:'glutes',
   sideplank:'coreShoulders',
@@ -3610,8 +3690,8 @@ function info(k,opts={}){
   scrollTop();
 }
 const exerciseLibraryCategories={
-  core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird']},
-  glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
+  core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird','bear_hover']},
+  glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','kneeling_hip_extension','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
   legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','sideleg','plie','hip_march','scissors','hip','abduction']},
   upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','chest_fly','knee_pushup','dumbbell_pullover','plank','tap','sideplank','sideplank_reach']},
   back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','dumbbell_pullover','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},

@@ -1,6 +1,6 @@
 # EXERCISE PROGRESS — aktivní obrazové karty
 
-Aktualizováno: 2026-09-17
+Aktualizováno: 2026-10-07
 Režim: audit skutečně aktivních ID z `data.js` a aktivního mapování z `app.js`.
 Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRONMENT/MOOVKA_MASTER_ENVIRONMENT_v02.png`.
 
@@ -22,24 +22,35 @@ Rozhodující MASTER prostředí: `00_CHATGPT_START/MASTER/02_REFERENCES/ENVIRON
 
 ## Aktuální souhrn
 
-- AKTIVNÍ CVIKY CELKEM: **51**
-- 🟢 NOVÉ PROSTŘEDÍ: **51**
+- AKTIVNÍ CVIKY CELKEM: **53** (dynamicky z canonical lifecycle)
+- DRAFT CVIKY CELKEM: **7**
+- INACTIVE CVIKY CELKEM: **1** (`swan`)
+- 🟢 NOVÉ PROSTŘEDÍ: **53**
 - 🟡 ROZPRACOVÁNO / MAPPING K OVĚŘENÍ: **0**
 - 🟠 STARÉ PROSTŘEDÍ – K OPRAVĚ: **0**
 - 🔴 CHYBÍ / NOVÝ CVIK: **0**
 - UNIKÁTNÍ MUSCLE CARD PROFILY K DOLADĚNÍ: **37**
-- RUNTIME MUSCLE CARD: **1 aktivní cvik s kartou / 50 bezpečně bez karty**
+- RUNTIME MUSCLE CARD: **53 aktivních cviků s platnou canonical kartou / 0 bez karty**
 - GUIDE/STEP K AKTUALIZACI: **0**
 
-Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbell_pullover` a neobsahuje `swan`.
+ACTIVE množina se nevaliduje pevným číslem. Aktuálně má **53** ID, obsahuje
+`kneeling_hip_extension`, `bear_hover` a `dumbbell_pullover`; `swan` je canonical INACTIVE.
 
-## Inventura 51 aktivních cviků
+Canonical DRAFT registry obsahuje těchto 7 plánovaných ID:
+`half_kneeling_oblique_crunch`, `kneeling_side_plank_leg_lift`,
+`side_plank_knee_drive`, `double_leg_stretch`,
+`seated_knee_circles`, `banded_frog_pump`, `bridge_band`.
+Nejsou součástí runtime inventury ani 30denního programu a jejich neúplné
+assety nepodléhají ACTIVE SOURCE validaci.
+
+## Inventura aktuálních ACTIVE cviků
 
 | ID | Cvik | SOURCE stav | START | HERO | END | Guide | Step | Muscle Card | Co zbývá |
 |---|---|---|---|---|---|---|---|---|---|
 | `abduction` | Roznožování v mostu | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bridge Abduction/bridge_abduction_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Nic v rozsahu obrazových karet. |
 | `bicycle` | Bicycle Crunch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bicycle Crunch/bicycle_crunch_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `bird` | Bird Dog | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bird Dog/bird_dog_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
+| `bear_hover` | Bear Hover | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bear Hover/bear_hover_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bear Hover/bear_hover_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Bear Hover/bear_hover_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO — `core_primary_muscles_v01.png` | Bundle kompletní; ACTIVE. |
 | `catcow` | Cat-Cow | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Cat-Cow/cat_cow_end.png` — NOVÉ PROSTŘEDÍ | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `chest_fly` | Rozpažování s činkami vleže | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Fly/chest_fly_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `chest_opener` | Chest Opener | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Chest Opener/chest_opener_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
@@ -61,6 +72,7 @@ Kontrolní rovnice: **51 + 0 + 0 + 0 = 51**. Aktivní množina obsahuje `dumbbel
 | `hydrant` | Fire Hydrant | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Fire Hydrant/fire_hydrant_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `inner_thigh` | Zdvihy spodní nohy | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Inner Thigh Lift/inner_thigh_lift_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `knee_pushup` | Kliky na kolenou | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Knee Push-Up/knee_push_up_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
+| `kneeling_hip_extension` | Kneeling Hip Extension | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Kneeling Hip Extension/kneeling_hip_extension_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Kneeling Hip Extension/kneeling_hip_extension_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Kneeling Hip Extension/kneeling_hip_extension_start.png` — REUSE START | HOTOVO | HOTOVO | HOTOVO — `glutes_primary_muscles_v01.png` | Bundle kompletní; ACTIVE. |
 | `legraises` | Leg Raises | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Leg Raises/leg_raises_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `mermaid` | Mermaid Stretch | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_hero.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Mermaid Stretch/mermaid_stretch_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
 | `plank` | Prkno na předloktích | 🟢 HOTOVO – NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — NOVÉ PROSTŘEDÍ | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — REUSE START | `Pilates Assets/02_Exercise_Cards/Forearm Plank/forearm_plank_start.png` — REUSE START | HOTOVO | HOTOVO | OPEN — bezpečný stav bez Muscle Card | Čeká na novou sjednocenou Muscle Card. |
@@ -104,7 +116,8 @@ anatomického obrázku. Nová karta se přiřadí až po samostatném ručním s
 
 ### Guide + Step stav
 
-Žádné.
+`kneeling_hip_extension`: vytvořit Guide Card a Step by Step ze schválených
+START/HERO bez změny runtime sekvence START → HERO → START.
 
 ## Zjištěné rozpory
 
@@ -112,11 +125,12 @@ anatomického obrázku. Nová karta se přiřadí až po samostatném ručním s
 - `dumbbell_pullover`: aktivní SOURCE, runtime, Guide a Step jsou hotové; Muscle Card zůstává OPEN, protože v novém MASTER systému zatím není schválený odpovídající PNG profil.
 - `rdl`: Guide a Step byly aktualizovány novými SOURCE a jejich existující v01 soubory jsou nyní výslovně uvedeny v `referenceExerciseAssets`.
 - `frog`: schválená Muscle Card `glutes_primary_core_secondary_muscles_v01.png` zůstává nasazená; ostatní nové karty čekají na samostatné schválené mapování.
-- Aktuální souhrn `51 HOTOVO` vyjadřuje technickou úplnost i dokončené SOURCE v novém MASTER prostředí pro všech 51 aktivních ID.
+- Aktuální ACTIVE počet je dynamický; produkční validace nepoužívá pevný invariant 51 ani jeho náhradu jiným číslem.
 
 ## Metoda auditu
 
-- Aktivní ID: sjednocení všech `day.items[*][0]` a `day.stretch[0]` v aktuálním `data.js`.
+- ACTIVE ID: dynamická množina katalogu z `data.js` po odečtení explicitních
+  `draft` a `inactive` v `exercise-lifecycle.js`; program smí používat pouze ACTIVE.
 - Aktivní soubory: `referenceExerciseAssets` v aktuálním `app.js`, s kontrolou fyzické existence, PNG rozměrů/režimu a SHA-256.
 - NEW/OLD: aktuální MASTER byl zaveden 2026-08-30; stav byl ověřen proti následným source balíkům, Git historii souborů a schválením ve stavových dokumentech. Cviky bez doložené pozdější výměny zůstávají konzervativně ve skupině STARÉ PROSTŘEDÍ.
 - Cílený lokální runtime audit ověřuje aktivní URL, knihovnu, detail a přepínání fází pro `swimming`, `thread` a `sideplank_reach`.

@@ -1,10 +1,24 @@
 # MOOVKA — READ FIRST
 
 Status: **ACTIVE ENTRY POINT**
-Aktualizováno: 2026-09-17
+Aktualizováno: 2026-10-06
 
 Tento soubor je první zastávka pro nový ChatGPT/Codex kontext. Nezačínej tvorbu,
 opravu ani nasazení exercise assetů pouze z historie chatu.
+
+## CRITICAL: NEW CHAT / NEW THREAD CONTINUITY
+
+Nová ChatGPT/Codex větev **není nový vizuální projekt**. Automaticky v ní
+zůstávají platné všechny aktuální MASTER autority, `IMAGE_WORKFLOW.md`,
+`MASTER_IMAGE_CHECKLIST.md`, camera classes, model↔mat scale, approval stav
+existujících assetů, command semantics a povinný cyklus:
+
+**GENERATE/EDIT → AUTOMATIC VISIBLE QA → PASS/FAIL → STOP**
+
+Nová větev nesmí začít vytvářet exercise images pouze podle obecného popisu
+projektu nebo historie chatu. Před první image operací musí načíst aktuální
+MASTER dokumentaci v níže uvedeném pořadí a aktivní obrazové reference, které
+určují daný typ obrázku.
 
 ## Povinné pořadí čtení
 
@@ -16,7 +30,7 @@ opravu ani nasazení exercise assetů pouze z historie chatu.
 4. `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md` — povinný kontrolní seznam
    před a po každém novém nebo upraveném obrázku.
 5. `MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` — canonical detailní inventura
-   aktuálních 51 aktivních exercise IDs a jejich assetů.
+   aktuální dynamické ACTIVE množiny exercise IDs a jejich assetů.
 6. Při práci s Muscle Cards navíc:
    - `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`
    - `MASTER/01_DOCUMENTS/MUSCLE_CARD_PROFILE_AUDIT.md`
@@ -46,8 +60,10 @@ starších stavech a chatech nejsou autoritou; rozhoduje aktuální runtime a
 
 ## Základní pravidla
 
-- Aktivní program má **51 canonical exercise IDs**.
-- `swan` je historický/inaktivní a do aktivního součtu nepatří.
+- ACTIVE runtime katalog se dynamicky odvozuje z `data.js` a
+  `exercise-lifecycle.js`; nemá pevný očekávaný počet.
+- Program smí používat pouze ACTIVE ID. `swan` je INACTIVE a do runtime
+  katalogu ani aktivního součtu nepatří.
 - `dumbbell_pullover` je aktivní.
 - Aktivní SOURCE používají unversioned názvy; `_v01`, `_v02` apod. nejsou
   výchozí naming pro nové SOURCE.

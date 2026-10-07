@@ -14,7 +14,7 @@ nesmí jim odporovat.
 - `04_Home/` — schválené runtime obrazové assety určené pouze pro Home.
 - `05_Archive/` — historické materiály; nejsou autoritou proti MASTERU.
 
-Kanonická detailní inventura 51 aktivních cviků je v
+Kanonická detailní inventura dynamické ACTIVE množiny cviků je v
 `00_CHATGPT_START/MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md`.
 
 ## Základní pravidla

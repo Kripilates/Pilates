@@ -4342,12 +4342,12 @@ body.dark .finishExperience .moodRow button.selected{color:#fff}
   .finishCompletionProgress{height:6px;margin:7px 18px 0}
   .finishHero{height:clamp(310px,40.5vh,342px)}
   .finishHeroImage{
-    object-position:50% 52%;
-    transform:scale(1.18);
+    object-position:12% 52%;
+    transform:scale(1.27);
     transform-origin:50% 50%;
   }
-  .finishHeroCopy{left:22px;bottom:7px;width:72%}
-  .finishHeroCopy p{margin-bottom:5px;font-size:17px}
+  .finishHeroCopy{left:22px;bottom:52px;width:72%}
+  .finishHeroCopy p{margin-bottom:21px;font-size:17px}
   .finishHeroCopy h2{font-size:48px}
   .finishContent{padding:0 18px 12px}
   .finishDayMeta{margin-bottom:6px;font-size:.75rem}
@@ -4579,7 +4579,7 @@ body.dark .programCompletionContent{
     margin:5px 18px 0;
   }
   .programCompletionHero{
-    flex-basis:61%;
+    flex:0 1 456px;
   }
   .programCompletionHero img{
     object-position:50% 26%;
@@ -4588,7 +4588,7 @@ body.dark .programCompletionContent{
   }
   .programCompletionHeroCopy{
     left:16px;
-    top:calc(37% + 36px);
+    top:calc(37% + 52px);
     width:54%;
   }
   .programCompletionStats{
@@ -4612,6 +4612,7 @@ body.dark .programCompletionContent{
     white-space:nowrap;
   }
   .programCompletionContent{
+    flex:1 1 auto;
     padding:22px 18px 10px;
   }
   .programCompletionContinue h2{
@@ -4636,9 +4637,6 @@ body.dark .programCompletionContent{
   }
 }
 @media(max-width:560px) and (max-height:900px){
-  .programCompletionHero{
-    flex-basis:60%;
-  }
   .programCompletionContent{
     padding-top:20px;
     padding-bottom:8px;
@@ -7105,7 +7103,7 @@ body.dark .programCompletionContent{
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls,
   .autoTrain.v50Train:not(.workoutTransitionScreen):has(.trainImageSlot) .trainControls{
-    margin:clamp(10px,calc(45dvh - 328px),54px) 0 0!important;
+    margin:14px 0 0!important;
     padding-top:0;
   }
   .autoTrain.v53CleanTrain:not(.workoutTransitionScreen) .trainImageSlot,

@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import json
 import math
 import re
 import sys
@@ -16,10 +15,13 @@ from urllib.parse import unquote, urlsplit
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
+from exercise_catalog import read_data_js, read_lifecycle_js, resolve_exercise_catalog
+
 
 REPO = Path(__file__).resolve().parents[1]
 DATA_JS = REPO / "data.js"
 APP_JS = REPO / "app.js"
+LIFECYCLE_JS = REPO / "exercise-lifecycle.js"
 CARDS_ROOT = REPO / "Pilates Assets" / "02_Exercise_Cards"
 OUTPUT_DIR = REPO / "Pilates Assets" / "03_Exports" / "Visual_QA"
 
@@ -37,7 +39,7 @@ OUTPUT_NAMES = (
 # from referenceExerciseAssets in app.js and are never duplicated here.
 POSE_CLASS_BY_ID = {
     **{key: "LYING" for key in "hip figure_four deadbug toetap revcrunch hollow supine_twist chest_fly dumbbell_pullover rollup abduction frog hamstring_supine chest_press glute_bridge_march hip_march heeltaps bicycle sphinx swimming hundred scissors russian legraises spine".split()},
-    **{key: "QUADRUPED" for key in "hydrant bird plank donkey rainbow tap knee_pushup thread catcow childs_pose".split()},
+    **{key: "QUADRUPED" for key in "hydrant bird plank donkey kneeling_hip_extension bear_hover rainbow tap knee_pushup thread catcow childs_pose".split()},
     **{key: "SIDE_FLOOR" for key in "sideleg clam inner_thigh sideplank mermaid sidekick sideplank_reach".split()},
     **{key: "STANDING" for key in "rdl row press raise triceps_kickback chest_opener standing_side_bend plie standing_oblique".split()},
 }
@@ -84,13 +86,7 @@ class Discovery:
 
 
 def read_program() -> dict:
-    text = DATA_JS.read_text(encoding="utf-8").strip()
-    if "=" not in text:
-        raise RuntimeError("data.js nemá očekávaný window.PB40_DATA assignment")
-    payload = text.split("=", 1)[1].strip()
-    if payload.endswith(";"):
-        payload = payload[:-1]
-    return json.loads(payload)
+    return read_data_js(DATA_JS)
 
 
 def active_ids_in_program_order(data: dict) -> list[str]:
@@ -158,7 +154,8 @@ def sha256(path: Path) -> str:
 
 def discover() -> Discovery:
     data = read_program()
-    active_ids = [exercise_id for exercise_id in data["exercises"] if exercise_id != "swan"]
+    catalog = resolve_exercise_catalog(data, read_lifecycle_js(LIFECYCLE_JS))
+    active_ids = catalog.active_ids
     program_ids = active_ids_in_program_order(data)
     blocks = asset_blocks()
     missing: list[str] = []
@@ -167,11 +164,9 @@ def discover() -> Discovery:
     skipped_end_reuse = 0
     skipped_other_duplicates = 0
 
-    if len(active_ids) != 51:
-        ambiguous.append(f"Aktivní katalog má {len(active_ids)} ID místo očekávaných 51")
     for exercise_id in program_ids:
         if exercise_id not in active_ids:
-            ambiguous.append(f"Program používá neaktivní nebo neznámé ID: {exercise_id}")
+            ambiguous.append(f"Program používá DRAFT/INACTIVE nebo neznámé ID: {exercise_id}")
 
     mapped_classes = set(POSE_CLASS_BY_ID)
     active_set = set(active_ids)
@@ -346,7 +341,7 @@ def generate() -> tuple[Discovery, list[Path]]:
 
 
 def watched_snapshot(discovery: Discovery) -> dict[Path, int]:
-    paths = {item.path for item in discovery.items} | {APP_JS, DATA_JS}
+    paths = {item.path for item in discovery.items} | {APP_JS, DATA_JS, LIFECYCLE_JS}
     return {path: path.stat().st_mtime_ns for path in paths if path.exists()}
 
 
