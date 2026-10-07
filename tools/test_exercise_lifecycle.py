@@ -38,12 +38,36 @@ class ExerciseLifecycleTests(unittest.TestCase):
     def test_current_lifecycle_counts_and_program_scope(self) -> None:
         catalog = resolve_exercise_catalog(self.data, self.lifecycle)
         program_ids = set(visual_qa.active_ids_in_program_order(self.data))
-        self.assertEqual(len(catalog.active_ids), 52)
-        self.assertEqual(len(catalog.draft_ids), 15)
+        expected_draft = {
+            "half_kneeling_oblique_crunch",
+            "kneeling_side_plank_leg_lift",
+            "side_plank_knee_drive",
+            "double_leg_stretch",
+            "seated_knee_circles",
+            "banded_frog_pump",
+            "bridge_band",
+        }
+        removed_historical = {
+            "standing_hamstring_curl_band",
+            "calf_raise",
+            "straight_leg_ball_squeeze",
+            "plie_squat_heel_raise",
+            "band_pull_apart",
+            "prone_w",
+            "reverse_plank",
+        }
+        self.assertEqual(len(catalog.active_ids), 53)
+        self.assertEqual(len(catalog.draft_ids), 7)
+        self.assertEqual(set(catalog.draft_ids), expected_draft)
         self.assertEqual(catalog.inactive_ids, ["swan"])
         self.assertTrue(program_ids.isdisjoint(catalog.draft_ids))
+        self.assertTrue(removed_historical.isdisjoint(self.data["exercises"]))
+        self.assertTrue(removed_historical.isdisjoint(catalog.active_ids))
+        self.assertTrue(removed_historical.isdisjoint(catalog.draft_ids))
         self.assertIn("kneeling_hip_extension", catalog.active_ids)
         self.assertNotIn("kneeling_hip_extension", catalog.draft_ids)
+        self.assertIn("bear_hover", catalog.active_ids)
+        self.assertNotIn("bear_hover", catalog.draft_ids)
 
     def test_active_count_is_dynamic(self) -> None:
         baseline = resolve_exercise_catalog(self.data, self.lifecycle)

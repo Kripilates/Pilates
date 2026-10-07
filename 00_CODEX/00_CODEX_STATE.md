@@ -6,16 +6,17 @@
   množina všech exercise metadata kromě explicitních DRAFT/INACTIVE. Pevný
   expected count se nepoužívá; DRAFT nesmí být v programu a ACTIVE zůstává
   fail-fast validovaný.
-- Aktuálně: 52 ACTIVE, 15 DRAFT, 1 INACTIVE (`swan`). Program má 51 unikátních
+- Aktuálně: 53 ACTIVE, 7 DRAFT, 1 INACTIVE (`swan`). Program má 51 unikátních
   ACTIVE ID; `spine` zůstává aktivní v katalogu mimo 30denní plán.
 - `kneeling_hip_extension` je ACTIVE: START/HERO jsou canonical 1536×1024 RGB,
-  END = START, runtime mapping je hotový a camera class je podle MASTER pravidel
-  `QUADRUPED`.
+  END = START, runtime/detail/Guide/Step mapping je hotový, canonical Muscle Card
+  je `glutes_primary_muscles_v01.png` a camera class je `QUADRUPED`.
+- `bear_hover` byl po dokončení celého bundle povýšen DRAFT → ACTIVE: START/HERO
+  jsou canonical 1536×1024 RGB, END = START, Guide/Step i detail jsou hotové,
+  Muscle Card je `core_primary_muscles_v01.png` a camera class je `QUADRUPED`.
 - DRAFT: `half_kneeling_oblique_crunch`, `kneeling_side_plank_leg_lift`,
-  `side_plank_knee_drive`, `bear_hover`, `double_leg_stretch`,
-  `seated_knee_circles`, `banded_frog_pump`, `bridge_band`,
-  `standing_hamstring_curl_band`, `calf_raise`, `straight_leg_ball_squeeze`,
-  `plie_squat_heel_raise`, `band_pull_apart`, `prone_w`, `reverse_plank`.
+  `side_plank_knee_drive`, `double_leg_stretch`,
+  `seated_knee_circles`, `banded_frog_pump`, `bridge_band`.
   Tyto plánované ID nejsou runtime cviky a nepodléhají ACTIVE asset validaci.
 - Muscle Card knihovna: 9 tracked PNG; 1 schválené a nasazené, 8 bez runtime přiřazení nebo bez doloženého finálního approval, 0 nejasných. Necommitnuté pracovní kandidáty se do schváleného součtu nezapočítávají.
 - Runtime Muscle Cards: 1 aktivní cvik s kartou, 50 aktivních cviků v bezpečném OPEN stavu bez karty.

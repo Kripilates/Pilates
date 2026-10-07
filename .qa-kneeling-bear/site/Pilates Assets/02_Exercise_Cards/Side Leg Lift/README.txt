@@ -1,0 +1,1 @@
+Sem bude patřit HERO.png, MASTER.png a NOTES.md pro tento cvik.
