@@ -2117,7 +2117,6 @@ const referenceExerciseAssets={
       mistakes:['Propnutí loktů.','Příliš hluboké spuštění paží.','Zalomení zápěstí.','Švih nebo zvedání ramen k uším.']
     }
   },
-<<<<<<< HEAD
   double_leg_stretch:{
     start:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_hero.png',
@@ -2138,7 +2137,7 @@ const referenceExerciseAssets={
     info:{difficulty:'Střední',focus:'Střed těla',knees:'Bez tlaku na kolena'},
     breath:{inhale:'Při návratu',exhale:'Při protažení',tempo:'Pomalu a plynule'},
     recommendations:{feel:'Stabilní střed těla a kontrolovaný rozsah pohybu.',watch:['Bedra drž stabilní.','Pohyb neuspěchej.'],mistakes:['Prohnutí v bedrech.','Švihání pažemi nebo nohama.']}
-=======
+  },
   bear_hover:{
     start:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_hero.png',
@@ -2185,14 +2184,13 @@ const referenceExerciseAssets={
     recommendations:{
       watch:['Trup drž co nejstabilnější.','Obě nohy veď po kruhu společně.','Nepoužívej švih ani rozhoupání těla.']
     }
->>>>>>> e1453d94a01a3248925e5e19419ae75e47f8afe2
   }
 };
 const exerciseMuscleCardAssignments=Object.freeze({
   abduction:'glutesThighs',
   bicycle:'coreObliques',
   bird:'coreBack',
-  bear_hover:'core',
+  bear_hover:'coreShoulders',
   catcow:'back',
   chest_fly:'chestShouldersArms',
   chest_opener:'chestShouldersArms',
