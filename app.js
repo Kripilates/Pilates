@@ -2088,6 +2088,27 @@ const referenceExerciseAssets={
       watch:['Lokty nech mírně pokrčené.','Ramena drž daleko od uší.','Bedra a pánev drž stabilní.'],
       mistakes:['Propnutí loktů.','Příliš hluboké spuštění paží.','Zalomení zápěstí.','Švih nebo zvedání ramen k uším.']
     }
+  },
+  double_leg_stretch:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Double%20Leg%20Stretch/double_leg_stretch_step_by_step_v01.png',
+    subtitle:'Střed těla • kontrola pánve • dlouhé páky',
+    miniSteps:[
+      {n:1,title:'START',caption:'Výchozí poloha',photo:'start'},
+      {n:2,title:'PROTAŽENÍ',caption:'Paže a nohy od sebe',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda a zpevni střed těla. Paže a nohy drž připravené k pohybu.',photo:'start'},
+      {title:'PROTAŽENÍ',text:'S výdechem natáhni paže a nohy v bezpečném rozsahu bez prohnutí beder.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať paže a nohy plynule do výchozí polohy.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla',knees:'Bez tlaku na kolena'},
+    breath:{inhale:'Při návratu',exhale:'Při protažení',tempo:'Pomalu a plynule'},
+    recommendations:{feel:'Stabilní střed těla a kontrolovaný rozsah pohybu.',watch:['Bedra drž stabilní.','Pohyb neuspěchej.'],mistakes:['Prohnutí v bedrech.','Švihání pažemi nebo nohama.']}
   }
 };
 const exerciseMuscleCardAssignments=Object.freeze({
@@ -2101,6 +2122,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   childs_pose:'back',
   clam:'glutes',
   deadbug:'core',
+  double_leg_stretch:'core',
   donkey:'glutes',
   dumbbell_pullover:'chestBack',
   figure_four:'glutesThighs',
