@@ -27,6 +27,7 @@ let workoutFinalStretch=false;
 let workoutExitDialogOpen=false, workoutExitWasPaused=false, workoutHistoryArmed=false;
 let programCycleDialogOpen=false;
 let programWasCompleteAtWorkoutStart=false, programCompletedByCurrentWorkout=false;
+let pendingSpecialCompletion=null;
 let workoutHistoryGuardSequence=0, workoutHistoryGuardId=null;
 let pendingWorkoutExitDay=null;
 let appHistoryRendering=false, rootExitDialogOpen=false, rootExitAllowed=false;
@@ -35,6 +36,7 @@ let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
 let sideNoticeDone='', sideNoticeNext='';
 const WORKOUT_RESUME_KEY='pb40-workout-resume-v1';
+const SPECIAL_HISTORY_KEY='pb40-special-history-v1';
 const restKey=d=>`pb40-rest-d${d}`;
 const autoLogMetaKey=d=>`pb40-log-auto-${d}`;
 const manualLogMetaKey=d=>`pb40-log-manual-${d}`;
@@ -70,6 +72,8 @@ function appRouteKey(view,params={}){
   if(view==='exercise-detail')return `exercise-detail:${params.exerciseId}:${params.day}:${params.exercise}`;
   if(view==='exercise-library-category')return `exercise-library-category:${params.category}`;
   if(view==='workout')return `workout:${params.day}`;
+  if(view==='special-category')return `special-category:${params.category}`;
+  if(view==='special-workout')return `special-workout:${params.category}:${params.variant}`;
   return view;
 }
 function setAppView(view,params={},opts={}){
@@ -174,7 +178,7 @@ function showWorkoutExitDialog(){
   app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay" role="dialog" aria-modal="true" aria-labelledby="workoutExitTitle">
     <div class="workoutExitDialog">
       <h2 id="workoutExitTitle">Ukončit trénink?</h2>
-      <p>Průběh zůstane uložený a můžeš se vrátit přesně tam, kde končíš.</p>
+      <p>${isSpecialWorkout()?'Průběh tohoto Spešlu se po ukončení neukládá.':'Průběh zůstane uložený a můžeš se vrátit přesně tam, kde končíš.'}</p>
       <button class="primary" data-action="continue-workout">Pokračovat v tréninku</button>
       <button class="workoutExitConfirm" data-action="confirm-stop-auto">Ukončit trénink</button>
     </div>
@@ -191,7 +195,8 @@ function continueWorkoutFromDialog(){
 function exitWorkoutToDay(){
   document.querySelector('.workoutExitOverlay')?.remove();
   workoutExitDialogOpen=false;
-  saveWorkoutResumeState();
+  const specialCategory=workoutContext?.specialCategory||'';
+  if(!isSpecialWorkout())saveWorkoutResumeState();
   clearInterval(timer);
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
@@ -201,6 +206,10 @@ function exitWorkoutToDay(){
   workoutHistoryArmed=false;
   workoutHistoryGuardId=null;
   void releaseWorkoutWakeLock();
+  if(specialCategory){
+    clearWorkoutHistoryGuard();
+    return showSpecialCategory(specialCategory,{replaceRoute:true});
+  }
   pendingWorkoutExitDay=currentDay;
   history.go(-2);
 }
@@ -357,6 +366,26 @@ function createWorkoutContext(di){
     stretch:resolvedDayStretch(di,difficulty)
   };
 }
+function isSpecialWorkout(){return workoutContext?.kind==='special';}
+function currentWorkoutItems(){return workoutContext?.items||resolvedDayItems(currentDay,workoutContext?.difficulty);}
+function currentWorkoutStretch(){return isSpecialWorkout()?null:(workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty));}
+function currentWorkoutDay(){return isSpecialWorkout()?{title:workoutContext.title,items:currentWorkoutItems(),stretch:null}:data.days[currentDay];}
+function specialWorkout(categoryId,variantId){
+  const category=data.specialWorkouts?.[categoryId];
+  const variant=category?.variants?.[variantId];
+  return category&&variant?{category,variant}:null;
+}
+function resolvedSpecialItems(categoryId,variantId,difficulty=effectiveProgramDifficulty()){
+  const selected=specialWorkout(categoryId,variantId);
+  return selected?selected.variant.items.map(([id,dose])=>[id,resolveDose(dose,difficulty)]):[];
+}
+function specialWorkoutHistory(){
+  try{
+    const history=JSON.parse(localStorage.getItem(SPECIAL_HISTORY_KEY)||'[]');
+    return Array.isArray(history)?history.filter(record=>record&&typeof record==='object').slice(-100):[];
+  }catch(e){return []}
+}
+function saveSpecialWorkoutHistory(history){localStorage.setItem(SPECIAL_HISTORY_KEY,JSON.stringify(history.slice(-100)));}
 function activeWorkoutElapsedMs(at=Date.now()){
   if(!workoutContext)return 0;
   const accumulated=Math.max(0,Number(workoutContext.activeElapsedMs)||0);
@@ -582,6 +611,16 @@ function workoutNotesHistory(){
 function saveWorkoutNote(){
   const mood=document.querySelector('.moodRow button.selected')?.dataset.mood||'';
   const text=document.getElementById('finish-note')?.value?.trim()||'';
+  if(pendingSpecialCompletion){
+    const history=specialWorkoutHistory();
+    const index=history.findIndex(record=>record.id===pendingSpecialCompletion.id);
+    const record={...pendingSpecialCompletion,mood,text};
+    if(index>=0)history[index]=record;
+    else history.push(record);
+    saveSpecialWorkoutHistory(history);
+    pendingSpecialCompletion=null;
+    return home();
+  }
   const arr=workoutNotes();
   arr.push({date:todayKey(),day:currentDay,title:data.days[currentDay].title,mood,text});
   saveWorkoutNotes(arr.slice(-60));
@@ -2742,20 +2781,22 @@ function programInfo(){
   scrollTop();
 }
 const homeFocusCards=Object.freeze([
-  Object.freeze({label:'Břicho + pas',image:'Pilates%20Assets/04_Home/Body_Focus/abdomen_waist.png'}),
-  Object.freeze({label:'Hýždě',image:'Pilates%20Assets/04_Home/Body_Focus/glutes.png'}),
-  Object.freeze({label:'Nohy',image:'Pilates%20Assets/04_Home/Body_Focus/legs.png'}),
-  Object.freeze({label:'Horní část + paže',image:'Pilates%20Assets/04_Home/Body_Focus/upper_body_arms.png'})
+  Object.freeze({id:'core',label:'Břicho + pas',image:'Pilates%20Assets/04_Home/Body_Focus/abdomen_waist.png'}),
+  Object.freeze({id:'lower',label:'Nohy + hýždě',image:'Pilates%20Assets/04_Home/Body_Focus/legs.png'}),
+  Object.freeze({id:'upper',label:'Horní část těla',image:'Pilates%20Assets/04_Home/Body_Focus/upper_body_arms.png'})
 ]);
-function showHomeFocusComingSoon(){
-  document.querySelector('.homeFocusComingSoon')?.remove();
-  app.insertAdjacentHTML('beforeend',`<div class="workoutExitOverlay homeFocusComingSoon" role="dialog" aria-modal="true" aria-labelledby="homeFocusComingSoonTitle">
-    <div class="workoutExitDialog">
-      <h2 id="homeFocusComingSoonTitle">Připravujeme</h2>
-      <p>Trénink pro tuto partii pro tebe právě připravujeme.</p>
-      <button class="primary" data-action="close-home-focus-coming-soon">Rozumím</button>
-    </div>
-  </div>`);
+function showSpecialCategory(categoryId,opts={}){
+  const category=data.specialWorkouts?.[categoryId];
+  if(!category)return home();
+  if(!opts.skipRoute)setAppView('special-category',{category:categoryId},{replace:Boolean(opts.replaceRoute)});
+  lastMode='special';setNav('home');
+  const difficulty=effectiveProgramDifficulty();
+  const variants=Object.entries(category.variants).map(([variantId,variant])=>{
+    const items=variant.items.map(([id,dose],index)=>`<li><span>${index+1}. ${esc(data.exercises[id]?.name||id)}</span><b>${esc(resolveDose(dose,difficulty))}</b></li>`).join('');
+    return `<article class="specialVariantCard"><div class="specialVariantHead"><div><p>Varianta ${variantId}</p><h2>${esc(category.title)}</h2></div><span>${difficultySets(difficulty)} série</span></div><ol>${items}</ol><button class="primary" data-action="start-special" data-category="${categoryId}" data-variant="${variantId}">Začít Spešl ${variantId}</button></article>`;
+  }).join('');
+  app.innerHTML=`<div class="specialWorkoutPage"><div class="specialWorkoutTop"><button class="libraryBack appBackButton" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><div><p class="eyebrow">Spešl tréninky</p><h1>${esc(category.title)}</h1><small>Obtížnost: ${esc(difficultyLabel(difficulty))}</small></div></div><div class="specialVariantGrid">${variants}</div></div>`;
+  scrollTop();
 }
 function home(){
   if(maybeStartRequiredOnboarding())return;
@@ -2789,9 +2830,9 @@ function home(){
   const heroCopy=resumeState
     ? `<div class="homeResumeMeta"><p class="eyebrow">${heroEyebrow}</p><p class="homeMainDetail">${heroDetail}</p></div><h2>${esc(visibleHeroTitle)}</h2>`
     : `<p class="eyebrow">${heroEyebrow}</p><h2>${esc(visibleHeroTitle)}</h2><p class="homeMainDetail">${heroDetail}</p>${heroEquipment}`;
-  const focusCards=homeFocusCards.map(({label,image})=>{
+  const focusCards=homeFocusCards.map(({id,label,image})=>{
     const src=deploymentImageUrl(image);
-    return `<button class="homeFocusCard" type="button" data-action="home-focus-coming-soon" aria-label="${esc(label)} – připravujeme"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
+    return `<button class="homeFocusCard" type="button" data-action="special-category" data-category="${id}" aria-label="${esc(label)} – vybrat trénink"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
   }).join('');
   const completedTrainingLabel=czechCountLabel(summary.daysComplete,'dokončený trénink','dokončené tréninky','dokončených tréninků');
   app.innerHTML=`<div class="homeDashboard">
@@ -3094,6 +3135,7 @@ function repairWorkoutResumeProgressConflict(state){
   return saved;
 }
 function saveWorkoutResumeState(){
+  if(isSpecialWorkout())return;
   if(!workoutRunning||!workoutContext||!data.days[currentDay]?.items?.length)return;
   clearWorkoutDayProgress(currentDay);
   const resumeContext={
@@ -3170,12 +3212,12 @@ function restoreWorkoutState(state){
 }
 function currentWorkoutEntry(){
   if(workoutFinalStretch){
-    return workoutContext?.stretch || resolvedDayStretch(currentDay,workoutContext?.difficulty) || [];
+    return currentWorkoutStretch() || [];
   }
   return workoutContext?.items?.[currentExercise] || resolvedDayItems(currentDay,workoutContext?.difficulty)[currentExercise] || [];
 }
 function finishWorkoutDay(){
-  currentExercise=Math.max(0,data.days[currentDay].items.length-1);
+  currentExercise=Math.max(0,currentWorkoutItems().length-1);
   clearInterval(timer);
   pauseActiveWorkoutTime();
   workoutRunning=false;
@@ -3190,7 +3232,7 @@ function finishWorkoutDay(){
   workoutContext=null;
 }
 function beginFinalStretch(){
-  if(!(workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty))){
+  if(!currentWorkoutStretch()){
     finishWorkoutDay();
     return;
   }
@@ -3271,6 +3313,36 @@ function startTraining(di,auto=true,opts={}){
   beginCurrentExercise();
   void requestWorkoutWakeLock();
 }
+function startSpecialTraining(categoryId,variantId){
+  if(maybeStartRequiredOnboarding())return;
+  const selected=specialWorkout(categoryId,variantId);
+  if(!selected)return showSpecialCategory(categoryId);
+  const difficulty=effectiveProgramDifficulty();
+  const items=resolvedSpecialItems(categoryId,variantId,difficulty);
+  if(!items.length||items.some(([id])=>!data.exercises[id]))return showSpecialCategory(categoryId);
+  void unlockAudio();
+  clearInterval(timer);
+  clearWorkoutHistoryGuard();
+  setAppView('special-workout',{category:categoryId,variant:variantId});
+  workoutAuto=true;
+  workoutRunning=true;
+  workoutPaused=false;
+  programWasCompleteAtWorkoutStart=isProgramComplete();
+  programCompletedByCurrentWorkout=false;
+  workoutCurrentSet=1;
+  workoutContext={
+    kind:'special',specialCategory:categoryId,specialVariant:variantId,
+    title:selected.variant.title,difficulty,startedAt:Date.now(),activeElapsedMs:0,activeSince:null,
+    totalSets:difficultySets(difficulty),items,stretch:null
+  };
+  workoutTotalSets=workoutContext.totalSets;
+  workoutFinalStretch=false;
+  lastMode='train';setNav('train');
+  currentDay=0;
+  currentExercise=0;
+  beginCurrentExercise();
+  void requestWorkoutWakeLock();
+}
 
 function timerCircleStyle(){
   const [k,dose]=currentWorkoutEntry();
@@ -3324,14 +3396,14 @@ function currentInstruction(ex,dose){
   if(info.side && (workoutPhase==='left'||workoutPhase==='right'))return `${currentSideLabel(info)}.`;
   return '';
 }
-function setProgressText(){return `Série ${workoutCurrentSet} ze ${workoutTotalSets} • Cvik ${currentExercise+1}/${data.days[currentDay].items.length}`;}
+function setProgressText(){return `Série ${workoutCurrentSet} ze ${workoutTotalSets} • Cvik ${currentExercise+1}/${currentWorkoutItems().length}`;}
 function showSeriesRest(){
-  const dayObj=data.days[currentDay];
+  const dayObj=currentWorkoutDay();
   const completedSet=Math.max(1,workoutCurrentSet-1);
   const progress=Math.min(100, Math.round((completedSet*dayObj.items.length/Math.max(1,dayObj.items.length*workoutTotalSets))*100));
   const restProgress=Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SERIES_REST_SECONDS)*100));
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain seriesRestScreen workoutTransitionScreen" data-current-day="${currentDay}" data-current-index="${currentExercise}">
-    <div class="trainTop2 trainTop2--compact"><span class="dose">Den ${currentDay+1} \u2022 Pauza mezi s\u00e9riemi</span></div>
+    <div class="trainTop2 trainTop2--compact"><span class="dose">${isSpecialWorkout()?`Spešl ${workoutContext.specialVariant}`:`Den ${currentDay+1}`} \u2022 Pauza mezi s\u00e9riemi</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="workoutTransitionState" role="status" aria-live="polite">
       <div class="workoutBrandMark" aria-hidden="true"><img src="00_CHATGPT_START/MASTER/02_REFERENCES/BRAND/MooVka_M_FINAL.svg" alt=""></div>
@@ -3346,8 +3418,11 @@ function showSeriesRest(){
   scrollTop();
 }
 function showAutoTrain(opts={}){
-  const dayObj=data.days[currentDay];
-  if(!dayObj.items.length){day(currentDay);return;}
+  const dayObj=currentWorkoutDay();
+  if(!dayObj?.items?.length){
+    if(isSpecialWorkout())return showSpecialCategory(workoutContext.specialCategory);
+    day(currentDay);return;
+  }
   if(workoutPhase==='roundRest')return showSeriesRest();
   const [k,dose]=currentWorkoutEntry(),ex=data.exercises[k],info=sideInfo(dose);
   if(!ex){day(currentDay);return;}
@@ -3379,9 +3454,10 @@ function showAutoTrain(opts={}){
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
   const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button>`;
   const workoutPosition=Math.min(dayObj.items.length,currentExercise+1);
+  const workoutScopeLabel=isSpecialWorkout()?`Spešl ${workoutContext.specialVariant}`:`Den ${currentDay+1}`;
   const topLabel=workoutFinalStretch
-    ? `<strong class="workoutStatusPrimary workoutStatusPrimary--stretch">ZÁVĚREČNÉ PROTAŽENÍ</strong><small class="workoutStatusSecondary">Den ${currentDay+1} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
-    : `<strong class="workoutStatusPrimary">Den ${currentDay+1} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</strong><small class="workoutStatusSecondary">Cvik ${workoutPosition} z ${dayObj.items.length}</small>`;
+    ? `<strong class="workoutStatusPrimary workoutStatusPrimary--stretch">ZÁVĚREČNÉ PROTAŽENÍ</strong><small class="workoutStatusSecondary">${workoutScopeLabel} • ${workoutTotalSets} s\u00e9rie dokon\u010den\u00e9</small>`
+    : `<strong class="workoutStatusPrimary">${workoutScopeLabel} • S\u00e9rie ${workoutCurrentSet} ze ${workoutTotalSets}</strong><small class="workoutStatusSecondary">Cvik ${workoutPosition} z ${dayObj.items.length}</small>`;
   const existing=document.querySelector('.autoTrain');
   const canPatchExisting=existing && !opts.resetScroll && existing.dataset.currentExercise===k && Number(existing.dataset.currentDay)===currentDay && Number(existing.dataset.currentIndex)===currentExercise && existing.dataset.finalStretch===(workoutFinalStretch?'1':'0') && (existing.dataset.workoutPhase==='switch')===(workoutPhase==='switch');
   if(canPatchExisting){
@@ -3468,7 +3544,7 @@ function startNextExerciseOrRound(){
     startWorkoutTimer();
     return;
   }
-  if(workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty)){
+  if(currentWorkoutStretch()){
     beginFinalStretch();
     return;
   }
@@ -3572,21 +3648,34 @@ function skipAuto(){
 
 function doneNext(mark=true){
   setWorkoutHeaderPosition(false);
+  const specialContext=isSpecialWorkout()?{...workoutContext}:null;
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
-  const completedStretch=workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty);
-  const dayTitle=data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
+  const completedStretch=currentWorkoutStretch();
+  const dayTitle=specialContext?.title||data.days[currentDay].title.replace(/^Den\s+\d+\s*•\s*/i,'');
   const completedCount=completedItems.length;
   const activeElapsedMs=activeWorkoutElapsedMs();
   const elapsedMinutes=Math.max(1,Math.round(activeElapsedMs/60000));
   const exerciseSnapshot=[...completedItems,...(completedStretch?[completedStretch]:[])]
     .map(([id])=>({id,name:data.exercises[id]?.name||id}));
-  completeWorkoutDayProgress(currentDay,{
-    elapsedMinutes,
-    programDayNumber:currentDay+1,
-    programDayTitle:dayTitle,
-    exercises:exerciseSnapshot
-  });
-  programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
+  if(specialContext){
+    const record={
+      id:`special-${Date.now()}`,date:todayKey(),completedAt:new Date().toISOString(),
+      category:specialContext.specialCategory,variant:specialContext.specialVariant,
+      title:dayTitle,difficulty:specialContext.difficulty,sets:workoutTotalSets,
+      elapsedMinutes,exercises:exerciseSnapshot,mood:'',text:''
+    };
+    saveSpecialWorkoutHistory([...specialWorkoutHistory(),record]);
+    pendingSpecialCompletion=record;
+    programCompletedByCurrentWorkout=false;
+  }else{
+    completeWorkoutDayProgress(currentDay,{
+      elapsedMinutes,
+      programDayNumber:currentDay+1,
+      programDayTitle:dayTitle,
+      exercises:exerciseSnapshot
+    });
+    programCompletedByCurrentWorkout=!programWasCompleteAtWorkoutStart&&isProgramComplete();
+  }
   app.innerHTML=`<section class="finishExperience">
     <div class="finishCompletionProgress" role="progressbar" aria-label="Dokončený den" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><i></i></div>
     <div class="finishHero">
@@ -3597,7 +3686,7 @@ function doneNext(mark=true){
       </div>
     </div>
     <div class="finishContent">
-      <p class="finishDayMeta">Den ${currentDay+1} \u2022 ${esc(dayTitle)}</p>
+      <p class="finishDayMeta">${specialContext?`Spešl ${esc(specialContext.specialVariant)} \u2022 ${esc(dayTitle)}`:`Den ${currentDay+1} \u2022 ${esc(dayTitle)}`}</p>
       <div class="finishSummary" aria-label="Souhrn tr\u00e9ninku">
         <div><b>${completedCount}</b><span>${czechCountLabel(completedCount,'cvik','cviky','cvik\u016f')}</span></div>
         <div><b>${workoutTotalSets}</b><span>${czechCountLabel(workoutTotalSets,'s\u00e9rie','s\u00e9rie','s\u00e9ri\u00ed')}</span></div>
@@ -3942,6 +4031,8 @@ function renderAppState(state){
       case 'favourites': exerciseLibrary('favorites',true); break;
       case 'progress': progressTracker(); break;
       case 'stats': showStats(); break;
+      case 'special-category': showSpecialCategory(state.category,{skipRoute:true}); break;
+      case 'special-workout': showSpecialCategory(state.category,{skipRoute:true}); break;
       case 'workout': day(Number(state.day)||0); break;
       case 'workout-resume': showWorkoutResumeChoice(Number(state.day)||0,{skipRoute:true}); break;
       default: home();
@@ -4006,11 +4097,8 @@ app.addEventListener('click',e=>{
   if(a==='dismiss-program-completion'){programCompletedByCurrentWorkout=false;return home();}
   if(a==='history-back'){history.back();return;}
   if(a==='home')return home();
-  if(a==='home-focus-coming-soon')return showHomeFocusComingSoon();
-  if(a==='close-home-focus-coming-soon'){
-    t.closest('.homeFocusComingSoon')?.remove();
-    return;
-  }
+  if(a==='special-category')return showSpecialCategory(t.dataset.category);
+  if(a==='start-special')return startSpecialTraining(t.dataset.category,t.dataset.variant);
   if(a==='intro-start'){markIntroSeen();return startTraining(0,true);}
   if(a==='choose-difficulty'){
     if(!setProgramDifficulty(t.dataset.difficulty))return;
