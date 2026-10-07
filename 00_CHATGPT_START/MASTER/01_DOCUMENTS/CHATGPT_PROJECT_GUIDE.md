@@ -22,8 +22,10 @@ Priority:
 
 ## Aktuální stav
 
-- Aktivní program obsahuje přesně **51 canonical exercise IDs** z `data.js`.
-- `swan` je historický/inaktivní a do aktivního součtu nepatří.
+- ACTIVE runtime katalog se dynamicky odvozuje z `data.js` a
+  `exercise-lifecycle.js`; žádný pevný počet není invariant.
+- Program smí obsahovat pouze ACTIVE ID; `swan` je INACTIVE a do runtime
+  katalogu nepatří.
 - `dumbbell_pullover` je aktivní.
 - Detailní stav SOURCE, Guide, Step, Muscle Card a mappingu je pouze v
   `EXERCISE_PROGRESS.md`.

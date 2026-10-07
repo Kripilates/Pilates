@@ -55,9 +55,6 @@ def generate(output_dir: Path, cache_dir: Path) -> tuple[int, int, list[Path]]:
     problems = [*inventory.missing, *inventory.ambiguous]
     if problems:
         raise RuntimeError("Canonical SOURCE inventory není jednoznačný:\n- " + "\n- ".join(problems))
-    if len(inventory.active_ids) != 51:
-        raise RuntimeError(f"Očekáváno 51 aktivních cviků, nalezeno {len(inventory.active_ids)}")
-
     blocks = asset_blocks()
     hero_by_id = {}
     hero_pattern = re.compile(r"(?m)^    hero:'((?:\\'|[^'])*)',?$")

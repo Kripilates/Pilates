@@ -10,7 +10,7 @@ instrukce. Pro konkrétní práci platí:
 - `IMAGE_WORKFLOW.md` — tvorba, opravy, QA, approval a deployment;
 - `MASTER_IMAGE_CHECKLIST.md` — povinný checklist;
 - `MASTER_ANATOMY.md` — Muscle Cards;
-- `EXERCISE_PROGRESS.md` — aktuální stav 51 aktivních cviků;
+- `EXERCISE_PROGRESS.md` — aktuální stav dynamické ACTIVE množiny cviků;
 - `DESIGN_STANDARD.md` — layout detailu aplikace;
 - `CODEX_WORKFLOW.md` — repo práce.
 
@@ -76,5 +76,5 @@ Commit a push se provádějí pouze po výslovném pokynu uživatele.
 
 Aktuální stav se zjišťuje z runtime a `EXERCISE_PROGRESS.md`. Historický log,
 archiv nebo starý Guide/Step může vysvětlovat minulost, ale nesmí přepsat
-současný MASTER. Aktivní program má 51 canonical IDs; `swan` je inactive a
+současný MASTER. ACTIVE runtime katalog nemá pevný expected count; `swan` je inactive a
 `dumbbell_pullover` active.

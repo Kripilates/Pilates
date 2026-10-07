@@ -30,7 +30,7 @@ určují daný typ obrázku.
 4. `MASTER/01_DOCUMENTS/MASTER_IMAGE_CHECKLIST.md` — povinný kontrolní seznam
    před a po každém novém nebo upraveném obrázku.
 5. `MASTER/01_DOCUMENTS/EXERCISE_PROGRESS.md` — canonical detailní inventura
-   aktuálních 51 aktivních exercise IDs a jejich assetů.
+   aktuální dynamické ACTIVE množiny exercise IDs a jejich assetů.
 6. Při práci s Muscle Cards navíc:
    - `MASTER/01_DOCUMENTS/MASTER_ANATOMY.md`
    - `MASTER/01_DOCUMENTS/MUSCLE_CARD_PROFILE_AUDIT.md`
@@ -60,8 +60,10 @@ starších stavech a chatech nejsou autoritou; rozhoduje aktuální runtime a
 
 ## Základní pravidla
 
-- Aktivní program má **51 canonical exercise IDs**.
-- `swan` je historický/inaktivní a do aktivního součtu nepatří.
+- ACTIVE runtime katalog se dynamicky odvozuje z `data.js` a
+  `exercise-lifecycle.js`; nemá pevný očekávaný počet.
+- Program smí používat pouze ACTIVE ID. `swan` je INACTIVE a do runtime
+  katalogu ani aktivního součtu nepatří.
 - `dumbbell_pullover` je aktivní.
 - Aktivní SOURCE používají unversioned názvy; `_v01`, `_v02` apod. nejsou
   výchozí naming pro nové SOURCE.

@@ -1,7 +1,10 @@
 (function(){
 const app=document.getElementById('app'),data=window.PB40_DATA;
 const APP_VERSION='v59.207-dev';
-const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>id!=='swan'));
+const exerciseLifecycle=window.MOOVKA_EXERCISE_LIFECYCLE;
+if(!exerciseLifecycle||!Array.isArray(exerciseLifecycle.draft)||!Array.isArray(exerciseLifecycle.inactive))throw new Error('Chybí platný exercise lifecycle');
+const nonRuntimeExerciseIds=new Set([...(exerciseLifecycle.draft||[]),...(exerciseLifecycle.inactive||[])]);
+const activeExerciseIds=Object.freeze(Object.keys(data.exercises).filter(id=>!nonRuntimeExerciseIds.has(id)));
 const activeExerciseIdSet=new Set(activeExerciseIds);
 const DEPLOYMENT_ID=document.querySelector('meta[name="moovka-deployment"]')?.content||'local-dev';
 function deploymentImageUrl(src){
@@ -917,6 +920,26 @@ const referenceExerciseAssets={
       feel:'Práci v hýždích, aktivní střed těla a stabilní pánev bez tlaku v bedrech.',
       watch:['Pánev drž stabilní a vodorovnou.','Břicho nech aktivní a ramena daleko od uší.','Pohyb veď z kyčle bez švihu.'],
       mistakes:['Prohýbání beder.','Vytáčení pánve.','Zvedání nohy příliš vysoko.','Švihání nohou místo kontrolovaného pohybu.']
+    }
+  },
+  kneeling_hip_extension:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Hip%20Extension/kneeling_hip_extension_start.png',
+    subtitle:'Hýždě • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Na všech čtyřech',photo:'start'},
+      {n:2,title:'ZANOŽENÍ',caption:'Natažená noha vzhůru',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Začni na všech čtyřech. Dlaně dej pod ramena, kolena pod kyčle a jednu nohu natáhni dozadu.',photo:'start'},
+      {title:'ZANOŽENÍ',text:'S výdechem zvedni nataženou nohu kontrolovaně do výšky trupu. Pánev drž vodorovnou a střed těla aktivní.',photo:'hero'},
+      {title:'NÁVRAT',text:'S nádechem vrať nohu pomalu dolů bez položení. Dokonči opakování na jedné straně a potom vystřídej.',photo:'start'}
+    ],
+    recommendations:{
+      feel:'Práci v hýždích a stabilní pánev při kontrolovaném zanožení.',
+      watch:['Pánev drž stabilní a vodorovnou.','Břicho nech aktivní a záda neutrální.','Nohu zvedej z kyčle bez švihu.']
     }
   },
   frog:{

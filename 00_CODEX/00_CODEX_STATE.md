@@ -1,9 +1,22 @@
 # 00_CODEX_STATE
 
-## Aktuální stav — image workflow a inventura 2026-09-17
+## Aktuální stav — ACTIVE/DRAFT katalog 2026-10-07
 
-- Aktivní program obsahuje přesně 51 unikátních ID; `swan` je mimo program a `dumbbell_pullover` je aktivní.
-- Obrazové SOURCE: 51 nové prostředí, 0 rozpracovaných mappingů, 0 starých prostředí, 0 chybějících aktivních bundle.
+- Runtime katalog používá canonical `exercise-lifecycle.js`: ACTIVE je dynamická
+  množina všech exercise metadata kromě explicitních DRAFT/INACTIVE. Pevný
+  expected count se nepoužívá; DRAFT nesmí být v programu a ACTIVE zůstává
+  fail-fast validovaný.
+- Aktuálně: 52 ACTIVE, 15 DRAFT, 1 INACTIVE (`swan`). Program má 51 unikátních
+  ACTIVE ID; `spine` zůstává aktivní v katalogu mimo 30denní plán.
+- `kneeling_hip_extension` je ACTIVE: START/HERO jsou canonical 1536×1024 RGB,
+  END = START, runtime mapping je hotový a camera class je podle MASTER pravidel
+  `QUADRUPED`.
+- DRAFT: `half_kneeling_oblique_crunch`, `kneeling_side_plank_leg_lift`,
+  `side_plank_knee_drive`, `bear_hover`, `double_leg_stretch`,
+  `seated_knee_circles`, `banded_frog_pump`, `bridge_band`,
+  `standing_hamstring_curl_band`, `calf_raise`, `straight_leg_ball_squeeze`,
+  `plie_squat_heel_raise`, `band_pull_apart`, `prone_w`, `reverse_plank`.
+  Tyto plánované ID nejsou runtime cviky a nepodléhají ACTIVE asset validaci.
 - Muscle Card knihovna: 9 tracked PNG; 1 schválené a nasazené, 8 bez runtime přiřazení nebo bez doloženého finálního approval, 0 nejasných. Necommitnuté pracovní kandidáty se do schváleného součtu nezapočítávají.
 - Runtime Muscle Cards: 1 aktivní cvik s kartou, 50 aktivních cviků v bezpečném OPEN stavu bez karty.
 - Osm mrtvých legacy definic a všechna jejich přiřazení byla odstraněna; runtime nemá žádnou cestu na neexistující Muscle Card PNG.

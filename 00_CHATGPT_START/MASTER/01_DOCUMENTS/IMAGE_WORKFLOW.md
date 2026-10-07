@@ -349,8 +349,10 @@ Fyzický END se nevytváří jen proto, že runtime obsahuje návratovou fázi.
 
 ## 15. Global library QA
 
-Aktivní program má 51 canonical IDs. `swan` je mimo aktivní program a do hlavní
-galerie nepatří. Pro globální vizuální audit používej pouze aktuální SOURCE,
+Runtime katalog používá lifecycle z `exercise-lifecycle.js`. ACTIVE množina se
+dynamicky odvozuje jako všechna ID v `data.js` kromě explicitních `draft` a
+`inactive`; nemá pevný očekávaný počet. `swan` je INACTIVE a do hlavní galerie
+nepatří. Pro globální vizuální audit používej pouze aktuální SOURCE,
 nikoli Guide/Step/Muscle/archiv:
 
 - `Pilates Assets/03_Exports/Visual_QA/MOOVKA_SOURCE_GALLERY_ALL_01.png`
@@ -368,18 +370,38 @@ jen kvůli pixelové uniformitě.
 
 Galerie jsou generované soubory a nesmí se ručně editovat. Jejich jediným
 obrazovým zdrojem jsou aktuální canonical SOURCE přímo v
-`Pilates Assets/02_Exercise_Cards/<Exercise>/`. Aktivní ID se načítají z programu
-v `data.js` a přesné START/HERO/MID/HERO_OPPOSITE/END cesty z
+`Pilates Assets/02_Exercise_Cards/<Exercise>/`. ACTIVE ID se načítají z
+canonical `exercise-lifecycle.js` + katalogu v `data.js` a přesné
+START/HERO/MID/HERO_OPPOSITE/END cesty z
 `referenceExerciseAssets` v `app.js`; historické kandidáty se nevybírají podle
 názvu ani stáří. END shodný se START se do galerie podruhé nevkládá.
 
 Po nahrazení SOURCE pod stejným canonical filename stačí spustit z kořene
 repozitáře `GENERATE_VISUAL_QA.bat`. Generátor
-`tools/generate_visual_qa.py` načte aktuální soubory, zvaliduje 51 aktivních ID,
-case cest, chybějící a nejednoznačné mappingy a přegeneruje celý obsah výše
+`tools/generate_visual_qa.py` načte aktuální soubory, dynamicky odvodí ACTIVE ID,
+zvaliduje case cest, chybějící a nejednoznačné mappingy a přegeneruje celý obsah výše
 uvedených galerií. Volitelný watch režim lze spustit příkazem
 `python tools/generate_visual_qa.py --watch`. QA galerie nejsou runtime assets a
 aplikace je nikdy nenačítá.
+
+### ACTIVE / DRAFT / INACTIVE lifecycle
+
+- **ACTIVE**: každé exercise ID, které není explicitně uvedené v `draft` ani
+  `inactive`. Je součástí runtime katalogu a musí fail-fast projít všemi
+  současnými kontrolami `referenceExerciseAssets`, povinných SOURCE, přesného
+  case cest a camera/pose class.
+- **DRAFT**: plánovaný nebo rozpracovaný cvik explicitně uvedený v
+  `exercise-lifecycle.js`. Lifecycle registr může vzniknout ještě před metadata
+  záznamem. DRAFT smí postupně získat metadata nebo assety, ale nesmí být v
+  programu ani runtime katalogu; neúplný bundle produkční build neshodí.
+- **INACTIVE**: historický nebo odpojený cvik. Smí zůstat v datech a archivech,
+  ale nesmí vstupovat do programu ani runtime katalogu.
+
+Výchozí stav nového nezařazeného ID je záměrně ACTIVE (fail-closed). Pokud má
+být nový záznam zatím rozpracovaný, musí být současně a výslovně přidán do
+`draft`. Přesun DRAFT → ACTIVE se provede jeho odebráním z `draft` až po
+dokončení runtime mappingu, SOURCE a camera/pose class. Nikde se kvůli tomu
+nemění očekávaný číselný počet ACTIVE cviků.
 
 ## 16. Dokumentace po změně
 

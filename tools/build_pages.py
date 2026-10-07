@@ -13,7 +13,7 @@ from generate_library_thumbnails import generate
 from generate_visual_qa import REPO
 
 
-ROOT_FILES = ("index.html", "app.js", "data.js", "style.css", "manifest.json", "sw.js", ".nojekyll")
+ROOT_FILES = ("index.html", "app.js", "data.js", "exercise-lifecycle.js", "style.css", "manifest.json", "sw.js", ".nojekyll")
 RUNTIME_DIRECTORIES = (
     Path("assets"),
     Path("Pilates Assets/01_Master_Reference"),

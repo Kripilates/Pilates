@@ -11,7 +11,9 @@ Accepted
 
 Důsledky:
 - `MASTER_REFERENCE.md` určuje vizuální konstanty, nikoli paralelní workflow.
-- `EXERCISE_PROGRESS.md` je jediná detailní stavová inventura 51 aktivních ID.
+- `EXERCISE_PROGRESS.md` je jediná detailní stavová inventura dynamické ACTIVE
+  množiny; runtime lifecycle je canonical v `exercise-lifecycle.js` a nemá
+  pevný očekávaný počet.
 - Před generováním se vždy rozlišuje skutečně chybějící SOURCE od mapping bugu.
 - Aktivní SOURCE používá unversioned naming; historické názvy se nepřenášejí do
   nových instrukcí.

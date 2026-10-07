@@ -12,6 +12,7 @@ const SHELL_URLS = [
   './',
   'index.html',
   `style.css?v=${ASSET_VERSION}`,
+  `exercise-lifecycle.js?v=${ASSET_VERSION}`,
   `data.js?v=${ASSET_VERSION}`,
   `app.js?v=${ASSET_VERSION}`,
   `manifest.json?v=${ASSET_VERSION}`,

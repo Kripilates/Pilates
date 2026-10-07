@@ -1,0 +1,1 @@
+window.MOOVKA_EXERCISE_LIFECYCLE={"draft":["half_kneeling_oblique_crunch","kneeling_side_plank_leg_lift","side_plank_knee_drive","bear_hover","double_leg_stretch","seated_knee_circles","banded_frog_pump","bridge_band","standing_hamstring_curl_band","calf_raise","straight_leg_ball_squeeze","plie_squat_heel_raise","band_pull_apart","prone_w","reverse_plank"],"inactive":["swan"]};
