@@ -2655,13 +2655,14 @@ function estimatedDoseSeconds(k,dose){
   return match?Number(match[1])*ESTIMATED_REP_SECONDS:0;
 }
 function estimatedWorkoutMinutes(di,difficulty=effectiveProgramDifficulty()){
-  const items=resolvedDayItems(di,difficulty);
+  return estimatedMinutesForItems(resolvedDayItems(di,difficulty),difficulty,resolvedDayStretch(di,difficulty));
+}
+function estimatedMinutesForItems(items,difficulty=effectiveProgramDifficulty(),stretch=null){
   if(!items.length)return 0;
   const sets=difficultySets(difficulty);
   const perSetSeconds=items.reduce((total,[k,dose])=>total+WORKOUT_PREP_SECONDS+estimatedDoseSeconds(k,dose),0)
     + Math.max(0,items.length-1)*ESTIMATED_TRANSITION_SECONDS;
   let totalSeconds=perSetSeconds*sets+Math.max(0,sets-1)*WORKOUT_SERIES_REST_SECONDS;
-  const stretch=resolvedDayStretch(di,difficulty);
   if(stretch){
     totalSeconds+=ESTIMATED_TRANSITION_SECONDS+WORKOUT_PREP_SECONDS+estimatedDoseSeconds(stretch[0],stretch[1]);
   }
@@ -2674,13 +2675,14 @@ function cardMainFocus(ex){
   return compact.length<=34 ? compact : '';
 }
 
-function exCard(k,dose,d,i){
+function exCard(k,dose,d,i,opts={}){
   const ex=data.exercises[k],ok=d!==undefined&&done(d,i),meta=exMeta(k);
   const rep=dose||ex.dose||'';
   const num=(i!==undefined?i+1:'');
   const isReal=false;
   const mainFocus=cardMainFocus(ex);
-  return `<article class="exercise v18exercise v22exercise ${isReal?'v22RealCard':''} ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}">
+  const specialAttrs=opts.specialCategory?` data-special-category="${opts.specialCategory}" data-special-variant="${opts.specialVariant}" data-special-dose="${esc(rep)}"`:'';
+  return `<article class="exercise v18exercise v22exercise ${isReal?'v22RealCard':''} ${ok?'done':''}" data-action="info" data-ex="${k}" data-day="${d??''}" data-index="${i??''}"${specialAttrs}>
     <div class="v22CardHead"><span class="v22CardNum">${num||'•'}</span><h3>${ex.name}</h3><span class="repBadge">${rep}</span></div>
     <div class="thumbWrap v22PhotoWrap">${img(k,'thumb')}</div>
     <div class="v22CardFoot">${mainFocus?`<span class="mainLabel">${esc(mainFocus)}</span>`:'<span></span>'}<b aria-hidden="true">Detail ›</b></div>
@@ -2855,15 +2857,10 @@ const homeFocusCards=Object.freeze([
 function showSpecialCategory(categoryId,opts={}){
   const category=data.specialWorkouts?.[categoryId];
   if(!category)return home();
-  if(!opts.skipRoute)setAppView('special-category',{category:categoryId},{replace:Boolean(opts.replaceRoute)});
-  lastMode='special';setNav('home');
   const resume=loadSpecialWorkoutResumeState();
   const variantId=resume?.category===categoryId?resume.variant:nextSpecialVariant(categoryId);
-  const difficulty=resume?.category===categoryId?resume.workoutContext.difficulty:effectiveProgramDifficulty();
-  const variant=category.variants[variantId]||category.variants[SPECIAL_VARIANT_ORDER[0]];
-  const items=variant.items.map(([id,dose],index)=>`<li><span>${index+1}. ${esc(data.exercises[id]?.name||id)}</span><b>${esc(resolveDose(dose,difficulty))}</b></li>`).join('');
-  app.innerHTML=`<div class="specialWorkoutPage"><div class="specialWorkoutTop"><button class="libraryBack appBackButton" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button><div><p class="eyebrow">Spešl tréninky</p><h1>${esc(category.title)}</h1><small>Obtížnost: ${esc(difficultyLabel(difficulty))}</small></div></div><article class="specialVariantCard specialWorkoutPlan"><div class="specialVariantHead"><div><h2>${esc(category.title)}</h2></div><span>8 cviků · ${difficultySets(difficulty)} série</span></div><ol>${items}</ol><button class="primary" data-action="start-special" data-category="${categoryId}" data-variant="${variantId}">Začít trénink</button></article></div>`;
-  scrollTop();
+  if(!opts.skipRoute)setAppView('special-category',{category:categoryId},{replace:Boolean(opts.replaceRoute)});
+  return day(0,{specialCategory:categoryId,specialVariant:variantId,skipRoute:true});
 }
 function home(){
   if(maybeStartRequiredOnboarding())return;
@@ -3067,12 +3064,12 @@ function dayEquipmentInline(items){
   const gear=dayEquipment(items);
   return `<div class="dayEquipmentInline"><span class="dayEquipmentLabel">Připrav si:</span><div class="dayEquipmentList">${gear.map(item=>`<span>${esc(item)}</span>`).join('')}</div></div>`;
 }
-function dayCompactInfo(di,items){
+function dayCompactInfo(di,items,opts={}){
   const gear=dayEquipment(items).map(item=>esc(item)).join(' · ');
   return `<div class="dayCompactInfo" aria-label="Informace o tréninku">
     <div class="dayInfoBlock">
       <span class="dayInfoIcon">${lineIcon('clock')}</span>
-      <span class="dayInfoCopy"><small>TRVÁNÍ</small><strong>${estimatedWorkoutMinutes(di)} min</strong></span>
+      <span class="dayInfoCopy"><small>TRVÁNÍ</small><strong>${opts.duration??estimatedWorkoutMinutes(di)} min</strong></span>
     </div>
     <div class="dayInfoBlock">
       <span class="dayInfoIcon">${lineIcon('equipment')}</span>
@@ -3083,25 +3080,39 @@ function dayCompactInfo(di,items){
 function day(di,opts={}){
   if(maybeStartRequiredOnboarding())return;
   if(!getProgramDifficulty())return difficultyChooser('day',di);
-  setAppView('day',{day:di},{replace:Boolean(opts.replaceRoute)});
-  lastMode='day';setNav('days');currentDay=di;
-  const day=data.days[di];
-  const selectedItems=resolvedDayItems(di);
-  const stretch=resolvedDayStretch(di);
+  const special=opts.specialCategory?specialWorkout(opts.specialCategory,opts.specialVariant):null;
+  const specialResumeRaw=special?loadSpecialWorkoutResumeState():null;
+  const specialResume=special&&specialResumeRaw?.category===opts.specialCategory&&specialResumeRaw.variant===opts.specialVariant?specialResumeRaw:null;
+  const specialDifficulty=special?(specialResume?.workoutContext?.difficulty||effectiveProgramDifficulty()):effectiveProgramDifficulty();
+  const specialItems=special?resolvedSpecialItems(opts.specialCategory,opts.specialVariant,specialDifficulty):[];
+  if(special&&!specialItems.length)return showSpecialCategory(opts.specialCategory,{replaceRoute:true});
+  if(special)setAppView('special-category',{category:opts.specialCategory},{replace:Boolean(opts.replaceRoute)});
+  else setAppView('day',{day:di},{replace:Boolean(opts.replaceRoute)});
+  lastMode=special?'special':'day';setNav(special?'days':'days');currentDay=di;
+  const day=special?{title:special.category.title,note:`${specialItems.length} cviků · ${difficultySets(specialDifficulty)} série`,items:specialItems}:data.days[di];
+  const selectedItems=special?specialItems:resolvedDayItems(di);
+  const stretch=special?null:resolvedDayStretch(di);
   const equipmentItems=stretch?[...selectedItems,stretch]:selectedItems;
   const isRestDay=!day.items.length;
-  const hasResume=Boolean(resumeForDay(di));
-  const trainingActions=hasResume
+  const hasResume=special?Boolean(specialResume?.category===opts.specialCategory&&specialResume.variant===opts.specialVariant):Boolean(resumeForDay(di));
+  const trainingActions=special
+    ? `<button class="primary cta" data-action="start-special" data-category="${opts.specialCategory}" data-variant="${opts.specialVariant}">▶ Cvič se mnou</button>`
+    : hasResume
     ? resumePrompt(di)
     : `<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button>`;
+  const specialCompletedItems=specialResume?Math.max(0,(Math.max(1,Number(specialResume.workoutCurrentSet)||1)-1)*selectedItems.length+Math.max(0,Number(specialResume.currentExercise)||0)):0;
+  const specialProgress=special?Math.min(100,Math.round((specialCompletedItems/(selectedItems.length*Math.max(1,difficultySets(specialDifficulty))))*100)):pct(di);
+  const specialDuration=special?estimatedMinutesForItems(selectedItems,specialDifficulty,null):null;
+  const specialBack=special?`<button class="dayHeroNavBadge" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button>`:`<button class="dayHeroNavBadge" type="button" data-action="home">${lineIcon('backArrow')}<span>Domů</span></button>`;
+  const specialOptions={specialCategory:opts.specialCategory,specialVariant:opts.specialVariant};
   app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
-    <div class="topLine dayHeroNavRow"><button class="dayHeroNavBadge" type="button" data-action="home">${lineIcon('backArrow')}<span>Domů</span></button><span class="pill dayHeroStatusBadge">${countDone(di)}/${day.items.length||0} hotovo</span></div>
+    <div class="topLine dayHeroNavRow">${specialBack}<span class="pill dayHeroStatusBadge">${special?`${selectedItems.length} cviků`:`${countDone(di)}/${day.items.length||0} hotovo`}</span></div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
-    ${dayCompactInfo(di,equipmentItems)}
-    <div class="progress"><div class="bar" style="width:${pct(di)}%"></div></div>
+    ${dayCompactInfo(di,equipmentItems,special?{duration:specialDuration}:{} )}
+    <div class="progress"><div class="bar" style="width:${special?specialProgress:pct(di)}%"></div></div>
     ${day.items.length?trainingActions:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
   </section>
-  ${isRestDay?'':`<section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,di,i)).join('')}</div></section>`}
+  ${isRestDay?'':`<section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,special?undefined:di,i,special?specialOptions:{})).join('')}</div></section>`}
   ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
@@ -3815,10 +3826,13 @@ function info(k,opts={}){
   const ex=data.exercises[k], meta=exMeta(k);
   const steps=detailSteps(k,ex);
   const stretchPlanned=dayStretch(currentDay);
-  const planned=(data.days[currentDay]?.items||[]).find(x=>x[0]===k) || (stretchPlanned&&stretchPlanned[0]===k?stretchPlanned:null);
+  const specialPlanned=opts.specialCategory&&opts.specialVariant
+    ? (specialWorkout(opts.specialCategory,opts.specialVariant)?.variant.items||[]).find(x=>x[0]===k)
+    : null;
+  const planned=specialPlanned || (data.days[currentDay]?.items||[]).find(x=>x[0]===k) || (stretchPlanned&&stretchPlanned[0]===k?stretchPlanned:null);
   const dose=workoutRunning&&currentWorkoutEntry()[0]===k
     ? currentWorkoutEntry()[1]
-    : resolveDose((planned&&planned[1])||ex.dose||'',effectiveProgramDifficulty());
+    : resolveDose((opts.specialDose||planned?.[1])||ex.dose||'',effectiveProgramDifficulty());
   const doseInfo=sideInfo(dose);
   const doseUnit=doseInfo.timed ? (doseInfo.side?'na stranu':'') : (!isAlternatingExercise(k,dose) && !doseInfo.side && String(dose).match(/\d/) && !/opakování/i.test(String(dose)) ? 'opakování' : '');
   const detailMoveLabel=workoutRunning ? workoutMovementLabel(k,dose,doseInfo) : '';
@@ -4279,6 +4293,7 @@ app.addEventListener('click',e=>{
     }
     if(t.dataset.day!==undefined && t.dataset.day!=='') currentDay=Number(t.dataset.day);
     if(t.dataset.index!==undefined && t.dataset.index!=='') currentExercise=Number(t.dataset.index);
+    if(t.dataset.specialCategory&&t.dataset.specialVariant)return info(t.dataset.ex,{specialCategory:t.dataset.specialCategory,specialVariant:t.dataset.specialVariant,specialDose:t.dataset.specialDose});
     return info(t.dataset.ex);
   }
   if(a==='day-return'){history.back();return;}

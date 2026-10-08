@@ -7130,26 +7130,3 @@ body.dark .programCompletionContent{
     transform:none;
   }
 }
-/* Spešl workout selection reuses the existing card and button language. */
-.specialWorkoutPage{display:grid;gap:18px}
-.specialWorkoutTop{display:flex;align-items:flex-start;gap:14px}
-.specialWorkoutTop>div{min-width:0}
-.specialWorkoutTop .eyebrow{margin:0 0 4px}
-.specialWorkoutTop h1{margin:0;color:var(--text)}
-.specialWorkoutTop small{display:block;margin-top:5px;color:var(--muted)}
-.specialVariantGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.specialVariantCard{display:flex;flex-direction:column;min-width:0;padding:18px;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 10px 28px var(--shadow)}
-.specialVariantHead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.specialVariantHead p{margin:0;color:var(--p);font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.76rem}
-.specialVariantHead h2{margin:3px 0 0;font-size:1.08rem}
-.specialVariantHead>span{white-space:nowrap;color:var(--muted);font-size:.78rem}
-.specialVariantCard ol{display:grid;gap:8px;margin:16px 0;padding:0;list-style:none}
-.specialVariantCard li{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:.86rem}
-.specialVariantCard li span{min-width:0}
-.specialVariantCard li b{flex:0 0 auto;color:var(--p);font-size:.78rem}
-.specialVariantCard>button{margin-top:auto;min-height:44px}
-@media(max-width:760px){
-  .specialVariantGrid{grid-template-columns:1fr}
-  .specialWorkoutTop{gap:8px}
-  .specialVariantCard{padding:16px}
-}
