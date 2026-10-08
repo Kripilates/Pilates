@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""Build the approved Guide and Step cards for Kneeling Hip Extension and Bear Hover."""
+"""Build approved Guide and Step cards for selected kneeling exercise bundles."""
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 from pathlib import Path
 
@@ -91,6 +92,39 @@ CONFIGS = (
             ("KROK 1", "TABLETOP", "Dlaně polož pod ramena, kolena pod kyčle a páteř drž neutrální.", "start"),
             ("KROK 2", "NÍZKÝ HOVER", "Opři špičky, zpevni břicho a zvedni obě kolena jen několik centimetrů nad podložku.", "hero"),
             ("KROK 3", "STABILNÍ VÝDRŽ A NÁVRAT", "Pánev drž nízko, záda neutrální a plynule dýchej. Potom obě kolena kontrolovaně vrať na podložku.", "start"),
+        ),
+    },
+    {
+        "folder": "Kneeling Side Plank + Leg Lift",
+        "stem": "kneeling_side_plank_leg_lift",
+        "title": "BOČNÍ PRKNO NA KOLENOU",
+        "subtitle": "Se zvedáním natažené nohy",
+        "description": "Posiluje střed těla, rameno a bok při stabilní boční opoře.",
+        "pills": ("Střed těla", "Bez pomůcky"),
+        "source_hashes": {
+            "start": "9015796a3196043b59cc5726722a7d36c348015c02284911c0978d86bea6da3a",
+            "hero": "771c1d76c8002011c4ba2b01411d161d09e9127b9e021343baf6bdfdbd688cdf",
+        },
+        "mini": (
+            ("START", "Boční opora", "start"),
+            ("ZDVIH", "Noha do výšky kyčle", "hero"),
+            ("NÁVRAT", "Kontrolovaně dolů", "start"),
+        ),
+        "info": (
+            ("breath", "DECH", "Výdech při zdvihu. Nádech při návratu."),
+            ("focus", "ZAMĚŘ SE", "Střed těla a stabilní pánev."),
+            ("repeat", "TEMPO", "Plynule, kontrolovaně a bez švihu."),
+        ),
+        "how": (
+            "Opři se o jednu dlaň a spodní koleno. Druhou nohu natáhni šikmo dolů, chodidlo polož na podložku a volnou ruku dej na bok.",
+            "S výdechem zpevni střed těla a zvedni nataženou nohu přibližně do výšky kyčle. Pánev i trup drž stabilní.",
+            "S nádechem spusť nohu kontrolovaně zpět na podložku. Opěrné rameno zůstává pevné a daleko od ucha.",
+        ),
+        "watch": "Nepropadej se v opěrném rameni, neotáčej pánev, nezvedej nohu nad výšku kyčle a nepoužívej švih.",
+        "steps": (
+            ("KROK 1", "BOČNÍ OPORA", "Nastav dlaň pod rameno a opři se o spodní koleno. Druhou nohu natáhni šikmo dolů, chodidlo polož na podložku a volnou ruku dej na bok.", "start"),
+            ("KROK 2", "ZDVIH NOHY", "S výdechem zpevni břicho a zvedni nataženou nohu přibližně do výšky kyčle. Trup a pánev drž bez rotace.", "hero"),
+            ("KROK 3", "KONTROLOVANÝ NÁVRAT", "S nádechem spusť nohu pomalu zpět na podložku. Opěrné rameno drž pevné a pohyb veď bez švihu.", "start"),
         ),
     },
 )
@@ -275,7 +309,11 @@ def build_step(cfg, folder, sources):
 
 
 def main():
-    for cfg in CONFIGS:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--exercise", choices=[cfg["stem"] for cfg in CONFIGS])
+    args = parser.parse_args()
+    configs = [cfg for cfg in CONFIGS if not args.exercise or cfg["stem"] == args.exercise]
+    for cfg in configs:
         folder, sources = verify_sources(cfg)
         before = {frame: sha256(path) for frame, path in sources.items()}
         outputs = (build_guide(cfg, folder, sources), build_step(cfg, folder, sources))

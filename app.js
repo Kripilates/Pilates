@@ -1119,6 +1119,31 @@ const referenceExerciseAssets={
       mistakes:['Propadnutí ve spodním rameni.','Klesající pánev.','Prohnutí v bedrech.','Rychlý nebo nekontrolovaný návrat.']
     }
   },
+  kneeling_side_plank_leg_lift:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Side%20Plank%20%2B%20Leg%20Lift/kneeling_side_plank_leg_lift_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Side%20Plank%20%2B%20Leg%20Lift/kneeling_side_plank_leg_lift_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Side%20Plank%20%2B%20Leg%20Lift/kneeling_side_plank_leg_lift_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Side%20Plank%20%2B%20Leg%20Lift/kneeling_side_plank_leg_lift_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Kneeling%20Side%20Plank%20%2B%20Leg%20Lift/kneeling_side_plank_leg_lift_step_by_step_v01.png',
+    subtitle:'Střed těla • rameno • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Boční opora',photo:'start'},
+      {n:2,title:'ZDVIH',caption:'Noha do výšky kyčle',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'start'}
+    ],
+    steps:[
+      {title:'BOČNÍ OPORA',text:'Nastav dlaň pod rameno a opři se o spodní koleno. Druhou nohu natáhni šikmo dolů, chodidlo polož na podložku a volnou ruku dej na bok.',photo:'start'},
+      {title:'ZDVIH NOHY',text:'S výdechem zpevni břicho a zvedni nataženou nohu přibližně do výšky kyčle. Trup a pánev drž bez rotace.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem spusť nohu pomalu zpět na podložku. Opěrné rameno drž pevné a pohyb veď bez švihu.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / rameno',knees:'Opora o spodní koleno'},
+    breath:{inhale:'Při kontrolovaném návratu',exhale:'Při zvednutí nohy',tempo:'Pomalu a bez švihu'},
+    recommendations:{
+      feel:'Aktivní střed těla, bok a pevné opěrné rameno při stabilní pánvi.',
+      watch:['Dlaň drž pod ramenem a v opěrném rameni se nepropadej.','Pánev a trup drž bez rotace.','Nohu zvedej nejvýše do výšky kyčle a bez švihu.'],
+      mistakes:['Propadnutí v opěrném rameni.','Rotace pánve nebo trupu.','Zvednutí nohy nad výšku kyčle.','Švihání nohou.']
+    }
+  },
   sideplank_reach:{
     start:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_start.png?v=59208sourcebatch',
     hero:'Pilates%20Assets/02_Exercise_Cards/Side%20Plank%20Reach/side_plank_reach_hero.png?v=59208sourcebatch',
@@ -2320,6 +2345,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   inner_thigh:'thighs',
   knee_pushup:'chestShouldersArms',
   kneeling_hip_extension:'glutes',
+  kneeling_side_plank_leg_lift:'coreShoulders',
   legraises:'core',
   mermaid:'coreObliques',
   plank:'coreShoulders',
@@ -3890,7 +3916,7 @@ function info(k,opts={}){
   scrollTop();
 }
 const exerciseLibraryCategories={
-  core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird','bear_hover']},
+  core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','kneeling_side_plank_leg_lift','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird','bear_hover']},
   glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','kneeling_hip_extension','rainbow','abduction','frog','glute_bridge_march','bird','swimming']},
   legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','sideleg','plie','hip_march','scissors','hip','abduction']},
   upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','triceps_kickback','chest_press','chest_fly','knee_pushup','dumbbell_pullover','plank','tap','sideplank','sideplank_reach']},

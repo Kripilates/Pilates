@@ -6019,8 +6019,14 @@ body.dark .programCompletionContent{
 .homeProgressSection{
   min-width:0;
 }
+.homePhotoHero + .homeFocusSection{
+  margin-top:-4px;
+}
 .homeFocusSection + .homeProgressSection{
   margin-top:-8px;
+}
+.homeFocusSection .homeSectionHead{
+  margin-bottom:8px;
 }
 .homeSectionHead{
   margin:0 2px 11px;
@@ -6049,7 +6055,7 @@ body.dark .programCompletionContent{
 .homeFocusCard{
   position:relative;
   width:100%;
-  height:clamp(150px,42vw,170px);
+  height:clamp(128px,35.7vw,145px);
   min-width:0;
   overflow:hidden;
   padding:0;
@@ -6061,7 +6067,7 @@ body.dark .programCompletionContent{
 }
 .homeFocusCard[data-category="upper"]{
   grid-column:1/-1;
-  height:clamp(100px,28vw,120px);
+  height:clamp(80px,22.4vw,96px);
 }
 .homeFocusCard::after{
   content:"";
@@ -6090,7 +6096,7 @@ body.dark .programCompletionContent{
   color:#fff;
 }
 .homeFocusCard strong{
-  font-size:21px;
+  font-size:19px;
   line-height:1.12;
   text-wrap:balance;
 }
@@ -6164,8 +6170,8 @@ body.dark .programCompletionContent{
 @media(max-width:430px){
   .homeDashboard{gap:20px}
   .homeHeroContent{padding:18px}
-  .homePhotoHero{min-height:clamp(330px,92vw,390px)}
-  .homePhotoHero.homePhotoHero--resume{min-height:calc(clamp(330px,92vw,390px) - var(--resume-bottom-trim))}
+  .homePhotoHero{min-height:clamp(272px,74vw,312px)}
+  .homePhotoHero.homePhotoHero--resume{min-height:calc(clamp(272px,74vw,312px) - var(--resume-bottom-trim))}
   .homeProgramProgress{padding:13px 14px}
 }
 @media(max-width:340px){
