@@ -2896,7 +2896,7 @@ function home(){
     : `<p class="eyebrow">${heroEyebrow}</p><h2>${esc(visibleHeroTitle)}</h2><p class="homeMainDetail">${heroDetail}</p>${heroEquipment}`;
   const focusCards=homeFocusCards.map(({id,label,image})=>{
     const src=deploymentImageUrl(image);
-    return `<button class="homeFocusCard" type="button" data-action="special-category" data-category="${id}" aria-label="${esc(label)} – vybrat trénink"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong><i aria-hidden="true">→</i></span></button>`;
+    return `<button class="homeFocusCard" type="button" data-action="special-category" data-category="${id}" aria-label="${esc(label)} – vybrat trénink"><img loading="lazy" src="${esc(src)}" alt=""><span><strong>${esc(label)}</strong></span></button>`;
   }).join('');
   const completedTrainingLabel=czechCountLabel(summary.daysComplete,'dokončený trénink','dokončené tréninky','dokončených tréninků');
   app.innerHTML=`<div class="homeDashboard">
@@ -3105,14 +3105,14 @@ function day(di,opts={}){
   const specialDuration=special?estimatedMinutesForItems(selectedItems,specialDifficulty,null):null;
   const specialBack=special?`<button class="dayHeroNavBadge" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button>`:`<button class="dayHeroNavBadge" type="button" data-action="home">${lineIcon('backArrow')}<span>Domů</span></button>`;
   const specialOptions={specialCategory:opts.specialCategory,specialVariant:opts.specialVariant};
-  app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero">
-    <div class="topLine dayHeroNavRow">${specialBack}<span class="pill dayHeroStatusBadge">${special?`${selectedItems.length} cviků`:`${countDone(di)}/${day.items.length||0} hotovo`}</span></div>
+  app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero${special?' specialDayHero':''}">
+    <div class="topLine dayHeroNavRow">${specialBack}${special?'':`<span class="pill dayHeroStatusBadge">${countDone(di)}/${day.items.length||0} hotovo</span>`}</div>
     <h2>${day.title}</h2><p class="muted">${day.note}</p>
     ${dayCompactInfo(di,equipmentItems,special?{duration:specialDuration}:{} )}
     <div class="progress"><div class="bar" style="width:${special?specialProgress:pct(di)}%"></div></div>
     ${day.items.length?trainingActions:`<p class="muted">Dnes volno.</p><button class="primary cta" data-action="complete-rest-day" data-day="${di}">${restDone(di)?'Den volna dokončen':'✓ Dokončit den volna'}</button>`}
   </section>
-  ${isRestDay?'':`<section class="card"><h2>Cviky dne</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,special?undefined:di,i,special?specialOptions:{})).join('')}</div></section>`}
+  ${isRestDay?'':`<section class="card"><h2>${special?'Cviky tréninku':'Cviky dne'}</h2><div class="libraryGrid v22ExerciseGrid">${selectedItems.map(([k,dose],i)=>exCard(k,dose,special?undefined:di,i,special?specialOptions:{})).join('')}</div></section>`}
   ${stretch?`<section class="card finalStretchCard"><div class="finalStretchHead"><span>ZÁVĚREČNÉ PROTAŽENÍ</span><small>po ${difficultySets()}. sérii, jednou</small></div><div class="libraryGrid v22ExerciseGrid finalStretchGrid">${exCard(stretch[0],stretch[1],di,day.items.length)}</div></section>`:''}`;
   if(opts.restoreScroll){
     requestAnimationFrame(()=>{
