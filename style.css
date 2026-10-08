@@ -6978,42 +6978,69 @@ body.dark .programCompletionContent{
 .autoTrain .trainControls .lineIcon,
 .autoTrain .trainControls .controlIcon{width:16px;height:16px;flex:0 0 16px}
 .workoutVoiceControl{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  min-width:0;
+  align-items:center;
+  gap:12px;
+  margin:10px 0 8px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--soft);
+}
+.workoutVoiceCopy{
   display:flex;
   min-width:0;
   align-items:center;
-  justify-content:flex-end;
-  gap:8px;
-  margin:8px 0 0;
+  gap:9px;
+}
+.workoutVoiceIcon{
+  display:flex;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  align-items:center;
+  justify-content:center;
+  border-radius:11px;
+  background:var(--p2);
+  color:var(--p);
+}
+.workoutVoiceIcon .lineIcon{width:17px;height:17px}
+.workoutVoiceText{display:flex;min-width:0;flex-direction:column;gap:2px}
+.workoutVoiceText strong{
+  color:var(--text);
+  font-size:13px;
+  line-height:1.15;
 }
 .workoutVoiceToggle{
   display:inline-flex;
-  min-height:34px;
+  min-height:38px;
   align-items:center;
-  gap:6px;
-  padding:6px 10px;
+  justify-content:center;
+  padding:7px 11px;
   border-radius:999px;
-  background:var(--soft);
+  border:1px solid var(--line);
+  background:var(--card);
   color:var(--text);
-  font-size:12px;
+  font-size:11px;
   font-weight:800;
   line-height:1;
   box-shadow:none;
 }
-.workoutVoiceToggle .lineIcon{width:15px;height:15px;flex:0 0 15px}
-.workoutVoiceToggle b{color:var(--muted);font-size:11px}
 .workoutVoiceToggle.is-active{border-color:var(--p);background:var(--p2);color:var(--p)}
-.workoutVoiceToggle.is-active b{color:var(--p)}
 .workoutVoiceToggle:disabled{cursor:not-allowed;opacity:.72}
 .workoutVoiceStatus{
+  display:block;
   min-width:0;
   color:var(--muted);
   font-size:11px;
   line-height:1.25;
-  text-align:right;
+  text-align:left;
 }
 @media(max-width:420px){
-  .workoutVoiceControl{align-items:flex-end;flex-direction:column;gap:4px}
-  .workoutVoiceStatus{max-width:100%}
+  .workoutVoiceControl{gap:8px;padding:9px 10px}
+  .workoutVoiceToggle{padding-inline:9px}
 }
 
 /* Bottom navigation: subtle separation from light page content. */

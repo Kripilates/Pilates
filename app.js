@@ -169,7 +169,8 @@ function updateWorkoutVoiceUi(){
     button.setAttribute('aria-pressed',String(workoutVoiceEnabled));
   }
   const stateText=workoutVoiceEnabled?'Zapnuto':'Vypnuto';
-  const statusText=workoutVoiceMessage||(workoutVoiceEnabled?'Aktivní pro cviky na opakování.':'');
+  const statusText=workoutVoiceStatusText(Boolean(WorkoutSpeechRecognition));
+  if(button)button.setAttribute('aria-label',`Hlasové ovládání: ${stateText.toLocaleLowerCase('cs-CZ')}`);
   if(state&&state.textContent!==stateText)state.textContent=stateText;
   if(status&&status.textContent!==statusText)status.textContent=statusText;
 }
@@ -261,10 +262,15 @@ function syncWorkoutVoiceRecognition(){
   catch(e){if(e?.name!=='InvalidStateError')workoutVoiceMessage='Hlasové ovládání teď není dostupné.';}
   updateWorkoutVoiceUi();
 }
+function workoutVoiceStatusText(supported){
+  if(!supported)return 'Hlasové ovládání tento prohlížeč nepodporuje.';
+  const error=/^(Mikrofon není|Hlasové ovládání teď není)/.test(workoutVoiceMessage)?workoutVoiceMessage:'';
+  return error||(workoutVoiceEnabled?'Řekni „Hotovo“ pro pokračování':'Zapni a řekni „Hotovo“');
+}
 function workoutVoiceControlHtml(){
   const supported=Boolean(WorkoutSpeechRecognition);
-  const status=!supported?'Hlasové ovládání tento prohlížeč nepodporuje.':(workoutVoiceMessage||(workoutVoiceEnabled?'Aktivní pro cviky na opakování.':''));
-  return `<div class="workoutVoiceControl"><button type="button" class="workoutVoiceToggle${workoutVoiceEnabled?' is-active':''}" data-action="toggle-workout-voice" aria-pressed="${workoutVoiceEnabled}"${supported?'':' disabled'}>${lineIcon('mic')}<span>Hlas</span><b class="workoutVoiceState">${workoutVoiceEnabled?'Zapnuto':'Vypnuto'}</b></button><small class="workoutVoiceStatus" role="status" aria-live="polite">${status}</small></div>`;
+  const state=workoutVoiceEnabled?'Zapnuto':'Vypnuto';
+  return `<div class="workoutVoiceControl"><div class="workoutVoiceCopy"><span class="workoutVoiceIcon" aria-hidden="true">${lineIcon('mic')}</span><span class="workoutVoiceText"><strong>Hlasové ovládání</strong><small class="workoutVoiceStatus" role="status" aria-live="polite">${workoutVoiceStatusText(supported)}</small></span></div><button type="button" class="workoutVoiceToggle${workoutVoiceEnabled?' is-active':''}" data-action="toggle-workout-voice" aria-label="Hlasové ovládání: ${state.toLocaleLowerCase('cs-CZ')}" aria-pressed="${workoutVoiceEnabled}"${supported?'':' disabled'}><span class="workoutVoiceState">${state}</span></button></div>`;
 }
 function armWorkoutHistoryGuard(){
   if(!workoutRunning)return;
@@ -2472,6 +2478,31 @@ const referenceExerciseAssets={
       watch:['Trup drž co nejstabilnější.','Obě nohy veď po kruhu společně.','Nepoužívej švih ani rozhoupání těla.'],
       mistakes:['Rozhoupání trupu.','Střídavé vedení nohou.','Propadnutí v bedrech.','Příliš velký kruh bez kontroly.']
     }
+  },
+  half_kneeling_oblique_crunch:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Half-Kneeling%20Oblique%20Crunch/half_kneeling_oblique_crunch_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Half-Kneeling%20Oblique%20Crunch/half_kneeling_oblique_crunch_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Half-Kneeling%20Oblique%20Crunch/half_kneeling_oblique_crunch_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Half-Kneeling%20Oblique%20Crunch/half_kneeling_oblique_crunch_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Half-Kneeling%20Oblique%20Crunch/half_kneeling_oblique_crunch_step_by_step_v01.png',
+    subtitle:'Šikmé břicho • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Stabilní poloklek',photo:'start'},
+      {n:2,title:'ÚKLON',caption:'Trup do strany',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně vzhůru',photo:'start'}
+    ],
+    steps:[
+      {title:'STABILNÍ POLOKLEK',text:'Klekni si na jedno koleno, druhé chodidlo postav vpředu. Pánev drž rovně, trup vzpřímený a střed těla aktivní.',photo:'start'},
+      {title:'KONTROLOVANÝ ÚKLON',text:'Jednu ruku dej za hlavu, druhou v bok. S výdechem ukloň trup do strany bez pohybu pánve.',photo:'hero'},
+      {title:'NÁVRAT DO STŘEDU',text:'S nádechem se vrať do vzpřímené polohy. Přední koleno, pánev a ramena drž pod kontrolou.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Šikmé břicho',knees:'Stabilní poloklek'},
+    breath:{inhale:'Při návratu',exhale:'Při úklonu',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci šikmých břišních svalů při stabilní pánvi a kontrolovaném úklonu.',
+      watch:['Pánev drž rovně a bez posunu.','Trup ukláněj čistě do strany.','Hlavu rukou nepřitahuj.'],
+      mistakes:['Vytáčení nebo posouvání pánve.','Předklon či záklon trupu.','Švih a přitahování hlavy rukou.']
+    }
   }
 };
 const exerciseMuscleCardAssignments=Object.freeze({
@@ -2494,6 +2525,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   glute_bridge_march:'glutesCore',
   hamstring_supine:'thighs',
   heeltaps:'coreObliques',
+  half_kneeling_oblique_crunch:'coreObliques',
   hip:'glutes',
   hip_march:'glutesCore',
   hollow:'core',

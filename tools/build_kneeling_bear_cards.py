@@ -29,6 +29,39 @@ WARN_ICON = (199, 92, 84)
 
 CONFIGS = (
     {
+        "folder": "Half-Kneeling Oblique Crunch",
+        "stem": "half_kneeling_oblique_crunch",
+        "title": "ŠIKMÉ ZKRACOVAČKY V KLEČE",
+        "subtitle": "Kontrolovaný úklon trupu do strany",
+        "description": "Posiluje šikmé břišní svaly při stabilní pánvi v polokleku.",
+        "pills": ("Šikmé břicho", "Bez pomůcky"),
+        "source_hashes": {
+            "start": "71aa1617b6d79178cf3969b1211f6aedd6b878c65cf20a4b8c52fab11b4dd8ea",
+            "hero": "1c05a95ee67312313479c9ef4b18861a45fbad14b6798c4aa6a3210c4535b1ed",
+        },
+        "mini": (
+            ("START", "Stabilní poloklek", "start"),
+            ("ÚKLON", "Trup do strany", "hero"),
+            ("NÁVRAT", "Kontrolovaně vzhůru", "start"),
+        ),
+        "info": (
+            ("breath", "DECH", "Výdech při úklonu. Nádech při návratu."),
+            ("focus", "ZAMĚŘ SE", "Pánev klidná, pracuje bok trupu."),
+            ("repeat", "TEMPO", "Pomalu, kontrolovaně a bez švihu."),
+        ),
+        "how": (
+            "Klekni si na jedno koleno a druhé chodidlo postav vpředu. Pánev drž rovně a trup vzpřímený.",
+            "Jednu ruku polož za hlavu a druhou dej v bok. S výdechem proveď kontrolovaný úklon trupu do strany.",
+            "S nádechem se vrať do vzpřímené polohy. Pánev a přední koleno drž po celou dobu stabilní.",
+        ),
+        "watch": "Nevytáčej ani neposouvej pánev, nepřitahuj hlavu rukou a neukláněj se dopředu ani dozadu.",
+        "steps": (
+            ("KROK 1", "STABILNÍ POLOKLEK", "Klekni si na jedno koleno, druhé chodidlo postav vpředu. Pánev drž rovně, trup vzpřímený a střed těla aktivní.", "start"),
+            ("KROK 2", "KONTROLOVANÝ ÚKLON", "Jednu ruku dej za hlavu, druhou v bok. S výdechem ukloň trup do strany bez pohybu pánve.", "hero"),
+            ("KROK 3", "NÁVRAT DO STŘEDU", "S nádechem se vrať do vzpřímené polohy. Přední koleno, pánev a ramena drž pod kontrolou.", "start"),
+        ),
+    },
+    {
         "folder": "Kneeling Hip Extension",
         "stem": "kneeling_hip_extension",
         "title": "KNEELING HIP EXTENSION",
