@@ -35,6 +35,13 @@ let screenWakeLock=null;
 let wakeLockRequestPending=false;
 let sideNoticeUntil=0;
 let sideNoticeDone='', sideNoticeNext='';
+const WorkoutSpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition||null;
+let workoutVoiceEnabled=false;
+let workoutVoiceRecognition=null;
+let workoutVoiceListening=false;
+let workoutVoiceCommandLocked=false;
+let workoutVoiceLastCommandAt=0;
+let workoutVoiceMessage='';
 const WORKOUT_RESUME_KEY='pb40-workout-resume-v1';
 const SPECIAL_HISTORY_KEY='pb40-special-history-v1';
 const SPECIAL_RESUME_KEY='pb40-special-resume-v1';
@@ -145,6 +152,120 @@ function renderTrainingScreen(html){
   setWorkoutHeaderPosition(true);
   armWorkoutHistoryGuard();
 }
+function workoutVoiceEligible(){
+  if(!workoutVoiceEnabled||!WorkoutSpeechRecognition||!workoutRunning||workoutPaused||workoutExitDialogOpen||document.visibilityState!=='visible')return false;
+  const dose=currentWorkoutEntry()?.[1]||'';
+  const info=sideInfo(dose);
+  return !info.timed&&['work','left','right'].includes(workoutPhase)&&Boolean(app.querySelector('[data-action="set-complete-auto"]'));
+}
+function updateWorkoutVoiceUi(){
+  const control=app.querySelector('.workoutVoiceControl');
+  if(!control)return;
+  const button=control.querySelector('[data-action="toggle-workout-voice"]');
+  const state=control.querySelector('.workoutVoiceState');
+  const status=control.querySelector('.workoutVoiceStatus');
+  if(button){
+    button.classList.toggle('is-active',workoutVoiceEnabled);
+    button.setAttribute('aria-pressed',String(workoutVoiceEnabled));
+  }
+  const stateText=workoutVoiceEnabled?'Zapnuto':'Vypnuto';
+  const statusText=workoutVoiceMessage||(workoutVoiceEnabled?'Aktivní pro cviky na opakování.':'');
+  if(state&&state.textContent!==stateText)state.textContent=stateText;
+  if(status&&status.textContent!==statusText)status.textContent=statusText;
+}
+function stopWorkoutVoiceRecognition(disable=false){
+  if(disable){
+    workoutVoiceEnabled=false;
+    workoutVoiceMessage='';
+  }else if(workoutVoiceEnabled){
+    workoutVoiceMessage='Aktivní pro cviky na opakování.';
+  }
+  const recognition=workoutVoiceRecognition;
+  workoutVoiceListening=false;
+  if(recognition){
+    try{recognition.abort();}catch(e){}
+  }
+  updateWorkoutVoiceUi();
+}
+function createWorkoutVoiceRecognition(){
+  if(!WorkoutSpeechRecognition)return null;
+  const recognition=new WorkoutSpeechRecognition();
+  recognition.lang='cs-CZ';
+  recognition.continuous=true;
+  recognition.interimResults=false;
+  recognition.maxAlternatives=1;
+  recognition.onstart=()=>{
+    workoutVoiceListening=true;
+    workoutVoiceMessage='Poslouchám na povel „Hotovo“.';
+    updateWorkoutVoiceUi();
+  };
+  recognition.onresult=event=>{
+    if(workoutVoiceCommandLocked)return;
+    for(let i=event.resultIndex;i<event.results.length;i++){
+      if(!event.results[i].isFinal)continue;
+      const transcript=String(event.results[i][0]?.transcript||'')
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('cs-CZ')
+        .replace(/[^a-z\s]/g,' ').trim();
+      if(!transcript.split(/\s+/).includes('hotovo'))continue;
+      const now=Date.now();
+      if(now-workoutVoiceLastCommandAt<1600)return;
+      const completeButton=app.querySelector('[data-action="set-complete-auto"]');
+      if(!completeButton||!workoutVoiceEligible())return;
+      workoutVoiceLastCommandAt=now;
+      workoutVoiceCommandLocked=true;
+      workoutVoiceMessage='Povel rozpoznán.';
+      updateWorkoutVoiceUi();
+      try{recognition.abort();}catch(e){}
+      completeButton.click();
+      setTimeout(()=>{
+        workoutVoiceCommandLocked=false;
+        syncWorkoutVoiceRecognition();
+      },1600);
+      return;
+    }
+  };
+  recognition.onerror=event=>{
+    workoutVoiceListening=false;
+    if(event.error==='aborted'||event.error==='no-speech')return;
+    if(event.error==='not-allowed'||event.error==='service-not-allowed'){
+      workoutVoiceEnabled=false;
+      workoutVoiceMessage='Mikrofon není povolený. Použij tlačítko Dokončeno.';
+    }else if(event.error==='audio-capture'){
+      workoutVoiceEnabled=false;
+      workoutVoiceMessage='Mikrofon není dostupný. Použij tlačítko Dokončeno.';
+    }else{
+      workoutVoiceEnabled=false;
+      workoutVoiceMessage='Hlasové ovládání teď není dostupné. Použij tlačítko Dokončeno.';
+    }
+    updateWorkoutVoiceUi();
+  };
+  recognition.onend=()=>{
+    workoutVoiceListening=false;
+    if(workoutVoiceEnabled&&!workoutVoiceCommandLocked)setTimeout(syncWorkoutVoiceRecognition,300);
+  };
+  return recognition;
+}
+function syncWorkoutVoiceRecognition(){
+  updateWorkoutVoiceUi();
+  if(!workoutVoiceEligible()){
+    if(workoutVoiceListening)stopWorkoutVoiceRecognition(false);
+    else if(workoutVoiceEnabled&&workoutVoiceMessage!=='Aktivní pro cviky na opakování.'){
+      workoutVoiceMessage='Aktivní pro cviky na opakování.';
+      updateWorkoutVoiceUi();
+    }
+    return;
+  }
+  if(workoutVoiceListening||workoutVoiceCommandLocked)return;
+  if(!workoutVoiceRecognition)workoutVoiceRecognition=createWorkoutVoiceRecognition();
+  try{workoutVoiceRecognition?.start();}
+  catch(e){if(e?.name!=='InvalidStateError')workoutVoiceMessage='Hlasové ovládání teď není dostupné.';}
+  updateWorkoutVoiceUi();
+}
+function workoutVoiceControlHtml(){
+  const supported=Boolean(WorkoutSpeechRecognition);
+  const status=!supported?'Hlasové ovládání tento prohlížeč nepodporuje.':(workoutVoiceMessage||(workoutVoiceEnabled?'Aktivní pro cviky na opakování.':''));
+  return `<div class="workoutVoiceControl"><button type="button" class="workoutVoiceToggle${workoutVoiceEnabled?' is-active':''}" data-action="toggle-workout-voice" aria-pressed="${workoutVoiceEnabled}"${supported?'':' disabled'}>${lineIcon('mic')}<span>Hlas</span><b class="workoutVoiceState">${workoutVoiceEnabled?'Zapnuto':'Vypnuto'}</b></button><small class="workoutVoiceStatus" role="status" aria-live="polite">${status}</small></div>`;
+}
 function armWorkoutHistoryGuard(){
   if(!workoutRunning)return;
   if(workoutHistoryGuardId===null)workoutHistoryGuardId=++workoutHistoryGuardSequence;
@@ -171,6 +292,7 @@ function resumeWorkoutTimer(){
 function showWorkoutExitDialog(){
   if(!workoutRunning || workoutExitDialogOpen)return;
   workoutExitDialogOpen=true;
+  syncWorkoutVoiceRecognition();
   workoutExitWasPaused=workoutPaused;
   if(!workoutPaused){
     pauseActiveWorkoutTime();
@@ -193,6 +315,7 @@ function continueWorkoutFromDialog(){
   workoutPaused=workoutExitWasPaused;
   resumeActiveWorkoutTime();
   resumeWorkoutTimer();
+  syncWorkoutVoiceRecognition();
 }
 function exitWorkoutToDay(){
   document.querySelector('.workoutExitOverlay')?.remove();
@@ -200,6 +323,7 @@ function exitWorkoutToDay(){
   const specialCategory=workoutContext?.specialCategory||'';
   saveWorkoutResumeState();
   clearInterval(timer);
+  stopWorkoutVoiceRecognition(true);
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
   workoutPaused=false;
@@ -244,9 +368,13 @@ function syncWorkoutWakeLock(){
   if(isWorkoutScreenActive())void requestWorkoutWakeLock();
   else void releaseWorkoutWakeLock();
 }
-new MutationObserver(syncWorkoutWakeLock).observe(app,{childList:true});
+new MutationObserver(()=>{
+  syncWorkoutWakeLock();
+  syncWorkoutVoiceRecognition();
+}).observe(app,{childList:true});
 document.addEventListener('visibilitychange',()=>{
   if(document.visibilityState==='visible' && isWorkoutScreenActive())void requestWorkoutWakeLock();
+  syncWorkoutVoiceRecognition();
 });
 function detailHash(k,d=currentDay,i=currentExercise){
   const params=new URLSearchParams({ex:k});
@@ -3382,6 +3510,7 @@ function currentWorkoutEntry(){
 function finishWorkoutDay(){
   currentExercise=Math.max(0,currentWorkoutItems().length-1);
   clearInterval(timer);
+  stopWorkoutVoiceRecognition(true);
   pauseActiveWorkoutTime();
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
@@ -3580,6 +3709,7 @@ function showSeriesRest(){
     </div>
     <div class="row trainControls"><button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button><button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button><button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button></div>
   </section>`);
+  syncWorkoutVoiceRecognition();
   scrollTop();
 }
 function showAutoTrain(opts={}){
@@ -3636,6 +3766,7 @@ function showAutoTrain(opts={}){
     }
     const controls=existing.querySelector('.trainControls'); if(controls)controls.innerHTML=controlsHtml;
     saveWorkoutResumeState();
+    syncWorkoutVoiceRecognition();
     return;
   }
   const imgClass='bigimg';
@@ -3655,9 +3786,11 @@ function showAutoTrain(opts={}){
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
     <div class="${workoutHeaderClass}" aria-label="Stav cviku">${workoutHeaderHtml}</div>
     ${workoutVisualHtml}
+    ${workoutVoiceControlHtml()}
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
   saveWorkoutResumeState();
+  syncWorkoutVoiceRecognition();
   if(!existing||opts.resetScroll)scrollTop();
 }
 function tickAuto(){
@@ -3978,6 +4111,7 @@ function lineIcon(name){
     equipment:'<path d="M7 8v8M4 10v4m13-6v8m3-6v4M7 12h10"/>',
     play:'<path d="m9 6 9 6-9 6z"/>',
     pause:'<path d="M9 6v12M15 6v12"/>',
+    mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3m-4 0h8"/>',
     skip:'<path d="m6 7 6 5-6 5zM12 7l6 5-6 5z"/>',
     stop:'<rect x="7" y="7" width="10" height="10" rx="1"/>',
     note:'<path d="M5 19h4l10-10-4-4L5 15z"/><path d="m13 7 4 4"/>',
@@ -4359,6 +4493,15 @@ app.addEventListener('click',e=>{
   if(a==='restart-workout')return startTraining(Number(t.dataset.day),true,{forceRestart:true});
   if(a==='complete-rest-day'){setRestDone(Number(t.dataset.day));return home();}
   if(a==='set-complete-auto')return advanceAutoPhase();
+  if(a==='toggle-workout-voice'){
+    if(!WorkoutSpeechRecognition)return;
+    workoutVoiceEnabled=!workoutVoiceEnabled;
+    workoutVoiceMessage='';
+    if(workoutVoiceEnabled)syncWorkoutVoiceRecognition();
+    else stopWorkoutVoiceRecognition(false);
+    updateWorkoutVoiceUi();
+    return;
+  }
   if(a==='toggle-auto'){
     if(workoutPaused){
       workoutPaused=false;
