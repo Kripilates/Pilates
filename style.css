@@ -6977,6 +6977,10 @@ body.dark .programCompletionContent{
 }
 .autoTrain .trainControls .lineIcon,
 .autoTrain .trainControls .controlIcon{width:16px;height:16px;flex:0 0 16px}
+.autoTrain.v53CleanTrain .trainControls button[data-action="toggle-auto"],
+.autoTrain.v50Train .trainControls button[data-action="toggle-auto"],
+.autoTrain.v53CleanTrain .trainControls .trainStopBtn,
+.autoTrain.v50Train .trainControls .trainStopBtn{gap:7px}
 .workoutVoiceControl{
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;

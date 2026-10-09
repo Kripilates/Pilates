@@ -1046,9 +1046,9 @@ const day1RealImages={};
 const masterCards={
 };
 const exerciseDetailExhale=Object.freeze({
-  hip:'při zvednutí / zatlačení.',
-  deadbug:'při záběru břicha.',
-  toetap:'při záběru břicha.'
+  hip:'při zvednutí / zatlačení',
+  deadbug:'při záběru břicha',
+  toetap:'při záběru břicha'
 });
 const gluteBridgeMarchFlow=Object.freeze(['start','mid','hero','mid','start']);
 const sharedMuscleCards=Object.freeze({
@@ -1093,12 +1093,12 @@ const referenceExerciseAssets={
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/romanian_deadlift_step_by_step_v01.png?v=59206sourcebatch',
     miniSteps:[
       {n:1,title:'START',caption:'Činky drž u stehen.',photo:'start'},
-      {n:2,title:'HIP HINGE',caption:'Pánev dozadu.',photo:'hero'},
+      {n:2,title:'PŘEDKLON V KYČLÍCH',caption:'Pánev dozadu.',photo:'hero'},
       {n:3,title:'NÁVRAT',caption:'Zpět do stoje.',photo:'start'}
     ],
     steps:[
       {title:'VÝCHOZÍ POZICE',text:'Postav se na šířku boků. Činky drž u stehen, ramena stáhni dolů a páteř drž dlouhou.',photo:'start'},
-      {title:'HIP HINGE',text:'Posuň pánev dozadu. Holeně zůstávají téměř svislé, záda neutrální a krk v prodloužení páteře.',photo:'hero'},
+      {title:'PŘEDKLON V KYČLÍCH',text:'Posuň pánev dozadu. Holeně zůstávají téměř svislé, záda neutrální a krk v prodloužení páteře.',photo:'hero'},
       {title:'NÁVRAT',text:'Zatlač chodidla do podložky, aktivuj hýždě a vrať se zpět do stoje bez zaklánění.',photo:'start'}
     ]
   },
@@ -1237,12 +1237,12 @@ const referenceExerciseAssets={
     subtitle:'Střed těla • pas • ramena',
     miniSteps:[
       {n:1,title:'START',caption:'Pánev na podložce',photo:'start'},
-      {n:2,title:'SIDE PLANK',caption:'Zvedni pánev',photo:'hero'},
+      {n:2,title:'BOČNÍ PRKNO',caption:'Zvedni pánev',photo:'hero'},
       {n:3,title:'NÁVRAT',caption:'Kontrolovaně zpět',photo:'start'}
     ],
     steps:[
       {title:'VÝCHOZÍ POLOHA',text:'Lehni si na bok. Spodní loket dej přímo pod rameno, předloktí opři o podložku a nohy natáhni. Pánev zůstává dole.',photo:'start'},
-      {title:'SIDE PLANK',text:'S výdechem zpevni břicho a zvedni pánev z podložky. Tělo drž v dlouhé linii a spodní rameno aktivní.',photo:'hero'},
+      {title:'BOČNÍ PRKNO',text:'S výdechem zpevni břicho a zvedni pánev z podložky. Tělo drž v dlouhé linii a spodní rameno aktivní.',photo:'hero'},
       {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem spusť pánev pomalu zpět na podložku. Zachovej oporu předloktí a pohyb dokonči bez propadnutí v rameni.',photo:'start'}
     ],
     info:{difficulty:'Střední',focus:'Střed těla / pas',knees:'Nohy natažené'},
@@ -1312,12 +1312,12 @@ const referenceExerciseAssets={
     subtitle:'Střed těla • pas • stabilita ramene',
     miniSteps:[
       {n:1,title:'START',caption:'Stabilní boční prkno',photo:'start'},
-      {n:2,title:'REACH POD TRUP',caption:'Kontrolovaná rotace',photo:'hero'},
+      {n:2,title:'PROVLEČENÍ PAŽE POD TRUPEM',caption:'Kontrolovaná rotace',photo:'hero'},
       {n:3,title:'NÁVRAT',caption:'Otevři hrudník',photo:'end'}
     ],
     steps:[
       {title:'VÝCHOZÍ POLOHA',text:'Nastav boční prkno na předloktí. Loket dej přímo pod rameno, nohy natáhni a pánev drž vysoko. Horní paže je podél těla.',photo:'start'},
-      {title:'REACH POD TRUP',text:'S výdechem veď horní paži pod trup a současně kontrolovaně rotuj hrudník k podložce. Opěrné rameno zůstává aktivní.',photo:'hero'},
+      {title:'PROVLEČENÍ PAŽE POD TRUPEM',text:'S výdechem veď horní paži pod trup a současně kontrolovaně rotuj hrudník k podložce. Opěrné rameno zůstává aktivní.',photo:'hero'},
       {title:'NÁVRAT',text:'S nádechem otevři hrudník a vrať horní paži vzhůru podle koncové polohy. Pánev drž stabilní a tělo v dlouhé linii.',photo:'end'}
     ],
     info:{difficulty:'Střední',focus:'Střed těla / pas',knees:'Nohy natažené'},
@@ -2095,12 +2095,12 @@ const referenceExerciseAssets={
     subtitle:'Záda • hrudník • mobilita páteře',
     miniSteps:[
       {n:1,title:'NASTAVENÍ',caption:'Leh na břiše',photo:'start'},
-      {n:2,title:'SPHINX',caption:'Opři se o předloktí',photo:'hero'},
+      {n:2,title:'SFINGA',caption:'Opři se o předloktí',photo:'hero'},
       {n:3,title:'VÝDRŽ',caption:'Uvolni ramena',photo:'end'}
     ],
     steps:[
       {title:'NASTAVENÍ',text:'Lehni si na břicho a natáhni nohy dozadu. Předloktí polož na podložku a lokty nastav přibližně pod ramena.',photo:'start'},
-      {title:'SPHINX',text:'Opři se do předloktí a jemně zvedni hrudník. Pánev a stehna nech na podložce a ramena drž daleko od uší.',photo:'hero'},
+      {title:'SFINGA',text:'Opři se do předloktí a jemně zvedni hrudník. Pánev a stehna nech na podložce a ramena drž daleko od uší.',photo:'hero'},
       {title:'VÝDRŽ',text:'Prodluž páteř, krk nech přirozeně a v pozici klidně dýchej. Záklon zvětšuj jen do příjemného rozsahu.',photo:'end'}
     ],
     info:{difficulty:'Lehké',focus:'Záda / hrudník',knees:'Bez tlaku na kolena'},
@@ -2224,7 +2224,7 @@ const referenceExerciseAssets={
       {n:3,title:'NÁVRAT',caption:'Dlaň pod rameno',photo:'start'}
     ],
     steps:[
-      {title:'VYSOKÝ PLANK',text:'Zaujmi vysoký plank. Dlaně polož pod ramena a chodidla dej mírně šíře než boky. Tělo drž v jedné dlouhé linii.',photo:'start'},
+      {title:'VYSOKÉ PRKNO',text:'Zaujmi vysoký plank. Dlaně polož pod ramena a chodidla dej mírně šíře než boky. Tělo drž v jedné dlouhé linii.',photo:'start'},
       {title:'DOTYK RAMENE',text:'Zpevni břicho a s výdechem zvedni jednu ruku. Kontrolovaně se dotkni opačného ramene a pánev drž klidnou.',photo:'hero'},
       {title:'VYSTŘÍDÁNÍ STRAN',text:'Vrať dlaň pod rameno a proveď pohyb druhou rukou. Boky drž stále co nejvíce bez pohybu.',photo:'start'}
     ],
@@ -2436,13 +2436,13 @@ const referenceExerciseAssets={
     stepByStep:'Pilates%20Assets/02_Exercise_Cards/Bear%20Hover/bear_hover_step_by_step_v01.png',
     subtitle:'Břicho • stabilita trupu',
     miniSteps:[
-      {n:1,title:'START',caption:'Tabletop',photo:'start'},
-      {n:2,title:'NÍZKÝ HOVER',caption:'Kolena pár cm nad podložkou',photo:'hero'},
+      {n:1,title:'START',caption:'Pozice na čtyřech',photo:'start'},
+      {n:2,title:'NÍZKÝ MEDVĚDÍ VZPOR',caption:'Kolena pár cm nad podložkou',photo:'hero'},
       {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'start'}
     ],
     steps:[
-      {title:'TABLETOP',text:'Začni na všech čtyřech. Dlaně polož pod ramena, kolena pod kyčle a páteř drž neutrální.',photo:'start'},
-      {title:'NÍZKÝ HOVER',text:'Opři špičky, zpevni břicho a zvedni obě kolena jen několik centimetrů nad podložku.',photo:'hero'},
+      {title:'POZICE NA ČTYŘECH',text:'Začni na všech čtyřech. Dlaně polož pod ramena, kolena pod kyčle a páteř drž neutrální.',photo:'start'},
+      {title:'NÍZKÝ MEDVĚDÍ VZPOR',text:'Opři špičky, zpevni břicho a zvedni obě kolena jen několik centimetrů nad podložku.',photo:'hero'},
       {title:'STABILNÍ VÝDRŽ A NÁVRAT',text:'Pánev drž nízko, záda neutrální a plynule dýchej. Potom obě kolena kontrolovaně vrať na podložku.',photo:'start'}
     ],
     info:{difficulty:'Střední',focus:'Břicho / stabilita',knees:'Nízký hover'},
@@ -2721,7 +2721,7 @@ function normalizeBreathInstruction(label,text){
   const leadingCue=label==='Nádech'
     ? /^(?:nádech|nadechni|s nádechem)\s*/i
     : /^(?:výdech|vydechni|s výdechem)\s*/i;
-  const normalized=instruction.replace(leadingCue,'').trim();
+  const normalized=instruction.replace(leadingCue,'').trim().replace(/\.\s*$/,'');
   return normalized ? normalized.charAt(0).toLocaleLowerCase('cs-CZ')+normalized.slice(1) : '';
 }
 function referencePracticalInfo(k,meta,ex){
@@ -3779,7 +3779,7 @@ function showAutoTrain(opts={}){
     ? `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div><div class="workoutTimerSlot">${timerContent}</div>`
     : `<div class="workoutHeaderText"><h2 class="trainName">${ex.name}</h2><div class="trainDose compactWorkoutDose${doseClass}">${doseLabel}</div>${statusHtml}</div>`;
   const showSkip=(workoutPhase==='roundRest'||workoutPhase==='switch'||workoutPhase==='prep'||(workoutFinalStretch&&isTimedActive&&!isConfirm));
-  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Dokon\u010deno</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button>`;
+  const controlsHtml=`${(isRepWork)||isConfirm?`<button class="primary doneRoundBtn" data-action="set-complete-auto">${lineIcon('quality')}Hotovo</button>`:`<button class="primary" data-action="toggle-auto">${lineIcon(workoutPaused?'play':'pause')}${workoutPaused?'Pokra\u010dovat':'Pozastavit'}</button>${showSkip?`<button data-action="skip-auto">${lineIcon('skip')}P\u0159esko\u010dit</button>`:''}`}<button class="trainStopBtn" data-action="stop-auto">${lineIcon('stop')}Ukon\u010dit</button>`;
   const workoutPosition=Math.min(dayObj.items.length,currentExercise+1);
   const workoutScopeLabel=isSpecialWorkout()?'Spešl trénink':`Den ${currentDay+1}`;
   const topLabel=workoutFinalStretch
