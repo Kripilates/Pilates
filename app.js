@@ -265,7 +265,7 @@ function syncWorkoutVoiceRecognition(){
 function workoutVoiceStatusText(supported){
   if(!supported)return 'Hlasové ovládání tento prohlížeč nepodporuje.';
   const error=/^(Mikrofon není|Hlasové ovládání teď není)/.test(workoutVoiceMessage)?workoutVoiceMessage:'';
-  return error||(workoutVoiceEnabled?'Řekni „Hotovo“ pro pokračování':'Zapni a řekni „Hotovo“');
+  return error||(workoutVoiceEnabled?'Cvik dokončíš povelem „Hotovo“':'Zapni hlasové ovládání pro cvičení bez dotyku obrazovky.');
 }
 function workoutVoiceControlHtml(){
   const supported=Boolean(WorkoutSpeechRecognition);
