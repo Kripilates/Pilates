@@ -152,8 +152,12 @@ function renderTrainingScreen(html){
   setWorkoutHeaderPosition(true);
   armWorkoutHistoryGuard();
 }
-function workoutVoiceEligible(){
+function workoutVoiceSessionEligible(){
   if(!workoutVoiceEnabled||!WorkoutSpeechRecognition||!workoutRunning||workoutPaused||workoutExitDialogOpen||document.visibilityState!=='visible')return false;
+  return true;
+}
+function workoutVoiceEligible(){
+  if(!workoutVoiceSessionEligible())return false;
   const dose=currentWorkoutEntry()?.[1]||'';
   const info=sideInfo(dose);
   return !info.timed&&['work','left','right'].includes(workoutPhase)&&Boolean(app.querySelector('[data-action="set-complete-auto"]'));
@@ -216,8 +220,10 @@ function createWorkoutVoiceRecognition(){
       workoutVoiceCommandLocked=true;
       workoutVoiceMessage='Povel rozpoznán.';
       updateWorkoutVoiceUi();
-      try{recognition.abort();}catch(e){}
+      const before=`${workoutRunning}|${workoutCurrentSet}|${currentExercise}|${workoutPhase}|${workoutFinalStretch}`;
       completeButton.click();
+      const after=`${workoutRunning}|${workoutCurrentSet}|${currentExercise}|${workoutPhase}|${workoutFinalStretch}`;
+      if(after!==before)setTimeout(()=>cue('voice-confirm'),120);
       setTimeout(()=>{
         workoutVoiceCommandLocked=false;
         syncWorkoutVoiceRecognition();
@@ -248,7 +254,7 @@ function createWorkoutVoiceRecognition(){
 }
 function syncWorkoutVoiceRecognition(){
   updateWorkoutVoiceUi();
-  if(!workoutVoiceEligible()){
+  if(!workoutVoiceSessionEligible()){
     if(workoutVoiceListening)stopWorkoutVoiceRecognition(false);
     else if(workoutVoiceEnabled&&workoutVoiceMessage!=='Aktivní pro cviky na opakování.'){
       workoutVoiceMessage='Aktivní pro cviky na opakování.';
@@ -993,6 +999,10 @@ const AUDIO_MASTER_GAIN=.18;
 function ensureAudio(){
   try{
     const C=window.AudioContext||window.webkitAudioContext; if(!C)return null;
+    if(audioCtx?.state==='closed'){
+      audioCtx=null;
+      audioMasterGain=null;
+    }
     if(!audioCtx){
       audioCtx=new C();
       audioMasterGain=audioCtx.createGain();
@@ -1006,7 +1016,7 @@ async function unlockAudio(){
   const ctx=ensureAudio();
   if(!ctx)return null;
   try{
-    if(ctx.state==='suspended'){
+    if(ctx.state!=='running'){
       if(!audioUnlockPromise){
         audioUnlockPromise=ctx.resume().catch(()=>{}).finally(()=>{audioUnlockPromise=null;});
       }
@@ -1015,10 +1025,9 @@ async function unlockAudio(){
     return ctx;
   }catch(e){return null;}
 }
-function beep(freq=700,dur=140,delay=0){
+function playBeep(ctx,freq,dur,delay){
   try{
-    const ctx=ensureAudio(); if(!ctx)return;
-    if(ctx.state!=='running')return;
+    if(!ctx||ctx.state!=='running'||!audioMasterGain)return;
     const o=ctx.createOscillator(), g=ctx.createGain();
     const start=ctx.currentTime+(delay/1000);
     const end=start+(dur/1000);
@@ -1032,7 +1041,17 @@ function beep(freq=700,dur=140,delay=0){
     if(!delay&&navigator.vibrate)navigator.vibrate(dur>140?70:35);
   }catch(e){}
 }
+function beep(freq=700,dur=140,delay=0){
+  const ctx=ensureAudio();
+  if(!ctx)return;
+  if(ctx.state==='running'){
+    playBeep(ctx,freq,dur,delay);
+    return;
+  }
+  void unlockAudio().then(activeCtx=>playBeep(activeCtx,freq,dur,delay));
+}
 function cue(kind){
+  if(kind==='voice-confirm'){beep(840,110);return;}
   if(kind==='go'){beep(720,140);beep(900,140,200);return;}
   if(kind==='done'){beep(600,150);beep(800,150,210);return;}
   if(kind==='switch'){beep(680,140);beep(680,140,200);return;}
