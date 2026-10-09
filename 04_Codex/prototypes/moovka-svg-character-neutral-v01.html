@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moovka – SVG postava v neutrální poloze</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #18324c;
+      --muted: #74828d;
+      --paper: #ffffff;
+      --page: #f5f7f6;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      min-height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: clamp(12px, 4vw, 36px);
+      overflow-x: hidden;
+      background: var(--page);
+      color: var(--navy);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(100%, 1120px);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      color: #238f8a;
+      font-size: clamp(.72rem, 2.7vw, .82rem);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(1.35rem, 5vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+
+    .artboard {
+      width: 100%;
+      overflow: hidden;
+      border-radius: clamp(18px, 4vw, 30px);
+      background: var(--paper);
+      box-shadow: 0 20px 56px rgba(32, 48, 58, .09);
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+
+    .note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: clamp(.78rem, 2.9vw, .9rem);
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 10px; }
+      h1 { margin-bottom: 10px; }
+      .artboard { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Vizuální studie postavy</p>
+    <h1>Neutrální poloha na čtyřech</h1>
+
+    <div class="artboard">
+      <svg viewBox="0 0 1200 720" role="img" aria-labelledby="svgTitle svgDesc">
+        <title id="svgTitle">Moovka – ženská postava v neutrální poloze na čtyřech</title>
+        <desc id="svgDesc">Jemně stínovaná dospělá ženská postava z profilu. Má korálový sportovní top, antracitové legíny, hnědé vlasy v culíku a cvičí bosá na světle šedé podložce.</desc>
+
+        <defs>
+          <linearGradient id="matGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eeeeee"/>
+            <stop offset="1" stop-color="#d9dbdc"/>
+          </linearGradient>
+          <linearGradient id="skinGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f6c39f"/>
+            <stop offset=".52" stop-color="#eeb38e"/>
+            <stop offset="1" stop-color="#d99572"/>
+          </linearGradient>
+          <linearGradient id="skinLight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fac9a5"/>
+            <stop offset="1" stop-color="#e2a17c"/>
+          </linearGradient>
+          <linearGradient id="coralGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff8d85"/>
+            <stop offset=".55" stop-color="#f27973"/>
+            <stop offset="1" stop-color="#dc615f"/>
+          </linearGradient>
+          <linearGradient id="leggingsGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#41474e"/>
+            <stop offset=".55" stop-color="#30363d"/>
+            <stop offset="1" stop-color="#222930"/>
+          </linearGradient>
+          <linearGradient id="hairGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8b5d3e"/>
+            <stop offset=".48" stop-color="#70452f"/>
+            <stop offset="1" stop-color="#4e3025"/>
+          </linearGradient>
+          <linearGradient id="hairHighlight" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#c28a5a" stop-opacity=".15"/>
+            <stop offset=".5" stop-color="#d3a16d" stop-opacity=".72"/>
+            <stop offset="1" stop-color="#8f6041" stop-opacity=".05"/>
+          </linearGradient>
+          <filter id="softShadow" x="-20%" y="-40%" width="140%" height="180%">
+            <feGaussianBlur stdDeviation="10"/>
+          </filter>
+          <filter id="bodyShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#29323a" flood-opacity=".10"/>
+          </filter>
+        </defs>
+
+        <rect width="1200" height="720" fill="#fff"/>
+        <ellipse cx="602" cy="579" rx="420" ry="31" fill="#66727a" opacity=".11" filter="url(#softShadow)"/>
+        <path id="mat" d="M118 526 Q125 509 150 506 L1030 506 Q1053 508 1068 529 L1093 568 Q1099 579 1085 582 L116 582 Q99 580 107 566 Z" fill="url(#matGradient)"/>
+        <path d="M128 565 L1080 565" fill="none" stroke="#c8cbcc" stroke-width="2" opacity=".7"/>
+
+        <g id="character" filter="url(#bodyShadow)">
+          <!-- zadní noha -->
+          <g id="rear-leg">
+            <path id="rear-thigh" d="M421 304 C414 344 416 405 431 470 C438 501 461 514 490 504 C509 497 515 477 507 450 C492 398 490 344 497 305 Z" fill="url(#leggingsGradient)"/>
+            <path d="M435 468 C402 472 356 474 310 474 C281 474 264 484 263 500 C262 517 282 527 311 528 L462 528 C491 526 504 513 500 493 C496 475 474 466 435 468 Z" fill="url(#leggingsGradient)"/>
+            <path id="rear-foot" d="M309 474 C286 471 267 464 252 451 C240 441 228 441 221 451 C216 459 218 468 225 475 C213 475 198 477 184 482 C171 487 173 500 188 503 C212 507 244 505 276 508 L316 510 Z" fill="url(#skinGradient)"/>
+            <path d="M184 488 C201 486 219 487 234 491" fill="none" stroke="#d58f6f" stroke-width="2" stroke-linecap="round" opacity=".62"/>
+            <path d="M228 475 C238 478 247 479 257 477" fill="none" stroke="#d58f6f" stroke-width="2" stroke-linecap="round" opacity=".54"/>
+          </g>
+
+          <!-- zadní paže -->
+          <g id="rear-arm">
+            <path d="M674 282 C688 283 699 294 701 310 L714 448 C716 471 708 491 692 495 C674 499 660 484 660 461 L657 318 C657 296 661 284 674 282 Z" fill="#dda07d" opacity=".72"/>
+            <path d="M685 480 C713 479 744 482 768 491 C781 496 780 508 768 512 C738 521 699 519 677 508 C666 503 670 486 685 480 Z" fill="#dda07d" opacity=".72"/>
+          </g>
+
+          <!-- trup: legíny, odhalený pas a sportovní top -->
+          <g id="torso">
+            <path id="pelvis" d="M392 264 C426 244 474 245 515 268 L509 329 C478 340 437 337 405 321 C392 306 388 283 392 264 Z" fill="url(#leggingsGradient)"/>
+            <path d="M416 261 C466 257 519 260 569 269 C582 278 583 299 568 313 C519 311 472 314 509 329 C478 340 437 337 405 321 C393 304 389 283 392 264 Z" fill="url(#skinGradient)"/>
+            <path d="M496 266 C523 266 548 267 572 271 L570 312 C548 311 527 312 509 329 C493 320 487 291 496 266 Z" fill="#efb08c" opacity=".34"/>
+            <path id="top" d="M559 257 C589 248 628 249 662 268 C676 280 679 302 670 326 C650 345 617 347 580 328 C565 315 556 281 559 257 Z" fill="url(#coralGradient)"/>
+            <path d="M576 260 C585 283 589 307 584 329" fill="none" stroke="#d75d5d" stroke-width="3" opacity=".38"/>
+            <path d="M655 272 C640 280 628 296 628 319" fill="none" stroke="#ffaaa1" stroke-width="3" opacity=".55"/>
+            <path d="M399 270 C438 255 484 257 522 267" fill="none" stroke="#202a32" stroke-width="1.3" opacity=".25"/>
+            <path id="spine-guide" d="M409 280 C479 264 552 274 622 282" fill="none" stroke="#bd7e66" stroke-width="2.2" opacity=".18"/>
+            <path d="M468 276 C490 287 511 295 535 300" fill="none" stroke="#cc8c6f" stroke-width="2" opacity=".23"/>
+          </g>
+
+          <!-- přední noha -->
+          <g id="front-leg">
+            <path id="front-thigh" d="M395 284 C375 315 370 372 381 445 C385 478 400 499 425 502 C451 504 467 485 462 456 C451 392 456 333 471 297 C454 280 423 276 395 284 Z" fill="url(#leggingsGradient)"/>
+            <path d="M388 454 C348 461 304 468 263 469 C231 470 214 484 216 502 C219 521 241 529 275 528 L414 528 C446 527 460 510 454 487 C449 466 427 452 388 454 Z" fill="url(#leggingsGradient)"/>
+            <path d="M405 294 C387 337 388 405 402 464" fill="none" stroke="#5a6168" stroke-width="3" opacity=".28"/>
+            <path id="front-foot" d="M267 469 C244 466 225 457 211 445 C200 435 188 436 181 445 C175 454 177 464 186 472 C169 471 151 475 136 481 C125 486 126 497 140 501 C162 508 197 504 230 507 L275 510 Z" fill="url(#skinLight)"/>
+            <path d="M139 487 C160 484 181 486 197 491" fill="none" stroke="#d58f6f" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+            <path d="M185 472 C197 476 207 477 217 474" fill="none" stroke="#d58f6f" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+          </g>
+
+          <!-- krk -->
+          <g id="neck">
+            <path d="M646 263 C651 244 657 226 670 213 L713 226 C703 248 697 265 700 282 C686 293 661 285 646 263 Z" fill="url(#skinGradient)"/>
+            <path d="M665 218 C671 245 683 267 700 279" fill="none" stroke="#cc8668" stroke-width="2.2" opacity=".3"/>
+          </g>
+
+          <!-- zadní část vlasů a culík -->
+          <g id="hair-back">
+            <path d="M701 181 C675 174 652 183 642 201 C629 224 637 247 658 255 C674 260 691 250 699 237 C713 218 719 197 701 181 Z" fill="url(#hairGradient)"/>
+            <path d="M651 201 C626 193 607 201 596 221 C582 247 589 275 574 294 C606 287 626 273 632 250 C639 226 646 213 663 210 Z" fill="url(#hairGradient)"/>
+            <path d="M605 218 C594 242 606 264 587 283" fill="none" stroke="url(#hairHighlight)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M615 214 C605 241 619 257 601 278" fill="none" stroke="#d2a06e" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+            <path d="M643 204 C652 199 661 200 668 207" fill="none" stroke="#2f2928" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+          </g>
+
+          <!-- hlava s přirozeným profilem -->
+          <g id="head">
+            <path id="face" d="M679 166 C708 151 744 162 758 190 C764 201 765 213 761 223 C767 229 772 235 777 239 C780 242 779 247 774 249 L765 252 C766 262 762 272 755 278 C744 286 727 285 712 277 C701 271 691 260 685 249 C673 226 667 183 679 166 Z" fill="url(#skinLight)"/>
+            <path d="M762 223 C768 229 772 235 777 239 C780 242 779 247 774 249 L765 252" fill="none" stroke="#c98163" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M748 259 C754 262 760 261 765 257" fill="none" stroke="#b96d66" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M746 216 C752 214 758 215 762 218" fill="none" stroke="#60463a" stroke-width="2" stroke-linecap="round"/>
+            <path d="M744 209 C751 205 758 206 764 210" fill="none" stroke="#8b5b46" stroke-width="2.3" stroke-linecap="round" opacity=".75"/>
+            <path d="M702 251 C704 260 711 268 720 274" fill="none" stroke="#d58f6f" stroke-width="2" opacity=".42"/>
+            <path d="M681 166 C700 145 735 147 754 168 C743 167 735 172 729 181 C716 178 700 177 687 183 C678 193 674 207 674 222 C659 202 663 181 681 166 Z" fill="url(#hairGradient)"/>
+            <path d="M686 168 C706 154 729 157 744 168" fill="none" stroke="#d5a26e" stroke-width="5" stroke-linecap="round" opacity=".56"/>
+            <path d="M682 180 C697 166 720 164 737 175" fill="none" stroke="#b77a50" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+            <path d="M674 211 C665 209 660 216 663 225 C666 234 674 236 681 230" fill="url(#skinLight)"/>
+            <path d="M668 218 C672 217 675 220 675 224" fill="none" stroke="#bd775d" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+
+          <!-- přední paže a dlaň -->
+          <g id="front-arm">
+            <path id="upper-arm" d="M646 281 C658 280 671 288 676 304 C682 330 683 362 686 397 L692 466 C694 487 683 503 665 503 C648 502 638 489 639 469 L640 397 C638 358 632 324 633 302 C634 289 639 282 646 281 Z" fill="url(#skinGradient)"/>
+            <path d="M650 305 C652 349 656 410 657 467" fill="none" stroke="#c77f61" stroke-width="2.4" opacity=".28"/>
+            <path id="front-hand" d="M655 487 C676 481 701 483 720 490 C739 497 758 504 779 510 C789 513 789 522 779 525 C752 530 727 527 705 522 C685 527 663 526 650 518 C640 512 644 493 655 487 Z" fill="url(#skinLight)"/>
+            <path d="M714 508 C735 511 754 515 774 517" fill="none" stroke="#ce8768" stroke-width="1.4" stroke-linecap="round" opacity=".55"/>
+            <path d="M708 514 C731 518 749 521 768 522" fill="none" stroke="#ce8768" stroke-width="1.2" stroke-linecap="round" opacity=".45"/>
+            <path d="M665 492 C671 504 671 515 666 523" fill="none" stroke="#c57f61" stroke-width="1.5" opacity=".45"/>
+          </g>
+
+          <!-- jemné světlo na oblečení -->
+          <path d="M407 280 C428 267 454 264 478 269" fill="none" stroke="#697077" stroke-width="4" stroke-linecap="round" opacity=".24"/>
+          <path d="M587 266 C613 258 638 264 653 279" fill="none" stroke="#ffb1a8" stroke-width="4" stroke-linecap="round" opacity=".48"/>
+        </g>
+      </svg>
+    </div>
+
+    <p class="note">Statický SVG návrh · jednotlivé části těla jsou připravené jako samostatné skupiny pro případnou pozdější animaci.</p>
+  </main>
+</body>
+</html>

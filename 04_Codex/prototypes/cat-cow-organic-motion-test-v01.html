@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moovka – Cat–Cow motion test</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #18324c;
+      --teal: #1aa9a1;
+      --paper: #fff;
+      --page: #f3f6f5;
+      --muted: #71808a;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; margin: 0; }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: clamp(10px, 3vw, 28px);
+      overflow-x: hidden;
+      background: var(--page);
+      color: var(--navy);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main { width: min(100%, 1080px); }
+    header { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin: 0 2px 12px; }
+    .eyebrow { margin: 0 0 3px; color: var(--teal); font-size: .73rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(1.2rem, 4vw, 1.85rem); line-height: 1.12; letter-spacing: -.025em; }
+
+    .toggle {
+      min-width: 96px;
+      min-height: 42px;
+      border: 1px solid #cbd9d7;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy);
+      font: inherit;
+      font-size: .85rem;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .stage {
+      position: relative;
+      overflow: hidden;
+      border-radius: clamp(18px, 3vw, 28px);
+      background: var(--paper);
+      box-shadow: 0 20px 55px rgba(32, 48, 58, .09);
+    }
+
+    svg { display: block; width: 100%; height: auto; background: #fff; }
+    .status {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      translate: -50% 0;
+      min-width: 112px;
+      padding: 7px 12px;
+      border: 1px solid rgba(24, 50, 76, .08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 5px 18px rgba(24, 50, 76, .07);
+      color: #526570;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-align: center;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .note { margin: 10px 4px 0; color: var(--muted); font-size: clamp(.76rem, 2.6vw, .88rem); text-align: center; }
+
+    @media (max-width: 520px) {
+      body { padding: 8px; }
+      header { align-items: center; margin-bottom: 8px; }
+      .toggle { min-width: 84px; min-height: 38px; font-size: .79rem; }
+      .stage { border-radius: 18px; }
+      .status { bottom: 8px; padding: 5px 10px; font-size: .65rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Technický test pohybu</p>
+        <h1>Kočka–kráva</h1>
+      </div>
+      <button class="toggle" id="toggle" type="button" aria-pressed="false">Pozastavit</button>
+    </header>
+
+    <div class="stage">
+      <svg id="scene" viewBox="0 0 1000 570" role="img" aria-labelledby="title desc">
+        <title id="title">Plynulá animace cviku kočka–kráva</title>
+        <desc id="desc">Kreslená ženská postava plynule přechází z neutrální polohy přes krávu a kočku. Dlaně a kolena zůstávají na podložce.</desc>
+
+        <defs>
+          <linearGradient id="mat" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eff0f0"/>
+            <stop offset="1" stop-color="#d9dcdd"/>
+          </linearGradient>
+          <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f8c7a4"/>
+            <stop offset=".58" stop-color="#edaf89"/>
+            <stop offset="1" stop-color="#d99370"/>
+          </linearGradient>
+          <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ff9188"/>
+            <stop offset=".55" stop-color="#f17871"/>
+            <stop offset="1" stop-color="#d85f5e"/>
+          </linearGradient>
+          <linearGradient id="leggings" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#444a51"/>
+            <stop offset=".55" stop-color="#30363d"/>
+            <stop offset="1" stop-color="#20272e"/>
+          </linearGradient>
+          <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a36c45"/>
+            <stop offset=".48" stop-color="#74472f"/>
+            <stop offset="1" stop-color="#4d3025"/>
+          </linearGradient>
+          <filter id="shadow" x="-20%" y="-50%" width="140%" height="200%">
+            <feGaussianBlur stdDeviation="9"/>
+          </filter>
+          <filter id="softBody" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1f2a32" flood-opacity=".09"/>
+          </filter>
+        </defs>
+
+        <rect width="1000" height="570" fill="#fff"/>
+        <ellipse cx="505" cy="468" rx="377" ry="23" fill="#657078" opacity=".10" filter="url(#shadow)"/>
+        <path d="M84 432 Q91 417 113 415 H884 Q907 416 918 432 L938 465 Q943 475 928 477 H77 Q64 475 70 464 Z" fill="url(#mat)"/>
+        <path d="M87 463 H923" fill="none" stroke="#c9cccd" stroke-width="2" opacity=".68"/>
+
+        <g id="rig" filter="url(#softBody)">
+          <!-- vzdálené končetiny dávají hloubku, jejich kontaktní body jsou pevné -->
+          <g opacity=".72">
+            <path id="rearThigh" fill="none" stroke="#293038" stroke-width="58" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M304 410 C274 417 234 423 194 424" fill="none" stroke="#293038" stroke-width="49" stroke-linecap="round"/>
+            <path d="M194 424 C174 422 153 414 139 403 C129 395 119 397 114 406 C109 415 115 423 126 430 C110 430 96 434 87 439 C79 444 83 451 94 453 C117 457 147 453 177 454" fill="none" stroke="#dda07c" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+            <path id="rearArm" fill="none" stroke="#dda07c" stroke-width="33" stroke-linecap="round"/>
+            <path d="M746 424 C773 423 797 427 817 435" fill="none" stroke="#dda07c" stroke-width="18" stroke-linecap="round"/>
+          </g>
+
+          <!-- zadní noha: kyčel se pohybuje, koleno i nárt zůstávají na místě -->
+          <path id="frontThigh" fill="none" stroke="url(#leggings)" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M294 411 C258 418 220 424 179 425" fill="none" stroke="url(#leggings)" stroke-width="56" stroke-linecap="round"/>
+          <path d="M179 425 C157 422 137 414 123 403 C113 395 102 397 97 406 C92 415 98 424 109 430 C92 430 75 435 65 440 C57 445 61 453 73 455 C99 459 129 455 161 456" fill="none" stroke="url(#skin)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- živý trup: obě kontury se každý snímek deformují jako jeden celek -->
+          <path id="body" fill="url(#skin)"/>
+          <path id="pelvis" fill="url(#leggings)"/>
+          <path id="top" fill="url(#coral)"/>
+          <path id="spineHighlight" fill="none" stroke="#b87760" stroke-width="2.1" stroke-linecap="round" opacity=".22"/>
+          <path id="topSeam" fill="none" stroke="#cf5758" stroke-width="2.2" opacity=".38"/>
+
+          <!-- paže: ramena reagují na páteř, dlaně zůstávají pevné -->
+          <path id="frontArm" fill="none" stroke="url(#skin)" stroke-width="39" stroke-linecap="round"/>
+          <path id="armShade" fill="none" stroke="#c67d60" stroke-width="2" stroke-linecap="round" opacity=".28"/>
+          <path d="M742 424 C772 422 799 427 824 437" fill="none" stroke="url(#skin)" stroke-width="21" stroke-linecap="round"/>
+          <path d="M779 431 C796 434 810 438 823 442" fill="none" stroke="#ca8164" stroke-width="1.4" stroke-linecap="round" opacity=".52"/>
+
+          <!-- krk a hlava jsou napojené na ramena a sdílejí jednu kinematickou fázi -->
+          <g id="neckGroup">
+            <path d="M-8 5 C-5 -18 2 -36 15 -49 L52 -31 C41 -11 37 7 40 23 C25 32 5 25 -8 5 Z" fill="url(#skin)"/>
+          </g>
+          <g id="headGroup">
+            <path id="ponytail" d="M-40 -42 C-66 -52 -88 -42 -96 -23 C-106 1 -93 24 -110 42 C-78 36 -56 21 -54 -3 C-52 -21 -45 -30 -30 -31 Z" fill="url(#hair)"/>
+            <path d="M-82 -29 C-91 -7 -77 9 -95 31" fill="none" stroke="#d1a06d" stroke-width="4" stroke-linecap="round" opacity=".55"/>
+            <path d="M-31 -49 C-8 -65 24 -54 36 -27 C41 -16 42 -4 38 6 C44 12 49 18 54 22 C57 25 55 30 50 31 L41 34 C42 44 37 54 29 60 C18 68 2 66 -13 58 C-27 50 -37 37 -42 21 C-48 2 -47 -35 -31 -49 Z" fill="url(#skin)"/>
+            <path d="M20 40 C27 43 34 42 39 38" fill="none" stroke="#b96d66" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M22 -2 C29 -4 34 -2 38 1" fill="none" stroke="#65483a" stroke-width="2" stroke-linecap="round"/>
+            <path d="M-32 -49 C-12 -69 24 -62 37 -39 C22 -41 11 -35 4 -23 C-10 -27 -25 -24 -39 -14 C-46 -28 -43 -41 -32 -49 Z" fill="url(#hair)"/>
+            <path d="M-28 -49 C-8 -62 14 -57 29 -43" fill="none" stroke="#d2a06b" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+            <path d="M-41 0 C-51 -2 -56 6 -51 15 C-48 22 -40 23 -34 17" fill="url(#skin)"/>
+          </g>
+        </g>
+
+        <!-- kotevní body jsou jen v testovacím DOMu, vizuálně nejsou zobrazené -->
+        <g id="anchors" visibility="hidden">
+          <circle id="kneeAnchor" cx="294" cy="411" r="3"/>
+          <circle id="handAnchor" cx="742" cy="424" r="3"/>
+        </g>
+      </svg>
+      <div class="status" id="status" aria-live="polite">Neutrál</div>
+    </div>
+
+    <p class="note">Dlaně a kolena zůstávají ukotvené; páteř, pánev, ramena a hlava se pohybují v jedné souvislé smyčce.</p>
+  </main>
+
+  <script>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+      const body = $('body');
+      const pelvis = $('pelvis');
+      const top = $('top');
+      const spine = $('spineHighlight');
+      const topSeam = $('topSeam');
+      const frontThigh = $('frontThigh');
+      const rearThigh = $('rearThigh');
+      const frontArm = $('frontArm');
+      const rearArm = $('rearArm');
+      const armShade = $('armShade');
+      const neck = $('neckGroup');
+      const head = $('headGroup');
+      const ponytail = $('ponytail');
+      const status = $('status');
+      const toggle = $('toggle');
+
+      const duration = 9000;
+      let playing = true;
+      let startedAt = performance.now();
+      let pausedAt = 0;
+
+      const mix = (a, b, t) => a + (b - a) * t;
+      const round = (n) => Math.round(n * 10) / 10;
+
+      // phase: +1 = kráva, 0 = neutrál, -1 = kočka
+      function draw(phase) {
+        const cow = Math.max(0, phase);
+        const cat = Math.max(0, -phase);
+
+        const hip = {
+          x: round(392 + cow * 6 - cat * 5),
+          y: round(263 - cow * 12 + cat * 12)
+        };
+        const shoulder = {
+          x: round(650 + cow * 2 - cat * 5),
+          y: round(271 + cow * 8 - cat * 8)
+        };
+
+        const hipTopY = round(hip.y - 34);
+        const shoulderTopY = round(shoulder.y - 30);
+        const hipBottomY = round(hip.y + 39);
+        const shoulderBottomY = round(shoulder.y + 36);
+
+        // Horní křivka je skutečná páteřní silueta: v krávě klesá, v kočce se zvedá.
+        const upperC1Y = round(mix(235, 294, cow) - cat * 53);
+        const upperC2Y = round(mix(240, 294, cow) - cat * 61);
+        // Spodní křivka reaguje méně, aby trup zachoval objem a nevypadal gumově.
+        const lowerC1Y = round(312 + cow * 30 - cat * 5);
+        const lowerC2Y = round(312 + cow * 25 - cat * 2);
+
+        body.setAttribute('d', [
+          `M ${hip.x - 4} ${hipTopY}`,
+          `C 460 ${upperC1Y}, 565 ${upperC2Y}, ${shoulder.x} ${shoulderTopY}`,
+          `C ${shoulder.x + 18} ${shoulder.y - 8}, ${shoulder.x + 17} ${shoulder.y + 20}, ${shoulder.x - 2} ${shoulderBottomY}`,
+          `C 566 ${lowerC2Y}, 468 ${lowerC1Y}, ${hip.x - 9} ${hipBottomY}`,
+          `C ${hip.x - 31} ${hip.y + 24}, ${hip.x - 31} ${hip.y - 17}, ${hip.x - 4} ${hipTopY} Z`
+        ].join(' '));
+
+        pelvis.setAttribute('d', [
+          `M ${hip.x - 47} ${hip.y - 36}`,
+          `C ${hip.x - 18} ${hip.y - 54}, ${hip.x + 30} ${hip.y - 47}, ${hip.x + 62} ${hip.y - 20}`,
+          `L ${hip.x + 54} ${hip.y + 47}`,
+          `C ${hip.x + 12} ${hip.y + 59}, ${hip.x - 32} ${hip.y + 39}, ${hip.x - 47} ${hip.y - 36} Z`
+        ].join(' '));
+
+        // Top kopíruje pravý konec stejné deformované hrudní křivky.
+        const topBackY = round(upperC2Y + 7);
+        top.setAttribute('d', [
+          `M 560 ${topBackY}`,
+          `C 592 ${round(mix(243, 287, cow) - cat * 52)}, 623 ${round(mix(245, 282, cow) - cat * 45)}, ${shoulder.x + 2} ${shoulderTopY + 4}`,
+          `C ${shoulder.x + 17} ${shoulder.y - 4}, ${shoulder.x + 14} ${shoulder.y + 23}, ${shoulder.x - 3} ${shoulderBottomY - 2}`,
+          `C 622 ${round(lowerC2Y + 7)}, 589 ${round(lowerC2Y + 3)}, 566 ${round(lowerC2Y - 4)} Z`
+        ].join(' '));
+
+        spine.setAttribute('d', `M ${hip.x - 3} ${hipTopY + 8} C 462 ${upperC1Y + 8}, 565 ${upperC2Y + 8}, ${shoulder.x - 3} ${shoulderTopY + 8}`);
+        topSeam.setAttribute('d', `M 568 ${topBackY + 3} C 574 ${round((topBackY + lowerC2Y) / 2)}, 575 ${round(lowerC2Y - 5)}, 568 ${round(lowerC2Y - 4)}`);
+
+        // Kolena zůstávají přesně na 294/411 a 304/410.
+        frontThigh.setAttribute('d', `M ${hip.x - 19} ${hip.y + 11} C ${hip.x - 37} ${hip.y + 63}, 325 353, 294 411`);
+        rearThigh.setAttribute('d', `M ${hip.x + 16} ${hip.y + 13} C ${hip.x + 2} ${hip.y + 70}, 337 360, 304 410`);
+
+        // Dlaně zůstávají na 742/424 a 746/424; změna ramene se absorbuje v lopatce a paži.
+        frontArm.setAttribute('d', `M ${shoulder.x + 1} ${shoulder.y + 14} C ${shoulder.x + 18} ${shoulder.y + 67}, 706 363, 742 424`);
+        rearArm.setAttribute('d', `M ${shoulder.x + 20} ${shoulder.y + 15} C ${shoulder.x + 34} ${shoulder.y + 70}, 714 365, 746 424`);
+        armShade.setAttribute('d', `M ${shoulder.x + 8} ${shoulder.y + 28} C ${shoulder.x + 24} ${shoulder.y + 85}, 717 379, 739 416`);
+
+        const neckAngle = round(-3 - cow * 13 + cat * 15);
+        const headAngle = round(7 - cow * 27 + cat * 31);
+        const neckX = round(shoulder.x + 2);
+        const neckY = round(shoulder.y - 17);
+        neck.setAttribute('transform', `translate(${neckX} ${neckY}) rotate(${neckAngle})`);
+        head.setAttribute('transform', `translate(${round(neckX + 44)} ${round(neckY - 44)}) rotate(${headAngle})`);
+
+        // Culík lehce zaostává za rotací hlavy; nejde o samostatnou nesouvisející animaci.
+        const tailLift = round(cow * 7 - cat * 5);
+        ponytail.setAttribute('transform', `translate(0 ${tailLift}) rotate(${round(-headAngle * .14)} -40 -35)`);
+
+        if (phase > .38) status.textContent = 'Kráva';
+        else if (phase < -.38) status.textContent = 'Kočka';
+        else status.textContent = 'Neutrál';
+      }
+
+      function frame(now) {
+        if (!playing) return;
+        const elapsed = (now - startedAt) % duration;
+        // Sinus zajišťuje nulovou rychlost v krajních polohách a průchod neutrálem bez skoku.
+        const phase = Math.sin((elapsed / duration) * Math.PI * 2);
+        draw(phase);
+        requestAnimationFrame(frame);
+      }
+
+      toggle.addEventListener('click', () => {
+        playing = !playing;
+        toggle.textContent = playing ? 'Pozastavit' : 'Pokračovat';
+        toggle.setAttribute('aria-pressed', String(!playing));
+        if (playing) {
+          startedAt += performance.now() - pausedAt;
+          requestAnimationFrame(frame);
+        } else {
+          pausedAt = performance.now();
+        }
+      });
+
+      draw(0);
+      requestAnimationFrame(frame);
+    })();
+  </script>
+</body>
+</html>
