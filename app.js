@@ -39,6 +39,8 @@ const WorkoutSpeechRecognition=window.SpeechRecognition||window.webkitSpeechReco
 let workoutVoiceEnabled=false;
 let workoutVoiceRecognition=null;
 let workoutVoiceListening=false;
+let workoutVoiceStarting=false;
+let workoutVoiceStopRequested=false;
 let workoutVoiceCommandLocked=false;
 let workoutVoiceLastCommandAt=0;
 let workoutVoiceMessage='';
@@ -186,9 +188,12 @@ function stopWorkoutVoiceRecognition(disable=false){
     workoutVoiceMessage='Aktivní pro cviky na opakování.';
   }
   const recognition=workoutVoiceRecognition;
+  const recognitionActive=workoutVoiceListening||workoutVoiceStarting;
   workoutVoiceListening=false;
-  if(recognition){
-    try{recognition.abort();}catch(e){}
+  workoutVoiceStarting=false;
+  if(recognition&&recognitionActive){
+    workoutVoiceStopRequested=true;
+    try{recognition.abort();}catch(e){workoutVoiceStopRequested=false;}
   }
   updateWorkoutVoiceUi();
 }
@@ -200,6 +205,7 @@ function createWorkoutVoiceRecognition(){
   recognition.interimResults=false;
   recognition.maxAlternatives=1;
   recognition.onstart=()=>{
+    workoutVoiceStarting=false;
     workoutVoiceListening=true;
     workoutVoiceMessage='Poslouchám na povel „Hotovo“.';
     updateWorkoutVoiceUi();
@@ -232,6 +238,7 @@ function createWorkoutVoiceRecognition(){
     }
   };
   recognition.onerror=event=>{
+    workoutVoiceStarting=false;
     workoutVoiceListening=false;
     if(event.error==='aborted'||event.error==='no-speech')return;
     if(event.error==='not-allowed'||event.error==='service-not-allowed'){
@@ -247,8 +254,19 @@ function createWorkoutVoiceRecognition(){
     updateWorkoutVoiceUi();
   };
   recognition.onend=()=>{
+    const intentionallyStopped=workoutVoiceStopRequested;
+    workoutVoiceStarting=false;
     workoutVoiceListening=false;
-    if(workoutVoiceEnabled&&!workoutVoiceCommandLocked)setTimeout(syncWorkoutVoiceRecognition,300);
+    workoutVoiceStopRequested=false;
+    if(intentionallyStopped){
+      if(workoutVoiceSessionEligible()&&!workoutVoiceCommandLocked)setTimeout(syncWorkoutVoiceRecognition,0);
+      return;
+    }
+    if(workoutVoiceEnabled){
+      workoutVoiceEnabled=false;
+      workoutVoiceMessage='Poslech byl ukončen prohlížečem. Zapni hlasové ovládání znovu.';
+      updateWorkoutVoiceUi();
+    }
   };
   return recognition;
 }
@@ -262,15 +280,21 @@ function syncWorkoutVoiceRecognition(){
     }
     return;
   }
-  if(workoutVoiceListening||workoutVoiceCommandLocked)return;
+  if(workoutVoiceListening||workoutVoiceStarting||workoutVoiceCommandLocked)return;
   if(!workoutVoiceRecognition)workoutVoiceRecognition=createWorkoutVoiceRecognition();
-  try{workoutVoiceRecognition?.start();}
-  catch(e){if(e?.name!=='InvalidStateError')workoutVoiceMessage='Hlasové ovládání teď není dostupné.';}
+  try{
+    workoutVoiceStopRequested=false;
+    workoutVoiceStarting=true;
+    workoutVoiceRecognition?.start();
+  }catch(e){
+    workoutVoiceStarting=false;
+    if(e?.name!=='InvalidStateError')workoutVoiceMessage='Hlasové ovládání teď není dostupné.';
+  }
   updateWorkoutVoiceUi();
 }
 function workoutVoiceStatusText(supported){
   if(!supported)return 'Hlasové ovládání tento prohlížeč nepodporuje.';
-  const error=/^(Mikrofon není|Hlasové ovládání teď není)/.test(workoutVoiceMessage)?workoutVoiceMessage:'';
+  const error=/^(Mikrofon není|Hlasové ovládání teď není|Poslech byl ukončen)/.test(workoutVoiceMessage)?workoutVoiceMessage:'';
   return error||(workoutVoiceEnabled?'Cvik dokončíš povelem „Hotovo“':'Zapni hlasové ovládání pro cvičení bez dotyku obrazovky.');
 }
 function workoutVoiceControlHtml(){
