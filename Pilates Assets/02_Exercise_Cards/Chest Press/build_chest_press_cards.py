@@ -72,12 +72,12 @@ def build_guide():
     for x0,(kind,head,body) in zip(xs,info): rounded(d,(x0,info_y,x0+box_w,info_y+box_h),22,CARD,LINE,2); draw_icon(d,(x0+28,info_y+30),kind); d.text((x0+48,info_y+18),head,font=F['small_b'],fill=TEAL_D); draw_wrapped(d,(x0+18,info_y+56),body,F['small'],INK,box_w-36,4)
     rounded(d,(34,1090,746,1412),26,CARD,LINE,2); d.text((62,1120),'JAK PROVÉST',font=F['h2'],fill=INK); y=1165
     for number,text in GUIDE_HOW: d.ellipse((62,y+2,92,y+32),fill=SOFT,outline=LINE,width=1); center_text(d,(62,y+2,92,y+32),number,F['small_b'],TEAL_D); y=draw_wrapped(d,(106,y),text,F['body'],INK,590,7)+12
-    rounded(d,(34,1440,746,1618),26,WARN,WARN_LINE,2); draw_icon(d,(64,1473),'warn',WARN_ICON); d.text((92,1457),'HLÍDEJ SI',font=F['h3'],fill=INK); draw_wrapped(d,(62,1500),GUIDE_WATCH,F['body'],INK,640,7); d.text((54,1640),'Pilates Body 40+',font=F['tiny'],fill=MUTED); img.save(GUIDE)
+    rounded(d,(34,1440,746,1618),26,WARN,WARN_LINE,2); draw_icon(d,(64,1473),'warn',WARN_ICON); d.text((92,1457),'HLÍDEJ SI',font=F['h3'],fill=INK); draw_wrapped(d,(62,1500),GUIDE_WATCH,F['body'],INK,640,7); d.text((54,1640),'Moovka',font=F['tiny'],fill=MUTED); img.save(GUIDE)
 def build_step():
     img=Image.new('RGB',(780,2280),BG); d=ImageDraw.Draw(img); rounded(d,(34,34,746,126),28,CARD,LINE,2); d.text((62,56),'Krok za krokem',font=F['step_title'],fill=INK); d.text((62,98),'TLAKY S ČINKAMI VLEŽE',font=F['small_b'],fill=TEAL_D); y=160
     for step_label,heading,photo,body in STEP_TEXTS:
         card_h=545; rounded(d,(34,y,746,y+card_h),28,CARD,LINE,2); d.rounded_rectangle((58,y+24,148,y+54),radius=15,fill=SOFT,outline=LINE,width=1); center_text(d,(58,y+24,148,y+54),step_label,F['small_b'],TEAL_D); d.text((62,y+72),heading,font=F['step_h'],fill=INK); paste_round(img,fit_image(photo,(656,352)),(62,y+114,718,y+466),22); body_y = y+464 if step_label == 'KROK 1' else y+484; draw_wrapped(d,(62,body_y),body,F['step_body'],INK,650,7); y += card_h+38
-    rounded(d,(34,y,746,y+300),28,WARN,WARN_LINE,2); draw_icon(d,(66,y+45),'warn',WARN_ICON); d.text((98,y+28),'HLÍDEJ SI',font=F['step_h'],fill=INK); draw_wrapped(d,(62,y+82),STEP_WATCH,F['step_body'],INK,650,8); d.text((54,2240),'Pilates Body 40+',font=F['tiny'],fill=MUTED); img.save(STEP)
+    rounded(d,(34,y,746,y+300),28,WARN,WARN_LINE,2); draw_icon(d,(66,y+45),'warn',WARN_ICON); d.text((98,y+28),'HLÍDEJ SI',font=F['step_h'],fill=INK); draw_wrapped(d,(62,y+82),STEP_WATCH,F['step_body'],INK,650,8); d.text((54,2240),'Moovka',font=F['tiny'],fill=MUTED); img.save(STEP)
 def main():
     start_hash=sha256(START); hero_hash=sha256(HERO); build_guide(); build_step()
     if sha256(START)!=start_hash or sha256(HERO)!=hero_hash: raise RuntimeError('Source START/HERO changed')

@@ -199,7 +199,7 @@ def draw_guide():
         635,
         gap=8,
     )
-    d.text((54, 1644), "Pilates Body 40+", font=f(13), fill=MUTED)
+    d.text((54, 1644), "Moovka", font=f(13), fill=MUTED)
     im.save(GUIDE)
 
 
@@ -243,7 +243,7 @@ def draw_step():
         645,
         gap=8,
     )
-    d.text((48, 2228), "Pilates Body 40+", font=f(13), fill=MUTED)
+    d.text((48, 2228), "Moovka", font=f(13), fill=MUTED)
     im.save(STEP)
 
 

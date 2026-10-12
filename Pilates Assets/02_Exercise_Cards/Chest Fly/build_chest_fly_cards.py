@@ -193,7 +193,7 @@ def build_guide():
     draw_icon(draw, (64, 1473), 'warn', WARN_ICON)
     draw.text((92, 1457), 'HLÍDEJ SI', font=F['h3'], fill=INK)
     draw_wrapped(draw, (62, 1500), GUIDE_WATCH, F['body'], INK, 640, 7)
-    draw.text((54, 1640), 'Pilates Body 40+', font=F['tiny'], fill=MUTED)
+    draw.text((54, 1640), 'Moovka', font=F['tiny'], fill=MUTED)
     image.save(GUIDE)
 
 
@@ -219,7 +219,7 @@ def build_step():
     draw_icon(draw, (66, y + 45), 'warn', WARN_ICON)
     draw.text((98, y + 28), 'HLÍDEJ SI', font=F['step_h'], fill=INK)
     draw_wrapped(draw, (62, y + 82), STEP_WATCH, F['step_body'], INK, 650, 8)
-    draw.text((54, 2240), 'Pilates Body 40+', font=F['tiny'], fill=MUTED)
+    draw.text((54, 2240), 'Moovka', font=F['tiny'], fill=MUTED)
     image.save(STEP)
 
 

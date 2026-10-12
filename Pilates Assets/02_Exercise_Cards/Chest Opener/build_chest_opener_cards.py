@@ -268,7 +268,7 @@ def build_guide():
     draw.text((92, 1457), "HLÍDEJ SI", font=F["h3"], fill=INK)
     _, watch_bottom = draw_wrapped(draw, (62, 1500), GUIDE_WATCH, F["body"], INK, 640, 7)
     margins["GUIDE WATCH"] = ensure_bottom_margin("Guide watch", watch_bottom, 1618)
-    draw.text((54, 1640), "Pilates Body 40+", font=F["tiny"], fill=MUTED)
+    draw.text((54, 1640), "Moovka", font=F["tiny"], fill=MUTED)
     image.save(GUIDE)
     return margins
 
@@ -309,7 +309,7 @@ def build_step():
     draw.text((98, next_y + 14), "HLÍDEJ SI", font=F["step_h"], fill=INK)
     _, watch_bottom = draw_wrapped(draw, (62, next_y + 64), STEP_WATCH, F["step_body"], INK, 650, 8)
     margins["STEP WATCH"] = ensure_bottom_margin("Step watch", watch_bottom, y + 300)
-    draw.text((54, 2240), "Pilates Body 40+", font=F["tiny"], fill=MUTED)
+    draw.text((54, 2240), "Moovka", font=F["tiny"], fill=MUTED)
     image.save(STEP)
     return margins
 

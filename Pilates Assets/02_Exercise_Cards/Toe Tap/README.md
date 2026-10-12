@@ -22,7 +22,7 @@ END se nevytváří, protože návratová pozice je totožná se START.
 QUALITY SCORE: 9.7/10
 STATUS: APPROVED
 
-Toe Tap je schválený referenční cvik projektu Pilates Body 40+.
+Toe Tap je schválený referenční cvik projektu Moovka.
 Slouží jako standard pro cviky vleže na zádech.
 
 ## Notes

@@ -246,7 +246,7 @@ def build_guide():
         F["body"], INK, 640, 5
     )
     margins["GUIDE WATCH"] = ensure_bottom_margin("Guide watch", watch_bottom, 1618)
-    draw.text((54, 1640), "Pilates Body 40+", font=F["tiny"], fill=MUTED)
+    draw.text((54, 1640), "Moovka", font=F["tiny"], fill=MUTED)
 
     image.save(GUIDE)
     return margins
@@ -298,7 +298,7 @@ def build_step():
         F["step_body"], INK, 650, 5
     )
     margins["STEP WATCH"] = ensure_bottom_margin("Step watch", watch_bottom, 2218)
-    draw.text((54, 2240), "Pilates Body 40+", font=F["tiny"], fill=MUTED)
+    draw.text((54, 2240), "Moovka", font=F["tiny"], fill=MUTED)
 
     image.save(STEP)
     return margins

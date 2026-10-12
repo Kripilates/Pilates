@@ -36,7 +36,7 @@ fyzické soubory a aktuální runtime.
 
 ## Projekt
 
-- Projekt: Pilates Body 40+
+- Projekt: Moovka
 - Repozitář: Pilates
 - Branch: main
 - Git root: `C:\Users\Kristy\Documents\GitHub\Pilates`
