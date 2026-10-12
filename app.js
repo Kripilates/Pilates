@@ -1491,6 +1491,31 @@ const referenceExerciseAssets={
       mistakes:['Současné zvednutí pánve a nohy.','Vytáčení nebo klesání pánve.','Prohýbání beder.','Odraz opěrnou nohou.']
     }
   },
+  hamstring_walkouts:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Walkouts/hamstring_walkouts_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Walkouts/hamstring_walkouts_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Walkouts/hamstring_walkouts_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Walkouts/hamstring_walkouts_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hamstring%20Walkouts/hamstring_walkouts_step_by_step_v01.png',
+    subtitle:'Hýždě • zadní stehna • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Pánev v mostu',photo:'start'},
+      {n:2,title:'ODKRAČOVÁNÍ',caption:'Paty malými kroky vpřed',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Paty zpět k hýždím',photo:'start'}
+    ],
+    steps:[
+      {title:'ZVEDNI PÁNEV',text:'Lehni si na záda, pokrč kolena a zvedni pánev do stabilního mostu.',photo:'start'},
+      {title:'ODKRAČUJ PATAMI',text:'Střídavě posouvej paty malými kroky dopředu. Pánev drž nad podložkou a břicho aktivní.',photo:'hero'},
+      {title:'VRAŤ SE ZPĚT',text:'Malými kroky přisuň paty zpět k hýždím a vrať se do výchozího mostu.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Hýždě / zadní stehna',knees:'Kontrolovaný rozsah'},
+    breath:{inhale:'Plynule během pohybu',exhale:'Při udržení mostu',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci hýždí a zadní strany stehen při stabilní pánvi.',
+      watch:['Pánev drž nad podložkou.','Bedra nech neutrální.','Paty posouvej malými kontrolovanými kroky.'],
+      mistakes:['Položení pánve na zem.','Prohýbání beder.','Rychlé odklouznutí chodidel.','Napětí v krku a ramenou.']
+    }
+  },
   abduction:{
     start:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_start.png?v=59170todayauditfix',
     hero:'Pilates%20Assets/02_Exercise_Cards/Bridge%20Abduction/bridge_abduction_hero.png?v=59170todayauditfix',
@@ -1665,6 +1690,31 @@ const referenceExerciseAssets={
       feel:'Práci ramen při stabilním trupu a plynulém kontrolovaném pohybu.',
       watch:['Ramena drž daleko od uší.','Lokty nech mírně pokrčené.','Paže zvedej nejvýše do úrovně ramen.'],
       mistakes:['Švihání činkami.','Zvedání ramen k uším.','Prohýbání beder.','Zvedání paží nad úroveň ramen.']
+    }
+  },
+  hammer_curl:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Hammer%20Curl/hammer_curl_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Hammer%20Curl/hammer_curl_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Hammer%20Curl/hammer_curl_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Hammer%20Curl/hammer_curl_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Hammer%20Curl/hammer_curl_step_by_step_v01.png',
+    subtitle:'Biceps • předloktí • činky',
+    miniSteps:[
+      {n:1,title:'START',caption:'Činky podél těla',photo:'start'},
+      {n:2,title:'ZDVIH',caption:'Činky směrem k ramenům',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POZICE',text:'Postav se vzpřímeně. Činky drž podél těla s dlaněmi otočenými k sobě.',photo:'start'},
+      {title:'KLADIVOVÝ ZDVIH',text:'Pokrč lokty a zvedni činky směrem k ramenům. Lokty drž blízko trupu a ramena dole.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'Pomalu spusť činky zpět do výchozí polohy bez švihu a pohybu nadloktí.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Biceps / předloktí',knees:'Stabilní stoj'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí činek',tempo:'Pomalu bez švihu'},
+    recommendations:{
+      feel:'Práci bicepsů a předloktí při stabilním trupu a klidných ramenou.',
+      watch:['Lokty drž blízko trupu.','Ramena nech daleko od uší.','Zápěstí drž rovná.'],
+      mistakes:['Houpání trupem.','Zvedání ramen.','Posouvání loktů dopředu.','Rychlé spuštění činek.']
     }
   },
   heeltaps:{
