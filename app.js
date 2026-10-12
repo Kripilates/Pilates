@@ -383,6 +383,9 @@ function resolvedSpecialItems(categoryId,variantId,difficulty=effectiveProgramDi
   const selected=specialWorkout(categoryId,variantId);
   return selected?selected.variant.items.map(([id,dose])=>[id,resolveDose(dose,difficulty)]):[];
 }
+function unavailableSpecialExerciseIds(items){
+  return [...new Set((items||[]).map(([id])=>id).filter(id=>!activeExerciseIdSet.has(id)))];
+}
 function specialWorkoutHistory(){
   try{
     const history=JSON.parse(localStorage.getItem(SPECIAL_HISTORY_KEY)||'[]');
@@ -404,7 +407,7 @@ function normalizeSpecialResumeState(state){
   if(!selected||!SPECIAL_VARIANT_ORDER.includes(variantId))return null;
   const difficulty=validDifficulty(state.difficulty)?state.difficulty:effectiveProgramDifficulty();
   const items=resolvedSpecialItems(categoryId,variantId,difficulty);
-  if(!items.length||items.some(([id])=>!data.exercises[id]))return null;
+  if(!items.length||unavailableSpecialExerciseIds(items).length)return null;
   const itemCount=items.length;
   const totalSets=Math.max(1,Number(state.workoutTotalSets)||difficultySets(difficulty));
   const currentExercise=Math.max(0,Math.min(itemCount-1,Number(state.currentExercise)||0));
@@ -2341,7 +2344,29 @@ const referenceExerciseAssets={
     recommendations:{feel:'Stabilní střed těla a kontrolovaný rozsah pohybu.',watch:['Bedra drž stabilní.','Pohyb neuspěchej.'],mistakes:['Prohnutí v bedrech.','Švihání pažemi nebo nohama.']}
   },
   reverse_plank:{
-    pending:true
+    start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_step_by_step_v01.png',
+    subtitle:'Střed těla • ramena • hýždě',
+    miniSteps:[
+      {n:1,title:'START',caption:'Sed s dlaněmi za boky',photo:'start'},
+      {n:2,title:'OBRÁCENÉ PRKNO',caption:'Pánev vzhůru',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'end'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Sedni si s nataženýma nohama a dlaně opři o podložku za boky.',photo:'start'},
+      {title:'ZVEDNUTÍ PÁNVE',text:'Zatlač do dlaní a pat, zpevni břicho a hýždě a zvedni pánev.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'Ramena drž stabilní a pánev spusť pomalu zpět na podložku.',photo:'end'}
+    ],
+    info:{difficulty:'Střední',focus:'Střed těla / ramena',knees:'Nohy natažené'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí pánve',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Střed těla, hýždě, ramena a zadní stranu paží.',
+      watch:['Ramena drž stabilní.','Tělo vytáhni do dlouhé linie.','Krk nech přirozeně prodloužený.'],
+      mistakes:['Propadání mezi rameny.','Přehnaný záklon hlavy.','Nekontrolované spuštění pánve.']
+    }
   },
   standing_hamstring_curl_band:{
     pending:true
@@ -2475,6 +2500,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   rainbow:'glutes',
   raise:'shouldersArms',
   rdl:'glutesThighs',
+  reverse_plank:'coreShoulders',
   revcrunch:'core',
   rollup:'core',
   row:'backArms',
@@ -3233,6 +3259,7 @@ function day(di,opts={}){
   const specialResume=special&&specialResumeRaw?.category===opts.specialCategory&&specialResumeRaw.variant===opts.specialVariant?specialResumeRaw:null;
   const specialDifficulty=special?(specialResume?.workoutContext?.difficulty||effectiveProgramDifficulty()):effectiveProgramDifficulty();
   const specialItems=special?resolvedSpecialItems(opts.specialCategory,opts.specialVariant,specialDifficulty):[];
+  const unavailableSpecialIds=special?unavailableSpecialExerciseIds(specialItems):[];
   if(special&&!specialItems.length)return showSpecialCategory(opts.specialCategory,{replaceRoute:true});
   if(special)setAppView('special-category',{category:opts.specialCategory},{replace:Boolean(opts.replaceRoute)});
   else setAppView('day',{day:di},{replace:Boolean(opts.replaceRoute)});
@@ -3244,7 +3271,9 @@ function day(di,opts={}){
   const isRestDay=!day.items.length;
   const hasResume=special?Boolean(specialResume?.category===opts.specialCategory&&specialResume.variant===opts.specialVariant):Boolean(resumeForDay(di));
   const trainingActions=special
-    ? `<button class="primary cta" data-action="start-special" data-category="${opts.specialCategory}" data-variant="${opts.specialVariant}">▶ Cvič se mnou</button>`
+    ? unavailableSpecialIds.length
+      ? `<button class="primary cta" type="button" disabled aria-disabled="true">Trénink se připravuje</button>`
+      : `<button class="primary cta" data-action="start-special" data-category="${opts.specialCategory}" data-variant="${opts.specialVariant}">▶ Cvič se mnou</button>`
     : hasResume
     ? resumePrompt(di)
     : `<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button>`;
@@ -3576,7 +3605,7 @@ function startSpecialTraining(categoryId,variantId){
   if(!selected)return showSpecialCategory(categoryId);
   const difficulty=effectiveProgramDifficulty();
   const items=resolvedSpecialItems(categoryId,variantId,difficulty);
-  if(!items.length||items.some(([id])=>!data.exercises[id]))return showSpecialCategory(categoryId);
+  if(!items.length||unavailableSpecialExerciseIds(items).length)return showSpecialCategory(categoryId);
   void unlockAudio();
   clearInterval(timer);
   clearWorkoutHistoryGuard();
