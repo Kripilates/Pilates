@@ -193,6 +193,39 @@ CONFIGS = (
             ("KROK 3", "KONTROLOVANÝ NÁVRAT", "S nádechem spusť činky pomalu zpět podél těla. Trup zůstává klidný a zápěstí rovná.", "start"),
         ),
     },
+    {
+        "folder": "Hamstring Walkouts",
+        "stem": "hamstring_walkouts",
+        "title": "ODKRAČOVÁNÍ PATAMI V MOSTU",
+        "subtitle": "Malé kroky vpřed a zpět",
+        "description": "Posiluje hýždě a zadní stranu stehen při stabilním středu těla.",
+        "pills": ("Hýždě a stehna", "Bez pomůcky"),
+        "source_hashes": {
+            "start": "f4bffe7e656bb09b2b6c64868e15824944b85d58aefd1551915a2c1377d34d24",
+            "hero": "34427142b96b95bc1059fbbaf87f05bba98aeef3ff141ee9a0661d9c30dfdb5c",
+        },
+        "mini": (
+            ("START", "Pánev ve vysokém mostu", "start"),
+            ("ODKROK", "Paty posouvej dopředu", "hero"),
+            ("NÁVRAT", "Paty zpět k hýždím", "start"),
+        ),
+        "info": (
+            ("breath", "DECH", "Plynule dýchej po celou dobu."),
+            ("focus", "ZAMĚŘ SE", "Pánev nad podložkou, břicho pevné."),
+            ("repeat", "TEMPO", "Malé kroky, pomalu a bez švihu."),
+        ),
+        "how": (
+            "Lehni si na záda, pokrč kolena, chodidla opři na šířku boků a zvedni pánev do mostu.",
+            "Střídavě posouvej paty malými kroky dopředu. Břicho drž pevné a pánev nad podložkou.",
+            "Stejnými kroky vrať paty zpět k hýždím. Pohyb veď pomalu a kontrolovaně.",
+        ),
+        "watch": "Nepokládej pánev na podložku, neprohýbej bedra a hlavu i ramena nech uvolněné na podložce.",
+        "steps": (
+            ("KROK 1", "ZVEDNI PÁNEV", "Lehni si na záda, pokrč kolena a zvedni pánev do stabilního mostu. Chodidla nech na šířku boků.", "start"),
+            ("KROK 2", "ODKRAČUJ PATAMI", "Střídavě posouvej paty malými kroky dopředu, dokud nejsou nohy výrazně nataženější. Pánev drž nad podložkou.", "hero"),
+            ("KROK 3", "VRAŤ SE ZPĚT", "Malými kroky přisuň paty zpět k hýždím a vrať se do výchozího vysokého mostu.", "start"),
+        ),
+    },
 )
 
 
