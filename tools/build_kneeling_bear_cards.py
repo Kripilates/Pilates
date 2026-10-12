@@ -160,6 +160,39 @@ CONFIGS = (
             ("KROK 3", "KONTROLOVANÝ NÁVRAT", "S nádechem spusť nohu pomalu zpět na podložku. Opěrné rameno drž pevné a pohyb veď bez švihu.", "start"),
         ),
     },
+    {
+        "folder": "Hammer Curl",
+        "stem": "hammer_curl",
+        "title": "KLADIVOVÝ ZDVIH",
+        "subtitle": "Neutrální úchop činek",
+        "description": "Posiluje paže a předloktí při stabilním trupu a loktech u těla.",
+        "pills": ("Paže", "Činky"),
+        "source_hashes": {
+            "start": "42072e37151d9a0b213f9dfd1b4e710682479a93c139af909aac4ea1a746ab3d",
+            "hero": "be5917c3add2243ac588799f1a23113c24832352679b47678b1b7171100809f9",
+        },
+        "mini": (
+            ("START", "Činky podél těla", "start"),
+            ("ZDVIH", "Činky směrem k ramenům", "hero"),
+            ("NÁVRAT", "Kontrolovaně dolů", "start"),
+        ),
+        "info": (
+            ("breath", "DECH", "Výdech při zdvihu. Nádech při návratu."),
+            ("focus", "ZAMĚŘ SE", "Lokty u těla, zápěstí rovná."),
+            ("repeat", "TEMPO", "Plynule, bez švihu a pohybu trupu."),
+        ),
+        "how": (
+            "Postav se vzpřímeně. Činky drž podél těla a dlaně otoč k sobě.",
+            "S výdechem pokrč lokty a zvedni činky směrem k ramenům. Lokty nech blízko trupu.",
+            "S nádechem spusť činky kontrolovaně zpět. Trup, ramena a zápěstí drž stabilní.",
+        ),
+        "watch": "Nehoupej trupem, nezvedej ramena k uším, neposouvej lokty dopředu a nelámej zápěstí.",
+        "steps": (
+            ("KROK 1", "VZPŘÍMENÝ STOJ", "Postav se stabilně, činky drž podél těla a dlaně otoč k sobě. Ramena nech dole a zpevni střed těla.", "start"),
+            ("KROK 2", "KLADIVOVÝ ZDVIH", "S výdechem pokrč lokty a zvedni činky směrem k ramenům. Nadloktí a lokty drž blízko trupu.", "hero"),
+            ("KROK 3", "KONTROLOVANÝ NÁVRAT", "S nádechem spusť činky pomalu zpět podél těla. Trup zůstává klidný a zápěstí rovná.", "start"),
+        ),
+    },
 )
 
 
