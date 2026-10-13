@@ -2393,6 +2393,31 @@ const referenceExerciseAssets={
       mistakes:['Propadání mezi rameny.','Přehnaný záklon hlavy.','Nekontrolované spuštění pánve.']
     }
   },
+  prone_bent_knee_hip_extension:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Prone%20Bent-Knee%20Hip%20Extension/prone_bent_knee_hip_extension_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Prone%20Bent-Knee%20Hip%20Extension/prone_bent_knee_hip_extension_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Prone%20Bent-Knee%20Hip%20Extension/prone_bent_knee_hip_extension_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Prone%20Bent-Knee%20Hip%20Extension/prone_bent_knee_hip_extension_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Prone%20Bent-Knee%20Hip%20Extension/prone_bent_knee_hip_extension_step_by_step_v01.png',
+    subtitle:'Hýždě • stabilita pánve',
+    miniSteps:[
+      {n:1,title:'START',caption:'Koleno pokrčené',photo:'start'},
+      {n:2,title:'ZANOŽENÍ',caption:'Stehno mírně vzhůru',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Kontrolovaně dolů',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na břicho, hlavu polož na předloktí. Jednu nohu natáhni a druhou pokrč přibližně do 90°.',photo:'start'},
+      {title:'MÍRNÉ ZANOŽENÍ',text:'S výdechem zvedni pokrčenou nohu malým kontrolovaným pohybem z kyčle. Pánev drž stabilní a bedra neutrální.',photo:'hero'},
+      {title:'KONTROLOVANÝ NÁVRAT',text:'S nádechem vrať stehno pomalu na podložku. Dokonči opakování a potom vystřídej strany.',photo:'start'}
+    ],
+    info:{difficulty:'Lehké',focus:'Hýždě / stabilita pánve',knees:'Leh na břiše'},
+    breath:{inhale:'Při návratu',exhale:'Při zvednutí nohy',tempo:'Pomalu a kontrolovaně'},
+    recommendations:{
+      feel:'Práci hýždě zvedané nohy při klidné pánvi a uvolněném trupu.',
+      watch:['Pánev drž stabilní a opřenou o podložku.','Koleno nech pokrčené přibližně do 90°.','Pohyb veď z kyčle malým kontrolovaným rozsahem.'],
+      mistakes:['Prohýbání beder.','Vytáčení pánve.','Změna úhlu v koleni.','Švihání nohou nebo příliš vysoký zdvih.']
+    }
+  },
   standing_hamstring_curl_band:{
     pending:true
   },
@@ -2522,6 +2547,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   plank:'coreShoulders',
   plie:'glutesThighs',
   press:'shouldersArms',
+  prone_bent_knee_hip_extension:'glutes',
   rainbow:'glutes',
   raise:'shouldersArms',
   rdl:'glutesThighs',
@@ -4094,7 +4120,7 @@ function info(k,opts={}){
 }
 const exerciseLibraryCategories={
   core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','kneeling_side_plank_leg_lift','side_plank_knee_drive','seated_knee_circles','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird','bear_hover']},
-  glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','kneeling_hip_extension','rainbow','abduction','hamstring_walkouts','frog','glute_bridge_march','bird','swimming']},
+  glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','kneeling_hip_extension','prone_bent_knee_hip_extension','rainbow','abduction','hamstring_walkouts','frog','glute_bridge_march','bird','swimming']},
   legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','supine_leg_open_close','sideleg','plie','hip_march','scissors','hip','abduction','hamstring_walkouts']},
   upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','hammer_curl','triceps_kickback','chest_press','chest_fly','knee_pushup','dumbbell_pullover','plank','tap','sideplank','sideplank_reach']},
   back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','dumbbell_pullover','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},

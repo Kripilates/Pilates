@@ -40,7 +40,6 @@ class ExerciseLifecycleTests(unittest.TestCase):
         program_ids = set(visual_qa.active_ids_in_program_order(self.data))
         expected_draft = {
             "banded_frog_pump",
-            "prone_bent_knee_hip_extension",
         }
         expected_inactive = [
             "swan",
@@ -50,8 +49,11 @@ class ExerciseLifecycleTests(unittest.TestCase):
             "bridge_band",
             "band_pull_apart",
         ]
-        self.assertEqual(len(catalog.active_ids), 62)
-        self.assertEqual(len(catalog.draft_ids), 2)
+        self.assertEqual(
+            set(catalog.active_ids),
+            set(self.data.get("exercises", {})) - set(expected_inactive),
+        )
+        self.assertEqual(len(catalog.draft_ids), 1)
         self.assertEqual(set(catalog.draft_ids), expected_draft)
         self.assertEqual(catalog.inactive_ids, expected_inactive)
         self.assertTrue(program_ids.isdisjoint(catalog.draft_ids))
@@ -61,6 +63,8 @@ class ExerciseLifecycleTests(unittest.TestCase):
         self.assertNotIn("bear_hover", catalog.draft_ids)
         self.assertIn("supine_leg_open_close", catalog.active_ids)
         self.assertNotIn("supine_leg_open_close", catalog.draft_ids)
+        self.assertIn("prone_bent_knee_hip_extension", catalog.active_ids)
+        self.assertNotIn("prone_bent_knee_hip_extension", catalog.draft_ids)
 
     def test_active_count_is_dynamic(self) -> None:
         baseline = resolve_exercise_catalog(self.data, self.lifecycle)

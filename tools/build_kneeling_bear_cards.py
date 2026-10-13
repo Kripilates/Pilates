@@ -260,6 +260,40 @@ CONFIGS = (
             ("KROK 3", "PLYNULÉ SNOŽENÍ", "S výdechem zapoj vnitřní stehna a vrať nohy kontrolovaně zpět k sobě bez švihu.", "start"),
         ),
     },
+    {
+        "folder": "Prone Bent-Knee Hip Extension",
+        "stem": "prone_bent_knee_hip_extension",
+        "title": "ZANOŽOVÁNÍ S POKRČENÝM KOLENEM",
+        "guide_title_size": 31,
+        "subtitle": "Vleže na břiše",
+        "description": "Posiluje hýždě při stabilní pánvi a kontrolovaném pohybu v kyčli.",
+        "pills": ("Hýždě", "Bez pomůcky"),
+        "source_hashes": {
+            "start": "03b8be4f7b7b9d69070ca07087820e4dfd10443158a42c4e94459ca7008cc913",
+            "hero": "3f935c0681bb0d9b098f14a7567127ff6254b8f312948d7dbccb391c9b7ce6c8",
+        },
+        "mini": (
+            ("START", "Koleno pokrčené", "start"),
+            ("ZANOŽENÍ", "Stehno mírně vzhůru", "hero"),
+            ("NÁVRAT", "Kontrolovaně dolů", "start"),
+        ),
+        "info": (
+            ("breath", "DECH", "Výdech při zdvihu. Nádech při návratu."),
+            ("focus", "ZAMĚŘ SE", "Pánev stabilní, pracuje hýžď."),
+            ("repeat", "STRANY", "Dokonči jednu stranu, potom vystřídej."),
+        ),
+        "how": (
+            "Lehni si na břicho, hlavu polož na předloktí. Jednu nohu nech nataženou, druhou pokrč přibližně do pravého úhlu.",
+            "S výdechem zvedni pokrčenou nohu malým pohybem z kyčle. Koleno nech pokrčené a pánev klidnou.",
+            "S nádechem vrať stehno kontrolovaně na podložku. Dokonči opakování a potom vystřídej strany.",
+        ),
+        "watch": "Neprohýbej bedra, nevytáčej pánev, neměň úhel v koleni a nezvedej nohu švihem ani příliš vysoko.",
+        "steps": (
+            ("KROK 1", "VÝCHOZÍ POLOHA", "Lehni si na břicho a hlavu polož na předloktí. Jednu nohu natáhni, druhou pokrč přibližně do 90° a stehno nech na podložce.", "start"),
+            ("KROK 2", "MÍRNÉ ZANOŽENÍ", "S výdechem zvedni pokrčenou nohu malým kontrolovaným pohybem z kyčle. Pánev drž stabilní a bedra neutrální.", "hero"),
+            ("KROK 3", "KONTROLOVANÝ NÁVRAT", "S nádechem vrať stehno pomalu na podložku. Po dokončení předepsaných opakování vystřídej strany.", "start"),
+        ),
+    },
 )
 
 
