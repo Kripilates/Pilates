@@ -38,7 +38,7 @@ OUTPUT_NAMES = (
 # Camera/pose grouping is presentation metadata only. SOURCE paths always come
 # from referenceExerciseAssets in app.js and are never duplicated here.
 POSE_CLASS_BY_ID = {
-    **{key: "LYING" for key in "hip figure_four deadbug toetap revcrunch hollow supine_twist chest_fly dumbbell_pullover rollup abduction frog hamstring_supine chest_press glute_bridge_march hip_march heeltaps bicycle sphinx swimming hundred scissors russian legraises spine seated_knee_circles double_leg_stretch reverse_plank hamstring_walkouts".split()},
+    **{key: "LYING" for key in "hip figure_four deadbug toetap revcrunch hollow supine_twist chest_fly dumbbell_pullover rollup abduction frog hamstring_supine chest_press glute_bridge_march hip_march heeltaps bicycle sphinx swimming hundred scissors russian legraises spine seated_knee_circles double_leg_stretch reverse_plank hamstring_walkouts supine_leg_open_close".split()},
     **{key: "QUADRUPED" for key in "hydrant bird plank donkey kneeling_hip_extension half_kneeling_oblique_crunch bear_hover rainbow tap knee_pushup thread catcow childs_pose".split()},
     **{key: "SIDE_FLOOR" for key in "sideleg clam inner_thigh sideplank kneeling_side_plank_leg_lift side_plank_knee_drive mermaid sidekick sideplank_reach".split()},
     **{key: "STANDING" for key in "rdl row press raise triceps_kickback chest_opener standing_side_bend plie standing_oblique hammer_curl".split()},

@@ -2343,6 +2343,31 @@ const referenceExerciseAssets={
     breath:{inhale:'Při návratu',exhale:'Při protažení',tempo:'Pomalu a plynule'},
     recommendations:{feel:'Stabilní střed těla a kontrolovaný rozsah pohybu.',watch:['Bedra drž stabilní.','Pohyb neuspěchej.'],mistakes:['Prohnutí v bedrech.','Švihání pažemi nebo nohama.']}
   },
+  supine_leg_open_close:{
+    start:'Pilates%20Assets/02_Exercise_Cards/Supine%20Leg%20Open%20Close/supine_leg_open_close_start.png',
+    hero:'Pilates%20Assets/02_Exercise_Cards/Supine%20Leg%20Open%20Close/supine_leg_open_close_hero.png',
+    end:'Pilates%20Assets/02_Exercise_Cards/Supine%20Leg%20Open%20Close/supine_leg_open_close_start.png',
+    guideCard:'Pilates%20Assets/02_Exercise_Cards/Supine%20Leg%20Open%20Close/supine_leg_open_close_guide_card_v01.png',
+    stepByStep:'Pilates%20Assets/02_Exercise_Cards/Supine%20Leg%20Open%20Close/supine_leg_open_close_step_by_step_v01.png',
+    subtitle:'Vnitřní stehna • stabilita středu těla',
+    miniSteps:[
+      {n:1,title:'START',caption:'Nohy snožené vzhůru',photo:'start'},
+      {n:2,title:'ROZNOŽENÍ',caption:'Nohy kontrolovaně do stran',photo:'hero'},
+      {n:3,title:'NÁVRAT',caption:'Plynule zpět k sobě',photo:'start'}
+    ],
+    steps:[
+      {title:'VÝCHOZÍ POLOHA',text:'Lehni si na záda, hlavu a ramena nech položené a paže dej podél těla. Obě natažené nohy zvedni a snož.',photo:'start'},
+      {title:'KONTROLOVANÉ ROZNOŽENÍ',text:'S nádechem veď obě natažené nohy pomalu do stran. Pánev drž klidnou a bedra stabilní na podložce.',photo:'hero'},
+      {title:'PLYNULÉ SNOŽENÍ',text:'S výdechem zapoj vnitřní stehna a vrať nohy kontrolovaně zpět k sobě bez švihu.',photo:'start'}
+    ],
+    info:{difficulty:'Střední',focus:'Vnitřní stehna / střed těla',knees:'Nohy natažené'},
+    breath:{inhale:'Při roznožení',exhale:'Při snožení',tempo:'Pomalu a plynule'},
+    recommendations:{
+      feel:'Vnitřní stehna a stabilní střed těla při klidné pánvi.',
+      watch:['Pánev drž klidnou.','Bedra nech stabilní na podložce.','Rozsah přizpůsob čisté kontrole pohybu.'],
+      mistakes:['Odlepování beder.','Naklánění pánve.','Příliš velké roznožení.','Švihání nohama.']
+    }
+  },
   reverse_plank:{
     start:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_start.png',
     hero:'Pilates%20Assets/02_Exercise_Cards/Reverse%20Plank/reverse_plank_hero.png',
@@ -2518,6 +2543,7 @@ const exerciseMuscleCardAssignments=Object.freeze({
   standing_side_bend:'coreObliques',
   supine_twist:'coreObliques',
   swimming:'backArms',
+  supine_leg_open_close:'thighs',
   tap:'glutesThighs',
   thread:'back',
   toetap:'core',
@@ -4069,7 +4095,7 @@ function info(k,opts={}){
 const exerciseLibraryCategories={
   core:{title:'Břicho + pas',support:'Stabilita středu těla, břicho a pas.',icon:'core',ids:['sideplank','kneeling_side_plank_leg_lift','side_plank_knee_drive','seated_knee_circles','deadbug','toetap','revcrunch','hollow','rollup','standing_side_bend','tap','glute_bridge_march','hip_march','standing_oblique','sideplank_reach','heeltaps','bicycle','hundred','scissors','russian','legraises','bird','bear_hover']},
   glutes:{title:'Hýždě',support:'Síla, stabilita a kontrola hýždí.',icon:'glutes',ids:['rdl','hydrant','clam','sideleg','sidekick','hip','plie','donkey','kneeling_hip_extension','rainbow','abduction','hamstring_walkouts','frog','glute_bridge_march','bird','swimming']},
-  legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','sideleg','plie','hip_march','scissors','hip','abduction','hamstring_walkouts']},
+  legs:{title:'Nohy',support:'Stehna, kyčle a pevná opora.',icon:'legs',ids:['rdl','inner_thigh','supine_leg_open_close','sideleg','plie','hip_march','scissors','hip','abduction','hamstring_walkouts']},
   upper:{title:'Horní část + prsa',support:'Paže, ramena, hrudník a opora trupu.',icon:'upper',ids:['row','press','raise','hammer_curl','triceps_kickback','chest_press','chest_fly','knee_pushup','dumbbell_pullover','plank','tap','sideplank','sideplank_reach']},
   back:{title:'Záda + držení těla',support:'Silnější záda a jistější držení těla.',icon:'back',ids:['row','bird','swimming','swan','dumbbell_pullover','spine','rdl','plank','sideplank','sideplank_reach','thread','chest_opener']},
   mobility:{title:'Mobilita + protažení',support:'Uvolnění, rozsah pohybu a klidný dech.',icon:'mobility',ids:['swan','standing_side_bend','spine','sphinx','mermaid','supine_twist','catcow','thread','childs_pose','chest_opener','figure_four','hamstring_supine']}

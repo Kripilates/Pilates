@@ -226,6 +226,40 @@ CONFIGS = (
             ("KROK 3", "VRAŤ SE ZPĚT", "Malými kroky přisuň paty zpět k hýždím a vrať se do výchozího vysokého mostu.", "start"),
         ),
     },
+    {
+        "folder": "Supine Leg Open Close",
+        "stem": "supine_leg_open_close",
+        "title": "ROZNOŽOVÁNÍ A SNOŽOVÁNÍ VLEŽE",
+        "guide_title_size": 37,
+        "subtitle": "Kontrolované otevření a návrat nohou",
+        "description": "Posiluje vnitřní stehna a stabilitu středu těla při klidné pánvi.",
+        "pills": ("Vnitřní stehna", "Bez pomůcky"),
+        "source_hashes": {
+            "start": "646b54ec14eb9635f4193fa55414e6d709192f4bfa8fe81ab5ff0f140a1635c5",
+            "hero": "7fdc513b92ebf3e9558faa04ac7056f348c999b59d5d6c9b2c6c6bfd1ab6c213",
+        },
+        "mini": (
+            ("START", "Nohy snožené vzhůru", "start"),
+            ("ROZNOŽENÍ", "Nohy kontrolovaně do stran", "hero"),
+            ("NÁVRAT", "Plynule zpět k sobě", "start"),
+        ),
+        "info": (
+            ("breath", "DECH", "Nádech při roznožení. Výdech při snožení."),
+            ("focus", "ZAMĚŘ SE", "Pánev klidná, bedra stabilní."),
+            ("repeat", "TEMPO", "Pomalu, plynule a bez švihu."),
+        ),
+        "how": (
+            "Lehni si na záda. Hlavu a ramena nech na podložce, paže polož podél těla a obě natažené nohy zvedni vzhůru.",
+            "S nádechem rozevři obě nohy pomalu do stran jen do rozsahu, ve kterém udržíš pánev i bedra stabilní.",
+            "S výdechem nohy plynule snož zpět. Pohyb veď vnitřními stehny bez švihu.",
+        ),
+        "watch": "Neodlepuj bedra od podložky, nenakláněj pánev a nerozevírej nohy za bezpečný kontrolovaný rozsah.",
+        "steps": (
+            ("KROK 1", "VÝCHOZÍ POLOHA", "Lehni si na záda, hlavu a ramena nech položené a paže dej podél těla. Obě natažené nohy zvedni a snož.", "start"),
+            ("KROK 2", "KONTROLOVANÉ ROZNOŽENÍ", "S nádechem veď obě natažené nohy pomalu do stran. Pánev drž klidnou a bedra stabilní na podložce.", "hero"),
+            ("KROK 3", "PLYNULÉ SNOŽENÍ", "S výdechem zapoj vnitřní stehna a vrať nohy kontrolovaně zpět k sobě bez švihu.", "start"),
+        ),
+    },
 )
 
 
@@ -339,7 +373,8 @@ def build_guide(cfg, folder, sources):
     image = Image.new("RGB", (780, 1688), BG)
     draw = ImageDraw.Draw(image)
     rounded(draw, (34, 34, 746, 140))
-    draw.text((62, 49), cfg["title"], font=F["title"], fill=INK)
+    guide_title_font = F["title"] if "guide_title_size" not in cfg else font("arialbd.ttf", cfg["guide_title_size"])
+    draw.text((62, 49), cfg["title"], font=guide_title_font, fill=INK)
     draw.text((62, 94), cfg["subtitle"], font=F["small_b"], fill=TEAL_D)
     wrapped(draw, (62, 115), cfg["description"], F["tiny"], MUTED, 650, 2)
     x = pill(draw, 62, 148, cfg["pills"][0])
