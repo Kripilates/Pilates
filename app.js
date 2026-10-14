@@ -22,6 +22,7 @@ let currentDay=0,currentExercise=0,timer=null,lastMode='home';
 let workoutCurrentSet=1, workoutTotalSets=3;
 let workoutContext=null;
 let workoutRunning=false, workoutPaused=false, workoutLeft=0, workoutPhase='work', workoutAuto=false, workoutPausedByDetail=false;
+let activeWorkoutExerciseVideo=null;
 let workoutTransitionLock=false;
 let workoutFinalStretch=false;
 let workoutExitDialogOpen=false, workoutExitWasPaused=false, workoutHistoryArmed=false;
@@ -139,6 +140,7 @@ function setWorkoutNavigationLocked(locked){
   primaryNav.querySelectorAll('button').forEach(button=>{button.disabled=Boolean(locked);});
 }
 function renderTrainingScreen(html){
+  releaseWorkoutExerciseVideo();
   setWorkoutNavigationLocked(true);
   app.replaceChildren();
   app.insertAdjacentHTML('afterbegin',html);
@@ -200,6 +202,7 @@ function exitWorkoutToDay(){
   const specialCategory=workoutContext?.specialCategory||'';
   saveWorkoutResumeState();
   clearInterval(timer);
+  releaseWorkoutExerciseVideo();
   workoutRunning=false;
   setWorkoutNavigationLocked(false);
   workoutPaused=false;
@@ -2643,6 +2646,57 @@ function img(k,c='thumb',extra=''){
   return `<img loading="lazy" class="${c}" ${extra} src="${src}" alt="${ex.name}">`;
 }
 
+const workoutExerciseVideoSources=Object.freeze({
+  bird:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_loop_match_cut_v4.mp4'
+});
+function releaseWorkoutExerciseVideo(){
+  const video=activeWorkoutExerciseVideo;
+  activeWorkoutExerciseVideo=null;
+  if(!video)return;
+  video.pause();
+  video.removeAttribute('src');
+  video.load();
+}
+function fallbackWorkoutExerciseVideo(video){
+  if(!video||video.dataset.fallbackActive==='1')return;
+  video.dataset.fallbackActive='1';
+  const fallbackSrc=video.dataset.fallbackSrc;
+  const exerciseId=video.dataset.ex;
+  const exercise=data.exercises[exerciseId];
+  if(activeWorkoutExerciseVideo===video)activeWorkoutExerciseVideo=null;
+  video.pause();
+  video.removeAttribute('src');
+  video.load();
+  if(!fallbackSrc){
+    video.replaceWith(document.createRange().createContextualFragment(noImage(exerciseId,'bigimg','data-action="info" data-ex="'+exerciseId+'"')));
+    return;
+  }
+  const fallback=document.createElement('img');
+  fallback.className='bigimg';
+  fallback.src=fallbackSrc;
+  fallback.alt=exercise?.name||'Cvik';
+  fallback.dataset.action='info';
+  fallback.dataset.ex=exerciseId;
+  video.replaceWith(fallback);
+}
+function activateWorkoutExerciseVideo(){
+  const video=app.querySelector('.workoutExerciseVideo');
+  if(!video)return;
+  activeWorkoutExerciseVideo=video;
+  video.muted=true;
+  video.defaultMuted=true;
+  video.addEventListener('error',()=>fallbackWorkoutExerciseVideo(video),{once:true});
+  const playPromise=video.play();
+  if(playPromise&&typeof playPromise.catch==='function')playPromise.catch(()=>fallbackWorkoutExerciseVideo(video));
+}
+function workoutExerciseMedia(k){
+  const source=workoutExerciseVideoSources[k];
+  const fallbackSrc=v22ImageSrc(k);
+  if(!source||!fallbackSrc)return img(k,'bigimg','data-action="info" data-ex="'+k+'"');
+  const name=data.exercises[k]?.name||'Cvik';
+  return `<video class="bigimg workoutExerciseVideo" src="${esc(deploymentImageUrl(source))}" poster="${esc(fallbackSrc)}" data-fallback-src="${esc(fallbackSrc)}" data-action="info" data-ex="${esc(k)}" autoplay muted loop playsinline preload="auto" aria-label="${esc(name)} – animovaná ukázka"></video>`;
+}
+
 function detailHeroImage(k){
   const src = v22ImageSrc(k);
   if(!src)return noImage(k,'v20HeroPhoto v22HeroPhoto');
@@ -3811,7 +3865,6 @@ function showAutoTrain(opts={}){
     saveWorkoutResumeState();
     return;
   }
-  const imgClass='bigimg';
   const switchDetail=sideNoticeNext ? `${ex.name} \u2022 ${sideNoticeNext.toLowerCase()}` : ex.name;
   const workoutVisualHtml=isSideSwitch
     ? `<div class="workoutTransitionState sideSwitchState" role="status" aria-live="polite">
@@ -3822,7 +3875,7 @@ function showAutoTrain(opts={}){
         <div class="workoutTransitionProgress" aria-hidden="true"><i id="workoutTransitionProgress" style="width:${Math.max(0,Math.min(100,(workoutLeft/WORKOUT_SWITCH_SECONDS)*100))}%"></i></div>
         <small>${switchDetail}</small>
       </div>`
-    : `<div class="trainImageSlot"><div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div>${img(k,imgClass,'data-action="info" data-ex="'+k+'"')}</div>`;
+    : `<div class="trainImageSlot"><div class="workoutDetailLinkRow"><button type="button" data-action="info" data-ex="${k}">Detail cviku</button></div>${workoutExerciseMedia(k)}</div>`;
   renderTrainingScreen(`<section class="card fullTrain autoTrain v50Train v53CleanTrain" data-current-exercise="${esc(k)}" data-current-day="${currentDay}" data-current-index="${currentExercise}" data-workout-phase="${workoutPhase}" data-final-stretch="${workoutFinalStretch?'1':'0'}">
     <div class="trainTop2 trainTop2--compact"><span class="dose trainProgressLabel">${topLabel}</span></div>
     <div class="progress"><div class="bar" style="width:${progress}%"></div></div>
@@ -3830,6 +3883,7 @@ function showAutoTrain(opts={}){
     ${workoutVisualHtml}
     <div class="row trainControls">${controlsHtml}</div>
   </section>`);
+  activateWorkoutExerciseVideo();
   saveWorkoutResumeState();
   if(!existing||opts.resetScroll)scrollTop();
 }
@@ -3985,6 +4039,7 @@ function skipAuto(){
 
 
 function doneNext(mark=true){
+  releaseWorkoutExerciseVideo();
   setWorkoutHeaderPosition(false);
   const specialContext=isSpecialWorkout()?{...workoutContext}:null;
   const completedItems=workoutContext?.items||resolvedDayItems(currentDay);
@@ -4050,6 +4105,7 @@ function doneNext(mark=true){
   scrollTop();
 }
 function info(k,opts={}){
+  releaseWorkoutExerciseVideo();
   setWorkoutHeaderPosition(false);
   if(!workoutRunning&&!opts.skipRoute)setAppView('exercise-detail',{exerciseId:k,day:currentDay,exercise:currentExercise},{replace:Boolean(opts.replaceRoute)});
   const ex=data.exercises[k], meta=exMeta(k);
@@ -4414,6 +4470,7 @@ app.addEventListener('error',e=>{
   if(fallback)fallback.hidden=false;
 },true);
 window.addEventListener('beforeunload',()=>{
+  releaseWorkoutExerciseVideo();
   pauseActiveWorkoutTime();
   saveWorkoutResumeState();
 });
