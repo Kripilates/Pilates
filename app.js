@@ -2647,7 +2647,8 @@ function img(k,c='thumb',extra=''){
 }
 
 const workoutExerciseVideoSources=Object.freeze({
-  bird:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_loop_match_cut_v4.mp4'
+  bird:'Pilates%20Assets/02_Exercise_Cards/Bird%20Dog/bird_dog_loop_match_cut_v4.mp4',
+  row:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/row_loop_smoother_seam_test_h264.mp4'
 });
 function releaseWorkoutExerciseVideo(){
   const video=activeWorkoutExerciseVideo;
