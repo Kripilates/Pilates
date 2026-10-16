@@ -2651,7 +2651,8 @@ const workoutExerciseVideoSources=Object.freeze({
   row:'Pilates%20Assets/02_Exercise_Cards/Bent%20Over%20Row/row_loop_smoother_seam_test_h264.mp4',
   rdl:'Pilates%20Assets/02_Exercise_Cards/Romanian%20Deadlift/moovka_rdl_loop_hardcut.mp4',
   press:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/Moovka_Shoulder_Press_smycka_oprava.mp4',
-  hydrant:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/Moovka_Fire_Hydrant_loop_candidate.mp4'
+  hydrant:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/Moovka_Fire_Hydrant_loop_candidate.mp4',
+  hip:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/Moovka_Glute_Bridge_loop_candidate.mp4'
 });
 function releaseWorkoutExerciseVideo(){
   const video=activeWorkoutExerciseVideo;
