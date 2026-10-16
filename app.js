@@ -2653,7 +2653,8 @@ const workoutExerciseVideoSources=Object.freeze({
   press:'Pilates%20Assets/02_Exercise_Cards/Shoulder%20Press/Moovka_Shoulder_Press_smycka_oprava.mp4',
   hydrant:'Pilates%20Assets/02_Exercise_Cards/Fire%20Hydrant/Moovka_Fire_Hydrant_loop_candidate.mp4',
   hip:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/Moovka_Glute_Bridge_loop_candidate.mp4',
-  donkey:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/Moovka_Donkey_Kick_loop_full_return_v4.mp4'
+  donkey:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/Moovka_Donkey_Kick_loop_full_return_v4.mp4',
+  sideleg:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/Moovka_Side_Leg_loop_seam_v2.mp4'
 });
 function releaseWorkoutExerciseVideo(){
   const video=activeWorkoutExerciseVideo;
