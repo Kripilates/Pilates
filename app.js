@@ -2655,7 +2655,8 @@ const workoutExerciseVideoSources=Object.freeze({
   hip:'Pilates%20Assets/02_Exercise_Cards/Glute%20Bridge/Moovka_Glute_Bridge_loop_candidate.mp4',
   donkey:'Pilates%20Assets/02_Exercise_Cards/Donkey%20Kick/Moovka_Donkey_Kick_loop_full_return_v4.mp4',
   sideleg:'Pilates%20Assets/02_Exercise_Cards/Side%20Leg%20Lift/Moovka_Side_Leg_loop_seam_v2.mp4',
-  deadbug:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/Moovka_Dead_Bug_full_return_v2.mp4'
+  deadbug:'Pilates%20Assets/02_Exercise_Cards/Dead%20Bug/Moovka_Dead_Bug_full_return_v2.mp4',
+  dumbbell_pullover:'Pilates%20Assets/02_Exercise_Cards/Dumbbell%20Pullover/Moovka_Pullover_START_HERO_START_preview.mp4'
 });
 function releaseWorkoutExerciseVideo(){
   const video=activeWorkoutExerciseVideo;
