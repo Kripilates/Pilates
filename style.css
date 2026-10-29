@@ -5836,6 +5836,9 @@ body.dark .programCompletionContent{
   justify-content:flex-end;
   align-items:flex-start;
 }
+.homePhotoHero--complete .homeHeroContent{
+  justify-content:center;
+}
 .homeHeroContent h2{
   max-width:620px;
   margin:4px 0 6px;

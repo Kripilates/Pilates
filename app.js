@@ -3190,7 +3190,7 @@ function home(){
   }).join('');
   const completedTrainingLabel=czechCountLabel(summary.daysComplete,'dokončený trénink','dokončené tréninky','dokončených tréninků');
   app.innerHTML=`<div class="homeDashboard">
-    <section class="homePhotoHero${heroPhoto?' hasPhoto':' homePhotoHero--brand'}${resumeState?' homePhotoHero--resume':''}">
+    <section class="homePhotoHero${heroPhoto?' hasPhoto':' homePhotoHero--brand'}${resumeState?' homePhotoHero--resume':''}${programComplete?' homePhotoHero--complete':''}">
       ${heroPhoto}
       <div class="homeHeroContent">
         ${heroCopy}
