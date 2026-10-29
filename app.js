@@ -375,8 +375,13 @@ function createWorkoutContext(di){
 }
 function isSpecialWorkout(){return workoutContext?.kind==='special';}
 function currentWorkoutItems(){return workoutContext?.items||resolvedDayItems(currentDay,workoutContext?.difficulty);}
-function currentWorkoutStretch(){return isSpecialWorkout()?null:(workoutContext?.stretch||resolvedDayStretch(currentDay,workoutContext?.difficulty));}
-function currentWorkoutDay(){return isSpecialWorkout()?{title:workoutContext.title,items:currentWorkoutItems(),stretch:null}:data.days[currentDay];}
+function currentWorkoutStretch(){
+  if(workoutContext?.stretch)return workoutContext.stretch;
+  return isSpecialWorkout()
+    ? resolvedSpecialStretch(workoutContext.specialCategory,workoutContext.specialVariant,workoutContext.difficulty)
+    : resolvedDayStretch(currentDay,workoutContext?.difficulty);
+}
+function currentWorkoutDay(){return isSpecialWorkout()?{title:workoutContext.title,items:currentWorkoutItems(),stretch:currentWorkoutStretch()}:data.days[currentDay];}
 function specialWorkout(categoryId,variantId){
   const category=data.specialWorkouts?.[categoryId];
   const variant=category?.variants?.[variantId];
@@ -385,6 +390,13 @@ function specialWorkout(categoryId,variantId){
 function resolvedSpecialItems(categoryId,variantId,difficulty=effectiveProgramDifficulty()){
   const selected=specialWorkout(categoryId,variantId);
   return selected?selected.variant.items.map(([id,dose])=>[id,resolveDose(dose,difficulty)]):[];
+}
+function resolvedSpecialStretch(categoryId,variantId,difficulty=effectiveProgramDifficulty()){
+  const selected=specialWorkout(categoryId,variantId);
+  const stretch=selected?.variant?.stretch||selected?.category?.stretch;
+  return Array.isArray(stretch)&&stretch[0]&&activeExerciseIdSet.has(stretch[0])
+    ? [stretch[0],resolveDose(stretch[1],difficulty)]
+    : null;
 }
 function unavailableSpecialExerciseIds(items){
   return [...new Set((items||[]).map(([id])=>id).filter(id=>!activeExerciseIdSet.has(id)))];
@@ -410,6 +422,7 @@ function normalizeSpecialResumeState(state){
   if(!selected||!SPECIAL_VARIANT_ORDER.includes(variantId))return null;
   const difficulty=validDifficulty(state.difficulty)?state.difficulty:effectiveProgramDifficulty();
   const items=resolvedSpecialItems(categoryId,variantId,difficulty);
+  const stretch=resolvedSpecialStretch(categoryId,variantId,difficulty);
   if(!items.length||unavailableSpecialExerciseIds(items).length)return null;
   const itemCount=items.length;
   const totalSets=Math.max(1,Number(state.workoutTotalSets)||difficultySets(difficulty));
@@ -418,13 +431,13 @@ function normalizeSpecialResumeState(state){
   return {
     version:1,category:categoryId,variant:variantId,currentExercise,workoutCurrentSet:currentSet,
     workoutTotalSets:totalSets,workoutPhase:cleanText(state.workoutPhase||'prep',24)||'prep',
-    workoutLeft:Math.max(0,Number(state.workoutLeft)||0),workoutFinalStretch:false,
+    workoutLeft:Math.max(0,Number(state.workoutLeft)||0),workoutFinalStretch:Boolean(state.workoutFinalStretch&&stretch),
     workoutAuto:state.workoutAuto!==false,workoutPaused:Boolean(state.workoutPaused),
     sideNoticeDone:cleanText(state.sideNoticeDone,40),sideNoticeNext:cleanText(state.sideNoticeNext,40),
     workoutContext:{kind:'special',specialCategory:categoryId,specialVariant:variantId,
       title:selected.category.title,difficulty,startedAt:Number(state.workoutContext?.startedAt)||Date.now(),
       activeElapsedMs:Math.max(0,Number(state.activeElapsedMs??state.workoutContext?.activeElapsedMs)||0),activeSince:null,
-      totalSets,items,stretch:null},
+      totalSets,items,stretch},
     savedAt:cleanText(state.savedAt,40)||new Date().toISOString()
   };
 }
@@ -436,7 +449,7 @@ function saveSpecialWorkoutResumeState(){
   if(!isSpecialWorkout()||!workoutRunning||!workoutContext)return;
   const state=normalizeSpecialResumeState({
     category:workoutContext.specialCategory,variant:workoutContext.specialVariant,
-    currentExercise,workoutCurrentSet,workoutTotalSets,workoutPhase,workoutLeft,workoutAuto,
+    currentExercise,workoutCurrentSet,workoutTotalSets,workoutPhase,workoutLeft,workoutFinalStretch,workoutAuto,
     workoutPaused,sideNoticeDone,sideNoticeNext,difficulty:workoutContext.difficulty,
     activeElapsedMs:activeWorkoutElapsedMs(),workoutContext,savedAt:new Date().toISOString()
   });
@@ -3375,6 +3388,7 @@ function day(di,opts={}){
   const specialResume=special&&specialResumeRaw?.category===opts.specialCategory&&specialResumeRaw.variant===opts.specialVariant?specialResumeRaw:null;
   const specialDifficulty=special?(specialResume?.workoutContext?.difficulty||effectiveProgramDifficulty()):effectiveProgramDifficulty();
   const specialItems=special?resolvedSpecialItems(opts.specialCategory,opts.specialVariant,specialDifficulty):[];
+  const specialStretch=special?resolvedSpecialStretch(opts.specialCategory,opts.specialVariant,specialDifficulty):null;
   const unavailableSpecialIds=special?unavailableSpecialExerciseIds(specialItems):[];
   if(special&&!specialItems.length)return showSpecialCategory(opts.specialCategory,{replaceRoute:true});
   if(special)setAppView('special-category',{category:opts.specialCategory},{replace:Boolean(opts.replaceRoute)});
@@ -3382,7 +3396,7 @@ function day(di,opts={}){
   lastMode=special?'special':'day';setNav(special?'days':'days');currentDay=di;
   const day=special?{title:special.category.title,note:`${specialItems.length} cviků · ${difficultySets(specialDifficulty)} série`,items:specialItems}:data.days[di];
   const selectedItems=special?specialItems:resolvedDayItems(di);
-  const stretch=special?null:resolvedDayStretch(di);
+  const stretch=special?specialStretch:resolvedDayStretch(di);
   const equipmentItems=stretch?[...selectedItems,stretch]:selectedItems;
   const isRestDay=!day.items.length;
   const hasResume=special?Boolean(specialResume?.category===opts.specialCategory&&specialResume.variant===opts.specialVariant):Boolean(resumeForDay(di));
@@ -3395,7 +3409,7 @@ function day(di,opts={}){
     : `<button class="primary cta" data-action="start-auto" data-day="${di}">▶ Cvič se mnou</button>`;
   const specialCompletedItems=specialResume?Math.max(0,(Math.max(1,Number(specialResume.workoutCurrentSet)||1)-1)*selectedItems.length+Math.max(0,Number(specialResume.currentExercise)||0)):0;
   const specialProgress=special?Math.min(100,Math.round((specialCompletedItems/(selectedItems.length*Math.max(1,difficultySets(specialDifficulty))))*100)):pct(di);
-  const specialDuration=special?estimatedMinutesForItems(selectedItems,specialDifficulty,null):null;
+  const specialDuration=special?estimatedMinutesForItems(selectedItems,specialDifficulty,stretch):null;
   const specialBack=special?`<button class="dayHeroNavBadge" type="button" data-action="history-back">${lineIcon('backArrow')}<span>Zpět</span></button>`:`<button class="dayHeroNavBadge" type="button" data-action="home">${lineIcon('backArrow')}<span>Domů</span></button>`;
   const specialOptions={specialCategory:opts.specialCategory,specialVariant:opts.specialVariant};
   app.innerHTML=`${difficultyMigrationNotice()}<section class="dashboardHero dayHero${special?' specialDayHero':''}">
@@ -3591,7 +3605,7 @@ function restoreSpecialWorkoutState(state){
   workoutTotalSets=saved.workoutTotalSets;
   workoutPhase=saved.workoutPhase;
   workoutLeft=saved.workoutLeft;
-  workoutFinalStretch=false;
+  workoutFinalStretch=saved.workoutFinalStretch;
   workoutAuto=saved.workoutAuto;
   workoutPaused=saved.workoutPaused;
   workoutContext=saved.workoutContext;
@@ -3721,6 +3735,7 @@ function startSpecialTraining(categoryId,variantId){
   if(!selected)return showSpecialCategory(categoryId);
   const difficulty=effectiveProgramDifficulty();
   const items=resolvedSpecialItems(categoryId,variantId,difficulty);
+  const stretch=resolvedSpecialStretch(categoryId,variantId,difficulty);
   if(!items.length||unavailableSpecialExerciseIds(items).length)return showSpecialCategory(categoryId);
   void unlockAudio();
   clearInterval(timer);
@@ -3735,7 +3750,7 @@ function startSpecialTraining(categoryId,variantId){
   workoutContext={
     kind:'special',specialCategory:categoryId,specialVariant:variantId,
     title:selected.category.title,difficulty,startedAt:Date.now(),activeElapsedMs:0,activeSince:null,
-    totalSets:difficultySets(difficulty),items,stretch:null
+    totalSets:difficultySets(difficulty),items,stretch
   };
   workoutTotalSets=workoutContext.totalSets;
   workoutFinalStretch=false;
