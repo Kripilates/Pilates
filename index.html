@@ -21,7 +21,23 @@
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
+    var hadServiceWorkerController = Boolean(navigator.serviceWorker.controller);
+    var reloadingForServiceWorkerUpdate = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!hadServiceWorkerController || reloadingForServiceWorkerUpdate) return;
+      reloadingForServiceWorkerUpdate = true;
+      window.location.reload();
+    });
     navigator.serviceWorker.register('sw.js?v=local-dev', { scope: './', updateViaCache: 'none' })
+      .then(function (registration) {
+        var checkForServiceWorkerUpdate = function () {
+          registration.update().catch(function () {});
+        };
+        checkForServiceWorkerUpdate();
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'visible') checkForServiceWorkerUpdate();
+        });
+      })
       .catch(function (error) { console.warn('Moovka offline režim není dostupný:', error); });
   });
 }
